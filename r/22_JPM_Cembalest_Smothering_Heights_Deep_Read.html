@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>精读笔记：Cembalest "Smothering Heights" (2026 Outlook) + "The Blob" (2025-09)</title><style>
-:root{--bg:#f2f4f8;--card:#fff;--ink:#1a2233;--sub:#6b7686;--blue:#2158d0;
---line:#e6eaf1;--red:#d92c2c;--green:#0a8a4a;}
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
 "Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
@@ -24,7 +31,7 @@ border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
 .sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
 .sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
-.tabs button{flex:none;border:1px solid var(--line);background:#fff;color:var(--sub);
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
 border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
 .tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .modcard{display:flex;align-items:center;justify-content:space-between}
@@ -32,19 +39,20 @@ border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
 .modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
 .modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
 .stat-row{display:flex;gap:8px;margin-top:12px}
-.stat{flex:1;background:#f6f8fc;border-radius:12px;padding:10px 6px;text-align:center}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
 .stat .n{font-size:19px;font-weight:800;color:var(--blue)}
 .stat .l{font-size:11px;color:var(--sub);margin-top:1px}
 .headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
 .headline:last-child{border-bottom:none}
 .headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
-table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
 th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
 border-bottom:1px solid var(--line)}
 td{padding:6px 8px;border-bottom:1px solid var(--line)}
 .tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
 .pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
-.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
 backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
 padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
 .nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
@@ -55,7 +63,7 @@ article h3{font-size:16px;margin:18px 0 8px}
 article h4{font-size:14.5px;margin:14px 0 6px}
 article p{margin-bottom:12px}
 article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
-color:var(--sub);margin-bottom:12px;background:#f7f9fd;border-radius:0 8px 8px 0}
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
 article ul{margin:0 0 12px 20px}
 .back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
 .metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
@@ -75,12 +83,12 @@ details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
 details.iv li{margin-bottom:4px}
 details.iv .m a{color:var(--blue);font-size:12.5px}
 .sec-hd{margin:2px 0 10px}
-.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--blue);
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
 text-transform:uppercase}
 .sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
 .brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
-background:linear-gradient(135deg,#2158d0,#7aa6ff);display:flex;align-items:center;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
 justify-content:center;color:#fff;font-weight:800;font-size:13px}
 .brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
 .brand .cn{font-size:17px;font-weight:800;line-height:1.2}
@@ -96,20 +104,36 @@ display:flex;flex-direction:column;align-items:center;justify-content:center}
 .gauge-side .l3{font-size:11.5px;color:var(--sub)}
 .meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
 .meter .lb{flex:none;width:96px;color:var(--ink)}
-.meter .bar{flex:1;height:7px;border-radius:4px;background:#edf0f5;overflow:hidden}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
 .meter .bar i{display:block;height:100%;border-radius:4px;
-background:linear-gradient(90deg,#4f83e8,#2158d0)}
+background:linear-gradient(90deg,#81a6be,#044e7e)}
 .meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
-.banner{display:flex;gap:8px;background:#eef4fe;border-radius:12px;
-padding:10px 12px;font-size:12px;color:#3a5788;line-height:1.6;margin-bottom:12px}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
 .banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
 color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
 justify-content:center;margin-top:2px}
 .quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
-.qcard{flex:none;min-width:96px;background:#f6f8fc;border-radius:12px;padding:9px 11px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
 .qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
 .qcard .c{font-size:15px;font-weight:750;margin-top:1px}
 .qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
 </style></head>
 <body><div class="wrap">
 <a class="back" href="../earnings.html">← 返回财报</a>
@@ -227,5 +251,5 @@ justify-content:center;margin-top:2px}
 <p><strong>关联本仓库报告</strong>: - [02_Capital_Economics_Two_AI_Bubbles.md](02_Capital_Economics_Two_AI_Bubbles.md) - [03_Bill_Gurley_AI_Bubble_Reset.md](03_Bill_Gurley_AI_Bubble_Reset.md) - [09_Michael_Burry_AI_Reckoning_Write_Off.md](09_Michael_Burry_AI_Reckoning_Write_Off.md) - [18_Bain_6th_Global_Tech_Report_2T_Revenue_Gap.md](18_Bain_6th_Global_Tech_Report_2T_Revenue_Gap.md) - [19_JPMorgan_Michele_Kolanovic_650B_IRR.md](19_JPMorgan_Michele_Kolanovic_650B_IRR.md) - [20_Morgan_Stanley_AI_Financing_Gap_1.5T.md](20_Morgan_Stanley_AI_Financing_Gap_1.5T.md) - [21_Sequoia_600B_Capex_Revenue_Framework.md](21_Sequoia_600B_Capex_Revenue_Framework.md)</p>
 </article></div>
 </div>
-<nav class="nav"><a href="../index.html"><span class="ic">◈</span>首页</a><a href="../frontier.html"><span class="ic">◎</span>前沿</a><a href="../funding.html"><span class="ic">¤</span>融资</a><a href="../news.html"><span class="ic">☰</span>资讯</a><a href="../earnings.html" class="on"><span class="ic">▤</span>财报</a></nav>
+<nav class="nav"><a href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
 </body></html>
