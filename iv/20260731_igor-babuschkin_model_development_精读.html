@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Igor Babuschkin：模型开发的下一程（Unsupervised Learning，2026-07-31）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>Igor Babuschkin：模型开发的下一程（Unsupervised Learning，2026-07-31）</h2>
+<div class="metaline">Unsupervised Learning with Jacob Effron · 64 分钟 · 2026-07-31</div>
+<p>Igor Babuschkin 是 xAI 的联合创始人，此前在 DeepMind 做过 WaveNet 语音合成、带过 StarCraft 项目、发起了 AlphaCode，之后到 OpenAI 参与推理方向的早期研究和大规模预训练。他 2025 年离开 xAI，现在做一家叫 River 的新公司。这期 64 分钟的对话沿一条线索推进：编码智能体在去年底越过某个阈值之后，模型开发的下一程往哪走，谁来做，做出来的能力归谁控制。他在算法、系统和数据中心三个层面都待过，谈约束时给的是具体机制。</p>
+<h3>一、编码智能体越过的那道坎</h3>
+<p>起点是 2025 年 11 月到 12 月：编码智能体突然强到不能再当作个人偏好。从那一代 Claude Opus 开始，所有人都同意这些模型让工作轻松了很多，也接手了他们过去做且享受的那部分工作。他整个 12 月都在用编码智能体重写自己积压的项目。这催生了他今年早些时候两篇小说：一篇写模型失控接管世界，主角最后发现只是一场梦却仍决定迈出第一步；另一篇写给后来的机器。他说这是《魔法师的学徒》的现代版本。</p>
+<blockquote>I think we're all becoming the sorcerer's apprentices now with LLMs and agents becoming more and more capable.</blockquote>
+<p>这是整场对话的底色：工具在变强，使用者对它的掌控在相对变弱。他判断这不会止于编码，因为理解你的生活和工作里发生了什么、再据此行动，可以套到任何问题上。</p>
+<h3>二、下一程通往科学发现</h3>
+<p>编码是显而易见的先手，可验证又能牵动别的事，往下他点名科学发现。数学已有雏形：用 Lean 把定理和证明形式化，就有了可靠的奖励信号，也能在证明变复杂时判断它是否成立。他说研究者多年前就设想过形式化有用，真看到跑通是另一回事。</p>
+<p>卡住的是物理世界。材料科学、基础物理、火箭发动机都要靠现实实验闭环——智能体提出一个材料设计，得有东西告诉它成不成。他还给了一个分叉判断：一端是极少数人能碰到的超级 AI，跑一次问题可能是百万美元量级；另一端是普通人每天用的 AI，奖励函数是有没有让人更有条理、状态更好，它不需要能证明黎曼猜想。</p>
+<h3>三、River 押注的三件事</h3>
+<p>第一项是 River API，一套强化学习与微调服务，他类比为 Thinking Machines 的同类产品，差异化押在工程上：更便宜、更可靠、更能扩展。</p>
+<p>第二项是个性化。今天的训练把所有用户反馈汇总，要求模型对每个人表现一致，River 想打破这个前提。关键在端到端训练：普遍做法是拿一个主要在编码上训练过的现成智能体外挂记忆系统，但模型从没被训练成在长时间跨度里用记忆帮一个具体的人。他的经验是为特定任务训练的模型表现更好，应该直接在你想优化的信号上训练。参照物是推荐系统，TikTok 或 YouTube 把一个人的兴趣挖得很深，和给所有人推同一批视频是两种体验，而推荐系统与智能体的混合体还没人做过。</p>
+<p>第三项是硬件。</p>
+<blockquote>The really ultimate move here is can we bring the inference compute locally to the users.</blockquote>
+<p>主因是控制权，模型在你家里，不归别人调度。附带好处是延迟低到可以打开语音和视频交互，以及隐私：个人智能体要有用就得看到你电脑上的文档、听到房间里的话。技术难点在内存，要把整个模型权重装进一颗芯片、一台设备。</p>
+<h3>四、专有模型被两头夹住</h3>
+<p>训练有收益递减，想更强就要堆更多 GPU 和高质量数据，而你不可能把地球铺满 GPU，他认为已在接近那个点。同时前沿模型强到一定程度，你可能不再愿意发布，或被批评，或有监管挡住；而开源模型每个月都在变强。</p>
+<blockquote>You make the model too good, you're not allowed to release it. But then open source is just right behind you getting better and better every month.</blockquote>
+<p>后训练也一样：把各领域专家的知识集中压进一组权重再按 token 卖，扩张下去也有递减，他的替代路径是分布式，让企业、团队和个人在本地各自做后训练。</p>
+<p>企业自训模型他认为时点还没到但会到。今天先用专有模型是因为它能力强，而自训的障碍是领域跑得太快：等你组建团队、花几个月超过专有模型，新一代又发布了。等这波浪停下来，企业面临二选一：把数据交给 Anthropic 或 OpenAI 做后训练，还是自己来。他认为不少人会选后者，因为前者相当于把业务的地基送出去。风险也在这里：独特知识全在互联网上、可被抓取的公司处境被动；制药公司的试验数据和芯片设计公司的数据是真壁垒，普通银行则要打问号。强化学习跨领域会不会出现泛化红利他说不确定，模型的智能目前主要来自编码和数学训练。</p>
+<p>开源权重降低了所有人的门槛，但这批模型集中出自中国的实验室，这意味着几种控制手段：停止发布权重，修改许可证（已出现营收超过某门槛需另签合作协议的条款），以及理论上的权重后门。对后门他今天并不担心：若真存在，野外至少该出现过一例，而现有植入技术做不到不留痕迹地躲过检测；但未来两年技术更成熟，这件事该留在雷达上。他希望有美国团队训练出全球领先的开源模型，River 也有兴趣，前提是开源权重的商业模式先跑通。</p>
+<h3>五、三段经历与建厂速度</h3>
+<p>他是物理出身，在大型强子对撞机做博士，AlphaGo 让他决定转行。在 DeepMind 先做 WaveNet，后来当 StarCraft 项目的技术负责人：先用各水平段玩家的对局回放做模仿学习，再切到强化学习，胜负本身就是可验证奖励，他说这套组合至今仍是训练智能体的方式。之后团队判断编码是下一件大事，于是有了 AlphaCode。他当时认为 LLM 写代码不行是因为没给模型思考的时间，而那时没有让 LLM 这样做的机制；他发现 OpenAI 刚组建推理团队便加入。答案几年后才出现，就是 o1 那条路：先生成思考 token 再给答案，再用强化学习改进思考过程。</p>
+<p>对比两家，他说 DeepMind 有大量出色的思考者，OpenAI 胜在团队更小、信念更一致，形成了关键的人才密度。也正是那时他开始不安：如果世界上只有一家公司掌握能力强的模型，甚至要靠全民基本收入来安置人类，这不对劲。他认为预训练建立在全人类写下的文本上，checkpoint 理应免费流向大众。</p>
+<p>xAI 起于他在 Tesla 办公室偶遇 Elon Musk。他说 AI 项目的关键就是凑齐人；从零开始不到两年，xAI 做出了 Grok 3 和 Grok 4。Colossus 那段被单独拎出来讲：当时向外部询价，建一个装得下这么多 GPU 的新数据中心报价普遍在一年以上，因为要起新壳楼、流程是瀑布式的，还常是分包商的分包商；Musk 自己当总承包，在每个环节找可以加速的地方，用他的说法是找矩阵里的 glitch，访谈里提到的 120 天时间表他当时也觉得疯狂。xAI 后来被 SpaceX 收购，又收购了 Cursor，他认为这一步一次拿到熟悉编码的团队、真实使用的产品和可直接启动训练的数据量；硬币的另一面是 RL 环境，设定可验证任务比如修一个 bug，事后检查做对了没有。</p>
+<h3>六、剩下的约束与人的位置</h3>
+<p>问到当前的约束，他的答案不是数据，而是新想法：如何组织训练，让它能处理更长的时间跨度和非可验证的奖励。强化学习要先让智能体反复试错、收集奖励再更新权重，如果一次 rollout 要跑 24 小时，每一步训练都会慢到没法做，所以必须把工作切片，让智能体按增量进展判断做得好不好。他提醒说，继续把编码做得更好是一个陷阱，那条路阻力小、惯性大。至于非可验证领域，模型已经强到能判断一件事成没成，但还没人把这种判断大规模用回训练；他估计未来几个月到十二个月内会有人把 LLM 当裁判的路线跑通。</p>
+<p>最后回到人。今天用编码智能体就是一种共生：模型处理底层细节，人做架构和规划。风险在于天平会移动——智能体越强，让它接手更多的诱惑就越大，一旦所有决定都交给它，你就不再控制自己的生活，这正是那篇小说要说的。维持共生需要对齐上的新进展，现在的对齐大多只是从一群人的偏好里学出一种行为。</p>
+<p>对于访谈前一天那封呼吁放慢 AI 的研究者联署信，他的回应偏现实：现在很难慢下来，经济已经依赖 AI 继续推进，国际上也有竞争者；慢不下来就该加速能改进对齐和安全的技术。他认为接近危险阈值但还没跨过去的开源模型很有价值，能让全世界的人都试自己的对齐想法，而不是只有几家实验室的几千人在想。</p>
+<p>被问到这一切会没事的概率，他先反问对谁而言没事：更紧迫的风险是 AI 放大不平等，模型夺权那类风险更远也更难预测。收尾时他讲的是另一头：他仍记得早年让模型第一次跑通时的魔力，哪怕只是写一个生成素数的函数。</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>

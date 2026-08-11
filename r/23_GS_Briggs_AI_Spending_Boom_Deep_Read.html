@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>精读笔记：GS Briggs "The AI Spending Boom Is Not Too Big" (2025-10-15)</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../earnings.html">← 返回财报</a>
+<div class="card"><article>
+<h2>精读笔记：GS Briggs "The AI Spending Boom Is Not Too Big" (2025-10-15)</h2>
+<div class="metaline"></div>
+<h3>〇、为什么这篇比想象中权威</h3>
+<p>我之前在 #21 文件里把它归类为"GS Briggs 偏多论"，<strong>精读后发现严重低估了它的分量</strong>：</p>
+<p><strong>第一作者是 Jan Hatzius——GS 首席经济学家本人</strong>。这意味着： - 不是某个 Junior 经济学家的个人观点，而是 <strong>GS 经济研究的官方机构判断</strong> - 与 Cembalest Smothering Heights 同等量级（Cembalest 也是 JPM 经济+策略 chief 量级） - 也是 <strong>Cembalest 在 Smothering Heights 第 14 页脚注 10 亲自引用作为 bull-case 代表的报告</strong></p>
+<p><strong>关键 nuance</strong>：网络上流传的"Hatzius 说 AI 对 2025 GDP 贡献 basically zero"是 2026-03 的另一次公开发言（CNBC 采访），与本报告<strong>不矛盾</strong>——本报告说的是<strong>长期 NPV justify capex</strong>，Hatzius CNBC 说的是<strong>短期 GDP 已实现影响</strong>。这两个判断在经济学上完全可以同时成立——下文详述。</p>
+<p>---</p>
+<h3>一、报告的开篇 hook（建立 capex 已经"史无前例"的事实）</h3>
+<p>Briggs 团队首先承认 capex 规模确实庞大（避免被 bear 派抓住"忽视事实"的把柄）：</p>
+<p><strong>2025 年 9 月以来 OpenAI 的连环宣布</strong>： - <strong>$300B Oracle 5 年云算力合约</strong> - <strong>$100B NVIDIA 战略投资</strong> - <strong>AMD 6GW Instinct GPU 部署伙伴关系</strong> - <strong>Broadcom 10GW 自研 AI 芯片伙伴关系</strong></p>
+<p><strong>两个独立测算（Exhibit 1）一致显示 2025 AI capex 约 $300B</strong>： - <strong>方法 1</strong>：Compustat 上 AI 基建相关公司的收入增量推算 ≈ $300B - <strong>方法 2</strong>：BEA 美国国民收入账户里 AI 相关支出 3 个月年化 = <strong>$277B</strong>（vs 2022 平均） - 拆分：半导体 + 计算机/服务器 + HVAC + 数据中心建筑 + 电力建筑</p>
+<p><strong>反向辩护</strong>：2025 年夏 Taiwan 进口激增是关税前置（9 月已显著回落），<strong>说明 BEA 数字没虚高</strong>。</p>
+<p>---</p>
+<h3>二、Capex 合理的两个"基本面驱动"</h3>
+<h4>驱动 1：AI 已经在显著提升生产力</h4>
+<p><strong>Exhibit 2 的双面证据</strong>：</p>
+<p>| 来源 | 样本 | 中位数 | 平均数 | |------|------|--------|--------| | <strong>学术研究</strong>（15 篇） | Brynjolfsson / Noy-Zhang / Dell'Acqua / Cui 等 | <strong>26%</strong> | <strong>27%</strong> | | <strong>企业案例</strong>（20 家） | Adobe / Deloitte / Klarna / SAP / Workday / BofA 等 | <strong>30%</strong> | <strong>31%</strong> |</p>
+<p><strong>Briggs 的 baseline 口径</strong>： - <strong>15% gross uplift to economy-wide US labor productivity</strong> following full adoption - 实现窗口：<strong>10 年</strong> - 明确低于学术/企业平均的 26-31% —— 是<strong>有意保守</strong></p>
+<p><strong>对 MIT NANDA "95% pilots failed" 的精确回击</strong>（这是 Cembalest 强调过的核心 bear 数据）：</p>
+<p>Briggs 不否认 MIT 数据，但<strong>重新解读了它</strong>： 1. <strong>"5% reach production" 与 GS 自家 Census BTOS 跟踪一致</strong>——&lt; 10% 美国企业已 production 部署 → MIT 数字其实印证了 GS 的渐进采用模型，不是反驳 2. <strong>MIT 报告自己也说了价值兑现的条件</strong>：买现成应用 + 一线经理主导 + 针对特定任务 → 当这三个条件具备时，价值兑现是显著的</p>
+<p><strong>评注</strong>：这是 Briggs 全文最有力的辩论——把 MIT 95% zero return 从"反 AI 证据"重新框定为"正常采用曲线"。</p>
+<h4>驱动 2：算力需求增速远超成本下降速度</h4>
+<p><strong>Exhibit 4 的关键数据</strong>：</p>
+<p>| 维度 | 年增速 | 方向 | |------|--------|------| | <strong>Training FLOPs per Model</strong> | <strong>+400%/年</strong> | 推高需求 | | <strong>LLM Queries</strong> | <strong>+350%/年</strong> | 推高需求 | | <strong>Number of Large Scale Models</strong> | <strong>+125%/年</strong> | 推高需求 | | <strong>FLOPs per Watt</strong>（能效）| <strong>+40%/年</strong> | 降低需求 | | <strong>FLOPs per Dollar</strong>（成本）| <strong>-40%/年</strong> | 降低需求 |</p>
+<p><strong>Briggs 的核心论证</strong>：只要"需求增速 - 成本下降"差额保持正值（当前差额 <strong>&gt;300 ppt</strong>），capex 就应该继续涨。这是<strong>摩尔定律失效情景下 AI capex 必然继续涨的物理论证</strong>。</p>
+<p><strong>Exhibit 5-6 补充</strong>：模型规模 vs 性能仍正相关（log scale），<strong>没有看到 scaling law 拐点</strong>——所以前沿模型公司必须继续买算力以维持竞争力。</p>
+<p>---</p>
+<h3>三、$8T NPV 的完整推导（本报告最有信息量的部分）</h3>
+<p>这是<strong>前面网络二手摘要根本没揭示的核心</strong>——Briggs 团队给出了<strong>完整的 4 维参数模型</strong>：</p>
+<h4>3.1 baseline 假设（Exhibit 8）</h4>
+<p>| 参数 | baseline 值 | 设计思路 | |------|-------------|---------| | <strong>Productivity uplift</strong> | <strong>15%</strong> gross uplift to US labor productivity | 已是学术/企业平均（27-31%）的一半·<strong>有意保守</strong> | | <strong>Adoption timeline</strong> | <strong>2027-2037（10 年）+ 4 年企业内部 lag</strong> | 比"乐观派 5 年"慢一倍 | | <strong>Capital share of value-add</strong> | <strong>41%</strong>（经济整体平均）| 不取行业最高，取整体 | | <strong>Discount rate</strong> | <strong>15%</strong> | <strong>取公开 AI 公司 WACC 的 75th 百分位</strong>（vs 平均 13%、中位 12%）·<strong>有意更严格</strong>——理由：AI 收入高度不确定 + 私募 AI 公司 cost of capital 更高 |</p>
+<p><strong>注意</strong>：这四个 baseline 假设<strong>全部偏保守</strong>——这是 Briggs 最聪明的设计：<strong>用最严格的假设仍然得出 capex 合理结论，反驳起来更难</strong>。</p>
+<h4>3.2 $8T 的来源（Exhibit 8-9）</h4>
+<p>``` Step 1: 15% productivity uplift × US economy → $20T total PDV of economic value Step 2: 41% capital share → $8T flows to companies as capital revenue (rest = labor + consumer surplus) Step 3: 折现到现值（discount rate 15%）→ baseline $8T PDV ```</p>
+<p><strong>关键澄清</strong>：网络二手摘要只说"$8T NPV for capital revenue"，<strong>让人误以为这是 AI 创造的全部经济价值</strong>。<strong>真实分解</strong>： - <strong>总经济价值 PDV ≈ $20T</strong>（劳动 + 资本 + 消费者剩余） - <strong>资本收益 PDV ≈ $8T</strong>（其中流向投资 AI 的公司股东） - <strong>剩下 $12T 流向劳动（工资）+ 消费者剩余</strong></p>
+<h4>3.3 $5T - $19T 区间（Exhibit 9 灵敏度分析）</h4>
+<p>| 维度 | Low | High | 对 $8T 的影响 | |------|-----|------|---------------| | <strong>Discount rate</strong> | 10% → <strong>$19T</strong> | 20% → <strong>$5T</strong> | <strong>最敏感参数</strong>·5pp 差异 = $14T 移动 | | <strong>Productivity</strong> | 8% → <strong>$5T</strong> | 27% → <strong>$12T</strong> | 大约 ±50% | | <strong>Capital share</strong> | 28% → <strong>$6T</strong> | 60% → <strong>$12T</strong> | 大约 ±50% | | <strong>Adoption rate</strong> | Slower → <strong>$7T</strong> | Faster → <strong>$11T</strong> | ~±25% |</p>
+<p><strong>精读评注</strong>： 1. <strong>discount rate 是最大不确定性</strong>——如果 Fed 长期维持高利率（私募 IRR 门槛维持在 20%+），$8T 砍到 $5T；反之降息则 $19T 2. <strong>即使悲观区间 $5T，也已超过 hyperscaler 累计 capex $1.4T (2025-27)</strong>——这是 Briggs 的核心防御点 3. <strong>没有计入</strong>：海外利润 + 新利润池 + AGI——所以 $5T 是"严格下限"</p>
+<h4>3.4 $8T vs JPM OMI $650B 的关系（我的独立推算）</h4>
+<p>JPM OMI（"On the Minds of Investors"）说 AI 行业要永续 $650B/年才能 justify 10% IRR 的 $5T 累计 capex。</p>
+<p>把 Briggs 的 $8T PDV 反推年金： - 折现率 15% → 永续年现金流 = $8T × 15% = <strong>$1.2T/年</strong> - 折现率 10% → 永续年现金流 = $19T × 10% = <strong>$1.9T/年</strong></p>
+<p><strong>Briggs 隐含的"年化合理收入"是 $1.2T-$1.9T</strong>，<strong>远高于 JPM OMI 要求的 $650B</strong>——说明<strong>两家口径完全不冲突</strong>：</p>
+<blockquote>**GS Briggs 的判断是"capex 不仅 justify，而且有 cushion"**；**JPM OMI 的判断是"capex 刚好 justify，没多少 cushion"**。两家的差异其实在 **生产力假设**（GS 用 15%，JPM 隐含更悲观）和 **discount rate**（GS 15%，JPM 10%）上。</blockquote>
+<p>---</p>
+<h3>四、市场结构与"赢家分配"分析（Section 3 的精彩部分）</h3>
+<p>Briggs 团队接下来转向<strong>最尖锐的问题</strong>：<strong>capex 总量合理 ≠ 当前投资者会赚到钱</strong>。</p>
+<h4>4.1 折旧侧担忧（坦诚）</h4>
+<ul><li>$240B 美国 AI 支出中 **$112B 是半导体+服务器**（折旧最快）</li><li>假设 5 年寿命（与 GS 股票研究一致）+ BEA 不动产折旧 → **整体年折旧率 18%**</li><li>这意味着每 5-6 年要花掉相当于一半累计 capex 仅仅维护</li><li>**Briggs 承认"timing concern is valid"**——这是与 Cembalest 不谋而合的承认</li></ul>
+<h4>4.2 历史先发优势的 8 个案例（Exhibit 10）—— 完整复制版</h4>
+<p>| 历史案例 | 先发回报 | 后来者回报 | 解释 | |---------|---------|----------|------| | UK Turnpikes | 中性 | 中性 | 监管限制回报 | | <strong>UK Canals</strong> | <strong>高</strong> | 低 | 先发投资有价值；后来铁路替代限制后来者 | | <strong>UK Railways</strong> | <strong>低</strong> | <strong>高</strong> | 破产后整合者低价买资产 | | US Railroads | 混合 | 高 | Pennsylvania Railroad 成全球最大公司·但<strong>先发铁路一半破产</strong>·后来 NY Central / Union Pacific 整合 | | US Electricity | 中性 | 中性 | 先发保住份额但被监管为公用事业·限制回报 | | <strong>US IT</strong> | <strong>高</strong> | <strong>高</strong> | IBM (大型机) / Microsoft (OS) / Cisco (网络) / AWS (云) 全部先发赢·但 1990s 末过度投资 | | <strong>Global Fiber-Optic</strong> | <strong>低</strong> | <strong>高</strong> | 过度建设·后买家低价捡 | | <strong>US Telecom</strong> | <strong>低</strong> | <strong>高</strong> | 同上 |</p>
+<p><strong>Briggs 的总结</strong>：8 个案例中，<strong>先发占优 2 个（UK Canals + US IT）·后来者占优 3 个（UK Railways + Fiber + Telecom）·中性 2 个·混合 1 个</strong>——历史<strong>没有给出确定答案</strong>，"complex set of factors including timing, regulation, and market competition"。</p>
+<h4>4.3 当前 AI 各层市场结构（Exhibit 11）</h4>
+<p>| 层级 | 公司数量 | 龙头市占 | |------|---------|---------| | <strong>应用层</strong> | <strong>1,941 家</strong> | 2% | 极度竞争 | | <strong>基础模型</strong> | 32 家 | <strong>50%</strong>（OpenAI） | 中等集中 | | <strong>数据中心运营</strong> | 31 家 | 19% | 中等竞争 | | <strong>半导体设计</strong> | 19 家 | <strong>94%</strong>（NVIDIA） | 极度集中 | | <strong>半导体制造</strong> | 12 家 | <strong>65%</strong>（TSMC） | 寡头 |</p>
+<p><strong>Briggs 的判断</strong>： - 半导体层：<strong>先发优势确定</strong>（NVIDIA + TSMC 锁定） - 基础模型层：<strong>OpenAI 50% 但脆弱</strong>（开源 + 多模型采用挑战） - 应用层：<strong>完全竞争</strong>（1,941 家·首发优势 = 0）</p>
+<p>→ <strong>当前 AI trade pricing 反映了这个判断</strong>——市场也是只给基础设施层（NVDA / TSMC / ASML）超额回报，应用层和受益层都没涨。这正是 Cembalest 引用同一个 GS 数据的核心点。</p>
+<h4>4.4 先发优势的 9 个驱动因素（Exhibit 12）</h4>
+<p>| 因素 | 先发占优条件 | AI 当前判断 | |------|-----------|-----------| | 切换成本 | 高 | <strong>低</strong>（多模型并用） → ❌ | | 网络效应建立标准 | 是 | 待定 → 🟡 | | 网络效应改善质量 | 是 | 是 → ✅ | | 关键资源稀缺 | 是 | <strong>是</strong>（HBM / GPU / 电力） → ✅ | | 技术栈垂直整合 | 是 | <strong>加强中</strong>（Exhibit 13） → ✅ | | 模仿成本高 | 是 | 中等 → 🟡 | | 技术变化速度慢 | 是 | <strong>快</strong>（每 6 个月一代） → ❌ | | 市场增长慢 | 是 | <strong>快</strong> → ❌ | | IP 保护强 | 是 | <strong>弱</strong>（DeepSeek 案例） → ❌ | | 客户用途确定 | 是 | <strong>不确定</strong> → ❌ |</p>
+<p><strong>计分</strong>：✅ 3·❌ 6·🟡 2 → <strong>先发优势在当前 AI 周期偏弱</strong></p>
+<p>→ Briggs 隐含判断：<strong>hyperscaler 不一定是长期赢家</strong>——这与 bear 派"Mag7 一定赢"的隐含假设直接冲突。</p>
+<h4>4.5 软件类比的"反向警示"（Exhibit 14）</h4>
+<p>历史教训：1980s-2000s 软件平台靠<strong>高切换成本 + 网络效应</strong>捕获<strong>生产力红利的 27%</strong>（Microsoft / Oracle 等）。</p>
+<p><strong>但当下不同</strong>：Exhibit 14 右图显示——<strong>收入 $20B+ 的大公司</strong>有 60%+ <strong>同时部署 5+ 个基础模型</strong>。<strong>多模型并用 = 切换成本归零</strong>——这意味着<strong>OpenAI / Anthropic 即使有先发优势也守不住</strong>。</p>
+<p>---</p>
+<h3>五、最后判断（Section 4: The Case for Continued Spending）</h3>
+<p>Briggs 的 closing 句子（也是 Cembalest 引用的源头）：</p>
+<blockquote>**"the enormous economic value promised by generative AI justifies the current investment in AI infrastructure and that overall levels of AI investment appear sustainable as long as companies expect that investment today will generate outsized returns over the long run."**</blockquote>
+<p><strong>两个 trigger 条件</strong>——任一成立即支持继续 capex：</p>
+<p>1. <strong>First-mover advantage</strong> 让 hyperscaler 捕获 AI 生产力收入的超额份额 2. <strong>Continued investment in compute capacity</strong> 持续改善模型 → 可能触发 <strong>AGI</strong>（"could drive very outsized profits"）</p>
+<p><strong>Briggs 同时承认</strong>："AI investment may remain sensitive to news on either of these dimensions" —— 任一信号变化都会触发资金流向变化。</p>
+<p>---</p>
+<h3>六、本报告与 Cembalest 的"互补关系"</h3>
+<p>把这份 Briggs 报告与 Cembalest Smothering Heights 并排对照：</p>
+<p>| 维度 | GS Briggs (2025-10-15) | JPM Cembalest (2026-01) | |------|----------------------|------------------------| | 立场 | <strong>明确 bull</strong>（"capex 不算大"） | <strong>平衡偏 bear</strong>（"start focusing on risks"） | | 时间窗口 | 长期 PDV（10-50 年） | 中期（12-24 个月） | | 核心数字 | $8T 资本收益 PDV | $1.3T 累计 capex+R&amp;D | | 历史类比 | 8 个基建案例（混合证据） | Metaverse 2022（单一类比警示） | | MIT 95% 数据 | <strong>重新解读为正常采用曲线</strong> | <strong>接受为关键警示</strong> | | 先发优势判断 | 详细 9 因素分析（结论：偏弱） | 不展开 | | 对 hyperscaler 直接判断 | "may not be long-run winners" | Oracle / Meta SPV 实测危险 | | 对应用层股价持平的解释 | "consistent with pricing of the AI trade so far" | "应用层未涨说明需求未传导" |</p>
+<p><strong>最有意思的对照</strong>： - <strong>Briggs 在 11 页明确说"市场结构暗示外溢回报给 AI 硬件供应商，与当前 AI 交易定价一致"</strong> - <strong>Cembalest 在 19 页用 GS 同一篮子图说"AI 应用层股价没涨证明需求没传导"</strong></p>
+<p><strong>两人看同一张图得出相反结论</strong>——这正是 GS 与 JPM 内部的真实分歧： - <strong>GS 说</strong>：基础设施层涨是因为 winner-take-all 已经定价，是对的 - <strong>JPM 说</strong>：基础设施层涨而应用层没涨说明 capex 是空中楼阁</p>
+<p>---</p>
+<h3>七、Briggs 报告的方法论评价</h3>
+<h4>7.1 哪些做得好（值得借鉴）</h4>
+<p>| 优点 | 例子 | |------|------| | <strong>首席经济学家挂名</strong> | Hatzius 第一作者 = 机构信誉 backstop | | <strong>承认 bear 数据</strong> | 没回避 MIT 95% / 折旧 18% / 先发优势历史警示 | | <strong>保守 baseline</strong> | productivity 15% 而非 27% / discount 取 75th 而非平均 | | <strong>完整灵敏度</strong> | $5T - $19T 区间的 4 维参数 | | <strong>历史样本广</strong> | 8 个跨国跨行业基建案例 | | <strong>数据可追溯</strong> | Compustat + BEA + Census BTOS + Epoch AI + CB Insights 全部第三方 | | <strong>明确区分"capex 合理 vs 投资者赚钱"</strong> | 这是 sell-side 经济研究里少见的诚实 |</p>
+<h4>7.2 哪些值得质疑</h4>
+<p>| 问题 | 我的反驳 | |------|---------| | <strong>15% productivity uplift 假设在样本外</strong> | 当前实测企业 ROI 接近 0（MIT 数据），靠 10 年外推到 15%·jumping hypothesis | | <strong>15% discount rate 仍可能太低</strong> | AI 公司股权风险溢价历史上看 20-30% 才合理（dot-com 类比） | | <strong>41% capital share 高估了股东留存</strong> | 真实情况：AI 推动通缩 + 工资上涨 → 资本份额会被劳动 / 消费者侵蚀 | | <strong>没考虑"循环交易"的 inflated demand</strong> | NVDA-OpenAI / Oracle-OpenAI 让需求显得比实际大 | | <strong>没考虑能源约束</strong> | Cembalest WCGW #2 的 200GW 物理上限·Briggs 假设算力可以无限扩张 | | <strong>没考虑地缘约束</strong> | China + AGI 时间线被假设为 baseline 友好情景 |</p>
+<h4>7.3 Briggs 没说的（沉默处）</h4>
+<ul><li>**没给 NVDA / 任意公司股价目标**——纯经济研究 framework，回避 stock pick</li><li>**没引用 Sequoia Cahn $600B 框架**——可能因为 Sequoia 是 VC 不被引</li><li>**没讨论循环交易（OpenAI-Oracle / OpenAI-NVDA）的"虚假需求"放大效应**——这是 Cembalest 最关心的，Briggs 完全回避</li><li>**没讨论 Hatzius 同期 CNBC 言论"AI 对 2025 GDP 贡献 basically zero"**——但这并不矛盾（下文）</li></ul>
+<p>---</p>
+<h3>八、Hatzius "basically zero" 与本报告 "$8T NPV" 的并存逻辑</h3>
+<p>这是网络上经常被混淆的地方·<strong>两个判断完全可以同时成立</strong>：</p>
+<p>| 维度 | Hatzius CNBC 2026-03 | Hatzius/Briggs 本报告 2025-10 | |------|----------------------|------------------------------| | 判断对象 | <strong>2025 已实现的 GDP 增量</strong> | <strong>未来 50 年 PDV</strong> | | 时间 | 单年 | 永续折现 | | 含义 | "AI 还没产生 measurable 经济产出" | "AI 长期 PDV 仍合理化当前投资" | | 兼容性 | <strong>完全可以同时为真</strong> | |</p>
+<p><strong>经济学解读</strong>：投资周期早期（J-curve 下行段）正是"已实现产出 = 0、未来 PDV = 正"的阶段。Bridgewater 把这个叫"J-curve productivity path"，Aghion 内生增长理论也支持这一点。</p>
+<p><strong>机构含义</strong>：<strong>Hatzius 用 PDV 框架背书 capex 合理（机构客户给方向）·用 GDP 实测说生产力还没体现（散户/媒体管理预期）</strong>——这不是矛盾，是 sell-side 经济研究的标准多渠道沟通策略。</p>
+<p>---</p>
+<h3>九、我对 #21 文件归属表的进一步修正</h3>
+<p>报告 #21 文件第二章的机构口径表里，应该把 GS Briggs 这一行从原来"未列出"补上：</p>
+<p>| 机构 / 作者 | 时点 | Capex 假设 | 要求 Revenue | 隐含倍数 | IRR 假设 | 折旧期 | |-------------|------|------------|--------------|----------|----------|--------| | <strong>GS Hatzius/Briggs "AI Spending Boom Is Not Too Big"</strong> | <strong>2025-10-15</strong> | $1.4T 累计 hyperscaler capex (2025-27) | <strong>$8T PDV 资本收益</strong>（永续 / $5T-$19T 区间） | n/a（PDV 框架） | <strong>15%</strong>（取 WACC 75th pct） | 5 年 GPU + BEA 不动产·整体 18% 折旧率 |</p>
+<p><strong>与 JPM OMI / Bain / MS 的本质差异</strong>：Briggs 用 <strong>PDV / NPV 框架</strong>而非"年化收入门槛"，所以倍数不直接可比。但<strong>反推年金 $1.2T-$1.9T，远高于 JPM OMI 的 $650B</strong>。</p>
+<p>---</p>
+<h3>十、可执行的 takeaway</h3>
+<p>如果你只能记住这篇报告的一件事：</p>
+<blockquote>**"GS 经济研究的官方判断是：长期看 AI capex 合理，但当前投资者不一定会赚到钱。"**</blockquote>
+<p>具体含义： 1. <strong>总量合理</strong>（$8T PDV vs $1.4T capex）→ 不会出现 dot-com 量级整体崩盘 2. <strong>赢家不确定</strong>（先发优势 9 因素中 6 个不利）→ 当前 NVDA/MSFT/META/GOOGL 的 long-run 回报<strong>远不如它们的市占率优势暗示</strong> 3. <strong>AGI 是 wildcard</strong>（Briggs 明确写"could drive very outsized profits"）→ 任何 AGI 进展信号会让 capex 重新合理化 4. <strong>MIT 95% 数据不致命</strong>（采用曲线 vs 价值兑现是两件事）→ bear 派别用 MIT 单点打太狠 5. <strong>GPU 折旧 18% 是真问题</strong>（Briggs 自己承认）→ Burry 那条线<strong>有经济学背书</strong></p>
+<p><strong>对应用层投资的含义</strong>： - <strong>Briggs 已暗示 OpenAI 50% 份额守不住</strong>（多模型并用 + IP 弱保护） - → OpenAI 估值 $730B 在这个框架下<strong>显著高估</strong> - → 但 hyperscaler 自己（MSFT / GOOG / META）还有"算力 + 数据 + 终端"垂直整合护城河 - → <strong>Briggs 隐含交易思路：长 hyperscaler / 短 OpenAI 等纯模型公司估值</strong></p>
+<p>---</p>
+<h3>十一、引用与链接</h3>
+<p><strong>一手 PDF（已存档）</strong>: [`sources/GS_Briggs_AI_Spending_Boom_Not_Too_Big_2025-10-15.pdf`](sources/GS_Briggs_AI_Spending_Boom_Not_Too_Big_2025-10-15.pdf) <strong>全文 TXT（已存档）</strong>: [`sources/GS_Briggs_AI_Spending_Boom_Not_Too_Big_2025-10-15.txt`](sources/GS_Briggs_AI_Spending_Boom_Not_Too_Big_2025-10-15.txt)</p>
+<p><strong>作者团队联系</strong>: - Jan Hatzius: jan.hatzius@gs.com - Joseph Briggs: joseph.briggs@gs.com - Sarah Dong: sarah.dong@gs.com - Megan Peters: megan.l.peters@gs.com (London)</p>
+<p><strong>前传</strong>: - [The Potentially Large Effects of AI on Economic Growth (Briggs/Kodnani, 2023-03-27)](https://www.gspublishing.com/content/research/en/reports/2023/03/27/d64e052b-0f6e-45d7-967b-d7be35fabd16.html) —— 7% 全球 GDP / +1.5 ppt 生产力·此次 PDV 模型的奠基</p>
+<p><strong>后续公开摘要</strong>: - [Why AI Companies May Invest More than $500B in 2026 — goldmansachs.com](https://www.goldmansachs.com/insights/articles/why-ai-companies-may-invest-more-than-500-billion-in-2026) - [Don't fear the AI bubble — Fortune 2025-10-16](https://fortune.com/2025/10/16/ai-bubble-will-unlock-an-8-trillion-opportunity-goldman-sachs/)</p>
+<p><strong>关联本仓库报告</strong>: - [21_Sequoia_600B_Capex_Revenue_Framework.md](21_Sequoia_600B_Capex_Revenue_Framework.md) —— 多机构口径合成 - [22_JPM_Cembalest_Smothering_Heights_Deep_Read.md](22_JPM_Cembalest_Smothering_Heights_Deep_Read.md) —— 同口径 bear 倾向对照 - [19_JPMorgan_Michele_Kolanovic_650B_IRR.md](19_JPMorgan_Michele_Kolanovic_650B_IRR.md) —— $650B IRR 框架 - [18_Bain_6th_Global_Tech_Report_2T_Revenue_Gap.md](18_Bain_6th_Global_Tech_Report_2T_Revenue_Gap.md) —— $2T Revenue Gap（Briggs $8T PDV 的反向 framework）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
