@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>主权 AI：企业为什么开始自建智能，以及从零起步的四步（Sequoia，2026-08-11）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>主权 AI：企业为什么开始自建智能，以及从零起步的四步（Sequoia，2026-08-11）</h2>
+<div class="metaline">Sequoia Capital · 17 分钟 · 2026-08-11</div>
+<p>这是红杉 8 月 11 日 Own Your Intelligence 活动的开场演讲，台下约八十位组合公司创始人与 AI 负责人。合伙人 Sonya Huang 把这场安排成一半立论、一半技术操作手册，她自己先声明框架带有主观判断、自己也不是技术出身，听的人要打折。之所以值得读，是因为它把过去一年零散出现的一件事讲成了一条明确路径：越来越多的应用公司开始把模型往自己手里收，收到权重这一层。</p>
+<h3>一、主权 AI 指的是什么</h3>
+<p>她的定义借自政治词汇：主权国家是拥有完全自治权的独立实体，主权 AI 指企业拥有自己的智能，没有外部依赖，一直拥有到权重。</p>
+<p>紧接着她给了一个限定，说这场演讲传递的意思并非让组合公司弃用 Opus 或 GPT。编码代理、桌面端的工作、需要前沿水平的 API 调用，闭源模型的接口依然很好用。她要说的是另一件观察到的事实：越来越多公司在产品的某些部分向下垂直整合，想自己掌握那部分智能，这场活动是给已经上路的公司准备的。</p>
+<p>她也说这个想法并非红杉独有。过去一个月里，Alex Karp 与 Satya Nadella 都公开支持企业拥有自己的智能；上一周 Jensen Huang 出面推动开放权重模型在美国继续可得，行业的支持近乎一致。她把落脚点放在一个判断上：智能这项资产过于核心、过于基础，外包出去并不合理，企业想把权重握在自己手里。</p>
+<p>再往上一层，她把这件事说成两种世界的分岔。一种是集中式智能，一个全能模型以黑箱形态驱动世界上越来越大比例的 GDP，把其余所有人的数据尾气和数据飞轮吸进去；另一种是分散式智能，全世界在一个稳固的内核上各自搭建，每个人、每家公司按自己的数据、行业、个性化方式和品味构建专属智能，生态因此繁荣，没有哪一家把其余吞掉。她说后者是更乐观的图景。</p>
+<h3>二、四个动机</h3>
+<p>红杉在数十家自建模型的公司里看到的驱动力，她归成四条。</p>
+<p>第一条是成本。对毛利率低、为零甚至为负的公司，自建已经属于必需项。她提到一个反直觉的现象：AI 产品越成功，AI 相关的营业成本往往越高，所以率先走上自建这条路的，恰恰是 AI 部署走在前面的那批公司。</p>
+<p>第二条是速度。编码和安全这类领域里，一个蒸馏过的小模型可以打赢一个通用大模型，因为延迟本身就是产品体验。</p>
+<p>第三条是性能，她说这条是新出现的。去年多数公司自建并不指望性能更好，而现在开放模型经过在自有领域的调优，可以在这个领域跑赢闭源模型。</p>
+<p>第四条是掌握自己的命运。她特意说 Anthropic 和 OpenAI 一直是生态里很好的合作方，这点应该给予肯定，但企业同时希望自己还有一副能独立站住的腿。她借了加密货币时期那句流传甚广的话作类比，当年的说法是钥匙不在你手里，币就不是你的。</p>
+<blockquote>权重不在你手里，产品就不是你的。</blockquote>
+<h3>三、战场正在从应用层下移到智能层</h3>
+<p>红杉此前在 AI Ascent 上讲过应用层争夺战：基础模型实验室从模型这端向上做产品，应用公司从用户这端向下做，两边朝对方逼近。她认为现在浮现出新的态势，争夺的对象扩展到了智能层本身，问题从谁掌握产品界面、渠道和封装，变成谁能拥有智能并把智能塑造得更适合自己的产品，因为产品本身就是那个智能。</p>
+<p>由此她给了一个判断：眼下值得关注的实验室出现在应用公司内部的应用研究团队，Harvey、Factory、Glean、OpenEvidence、Semgrep、Ramp 都在做，研究范围从评测集和基准，到 harness 工程，再到微调的新算法。她的说法是，应用公司正在成为新一批实验室。</p>
+<h3>四、哪些自己做，哪些继续租</h3>
+<p>她强调主权 AI 并非全有或全无，公司要自己划线。判断用四个因子：这项成本在总营业成本里占多大分量；速度与延迟是否是最高优先级；性能上能否靠自有数据调出优势；喂给模型的数据对本业务的专有程度有多高。</p>
+<p>她给了三组现实中的切法。编码场景里，代理这一侧目前多数仍在租用，因为需要开箱即用的强性能，延迟不是第一优先级；而 Tab 自动补全对速度极其敏感、调用频次高到成本会迅速累积，所以现在多数自动补全模型跑在自建的智能上。一家仍处于隐身状态的安全公司自建模型，图的是速度和性能，以及按自己需要做后训练的自由。生物医药类公司转向自建，理由是这个领域的数据专有价值高。</p>
+<h3>五、组队与被看见</h3>
+<p>组织问题上她给了一条明确的反对意见：传统 AI 团队常是轴辐结构，一个平台团队支撑多个应用产品团队，而很多公司顺手把这个平台团队改造成做主权 AI 的团队。她建议另起炉灶，从零搭一支小队，因为这项工作的性质是站在前沿做研究、主动进攻，与平台服务型的支撑工作差别很大。她举 Harvey 为例，七个人的团队已经发表了大量研究。团队负责人的画像可以有两种：一种偏研究出身，一种偏工程出身，取决于公司要做的是基础研究还是应用研究。</p>
+<p>第三步她称为 legibility，可以理解成让外部看得懂你在做什么，她认为这一步被严重低估。她引用 Harvey 的 Winston Weinberg 的说法，CEO 的职责有两项，一是做出实质结果，二是掌控叙事。落到自建 AI 这件事上，每一个买家此刻都在挑选自己的 AI 供应商，他们反复听到相似的推销，需要分辨哪一家足够有本事把自己带到目的地，于是自己发布研究、做扎实的技术营销、给研究团队单独的品牌，这些都变得重要。</p>
+<h3>六、技术路线与两个栈</h3>
+<p>她描述的典型路径是这样一条：先定策略，再定评测集，然后开始试模型路由器和 harness，一部分公司靠开箱即用的模型就能拿到好效果，一部分需要做后训练，少数会走到中训练和预训练，最后把线上客户数据接成反馈回路，让智能随每一次交互变好。她特别点了评测这一步，说这活不光鲜、也不好玩，但前期做得越足，后面每一步的位置就越有利。</p>
+<p>她认为 2026 年出现的新变化是天花板抬高了：最新的开放权重模型已经很接近前沿，加上权重可得因而比闭源接口可塑得多，起点已接近前沿，再叠上像样的后训练、提示与 harness 工程、在线学习，自建这条路可以做到比前沿更好。这一点是很多公司现在开始考虑自建的直接原因。</p>
+<p>栈的图景她拆成两半。生产栈面向用户，本质是模型加上一层 harness。在闭源生态里这一整套很简单，模型用 Opus 或 GPT，harness 各家开箱自带，公司可以自建 harness、写提示、往模型里塞上下文、做自己的评测，走得也不算近，她的评价是地板高、天花板低，因为拿不到用自有生产数据改进智能的能力。一旦决定自建，那个干净的 API 调用就变成了一整个潘多拉盒子：要选开源底座、在上面做大量后训练，harness 要在几个开源方案里挑一个，再自己配逻辑、工具和上下文。上下文这块她提了几种形态，向量数据库如 Turbopuffer，企业知识图谱如 Glean，通过 MCP 接的开源连接器，以及把上下文直接编码进权重的新研究。</p>
+<p>另一半是开发栈，自建之后它的分量大增：持续盯评测以知道自己的智能处在什么位置、模型在生产中如何漂移；准备足量高质量数据做本领域的后训练，来源可能是专家轨迹、合成数据或强化学习环境；最后把在线学习搭起来，让智能随每次用户交互变好。</p>
+<p>演讲末尾她交代了当天的议程编排，即围绕这套栈请了各环节的人来做工作坊：Fireworks 的 Lin Qiao 讲后训练，LangChain 的 Harrison Chase 讲 harness 与评测，Mercor 的 Brendan Foody 讲强化学习环境与合成数据，Trajectory 讲在线学习，Harvey 讲他们整套 AI 栈与策略是怎么搭的。这几场的录像随后陆续放出，可以和这篇开场对照着看。</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
