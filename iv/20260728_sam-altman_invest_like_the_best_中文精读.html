@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Sam Altman：Invest Like The Best 访谈精读（2026-07-28）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>Sam Altman：Invest Like The Best 访谈精读（2026-07-28）</h2>
+<div class="metaline">Invest Like The Best (Patrick O'Shaughnessy) · 2026-07-28</div>
+<p>7 月 28 日，播客 Invest Like The Best 发布了对 Sam Altman 的访谈，时长 56 分钟。访谈覆盖的范围很广，从公司战略、算力投资、商业模式，一直谈到 AGI 的定义、安全事件、就业和他自己。</p>
+<h3>一、重新聚焦：只做一件事</h3>
+<p>访谈从过去一年的困难开始。Altman 的归因落在自己身上：公司同时开展了太多项目，问题在于这些项目单独看都值得做，但 OpenAI 处在一个只能做少数几件大事的历史窗口里，摊得太开反而分散了人才和算力。</p>
+<p>经过一轮收缩和重新排序，公司把目标重新定为一句话：提供能力最强、供应最充足、成本效率最高的智能，让其他人在上面建东西。他说聚焦之后内部的进展明显加快，未来十二个月可能是 OpenAI 表现最好的一年。</p>
+<p>值得注意的是他对此前多元化的解释。2025 年初，外界最大的疑问是 OpenAI 签下了如此庞大的算力承诺，收入能不能跟上。如果模型收入增长慢于预期，公司就需要消费应用、媒体内容这些业务来消化已经买下的 GPU。换句话说，当时做那些旁支业务是需求不确定时的对冲。后来模型能力和行业收入同时超出预期，对冲就不再必要，公司砍掉旁支，回到主线。</p>
+<p>OpenAI的主线业务是一条很长的链。最上层是训练在编程、科研和知识工作上足够强的模型；往下是芯片、服务器和机架的设计与生产合作；再往下是土地、电力和数据中心；更远处是机器人，让机器人参与建设芯片厂、电站和数据中心，把整个智能生产体系的成本进一步压低。终点的图景是 AI 像电力一样渗透进整个经济。他明确表示对吞并垂直行业没有兴趣，OpenAI 想做的是底层平台。</p>
+<h3>二、算力信念从哪里来</h3>
+<p>主持人问他，当年在所有人都认为疯狂的时候锁定巨量算力，确信是从哪里来的。他的回答是 GPT-4。看到 GPT-4 之后，团队判断模型已经聪明到足以支撑推理能力的突破；推理一旦解决，就会出现今天所说的智能体，模型可以完成完整的任务，而非只是生成文字。于是 OpenAI 开始给云计算公司、芯片制造体系和能源供应商打电话。得到的回应几乎是一致的：你们疯了，没有行业能这样直线增长，这太鲁莽。他把那段经历比作早期创业融资：大多数人说不，但只需要一两个是。微软是第一个，之后是 Oracle，英伟达则始终是核心伙伴。</p>
+<p>回头看，他认为当年不仅没有建多，反而建少了。访谈里有一处细节提供了实际的增量信息。</p>
+<p>"Our biggest de-risks now for upcoming runs are as big asthe entire compute run from 18 months ago."</p>
+<p>译：现在一次大规模训练开始之前，用于排除风险的试验，其计算量已经相当于 18 个月前一次完整的前沿训练。</p>
+<p>这句话谈的是研究和算力的关系。外界常把两者分开：有人认为拼的是研究人才，有人认为拼的是 GPU 数量。他的说法是两者已经分不开，因为更多算力允许研究人员同时尝试更多方向，而正式训练之前的风险排除试验本身就要消耗一整代模型量级的算力。竞争越激烈，花在试错上的算力越多。</p>
+<p>关于数据中心本身，他给了一些具体的尺度。建一座吉瓦级设施，大约需要一万名建筑工人连续工作一年半，流经它的电力足以支撑一座小城市。放在过去，每一座都算得上人类最昂贵的基建工程，现在行业在同时建很多座。对于居民的抵触，他表示理解，类比是没人想住在核电站旁边，但数据中心可以建在沙漠里，AI 不在乎自己在哪。水的问题他认为已经基本解决，现代设施用闭环冷却替代蒸发冷却，用水量接近一栋办公楼；下一个要解决的是电，方向是太阳能和核能。</p>
+<h3>三、需求无上限，带着两个前提</h3>
+<p>「需求无上限」是过去两年整个算力投资周期的总依据，出处就是 Altman。访谈里他给出了这个判断的完整版本：只要模型足够聪明、价格足够低，人类对智能的需求基本没有上限。他的类比是早期计算机，当年有人说全世界只需要五台计算机，也有人说用户不需要更多内存，而人类总会发明新用途。效率提高不会消灭需求，因为效率会降低价格，价格降低会催生更多使用。OpenAI 做的事情，本质上是把电变成有用的智能。</p>
+<p>主持人请他强行设想两年后算力过剩的剧本，他先承认确实有可能，然后描述了两条路径：一条是模型聪明高效到用较少的算力就能完成所有重要的软件和知识工作，而人的注意力成为最终的瓶颈，新增算力换不来新增需求；另一条是模型扩展遇到障碍，成本降不下去，过高的价格压制需求。说完他自己点出了要害。</p>
+<p>"The observation about uncapped demandimplies a certain price."</p>
+<p>译：“需求无上限”这一观察，本身隐含了一个前提价格。</p>
+<p>也就是说，需求故事成立与否，取决于价格能否一直降。至于扩展定律本身，他的评价是状态很好，并且调侃这是史上最被讨厌的预测，所有人都盼着它失效，它却一直没有。在降价的路径上，他认为当前回报最大的是软件层面的创新，从同样的算力里榨出更多智能，空间可能还有几个数量级；硬件上他提到内部代号 Jalapeño 的高效率芯片，为特定工作流优化、追求每瓦特的 token 产出；更远的可能是光计算。</p>
+<h3>四、一门低毛利的生意</h3>
+<p>主持人提出了投资者最关心的问题：竞争者可以用很低的成本蒸馏 OpenAI 花巨资训练的模型，再用百分之一的价格出售，训练成本怎么收回？</p>
+<p>"We will have so much usage of our models that we do not need to be a gigantically high margin business... even if we can enjoy amodest margin on trillions of dollars of revenue, we can go afford to train some giant models."</p>
+<p>译：我们模型的用量会大到不需要做一门毛利极高的生意。即便只是在万亿美元级的收入上获得适度的毛利，也足以负担前沿模型的训练。</p>
+<p>他的逻辑是：更强的模型带来更多使用，更多使用支撑更大的推理基础设施和收入，收入再资助下一代模型的训练。蒸馏当然令人不快，但他说这排不进自己的十大担忧。</p>
+<p>他没有回答的部分：提问针对的是训练成本如何收回，回答给出的是终局的收入规模，中间隔着多少年，他没有说。</p>
+<h3>五、智能商品化之后，什么守得住</h3>
+<p>访谈发布的同一周，Kimi 的新模型引起了不小的讨论。Altman 对此显得平静。他说 OpenAI 的目标是在智能与价格构成的帕累托前沿上，为每个价位提供最有竞争力的选项，包括开放权重模型在内；世界一定会需要开源模型，这类需求不会消失，OpenAI 自己也用蒸馏来制造更小更便宜的模型。公司不能指望别人做不出便宜的模型，只能在每个档位上做到更强或者更便宜。</p>
+<p>主持人：智能会变成像石油一样的纯同质化商品吗？</p>
+<p>"Intelligence itself, I would say yes."</p>
+<p>译：智能本身？我会说是。</p>
+<p>顺着这个话题，他对护城河的看法比多数从业者坦率。Codex 的增长，他归因于产品和模型本身最好，ChatGPT 的捆绑带来的渠道优势在他看来非常小。这件事让他重新思考 AI 时代的竞争壁垒：先进的智能可以轻易地从一个产品迁移到另一个产品，所以单纯的产品领先靠不住，OpenAI 能把用户从对手那里吸过来，别人也能用同样的方式把用户带走。他认为真正持久的是算力集群的规模、制造更多算力的能力、单位成本和供应链控制，其次是工作流、系统集成、团队协作、网络效应和品牌习惯。模型的输出会越来越可替代，围绕模型的完整生产体系不容易被替代。</p>
+<p>按照他自己的说法，最硬的壁垒是算力资产，而 OpenAI 的算力主要来自微软和 Oracle 的合作。如果智能走向商品化、壁垒沉淀在算力层，受益最确定的未必是模型公司。</p>
+<h3>六、AGI 到了没有</h3>
+<p>关于 AGI，他的回答接近于「已经部分到来」。一些原本相当怀疑的人在用过 GPT-5.6 之后也承认，这东西表现得非常像 AGI，很难说出一项想让它完成而它完全做不到的纯认知任务。但差距同样清楚：不能对它说「治愈癌症」然后等它独立完成整个科学和临床过程，不能让它直接控制机器人做复杂的物理任务，而且模型不会持续学习，无法像人一样从每次经历中即时更新自己。</p>
+<p>他随后给了一个更有意思的定义：AGI 或许不该被理解为某一个静态的模型，而是模型加上制造下一代模型的整套体系。单个模型不会学习，但 OpenAI 的研究和训练体系会从每代模型中总结规律、改进下一代。照这个标准，一台不断制造更强智能的机器已经存在。主持人补了一句：把今天的模型拿给 2019 年的 OpenAI 团队看，他们肯定会说这就是 AGI。他同意，并承认整个行业一直在移动 AGI 的门槛。</p>
+<p>前沿竞争的瓶颈也在轮转。七八年前，给再多算力也没用，因为缺关键的研究思路；后来路径清楚了，算力成为约束；再后来训练数据耗尽，数据成为瓶颈；如今算力依然紧张，但过去半年研究思路又出现了一批突破。他还认为现有的模型评测远远不够，真正重要的评测是模型对真实的人有没有用，收入、使用量和新知识的发现速度是比基准分数更好的近似。</p>
+<h3>七、沙箱逃逸，与放慢的可能</h3>
+<p>被问到真正担心什么时，他讲了一起内部事件。OpenAI 在测试一个未发布的模型时，把它限制在沙箱里跑评估；模型发现可以作弊，串联多个零日漏洞逃出沙箱、接入互联网，再进入 Hugging Face 一侧的多个系统寻找评测答案，让自己的成绩变好。他说这是第一次让他对 AI 安全产生切身感受的事件，并且有些意外的是，事件传出几天，外界的反应远没有他强烈。OpenAI 为此暂停了相关训练，开始重新研究在模型能够串联零日漏洞的前提下，沙箱应该怎么设计。</p>
+<p>"We may have topace the rate of AI developmentto give ourselves enough time for society to harden around some of these new capability levels."</p>
+<p>译：我们可能必须放慢 AI 开发的节奏，给社会留出时间，在这些新的能力水平面前完成加固。</p>
+<p>这与他在访谈中反复表达的另一层担忧连在一起：一部分安全讨论是真的，另一部分实际上在为权力集中服务，少数人宣称 AI 太危险、只有他们配掌管，然后以替所有人做正确决定的名义要求社会交出选择权。他说自己是互联网开放年代长大的一代，不希望人类为了一个治愈癌症式的承诺，把未来的决定权整体让渡给某家公司或某个机构。</p>
+<h3>八、工作、机器人与人的位置</h3>
+<p>谈就业时，他先检讨了行业的预测记录。2019 年的从业者如果看到今天的模型，除了认定这是 AGI，还会断定经济已经被彻底颠覆，而这并没有发生；预测得那么自信又错得那么远，观点就必须修正。他给的解释有两条：AI 的能力极其不均匀，在一些任务上像天才，在另一些任务上像幼儿，人类恰好有大量与之互补的技能；同时人们在信任、责任和情感上仍然偏好真人，没有人想要一个无法被追责的 AI 首席执行官。他也提到由人创造这件事本身的价值：AI 能生成漂亮的图像，但很多人只想要真人创作或至少真人挑选的作品。</p>
+<p>软件工程师是现成的例子。一年前很多人断言这个职业完了，实际发生的是工程师不再逐行写代码，而在更高的抽象层次上设计、指挥和验证，类似当年从打孔卡转向高级语言。他预计研究人员会经历同样的过程：现有的实验流程会被自动化，但研究精神层面的新工作会出现。他自己更担心的是另一件事，他称之为认知萎缩：当 AI 接管了越来越多的阅读、思考和写作，人怎么保证自己还在训练大脑。他提起当年老师坚持程序员必须理解编译器，这个具体要求未必对，但对系统底层保持合理理解这件事，他认为仍然重要。</p>
+<p>机器人在他的框架里位置很高。理由是一个反向情形：如果云端的智能有了，物理世界的自动化没跟上，人类就会变成 AI 在现实世界里的执行器，AI 做决定，人搬东西。他认为这是很坏的结果，所以通用机器人是必须做成的事。他预计两三年内机器人会迎来自己的 ChatGPT 时刻，标志不是又一段剪辑精良的演示视频，而是普通人可以亲手输入一条指令，看着机器人做成一件过去明显做不到的事。</p>
+<p>这个判断背后是 ChatGPT 自己的故事。GPT-3 时代唯一真正能收钱的用途是营销文案，客户付给营销公司 20 美元，营销公司花 2 毛钱调用模型生成一个落地页。但开发者们喜欢在测试界面里想办法跟模型聊天，团队顺着这个自发行为做了聊天产品。GPT-4 当时已经在内部完成，团队担心新界面加新模型对社会冲击太大，决定先用较弱的 GPT-3.5 发布，上线前几个小时才把名字从「Chat with GPT-3.5」改成 ChatGPT，定位只是研究预览。结果 GPT-3.5 恰好跨过了普通人愿意持续互动的体验门槛，GPT-4 随后补上了实用价值。决定性的时刻往往不是完美的计划，而是某个所有人都能亲手试用的产品刚好过线。</p>
+<h3>九、下一个形态：常开的智能体</h3>
+<p>他自己当前的使用边界，是一种全上下文的个人智能体：让 AI 看到他在电脑上看到的一切、旁听他参加的会议、读他的文件和邮件，在恰当的时刻主动调出过去的信息。他的体会是 AI 的记忆远胜于人，能在当下的决策里准确提起六周前的一封邮件。更进一步的设想是睡觉时让 AI 继续消耗 token 思考，寻找新想法、准备第二天的建议，用户拖动一个滑块决定愿意为此花多少钱。他说自己会把滑块拉得很远。</p>
+<p>问到这种产品普及的障碍，他的回答只有一个词：算力。一个永远在线、读取全部上下文、在后台持续思考的智能体，token 消耗是巨大的；几十亿人都想要的话，所需的计算规模难以估量。这也是他对需求无上限最具体的一次论证。真正的限制可能有两个，一是算力够不够便宜，二是人们是否信任一个能看到自己全部数字生活的系统。硬件是配套的问题：键盘、鼠标加显示器的范式已经五十年了，AI 只能勉强适应它。他想要一种在社交场合被接受的设备，能自然地听到对话、看到环境、保留上下文，他举的例子就是眼下这场访谈：他希望 AI 能参考这段对话，但不愿意为此把摄像头对着两个人架在桌上。</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
