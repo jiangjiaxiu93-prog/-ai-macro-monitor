@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>ClickHouse CEO 的反泡沫论：需求真实性的一手证据与"收入持久性"这个真正的风险（20VC，2026-08-31）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>ClickHouse CEO 的反泡沫论：需求真实性的一手证据与"收入持久性"这个真正的风险（20VC，2026-08-31）</h2>
+<div class="metaline">20VC with Harry Stebbings · 65 分钟 · 2026-08-31</div>
+<p>嘉宾为 ClickHouse 联合创始人兼 CEO Aaron Katz，Salesforce 早期员工出身、后任 Elastic 高管，约五年前将开源列式数据库 ClickHouse 公司化。披露的规模口径：ARR 刚过 3.5 亿美元，今年收官"北向 5 亿"，估值超 150 亿美元，客户超 4000 家，净收入留存率超 200%，现金储备 10 亿美元。需注意主持人是公司新近投资人，对话带利益相关。本期的价值在于它提供了泡沫争论中稀缺的东西——<strong>一家横跨几乎所有 AI 原生公司的基础设施供应商的一手需求数据</strong>，其客户名单包括 Anthropic、OpenAI、Harvey、Sierra、Decagon、Tesla。</p>
+<h3>一、周期判断：矛盾数据点与"我们才刚开始"</h3>
+<p>主持人开门见山给出他的困惑：老朋友们警告债务水平与估值亢奋，而他亲眼所见的是采用率与收入扩张速度，两组数据点互相矛盾。</p>
+<p>Katz 的回答构成全片题眼："我们才刚开始。"其资历背书为亲历互联网、移动、社交三轮周期，而作为建设者的体感是：<strong>过去几轮周期的展开要渐进得多，本轮在以前所未见的速度加速</strong>——体现在 agentic 体验成熟的速度、这批公司的收入增速（"我们此生没见过这样的收入增长"），以及 agentic 应用对底层系统的需求强度。</p>
+<p>对毛利率质疑（主持人以推理服务商 30% 至 35% 的毛利为例），其回应并未否认低毛利现状，而是更换评判框架：这批公司"似乎有无限的资本可用"且增长极快，因此可以运行在传统公开市场投资者不会接受的毛利水平上；只要能展示未来数年毛利扩张路径、同时维持增速与健康的资产负债表，其担忧就远小于五年前看传统企业软件时。</p>
+<p>但他主动给出了自认<strong>真正的单一最大风险：收入的持久性</strong>。基础设施软件切换成本高，而 agentic 应用的切换成本可以很低——模型供应商"几乎每隔一周就互相跨越一次"，因此"我会质疑其中一些 AI 应用收入的持久性"。当主持人问 Claude Code 是否属于低切换成本类别时，其直言"我会把它归入那个类别"——随即用自家数据反证需求的真实性：<strong>ClickHouse 自己在 Anthropic 上的支出比年初上涨了 100 倍。</strong></p>
+<h3>二、token 预算观：收入增长比 token 成本重要</h3>
+<p>其披露的内部管理细节为：年初向全公司发出主题为"AI 觉醒"的邮件，直言公司对编码类 AI 应用的采用度低于预期，此后内部使用量爆发式增长，目前正评估在前沿实验室之外引入更多开放权重模型。</p>
+<p>模型选型的分层很具体：<strong>开放权重模型可用于代码评审，但不用于交付生产代码</strong>——顾虑在输出层面的保障；而头部两家实验室的独特优势是"既是模型提供方又是 harness 提供方"，开放权重阵营目前在 harness 上落后。</p>
+<p>对 token 预算失控之问，其取舍逻辑明确：公司首要度量是收入增长；只要增长持续，就不担心编码 agent 上的开销——理由为路线图正以前所未见的速度加速、token 单价在下降、收入增速快于历史任何时期。"这个交易我任何一天都愿意做。"</p>
+<p>其复盘的最大遗憾与该判断同向：<strong>过去两年该多招销售而没招</strong>——公司仅约 100 名背负指标的销售，对手有数千人的销售军团。其引用 Benioff 给他的一课作结："一年能做成的事会被高估，五年能做成的事会被低估。"</p>
+<h3>三、agent 成为买家：数据基础设施的三年图景</h3>
+<p>这是全片对赛道格局信息量较高的一段。其框架为：过去的软件为组织内特定角色设计、查询模式可预测；<strong>agent 没有角色设定</strong>，默认要横穿可观测性、数据仓库、CRM 等所有系统，不接受访问限制与延迟，"体验由链条中最慢的一环定义"。因此 agent 查询的第一需求是低延迟（并发数十条查询、模式不可预测），第二是效率。支撑数据为：<strong>Tesla 正以每秒 10 亿事件的速度向其灌注数据</strong>（披露，后半句自评带宣传性质）。</p>
+<p>更进一步的判断为 <strong>agent 正从用户变成选型者</strong>。其披露的具名案例：Anthropic 当初选型时问 Claude"这个可观测性用例该用什么技术"，Claude 建议了 ClickHouse（嘉宾转述）。其正在把公司定位为"下一代由 agent 构建的应用的默认数据库"。</p>
+<p>由此推出其认为"今天听来疯狂、三五年后将成常态"的命题：<strong>agent 需要有身份和预算</strong>。企业不会放任 agent 随意消耗资源、访问数据、花未授权的钱——当前靠人工盯支出与管控，三五年后 agent 完全自主时需要授权、身份、预算三件套，且治理与监督需求决定了这必须是独立的一层。其给投资人的提示为：去找最有条件把 agent 建应用所需全部资源自动开通的公司。</p>
+<p>配套判断有二：多部署模式是必需品，且<strong>回迁本地部署的趋势真实存在</strong>——"连一些我以为永远不会回本地的、硅谷最创新的数字原生公司，都在考虑把技术栈从超大规模云搬回来"；人类买家十年内不会退场，预算仍由人控制。</p>
+<h3>四、开放权重五五开论</h3>
+<p>主持人抛出市场主流叙事：三年后 90% 的 token 走开放模型。<strong>Katz 明确不同意，其预测为五五开</strong>——类比当前企业软件中开源与专有的大致分布。不同意的核心理由在企业侧：企业要的是<strong>赔付保障与输出层面的法律保护</strong>，这是开放权重模型目前给不了的，会限制其用例范围。其特意区分：开放权重模型与开源软件属两回事，对两者在企业渗透的判断"非常不同"。</p>
+<p>一段值得记录的交锋：主持人转述"大型企业反而更怕前沿实验室，因为不信零数据保留的口头承诺"。Katz 承认该担忧真实存在（"我每天都看到，我们内部也有"），但在敏感数据的托付上站在前沿实验室一边："当你需要大多数企业需要的法律保护时，你会想跟前沿实验室合作；对一些开放权重模型的顾虑今天成立，但一两年内会被解决大半。"其同时拒绝跟进后门猜测："我个人不喜欢猜测用了这些软件就等于参与了什么间谍活动，那说法挺离谱的。"</p>
+<p>对专业化与通用模型之争其拒绝站队："我们是卖铲子的，不挑赛道赢家。"但其不排除更远的威胁："我不会把 Anthropic 和 OpenAI 排除在核心基础设施提供商之外——它们进入新品类的速度那么快，想象三年后它们覆盖的表面积。它们还在造自己的芯片。"其自称最怕的对手是"还没进入市场的那个"。</p>
+<h3>五、收入集中度应该被庆祝？——实际论证是两面的</h3>
+<p>需注意节目标题的立场比嘉宾原话更激进。主持人的问题原型为：投资人常拿收入集中度说事，"可英伟达也集中，集中度还是不是有效的投资担忧？"</p>
+<p>Katz 的回答实为两面。作为经营者，其认为集中度是"非常有效的担忧"——任何单一客户、品类或行业占收入超过 10%（其称此为行业标准阈值）就须限制敞口。但 ClickHouse 的答案是用客户结构对冲：<strong>"几乎每家 AI 公司都建在我们上面，但这一篮子 AI 公司合计占收入不到 12%。就算其中一半消失，赢家的增长会抵消输家的流失。"</strong>该论证的要点在于：AI 收入敞口应看篮子的分散度，而非单个标签——这与其反泡沫论的收口一致："我挑不出谁赢谁输，但<strong>赢家会远远盖过输家</strong>。"</p>
+<p>对"一年冲到 1 亿美元"的增长崇拜其给出反向提醒：他反而担心"拿什么护城河守住这 1 亿"——<strong>收入持久性是这批公司被低估得最厉害的属性</strong>。</p>
+<h3>六、10 亿赌局与不上市的理由</h3>
+<p>节目立了一个公开赌局：何时到 10 亿美元 ARR——Katz 押 2027 年 12 月之前，主持人押 2028 年 2 月，赌注 1000 英镑。</p>
+<p>IPO 立场鲜明："我押不上市——我们明年想上就能上，但没必要急。"理由有三：公开市场当前"比很长时间以来都更不理性"，一个季度小幅不及预期股价能跌四五成；私有公司做大已无障碍，与上市公司的差别只剩员工盯股价与被做空两条，前者已被结构化老股转让解决；并购货币论也已过时——其举例大额并购正以私有公司身份完成（口述市场动态，未经核实）。但其并非反公开市场：公开市场的长期价格发现更理性，私有投资人愿为"押注未来"付溢价，公开市场给的是当下执行的定价。</p>
+<p>组织与市场结构的两个数据点：<strong>收入超一半来自美国以外</strong>（EMEA 四成、亚洲一成），产品在三大云的 36 个区域运行；其观察到<strong>企业销售周期在压缩</strong>——以前卖进大型金融机构以年计，现在以季度计，开源加自助的无摩擦体验是加速器。</p>
+<p>（口径提示：本文基于补抓的自动字幕整理。主持人为公司投资人；收入路径与 ARR 的多个口径在节目中并存、关系未说清；"Anthropic 2 万亿上市"为主持人口述、嘉宾未确认；文中并购金额为嘉宾口述的市场动态、未经核实；Tesla 每秒事件数等为嘉宾单方披露，引用前请核对原始来源。）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>

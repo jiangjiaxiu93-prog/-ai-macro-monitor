@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>开源模型的份额与前沿实验室的估值：一位模型无关厂商 CTO 的完整多空框架（20VC，2026-08-29）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>开源模型的份额与前沿实验室的估值：一位模型无关厂商 CTO 的完整多空框架（20VC，2026-08-29）</h2>
+<div class="metaline">20VC with Harry Stebbings · 89 分钟 · 2026-08-29</div>
+<p>先做两点澄清。其一，本期虽以设问式标题呈现，实际为主持人 Harry Stebbings 对单一嘉宾的一对一访谈，片头的对立金句剪自同一人，反方论点仅以转述形式出现。其二，嘉宾为 Factory 联合创始人兼 CTO Eno Reyes，该公司主打模型无关的企业级 agent 产品并提供本地部署版本——<strong>其"开源必胜、前沿实验室估值虚高"的立场与自身商业利益直接绑定</strong>，全文观点引用时须计入该利益相关。在此前提下，本期仍给出了市场上较完整的一套开源多头兼实验室估值空头框架，与站上 Gavin Baker 的正和论构成直接对照。</p>
+<h3>一、定价框架：最便宜的模型未必是最便宜的系统</h3>
+<p>Reyes 的起点是计价单位的切换：企业不应看输入价格（每 token 单价），应看产出价格（每个结果的成本）。其举例为一次代码审查的价值远比其中 token 的价值有意义——高质量模型可能以百万量级 token 一次做对，便宜模型可能烧数十倍 token 反复试错，按结果口径反而更贵。由此其判断为："我看到一个世界，最聪明的模型实际上是最便宜的。"</p>
+<p>该逻辑的适用边界为高智力密度任务。对大量商品化任务，其预计将由开源模型主导；中间层将出现企业以开源底座做后训练得到的专属模型——仅供自用、不对外提供。其进一步判断后训练配方将被工具民主化，如同二十年前的软件开发，声称该能力只属于少数实验室的说法不会成立。</p>
+<h3>二、对前沿实验室估值的质疑：市场空间高估与模型锁定</h3>
+<p>Reyes 认为前沿模型的市场空间被系统性高估：数万亿美元的估值内嵌的假设是"你能把 token 价格翻倍且客户照买"，而替代选项的密度使该假设难以成立。</p>
+<p>主持人以 Anthropic 的盈利季度反驳（其自称"我记得是"，属未核实转述）。Reyes 的回应为：驱动盈利的主要是模型之上的应用层，模型本身的利润率明确差于应用。模型商只有两条路：其一，成为 N 家卖推理的平台公司之一；其二，上移做自有模型的应用层。其观察为 Anthropic 走应用路线，OpenAI 两头下注但平台承诺更强。</p>
+<p>对应用路线的核心批评为<strong>模型锁定的激励错位</strong>：被锁定的供应商只能交付"自家最好的模型"的结果，而非"市场上最好的模型"的结果，在按结果计价的竞争中两者价差可能极大。主持人顺势给出全场最尖锐的一问：若 Anthropic 以 2 万亿美元估值上市，"你本质上是在给 Claude Code 定价 2 万亿，而它的切换成本并不高"。Reyes 认可这正是投资人的根本风险，并给出实验室兑现估值的两条互斥路径：走监管俘获、使自己成为前沿能力的唯一供应商；或向全模型开放、贴近成本质量的帕累托前沿。其观察为 OpenAI 已在事实上接纳更多外部模型。</p>
+<h3>三、补贴战与利润率：两个"无限弹药"玩家在漫灌市场</h3>
+<p>行业基准（主持人口径）为 AI 公司毛利率约 30% 至 35%，对照 SaaS 时代的 70% 至 80%。Reyes 披露 Factory 自身利润率良好（无具体数字），路径为不做消费端补贴、不做自助服务定价，代价是牺牲自助用户的心智份额。</p>
+<p>其对补贴战的定性为：市场上有两个实际拥有无限资金的玩家在漫灌市场，逻辑是"漫灌就能留住你"，但事实证明补贴一撤用户就走。其判断消费者终将流向最具成本效益的方案，而一至三年内该方案就是可本地运行的开源模型。给投资人的提示为：补贴换客户的策略本身不新，但若无利润率上行路径则非常危险——涨价若不伴随结果价值同步提升，用户会流失。</p>
+<h3>四、路由、harness 与"智能主权"</h3>
+<p>对 Stripe 收购 OpenRouter，Reyes 的定性为：路由技术本身不构成差异化，买的是资本配置流向的信息——token 是智能、由能源转换而来、用钱购买，Stripe 已控制资金流，借此再控制"智能配置去向"的信息流。"技术不再是护城河。"</p>
+<p>其披露的内部数据为：网关型路由带来约 10% 至 20% 的成本节约，但 agent 工作流需要的是任务内部的有状态分配；长上下文的实际解法与持续学习均落在 harness 层——"模型商自己也已承认，所有持续学习发生在 harness 层"。</p>
+<p>由此引出其称为"未来五年 AI 核心问题"的命题：<strong>谁是你智能的主权者</strong>——任务产出的数据、成功工作流的学习成果归谁所有。其类比为律所将全部案件外包后五年被承包方反向碾压。本地部署的真实含义在其表述中并非技术方案，而是"随时可以收回全部控制权"的选项价值——其披露很多谈过本地版的客户最终选了云端版，因为知道随时能切换就有了安心感。</p>
+<h3>五、核心辩题：开源模型的来源标签与三问清单</h3>
+<p>这是与标题对应的主段落。Reyes 的核心论点（其判断，且利益相关）为："<strong>把开源模型叫作中国模型，是前沿实验室的一次话术操纵，目的是让人觉得它们可怕、把它们他者化。</strong>"在其看来，对任何来源的模型应问的问题完全同构，其三问清单为：模型创造者可能审查了什么；模型能否解决我关心的问题；若该模型 6 至 12 个月后消失、能否切换。</p>
+<p>安全审计层面的关键表态（其判断，未引用具体审计报告）："迄今没有展示出任何一例相对美国模型的安全风险或后门。它们只是以偏向自身创造者偏好的方式存在偏见——美国模型同样如此。这些是你必须知晓的事，但通常不改变日常使用。"</p>
+<p>合规边界其画得清楚：当前应由企业针对自身任务逐一分析后再用；涉及国家安全与防务工作的机构不应使用；而对代码审查这类任务，不同来源的模型"很可能给你同样的结果"。其举了一个反向例子说明内容限制并非单一来源模型独有：特定供应商的模型会拦截其创造者不认可的用途——"你必须知道是谁造的，这一点对所有模型都成立"。</p>
+<p>需要说明的是：本段未出现任何具体模型名称、价格对比或许可条款细节，论证停留在框架层而非逐款审计证据层。</p>
+<h3>六、份额预测："99% 的工作流、但 1% 的任务占 30% 至 40% 的价值"</h3>
+<p>主持人转述 Vercel 创始人的观察：开源模型的用量权重正以显著更快的速度上升。Reyes 给出全场最锋利的量化判断：<strong>"三年内 99% 的工作流将在开源模型上完成，但其中约 1% 的任务可能占未来智能经济价值的 30% 至 40%。"</strong>即用量几乎全部开源化，而前沿与开源的能力差距反而会比今天更大。论证为：实验室创始人谈自家前沿模型的用例——前沿生物研究、AI 研发本身、安全与防务——都是极窄的科技前沿画像；走进任何一家大型企业，"99% 的情况都不需要真前沿智能，因此成本将主导"。其甚至建议实验室可以发布开源模型再自营推理，"那可能反而是笔好生意"。</p>
+<p>巨头站位评估（均为其判断）：微软可能是 AI 时代位置最好的超大规模厂商——模型独立性将极具价值，"微软拥有那些数据中心，无论上面跑谁的模型，微软都赢"。债务周期的判断与站上 Murdock、Dylan Patel 两篇同向：有耐久业务垫底的巨头即便预测受损也活得下去，而实验室为数据中心与下一次大训练举债后，"必须成为科技史上现金流最强的企业才能活下来，这是极高的门槛"。</p>
+<h3>七、行业格局：新实验室死亡率与竞争排名</h3>
+<p>对新兴模型实验室（neolab）的存亡，其判断比市场常见口径更激进：<strong>"未来 18 个月 80% 至 90% 的 neolab 死掉是可能的"</strong>，但多数以被收购的形式收场，问题在于作为独立公司不成立。其判别三问为：是否绑定耐久工作流；新前沿模型变强是否改变该工作流；新的组织方式出现时该工作流是否仍然成立。法律赛道三问全过，通用型中间知识工作则不具差异化。</p>
+<p>竞争威胁排名来自其一线企业销售观察（披露性质）：企业对话中出现频率第一为 Claude Code；第二为 Codex，且越来越多客户自述已完成切换——其称这反而证明这类工具缺乏黏性，并注意到客户提的是面向工作而非面向编码的版本；第三为 Cognition；第四为 Cursor（被企业视为 IDE 而非开发战略）。</p>
+<p>token 开支侧的三个数据点值得单独记录：某数据公司 CEO 称 token 支出已超工程师薪酬总额（转述）；给最佳工程师配 10 万美元 token 额度的说法再次被引用（转述）；Factory 披露曾为攻克一项评测单日烧掉近七位数美元额度、由一人操作，并判断部分企业的项目制 token 预算将达到八至九位数。</p>
+<p>收尾的快问快答：三选一长持微软（嵌入每家大型企业）；对 SaaS 公司的判断为"当代 SaaS 更像电影公司，必须连出爆款"，将见到一波在被蚕食前出售的并购潮。其认为五年后回看今天最荒谬的事："我们曾让一个约 200 万人的'祭司阶层'决定全人类所有软件的命运"——按需即时生成软件将在三到五年内成为常态。</p>
+<p>（口径提示：本文基于补抓的自动字幕整理。嘉宾为模型无关工具厂商 CTO，其立场与公司利益直接绑定；"Anthropic 盈利季度"为主持人未核实转述；文中各笔并购与估值数字为主持人口头转述、精确度不一；开源模型安全性的表态为嘉宾判断、未引用审计证据，引用前请核对原始来源。）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>

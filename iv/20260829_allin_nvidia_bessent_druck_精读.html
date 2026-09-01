@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>英伟达的历史性季度、SaaS 末日论的破产与 Bessent 对 Druckenmiller 之争（All-In，2026-08-29）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>英伟达的历史性季度、SaaS 末日论的破产与 Bessent 对 Druckenmiller 之争（All-In，2026-08-29）</h2>
+<div class="metaline">All-In Podcast · 96 分钟 · 2026-08-29</div>
+<p>本期为四位主持人原班出席、无嘉宾。三大主题各成一节：英伟达财报对"资本开支见顶论"的正面回击、Salesforce 财报引出的 SaaS 末日论修正、以及财政部回购长债之争背后的债务政治学。文中财报数字为节目口播、应源自披露但口径待核；宏观推算多为主持人现场心算，文末统一标注。</p>
+<h3>一、英伟达财报：被撕碎的是"资本开支即将见顶"叙事</h3>
+<p>口播的核心数字：季度营收 962 亿美元、同比增长 106%，对市场预期 920 亿；下一年度指引增长 70%，远超市场预期的 45%；净利润 600 亿美元，毛利率 75%；股价当日涨约 9%，市值 5.5 万亿美元居全球第一。财报前该股年内仅涨 12%、与标普持平且跑输费城半导体指数。</p>
+<p>Sacks 的解读为：股价上涨的关键在 70% 的次年指引而非本季数字，且管理层称该数字本可更高、受供给约束压制。<strong>当天被撕碎的叙事是"AI 资本开支是泡沫、即将结束"</strong>——英伟达用数字宣告了资本开支的持续性。</p>
+<p>Jason 的解读聚焦生态转向：口播两笔交易——报道称的 120 亿美元收购 Hugging Face 与约 60 亿美元对 Poolside 的人才收购（Chamath 当场提醒交易结构"公告没写清楚"，Sacks 强调"如果报道属实"，两笔在节目中均为转述）。其叙事链为：合作方在大额算力协议之后另签竞品交易并放话自研芯片，英伟达随即表态"这些投资我们其实不必做"，转而加速开源布局——自研模型、开源自动驾驶、买下开发者试模型的第一站，"明年起整套栈都能直接找英伟达买"。</p>
+<p>Chamath 的解读为客户与供应商边界的消融：其口播英伟达本季来自超大规模云厂商的收入约 240 亿美元，而 neocloud 业务已做到同等体量。既然客户在自研芯片，英伟达自研模型、上探托管与推理、变成云厂商就完全正当；五年后的大公司都会"从云到模型到芯片到数据中心全都自己做"，资本开支生意与运营开支生意的老框架失效。</p>
+<h3>二、SaaS 末日论的修正：垂直死、横向活</h3>
+<p>口播数字：Salesforce 单日涨超 20%；季度营收 113 亿美元、同比增 11%；调整后每股收益大幅超预期；全年指引上调。节目回放了 Chamath 五月中旬的抄底表态（谁的净收入留存稳、可预测，谁就会赢），自其喊底以来股价涨约 43%。</p>
+<p>Chamath 的三阶段框架为本节的分析主轴：AI 第一阶段是模型（大脑），第二阶段是 harness 与 agent（给大脑装上手和键盘），当前开启第三阶段——<strong>把 agent 训练成具体职能，而这一步需要海量上下文，上下文握在大型记录系统手里</strong>。Salesforce 的打法是与模型方合作、支持外部 harness、同时自建，故留存强、指引上调。其对此前 SaaS 空头仓位的归因相当辛辣：那不是研究观点而是"funding short"——净多头加杠杆需要流动性好的空头对冲，于是流动性好的大票中枪，事后再倒推叙事自洽。</p>
+<p>Friedberg 的现身说法具有样本价值（其公司上了财报电话会）：一年前用编码工具一个周末攒出内部 CRM，随后陷入权限、安全、数据仓库的无尽补课，最终意识到工程资源应花在公司独有的垂直工作流上。其结论为：<strong>真正的"SaaS 末日"是垂直 SaaS 末日</strong>——横向平台安全，被 AI 冲击的是单一垂直行业的工作流软件。Chamath 附议：横向巨头是难以复制的单一事实源，垂直 SaaS 只是流程。</p>
+<p>Sacks 当天上午与 Benioff 通话后的转述构成本节核心机制：企业要的是确定性与合规，核心记录系统不会被氛围编码的产物替换——"想想二十年积累的 bug 报告"。与模型公司交易的关键在于把记录系统接入模型侧、让模型成为前端并掌握首要用户关系——<strong>甘冒被去中介化的风险换取相关性</strong>；这对生意反而有利，因为 agent 需要从规范事实源取数并把动作写回去。其给 SaaS 创始人的处方为：做最好的 agent 接口（API 与命令行）而非只做界面，把外部 agent 当作平台延伸。其总括教训可直接引用：<strong>"基于趋势的简单外推不成立——'AI 会写代码所以所有软件归零'错了，同理'AI 能做知识工作所以知识工作者全部失业'也是同款简化外推。"</strong></p>
+<h3>三、Bessent 对 Druckenmiller：回购之争的真实结构</h3>
+<p>背景口播：30 年期美债收益率上周触及 5.3%；财政部于 8 月 19 日将长债回购规模翻倍，且据报道考虑继续加码；Druckenmiller 在《华尔街日报》发专栏反对，核心论点为——错在试图操纵价格，而未解决收益率上行的根源：支出问题。</p>
+<p>Friedberg 的立场是本节最有信息量的判断：<strong>该专栏实为给财政部长"打掩护"</strong>。其数据陈述（口播读图）：存量债务平均成本 3.4%，利率每上升 1 个百分点、每年多付约 GDP 的 1.25% 的利息；关键约束为<strong>未来 12 个月要再融资 10 万亿美元到期债务</strong>，而回购授权撑死约 1 万亿——1 万亿买盘对 10 万亿卖压无解。因此专栏的真实功能是向市场发信号：收益率曲线不是财政部长的责任，责任在国会、在预算的持有者。被问是否属两人配合的表演时，其明确否认："我认为他们不被允许互相沟通。"</p>
+<p>Chamath 的机制补充：技术上这是收益率曲线压制——买债压低隐含收益率，让新发债能按更低的水平定价，为的就是再融资海啸。但根子在国会：两党一致超支，"债务以 7% 增长、GDP 只有 2% 到 4%，这是灾难配方"。其援引专栏观点称必须动福利支出，"他大概率是对的，问题是何时、以及谁来逼国会面对"——答案是债券市场，<strong>那个单一价格是对美国信用的真实计量，收益率上行等于信任下行</strong>。</p>
+<p>其叠加的时点判断与站上算力那条线直接相关：这一切发生在 AI 大建设最需要资产负债表的时刻——一百年前工业革命时美国政府就是那张资产负债表，如今它没有能力，"谢天谢地有几家大型科技公司把整个美国经济扛在背上"。其给出的明确阈值为：<strong>若 30 年期到 6%，就是死亡螺旋的开始</strong>——不会立刻爆发，但意味着持续数年的极端痛苦；唯一解是国会把预算管住，"今年或明年，必须发生"。</p>
+<h3>四、债务政治学：公地悲剧与 2030 时间表</h3>
+<p>Sacks 论为何砍不动支出：这是公地悲剧——数百名议员加总统，没有任何一个人控制支出，且总统没有单项否决权。改革的政治成本已被展示过：削减支出的努力换来的是人身化的指控与破坏。</p>
+<p>Friedberg 给出两段时间表。其一，中期选举至下届大选之间，通胀问题引爆政治反应——其归因链为：通胀根源是政府支出，应急刺激被永久化；选民感到痛苦不会削支出，只会投给承诺更多支出的人，"火是政府支出，燃料是更多政府支出"。其二为 <strong>2030 至 2032 年</strong>：社保基金无钱可付，同期多个未拨备养老金负债巨大的州难以履行义务，"那可能是所有东西一起断裂的时刻"。Chamath 对激进转向的可行性给出反驳：美国债务与国内外持有人深度互联，"没有一个按钮可以按，按了就是一夜破产"；结构性预期重置只发生在急性危机时刻，所以结局是撞上某种财政之墙。</p>
+<p>四人的共识收尾与 AI 主线闭环：<strong>唯一出路是 AI 带来的增长——"我们需要英伟达和 Salesforce 这样的季度连续来十年，才能增长着走出去"</strong>；若用新监管机构拖慢模型审批，前景不可收拾。</p>
+<h3>五、侧线：Druckenmiller 用 AI 写专栏该不该披露</h3>
+<p>检测软件称该专栏约九成由 AI 写成，报社表态无碍。四人立场分裂，构成一段可单独引用的媒介伦理讨论。Chamath 火力全开：批评者是"爱做道德表演的一类人"，"他是我们这代最伟大的投资者之一，闭嘴读他说了什么——他在告诉你即将发生什么，你却在数破折号"。Sacks 当场立下个人披露原则：今后所有发表物默认都经过 AI 的事实核查与行文润色，"这年头不用 AI 帮你写才是蠢"。Jason 独扛反方：用 AI 做研究、校对合法，但由 AI 生成全文而不披露是对读者预期的背叛，"只有 800 字，自己写"。Friedberg 以工具连续体反问收尾：要不要披露用了修图软件的哪个滤镜？"用 AI"的定义本身是模糊光谱，把 AI 当作独立的智能替代物不符合人类实际用法——它和所有工具一样是创造力的放大器。</p>
+<p>节目其余部分（社交平台未成年人限制、一家疫苗公司的免疫疗法定价争议、情报口的外交动向）与 AI 主线关联较弱，此处从略。</p>
+<p>（口径提示：本文基于补抓的自动字幕整理。财报数字为口播、应源自披露但个别口径待核——其中"12 倍市盈率"的说法与市值利润明显不符、已略去；两笔收购在节目中均为转述报道、未经确认；再融资 10 万亿、回购上限 1 万亿、债务成本 3.4% 等宏观数字全部为主持人现场推算、无出处；"30 年期到 6%"的阈值在字幕中转写有误、按上下文还原，引用前请核对原始来源。）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
