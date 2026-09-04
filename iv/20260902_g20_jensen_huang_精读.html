@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>黄仁勋在 G20：token 的能源化计价、AI 五层蛋糕与“我们今天实际上已经在 AGI 那儿了”（G20 创新部长会，2026-09-02）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>黄仁勋在 G20：token 的能源化计价、AI 五层蛋糕与“我们今天实际上已经在 AGI 那儿了”（G20 创新部长会，2026-09-02）</h2>
+<div class="metaline">G20 创新部长级会议炉边对谈 · 33 分钟 · 2026-09-02</div>
+<p>场合与 Altman 同场，对谈人同为美国商务部长 Lutnick，听众是 G20 各国部长与代表团。这场发言的主题被主持人一句话定住：请你告诉在座各国，算力如何生产经济价值、他们回国后该建什么。因此全片是一套面向政策制定者的完整推销框架，其中“AGI 已经实际到达”与“所有工作被消灭是胡说”两段传播最广，也最容易被截断引用。数字均为口播，引用前需回到公司披露口径核对。</p>
+<h3>一、把 token 放进能源的计价体系</h3>
+<p>他从一个概念起手：<strong>token 是大量计算的数学产物，它代表智能</strong>。把这些数字重新组织，就成为一张图、一段文字、一个问题的答案、一个被解开的问题、一个新想法。</p>
+<p>随后是全片的定价类比：<strong>一两百年前世界发现了“能源”这个新概念，并用美元每千瓦时把它货币化；今天是美元每百万 token，是同一个想法。</strong> 两者都近乎不可见、都难以直观理解、都极其有价值。他补充说智能之所以难以把握，是因为它是概念性的，无法像原子那样被拿在手里——但一旦开始使用这些应用，人们会立刻意识到它的价值，因为它让人更有生产力。</p>
+<p>他为在座国家给出的对应结论是：<strong>AI 会像电力普及那样让智能与能力民主化</strong>。计算机技术过去五十年只服务于会编程、会设计计算机的一两千万人，“这是我的职业”；而现在任何人都能用人类语言给计算机编程，这是他称之为“伟大均衡器”的部分。</p>
+<h3>二、AI 五层蛋糕：不必层层都赢，但必须推动扩散</h3>
+<p>被问到各国回国后该投什么时，他给出全片结构最完整的框架，并明确说它有五层（其归纳）：</p>
+<ul><li>**第一层能源**。没有能源就产不出任何东西，这一层把电力转化为数学。</li><li>**第二层芯片**。他自己所在的这一层。</li><li>**第三层基础设施**。土地、电力、外壳与其中的全部计算技术，“能源插进去，钱开始喷出来”。</li><li>**第四层模型**。多数人以为 AI 就是这一层。他强调 AI 能学习、理解并预测任何有结构的信息，生物学有结构、化学有结构、物理定律有结构，因此各地区各有专精领域。</li><li>**第五层数据与应用**。他称这是最重要的一层。</li></ul>
+<p>给各国的建议随之而来：<strong>美国投的是完整的五层，但每个国家应当自行决定投哪一层，不必层层都赢、不必样样都自建；最重要的事情是推动 AI 扩散进入本国产业</strong>——从教育、医疗到制造、科学，所有行业。他顺势为英伟达的通用性做了背书：其架构上跑得了美国模型、国际模型，也跑得了生物、化学、物理与机器人的模型。</p>
+<h3>三、一吉瓦、100 吉瓦与“接近一万亿美元”</h3>
+<p>本场的量级数字集中在通用架构那一段：</p>
+<ul><li>**一吉瓦的基础设施约合 500 至 600 亿美元。** 他的参照系是过去人们认为一座 250 亿美元的晶圆厂已是巨额投资，如今一吉瓦是它的两倍。</li><li>**从现在到本十年末，英伟达要建 100 吉瓦**，理由是“我们要为世界生产智能”。</li><li>**仅今年一年，投入美国基础设施的规模接近一万亿美元**（其口播，未说明是公司自身资本开支还是其生态口径，引用需谨慎）。</li><li>美国这一侧的就业叙事：AI 正在从晶圆厂、计算机工厂到 AI 工厂的各个环节创造岗位，“数十万计”。</li></ul>
+<p>这些数字被用来支撑一个投资论证：<strong>基础设施的单位成本如此之高，就必须保证它可复用且耐久（他的用词是 fungible 与 durable），否则一旦模型与算法的架构变化，过度专用化的投入会被作废。</strong> 他把英伟达十四代架构、遍布云端与本地与边缘与机器人系统的部署，归结为“人们开始意识到我们是最安全的架构投资”（其自述）。</p>
+<h3>四、AGI：一句极强的断言，紧跟一段极强的降温</h3>
+<p>这是本场传播最广的段落，但两半必须一起读。</p>
+<p>前半段：<strong>“未来几年我们会实现人们所说的 AGI，这在我看来并非不合逻辑。事实上我认为我们今天实际上已经在那儿了。”</strong> 他随即说，问题在于这句话意味着什么——它要么意味着很多，要么什么都不意味着。</p>
+<p>后半段是他自己的降温论证，需要与前半句一起读。他先给了一个类比：几百年前人类为了更文明的社会而制造了教育，通过大学与学校规模化地制造智能与稳定；现在我们在数字化地规模制造同一件事，让没有机会获得最高水平教育的国家和人也能获得其收益。</p>
+<p>然后是限定：<strong>即便到了 AGI，公司的问题也不会自动被解决。</strong> 他用招聘做类比——从斯坦福、哈佛、MIT、ETH 招来的年轻人都极其聪明，但公司仍要投入大量资源，为他们提供语境、目的与关联性。<strong>“不会出现这样的事：两年后我接上某个 AI 服务，然后坐下来，公司一夜之间变得更有生产力。这根本不会发生。”</strong> 所有这些围绕 AI 的语境构建与环境搭建，正是公司与领导者要做的事。</p>
+<p>由此推出他对就业的判断：<strong>工作由目的、语境与意义定义，工作里那些打字、开会之类的技能会被自动化，任务会被自动化，但工作的目的仍在。</strong> 他的原话是“所有工作都会被消灭、被移除的说法，这是胡说”。他给出的正面预期是所有人都会被增强，正如今天已经被增强的那样，并以英伟达自身为例：全公司都在用 AI，既用现成的 Anthropic、OpenAI 与 Cursor，也大量自建。<strong>“每个国家、每家公司都不能把全部智能外包给别人。”</strong></p>
+<h3>五、智能体外骨骼：从 LLM 到机器人的同一件事</h3>
+<p>他用一套简洁的推演解释为什么 AI 在他看来是硬件问题：<strong>让 AI 变得有用的，是给大语言模型套上一副外骨骼，也就是所谓的 agent harness</strong>——让它具备检索知识、保有工作记忆、使用工具、协作的部件，从而解决问题。</p>
+<p>这就是 AI 的数字形态。接下来只是替换工具：<strong>把同一个智能体从使用电子表格、演示文稿与浏览器，换成使用机械，它就被嵌入一具物理身体，成为机器人；放进四个轮子里，是自动驾驶汽车；放进机械臂里，是取放或制造机械臂；再往下是配送车辆、手术机器人、自动化的药物发现实验室。</strong> 他的结论是这些版本本质上是同一个想法——大语言模型加上一套智能体系统，它可以操作数字工具，也可以操作物理工具。</p>
+<p>对各国的行动含义仍然落回基础设施：这与水、道路、电力、互联网是同一类东西，每个国家都要建，以支撑本地经济的智力容量。他的经验是<strong>只要本地基础设施建起来，当地的初创公司与研究者会立刻被激活</strong>。</p>
+<h3>六、监管：管实际的危害，不管假设的危害</h3>
+<p>他先给出一句判断：<strong>在这场技术工业革命里，各国最坏的结果是没有利用它、被落在后面。</strong> 他认为通往这个结果的路径之一，是领导层以恐惧和不确定的方式谈论这项技术——安全与保障的讨论他认为都很好，但<strong>必须与繁荣的讨论、与它能做什么的讨论保持平衡</strong>。</p>
+<p>他举了航空业的历史做支撑：曾经各家航空公司把大量广告预算花在“我的飞机比别人的安全”上，结果没有人想听这个，人们希望公司自己把这件事办好，而他们想听的是航空公司能带他们去新的地方、扩展视野、把世界变小。他的结论是安全应当是建造者的责任，不应当成为使用者整天要惦记的负担，汽车、发电、航空都经历过同一过程。</p>
+<p>对监管的具体主张是两条。其一，<strong>监管实际且具体的危害，不监管假设的、理论上的危害</strong>，并给这项处在 S 曲线早期的技术留出快速前进的空间。其二，人类活动本就有 FDA、NHTSA 等大量既有监管，而智能是人类所做之事的数字版本，因此他相信有办法把 AI 纳入这些既有框架。</p>
+<p>他还回头点了三年前主张放慢技术进步的那批意见：<strong>在他看来恰恰是进步本身让它更安全</strong>——消除幻觉、把回答接地到真实事实、让模型迭代到答案在科学上站得住，这些都是靠技术推进实现的。</p>
+<h3>七、收尾的野心叙事</h3>
+<p>最后一段是他给部长们的动员，也是理解他为何把一万亿美元这类数字挂在嘴边的语境：<strong>过去需要十年的事会变成一年，需要一年的会变成一个月</strong>。他说这是历史上第一次，普通人开始认为自己能对一个百万亿美元级别的产业产生影响，第一次有人、有公司、有国家在谈论为世界增加二十万亿到五十万亿美元的经济收益（其口播的量级表述，未给出测算口径）。他把这称作野心，并说自己本不必再工作，但不打算错过接下来的十到十五年。</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
