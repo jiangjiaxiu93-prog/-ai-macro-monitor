@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>开源推理的真实流量：云端编码代理以中国模型为主，企业 token 八九成走开源、预算只占一两成（Ollama 创始人，Y Combinator，2026-09-04）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>开源推理的真实流量：云端编码代理以中国模型为主，企业 token 八九成走开源、预算只占一两成（Ollama 创始人，Y Combinator，2026-09-04）</h2>
+<div class="metaline">Y Combinator · 57 分钟 · 2026-09-04</div>
+<p>嘉宾为 Ollama 联合创始人兼 CEO Jeffrey Morgan，主持人为 YC 播客 The Lightcone 的常驻合伙人（据字幕判断，出镜者至少包括 Garry Tan 与 Jared Friedman，后者是 Ollama 2021 年入营 YC 时的负责合伙人）。Ollama 起家于在 MacBook 与 Nvidia、AMD、Intel 硬件上本地运行开放权重模型，按 Morgan 口播，今年早些时候上线云端推理并开始商业化；主持人开场引用的规模数字为 900 万开发者、17.8 万 GitHub star、财富 500 强中 85% 在用（出自节目介绍，未说明统计口径）。这个位置让他同时看到本地与云端两条流量曲线，本期价值在于他给出了托管方视角下开放模型的真实使用结构：哪些来源的模型在跑、跑什么工作负载、企业为什么迁移、安全疑虑在客户端如何被处理。节目标题“中国模型正在运行云端”是 YC 方面的概括，主持人对图表的读法也比嘉宾的措辞更强，正文对两者做了区分。全片观点为嘉宾判断，模型名称与数字为自动字幕口播，模型版本号与份额均需回原始口径核对。</p>
+<h3>一、托管方看到的流量结构：云端编码代理以中国模型为主，本地则中美旗鼓相当</h3>
+<p>Morgan 给出的第一个判断是行业正在向开放模型迁移，企业侧尤其明显，模型来源为美国与中国两类混合，驱动力为编码代理与 OpenClaw、Hermes 一类的 AI 助理式协作场景，他把后者概括为协同工作（co-work）：把大块工作交给代理在较长时间跨度内自动完成。主持人的前提是 Ollama 坐在大量 token 的流经处，对哪些模型真正被使用、使用结构如何变化有一手数据。具体到 Ollama 云端，<strong>“目前以中国来源的模型为主，但调用方是全世界的企业”</strong>，其中美国与德国是开放模型 token 调用量的两个主要来源地。这与本地推理的图景形成对照：本地运行的模型是美国与中国训练模型的均衡组合，Llama 系列与 DeepMind 的 Gemma 系列是本地场景的常见选择。</p>
+<p>主持人现场对两张图的读法更直白：本地模型美中并驾齐驱，云端托管则“几乎百分之百是中国模型”，并由此追问是否说明美国需要更多实验室去做大模型。Morgan 的表述比这个读法保守，用词是“以中国模型为主”，并把 Nvidia 的 Nemotron Ultra 发布称为美国方面大尺寸开放模型的第一波回应。两者口径的差异应当保留：图表读法出自主持人，份额定性出自嘉宾，均无精确数字（作者归纳）。主持人对 Nvidia 策略的观察是其大量发布开源模型并扶持生态，借此保持硬件端领先，卖 token 或做软件业务都没有进入其护城河的构成，Morgan 表示认同。</p>
+<p>工作负载的拆分同样清楚。云端编码代理消耗的模型“今天以中国模型为主”，因为编码代理处理的是写代码、写测试这类难题，需要大尺寸云端模型；文档处理类工作流则在本地跑得很好，任务端到端的难度低得多。企业案例方面，他引用 The Information 前一日的报道：<strong>AT&amp;T 已把 40% 的 token 消耗转到开放模型上</strong>，目前主要经由美国与欧洲的模型，同时也在评估中国模型，工作负载以编码代理为主。</p>
+<h3>二、需求为什么在今年爆发：两个拐点、上下文从 128K 到百万以上、云端用量年内 150 倍</h3>
+<p>Morgan 展示了一张 Ollama 云端每位开发者每周 token 用量的曲线，主持人特意确认这是人均口径，图形看上去却像一条总量增长曲线。曲线有两个拐点。第一个在年初，由编码代理驱动：Kimi、GLM 系列与 MiniMax 相继发布，<strong>“终于有了能驱动编码代理的开放模型”</strong>。第二个在 4 月，由 OpenClaw 驱动，使用者从开发者扩展到财务、客服、市场、销售等非开发岗位，把一个难题交给开放模型、让它自行完成，过程中调用工具、抓取数据，token 消耗随之激增。同期开放模型的上下文窗口从 128K 扩展到一百万以上，是这轮增长的技术前提。</p>
+<p>量级方面，主持人读图估算 4 月那一跳使人均周用量增加约 5 倍，Morgan 认可这个量级，并补充总量口径为 10 到 20 倍以上，<strong>“云端自年初以来增长了 150 倍”</strong>。数字均为口播读图，起点绝对值在字幕中含糊，引用时以倍数为准。</p>
+<p>他对 2024 至 2025 年与 2026 年的区分值得记录：此前大模型的开放权重在生产环境里主要以定制模型形式被托管，做法是拿 DeepSeek 或 Kimi 这样的现成模型针对自身场景微调后再规模化部署，Cursor 是有名的例子；<strong>开箱即用的开放模型被直接大规模托管，是今年年初才出现的现象</strong>。主持人追问微调热潮是否会像 2024 年初那样再次被下一代模型“踩扁”，他的回答分两面：发布节奏还在加快，仅今年夏天 DeepSeek Flash 就已迭代三次，过去是六个月一个周期，这让定制训练更难跟上；另一面是工具链在变好，想微调的团队有能力跟住节奏。</p>
+<h3>三、企业为什么用开源：成本是入口、控制与定制是北极星，稳态下 token 八九成走开源而预算只占一两成</h3>
+<p>被问到企业迁移是否只为降本，Morgan 的回答分两层。<strong>成本是开放模型能够切入并解决的首要痛点</strong>，但每家企业的北极星是对 AI 获得更好的控制权并为自身业务做定制；成本是短期可解的问题，解决之后才有能力去做定制。这个顺序决定了开放模型在企业内的扩散路径：先用价格换来准入，再用可控性换来深度（作者归纳）。</p>
+<p>主持人的前提观察是，早期企业把全部预算交给 Anthropic 或 OpenAI，如今开源在增长，Anthropic 一侧的支出同样在增长，两者同步扩张，问题是稳态落在哪里。对稳态分工，他给出全片可直接引用的核心数字。<strong>“在一家企业内部，绝大多数 token 会由开放模型承担，姑且说 80% 到 90%。这并不意味着 80% 到 90% 的预算流向开放模型。”</strong> 开放模型社区正在合力压低成本，企业可能只把 10% 到 20% 的开支付给开放模型，却让大部分 token 从这里流过。前沿实验室保留的是难度顶端的任务，因为顶尖研究者集中在那里；中间地带则是开放与闭源模型协作的空间。他的结论是“稳态下大多数模型是开放的”。</p>
+<p>协作的具体形态是路由：调度与较难的编排由前沿模型完成，逐项的执行工作交给开放模型，Sakana AI 与 OpenRouter 的项目已经验证了这种组合的效果。主持人的类比是律师事务所的合伙人与助理，Morgan 补充的先例是云计算：AWS 的 DynamoDB 作为自有的可扩展数据库，长期与 Postgres 并行被同一批客户使用。至于实验室是否愿意让自己的模型把任务分流给开放模型，他的表态是所有实验室的目标都是服务客户，<strong>决定权在客户手里</strong>。</p>
+<p>对前沿实验室商业模式的含义由此清楚：如果 token 份额与预算份额按上述比例分离，实验室的收入将集中于高难度任务的高单价，用量规模的增长主要落在开放模型一侧；主持人补充的观察是实验室希望用户完全留在其托管代理、上下文与记忆层构成的围墙花园里，小科技公司与开源开发者则不愿被圈住，结局大概率是两者的混合（作者归纳，实验室意图部分为主持人判断）。主持人进一步推演的一种可能是锁定本身消失：编码代理持续变强，维护良好、测试充分的软件这道传统护城河随之弱化，用户可以今天用 OpenAI 的记忆系统、明天让代理经由 MCP 把它同步到自有系统，切换成本趋近于零。Morgan 对此的回应落在哪些能力会进入模型、哪些留在模型之外，见第七节。</p>
+<h3>四、能力差与价格差：开放模型落后前沿不到三个月，下一战场是极致效率</h3>
+<p>对能力差距，Morgan 的口播判断是：年初开放模型已经追到智能前沿，<strong>“闭源前沿模型与开放模型之间的差距可能不到三个月”</strong>，他强调这是个人估计。主持人给出的一个具体对照是 Qwen 3.8 的 38B 版本（字幕写法，版本号待核）在编码上追平 Opus 4.6，Morgan 的回答仅限于“基准测试是这么显示的”，主持人指出这个尺寸的模型能在苹果商店里内存第二低的 MacBook 上运行。另一个例子是 GLM 5.3 发布时展现的网络安全能力，他用“极其亮眼”形容。主持人由此提出一个假说：前沿实验室的安全议题日益突出，前沿本身可能为对齐与遏制问题放慢速度，开放权重模型则会继续变好；Morgan 以一声认可带过，随即转向安全能力外溢带来的创业机会。</p>
+<p>差距缩小改变了竞争的性质。他引用 Kimi 在网页开发上一度成为表现居首的模型这件事，认为它给市场带来的冲击在于，<strong>“重点已经从差距转向正面对撞的竞争”</strong>。Z.ai 的 GLM 系列在部分任务上已处于前沿，他认为出现开放的顶级模型是可能的。</p>
+<p>价格差是他更看重的下一个战场。<strong>智能追平之后，下一个要解决的问题是极致效率</strong>。他把 DeepSeek Flash 视为一类新模型的代表：单 token 成本极低，单任务成本同样低，后者是他强调的更重要指标。按 Ollama 云端的模型家族拆分，<strong>DeepSeek 是增速居首的家族，主要由 DeepSeek Flash 的采用驱动</strong>；这类模型“对 80% 的任务足够好、速度很快、极其便宜”，主持人称之为干粗活的主力机型。他提到一款闭源低价模型（字幕作 GPT Luna，名称待核）的定价已经让不少团队实现全员采用，开放模型正在复制这一效应。</p>
+<p>他由此把话题引向“无限 token”：早期 ChatGPT 用户从不考虑用了多少 token，行业最终会回到那种状态，但需要模型架构为高吞吐用量专门训练。便宜带来的第二层效应是编排：把多个 Flash 级模型串联起来分工，能得到接近大模型的结果，这为创业公司、推理服务商与工作流软件公司打开了新的问题空间。对主持人提出的“上帝模型还是许多小模型”之问，他的回答是<strong>多数客户场景存在一个“足够好”的智能水平，达到之后客户就停在那一级</strong>，模型之后变快、架构变新，客户无需再去够顶级模型；确实存在只有顶级模型才能解锁的场景，那部分会继续存在。</p>
+<h3>五、安全与后门：托管方尚未见到已知案例，客户把它当作供应链问题处理</h3>
+<p>主持人直接提出的问题是：一个中国模型即便托管在美国，如何确保它没有被预埋触发式后门（主持人以影视作品里的沉睡特工作比）。Morgan 的回答是<strong>“我一时想不起任何已知案例，没有听说过，我觉得如果有我会听说”</strong>。他随后描述了客户端的实际处理方式：财富 500 强企业的 IT 与安全团队对此并不陌生，因为一个普通应用有数千个开源依赖，任何一个依赖出问题都会波及整个应用，<strong>供应链投毒是存在了几十年的老问题</strong>。模型的差异在于更不透明，无法像代码那样逐行审查，但模型是确定性的，只要用安全检查对模型做适当筛查，客户反馈是可以解决的。</p>
+<p>他把 AT&amp;T 案例里提到的采用障碍归为同一类：阻碍企业采用开放模型的因素主要是安全与合规。这里的缺口在工具层面：开放模型没有闭源服务商那样自带的一整套安全工具，而这对企业采用至关重要。他的市场判断是，无论美国还是欧洲客户，<strong>“只要能解决安全问题，采用中国来源实验室的模型是完全可以摆上台面的选项”</strong>，GLM 5.3 一类模型在网络安全上的能力也为安全与治理领域的创业公司创造了介入机会。</p>
+<p>安全在另一个方向上反倒成了开放模型的优势场景。客户常问在哪些场景开放模型对闭源前沿模型有决定性优势，他的答案之一是安全测试。主持人补充的经验是让 Claude 去给自己的产品做渗透测试会被直接拒绝，Hugging Face 上则有去除安全对齐的（abliterated）安全研究模型可以完成这类任务；Morgan 的说法是即便开箱即用的开放模型也带安全训练，只是在区分正当用途与恶意用途上更有余地。主持人还提到 Hugging Face 此前需要借助开放权重模型才检测出来自前沿模型的攻击，字幕中未展开，此处仅作记录。</p>
+<p>模型来源与运行地点是他反复区分的两件事。与客户接触越多，他越发现问题集中在模型如何运行、在哪里运行、是否在安全环境中运行。客户分两类：一类不在意模型来源，只在意运行地点；每有一个这样的客户，就有另一个在意来源的客户，理由包括数据以及模型“说话的方式”，因为模型会经历时而机械、时而亲切的阶段，这在企业应用里同样重要。他认为第一位的考量是端到端弄清数据从哪里来，Nemotron 系列可以追溯训练来源是其优势；他举的关键任务案例是芬兰一座电厂用 Llama 驱动的分析系统检测电力浪涌，<strong>“在这类关键任务上，模型来源真的重要”</strong>。</p>
+<h3>六、本地推理的回潮：20B 到 128B 模型在桌面硬件跑通，编码循环会回到桌面</h3>
+<p>Morgan 把本地与云端的关系看成与开放和闭源同构的混合结构：容易的任务本地跑，时延更低，单 token 成本更低，因为硬件是一次性买断；难任务上云。他对当前一代桌面硬件的判断是，<strong>运行 200 亿到 400 亿参数的模型表现很好，部分场景可到 1280 亿参数</strong>。这个尺寸段对应的是文档处理类工作流，与云端编码代理形成分工。他的总结是混合执行加路由：简单任务本地完成，路由器判断何时需要调用云端大模型，企业的成本由此进一步下降，因为模型跑在本来就要采购的硬件上，边际成本接近于零。</p>
+<p>硬件端的两条线是 Apple 与 Nvidia。DGX Spark 提供 128GB 统一内存，覆盖 200 亿到 1200 亿参数区间，通过高速互联可以像微型机架一样堆叠，Morgan 确认可以由此运行 4000 亿参数模型；Ollama 按其口播是与 Elon Musk 等一道首批收到 DGX Spark 的团队之一。Apple 方面 MLX 项目在 Mac Studio 与小尺寸 Mac 上的技术栈已相当成熟，两者在其测试中表现接近，选择取决于能买到什么以及所需的技术栈。主持人把这一轮称为个人桌面的复兴，Morgan 表示认同。桌面端 DGX Station 搭载 GB300，主持人估算以约 20 万到 30 万美元可以慢速运行前沿级模型，Morgan 的回应是<strong>价格比这更有竞争力</strong>，对话中随后有人补充能以高速运行超出前沿模型规模的模型、价位与传统工作站相差不远（字幕未标明说话人，口播，无具体价格）。他补充的客户侧事实是银行与工业企业已在每位工程师桌上配备 Nvidia 工作站 GPU，部分企业有数万块，此前用于 CAD，下一代产品可以直接接续。</p>
+<p>对趋势的判断是回潮。Ollama 从本地起家，编码代理的需求目前明显在云端，<strong>但他认为随着硬件追上，编码工作负载会回到本地</strong>：桌面上有了 GB300，编码循环的速度可以快到与跑测试、改编辑器同级，GitHub Copilot 早期百毫秒级自动补全的体验会回到桌面，本地与云端最终并用。</p>
+<p>GPU 市场方面，他的描述是价格变化极快、供需波动很大，创业公司要拿到运行新模型所需的 B200、B300 非常困难，通常需要给出 24 个月的用量预测才能谈到额度。Ollama 通过与多家推理服务商合作把 GPU 汇集起来跟上需求，但这需要持续判断哪个模型跑在哪里、多快、在哪个区域、客户时延多少。OpenRouter、Ollama、OpenCode 这类产品的价值在于让个人开发者无需去谈 GPU 价格就能用上模型。</p>
+<h3>七、托管方的角色是操作系统：发布当日手册、开源版“五层蛋糕”与新的稀缺</h3>
+<p>模型发布的节奏加快之后，Ollama 形成了一套发布当日（day zero）手册。第一步是推理引擎支持，让模型在常用推理引擎里跑得快、跑得准、与参考实现一致，这有时是数周的工作；第二步是找到合适的执行框架（harness）与用例，因为新模型通常带来新能力，他举的录制当天例子是 DeepSeek 发布了首个大模型级多模态模型，同时更新了自家 harness 以支持这一能力；最后一步是在发布前用最终产品跑基准，确认与实验室研究团队的规格一致。打包的三样东西是 harness、模型与容量、硬件与服务商：容量之所以关键，是因为发布当日通常是增长幅度居首的一天；硬件与服务商一层则需要与推理服务商、Nvidia 以及 Apple 芯片栈协作优化，模型能力再强、跑得慢也没有好的体验。<strong>“一般能提前几周拿到模型就算幸运，很多工作在发布前 24 小时内才凑齐，基本上是一场消防演习”</strong>。</p>
+<p>他认可主持人的操作系统类比：底层是硬件、服务商与推理层的驱动，上层是应用运行时与 harness 的适配，中间是组合爆炸式的兼容问题，做好极难；长期积累出的是一套能把任意 harness 匹配到任意模型的公共运行时。他把落脚点放在开发者体验上：开发者调用一次 API、拿回 token，中间发生了什么，这一层正在发生的事情越来越多，做好它需要整个栈的各层协同。主持人补充的反面经验是，底层推理服务商常有未文档化的参数错误与格式要求，绕过一层封装的开发者会先撞上几个小时的墙，Ollama 这类中间层同时也在帮服务商修这些底层缺陷。团队背景对此有解释力：核心成员来自 VMware、Docker 与网络公司，没有 AI 研究背景，<strong>“经典的计算问题正在推理领域重新出现”</strong>。</p>
+<p>他借用 Jensen 的“五层蛋糕”说明目标：应用、模型、基础设施与推理、芯片、能源，前沿实验室在发布当日就把五层准备好交给开发者，开放模型此前一直做不到，Ollama 想做的是为开放模型编排出同样的完整性。他进一步指出开放模型的层数可能多于五层：模型层里除权重之外还有各模型擅长的编排组件、开发者 API 层，模型与应用之间有大量今天被隐藏的可建之处。</p>
+<p>对这些层是否会拆分成独立公司，他的回答是肯定的，并引用 Anthropic 平台团队一场演讲里的三个问题：知识（如何把企业数据与上下文接到模型上）、协调（一次请求会派生出云端与本地的多个子代理）、执行（沙箱与向云端迁移的代理带来的算力问题）。云计算的历史经验是 Heroku、Google App Engine 把一切捆绑在一起，开发者最终偏好每个问题上的单项优选产品。由此引出他对稀缺的重新定义：<strong>“开放模型 token 已经过剩，有几十家服务商能提供这些 token，新的稀缺在 token 之上”</strong>，即如何把代理从 A 编排到 B，这些系统工程问题单个开发者不可能全部自建。他对边界的划分是：harness 的许多部分会下沉进模型，但有状态的部分（记忆、存储）永远进不了模型，因为模型训练即便按月进行也追不上最新数据；安全凭证与安全工具同样留在模型之外。曲线的另一端是整理与策展：模型、推理技术、云服务与 harness 组成的碎片化世界需要有人把它拼成能用的东西，OpenRouter 用一处签约支付覆盖上百家服务商、OpenCode 用一个 harness 接任意模型，都是这个方向上的先例。</p>
+<h3>八、Ollama 的商业化路径：无需审批的采用、等待开放模型的产品市场契合，以及失效的旧经验</h3>
+<p>主持人指出，从云端按模型家族的 token 曲线看，Ollama 的故事像是 2026 年 2 月才开始并随即爆发，实际起点是 2021 年。Morgan 的复盘是：他与联合创始人 Michael 在 Docker 时期共同做出 Docker Desktop，2021 年带着“面向 Kubernetes 的 Docker Desktop”进入 YC，2022 年从 Benchmark 融到 A 轮（合伙人为 Docker 当年的 A 轮投资人），此后在 Kubernetes 安全、桌面开发者安全之间反复转向，团队十余人，两年时间都在找问题。2023 年 7 月 Llama 2 发布，团队给自己两周时间上线首个版本，<strong>“两周内从想法到发布、到用户数超过此前所有产品的总和，之前两年是坦白说想得太多”</strong>。GitHub 星标到 10 万的速度快于 Docker 与 Kubernetes。</p>
+<p>从 Reddit 上的本地模型爱好者到财富 500 强的 85%，他给出的解释有两条：开放模型免费上手、随处可运行，<strong>企业 IT 开发团队用它不需要申请许可</strong>，对爱好者友好的属性直接迁移到了企业开发者身上；大语言模型是无状态的，迁移比 MongoDB 那种从开发者走向企业的数据库路径更容易。上云之后变量增多，经济性与模型运行位置的安全问题都进入考量。</p>
+<p>商业化只在今年随云服务启动，此前两年没有收入。他自述当时看到两条对公司、开发者与客户都成立的变现路径：一条是以隐私为卖点的 AI 产品，Ollama 的开源形态正是从这里起步；另一条是等开放模型在难题上出现产品级的市场契合、届时在场承接。<strong>本地推理始终是故事的一部分，完整的故事是如何用开放模型去解决难题</strong>。他的解释是一直在等后一条路径成立：早期 Llama 系列发布时连工具调用都不能立即使用，难题仍然留给前沿模型；<strong>“今年编码代理跑在开放模型上，AI 消耗量的头部第一次与开放模型的能力对上了”</strong>。等待的代价是文化，团队从 Docker 时期学到过不把商业化当优先级的后果；两年找问题的阶段被主持人称为“荒野”，他认可这个说法，并补充客户通常是北极星，看不到北极星比找不到答案更可怕；另一个风险是把开源项目的用户当作“互联网上的一团模糊”，他承认过去几年在客户接触上做得不够，现在正在补。</p>
+<p>第二次创业者从上一代基础设施带来的一些经验在 AI 领域失效。平台即服务时代的教条是叠在别人之上的层处于脆弱位置，他认为在 AI 领域这条完全不成立，<strong>向上层走反而更接近客户</strong>。系统世界要求一切按设计确定运行，大语言模型则天然不完美，主持人称之为特性；交付云服务与客户支持所需的人手比十年前少得多，而且“现在没有哪位工程师确切知道全部代码如何工作”。从 2000 年代的基础设施、2010 年代的云到今天的 AI，他的总结是很多规则在断裂。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，模型名称按常见拼写还原，Qwen 3.8、GLM 5.3、Nemotron Ultra、GPT Luna 等版本号或名称以字幕为准、待核。900 万开发者、17.8 万星标、85% 财富 500 强出自主持人开场介绍；AT&amp;T 40% 转引自 The Information 报道；云端“几乎百分之百中国模型”为主持人读图，嘉宾口径为“以中国模型为主”；150 倍、5 倍、80% 到 90% 与 10% 到 20% 均为嘉宾口播估计且无绝对值；DGX Station 价格为主持人估算、嘉宾未给具体数字；“落后不到三个月”为嘉宾个人估计。引用前请核对原始来源。）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
