@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Benedict Evans 论 AI 使用的经济学：编码为何先跑通、基础模型像运营商还是像操作系统、本轮与 PC/互联网/移动的差别是看不见物理上限（a16z Podcast，2026-06-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Benedict Evans 论 AI 使用的经济学：编码为何先跑通、基础模型像运营商还是像操作系统、本轮与 PC/互联网/移动的差别是看不见物理上限（a16z Podcast，2026-06-08）</h2>
+<div class="metaline">a16z Podcast · 60 分钟 · 2026-06-08</div>
+<p>嘉宾为独立科技分析师 Benedict Evans，前 a16z 合伙人，以每年一份行业总览报告著称，本期围绕其新版报告《AI Eats the World》展开，主持人为 a16z 的 Erik Torenberg。对“应用层探讨”这个主题而言，本期的价值在于 Evans 用一整套旧周期的类比（PC、互联网、移动数据、运营商）来回答同一个问题：基础模型能否自己把整件事做完，还是必须有几百个应用建在它上面，价值最终落在哪一层。他的立场是审慎的：他给出的判断多以“这是一条推理链，请告诉我它哪里不成立”的形式出现。全片观点属嘉宾判断，数字多为口播且他本人多次声明是凭记忆给出，引用前需回原始口径核对。</p>
+<h3>一、一年之变：焦点从“什么都做”收窄到编码，而三年前的基本问题一个都没答</h3>
+<p>Evans 对过去一年的总结是，行业终于有了产品策略分化的样子，竞争张力也超出了“更大模型、更多算力”这一条线。他描述 OpenAI 的策略经历了几次迭代，从“昨天还是一切同时上”，到“哦不，也许该押注编码”，其表述是当时几乎像是“问 ChatGPT 要十五个在基础设施之上创造价值的点子，然后全做一遍”。同期 Anthropic 因为募到的资本较少，选择集中做编码，并且做成了。至于这是深思熟虑的战略还是误打误撞，他说留给别人评价。</p>
+<p><strong>代理式编码在今年年初从“有点用”变成“改变一切”，客户是在从供应商手里抢产品，这是目前唯一具备这种量级产品市场契合度的用例。</strong>由此产生的副作用是全行业注意力急剧收窄到编码，以及围绕算力的供给挤压：供给、需求、产能、资本开支与定价之间的错配。</p>
+<p>他同时强调另一面：图表上的数字继续上升，模型继续变大，资本开支继续增长，用量继续增长，但<strong>两三年前会提出的那些根本问题，今天依然没有答案</strong>。模型层会不会出现一个赢家，模型公司能否向上捕获价值，模型到底能做到多少，以及以现有技术，看不到消费者从每周使用转向每天使用的路径。他的结论是所有这些问题都还开着。</p>
+<h3>二、编码为何先跑通：LLM 本身是计算机，人们先拿它造更多计算</h3>
+<p>被问到能否预见编码会成为第一个突破口，Evans 给了一个事后看很朴素的推理：谁在摆弄这些东西？软件开发者。软件开发者会试着让什么跑起来？软件开发。他把当下比作 1997 至 1998 年的互联网，也比作 1980 年代初或 1970 年代末的 PC：极度令人兴奋，但还不清楚它是干什么用的，也还不太好用，而人们拿 PC 做的第一件事是造更多计算机。<strong>“LLM 在某种意义上就是计算机，人们拿它做的第一件事是造更多计算。”</strong>他认为这并不令人意外，但没有人能确定地预测这件事发生的时点、并且首先跑通的会是编码。</p>
+<p>对于编码跑通之后对工程师、初级岗位与团队组织的含义，他的回答是“我们什么都还没学到”，因为这东西六个月前还不能用，所有人都在猜它意味着什么。他提醒不要陷入“昨天某人在派对上说了什么”这种噪音。真正变化的是问题的性质：以前“你为什么雇初级员工、你雇他们是为了他们做的那件事还是为了别的”属于理论讨论，现在软件开发里确实在自动化一批过去由人完成的工作，这些问题从理论变成了当下。但他认为任何人声称知道三年后的市场结构或软件工程师的职业路径，“都是疯了”。</p>
+<p>价格挤压也让这个过程注定需要几年才能沉淀。需求与供给之间的巨大错配传导到定价，因此团队会长成什么样，现在无法判断。</p>
+<h3>三、定价挤压与 2009 年移动数据的对照：运营商建了全球基础设施，值钱的东西全归别人</h3>
+<p>Evans 认为当前的定价错配与 2009 至 2010 年移动数据的情形高度相似。当时一边是有人突然收到 5000 到 10000 美元的数据账单，另一边是美国 AT&amp;T 以不限流量套餐推出 iPhone，结果所有人买了 iPhone、开始看 YouTube，整个网络因容量不足而瘫痪。他补了一句：至今仍有科技业人士不理解蜂窝网络是有边际成本的，增加容量要花钱。运营商随后花了几年把定价体系与底层成本和感知价值对齐，手段是封顶套餐、公平使用条款与限速。</p>
+<p>映射到今天：<strong>“一边是你每月付 20 美元、拿到价值一万美元的 token，另一边是你瞎折腾了两天、收到一张一万美元的账单，心想这是什么鬼。”</strong>他说这些故事现在每天都能看到，与 2008 至 2010 年的移动数据如出一辙，也与 2001 至 2003 年的 GPRS 时期相似（字幕中为“GPS”，据上下文应为 GPRS 移动数据，作者归纳）。</p>
+<p>这个类比更重要的后半段是价值归属。他引用的数字为口播：此后移动数据流量增长了大约 1500 到 2000 倍，全球移动运营商合计收入约 1 万亿美元，每年资本开支约 2000 亿美元，<strong>而运营商股价二十年持平，所有酷的东西都由别人建成</strong>。他自述曾任职的电信公司甚至持有银行牌照，因为当时以为自己会做移动银行，“现在看来完全疯了”。运营商建了一套全球性的、极其复杂、极其昂贵的基础设施，使用量持续高速增长，改变了所有人的生活，所有人都在为它付费，但运营商没有从中赚到钱，因为价值全部上移到了应用层。</p>
+<p>他把这一条直接对准 LLM：这正是核心问题，模型能否自己把整件事做完，还是必须有三百个应用建在它上面；你能否直接对模型说“帮我报税”，还是需要一个报税软件，内部以十种不同方式调用 AI。如果是后者，基础模型提供商是什么？是按边际成本出售的商品化基础设施吗？他说这个概念眼下似乎很难被人接受，因为现在能卖出你能生产的全部 token，可以按 ROI 定价；但接下来几年有 1 到 2 万亿美元的资本开支在路上，模型效率每年提升 100 到 200 倍，届时会到达另一个均衡，<strong>“为什么那个均衡会是模型公司拥有定价权的均衡，当模型都差不多、用同样的芯片、做同样的事？”</strong></p>
+<h3>四、基础模型是不是产品：三四块积木拼出一条商品化推理链</h3>
+<p>主持人追问“基础模型不是产品、价值在更上层”这一判断的推理。Evans 说桌上可以摆三四块积木。第一块，看不出一家公司如何做出一个可持续差异化、根本性优于他人的模型：没有网络效应，没有 Instagram、YouTube 或 Google 搜索那样可以拉动的杠杆，<strong>“模型之间除了你愿意花多少钱，看不出根本性的竞争差异”</strong>。第二块，聊天机器人本身是“一个古怪的、受限的 v1 用户界面”，对某些人与某些任务很好用，其余多数场景需要工具、数据、配置、控制与合适的界面，需要有人坐下来想清楚这东西该怎么工作，而擅长用工具做事的人与擅长决定工具应该是什么的人通常不是同一批人：擅长做财务建议的人并不是设计 TurboTax 的合适人选。</p>
+<p>他把 Claude 的行业版本与“skills”归为在这中间摸索：谁来建 skill？这看起来像 Excel 里“新建文件”弹出的模板，能带你走一段，但到某个点人们会长出模板之外。他引用的一条推文可作注脚：一位咨询师说自己一半的工作是劝用 Excel 的人改用数据库，另一半是劝用数据库的人改用 Excel。所以总有一个模糊地带：要不要专用软件，要横向还是垂直，但不可能什么都在 Excel 里做。</p>
+<p>第三块，模型实验室能否把这一切都建出来？当然不能，正如 Microsoft 或 Apple 不可能自己写每一个 Windows 应用或每一个 iPhone 应用。那么实验室有没有杠杆，它们是 Windows 还是 iOS？他的检验是采购行为：一家律所、制造商或银行今天购买 a16z 投资的任何一款企业软件时，会不会问“这个用的是 Claude 还是 OpenAI，因为我们标准化在 Claude 上”？不会，就像没有人说“我们公司标准化在 AWS 上”，你甚至不知道所用 SaaS 产品跑在哪家云上，抽象掉了才是重点。<strong>基础模型因此更像超大规模云厂商，可能在更上层有竞争优势，但没有杠杆、没有网络效应、没有控制权。</strong>他顺带提出另一个可能更贴切的类比是半导体：每一代都更贵，玩家越来越少。</p>
+<p>把积木拼起来：模型是商品，聊天机器人不是对的界面或产品，公司也建不出全部应用，所以它们是底层基础设施。接下来是定价权问题。他给的区间是三到六家公司做前沿模型，每年投入“没人诚实地知道，大约在 2000 亿到 2 万亿美元之间”，此外还有一批边缘与开源。半打公司都在竞争卖同样的东西，价格纪律从哪里来？尤其其中一些公司有完全不同的商业模式，Google 卖广告，对定价的态度与 OpenAI 不同。他自称这是“大一经济学”水平的推理：当下处于供需、价格与产能的极端失衡，但 token 需求无限并不意味着到不了一个新的价格均衡，移动数据的需求同样无限，十五年增长 1500 到 2000 倍，却仍然到达了均衡，并且在世界多数地区打出了惨烈的价格战，因为本质上卖的是商品，客户会来回切换，开发者同样会来回切换。</p>
+<p>他给自己留了余地：也许最终只有两家公司能做 LLM 并拥有定价权，也许我们做的多数事情被吸进模型里，也许它们在更上层有杠杆。“前三次是这样”不能证明这次也这样。但他坚持一个基本观察：<strong>“眼下这个局面是过渡性的。我们处在极端稀缺中，然后有一个定价体系、一个自由市场、一波万亿美元级的资本开支，所以那些倍数会来回移动。”</strong></p>
+<h3>五、旧周期复盘：站在巨人肩上、什么都不好用、类比无预测力，与本轮看不见物理上限</h3>
+<p>这一节是本期对旧周期集中的复盘，Evans 把它拆成几层。第一层是采用速度为什么一轮比一轮快：每一轮都站在上一轮的肩上。移动互联网需要等蜂窝数据，但不需要等互联网被发明；互联网不需要等 PC；PC 不需要等消费电子与半导体从零起步。<strong>Marc Andreessen 做 Netscape 时，全球 PC 存量是几千万台量级，“你不可能有 9 亿周活跃用户，因为世上没有 9 亿台 PC”。</strong>所以每一轮扩散曲线都比上一轮陡，这是结构性的复利。</p>
+<p>第二层是每一轮早期的共同体验：什么都不好用，也不清楚哪种形态会跑通。他自述年纪刚好够记得那个年代：屏幕上一切突然冻住，只能钻到桌下拔电源，祈祷过去一小时的工作还剩一点。1980 年代买一张 300 美元的声卡，要搭上一个周末才能让电脑发出声音；上互联网要先找一张装着 TCP/IP 的软盘，速度很慢，你需要的东西大多不存在；移动早期同样如此。今天处于同一阶段：浏览器会跑通吗，是这个形态还是那个形态，这些东西如何拼在一起。他把差距概括为：一小部分愿意投入工作让某件事跑起来的人所感到的极度兴奋，与把它变成任何人按一个按钮就能用的东西之间，隔着一段距离。</p>
+<p>第三层是类比的边界。他常引用的一句话是“历史教给我们的只有：总会发生点什么”。十五年前，一批非常聪明的科技业人士看着 iPhone 与 Android 说“这又是开放对封闭，Android 会碾压 iPhone”，结果并非如此，他说自己能解释为什么，但要点在于<strong>“所有这些比较都有用，没有一个有预测力”</strong>。曾有一个时刻 Windows Phone 可能成功，事后看大概率不会，但当时确实不清楚移动会怎样运作；而后有一个时刻一切变得清楚，S 曲线向上弯折、路径收窄，行业就转向下一个问题。他由此回应“Benedict 你不做预测”的批评：一方面他确实在某些地方明确表态，比如基础模型不是产品、聊天机器人不是产品、价值在更上层；另一方面处在周期的这个阶段，路径有很多条，声称“就是那一条”可能对，但必须意识到不确定性有多大。他的工作习惯是一旦弄清一件事的答案就该转向下一件：他五年没更新过自己的 Apple 模型，也不再关心今年 iPhone 长什么样。</p>
+<p>第四层是本轮与前几轮的根本差别，他说这一点本该更早讲。<strong>以往每一次平台转移，你不知道接下来会发生什么，但你知道物理上限</strong>：1995 年你知道电信公司不会下周就给全世界接上宽带，你知道全世界不会都去买一台 3000 美元的 PC。而生成式 AI 没有这种约束感：录完这期节目打开手机，可能就有一条推送说 OpenAI 新模型价格只有原来的 2%，因为他们想通了什么。他不认为这很可能发生，但模型会大多少、好多少、快多少、便宜多少、性质会怎样改变，都不知道，这与前几轮知道基本约束的情形不同。</p>
+<p>第五层是“做新事情”优先于“把旧事情做得更多”，这是他对所有周期的通用观察：新技术出现时人们总是先做旧事情，更多的电子表格、更多的 PPT、更好的邮件，而重要的东西是用旧技术做不到的新事情。配套的谬误是“用新东西重建旧东西”，用开源重建 Office，在 Web 上重建 Office，结果 Google Docs 拿到大约 20% 的市场，因为那从来不是重点。他还举了互联网时代的一个反例说明“正确的宏观判断也无法逐行业落地”：1990 年代末说互联网会摧毁物理分发的价值，这对报纸意味着彻底被摧毁，对电影公司却几乎没什么改变。<strong>“我们在 1997 年，我正试图预测 Uber 和 Airbnb。”</strong>如果真能预测，VC 的命中率就会从十中一变成十中十。</p>
+<h3>六、编码之后是什么：四个按钮，以及问题会从科技业移出去</h3>
+<p>Evans 把“自动化了一类过去无法自动化的事”之后的追问归为三四个按钮。第一是价格弹性，即 Jevons 悖论：做事变便宜之后，你是花更少的钱做同样多的事，还是花同样的钱做更多的事，还是花更多的钱做多得多的事。第二是门槛：过去有什么昂贵到构成准入壁垒的东西，比如办报纸要拥有印刷机，现在这道壁垒是否消失。第三是商业模式或竞争格局里有什么因为这件事变便宜而被解锁。第四是过去成本高到没人想过的事，现在进入射程之内：蒸汽机让火车成为可能，买再多马也造不出特快列车；更近的例子是 Spotify，音乐业过去 25 年的前半段是“不用花 15 美元买 CD 就能听到那首歌”，后半段是“每月 15 美元听到世上所有音乐”，后者过去完全不可能。</p>
+<p>他特别感兴趣的一个领域是广告、电商与品牌：广告是 1 万亿美元的市场，零售是 25 万亿美元。Google、Meta 与 Amazon 并不真正知道一件商品是什么，只知道 SKU、发布者填在元数据栏里的字、以及“买了这个的人也买了那个”，这就是“我买了一个马桶盖，不是在收集马桶盖”这类笑话的来源。有了 LLM，系统在原则上能知道这些东西是什么、人们为什么买，至少是完全不同量级的统计关联。他认为这正是 Google 与 Facebook 每个季度广告转化率与广告收入突然加速的原因，因为它们把这些能力滚进了广告系统、推荐引擎与预测算法。他给的一条渐进例子：给一张外套的照片问“这是什么、哪里能买”，十年前肯定不行，五年前大概不行，现在应该可以；再进一步“推荐十件类似但价位不同的外套并比较优劣”，也能得到；再进一步“看我的 Instagram，推荐一件能改变我的风格但别太过的冬季外套”，三年前是科幻，现在觉得大概能做出一个能用的东西。</p>
+<p>他随后的判断是问题会移出科技业。这让他想起自己在 a16z 时写的两篇文章《内容不是国王》与《Netflix 不是科技公司》：Netflix 的一切由科技业造的东西使能，但它面对的所有问题都是洛杉矶问题，拍什么剧、拍多少、付多少给演员、要不要冲奖、要不要买体育版权，旧金山没人知道正确的问题是什么。同理，<strong>AI 对法律意味着什么，是律师的问题，和它是 AI 的问题一样多</strong>；生成式视频对好莱坞意味着什么，Ben Affleck 大概比他更清楚。如果没在律所或 Bain、BCG、McKinsey 工作过，你大概不知道那些 associate 在做什么、客户在为什么付费，因而也不知道金字塔底部被自动化后，结构和利润率如何重组。</p>
+<p>至于第二个跑通的领域会是什么，他不知道，法律或银行都有可能。他给出的一个数字（口播，字幕中公司名识别不清）是某家公司从去年底约 90 亿美元的运行率涨到 470 亿美元，“那全是软件，对吧？所以当别的领域有人把某件事做成，会发生什么？”</p>
+<h3>七、软件经济学与 SaaS 的下一步：更多软件，栈顶还是栈底，不该整体打五折</h3>
+<p>被问到这是否意味着一个更分散、更少捆绑的 SaaS 格局，Evans 先自嘲了一句“谢谢你把我拉回地面，说说股票吧”，然后给了几块积木：软件会更便宜、更快建成；会出现一批过去根本做不了的软件；因此竞争会更多，并伴随一个新的利润率结构，但没人知道那个结构长什么样。他对成果定价（outcome-based pricing）持保留态度：把企业软件里每一次按钮点击与损益表挂钩非常难，Salesforce 一类或许可以，但大量软件说不清“我今天的工作对 EPS 有什么贡献，所以该付多少钱”。</p>
+<p>他给了两个框架。第一个是企业软件的三个桶：大铁横向系统，SAP、Workday、CRM、薪酬等；垂直软件，<strong>典型美国大企业有三四百个 SaaS 应用，另有约一千个自建或采购后本地运行的应用</strong>；中间是 Excel、邮件与共享文件系统组成的模糊即兴地带。事情在三个桶之间来回移动，原则上每个 SaaS 应用做的事都能在 SAP 或 Excel 里做：PwC 每年招几千名毕业生，大概有一套自建（或请 Accenture 做的）招聘软件，而且大概很讨厌它；每年招五个毕业生的公司在邮件和共享表格里做这件事。LLM 到来后是新增一组选项：在 LLM 里做？让 Salesforce 借助 LLM 做到过去做不到的事？用 LLM 给自己造一个工具，就像某个部门至今跑在一张十五年前某人做的 10 兆 Excel 上，没人知道它怎么运作，但还在用。</p>
+<p>第二个框架是 LLM 在栈顶还是栈底。栈底是 Salesforce 里的一个功能：看这个客户的历史、所有销售电话的上下文、公司目标，建议一封邮件或一次通话该说什么，是一个受控、带工具与护栏、由特定用例驱动的按钮。栈顶是他早前举的例子：把 Salesforce、Workday、全部邮件与 Google Analytics 放在一起，综合出过去做不出的东西，比如根据所有客户 Zoom 录音、邮件流与产品遥测，回答“我们该怎么改价格来改善流失”。两种情形的张力相同：<strong>会犯错的概率性软件放在哪里，不能犯错的确定性系统软件放在哪里，数据库在上还是 LLM 在上，答案大概率是两者都有。</strong></p>
+<p>综合起来，这对软件意味着什么？更多软件，多得多的软件。所有软件公司都为解决别的软件公司制造的问题而存在，安全软件尤其如此；SaaS 带来了一到两个数量级的软件增量，这一轮应当预期同样的事。至于“SaaS 末日”，投资者看着一堆公司说，其中一定有 X% 会被这东西抹掉，但不知道是哪些，<strong>“所以你大概不应该把整个板块打五折，但显然你会说，在弄清到底发生了什么之前我不太想做多软件”</strong>。</p>
+<p>他还补了一段关于隐性知识的观察。软件公司与战略咨询做的是同一件事：看一家公司内部的运作，说这是个糟糕的做法、那样更好，软件公司把它编码进软件，咨询公司把它编码进流程、组织图与培训。但组织内部大量的东西是隐性的、没有文档、不在训练数据里、没人能画出流程图。Bain、BCG、McKinsey 价值的很大一部分是获准进入公司和所有人谈话，弄清实际怎么运作、与应该怎么运作之间的差距，以及为什么人们不执行战略，“因为他们的奖金指标依赖于不执行那个战略”。这类东西很难写下来、很难烤进一个 Claude skill 然后说“给你，做 PPT 吧”。他对“无前端的系统记录软件、只供代理查询”这类新形态没有强观点，并提醒这些问题未必新：Chris Dixon 十到十五年前就说过“API 是新的 BD”，今天换成了 MCP server，“旧的就是新的”。他把自动化的边界归为例外处理：什么不能自动化，什么需要有人做判断。他用的区分是任务与工作：五十年前的会计与今天的会计几乎不做同样的任务，但对客户而言买到的是同一件事。更抽象的判据是<strong>你在哪里想要“平均”，即任何人都会这样做、任何 associate 都会交出的那个答案；又在哪里想要一个新问题的答案、一个不同的想法。LLM 会非常擅长前者，不太擅长后者。</strong></p>
+<h3>八、资本开支的财务引力：不能每年花 10 万亿，因为没有 10 万亿可花</h3>
+<p>被问到“投资不足比投资过度风险更大”是否在某个资本开支水平上不再成立，Evans 提出“财务引力”问题。以下数字均为其口播并自称凭记忆：Microsoft、Meta 与 Google 今年资本开支都将超过收入的 50%，而通常被视为资本密集的电信业资本开支占收入的 15% 到 20%；四大公司今年的资本开支指引合计 7000 亿美元，对比全球电信业资本开支约 3000 亿（其中移动约 2000 亿），油气行业视口径在 7000 亿到 1 万亿美元之间。<strong>所以每年 7000 亿美元以全球大型基础设施的标准看并非大得不可能，只是很多钱；但这些公司明年花不了 1.5 万亿，除非借债，而且无法长期维持，“我们不可能每年在 AI 基础设施上花 10 万亿美元，因为世上没有每年 10 万亿美元可花”。</strong>资本市场愿意在一定范围内提供资金，但金额存在类似物理定律的上限，增长在某个点必须放缓。</p>
+<p>他不愿给出更具体的数字，理由回到开头的“多重倍数”：需求远大于供给，效率同时在大幅提升，不知道下一个模型是什么，不知道边缘与开源何时进场，同时永远在追赶下一个模型。<strong>贯穿一切的一条线是：一个模型只在三到六个月或六到九个月内有意义，而造它要花多少亿美元、需要多少基础设施，这笔账还没算清。</strong>他把半导体分析师给这些东西定量的努力比作 1990 年代末给互联网带宽定量：知道表格的行是什么，不知道格子里的值，只能说“显然有物理上限”。</p>
+<p>对 Google、Meta、Microsoft，以及一定程度上的 Amazon 与 Apple，这是存在性问题也是 FOMO 问题：一方面眼下投资回报极高，另一方面不能让别人独占这件事，否则公司就没了，没人想变成 2000 年代的 Microsoft、1990 年代的 IBM 或 2010 年代持续被 Apple 压制的 Meta。如果这是计算的未来就必须参与，但 CFO 会问“参与到什么程度”，曲线在某个点必然要走平。</p>
+<p>关于“token 最大化”会不会迎来清算，他承认有人在用价格居前的模型在网上瞎逛，与 2010 年“我以为这是不限流量套餐”的一万美元账单同类。更有意思的问题是 ROI 在早期难以衡量：这像 1990 年代末给所有人接上互联网然后说“去，更有生产力吧”。他引用的 Deloitte 与美联储对 CFO 的调查显示，迄今多数收益属于难以计量的一类，更好的分析、更好的客服、更快做出更多幻灯片，有财务价值但不同于“我们用 AI 做了个新东西，带来了这么多收入”，后者需要更长时间。他补充了消费者剩余这一层：如果做一个 DCF 要一周，你只做一两个；如果只要十秒，你做五十个，但大概无法多收钱。这些东西会变成竞争必需品，人人都得买，而由此得到的成本节约或生产率提升会被竞争掉。McKinsey 一份分析从一周变成一天，大概率是做五倍的分析、向客户收同样的钱，成本基础也没变，投行的财务分析当年正是这样演变的。</p>
+<h3>九、给实验室的问题：软件业提效值一万亿，然后呢</h3>
+<p>主持人指出，Evans 认为模型将商品化，但募资规模居前、速度居前的正是基础模型公司。Evans 澄清他的立场是“这里有一条推理链，看起来这些东西确定性地会走向商品化，请告诉我为什么不会”，仅此而已。他再次回到移动业的观察，声明其没有预测力：移动业很大、在基础设施上花很多钱、利润不高、所有酷的东西都由别人做成；至于资本回报，取决于在美国、欧洲、印度还是中国。那仍然是一件值得做的事，也为某些人产生了回报，只是它最终没能控制整件事，别人从中拿走了更多价值。他给的量级对照（口播，自称手头没数字）是：<strong>Google、Meta、Amazon、Microsoft、Apple 的利润合计超过整个电信业，是相当稳妥的判断。</strong></p>
+<p>他把实验室的处境概括为一个困局：在推动前沿的同时被迫持续竞争，否则别人会做、你会落后；还有一层本期没有展开的“我们在造 AGI、造盒子里的神”的信念。实际问题则是，如何做出人们想用的、软件开发之外的东西。让软件业更有生产力是一门好生意，“也许值一万亿美元，但然后呢？”如何把它扩展到经济的其余部分？这正是实验室与私募股权、咨询公司结盟的原因，因为如果你在经营一家真实的公司，弄清楚拿这东西做什么确实相当难，于是去找 Bain、BCG、McKinsey、Infosys、Cognizant、IBM、Accenture 或私募基金。他把这一节收在一个反问上：为什么多数人看着 ChatGPT，今天想不出拿它做什么。</p>
+<p>全片结尾是他连续两年使用的一张图：1950 年代初 IBM 的广告，一片举着计算尺的工程师，文案说一台 IBM 电子计算器给你 150 名额外的工程师。他说 a16z 见过多少个 pitch 是同一句话。每隔十年、十五年、二十年就有一轮根本性的技术变革，每一轮都令人惊叹、改变一切、与以往完全不同；AI 如此，移动、互联网、PC 与计算同样如此，同样难以判断会发生什么。所以基准情形应当是“我们会再经历一遍”：它会毁掉一些人的生活，让一些人失业，有一批我们不满意的东西，也有一批我们觉得很棒的东西。<strong>“二十年后我们会忘记曾有一个计算机做不到这些的世界。它会像魔法，而我们只会说，当然是这样，计算机一直都能做到。”</strong></p>
+<p>（口径提示：本文基于自动字幕整理。移动数据流量增长 1500 到 2000 倍、运营商收入 1 万亿与资本开支 2000 亿、三巨头资本开支占收入超 50%、四大公司 7000 亿指引、电信与油气资本开支、前沿模型年投入 2000 亿到 2 万亿区间、大企业三四百个 SaaS 应用等均为嘉宾口播且多次自称凭记忆，引用前需核对；“从去年底约 90 亿运行率到 470 亿”一句的公司名在字幕中识别不清，未点名；“GPS”按上下文理解为 GPRS 时期的移动数据；“open claw”“Claude for this”等产品名按字幕拼写；Deloitte 与美联储 CFO 调查出自其报告，本文未核原表；Google Docs 约 20% 份额为口播估计。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Garry Tan 论 AI 改写创业剧本：一个人可以是四百个人、单席位 SaaS 五到十年内存续存疑、一份 markdown 文件就是一名员工，而采纳要花二十年（a16z Podcast，2026-08-12）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Garry Tan 论 AI 改写创业剧本：一个人可以是四百个人、单席位 SaaS 五到十年内存续存疑、一份 markdown 文件就是一名员工，而采纳要花二十年（a16z Podcast，2026-08-12）</h2>
+<div class="metaline">a16z Podcast · 51 分钟 · 2026-08-12</div>
+<p>嘉宾 Garry Tan 是 Y Combinator 总裁兼 CEO，此前创办 Initialized Capital，更早是 Posterous 联合创始人，2003 年从斯坦福毕业后首份工作在 Microsoft 的 Windows Mobile 团队。主持人为 a16z 合伙人 Anish Acharya。本期表面上谈创始人心理，实际给出的是一份 YC 视角的应用层判断：当写代码不再稀缺，早期公司的形态（人数、ARR 曲线、技能文件数）会变成什么样，单席位 SaaS 这条老路还能不能走，在位者的壁垒是否真的会被冲垮，以及消费级 AI 应用为什么要等 token 成本再降一个数量级才会开打。Tan 把自己二十年里两次“追逐热门”的错误当作全片的骨架，顺带复盘了 2003 年谷底、Web 2.0、移动、加密与 SaaS 几轮周期，与本轮做了对照。全片观点均为嘉宾判断，数字多为口播且无书面出处，模型与产品名称按字幕拼写，文末列口径提示。</p>
+<h3>一、两次错在同一个地方：按“地图”倒推，不看脚下的“地形”</h3>
+<p>Tan 入行的时点是 2003 年，他的描述是 Web 1.0 刚结束、纳斯达克刚崩掉，“湾区除了去 GAP 做 IT，我找不到任何工作”。他手里只有两份 offer，Microsoft 的 Windows Mobile 和 Expedia，背着学生贷款选了前者。当时在科技行业或初创公司工作没有任何地位可言，“Web 2.0 之前的那个时刻，感觉像是科技行业的终点”。他的复盘落在一件事上：<strong>“我当时在追逐热门，而没有守住自己明明知道的东西。”</strong>他做了多年网页编程，Zuckerberg 大约同期在做 Facemash，Facebook 还不存在，他却在这个时点退出网页编程去追移动，理由是“那看起来才是聪明的选择”。</p>
+<p>第二次错更贵。他的斯坦福兄弟会同学 Joe Lonsdale 与 Stephen Cohen 当时在 Peter Thiel 的对冲基金实习，Thiel 的做法是创办一件事之前先在纸上写下需要拉进来的聪明人名单，两人把 Tan 从西雅图接来吃饭。Thiel 当场开了一张 7 万美元的支票，数额等于 Tan 在 Microsoft 的年薪，Tan 的回答是“谢谢 Thiel 先生，但我今年也许能升到 Level 60”。他确实升了，代价按他今天的口径是“一个 20 亿到 40 亿美元的错误”，“我一直在想这件事”。</p>
+<p>他把两次错误归结为同一个动作：从投资人、《华尔街日报》给出的“地图”往回推，而没有低头看“地形”。地形上的事实是，Lonsdale 与 Cohen 是他见过头脑出众的人，他们正在去找政府与三字母机构，Palo Alto 的计算机科学家能做出的东西，华盛顿完全拿不到。这个判断后来贯穿了硅谷做的几乎所有事：“未来已经到来，只是分布不均。”他由此给出的方法论是像科学家一样做事，论文之外要亲自下到实验里、去找第一手经历这件事的人，“那时你才得到秘密知识”。<strong>“我生命里所有了不起的东西都有点像邪教，起点是某个与正统相悖的真相或信念。”</strong></p>
+<h3>二、“什么热门”是错的问题，正确的问题是“你独特地知道什么”</h3>
+<p>投资人被问得多的问题是“现在什么热门，我该做什么”，Tan 的判断是这个问题本身就错了，正确的问题是你对什么感兴趣、你独特地知道什么。他在 Startup School 上发起的“不要 larp”（不要角色扮演）这个梗，落脚点是要“认真”（earnest）。主持人把认真与天真区分开，Tan 接受的表述是勇气：当一篇博客、一条推文与你的直接经验相反时，敢于说“我不同意，因为我相信我自己的直接经验”。他 22 岁时“被《华尔街日报》能读到的任何东西甩来甩去”，如果能给当年的自己传话，会说“留在网页这条线上，你比所有人多五年经验，可以绕过所有人做出任何一种社交软件”。</p>
+<p>同一逻辑解释了硅谷为什么总从边缘起步。他引 Chris Dixon 的“想法迷宫”，认为迷宫里有意思的部分永远是怪异的边缘，反复出现的模式是“什么东西现在像个玩具”。“每张桌上、每个家里都有一台电脑”今天理所当然，当年做出它的人是“边缘的怪人、朋克、局外人”，“Homebrew 计算机俱乐部可不是你去找对象的地方”。主持人补了一个可操作的判据：<strong>一件事够不够有意思，看你能不能找到它的边界，真正有意思的事情你找不到知识上的边界。</strong>Tan 的补充是互联网原生一代找到同类的速度大大提前，Reddit、X 上总有一个“极其古怪但极其投入”的角落。（作者归纳：这一节是全片对“应用层该做什么”的间接回答，即从冷门的、正统看不上的真实需求出发，与后文“不要照着 SaaS 老剧本做”互为表里。）</p>
+<p>把局外人变成局内人，他归功于 Paul Graham、Jessica Livingston 以及 Trevor Blackwell、Robert Morris 这几位 YC 创始人。过去进入硅谷要上对的学校、认识对的人、挤进对的派对，YC 内部把这种人叫“scener”（混圈子的人）；YC 做的只是一个网站、12 道问题，后来加了一段一分钟视频，另一端由做过东西的人给你一个公平的机会。今天 YC 有包括他在内的 16 位平权合伙人，全部经历过 YC 并有成功退出。今年 Startup School 有 7000 人来到旧金山，多数是第一次来，他称之为“科技行业的 Birthright”（借用以色列面向海外犹太青年的寻根项目之名）。他强调 YC 另一件外界不常理解的东西是一个可以说真话的社群：TechCrunch 活动上左右两边的人互相只会说“干得很好”，而创始人失去头号客户、头号工程师离职、联合创始人失去希望的那一天，需要有人可以打电话。（作者归纳：这一段解释了为什么后文的批次观察有代表性，YC 的入口设计使其样本覆盖了硅谷社交网络之外的创始人。）</p>
+<h3>三、二十年周期复盘：Web 1.0 的谷底、移动的官僚、加密的格言与 SaaS 的“铁律”</h3>
+<p>本节把散落全片的旧周期材料集中起来，这是本专题特别关心的内容。Tan 对周期的总判断只有一句：“繁荣，然后崩盘，这些事一遍又一遍地发生。”2003 年的教训已见前节，他强调的是崩盘底部恰恰是正确的入场时点，“人们说 Web 已经死了，可那正是做 Web 和社交的完美时机”，而当时的他因为“下一个热门是移动”离开了。</p>
+<p>移动周期他讲的是在位者的内部。Windows Mobile 团队在 iPhone 之前数年就在做“疯狂的设备”，需要高速公路另一侧 Windows 团队的集成支持，对方不回邮件、不修 bug，连“不予修复”都不标，他和 PM 导师只好“带着一根棒球棍过去”。两个拿着不错薪水的聪明人，中间隔着七个层级，四个小时才推动一个阻塞上千用户的 P3 级 bug。他那时的竞品研究是买一台 iPod 与 Windows Mobile 对比。<strong>他今天的对照是：同样的事在 Microsoft 里可以变成一个 markdown 文件加一个技能、跑在定时任务上，回答谁被谁阻塞、外部依赖是什么，“过去六个月才能发的东西一两天就能发”，“Microsoft 这样的组织大概做不到，但初创公司能，而且每家初创公司都必须这样组织”。</strong></p>
+<p>加密周期他只借了一句格言：“有太多加密圈的说法用在 AI 上反而十倍地更适用，比如这已经是它有史以来表现差的时候了（this is the worst it will ever be）。”云与 SaaS 周期给出的是估值口径的对照：<strong>“如果时间旅行回到哪怕两年前，SaaS 就是神，未来十二个月收入的 10 到 20 倍是铁律；现在很难相信，那已经完全不成立了。”</strong>他刚做过一次针对纯 SaaS 的分析，结论是“纯粹按席位收费的 SaaS，五年或十年后是否还存在并不清楚”。</p>
+<p>与本轮的对照他给了两条。一条是代际：“20 年前我们是 Web 原生、移动原生的一代，现在我们在掌管；整个社会运转在我们 18 到 22 岁时所期待的东西上。”今年 Startup School 的 7000 人多数在 18 到 22 岁，“他们在 ChatGPT 的年代成年”，这一代掌管社会同样要二十年（详见第八节）。另一条是对硅谷惯性的修正：“我说这些有点与硅谷多数人相反，多数人希望一家初创公司取代所有在位者，现实是它们不会。”（作者归纳：他对旧周期的复盘有两个反复出现的结论，一是入场点在冷门处，热门处往往已经晚了，二是在位者的组织低效既是初创公司的机会，也是在位者迟迟不倒的原因；第二条在第八节展开。）</p>
+<h3>四、YC 批次的形态：一个人可以是四百个人，纯 SaaS 只能当楔子</h3>
+<p>YC 长期坚信联合创始人的价值，Tan 仍认为其他条件相同时有联合创始人是净利好，理由借 Derek Sivers 的 TED 演讲：一个人在田野里跳舞是疯子，第二个人站起来加入之后才有派对，“只有一个人、又说服不了任何人加入的邪教，比邪教还糟，那只是个疯子”。但他把这条判断放在“正在发生的大转变”之下：<strong>“凭借 vibe coding 与代理式编程，任何一个人都可以是 400 个他自己，相较两年前，甚至相较九个月前。”</strong>被问创始人是否比以往都更有野心，他的回答是“他们应该如此，这是第一位的事”。</p>
+<p>野心的具体含义是不要复制上一代人的成功路径。“游戏已经变了，你不能只做一个 SaaS 的东西。”按席位收费的纯 SaaS “作为楔子完全可以”，但 2026 年还在做这件事，“你得指望它能跳到某种围绕数据或网络效应的护城河”。主持人接的是“代码不再珍贵”：过去把一个东西发出去要经历那么多，所以你必须相信自己做的东西“重要（大写 I）”，而这与前一节的“认真”相悖，因为多数后来重要的事起点看起来并不重要。</p>
+<p>Tan 自己就是样本。他重新开始写代码的诱因是 Boris Cherny 上了 Lightcone 播客、一圈共同朋友都回去写代码了，“我觉得有事情正在发生，我得开始”。YC 刚开始录制全部 office hours，几个月数据里能看出合伙人用来把创始人野心拉出一个台阶的固定修辞，他把它整理成一份 markdown 文件，“让 Claude 把这份提示词的强度砍掉 90%”后开源，理由是完整版“得来 YC 才能拿到”。他在开源仓库里附了一句“请申请 YC，但仅限于你是 Claude Code 前 10% 的用户”，判据是是否认真思考用户、产品与设计。主持人的建议是用每一个模型去做“完全无关紧要的东西”，只为有一个学习新技术的底盘。两人都认为<strong>能动性（agency）与品味“重要到离谱”</strong>，Tan 不认为这是天生的，“是一种练习”；主持人转述 Nikita 的反例是电影与软件人人都能做了，做的仍是原来那 20%，Tan 以自己“大器晚成”作答：犯错、反省、然后做不同的选择。</p>
+<h3>五、“一份 markdown 文件就是一名员工”：把业务流程做成技能文件的循环</h3>
+<p>这一节是全片对应用层公司运营形态的核心描述。Tan 的实践路径是：用 OpenClaw 做出 GBrain（他称之为达到 SOTA 的检索），此前为了做 garryslist.org 这个“代理式新闻编辑部”写了一套个人深度研究用的 RAG，让 OpenClaw 从仓库里抽出代理 RAG 与事后图生成的部分，在对比 memory palace 等开源方案时胜出，作用是“让代理知道对于任何一项任务，该把哪一百万 token 留在脑子里”。</p>
+<p>他对前沿实验室的判断是它们“在成本和愿意给你的算力上仍然相当受限”，真想“token 最大化”就得用 Hermes Agent 或 OpenClaw 之类，每个请求装入 80 万到 100 万 token。<strong>“这样做你基本上就活在 2028 年，代价是一年大概 5 万到 10 万美元，但对一位 CEO 或创始人来说这很合理，你得允许自己这样 token 最大化。”</strong></p>
+<p>循环的具体形态是“技能化”：做成一件事之后，把它变成 markdown 文件加代码加测试，放进定时任务里复用。<strong>“一份 markdown 文件就是一名员工，一名每次都把工作做得完美、想做多少次就做多少次的员工。”</strong>流程是拿公司里任何一个业务流程，先做一次做对；第一次会很糟、很贵、要迭代很多轮，但只要你能快速简单地告诉代理“这里错了、修这里”，代理与你协作的轨迹本身会被转成一份技能文件，此后每一次出错都只是一个 bug 修复，“然后它永远在那里”。主持人追问这个循环是否适用于销售、市场、客服，回答是“一切”。GStack 是这套循环在工程上的版本：先自动化了他作为 PM 的思考方式，再做一个保证单元测试与端到端测试覆盖的“边缘管理器”，到后来发现自己只剩黑盒验证一件事，于是连这一环也自动化。他的概括是<strong>做代理系统的全部工作就是找瓶颈，然后几乎每次都是“怎样指示代理写一段软件或一份 markdown 文件把这个路障轰掉”。</strong></p>
+<p>由此得出的公司形态数据是全片可引用的一句：“今天已经有这样的公司，两三个人加几百个代理、几百份技能文件，大约四个月从零做到 1500 万美元 ARR。”他说这是两人录制前聊到的案例，未点名。主持人的追问是这种递归式的爬坡什么时候会翻车、错误是否会复利，Tan 的回答落在数据治理：技能文件与数据一多，来源（provenance）就变得关键，两个事实冲突时靠来源判定哪个更新、哪个胜出，还需要一个定时任务持续清扫、保证准确与出处正确，“这些东西你用着用着就知道必须建”。</p>
+<h3>六、组织的瓶颈是“七加减二”：从 Brex 的透视到 AI 抹掉“API 线”</h3>
+<p>Tan 把上述能力与创始人年龄结构联系起来：会一直有像 Patrick Collison 那样的年轻创始人，但 YC 看到的一个大趋势是 35、40、45 岁“转过一圈”的创始人，他们知道该做什么，Peter Steinberger 是范例，<strong>“把这样一个人变成 400 个，你可以超过任何一家七巨头的一整个部门”</strong>。主持人补充企业经验的另一层用处：这些系统允许探索彼此冲突的方案，并把冲突与人的情绪解绑，而“每个想法都被试一遍”正是去中心化组织与经济运转良好的原因。</p>
+<p>Brex 的 Pedro 是他举的极端案例。外界对 OpenClaw 的印象是不安全、会删掉整台电脑，Pedro 的做法是自己写了一层开源的 crab trap，让一个代理监看 OpenClaw 的全部网络流量与动作，以此在受监管的金融科技公司里“把圆画方”。得到的能力是让代理读所有直接下属的会议纪要，看到两个层级之下，用他没参加的会议判断什么坏了、谁与谁在冲突，然后带着某个合规团队过去三周的完整上下文走进会议说“你是对的，按你的办”，再离开。Tan 认为这触及初创公司失败的决定性原因之一：<strong>“业务大到装不进一个人的脑子”</strong>，人只能同时记住七加减二件事，“你加一个代理可以在脑子里装下三本《哈利波特》”，并且代理看的是数据里的事实真相，不限于下面两级某个人的意见。全世界的商业、尤其政府，都建立在“只能记七加减二件事的有限人类”这个前提上，还没有为“代理以光速思考、数据无限”的世界做好准备。他由此提出的产品标准是“产品应该好 10 倍、100 倍，应该好 1000 倍”，资本主义的看不见的手在这个阶段“真正做对的样子”，按他的说法，应当是创造那些近乎魔法的东西，单纯压低某样东西的成本还不够。他在《华尔街日报》播客上被记者追问“你们是在造乌托邦吗”，他的回答是“我们可能永远达不到乌托邦，但去尝试是值得的”。</p>
+<p>主持人把这一层推到组织设计：管理科学与经理阶层“也许是从工业革命、Henry Ford 到早期硅谷创始人模式之后的一百年弯路”，中层的组织工作应当由代理承担，高管定方向、个人定执行，历史上产品经理做的那一整层“不应该由人来做”。Tan 借 Venkatesh Rao 的“API 线”回应：Uber 出现后司机在 API 线之下，人人都在争着待在线之上，而“AI 抹掉了 API 线”。他举 YC 投资的 API 公司 Claw Visor 的例子，对方发布了一个不给人用、给使用其软件的代理用的 bug 上报端点，后面接一个 LLM 实时回复“这是个好 bug，已记录，下周修，先试这个绕过方案”。这是双向的往来，公司可以这样运转。他把这与丰田生产方式并置：线上干活的人被允许改动生产线，因为他有改善自己工作环境所需的上下文，这是日本车在 80 年代变好、美国车变差的管理学原因。主持人的注脚是一个被视为等级制的社会做出了自下而上的工作方式，赢得了约四十年的一代人级别的长跑。</p>
+<h3>七、护城河与分发：数据与网络效应的跳板、在位者的结构性壁垒、harness wars 与十亿消费者之争</h3>
+<p>把全片有关护城河的判断合起来（作者归纳）有三层。第一层是应用层公司自己的护城河：席位收费只是楔子，必须跳到数据或网络效应；第二层是在位者的护城河，Tan 明确说“这些东西有真实的护城河，有结构性原因让 Microsoft 哪里都不会去”，与硅谷“初创公司取代一切”的惯性相反；第三层是分发，Tan 在谈硅谷文化时提到“也许我们把太多时间花在分发上”，而想法迷宫里值钱的部分是边缘。</p>
+<p>消费级应用的分发问题被两人放在成本曲线上讨论。Tan 对“下一台计算机”的判断是短期形态不变，但“它保持这个形态是不可想象的，显然会走向语音”，并且会有大量围绕记忆的工作：人们此刻对 ChatGPT 或 Claude cowork 之类感到满意，长期不会，“你会想要多得多的上下文，想要一个仁慈的、知道你的希望、恐惧与欲望、不懈地在这个方向上帮你的东西”，路径大概是计算机使用、记忆、说话人分离、数据摄取。<strong>他给的时间表是“我猜 2027 年会是 harness wars（脚手架之战）”，根本原因是成本：“现在就是太贵了，但不会一直如此，当今天的前沿模型算力在两三年后只要 50 或 100 美元时，会有一场争夺十亿消费者的战争，浏览器大战会重新开打。”</strong></p>
+<p>主持人的版本是价格的两极分化：“前沿模型的单 token 价格在走向无穷，mythos 是每 token 无穷美元，你根本拿不到；而一周前还是前沿的模型，单 token 价格正在坍缩到零。”他认为这对应用层是利好，因为消费级产品多数免费试用，边际分发成本高时做不到这一点，“软件的魔力就是零成本的边际分发”，“四五十年来我们第一次有了能表达情绪、有情感质感的计算机，还没做出更有野心的消费产品是一件憾事”。Tan 的自我修正值得记下：成为 OpenClaw 的“皈依者”曾让他确信这一切马上就会发生，“现在我认为那完全不对”。主持人认为迄今为止在“真正的消费级助理”这个方向上走得靠前的产品是新的 ChatGPT 桌面应用，带语音模式、能看到全部对话线程、可从手机访问，“很 OpenClaw 化”。</p>
+<h3>八、采纳会比硅谷预期慢：二十年的“白色药丸”</h3>
+<p>被问这些问题有多少是受智能约束（需要更聪明的模型），Tan 的回答是“老实说全在人”，人才是拖慢这件事的因素，并且他把这称为一颗“白色药丸”。当下关于 AI 的讨论基调是所有白领工作都会消失、会出现永久底层，而<strong>“每家公司、每个机构、每个组织的官僚、迟缓与七加减二，全世界所有的中层经理，恰恰是那颗白色药丸：这些事会比你想的慢。”</strong></p>
+<p>他给的时长是二十年，理由是代际更替：Startup School 的 7000 人多数 18 到 22 岁、是 AI 原生一代，他们掌管社会要等二十年，正如 Web 与移动原生的一代在二十年后才接手。社会、政府、每家公司都比硅谷以为的慢得多，在位者有结构性护城河，“它们不会被取代”。他把这看作一件好事。（作者归纳：这一判断与第三节的周期复盘和第七节“harness wars 要等成本下来”是同一条线，即本轮应用层的扩散节奏由组织与成本决定，模型能力并不构成瓶颈；对 YC 这类以两三年为周期的机构，这意味着当下批次的公司形态与最终的行业格局之间还隔着一整个代际。）</p>
+<p>主持人在收尾时把野心的落点拉回本地：不必用美国的视角想象 AI 对社会的影响，“如果你想让 NHS 变得出色，你可以用这项技术去做”。Tan 的呼应是“行动本地化，照顾身边的人”，这一段属于他的旧金山市政参与，与本专题无关，不展开。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，字幕存在口误与人名拼写不确定。7 万美元支票、“20 亿到 40 亿美元的错误”、“一个人可以是 400 个人”、一年 5 万到 10 万美元的 token 开销、每请求 80 万到 100 万 token、“两三个人四个月从零到 1500 万美元 ARR”、SaaS 曾经的 10 到 20 倍 NTM 收入倍数、“两三年后前沿算力只要 50 或 100 美元”均为嘉宾或主持人口播且无书面出处，1500 万 ARR 案例未点名；“纯 SaaS 分析”只有结论、无样本与方法；Startup School 7000 人、YC 16 位平权合伙人为嘉宾口播。字幕中“full 150 request”一处含义不明，未采用。GStack、GBrain、garryslist.org、OpenClaw、Hermes Agent、crab trap、Claw Visor、memory palace、mythos 等名称按字幕拼写，其中 Claw Visor、crab trap 的拼写待核。“Peter Steinberger”“Pedro from Brex”“Nikita”“Tom”均为字幕原文，身份未在片中展开。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>M.G. Siegler 论 AI 超级应用之争：六家公司收敛到同一个想法、ChatGPT 的用户对 Claude 的能力、Apple 用预装与 10 亿美元“默认赢下”消费端（Big Technology Podcast，2026-07-06）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>M.G. Siegler 论 AI 超级应用之争：六家公司收敛到同一个想法、ChatGPT 的用户对 Claude 的能力、Apple 用预装与 10 亿美元“默认赢下”消费端（Big Technology Podcast，2026-07-06）</h2>
+<div class="metaline">Big Technology Podcast · 58 分钟 · 2026-07-06</div>
+<p>嘉宾为 Spyglass.org 作者 M.G. Siegler，前 GV 合伙人、前 TechCrunch 记者，从 iPhone 发布起完整覆盖过移动时代，本期是他在 Big Technology Podcast 的每月固定对谈，主持人为 Alex Kantrowitz。本期对应用层专题的价值在于它把 2026 年年中的一个现象讲透了：OpenAI、Anthropic、Google、Microsoft、Meta、Apple 各自从不同起点出发，却在同一时间收敛到“一个能接管你越来越多计算生活的 AI 界面”这一个想法上，而消费端的胜负手正在从模型能力转向分发、默认与界面。Siegler 对 Apple 新 Siri 的判断（“至少在消费端，Apple 将赢下 AI”）与主持人由此引出的“10 亿美元对 7000 亿美元”的追问，是本期两条可直接引用的主线。全片观点属两位对谈者的判断，数字均为口播，引用前需回原始口径核对。世界杯 VAR 一段与主题无关，本文略去。</p>
+<h3>一、六家公司从不同起点走向同一个想法</h3>
+<p>本期由一条新闻切入：据 The Information 报道，Microsoft 将把消费者版与企业版 Copilot 合并为一个统一应用，内置 AI 编码工具与需额外付费的 AI 代理。Siegler 在 Spyglass 上的评论被主持人原文读出：“我很震惊，震惊于在 17 个界面上提供 17 个不同版本的 Copilot 这个策略居然没有奏效。只交付一个 Copilot，显然才是正确的做法与正确的信息传递。”他把 Microsoft 由此归入 Meta、X、Coinbase、Airbnb、Uber、Snap、Spotify 乃至 Disney 的阵营——全都在追逐“超级应用”这个难以捉摸的概念，而 Microsoft 将与 OpenAI 展开一场“看谁先把东西推出门”的赛跑。</p>
+<p>他的核心观察是这些公司“看待它的角度各不相同”。OpenAI 手里有 ChatGPT，用户量按他口播“大约 10 亿”，这款产品让“聊天机器人”这一形态流行开来，但眼下他们处在“需要去追 Anthropic 一点”的位置；Anthropic 的路径由编码带动，Claude Code 是先锋；OpenAI 对应的是 Codex，并且“看起来随时会”把 ChatGPT 与 Codex 合并，此外还有 Anthropic 没有的浏览器这一个不同元素。Microsoft 的问题是曾同时推进“无数条 Copilot 线”，他的说法是“事后诸葛亮地说这从来没道理，但拜托，所有人都知道 Microsoft 搞不定 400 个版本的 Copilot”，首批 AI PC 的命名也“一如既往地糟糕”。Apple 起初的立场是“不该有一个应用、不该有一个集中的地方”，如今转向借助 Google 的技术做面向消费者的版本。</p>
+<p>他特意划出这一轮“超级应用”与亚洲市场同名概念的区别：<strong>亚洲的超级应用主要围绕商业交易与“你生活里的一切”搭建，这一轮的超级应用只有一个目的——赢下 AI。</strong>主持人的补充比喻是笔记本电脑：同一台设备既看 Netflix 也用 Excel 与 PowerPoint，超级应用同理，既能替你处理业务，也能替你规划生活、协调孩子的球赛日程、给接送的人发短信、发现日程里的两天空档后主动问要不要用绑定的信用卡买电影票。</p>
+<p>被两人认作共同模板的是 OpenClaw。Siegler 说它“曾一度席卷世界”，所有公司都在追赶它，即便不明说，因为他们认为这个模式有意思，只是不喜欢 OpenClaw 以开放方式实现时带来的安全风险。这也是它必须成为独立应用的原因：“它已经不只是聊天机器人了，不再是你在网页浏览器里就能做完的事。”主持人的总结更直接：<strong>“OpenClaw 的用例现在成了 AI 的全部用例”</strong>——把事情委托给机器人，它替你办完。</p>
+<h3>二、值不值得投入万亿：取决于代理有多有用，以及“煮沸海洋”的问题</h3>
+<p>主持人先问了一个前置问题：全行业“实质上数万亿美元的投资”正在向这一个用例收敛，这是否明智。Siegler 的回答把问题压缩到一点：“归根结底取决于代理与代理式用例最终有多有用。”眼下多数事情在浏览器里就能完成，迁到原生应用的意义在于放开这些技术去对真实世界动手、像人一样把一台电脑用到极致，而“陪审团还没回来”——部分用例已经冒头，重度用户各有各的玩法，但普通消费者会不会买账仍是未知数。</p>
+<p>他对 ChatGPT 的成功给了一个限定性的解释。它是增速居前的消费产品之一，“但那只是我们现在谈论的东西里非常小的一片”，而且“我不认为这是偶然”：<strong>它简单到所有人都能理解，所有人都懂聊天界面，所有人都用过短信。</strong>现在的风险是“煮沸海洋的问题”——这些东西什么都能做，所以你到底要做什么，以及这些公司如何做出一个产品去引导那些不那么懂行的个体用户。他设想父母一辈打开超级应用版的 ChatGPT（他猜他们仍会这么叫它，因为品牌太强）：他们听说过可以像搜索一样提问，但知道能让它整理邮件、日历、照片与文件夹吗，愿意这么做吗，该这么做吗。“对我来说，你的问题归结为代理能力多有用、多快到来、多快变成常态。”</p>
+<p>主持人的立场更肯定：这件事会发生，五年或十年后人们不会再像今天这样使用电脑与互联网；现有软件是为大众建的，Excel 里多数人只用 5% 到 10% 的功能，“但各人用的是不同的 5% 或 10%”，AI 会把个人计算真正变成为你个人定制的计算。他的一个产品猜想是让机器人从简单提问中推断意图，弹出“点一下全部允许，我们替你办”，以此加速采用。Siegler 同意这就是各家会走的产品化路径——聊天栏上下方不打扰的提示，一步步带用户走完流程，现在已有雏形。</p>
+<h3>三、驱动用例：编码是超级应用的入口，但大众不会看到代码</h3>
+<p>Siegler 对“什么会引爆超级应用”给出了两层判断。第一层是病毒式时刻不够用：<strong>“我不知道 Studio Ghibli 那类东西、或 OpenAI 过去用来拉人的其他招数够不够好。我认为它必须是一件真正有用、你会在重复场景里不断回来用的事。”</strong>一家找到了，其余都会抄，但他也不确定这是否就是正确方法。</p>
+<p>第二层是编码已经是那个用例，只是覆盖面有限。Claude Code 靠它出圈，Codex 也在某种程度上跟上，而 OpenAI 方面的表述（他转述主持人此前对 Greg Brockman 的访谈）是多数人把 Codex 看作编码工具，他们自己把它看作超级应用——“从我对他们说法的理解，未来的形态会更像 Codex，少像 ChatGPT。”问题是“这对大众够不够好”：多数人没有编码需求，除非把编码转化为更模糊的“配方”式的东西，类似 Apple Shortcuts——你在组装一套家庭自动化，底下是代码，但你不必这么想。</p>
+<p>主持人的表述可以当作两人的合意：编码解锁用例，但多数人不会看到任何代码发生；写代码等于“扎根到电脑真正能做的核心”，它只是替你完成事情的手段。两人都承认，正因为潜在用例极其广泛，很难想象单一的病毒式时刻，<strong>所以这会是一个慢过程</strong>。（作者归纳：这一节的隐含结论是超级应用的扩散曲线更接近“用例逐个被产品化”的叠加，与 ChatGPT 当年一次性引爆的路径不同。）</p>
+<h3>四、非 Apple 阵营的排序：ChatGPT 的用户对 Claude 的能力，Chrome 是 Google 未打出的牌</h3>
+<p>被要求在 Apple 之外点名时，Siegler 先看能力：Anthropic“仍握有能力上的领先”，得益于 Mythos 与现在的 Fable（后者“在一次波折之后重新回到了世面上”），尤其在代理式用例上，这给了他们“明显的内在优势”。OpenAI 与 Google 都“据说在准备”新模型，但准备了很久没有推出，“也许是政府方面的原因，也许是别的”。假如它们至少部分追平，胜负就回到产品。</p>
+<p>产品层面他回到用户基数：ChatGPT 有“巨大的内置用户优势”，OpenAI 大概率会在推出超级应用时利用它；Anthropic 尽管 Claude 做得出色，“远没有那个规模”。Google 的情况是网页版没走通之后才推出独立 Gemini 应用，原生应用（目前只有 Mac 版）的采用并不明显，官方公布的活跃数他推测多来自网页或移动端。他随后提出一个自己也承认答案的问题：<strong>“为什么 Chrome 本身不是那个超级应用？所有人都有 Chrome，可能是 20 亿、30 亿用户，我都不知道现在的数字。为什么它不是把 Gemini 超级应用送到所有人面前的载荷？”</strong>答案是监管——Gemini 已经内置进 Chrome，但只在美国上线、在英国没有，Google 对欧洲“非常小心”。</p>
+<p>他的排序因此是：主战场在 ChatGPT 的用户与 Claude 的能力之间。对 OpenAI 他有信心，“过去几年我看到的一切表明他们在产品端做得很好”，尽管在多方面被 Anthropic 超过、各团队人员流动很大、“谁在做什么已经说不清”；对 Google 信心更低，“技术能力出色但推出产品时总有产品问题”；<strong>对 Microsoft 的信心“更低，原因显而易见，就是产品”。</strong>他强调这一排序只针对消费端。</p>
+<p>主持人补上一个他与 Sam Altman 年底对谈时留下的框架：AI 原生公司（OpenAI、Anthropic）对 AI 外挂公司（Google）。Google 已经证明能在模型能力上追平，“它不可避免地会再次追上 Fable 与 GPT 5.6 之类”，问题是有没有勇气像在搜索里推 AI 模式那样，把 Chrome 变成 AI 优先的体验。Siegler 的判断是会的，触发条件是 OpenAI 把浏览器 Atlas 作为超级应用的一部分推出，届时 Google 会对监管者说“我们是在竞争”，随后“会有烟花”——Meta 会在幕后向监管者吹风说不该允许，Apple 也会有自己的说法。</p>
+<h3>五、Meta 与 Microsoft：两个“必须在场”但尚未到位的玩家</h3>
+<p>主持人主动补上 Meta：他们是“做大规模消费产品的王者”，写掉他们是愚蠢的，而 Alexandr Wang 近期访谈称正在逼近前沿水平。Siegler 的回应是“等我看到再信”。他对 Meta 的产品现状描述相当克制：Meta AI 目前有一个应用，“很怪，因为它和 Ray-Ban 眼镜绑在一起”，那是他们在这个领域的立足点与差异化；他们试过类似 Sora 但全是虚构内容的东西，也试过其他角度，都没有到起飞的程度。结论是<strong>“他们在对话里，是因为他们必须在——他们的产品有数十亿用户——但他们现在哪儿都不在。”</strong></p>
+<p>Microsoft 的部分由主持人发难：“我从没见过一家公司在两年里从自信领先变成落后与慌乱”，“五分钟前 Satya Nadella 还在让 Sundar 跳舞，现在大家在问他到底在干什么”。Siegler 把它当作 Apple 的对照组：Apple 坐着不动，所有人骂它掉队；Microsoft 相反，“他们是天才，握着 OpenAI 关系，史上回报居前的投资之一”，两年过去，位置对调。他的解释是 Microsoft“换了太多次策略，我不确定他们自己知道该做什么”。</p>
+<p>对 Nadella 近期的博客与讲话，Siegler 的解读是“读房间里的空气”：企业客户担心支出失控，Microsoft 从 Azure 与自家销售里看得最清楚，于是转向“模型不可知”——引入更多开源模型，包括 DeepSeek（他提醒 Microsoft 曾一度追究 DeepSeek 可能蒸馏了自己重金投资的 OpenAI），把自己做成从前沿模型到开源模型的一站式商店，让企业自己决定为什么付费；同时押注端侧，与 Nvidia 合作的新一代 AI PC 兼顾成本与速度。“他们的策略仍在成形中。”主持人的收束是一条方法论：<strong>“这些东西变化太快，别给任何人加冕，也别把任何人埋掉。”</strong></p>
+<h3>六、Apple 新 Siri：默认者靠“够用”拿下大众入口</h3>
+<p>Spyglass 那篇文章的标题没有问号：Apple 将赢下 AI，至少在消费端。Siegler 承认这个判断有争议，原因全在过去——Apple 两年前许下承诺、随后“著名地落空”，去年“无话可说”，在幕后重整旗鼓。让他改变看法的是 WWDC 上的演示：仍是录播，但按各方说法是实时完成的，刻意保留了停顿，与两年前的罐头演示不同。他看到的是 Apple 在“跑自己的剧本”：看别人在某个领域怎么成功，然后说我们能从产品角度做得更好，再扑进去。</p>
+<p>他描述的产品形态很简单：接手并重建该团队的高管 Mike Rockwell 在台上按住 iPhone 侧键、对手机说话，像对 ChatGPT 或 Claude 那样与聊天机器人对话，区别在于<strong>“这内置在每一台 iPhone、iPad、macOS、AirPods 里，全都会在那儿。”</strong>他知道“默认赢下”是一种带贬义的说法，等于说 Apple 只做到了入场门槛，“但这就是他们需要做的全部”——对我们这些人不算什么，对将要第一次接触这些东西的大众、对父母与孩子来说，这将是他们的 AI 启蒙。</p>
+<p>他的实测口径需要保留：新系统装在一台备用 iPad 上，另有一台 Mac 跑测试版，Apple 称之为“Snow Leopard 式发布”（以稳定性为主）。他把 Siri 加入自己原有的 ChatGPT、Gemini、Claude 逐题对比流程，“我试过的东西，从查询角度基本都能用”，边缘有个别失灵。他特别提到 Siri 过去连“谁赢了超级碗”这种从数据库里一拉就有的问题都答不上来，如今这类事实性查询已经通了。代理式工作流大多尚未上线，但这是 Apple 的另一重优势：内置于设备，能看到你屏幕上正在做的事，其他服务需要显式授权与弹窗。主持人补充了自己在 ChatGPT 里用 Gmail 连接器搜“那条邮件链里的公关是谁”的体验，Siegler 认为 Siri 把这种语义搜索铺到邮件、短信与所有应用之上才是真正的增量价值。代价是首次安装要重新索引整部手机——他有大约 8 万张照片，索引花了好几天，设备发热。两年前那支 Bella Ramsey 广告承诺的“我在那个活动上见过的人是谁”，现在能做到了。</p>
+<p>他对风险的说明有两条。一是若 AI 出现新的突破、超级应用解锁新能力，“球门柱”会外移，Apple 可能再次落后，“我不会感到意外”，届时问题变成 Apple 能否跟上 AI 时代的节奏、在需要时不等一年一度的大会就发布；二是 Apple 也可能选择把前沿留给 OpenAI 与 Anthropic，反正它们的产品在 iPhone 上照样能用，Apple 只承诺“真正有用的 AI 在我们的设备上”。Google 承诺同样的东西，但 Pixel 与 iPhone 不在一个量级，Android 阵营又被 Samsung 自有 AI、与 Perplexity 的合作等切碎，<strong>“所以那里没有真正的竞争”。</strong>他还预测两个界面上的变化：按住侧键对 Siri 说话会成为街上常见的动作，起初看着怪、很快习以为常；“视觉智能”从两年前借用 OpenAI 与 Google 的版本升级为完全内置相机，人们举着手机像在拍照，其实在向 AI 提问，这也是眼镜与带摄像头的 AirPods 的铺垫。</p>
+<h3>七、10 亿美元对 7000 亿美元：基础模型商品化的一个样本</h3>
+<p>主持人从 Apple 与 Google 的交易里读出“对基础模型价值的一次沉重指控”：据报道 Google 以每年约 10 亿美元帮助 Apple 做出一套可用的 AI 操作系统。Google 为什么要帮头号手机对手做出可能优于自己的 AI 体验？答案是商品化——Google 不做，OpenAI 或 Anthropic 也会做。他把这层含义接回笔记本电脑的比喻：各家都希望 AI 像笔记本一样通吃工作与生活，但笔记本还有一个它们不想要的平行——它商品化了，价格“跌穿地板”，直到最近这轮由 AI 引发的内存紧缺才反弹。</p>
+<p>Siegler 补充了 Apple 的表述方式：Apple 在发布会上提到了 Google，态度直接，但反复强调“重活是我们自己干的”——拿到底层 Gemini 技术，“从头造出一个不叫 Gemini、叫 Siri AI 与 Apple Intelligence 的新版本”，并在主题演讲后另开一场活动专讲这些细节。他判断 Apple 没有用“蒸馏”这个词，是因为观众不关心，主持人补了一句“或者是不好意思承认”，Siegler 同意，并对照 Elon 在法庭上不得不承认用其他模型蒸馏来让 Grok 跑起来的先例。至于 Apple 是否会自己训练前沿模型，他认为“现在肯定不会”，将来是开放问题：训练前沿模型极其昂贵，自研芯片也许能压低成本，但这与 Tim Cook“拥有并运营一切”的信条相悖——这套信条可追溯到 Jobs 认为 Apple 被 Adobe 坑了的年代。<strong>“诚实、无聊、有点好笑的答案是：他们就坐着，看局面怎么演。他们没花几千亿美元，却要带着 Siri AI 出现在世界上。”</strong></p>
+<p>主持人的追问是全片被两人认可的一个量级对比：<strong>“如果你花 10 亿美元就能得到一款这样运作的产品，这难道不让你质疑今年将投向这项技术的 7000 亿美元？”</strong>Siegler 用 Dr. Evil 的梗回答——别人在花几千亿，你说“10 亿”，众人发笑，但这就是 Apple 把 Google 的 Gemini 技术请进门一年所需要的全部。他随即把 Microsoft 的转向纳入同一逻辑：Nadella 在自家前沿模型尚未成熟时就开始淡化它们，行业开始意识到“你可能不想拥有前沿模型，因为你要为它的成本负责，回报会越来越递减”。他自己加了限定：这个说法两人已经讲了好几年，至今并未成真，“前沿仍然是前沿”，最终还是回到开场的问题——用例是什么、人们从中得到什么、愿意为它付多少钱，“成本正在成为越来越大的问题”。（作者归纳：这一节把“分发与默认”对“模型能力”的压制落到了一个可核的价格上，10 亿美元对 7000 亿美元的对比是本期对基础模型定价权最直接的质疑。）</p>
+<h3>八、与移动时代的对照：浏览器取代应用、BYOD 变成 BYO-AI、预装与平台之争</h3>
+<p>本节集中整理两人对旧周期的引用，这是本专题特别关心的内容。第一条来自浏览器时代。Siegler 说超级应用的处境“在某些方面很不同，但在某些方面让我想起网页浏览器起飞的那一刻”：足够年长的人记得浏览器出现之前，电脑上是一堆各司其职的独立应用；如今几乎所有事都在浏览器里做，连 Excel 也能。他由此追问，超级应用会不会同样由某一个具体用例引爆，答案在第三节——他倾向于重复性有用场景的判断已在那里展开，单次病毒事件在他看来不够用。（作者归纳：把 ChatGPT 比作“浏览器之前的单一应用”、把超级应用比作“浏览器”，意味着这一轮的平台位不由模型层决定，由承接全部用例的那一层界面决定。）</p>
+<p>第二条是 iPhone 的相机教训，由主持人引用 Siegler 的文章并表示完全同意：近二十年前 iPhone 发布时人们学到，你会用的相机是随身带着的那台；<strong>同理，你会用的 AI 设备是随身带着的那台，在可预见的未来那是 iPhone。</strong>Apple 需要做的只是把一版“够门槛”的 AI（本身仍是令人印象深刻的技术）挂到 iPhone 上。主持人给的具体对照是：今天他要在 ChatGPT 里通过 Gmail 连接器搜邮件，再把结果拉回聊天窗口，“这不该这么麻烦”，理想形态是按下动作按钮问一句“那条邮件里的公关是谁”。</p>
+<p>第三条是分发结构。Siegler 反复用“预装”“内置在每一台设备”解释 Apple 的位置，并指出 Android 一侧的对应位置被 Samsung 自有 AI 与各家第三方合作切碎，Pixel 规模不足，因此消费端 AI 的分发之争实际是 iPhone 对所有人。这与他在第四节对 Chrome 的追问是同一个问题的两面：Google 手里也有一个覆盖二三十亿人的分发载荷，只是被监管挡住没有用。Apple 起初“不想有一个应用、不想有一个集中的地方”，最后仍然收敛到一个 Siri，也印证了本期的主题——平台方并不想要超级应用，但用户要一个入口。（作者归纳：移动时代的“平台对应用”之争在此复现，区别是这一轮平台方自己就是应用方，App Store 式的中立分发在 AI 入口上尚未出现。）</p>
+<p>第四条是企业侧的 BYOD 对照，两人都认为这将是未来几年的重大辩论。Siegler 提出“自带 AI 上班”的可能：普通用户大概只会选一个消费级 AI，会不会因为在家用它就把它带进公司；主持人认为大公司不会允许，因为记忆会在 AI 里累积。Siegler 指出反面——没有记忆的工作 AI 会让人沮丧，“你教了它这么多，到了公司它像个傻子，什么都不记得你怎么做事”。主持人推演了一个后果：竞争对手可以向明星员工开出“教父式报价”，连人带 AI 记忆一起挖走，这会催生关于什么可以转移、什么可以保留的新知识产权法；更深一层，<strong>公司专属 AI 会以一种新的方式分离资本与劳动</strong>——员工用时间换钱也换知识积累，若积累发生在公司拥有的 AI 里，离开时“比没有 AI 的世界更不值钱”。Siegler 引 Meta 内部要求员工使用公司 AI 作为现实版本，并补充 BYOD 当年也有安全顾虑，最终在多数地方“因为便利胜出”，因此可能出现分化：大公司锁死员工只能用自家 AI，小公司允许自带，小公司借此追得更快，大公司再靠挖人反弹。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。ChatGPT“大约 10 亿用户”、Chrome“20 亿到 30 亿用户”、Google 向 Apple 每年约 10 亿美元、今年 7000 亿美元投入、8 万张照片、“17 个版本的 Copilot”均为口播或转述报道，Siegler 本人对 Chrome 用户数明确表示不确定；“Microsoft 合并 Copilot”出自主持人转述的 The Information 报道；Apple 与 Google 的合作金额为“据报道”。模型与产品名按字幕拼写：Mythos、Fable、GPT 5.6、OpenClaw、Atlas、Codex、Claude Code、Siri AI；字幕中“Alexander Wang”按通行拼写作 Alexandr Wang，“Bella Ramsay”作 Bella Ramsey。Siegler 对 Fable“一次波折后回归”的说法未展开，引用前请核对。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

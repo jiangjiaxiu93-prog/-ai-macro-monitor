@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ghodsi 在斯坦福讲五层栈的价值分配：前沿模型走向卖书式薄毛利、应用层是终局赢家、企业落地的瓶颈是上下文与流程重构（Stanford Online MS&amp;E435，2026-07-13）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Ghodsi 在斯坦福讲五层栈的价值分配：前沿模型走向卖书式薄毛利、应用层是终局赢家、企业落地的瓶颈是上下文与流程重构（Stanford Online MS&amp;E435，2026-07-13）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 39 分钟 · 2026-07-13</div>
+<p>本片为斯坦福 MS&amp;E435《AI 超级周期经济学》2026 年春季学期的一讲，标题列为基础设施、企业 AI 与 SaaS。据字幕判断，客座讲者为 Databricks CEO Ali Ghodsi（提问者举例时直接说出“今天见了 Ali Ghodsi”），提问者为课程讲师，自述为投资人、曾在 Palantir 工作，并以“蓝色三角”图讨论价值分配；节目描述页列出的讲师为 Altimeter Capital 合伙人 Apoorv Agrawal，与字幕内容一致。本期对应用层专题的价值在于：讲者从一家约 2 万家企业客户的数据平台出发，对“钱现在在哪一层、最终会到哪一层”给出明确排序，对 SaaS 是否已死给出一张护城河清单，并用自家连接器团队的案例说明企业 AI 落地为何慢。全片观点为讲者与讲师的判断，数字均为口播，引用前需回原始口径核对。</p>
+<h3>一、开场判断：AGI 已经在了，企业里没有代理在干活的原因是上下文缺失</h3>
+<p>Ghodsi 的开场是一段有意挑衅的立场：<strong>“我们已经有 AGI 了。”</strong> 他的论据有两条。一是现场投票——先问有多少人认为已有 AGI，约一成举手；再问有多少人觉得身边不少人的智力已低于自己在用的顶级模型，多数举手；他由此说“你们刚刚已经回答了，只是想挪动球门”。二是历史口径：他 2009 年在 UC Berkeley 的 AMPLab，当时该实验室是全美 AI 研究的重镇之一，领军人物是 Michael Jordan（同名的那位统计学家），按当年那批研究者对 AGI 的定义，今天的模型早已达标；他事后专门去问了当年的同事，回答是“按那个定义，肯定达到了，但是……”，总有一个“但是”。他的推论是，硅谷当下对“超级智能”的追逐没有先定义清楚对象，Kurzweil 式的奇点叙事在驱动决策，“把大量的钱砸在 GPU 和数据中心上，其实并不必需”。</p>
+<p>同一时间的另一面是 MIT 那份说 95% 的 AI 概念验证失败的报告。他认为方向上对，比例可能是 75%，未必是 95%。<strong>走进任何一家企业，看到的并没有一群代理式同事在与人协作干活，仍然是人在传 TPS 报表，电影《办公室空间》就是今天世界的运转方式，AI 公司自己内部也如此</strong>——它们从老牌公司挖销售、用老办法管公司。</p>
+<p>两件事的矛盾，他的解释只有一条：模型没有拿到组织内部的上下文。每家公司每个部门都有一个“去问 John 或 Jane，她什么都知道”的人，在公司待了十年、二十年甚至四十年，公司丢了这个人就会垮，而这个人脑子里的东西没有进入模型。<strong>“如果你拿不到那些上下文，超级智能能解多难的数学题都无所谓；如果拿得到，我们现有的 AGI 已经能解决问题。”</strong> 他给学生的建议随之而来：想在世界上产生影响，就去解决怎么把一家老派企业的流程与上下文装进代理。</p>
+<p>对讲师展示的 Ethan Mollick“锯齿状前沿”图，他的回应是“绝大多数公司都在左侧”，即 AI 只在个别任务上帮忙。他以 Databricks 自身的客户支持反驳“客服会先被替代”的共识：来找 Databricks 支持的是拿高薪、受过数据科学训练的用户，模型 F1 分数上不去、什么都试过了才打电话，<strong>“市面上的客服自动化产品我们全试过，对方一听说我们是谁，就说‘我们帮不了你’”</strong>。他的结论一致：问题出在企业一侧的上下文，AI 本身没有责任。</p>
+<h3>二、五层栈的 100 美元：应用层是赢家，前沿模型层会变成 amazon.com 卖书</h3>
+<p>讲师给出的问题是：若把 100 美元按长期视角投到 Jensen 所说的五层栈——能源、芯片、基础设施、模型、应用——该怎么分。Ghodsi 先声明自己是计算机科学家、不给投资建议，随后的回答没有犹豫：<strong>“很明显，应用会是赢家，我会把钱放在顶层。”</strong> 他补充的执行方式是早期策略——做种子投资、投很多家、绝大多数会错、少数会成为下一个 Google；因为具体哪家会赢“非常难预测”。</p>
+<p>讲师的回应给出了当下的资金分布。他称自己“写过很多”关于“蓝色三角”翻转的文章：今天 AI 里的钱都在一个人那里，“所以 Jensen 总是那么高兴”；模型层的公司在为美元厮杀，那里没什么钱；应用层有人在赚钱，但很少。他的押注是这个三角最终会翻转，形态变得更可持续。Ghodsi 表示同意，并给出一条历史规律：<strong>硅谷的价值总在沿着栈往上移</strong>——做出 PC 的 IBM 曾是市值居前的公司，之后硬件商品化，价值转到操作系统与 Microsoft；二十年前斯坦福出来的 VMware 把软件层虚拟化，之后又被商品化，“它总是往上移，这次也一样”。</p>
+<p>对模型层的具体判断更细。讲师展示的图显示开源模型与前沿模型的差距已从三四个月缩到约一个月，同时企业仍在为前沿模型付高价，他引述 Anthropic 的收入在 300 亿或 400 亿美元量级（口播，口径不明）。Ghodsi 的回答分三步。其一，模型会有价值、人们会要，但它会以“token 工厂”的形式集中供给，“就像云一样”，认为每个人在客厅里自建小型数据中心插 GPU 卡是愚蠢的，边缘会有一部分，大头在集中式数据中心。其二，开源会持续施加定价压力，他举的例子是 Moonshot 两三天前发布的 Kimi 2.6：<strong>若这个版本是在一月发布的，它将领先当时所有已发布的模型，无论前沿还是非前沿</strong>。其三是结论：<strong>“提供前沿模型这门核心生意会是一个规模经济游戏，你得在很薄的利润率上做它，它会像 amazon.com 卖书那样，参与者不多，毛利率很小，营业利润率也小。”</strong> 讲师表示同意。</p>
+<p>把两人的说法拼起来，可以整理为一张三行的分配表（作者归纳）：</p>
+<ul><li>今天：付钱的是企业与实验室，收钱的是芯片层；模型层靠融资维持军备竞赛，应用层收入很少。</li><li>中间层终局：低毛利的规模化 token 工厂，供给形态类似云，毛利结构类似图书零售，开源是压价的持续力量。</li><li>顶层终局：毛利沉淀在拥有数据、规模与流程能力的应用与数据平台，前提是它们完成了第四节所说的流程重构。</li></ul>
+<p>表中“终局”两行是两人的押注，尚无收入数据支撑；“今天”一行与讲师的三角图一致。</p>
+<h3>三、SaaS 是否已死：两项结构变化与一张护城河清单</h3>
+<p>讲师把课堂上的问题直接抛出：软件股的“软件已死”叙事此前出现过四次——英国脱欧、缩减恐慌、通胀——每次都反弹，这次归因于 AI，是否该抄底。Ghodsi 的第一层回答是归谬：<strong>若所有软件都死了，OpenAI 与 Anthropic 也该死，它们只是一群研究员在写软件的软件公司，不应有万亿美元估值；NVIDIA 也该死，它是一群聪明人用软件画芯片设计再发给 TSMC，真正造芯片的是后者</strong>。所以“软件显然没死，也不会死”。</p>
+<p>第二层是他承认的两项真实变化。一是进入壁垒显著下降：写软件比任何时候都便宜，接近零成本但永远到不了零，“这是一件新武器，但所有人都拿到了”，包括在位者，包括 Databricks 自己，“我在用它”。二是切换成本显著下降：他用 iPhone 与 Android 做现场投票——没人愿意换，因为界面不熟、数据要迁，这就是切换成本；<strong>“如果未来你只是在跟一个代理说话，切换成本就被消灭了，谁在乎代理背后操作的是 Android 还是 iPhone，是 Gmail 还是 Outlook，是 Salesforce 还是它的竞争对手。”</strong> 由此竞争会加剧，软件公司必须更高效地运营。</p>
+<p>第三层是护城河清单，他推荐学生读 Hamilton Helmer 的《7 Powers》，并列出软件之外仍然成立的壁垒：规模经济（能摊掉巨额固定成本，如 Amazon 与 AWS）、品牌（Ferrari、Rolex，便宜的软件替代不了）、信任与合规（不被攻破、有特殊认证）、专利、数据（有别人没有的数据，别人写软件再便宜也无用）、以及切换成本本身。他给出的分界线可以直接引用：<strong>“一家公司如果做了十年、软件看起来和十年前一样、只是收入在涨，它应该害怕。”</strong> 这类公司大概率已没有创新肌肉，会被今天从零起步、借低壁垒快速写出更好软件的对手清洗；过去十年一直在创新的软件公司，以及现在因为紧张而“把自己收拾好”的公司，会没事。</p>
+<p>讲师的补充是一个分级：手握大量数据、处在安全等核心闭环里的公司稳健度居前；处在中间的是工作流软件，UX 十年未变、用户仍在弓着肩膀往里敲会议纪要，“这类大概率没了”；但即便是这些公司也有客户与数据，若真做出好的 AI 并开始创新，可以继续走下去，只是可能要改定价结构与成本基础，而且相对新进入者它们有数据、客户与规模优势，“说起来容易做起来难”。全片对按席位定价没有展开，定价问题仅以“可能要改定价结构”一句带过。值得记录的一个细节是，讲师追问 Databricks 是否已经用这件“武器”替换掉自家的 CRM、IT 服务台或 CFO 办公室软件，Ghodsi 的回答是“没有，我觉得那样做很蠢”；被问及未来十年时，他又说 SaaS 确实在经历某种“启示录”，但软件不会全死，“我们很愿意参与其中、干掉一些软件”。在位者与替代者两个角色在同一家公司身上并存（作者归纳）。</p>
+<h3>四、企业 AI 的真实瓶颈：从发电机到计算机的四十年，与 Databricks 连接器团队的重构</h3>
+<p>讲师提到 Palantir 时期的说法“AI 战略始于数据战略”，问 2 万家客户里做成的与做不成的差别在哪里。Ghodsi 的回答是“这是人的问题，AI 已经够用”，而且“我没见到谁做得特别出色”，因为要把组织里的全部流程重新接线。他推荐 1990 年一篇斯坦福研究者写的文章，字幕拼作“From the Dynamo to the Computer”，讲各次技术革命传导到生产率统计要多久。PC 时代的段子是那位诺贝尔经济学奖得主的话“计算机无处不在，除了在生产率统计里”（字幕拼作 Richard Saul）；原因是人们买了 PC 当打字机用，打完打印出来放进文件夹，再让助理编索引。<strong>电动机的案例更长：从 1880 年到 1920 年，扩散花了四十年才在生产率上看到效果</strong>。蒸汽时代的工厂围绕一根传动轴布置，多层、密集，电动机来了以后工厂只是把蒸汽机换成电动机，没有任何收益；直到人们意识到要把工厂搬出城市、把厂房铺平铺大、让不同工段以不同速率运行——“单元驱动对群组驱动”——生产率才出现。他说“这就是现在正在发生的事”，自己迟到是因为刚见了一家大银行的 CEO，对方与他所有客户一样：都说 AI 很了不起、我需要它，但“我在组织里看不到任何生产率提升，我到底做错了什么”。</p>
+<p>他给的自家案例是本片信息密度居前的一段。Databricks 的核心业务是把 Salesforce、Workday 等系统的数据接到一处、加密、再做预测模型，连接器是它的看家本领，<strong>一个生产级连接器过去要三个季度、即九个月</strong>。模型变快后他自己试了一下，两天写出一个连接器，去问团队为什么要九个月；团队两周后回来说，AI 有用，可以从九个月压到七个半月，“你写的是玩具，我们的是有客户反馈、经过安全审查的生产代码”。他自嘲“有点沮丧，但一个半月也收下”。之后他找了公司里另一位“不在乎浮夸、从第一性原理出发”的人去看这个问题，对方与团队合作后回来的答案是：<strong>一个季度可以出七个连接器</strong>。</p>
+<p>差别在流程，与模型无关。原流程的第一个季度是把“昂贵、聪明、斯坦福毕业”的产品经理派去客户处收集需求，季末交回一份六七十到八十页的需求报告，按 Amdahl 定律这一段压不下去；第二段是测试，需要自己搭 Salesforce、Workday、NetSuite 实例，Databricks 不擅长、招人难、易出错；第三段是每个连接器只配一个人，有人休假或生病项目就停。重构后的做法是：需求阶段改为一周，写下现有的理解就开工，错了就重写，因为写代码已经足够快；搭第三方实例外包给专业公司并行去做、多付钱；七个人一起做七个连接器，消除“巴士系数为 1”。<strong>“这一切与 AI、AGI、更聪明的模型或者超级智能没有关系，下一代 GPT 7 或 Opus 6 不会帮我们把这件事做得更好。我们需要的是这些改变，这是人的重构与流程变更问题，全世界都在经历这个。”</strong> 讲师把这一点接到 Helmer 书中的“流程权力”，作为投资方向学生的必读。</p>
+<p>从投资视角看，这段案例给出一个可检验的判断：模型能力的下一代跃迁对企业侧生产率的边际贡献，可能小于组织内部一次流程重构；因而应用层与数据平台的价值实现节奏由企业改造速度决定，与模型发布节奏脱钩（作者归纳）。</p>
+<h3>五、与云周期的对照：token 工厂、规模经济与毛利去向</h3>
+<p>本片没有把云周期单独拿出来复盘，但两处对照足够明确。第一处是供给形态：Ghodsi 认为模型推理会像云一样集中在“token 工厂”，反对人人自建的想法，边缘只承担一部分。第二处是毛利结构：他把前沿模型的核心业务类比为 amazon.com 的图书零售——规模经济决定胜负、参与者少、毛利与营业利润率都薄；而在护城河清单里，他又把 AWS 列为规模经济壁垒的范例，即“能做到别人做不到的规模，从而负担得起疯狂的固定成本”。</p>
+<p>两处放在一起，可以读出讲者对本轮基础设施层的完整判断（作者归纳）：<strong>模型与推理供给会复制云的集中化与规模经济，胜出者能靠规模筑起壁垒，但商品化与开源压力把这一层的毛利率压向零售业水平，云周期里的那种高毛利并未被承诺。</strong>讲师的“蓝色三角”是同一判断的资金侧表述：当前利润集中在芯片层，模型层是投入端，翻转后利润向应用层聚集。这与云周期的实际路径有一处差异需要读者留意——AWS 在规模化后长期保持了高营业利润率，而 Ghodsi 对 token 工厂的预期是薄利；讲者未解释两者为何会不同，一个可能的解释是开源模型提供了云时代不存在的免费替代品（作者归纳，属推测）。</p>
+<h3>六、互联网周期复盘：multicast 的教训、被错判的关键问题，与下一代万亿应用的候选</h3>
+<p>Ghodsi 用自己的博士经历讲当年的错判。2000 年前后他在网络领域读博，互联网是当时的大事，网络是互联网里的热门方向，顶尖的数学头脑都在攻一个问题——multicast，即如何把一场球赛高效地从一个源广播给全世界，因为带宽稀缺。他为此创业并做出了不错的方案，<strong>“不幸的是带宽成本直线下跌，光纤铺得太多，这个问题从来没有成为过问题，没人需要买这个软件，完全是浪费时间。”</strong> 当年大家认为重要的是 Cisco 路由器、BGP、排队论、服务质量，因为对互联网有隧道视野，而那时“应用还根本不存在”。他把今天的芯片、基础设施、NVIDIA、OpenAI、Anthropic、DeepMind、AGI 与超级智能放到同一个位置上：这是这一轮所有人盯着的“multicast”。</p>
+<p>互联网真正起来的是当年听起来怪异的东西：出租车生意（Uber）、卖书（Amazon，后来长出 AWS）、把卧室租给陌生人（Airbnb）、发短文本（Twitter），“2000 年你这么讲，别人会说你疯了”。他顺带给了一个时间差：<strong>2000 年互联网已经有了，Airbnb 2009 年才创立，没有任何技术上的理由它不能在 2001 年出现并颠覆酒店业，可就是花了九年才有人想到，而且 Brian 是在一次设计会议上订不到住处才想到的</strong>。好点子很难得，人类不擅长产生它们，隧道视野让人盯错问题。</p>
+<p>他给出的下一代候选是两个“看起来不性感”的方向，判断标准与第三节的护城河清单一致。医疗占美国 GDP 约 17%，人们为自己与亲人的健康“愿意付出任何代价”，而今天的医疗做得并不好，一家“看过一亿名与你基因构成相似的病人”的公司可以值数万亿美元。教育在 VC 圈的共识是糟糕的投资标的，讲师接话“上一家教育行业的公开上市公司是谁，别说万亿，一千亿都没有”；但多数人有孩子、孩子必须受教育、家长在乎教得好不好，选举会因此输赢，“教我孩子什么是要紧事”，若有公司能用 AI 提供被证明更好的教育，很多人会付费。<strong>两类公司都具备数据壁垒与规模经济壁垒，至少在国家范围内有赢家通吃动态，所以价值会积聚到顶层</strong>。他的方法论建议是 Bezos 式的：先看清长期趋势（互联网会越来越多，购买会往线上走），再从毫无差异化的商品——书——起步，每年都更对一点，直到变成“万物商店”；不要被 Twitter 上此刻声浪居前的东西带走，“它大概率是另一个 multicast”。</p>
+<p>（口径提示：本文基于自动字幕整理。Databricks 客户数约 2 万家为 Ghodsi 口播纠正讲师的猜测；MIT 报告 95% 的比例讲者自称可能是 75%；开源与前沿模型差距“三四个月缩到约一个月”来自讲师课堂图表，Anthropic 收入 300 亿至 400 亿美元为讲师口播且未说明是年化还是年度口径；连接器案例的九个月、七个半月、一季度七个为口播；1880 至 1920 年四十年扩散的说法为讲者转述 1990 年文献，文献名与经济学家姓名按字幕拼写，前者应为 Paul David 的《The Dynamo and the Computer》、后者应为 Robert Solow，引用前请核对；模型名称 Kimi 2.6/2.5、Claude 4.7、GPT 5.5、GPT 7、Opus 6 均按字幕拼写；医疗占 GDP 17% 为口播近似值；本讲实际录制日期早于发布日，Kimi 2.6“两三天前发布”的时点以录制日为准。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

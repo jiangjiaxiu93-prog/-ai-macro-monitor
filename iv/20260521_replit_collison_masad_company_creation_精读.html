@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Collison 拿 Stripe 数据谈创业加速：新公司创设同比接近翻倍且平均质量上升、垂直 SaaS 归长尾、“实验室吃掉一切”在经济学上站不住（Replit，2026-05-21）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Collison 拿 Stripe 数据谈创业加速：新公司创设同比接近翻倍且平均质量上升、垂直 SaaS 归长尾、“实验室吃掉一切”在经济学上站不住（Replit，2026-05-21）</h2>
+<div class="metaline">Replit · 35 分钟 · 2026-05-21</div>
+<p>对谈双方为 Stripe CEO Patrick Collison 与 Replit CEO Amjad Masad，由 Masad 主持，发布在 Replit 官方频道。本期对应用层专题的价值在于两点：Collison 手里有一组覆盖超过四分之一特拉华新注册公司的样本，可以用来回答“AI 是否真的让更多、更好的公司被创设出来”；两人又各自从支付平台与开发平台的位置，对“实验室会不会吃掉应用层”“软件边际成本趋零之后护城河还剩什么”给出了判断。全片观点属两位嘉宾判断，数字为口播，Collison 本人多次声明手边没有精确数据，引用前需回到 Stripe 原始披露核对。</p>
+<h3>一、Stripe 口径下的创业加速：两次台阶，第二次比疫情那次更高</h3>
+<p>Collison 先交代样本口径：<strong>Stripe（通过 Atlas）承接的公司注册量占全部特拉华新注册公司的比例“略高于 25%”</strong>，他因此认为这个样本对整体具有代表性。在这个口径下，新公司创设速率出现过两次台阶。第一次在 2020 年 3 至 4 月，封锁期内新公司创设同比增速约 50%；他强调疫情之后这一速率没有回落到原基线，2022 到 2023 年一直维持在抬高后的水平并略有增长，而这段时间 AI 尚未真正介入。</p>
+<p>第二次台阶发生在最近约 12 个月。<strong>2026 年 3 月，Stripe 上新公司创设速率同比“接近 2 倍”</strong>，他的原话是“这是一个比新冠、比疫情、比封锁更大的尖峰”。归因上他保持克制：“我们并不确切知道为什么，推测是因为 AI，但不能定论”；能确定的只是，无论是什么在推动，它作为创业顺风的强度已经超过封锁期那一轮。</p>
+<p>他把这件事放进宏观语境。前不久他与经济学家 Nick Bloom 共进午餐，后者写过关于人均创新与生产率增速长期下滑的论文，两人当时讨论的是这个“大停滞”似乎已经结束，生产率正在重新加速。Collison 认为<strong>“创业正在大规模加速”是当下被低估的经济事实之一</strong>，它的意义超出硅谷与 Stripe 这类公司，应当进入经济学家的视野。</p>
+<h3>二、平均质量在上升，收入里程碑用时减半</h3>
+<p>对这轮尖峰的自然怀疑是：会不会大多是轻量的、随手用 AI 拼出来的项目，数量多了但分量不足。Collison 用平台数据回应：<strong>在创设量接近翻倍的同时，单个新公司的平均收入或平均成功度“反而略有上升”</strong>，也就是按单个样本看，新一代公司至少与过去任何一批持平。他补充的第二个观察是尾部更陡：进入陡峭收入爬坡的那批公司，“突围的幅度比以往大得多”，收入加速的量级是过去没有见过的。</p>
+<p>时间维度上他给了一组对比，声明“手头没有确切数字”：把 SaaS 繁荣期的 SaaS 公司、平台繁荣期的市场型公司与本轮的 AI 公司放在一起，<strong>到达 100 万、1000 万乃至 1 亿美元经常性收入这些里程碑所需的时间，大致缩短了一半</strong>。Masad 在现场补了一条更细的口播数据：20% 的初创公司在 30 天内向第一个客户收费，2020 年这一比例为 8%。</p>
+<p>地理分布上 Collison 承认两种叙事都有证据。一方面，同比大幅增长“在基本上每个国家”都出现，创业在经验上变得更容易、公司也做得更好，迪拜、泰国、日本、德国的创业者今天的处境都好于 12 个月前；另一方面，真正的爆发式突围仍然更集中在硅谷，且在 AI 之下这种集中度“如果说有变化，那是在上升”。他自己给出的调和解释是：许多突围公司起点并不在硅谷，路径可能是在别处起步、有了实质进展再迁往硅谷。</p>
+<h3>三、AI 让哪些公司成为可能：领域专家、软件未曾抵达的行业、一到两人的公司</h3>
+<p>Masad 用 Replit 上的案例说明这轮新公司的成分。他的观察是硅谷有自身的偏向，创业者多是程序员，而经济中有大片区域软件根本没有触达。欧洲有一位创业者为溜冰场做软件，一个人做，正在成为数百万美元量级的生意，“我不认为硅谷有任何人想过溜冰场”。另一个例子是英格兰乡村连接快闪瑜伽教练的应用，也已开始有收入。</p>
+<p>更重要的样本是领域专家。<strong>Magic School 由一位教师创立</strong>：疫情期间他看到大量教师离职，ChatGPT 刚发布时便思考如何用 AI 减轻教师负担，做出让教师快速布置与批改作业的产品。Masad 强调，硅谷的教条一向是“别做教育科技，那个市场糟糕”，而这家公司因为创始人懂教育体系的运作，成为早期从零做到约 1000 万美元 ARR 只用几个月的 AI 公司之一，“现在是一家约五亿美元的公司”，而且是用 Replit 建起来的。他的判断是，如果没有 AI 与 Replit 这类工具的变化，这家公司大概率不会存在——每个人都在各自领域看到问题，过去只是缺少解决问题的工具。</p>
+<p>一到两人公司是第三类。Masad 提到《纽约时报》报道的 MedVi，两人团队、正朝十亿美元 ARR 迈进，大量系统建在 Replit 上。他与创始人 Matthew 交流后的印象是，此人此前办过有很多雇员的公司并深感挫败，“我就是不喜欢管人，宁可管理代理与 AI”；从想法到在 Replit 上提示出一个能跑的东西约 5 分钟，后台还搭了大量自动化。Collison 对此的回应是自己从 Lisp 程序员出身，Lisp 的核心洞见是“代码应当是数据”，而今天代码与组织是两个世界，<strong>在 Replit 上可以想象组织本身也变成代码，整个系统完全自指、垂直整合</strong>。Masad 接话：“我们会看到更多这种十亿美元量级的一两个人的公司。”</p>
+<h3>四、“造应用的应用”：从写代码的工具到接管经营杂务的一层</h3>
+<p>被问及 Replit 在两三年后的生态位，Masad 给出的是一个路线图生成函数：<strong>“把从一个想法到一个已部署、已规模化、已变现、成功的软件之间的所有障碍逐一移除。”</strong> 顺序上，编程环境是第一道障碍，其次是部署环境，再往后“编码本身”成了障碍，由 Replit Agent 解决。他们近期做了一个叫 Raise Revenue 的项目，把在 Replit 上起步的公司请进办公室、全部在 Atlas 注册，由此看到的下一道障碍有两层：硅谷的老话“分发就是一切”正在成为真正的问题，此外还有拿到客户之后的大量经营杂务。他因此在考虑在 Replit 项目之上再加一层，让已经有流量、用户与客户的业务能直接发起营销活动、自动化入站销售，“我怀疑这种垂直整合里有很多价值”。</p>
+<p>Collison 从平台角度补充了这种整合的结构性优势：任何第三方工具都有一步要接入代码库、部署、测试、接进可观测性栈，这一步通常是摩擦点；而 Replit 本身管理这一切，可以即时供给并近乎保证能跑通。Masad 的类比是任天堂：Steam Deck 上一半游戏要折腾配置、随机出故障，任天堂从像素到底层全部自控，玩塞尔达就是完整的体验。两人对 Replit 与传统软件关系的判断可以概括为：<strong>Replit 的价值在于对“从想法到经营”整条链路的控制权，其扩张方向是向经营侧吞并原本由零散第三方 SaaS 承担的环节</strong>（作者归纳）。</p>
+<p>至于十年后人在仪表盘前做什么，Masad 的答案偏哲学。他认为当前这一代 LLM 仍是其训练数据的函数，擅长做已被证明可行的事，不擅长处于可能性边缘、文化边缘的事，因此不擅长命名与营销；人的角色是感知他人想要什么。他举的例子是 Replit 上有人做了一个 looksmaxing 应用，ChatGPT 甚至不会知道这是什么，“那是文化中的一个时刻”。Collison 用 Suno 提出同一问题：如果爵士乐不存在，模型能否创造出它；他倾向于今天做不到，因为要把模型训练得擅长分布之外的事，奖励函数按定义是对不存在之物的奖励。两人都认为答案会在未来几年由数学前沿给出：模型是成为框架内能力空前的竞赛数学家，还是真的能打破框架。</p>
+<h3>五、“实验室会吃掉一切”为何不成立：食物、交易所与七种权力</h3>
+<p>Masad 提出观众常有的顾虑：基础模型公司会拿走新公司创设乃至经济中的大部分价值，与 ChatGPT 或 Claude 竞争没有意义。Collison 的反驳从经济学出发：一种投入品在总量上必不可少，与它的边际价值、定价、价值捕获是两回事。<strong>“没有食物就没有经济也没有人类，但经济中的大部分价值并没有被食物生产者捕获”</strong>，因为这个行业有相当程度的竞争和替代。AI 在未来极其重要且丰裕，并不意味着价值都归实验室；单一霸权实验室是一个角落情形，既非现状，也不像当前轨迹，他甚至怀疑实验室自己是否想要那样。他的第二条理由是，任何公司的价值与其客户的支付能力成比例，“如果经济里只有一家公司，那其实是一家不怎么值钱的公司”。价值与价格归于稀缺之物，各类投入的相对稀缺性难以预测，但<strong>“因为某个公司或行业会吞掉一切而不去创业，会是一个糟糕的理由”</strong>，历史上没有这样运行过，合理的经济学预测也不会导向这个结论。</p>
+<p>Masad 从技术形态补充。他认为 LLM 是一种相当底层的技术，接口像 Linux，文本进文本出，极易商品化；GPT-2 在 2019 年只有 OpenAI 做得出来，“现在你可以在手机上训练一个 GPT-2 量级的模型”，这种摩尔定律式的进展意味着技术会渗透到一切，会有边缘推理与大量开源模型。他还反驳了“模型吃掉一切”论的隐含假设——与 AI 交互的方式只能是输入提示词。人仍然需要界面，会有 AR、VR 等新平台，“计算会像它一直以来那样发生变化”。</p>
+<p>Collison 随后把问题改写成本专题更关心的形式：当生产软件的边际成本趋近于零，什么决定哪些软件公司有价值、值多少。他的示范是交易所：<strong>交易所只是一段程序，价值在于所有人选择在这里交易，流动性在这里，买卖双方都能拿到最优价格；难点从来在说服所有人围绕你的交易所协调，交易所的代码本身并不难写。</strong>除了少数极难开发与测试的软件案例，“我不认为软件本身曾经是护城河”。Masad 引用 Hamilton Helmer 的《七种权力》回答“十年后护城河形态会不会变”：可以把七种权力映射到任何历史或未来的公司上，持续有价值的公司通常至少握有其中一种，AI 不改变这些权力本身，改变的是竞争节奏——ChatGPT 早期 Jasper 之类公司快速起落即为例证，一旦发现市场低效，竞争会迅速涌入，等于“打了兴奋剂的创新者困境”。</p>
+<h3>六、旧周期对照：每个十年都有一个压顶的担忧，硅谷变成平台城、垂直 SaaS 归长尾</h3>
+<p>Collison 给了一条按十年划分的复盘。80 年代的担忧是日本会赢得一切；90 年代是微软会统治一切；2000 年代网络泡沫破裂之后是“互联网没用，做什么都没意义”，随后是 Google；他 2010 年为 Stripe 来到硅谷，整个 2010 年代是 Google 与 Facebook 的组合，同时人们一直在谈融资枯竭、泡沫必将破裂，“总感觉处在灾难的边缘”；然后是新冠，现在是 AI 实验室。<strong>而在这将近 50 年里，经验上一直是创业的好时机，大量了不起的公司被创立</strong>。他的结论是，除了当前短期趋势线相当有利之外，把镜头拉长看，“一代人以上的时间里，押注创业这一边一直是个相当耐久的赌注”。他自己的经历也是同一模式的注脚：15 年前初创公司作为一个客户群体正是“年轻人中流行但地位低”的市场，Stripe 卖给初创公司时没有竞争对手，因为没人觉得那是重要市场。</p>
+<p>Masad 对本轮的判断是护城河变少未必对世界是坏事，竞争更多意味着消费者剩余更多。硅谷会没事，但形态会变：<strong>“硅谷可能更多地成为一座平台城”</strong>，垂直 SaaS 与单点方案之城这一身份则去中心化，变得对更多细分社区可得。溜冰场那样的创业者会安然无恙，因为有大量数百万美元量级的生意，竞争者进来并不划算；他担心的反倒是硅谷式的垂直 SaaS，“或许垂直 SaaS 变成长尾的领地”。Collison 的三条创业方向与此呼应：其一，什么都去试；其二，找软件尚未有效介入的领域，很多领域里主导者是 1990 年代的笨重系统，移动端糟糕、零 AI 支持、协作功能糟糕，去做那个领域的好版本；其三，年轻人中流行但地位低、被在位者忽视的东西，十年前的加密货币是例子。他半开玩笑地说过去七八年被问看好哪个科技板块时一直答“垂直 SaaS”，理由是软件、互联网、新的协调方式与市场机制仍未被带到大多数行业。</p>
+<p>盘子有多大，Collison 给的口径是 Stripe 交易量约 1.5 万亿美元、约占全球 GDP 的 1.5%。他不喜欢这种算法之处在于它盯着分子：真正的问题是全球经济今天约 120 万亿美元，如何变成 250 万亿乃至 1000 万亿；全球人均 GDP 仍约为美国的十分之一，美国 50 年前的人均 GDP 也只是今天的一小部分，“没有哪条物理定律说全球经济不能每年增长 5% 或 10%”，而 AI 提供的机会在两人有生之年都未曾有过。这段话的作用是把创业加速从平台内部指标接到总量增长上，作为对“实验室吃掉一切”的第三重回应：分母若能扩大，分配问题的紧迫性会下降（作者归纳）。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。“略高于 25% 的特拉华新注册公司”“2026 年 3 月同比接近 2 倍”“疫情期约 50%”“里程碑用时缩短约一半”“20% 对 8% 的 30 天内收费比例”“Stripe 交易量约 1.5 万亿、占全球 GDP 约 1.5%”均为口播，Collison 明确表示手头无确切数字，需回 Stripe 年度信披或官方博客核对；Magic School“几个月到约 1000 万 ARR、约五亿美元估值”与 MedVi“两人、朝十亿美元 ARR 迈进”为 Masad 转述，后者引自《纽约时报》报道，公司名按节目描述拼写为 MedVi，字幕作 Med V；“120 万亿全球 GDP”为 Collison 口播约数；Nick Bloom 论文与《七种权力》为嘉宾提及，未核对具体版本。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

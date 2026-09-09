@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Judith Estrin 回望四十年：互联网基础设施期没有人预见桌面与口袋，开放系统让价值流向广泛基础，AI 落在一个权力已经集中的时代（Forbes，2026-06-20）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Judith Estrin 回望四十年：互联网基础设施期没有人预见桌面与口袋，开放系统让价值流向广泛基础，AI 落在一个权力已经集中的时代（Forbes，2026-06-20）</h2>
+<div class="metaline">Forbes · 31 分钟 · 2026-06-20</div>
+<p>嘉宾 Judith Estrin 是 Bridge Communications 联合创始人、前 Cisco 首席技术官，曾任 Disney 与 FedEx 董事，斯坦福硕士期间的导师是 TCP/IP 共同发明人 Vint Cerf，本科在 UCLA 修过 Leonard Kleinrock 的课，是互联网协议早期建设者中仍在公开发言的少数人之一。采访者为 Forbes 首席内容官 Randall Lane，场合是 Forbes 250 位创新者评选，录制地点在 Hewlett-Packard 车库。本期对应用层专题的价值在于提供了“前几轮周期”的一手证词：1981 年做网络互联时，行业里没有人预见桌面与口袋里的计算机，也就没有人预见后来的应用层；90 年代的科技繁荣如何把叙事推到实质前面；云、移动与社交阶段行业从开放系统转向垂直整合之后，价值归属如何跟着改变；以及她为什么认为 AI 的问题出在它到来的时点。全片观点属嘉宾判断，节目为口播，年份与人名按字幕整理，引用前需回原始口径核对。</p>
+<h3>一、基础设施期的起点：计算机是大的、集体的，桌面与口袋不在任何人的设想里</h3>
+<p>她把自己的路径描述为“并不典型”，既没有从小立志创业，也没有在特定年龄开始做生意。父母均为 UCLA 电气工程教授，母亲拿到博士时“大约是当年的两位女性之一”。她在斯坦福读硕士，Vint Cerf 是导师，而她父亲曾是 Vint Cerf 的导师；本科阶段修过 Kleinrock 的课，ARPANET 正是从那里起步。毕业时她拿到 HP、Xerox、Intel 三家大公司的面试，另有一家刚从 Intel 分拆出来的小公司 Zilog，父亲的朋友说他认识的头脑清楚的人都在 Zilog，她在没有任何初创公司经验的情况下选了后者。她的复盘是：<strong>“如果去了那三家中的任何一家，十年后我大概会是一名经理。”</strong>在 Zilog 做了两年个人贡献者后转管理，几年后与当时的丈夫、后来的商业伙伴一起创办 Bridge。她把这段经历称为“时代造就的意外创业者”，并给出一条可引用的定义：创业精神是一种心态，与公司规模无关。</p>
+<p>她对“互联网黎明”的描述有意纠正一种事后视角。当时个人电脑尚未出现，“计算机是大的，是集体使用的”，互联网最初的设计目标是把大型计算机端到端连接起来，用户拿终端拨号接入。电子邮件刚刚起步。<strong>她职业生涯初期缺失的那个概念，是“每个人桌上有一台计算机，再进一步口袋里有一台，以及这两者的能力”。</strong>行业当时兴奋的事情是让计算机与计算机交换信息，至于社会怎样使用，思考对象是研究机构和公司。</p>
+<p>被问到“当时是否感觉到革命性”时，她的回答是有限度的肯定：“我们确实感觉到这是重要的一跃”，但当时计算并没有像今天这样浸入社会，“数字服务的连接、规模与范围，算不上科幻，但也不在我的脑子里”。她因此明确说自己当年没有想过社会会因此改变。放到本专题的语境里，这段证词的含义是：互联网基础设施期的建设者并不知道应用层会长成什么样，应用层是在个人电脑普及之后、由基础设施之外的人做出来的（作者归纳）。</p>
+<h3>二、1981 年的互联问题与 90 年代的繁荣现实：叙事从 Netscape 开始，形式压过实质</h3>
+<p>Bridge 创立于 1981 年，她描述的行业现状是：IBM 等公司已经在连接计算机，但没有办法把多个网络、不同技术连接起来，“要么是 IBM，要么是 DEC”，Bridge 做的事就是把这些异构网络互联。她对那个阶段的总结是“它是演化出来的”，行业内没有今天这种“我们将让世界变得美好得多”的宣告。<strong>“从互联网泡沫到社交媒体再到 AI，都有一个炒作因素，有一套走向全世界、超出科技行业本身的叙事，当年不存在这种东西。”</strong>她补了一句针对采访方的话：当年 Forbes 也不会那样写科技行业。她把这一动态的起点定在 Netscape 与互联网泡沫到来之时，恰好是她创办 Precept 的时期，“从那以后动态就变了”。</p>
+<p>她对 90 年代繁荣期的个人体验是“热爱，令人兴奋，也是苦活”，同时直言“对我来说那时更好，不只是因为我更年轻”。她给出的原因是：<strong>互联网淘金潮到来后，“营销、外部视角、你如何呈现东西，变得比实质更重要，形式成了获得注意力的主导因素”。</strong>她承认两者都重要，但明确说这不符合她的性格，她的定位是做基础设施。这也是她今天选择做“思想伙伴”、辅导创业者与非营利机构的原因。</p>
+<p>采访者提出的解释是：今天的叙事之所以存在，是因为人们见过它在互联网时代真的发生过。她没有反驳这一点。两段合起来看，她提供的是一条关于周期叙事起源的证词：技术周期的“世界改变论”并非自始存在，它是在互联网泡沫中被制造出来、随后被社交媒体与 AI 继承的行业习惯（作者归纳）。</p>
+<h3>三、开放系统与垂直整合：谁是整合者，价值就归谁</h3>
+<p>这是全片对应用层专题解释力居前的一段。她把行业四十年划成三段：早期是垂直整合的视频、音频与计算；她职业生涯的黄金期是“开放系统创新”，代表物是互联网与 Unix；云、移动与社交到来时，行业面临继续开放还是走向垂直的选择，“我们走向了垂直整合”。她给出的判断只有一句，可以直接作为本专题的分析工具：<strong>“垂直整合，价值归于整合者；开放系统，价值归于更广泛的基础。”</strong></p>
+<p>她把这个切换同时看作文化与哲学的改变。开放系统时期，AT&amp;T 与 IBM 同样握有集中的权力，但开放系统的方法给了客户选择权与健康的竞争，“那些公司没有消失”，市场却因此长出了一整批新公司。垂直整合时期，整合者掌握架构、资金与数据，新进入者的价值空间随之收窄。按她的框架，本轮 AI 应用层公司能否拿到价值，取决于行业停留在垂直整合的一端，还是重新出现一个允许不同系统互通的开放层（作者归纳）。</p>
+<p>她对“开放”的定义也值得记录，因为它与当前行业惯用的“开源”并不相同。被问到如果要为 AI 复制互联网的好处该怎么做时，她说 Mozilla 等机构已在着手，“开源是其中一块，但开放系统是允许不同系统彼此通信，这样你才真正有机会引入新技术”。她的结论是“这是可做到的”，问题是能否足够快地做到、教育足够多的人、在“某种意义上为时已晚”之前说服足够多的人。</p>
+<h3>四、互联网周期与 AI 周期的对照：技术不同，时点不同，权力结构不同</h3>
+<p>她对 AI 本身的定性没有保留：“AI 显然与我们见过的任何东西都不同，无论是它带来改变的能力、技术的类型，还是它所建立的一切。”她对本轮的担忧并不落在技术上，而落在时点上：<strong>“不幸的是，它来到了一个权力已经集中的时代。”</strong>集中的来源有三个，她一并列出：社交媒体时代遗留的格局、AI 的架构本身、以及做这件事需要的资金量与数据量。她的推论是“集中的权力等于集中的控制”，眼下是“极少数人在按照自己的意识形态与价值观决定将要发生什么”。</p>
+<p>对照互联网周期，她的表述可以整理成三组差异（作者归纳）。第一是起点的市场结构：80 年代同样存在 AT&amp;T 与 IBM 这样的集中者，但当时行业选择了开放系统，把选择权交给客户，形成了健康竞争；本轮 AI 的起点是垂直整合已完成的云与社交格局，开放的那一步尚未发生。第二是叙事的位置：互联网周期的叙事在泡沫到来时才出现，AI 周期的叙事从一开始就在，而且如她所说，行业“有时兑现，有时不兑现，有时兑现的同时造成伤害”。第三是竞争的性质：<strong>“现在的竞争像《权力的游戏》，我们需要的是健康竞争，它给客户选择权，客户才能推动对后果的考虑、推动某些约束。”</strong></p>
+<p>她对监管路径的判断是否定的：“有人认为我们能靠监管，那不会发生”，采访者补了一句“你得监管全世界”，她没有异议。她认为可能有一些监管落地，但真正能对冲集中权力的办法只有一条，就是 80 年代的框架——“不是同样的做法，但同样的框架”，即靠开放系统重建客户选择。她同时承认约束的难点：“谁会同意这些约束？做决定的人不想要这些约束。”她把整场对话的核心问题浓缩为一句：<strong>“谁来决定由谁决定这项技术？这是我们现在的关键问题，它比科技行业历史上任何时候都重要，因为权力太大了。”</strong>她的立场声明是：“我不反对 AI，我支持 AI，同时我支持社会。”</p>
+<h3>五、大公司与初创公司：温室、过早追问“如何规模化”、以及从独角兽到红杉林</h3>
+<p>被问到创新生态的一两条要点时，她给出五项核心价值：质疑（既是好奇心，也应包括对自己的一点怀疑）、开放（学新东西、愿意协作）、风险（“风险，而不是赌博”）、耐心与信任。她强调五者必须平衡：“有风险而没有质疑，那就是赌博；没有信任，很难建成你需要建的东西。”另一条是读懂所处的环境与自己想聚焦的时间尺度：有的创业者想把现成技术快速推进已有市场，那就要判断市场是否已准备好规模化；有的人喜欢待在研发阶段，可能做出新发现，但未必到了应用的时候，早期公司常常因此需要转向。</p>
+<p>关于创新在大公司与初创公司里的差别，她的经验来自 Cisco 与 Disney、FedEx 两家董事会。她的结论是大公司做创新的方式与小公司不同，需要围绕它组织、为它设计激励。她在书中用的比喻是温室与工厂化农场、或一片森林的差别：<strong>“有些新想法需要温室，否则没有机会长起来；真正难的是长起来之后如何把它移植、转化进组织开始规模化。”</strong>做法可以是设新部门，也可以是小心地移栽，没有通用模板，取决于公司的文化与领导层。</p>
+<p>她点名了一个扼杀创新的具体行为，来源是风险投资人与大公司两方：<strong>“有人带着想法来找你，你问‘这怎么规模化’。这个问题问得太早，你就永远拿不到这个想法的好处。”</strong>她认为这个问题该问，但要晚一些问。关于突破式创新与持续式创新哪个更难，她认为两者同等难、也同样少见，突破式创新可能出于偶然，持续式创新在“搭上一部已经在上行的电梯”时会容易得多，关键都在于读懂市场是否已到可以规模化的时点。她引用一位同事的话作为尺度：“领先于时代没问题，但不能与现实正交。”</p>
+<p>对初创公司文化的变化，她的时间坐标是最近五到七年。她观察到创业文化转向“工作时长论”与所谓“兄弟文化”，女性在技术岗位的比例“先变好，然后开始下降”，而这种文化很大程度上来自投资人施加的压力。她的处方指向估值语言本身：“建公司的时候不该盯着下一轮估值，该盯着公司的价值与价值观——对投资人的价值、对员工的价值、对客户的价值。我们谈的全是估值，估值并不是公司好坏的度量。”她的替代比喻是：“与其谈独角兽，能不能谈红杉？它们至少都长在一片林子里。”</p>
+<h3>六、速度、价值分配与“每天早上要求自己保持希望”</h3>
+<p>把她的担忧按本专题关心的三个维度归拢（作者归纳）：集中，即上文的“集中的权力等于集中的控制”；速度，即开放系统的替代方案“能否足够快地到达”，她把这一点列为可行方案之后的真正不确定项；价值分配，即垂直整合把价值导向整合者之后，更广泛的基础拿不到份额。第三点她在节目末尾又从社会层面补了一段：如果“美国梦”意味着下一代过得比上一代好，她认为“也许十年前或更早，即便对有特权的人来说这一点也已经不再成立”，收入不平等与通过互联网被不断抬高的期望之间的差距在扩大。她声明自己出身优渥、“没有走多远的路”，因此不把自己的故事当作美国梦的样本。</p>
+<p>对于是否乐观，她的回答是分层的：<strong>“我每天早上醒来都对自己说我需要保持希望，到晚上有时更怀疑，有时不。我不认为除了保持希望之外还有别的选择，但我不会说我是乐观的。”</strong>她还提了一个与技术周期不直接相关、但关乎创新土壤的前提：极度极化的环境里“人们为了注意力过度夸张”，“梦想来自一个不在持续争斗的头脑”，行业需要先回到一个不那么紧绷的状态，才谈得上判断什么是对的。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，全片为口播。Bridge 创立年份 1981、Zilog 自 Intel 分拆、Precept 创办时点与 Netscape 上市同期、母亲为“当年两位女性之一”均为嘉宾口述，未与公开传记核对；“最近五到七年”“也许十年前或更早”为嘉宾自陈的近似时间；她提及的著作与“五项核心价值”出自其本人口述，书名字幕中未出现；Mozilla 的开放系统项目为嘉宾提及，未展开。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

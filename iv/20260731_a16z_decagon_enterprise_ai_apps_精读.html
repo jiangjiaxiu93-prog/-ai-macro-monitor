@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Decagon 的应用层打法：九成工作流跑在开源微调模型上、前置工程是陷阱、护城河短期是“让模型在企业里可部署”（a16z Podcast，2026-07-31）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Decagon 的应用层打法：九成工作流跑在开源微调模型上、前置工程是陷阱、护城河短期是“让模型在企业里可部署”（a16z Podcast，2026-07-31）</h2>
+<div class="metaline">a16z Podcast · 80 分钟 · 2026-07-31</div>
+<p>嘉宾为 Decagon 两位联合创始人：CEO Jesse Zhang 与总裁 Ashwin Sreenivas，主持人为 a16z 的 Sarah Wang 与 Kimberly Tan（a16z 是 Decagon 的投资方，主持人在片中自述三年前即开始合作）。Decagon 做客服、销售与运营类的企业代理，是本轮增长居前的 AI 应用公司之一，也是“应用层无护城河”争论中被反复拿来举例的标的。本期的价值在于它由一家应用公司自己交代了三件事：推理为什么从前沿模型 API 迁到开源微调模型、在银行与航空公司这类组织里把代理推到生产环境的具体做法、以及面对“实验室是最后一批创业公司”这个叙事时他们承认什么与不承认什么。全片观点属两位嘉宾判断，数字均为口播，引用前需回原始口径核对。</p>
+<h3>一、三年内从前沿模型迁到开源：九成工作流跑在开源模型上，驱动是时延与可控</h3>
+<p>Jesse 先讲公司的路径。创业初期目标只有一个：让东西跑起来并交付价值，所以自然用 OpenAI 与 Anthropic 的前沿模型，两家当时在性能上互相压过。转折出现在客户规模上去以后：合作的大企业有数百万终端客户，同时公司上线了语音代理，<strong>时延变成核心指标</strong>——问题从“能否给出好回答”变成“能否很快给出好回答”。压时延只有一条路是用更小的模型，而前沿实验室虽然也有小模型，“你没法按自己想要的方式控制它们”，且小模型开箱即用大多达不到任务要求，必须微调。这是他们一年多前转向开源的起点。</p>
+<p>理由建立在代理的任务结构上。他的原话是：代理的工作是对话，一次对话里要同时做很多件事，第一步可能是判断客户在讲什么话题，另一步是判断来人是否为恶意用户，“每一个单独的任务都不需要大模型的全部智能”。前沿模型会做数学会写代码，但这里只需要它把一件事做好，所以用小模型微调到单一任务上，可以做到与大模型持平或更好。<strong>Jesse 给出的现状是：今天公司 90% 的工作流跑在开源模型上，剩下 10% 仍用闭源前沿模型，主要用于新项目与新产品。</strong>为此公司组建了一支他自称“非常昂贵”的研究团队（Decagon Labs），专门做开源模型的选取与调优。</p>
+<p>他把模型选择归纳为三个维度：成本、智能、时延，按需求在三者的极限上取舍。Decagon 的取舍是主动收回一部分智能（因为只需做一件事），换取时延优势；成本下降是随之而来的副产品，他的原话是“我们做这件事并不为了成本，成本只是一个不错的附带效果”。</p>
+<h3>二、“更笨的模型换便宜”是伪权衡：微调后在单一任务上三项同时占优</h3>
+<p>Ashwin 对推特上常见的争论提出反驳。常见框架是“要么用很贵的聪明模型，要么把它调笨一点换便宜”，<strong>他称这是一个伪权衡（false trade-off）</strong>：实践中拿一个所谓更笨的模型微调，在特定任务上能做到比大型前沿模型更高的表现。小模型的短板是通用性差，但在他们要它做的那一件事上，“它们实际上跑赢大型、聪明的、最新的模型”。结论是三项一起拿到：任务上更好、更便宜、更快。</p>
+<p>被问到是否还需要前沿模型，Ashwin 的答案是需要，但用在辅助性任务上。主对话流程里的任务边界清晰（帮客户改签、走医疗流程），小模型足够；而新推出的 Duet Autopilot 这类产品做的是开放式探索——回顾一百万条刚发生的对话、找趋势、生成主模型的多个变体并比较——这种任务适合能大量试错的前沿模型。这构成一个分工：<strong>边界清晰、高频重复的生产任务归开源微调小模型，开放式探索任务归前沿模型</strong>（作者归纳）。</p>
+<p>关于自建与外购的边界，Ashwin 的框架是看与用例的耦合程度。与模型训练相关的多数环节都与自身用例紧密耦合，所以工具链主要自建；评测尤其如此——<strong>他们把评测对准客户结果，评的是整个系统端到端的表现，单个模型的损失曲线只是次要参考</strong>——他的表述是“不是问这个模型在这个任务上好不好，是问这个模型与其他所有模型协同起来，有没有交付我们在意的客户结果”。标注数据获取、数据集多样性度量这类各公司通用的任务则向供应商采购，因为唯一目标是把表现领先的模型尽快推到生产。</p>
+<h3>三、企业自建微调会来但慢于预期；开源推理份额短期反而在下降</h3>
+<p>主持人问企业是否会走到自己做开源模型后训练这一步。Jesse 的判断是会，但比人们想的更久。理由是即便 Decagon 自己的团队，微调也远非“决定用开源然后就用”这么简单：要拿到数据，更重要的是要有好的评测，而评测高度特定于自身任务，“公开评测集完成不了这件事”，必须自造基准。他的分界线是：<strong>当用例固化、已在生产环境规模化运行、代理的形态基本确定，用开源就是严格更优</strong>，时延与成本双收；而所有新的、实验性的、真正需要智能的场景仍会用前沿模型，因为前沿模型 API 用起来太方便，不用操心基础设施。</p>
+<p>由此他给出一个与舆论相反的观察：<strong>“尽管开源现在热度很高，企业里开源推理的份额实际上正在下降。”</strong>原因是企业在大量起新用例，起新用例当然先用前沿模型直到跑通；其中一部分会死掉，另一部分企业决定继续投入并铺开，到那一步才有强烈动力迁到开源，可以自己做，也可能需要外部帮助微调。他判断这个过程会慢，因为企业一次只能推进有限数量的用例，还要过模型风险治理与安全审查。</p>
+<p>Ashwin 补充了企业自建“小型实验室”的另一层理由：模型的形态一直在变，微调不是一次性工作。前沿与开源前沿每前进一步，都会冒出新的可用任务，团队因此“不断训练全新的模型，弃用不再相关的旧模型”。Decagon Labs 在他口中是一座“模型工厂”，目标是压缩“新模型发布”到“可用于自身任务的微调模型出炉”之间的时间。</p>
+<h3>四、token 经济学不是应用公司的首要约束：每次对话的 token 数在上升</h3>
+<p>主持人指出，以上讨论里几乎没有成本的位置。Ashwin 确认驱动因素是时延与准确率，成本是“少数几个你能白拿全部好处的任务之一”，无须在成本、时延、性能之间取舍。Jesse 从公司阶段解释：成长期公司当然要对成本负责，但首要优先级是增长，<strong>客户并不关心你的成本，只关心代理表现如何</strong>。公司的产出单位是一次对话，客户在意对话质量，不在意这次对话花了多少 token。</p>
+<p>他随后给出一个方向性的数据：<strong>公司每次对话使用的 token 数量一直在上升</strong>，因为为了提高质量，他们在做更多模型调用、更多校验、更多并行处理。等到“赢下市场”，才是回头优化成本的时候。Ashwin 把 X 上的 token 经济学争论定位为“用前沿模型的人在算要不要迁开源”的问题：如果整个业务只跑在前沿模型上，他也会非常在意成本；但一旦掌握了拆解问题、快速训练与部署开源模型的方法，成本的压迫感就大幅减弱。</p>
+<p>这段对应用层估值的含义是：至少在 Decagon 这类已完成开源迁移的公司，毛利的决定变量是模型编排与微调能力，token 采购价的权重随之下降；单位对话 token 用量上升与毛利改善可以同时发生（作者归纳）。</p>
+<h3>五、应用与实验室的边界：微调是为用例，业务逻辑在上下文里，应用公司长期会变成垂直实验室</h3>
+<p>主持人把 2026 年上半年的主导叙事摆出来：Anthropic 与 OpenAI 是最后一批创业公司，应用只是“薄 UI 加前置工程师”。Jesse 先从财富 100 强企业的选择视角回答。他指出一个常见误解：外界以为微调是为单个客户定制，<strong>实际上 Decagon 做的微调绝大部分是为“客服”这个用例定制</strong>，比如把一个模型调到擅长识别客服话题。这对 Decagon 值得，因为它跨所有客户只做这一件事；对企业自身，把宝贵的研究资源花在调一个客服行为模型上“大概率不值”。</p>
+<p>第二层是业务逻辑的存放位置。企业教给 AI 的是自己的流程，这件事发生在上下文里，不通过微调——因为流程一改就要把微调反过来。企业自己用前沿模型搭一个代理，上线第二天看对话就要改三处，此后是持续不断的工程投入。所以他的结论是：<strong>“客户航班取消打进来要一次改签三个人，这是 AI 需要执行的业务逻辑，与模型本身无关，它必须存在于应用层。”</strong>核心垂直领域需要的是深度：全部集成、业务逻辑捕获、测试与实验、对话复核与 QA、给合规团队的监控工具。实验室会加应用能力，但会相当通用，能做“这件事或那件事”的通用代理。</p>
+<p>Ashwin 承认边界在互相渗透：实验室往上做应用，因为那是企业看见 ROI 的方式；应用公司往下做模型，因为能在自己在意的用例上榨出更多性能、时延与成本，“这种渗透合理，而且会持续”。但他不接受“实验室是最后的创业公司”：<strong>人类本身就是某种 AGI，人类做事一样需要数据库、需要 CRM；即便有了 AGI，代理也需要一个地方存工作、取信息、做推理。</strong>纯为“人来干活”设计的一类 SaaS 会承压，但软件整体不会消失。他给出的长期形态值得单独记下：<strong>“长期看，应用层公司也许就变成特定垂直领域的实验室，因为你的主产品最终是那些在特定任务上非常好的模型。”</strong></p>
+<h3>六、前置工程是陷阱：吃掉痛苦、排出产品，Duet 的产品化链条</h3>
+<p>Ashwin 对“把前置部署工程师（FDE）请回来、每家都在大量招 FDE”的风潮直言这是“一个陷阱”。他的理由从 SaaS 周期对照出发：五年前做 SaaS 产品，用户在设计工具或 CRM 里要做什么已被充分探索，你的工作只是把流程做得更干净；AI 产品的工作流没人用过，<strong>前置工程师的实际作用是与客户一起第一次学习工作流，“看着火车往哪开就往哪铺轨”。</strong>但长期他们应该去做产品：一旦工作流被摸清，就应把它产品化，回到科技公司的规模化属性。Jesse 补一句：做不到这一点，“你只是在建一家有光环的咨询公司”。</p>
+<p>Ashwin 曾在 Palantir 做部署策略师，他提醒硅谷把 FDE 一词用得过于宽松，把免费咨询与做产品混在一起很危险。他引 Palantir CTO Shyam 的内部说法：<strong>“前置工程师吃掉痛苦，排出产品。”</strong>Jesse 加了一层现实主义：很少有公司做得到 Palantir 那样一上来就签巨额合同、从而值得投入那么多人力，走“任何 AI 用例我们都给你做”路线的公司迟早要面对能否找到可规模化产品的问题，否则就是在建一家现代版 Accenture。Decagon 的自我定位是产品驱动、由销售提供信息：前置团队贴近客户，但任务是把销售侧的学习汇编进核心产品，“下一批十个客户问同样的事时免费得到它”。他们把这个角色叫“代理产品经理”（agent PM），职责是与客户一起弄清产品今天在哪里不好用、要新建什么才能在企业里部署得下去，产出物有两类：真正的产品改进，以及流程改进——很多大企业需要有人陪着走完“今天的组织是这样、流程要怎么改、新技术怎么进来”的转型，这段陪伴本身也被他们流程化了。Jesse 强调短期内到处接用例可以换来更大的合同，“痛点在哪就往哪打”，但长期极难规模化，所以公司从第一天起就要求所有东西回流到核心产品。</p>
+<p>产品化的链条在片中被讲得相当具体。最早，教代理执行流程要写代码，前置工程量太大，于是发明了用纯文本写的“代理操作程序”（AOP）；进入新客户仍要花大量时间手写 AOP，于是做了 Duet——一个更大更慢的第二代理，职责是写 AOP、写接入客户系统的工具、写测试与模拟、上线后监控对话；上线后迭代仍然吃人力，于是做了 Duet Autopilot，读上千条对话、指出某个话题表现差、并起草改进方案。Jesse 说 Duet 在创业初期并不可能，<strong>它依赖推理模型的进步——那些模型主要是为编码代理训练的，却同样能胜任写流程与写测试</strong>，这是他“模型在变得非常通用”的切身时刻。Ashwin 的总结是：每一项产品改进都源于前置工作的产品化，目标是让工程师与客户侧资源越来越少地介入。</p>
+<h3>七、护城河的坦率回答：短期是“让模型在企业里可部署”，三年后再看</h3>
+<p>Kimberly Tan 的问题很直接：假设到了 AGI，模型能做我们今天想不到的事，Decagon 十年后凭什么还有存在的权利。Ashwin 的回答把时间尺度切开。短期护城河是与企业资源协同的能力：<strong>“今天模型的能力远大于它们在企业里被使用的程度”</strong>，你不能把一个模型放进企业、给它所有权限、让它自己想办法。即便假设模型完美无误，在企业里可部署仍需要：一套告诉模型能做什么不能做什么、确保不会犯灾难性错误的机制；让企业内数百人协作、在各自专长的用例上确认代理行为符合预期；测试模型不越过监管红线；从数百万条对话里为其他团队提取洞见；与遗留系统对接。这些基础设施与软件是未来几年模型能在企业里工作的前提。</p>
+<p>他没有把话说满：<strong>“一旦这些被商品化——因为代理可以即时把它们搭出来——那我不知道，三年后再看。”</strong>这与主持人转述的采购方说法互为映照：多位决策者告诉 a16z，选 Decagon 的原因之一是押注创始团队在一个按周甚至按日变化的市场里速度居前、能在棋盘变化时走对棋。把两者放在一起，应用公司此刻的护城河由部署工程、业务逻辑资产与迭代速度三者叠加构成，其中前两者可能被更强的代理侵蚀，第三者取决于组织本身（作者归纳）。</p>
+<p>Jesse 在谈瓶颈时补了一个佐证：公司当前的瓶颈是招聘，“我们是 token 的饕餮消费者，token 账单非常大”，但代理还做不了“该建什么、什么算完成”这类判断，品味仍然在人。对“一人独角兽”的说法他给出反例：AI 编码公司是这些模型老练程度居前的用户，却在疯狂招人，因为竞争对手同样拿到了工具，路线图缩到三分之一时间的结果是所有人都去建三倍的东西。技术侧他们仍在等的是语音到语音模型的成熟，以及小模型开箱即用时更聪明，但“从商业角度看，瓶颈更少在模型侧，更多在能否把公司建得够快”。</p>
+<p>片尾 Ashwin 讲的一个自用实验从另一侧印证了应用层的价值所在。他说模型已经很聪明，两位创始人常拿它头脑风暴，真正的瓶颈是业务上下文——每个想法背后的约束与目标很难每次向代理重述，所以他花时间给自己搭了一个持续“越过肩膀看”的代理，不断汇编已招的人、要招的人、在谈的交易、当前的难题，之后可以直接问它某个候选人合不合适，它能答出“此前两位相似候选人缺的正是这些能力，这次需要互补的人”。他的自我总结是“我的工作就是在大量上下文下做决定”，把上下文交给模型的比例越高，自己越接近被替代。这与前面的护城河讨论同构：模型智能是外购的，上下文的沉淀与组织是自有的（作者归纳）。</p>
+<h3>八、卖给大企业：玻璃盒对黑盒、拆小用例、创始人八成时间在销售</h3>
+<p>主持人把市场描述为 Decagon 与 Sierra 的两强格局（此为主持人判断），并问为什么全球规模居前的企业愿意买、而且销售周期远短于此类合同通常需要的两年。Jesse 先对 Sierra 与各大平台表达尊重，随后讲了一个刚发生的案例：<strong>最近一家客户从 Sierra 转到 Decagon，理由是此前主要通过 FDE 交付，“感觉像一个黑盒”</strong>，建新流程或深入了解对话都要经由 FDE，一年下来只建了约三条流程（客户口述，Jesse 转述）；转到 Decagon 后大约一个月内自行搭了七条。他称这是“玻璃盒”对“黑盒”的差别：核心产品要让客户自己能用、能快速迭代、一切在自己掌控之内，非技术人员也能进来操作并理解对话里发生了什么。他也承认有些团队更喜欢“你们全包”的模式。两位创始人此前都没有卖过企业客户，Jesse 说学习曲线很短，因为赛道足够热，在这些对话里不需要说服对方投资这个领域，只需说服对方“我们是对的路径”；剩下的是穿透组织，并对客户看重什么、害怕什么保持同理心。他补充公司在早期就“幸运地”拥有一支很强的销售团队，整个公司都清楚一切从销售开始、再往回传导。</p>
+<p>进大企业的具体做法有三条。其一是把项目拆小：与全球规模居前的银行、航空公司与电信商合作，无论多快都受制于组织体量，所以只挑一两个头部用例先拿到一次胜利。其二是把“能否上线”这件事产品化：Ashwin 说企业内部的问题除了“产品能否用”还有“我能否让它上线”，在金融这类受监管行业尤其复杂，所以他们把这段旅程完整映射出来，第一次会议就能逐项讲清从今天到 100% 上线的路径——模型风险流程大概会怎样、测试应当怎么做、初始灰度怎么放、问题如何捕捉与复发防范。<strong>“产品与技术当然重要，但对大公司同样重要的是帮他们把部署过程想清楚，这件事常被卖进企业的科技公司忽略。”</strong>其三是创始人亲自压速度：Jesse 自述约 80% 的时间花在销售上，销售团队负责建立内部支持者与穿透组织，而不断重新设计流程、合同与产品配置以缩短周期的工作必须由创始人来做。</p>
+<p>早期销售团队的构成是一个细节：不少人是主动投简历、非传统销售背景，还有一批常春藤校运动员出身；主持人称有的早期销售是“冷投”加入。国际化被提前拉动的原因有二：董事会与 CEO 层面对“先做点 AI”的自上而下压力，而编码代理与客服是显眼的两个入口；以及语言障碍在 AI 时代大幅降低。但数据驻留与更懂本地市场的本地竞争者仍是变量。</p>
+<h3>九、SaaS 没死与 Jevons 悖论：礼宾经济学、CRM 作为事实源、五万工单的样本</h3>
+<p>产品边界上，Decagon 已从纯客服扩到“礼宾”（concierge）：一家客户先上客服，随后发现代理已了解产品、能力、品牌语气，于是把入站销售也交给它（回答问题、做需求发现、金额够大再转给企业销售代表）；另一家用它跑运营流程，账户出现异常时主动外联。Ashwin 说这是有意为之：<strong>“我们从一开始建的就不是一个擅长客服的代理，是一个擅长遵循业务流程的代理。”</strong>让扩展成为可能的具体模型进步是指令遵循——几年前必须给非常紧的指引，现在可以给越来越宽的指引，信任模型像人一样理解并填补空缺，销售发现这类需要开放式提问、对话来回摆动的场景才因此可行。Jesse 的长期愿景是“AI 代理就是企业的前门”，所有对客交互无论被动主动都由 AI 处理；至于 12 个月路线图，他坦承在今天的 AI 环境下做不到精确，“有想法就现在建”。</p>
+<p>对 CRM 等记录系统，两人都不认为是零和。Ashwin 的经济学表述值得引用：一年花 10 万美元的客户能得到高度个性化的对待，花 10 美元的客户得不到，原因只是单位经济不支持；<strong>“如果能以 10 美分给他们同样的体验，它突然就经济了。”</strong>人类礼宾会把信息记进 CRM，AI 代理同样需要一个放数据的地方。Jesse 甚至偏多 CRM：CRM 本质是数据库，人们不满的是界面难用，未来若由代理直接调用接口、不再需要图形界面，CRM 因持有事实源反而被调用得更多；Decagon “没有任何兴趣做 CRM”，代理层的事已经够多。主持人的收束是“所以 SaaS 没死”。</p>
+<p>就业问题上，Ashwin 给出一个可核的案例：一家早期客户（约两年半前）每月客服咨询量约五万条（他自称“我想是”），上线后发现客户问题远多于此，于是把支持入口放到每个页面、放在用户容易卡住的地方，并向免费用户开放即时支持——<strong>客服成本降三成时，多数企业没有裁掉六成团队，他们的反应是“既然这件事对客户明显有价值又便宜得多，那就多做”</strong>。主持人称这是她听过的现实中 Jevons 悖论的样本。Jesse 的表述是“AI 会消灭工作岗位，但不会消灭职业”：高频、点几下就出答案的工作本就不该由人做，而让客户更满意的事近乎无限。至于 BPO，他说视客户而定：有客户显著减少了外包用量，也有客户处于高速增长期、希望运营不随增长同步扩张，还有客户把人转去做创收的事。</p>
+<p>关于前几轮周期的对照，本期给出的材料有限但可以归拢：Ashwin 用五年前 SaaS 工作流已被探索殆尽来解释为什么当时不需要前置工程；Jesse 用 Salesforce 与 Zendesk 都是横向平台来论证他们这个赛道的赢家仍会是横向的，规模与产品深度带来的收益大于垂直特性，垂直与地域上都会有整合；两人都认为记录系统会作为事实源穿越这一轮。这些判断与他们“应用层长期变成垂直实验室”的说法之间存在张力——横向平台与垂直实验室并不必然是同一家公司（作者归纳）。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。“90% 工作流在开源模型上”“每次对话 token 数上升”“80% 时间在销售”“一年三条流程对一个月七条”“每月约五万条咨询”“成本降三成”均为嘉宾口播，其中工单量嘉宾自称记不准，流程条数为客户口述经嘉宾转述，均无披露文件可核；“两强格局”“销售周期远短于两年”为主持人判断；Decagon Labs、Duet、Duet Autopilot、AOP 为字幕拼写下的产品名，公开命名请以公司官网为准；Shyam 引语为嘉宾转述的 Palantir 内部说法；本期未涉及 Decagon 收入、毛利率与合同金额的任何数字。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

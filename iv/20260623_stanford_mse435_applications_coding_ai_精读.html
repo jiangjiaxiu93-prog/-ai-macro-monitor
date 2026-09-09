@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Rauch 讲编码代理的部署层经济学：软件创作者扩容十到百倍、算力需求摆脱程序员人数约束、SaaS 拆成系统记录与可再生的表现层（Stanford Online，2026-06-23）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Rauch 讲编码代理的部署层经济学：软件创作者扩容十到百倍、算力需求摆脱程序员人数约束、SaaS 拆成系统记录与可再生的表现层（Stanford Online，2026-06-23）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 49 分钟 · 2026-06-23</div>
+<p>本期为斯坦福 MS&amp;E435《AI 超级周期的经济学》2026 年春季学期的一讲，主题为应用层与编码 AI。主讲人为课程讲师 Apoorv Agrawal（斯坦福管理科学与工程系兼职讲师、Altimeter Capital 合伙人），客座讲者为 Vercel 创始人兼 CEO Guillermo Rauch，Next.js 的作者——两人身份据节目说明与字幕判断，主持人在字幕中未自报姓名。前半段为 Rauch 的幻灯片讲解，后半段为课堂问答。对应用层这个专题而言，本期的价值在于它从一家部署基础设施公司的视角回答了编码 AI 为什么成为第一个跑通的应用品类：需求从哪里来（能写软件的人扩容十到百倍）、算力需求的约束项如何改变（从程序员人数变成代理写码量）、代理如何选择工具（默认选项由训练语料与 API 设计共同决定）、以及 SaaS 会被拆成哪两层。全片观点属讲者判断，其中 Vercel 的份额、增速与客户案例均为讲者本人口播且来自利益相关方，引用前需回原始口径核对。</p>
+<h3>一、需求来源：编码代理把“能造软件的人”从两千万扩容，Opus 4.5 之后拐点出现</h3>
+<p>Rauch 先交代 Vercel 最初的市场测算。他创业时的算法是<strong>全世界约有 2000 万开发者</strong>，只要会写前端项目，就可以把部署、扩容、负载均衡全部交给 Vercel。当时硅谷正流行编码训练营，三个月学会 React 即可就业，他由此判断现代 JavaScript 工具链的学习曲线足够低，这个群体足够大。这一测算的前提是“会写代码”是一道门槛，门槛之内的人数决定了市场规模。</p>
+<p>编码代理改变了这一前提。他把编程史概括为一条不断扩大准入的曲线：从少数能接触大学主机的人，到今天的两千万开发者，再到代理出现之后，<strong>“能创造软件的人数正在以 10 倍、20 倍、100 倍的幅度扩张”</strong>，他称这是软件创作总可寻址市场规模空前的一次扩张。落到 Vercel 自身的数据上，<strong>拐点出现在 2025 年 10 月，触发因素是一款具体的编码模型，Opus 4.5</strong>，此后越来越多的人把软件部署到 Vercel 平台；他给出的量级是平台在几个月内增长 3 倍、<strong>日部署量自 2026 年 1 月以来翻倍</strong>（均为口播，未说明具体口径）。</p>
+<p>他给需求来源补了一个机制解释：写代码不让人特别，部署代码、把它放到客户面前才让人特别，学习是从用户面对运行中的软件那一刻才开始的。他对 GitHub、SourceForge 乃至更早的 Freshmeat 的观察是，人们把软件以“代码行”的形式存起来就很兴奋，但仓库里的东西大多跑不起来，“世界由一堆又一堆跑不起来的软件构成”。人类程序员有“在我机器上能跑”的偏好，代码留在本机才有安全感；<strong>编码代理没有这种偏好，“编码代理热爱部署”</strong>。他用花生酱与果酱作比：编码代理是花生酱，正在涂满整个世界；部署基础设施是果酱，两者必须配对。这解释了为什么模型能力的一次升级会直接转化为部署平台的流量（作者归纳）。</p>
+<h3>二、算力需求的约束项变了：弹性计算的上限从程序员人数变为代理写码量</h3>
+<p>Rauch 从 EC2 的设计假设讲起。EC2 普及了一个概念：想要一台计算机，刷卡即得；要一百万台，付一百万台的钱。但弹性计算是为人写的代码设计的，<strong>从经济学角度看，“能卖给世界多少算力，上限由我们有多少程序员决定”</strong>。当代理开始写软件、修软件、给软件做安全加固，这个上限被解除，他称正在看到对“代理写的代码”的算力需求大幅增加，网络安全领域已经同时出现了攻击代理与防御代理。</p>
+<p>第二个变化是工作负载的时间结构。互联网的大部分基础设施建立在即时请求与响应之上，他引用 Amazon 的数据：<strong>页面每慢 100 毫秒，转化率下降 1%</strong>。代理型云的负载与此相反，响应不再即时：先是数秒，然后是数分钟、数小时，<strong>“现在我们看到能‘炖’上一整天的代理”</strong>，一天之后才把报告、分析或软件交给用户。Vercel 上已经托管了替用户“创办公司”的平台，背后是维护、投放、增长这些环节各由代理承担。他把这一变化概括为从页面向代理的倒转，运行的算力类型也随之显著改变。</p>
+<p>第三个变化是计价单位。Vercel 过去只“流式传输像素”，即用户界面；现在传输的是 token 形式的智能，<strong>“token 是新的热门商品”</strong>，定价模型与商业模型随之改变——从按席位计价转向按 token 计价，后者度量的是智能本身。他随即给了一个限定：这不意味着要在两端之间过度摆动，他对以人为中心的体验仍然看多，人总要在某种丰富的环境里看到代理“炖”出来的结果。他甚至预测一个更有趣味的网页会回归：小时候微软的 Encarta 是活的百科全书，今天的 Wikipedia 只是一堵文字墙，视频生成与 3D 生成会把沉浸式体验带回来，Vercel 上已有平台在做即时 3D 渲染。</p>
+<h3>三、分发机制：代理的世界模型决定谁被选中，90.1% 与 86 比 86 的来历</h3>
+<p>本期值得记录的经验证据是一组份额数字。Rauch 引用一份第三方报告（字幕未给出机构名）：Vercel 的 UI 组件引擎 shadcn 处于“接近垄断”地位，<strong>份额 90.1%</strong>；当决定部署 React 或 Next.js 项目时，Vercel 同样“接近垄断”，报告的表述是 100%。主持人追加了另一个数据点：<strong>Claude 在 86 次里的 86 次都选择了 Vercel 作为部署选项、shadcn 作为组件库</strong>，并追问这是与 Claude 的企业合作，还是代理实时做了择优搜索。Rauch 的回答是“以上皆是”，随后改口为“去掉合作那项”，再补一句“我不能确认也不能否认存在扩大 Vercel 可及性方向上的合作”。这一段应按原样记录：份额数字来自报告，成因解释来自利益相关方，合作的存在与否讲者未予否认。</p>
+<p>他给出的因果链有三层。第一层是训练语料：多年来 Vercel 生产了大量内容和对人与代理都好用的 API，模型从互联网上关于 Next.js、React 的海量知识里学会了这些工具，<strong>“编码代理在某种程度上已经打定主意——尽管远未固化——这些是完成某类任务的好工具”</strong>，比如要做一个 SaaS 应用，代理大概率会用 shadcn。第二层是 API 设计中的“局部推理”属性。他以 Tailwind 为例：这项技术在人类开发者社区极具争议，因为代码行变得很长、看上去像垃圾，他自称有极度的整洁强迫，但压下了自己的审美反射去“押注真理”——Tailwind 让一个组件可以被单独理解，拿到任何地方都能正常工作，赋予代码“经济上的可扩展性”。Next.js 与 React 同样具备这一属性，Facebook 团队在工程师规模扩大时得出了同一结论。<strong>语言模型的上下文窗口今天是 100 万 token，装不下人类全部代码，局部推理因此变得关键</strong>。第三层是即时检索：代理启动任务时会去搜索，内容既服务于训练，也服务于接地。主持人把三层归结为可组合性，Rauch 认可这是代理可扩展性的前提条件。</p>
+<p>他还回答了一个更基本的问题：代理为什么要复用已有软件。理论上代理每次都可以从头造世界，写自己的 Linux 内核、自己的网络栈，但存在效率偏向，开源基础设施给了代理一个可以往上堆代码的靶子，“像乐高积木”。他引用刚加入 Vercel 董事会的 HashiCorp 创始人 Mitchell Hashimoto 的说法：接下来是一个“积木经济”，想让 Claude Code、Codex 或 Grok CLI 选择你的技术，就要设计符合代理工效学的积木。由此可以归纳出一条进入代理默认选项的路径：语料中的存在感、可局部推理的接口、可被即时检索的文档，三者同时具备才能成为代理的默认选择，而这三者都需要多年的开源投入作为前置成本（作者归纳）。</p>
+<h3>四、与模型层的关系：模型要有用就需要沙盒、部署与域名</h3>
+<p>课程的核心问题之一是价值在哪一层沉淀。主持人给出的前提是，至少在 2026 年当下，价值更多沉淀在模型之下——芯片、数据中心、电力、冷却；模型之上的价值集中在编码模型，客服与法律有一些，但很集中。Rauch 的回答从 token 经济的构成切入：<strong>流向编码代理的 token 占比已经很高，编码代理是通往 AGI 很有希望的路径之一，甚至可能就是那条路径</strong>。至于是不是泡沫，“归根结底取决于我们是否在交付有用的服务与产品”，而模型要有用，就需要沙盒、部署平台和域名。</p>
+<p>沙盒是他对模型与基础设施关系的核心论证。他的表述是，给模型一台计算机，就能从模型里榨出更多 IQ 点；模型在后训练阶段就被交付带游乐场的 Docker 容器，“模型在见到世界之前先在小计算机上磨牙”。这与人类知识工作者入职时先领一台预装软件的笔记本没有区别，“代理，这是你的电脑，随便用”。随之而来的是安全问题：个人计算革命带来了病毒、钓鱼与承诺一键领取财富的尼日利亚王子，代理同样可能被诱导泄露数据，围绕代理沙盒的安全产品会形成全新的品类。他把沙盒定位为代理的 EC2，即代理的基本算力单元。</p>
+<p>域名的例子说明了模型层与应用层的接口在哪里。他转述 Codex 团队的观察：很多用户想给自己的作品起名字、买域名，于是先通过域名找到了 Vercel。Rauch 早年押注把购买与配置域名做到极快，因为 DNS 令人痛苦，而他的直觉是人有了想法先去买域名——这个押注“回报相当丰厚”，每当软件世界的新用户有了想法，都会来到 Vercel。他把公司的目标表述为<strong>“成为地球上任何新兴想法的前门”</strong>。对于工程师是否失业的讨论，他的回答是公司“停不下来招工程师”，仅编码代理这一个用例带来的需求就有太多东西要建，而他当下考虑的已经从让代理有用转向如何治理代理、给它护栏、保护更广泛的互联网。</p>
+<h3>五、对 SaaS 的推演：系统记录留下，表现层可再生，开放接口者存活</h3>
+<p>主持人以“软件正在死去、Vercel 像开路的砍刀”开场，问有没有上市软件公司的产品被人在 v0 或 Vercel 上用“氛围编程”替换掉。Rauch 先给了一个框架性的回答：好软件永远是为你量身定制的那个，而 SaaS 的逻辑恰恰相反——一群很聪明的产品经理和设计师关在屋里讨论“什么样的通用界面能让尽可能多的客户满意”，然后期待指数级采用，<strong>“这仍然是最低公约数的软件”</strong>。他的判断是软件没有死，“如果你用 Vercel，软件从未如此快、如此活”。</p>
+<p>案例有两个。一个来自初创客户：首席工程师抱怨“你们的平台很危险，我的 CEO 在发软件”，CEO 用 v0 自己做了一套停车场管理软件，替掉了原来采购的产品，省了不少钱——Rauch 的评论是，有多少帕洛阿尔托的聪明公司在做停车软件，这一整类软件长期处于质量不佳的状态，现在离一个为你量身定制的高质量版本只有一两个提示词的距离。另一个来自 Vercel 内部：<strong>公司“重新发明了整个 Salesforce”，销售代表了解客户、机会、商业情报、话术的界面全部是生成的，“做这件事用了一个两人团队”</strong>；但他随即补充，Vercel 仍在使用 Salesforce 搭好的大量工作流与数据库，“这不是二选一”。他的分层结论是：人们低估了会有多少现成应用被丢弃并以这种速度重造，同时高估了底层被替换的程度——系统记录、访问控制层这些都可以复用；<strong>通过 MCP、命令行工具和其他 API 把自己以正确的代理接口暴露出来的 SaaS 公司，会很好地嵌入这个世界，不会被编码代理杀死</strong>。</p>
+<p>留存问题是主持人追问的重点：软件如此定制化，周六早上做的东西周三早上还需要吗。Rauch 承认“什么都在发生”。有的软件只为一次客户电话服务：大量销售工程师采购 Vercel 与 v0，因为可以带着一个已经做好的定制版软件进入客户对话，演示幻灯片与活的软件之间差别巨大，而三次电话之后发现新需求、推倒重来也没有幻觉，在这个意义上软件是一次性的，<strong>“软件基本上已经免费了”</strong>。但这反而驱动了参与度，他引用 Shopify 的 Tobi 所说的“AI 的反身性”：一旦知道自己离用高保真软件与另一个人沟通只有一个提示词的距离，就再也不会放弃它——他多年前写过一篇《效率难以放弃》，工程师们抱怨“我再也没法用老方式写代码了”。同时他明确划出另一端：大量基础设施软件仍然极难，有时要召集三个代理的“法定人数”加上很多聪明的人一起盯一行代码判断真伪，这类软件会继续长期存续。</p>
+<p>一个副产品是客户的形态变了。过去找他支持的是工程师，会说“我看了文档，API 写错了，这是报错”；现在有人在 X 上私信他“我遇到了这个错误，朋友，我都不知道 Vercel 是什么，我的代理把我带到这儿来的”。他的办法是“能把我介绍给你的代理吗”，要来对话记录交给工程师转成评测。他预期终局是代理对代理的沟通：客户的代理向他的代理提交功能请求或缺陷报告，他的代理在 token 预算、截止日期与 CEO 的偏好之间排优先级，软件由此涌现。</p>
+<h3>六、平台策略与毛利：复用 95% 的火箭发动机做全栈，按用量计价并取消限流</h3>
+<p>主持人指出 Vercel 的产品线覆盖了从略高于裸金属到 UI 组件的全栈——沙盒、聊天、工作流、部署——每一项都有独立公司以此为全部业务，问他为什么决定“全做”、哪些能得 A+、竞争在哪。Rauch 的回答分两层。战略层面，<strong>“代理可能是最后一类软件”</strong>，而他在建造构建代理所需的工具与基础设施，“不能不参与世界上增长很快、令人兴奋的这门经济”。执行层面是 Vercel 的产品哲学——用自己的平台“吃自己的狗粮”。</p>
+<p>他用两个产品说明复用带来的成本结构。AI 网关是他称为“token 的 CDN”的品类定义产品，建在 Vercel 自己的算力平台 Fluid Compute 与全球网络之上，配方已经开源，任何人都可以造一个竞争性的 token 网关（主持人举 OpenRouter，他确认已有公司做出了取舍不同的版本）。<strong>“我能复用 95% 的火箭发动机，同一台发动机、同一种燃料，之前推动的是像素和页面的 CDN”</strong>。沙盒则复用了平台上每一次部署所用的同一套虚拟化原语，因此当平台在很短时间内经历这轮增长时，“几乎没有东西坏掉”——初创公司或成长期公司在这种增速下通常一切都会崩，Vercel 每次部署都在生产并销毁临时计算机，这套运营经验直接迁移到了沙盒。AI 网关的功能清单也给出了这一层的产品逻辑：来自 Claude、Gemini 的 token 需要被观测、故障切换、加固、加速与缓存，现在还可以做负载均衡；他引用一个流传的段子，对 GPT5.5 说一句“谢谢”会激活 300 块 GPU 来回一句“不客气”，一个聪明的网关可以把这句话路由给小模型，或者走语义缓存。</p>
+<p>定价与限流的段落直接对应毛利问题。他的内部备忘录提出“不再设限流”：工程师被教导要加限流器以维护系统健康，典型做法是一屋子聪明人拍板“没有公司会每分钟部署超过 100 次”，把 100 写进代码——完全随意；而今天没有人能知道需求或写入配额应该是多少，一家三个月前还不存在的 YC 公司在 Vercel 上的部署量之大，让他们自己都想不起来还设过那条限流。他的限定是，因为背后是超级计算机，滥用与 KYC 仍然必须防范，不能有人在两秒内烧掉一万亿美元算力再问你能不能付款。但<strong>“为什么要限制你使用更多资源的能力”，这与“按用量付费”的定价模型是一体的</strong>。他的多空清单也由此而来：看空静态数据与内容业务（他早期即预言 Stack Overflow 这类问答数据库的衰落）、看空把代码视为稀缺或难以生产的整个品类——拖拽式建站工具是“带辅助轮的编程”，居高临下、约束过多，这些公司要面对严肃的转型谈话；看空不开放的公司，因为代理要访问原始信号、直接拿数据，不想跟销售谈三个月需求；<strong>看多“任何以 token 的速度行动的公司”：按用量计价、即时注册、直接把 token 打进血液</strong>，而互联网经济中还有很大一块建立在“我们没有产品，只有一本电子宣传册，你得跟企业销售谈三年”之上。</p>
+<h3>七、与前几轮周期的对照：旧互联网的每一个基础设施品类都在 token 上重演一遍</h3>
+<p>本期没有单独讨论互联网泡沫或移动周期的估值，但 Rauch 通篇用上一代互联网与云的品类作为脚手架，对本专题而言这是一份完整的映射表。他先给了一个整体判断：云的本质正在改变，<strong>“如果 Amazon 今天创办 AWS，我不确定他们还会叫它 Amazon Web Services——人们今天想创建和交付的实体是代理，所以会叫 Amazon Agent Services”</strong>。云计算上一轮的抽象对象是页面与虚拟机，这一轮是代理，Vercel 为此重建了一整套基础设施原语与框架，目标是成为“AI 或代理的 AWS”，从开发者工具到基础设施的全栈云。</p>
+<p>具体的对应关系在他的讲解中反复出现，整理如下（对应关系为讲者原话，归类为作者整理）：Akamai、Fastly 为加速与保护页面而生的 CDN，对应加速、缓存、观测与保护 token 的 AI 网关；EC2 作为人写代码的基本算力单元，对应作为代理基本算力单元的沙盒；Amazon 关于 100 毫秒与 1% 转化率的即时响应假设，对应可运行一整天的长思考流；个人计算革命随之而来的病毒与钓鱼，对应代理的数据外泄与围绕沙盒的新安全品类；SaaS 时代由产品经理设计的最低公约数界面，对应保留系统记录、按需生成的表现层；按席位计价，对应按 token 计价。运维层面他还提了第三条腿：Stripe 创始人一听到鸭子叫皮质醇就飙升，因为他的值班铃声曾是鸭叫、意味着 Stripe 崩了——Rauch 的愿景是云变成一辆自动驾驶汽车，一切自行配置、自行优化，代理主动来报告“我把你的软件提速了一倍，这是 PR，或者我已经上线并测到转化率提升了”。他同时声明自己不会兜售不存在的东西，维护与监控的痛苦今天仍然存在。</p>
+<p>这一映射的价值在于给出了一个可核验的预期：如果这一轮确实是“页面到代理”的倒转，那么上一轮每一个基础设施品类都应当出现 token 版的对应物，且大概率由能复用上一轮资产的公司先做出来——Rauch 自己的 95% 复用率是这条逻辑的自我印证，也是它的利益相关之处（作者归纳）。他对准入扩张的历史叙述也可以放进同一框架：从大学主机到两千万开发者用了几十年，编码代理把下一次扩容压缩到了数个季度，这是与上一轮周期在速度上的差异，而 Vercel 日部署量翻倍的时间跨度只有五个月（作者归纳，数字为口播）。</p>
+<h3>八、可复用的结构与外推边界（作者归纳）</h3>
+<p>把本期内容压成一个可以套用到其他应用品类的结构，编码 AI 之所以第一个跑通，讲者的论述里能提炼出四个条件。第一，产出可以被闭环验证：代码可以部署、运行、面对用户，学习从运行那一刻开始，代理“热爱部署”，这一点使模型能力提升直接转化为产出与用量。第二，存在可复用的公共积木：多年开源积累让代理不必每次从头造世界，效率偏向使它选择既有工具，供给侧因此有现成的分发通道。第三，计价单位与产出对齐：按 token 计价、按用量付费、取消限流，需求端不再受席位数或程序员人数约束。第四，基础设施可以从上一轮资产复用：CDN、虚拟化、网络这些资产的复用率决定了新品类的成本结构与毛利，也决定了谁先做出 token 版对应物。</p>
+<p>把这四条外推到其他品类时，本期给出的直接证据有限，需要注明边界。讲者自己给的两个非编码案例是：Vercel 的支持代理已回答 93% 的用户问询，同时降低成本、改善客户满意度并把免费支持扩展到更多人；Notion 正在 Vercel 基础设施上把自身改造成代理型产品，Meta 超级智能实验室用 Vercel 让工程师借编码代理“氛围编程”出训练工具、加快了 Meta.AI 的上线。这些案例说明“未来所有软件都是代理”这一判断有落地样本，但没有说明客服、法律等品类是否具备编码那样的闭环验证与公共积木，主持人所说的“模型之上的价值很集中”在本期没有被正面反驳。另一处边界是数据来源：份额、增速、86 比 86、两人重造 Salesforce 都出自平台方口播，且讲者未否认与模型公司存在合作，这些数字适合作为方向性证据，不适合作为量级基准。</p>
+<p>最后一个可引用的判断来自结尾。被问到不做 Vercel 会做什么，他答太空与能源，并给了一句对整轮周期的概括：<strong>“智能的涌现是一种双向的能量流动：能量进去，智能出来”</strong>，裂变、聚变、地热的任何突破都令他兴奋。放在本专题的语境里，这句话把应用层的需求扩张重新接回了模型之下的物理约束，与主持人开场“2026 年价值仍在模型之下”的前提形成了首尾呼应。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。2000 万开发者、10 到 100 倍扩容、几个月增长 3 倍、日部署量自 1 月翻倍、支持代理 93%、两人团队重造 Salesforce 均为讲者口播且来自利益相关方；shadcn 90.1% 与部署 100% 引自讲者展示的第三方报告，字幕未给出机构名；86 比 86 由主持人口播；Amazon 100 毫秒对应 1% 转化率为讲者转述的经典数据；“对 GPT5.5 说谢谢激活 300 块 GPU”为讲者引用的网络段子；Vercel 93 亿美元估值为主持人口播；模型名称 Opus 4.5、GPT5.5、Claude Code、Codex、Grok CLI 按字幕拼写；讲者对与模型公司是否存在合作“不能确认也不能否认”。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

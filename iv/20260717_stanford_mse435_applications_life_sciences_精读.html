@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>生命科学作为应用层垂直品类：临床前四年可压向零、卖工具与做药的分歧、反馈回路长短决定 AI 先落在哪一段（Stanford Online MS&amp;E435，2026-07-17）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>生命科学作为应用层垂直品类：临床前四年可压向零、卖工具与做药的分歧、反馈回路长短决定 AI 先落在哪一段（Stanford Online MS&amp;E435，2026-07-17）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 49 分钟 · 2026-07-17</div>
+<p>本片为斯坦福 MS&amp;E435《AI 超级周期经济学》2026 春季学期“应用层”单元中的一讲，主题是生命科学。据字幕判断，主持人为本课程讲师（节目描述记为 Altimeter Capital 合伙人、斯坦福兼职讲师 Apoorv Agrawal），两位客座讲者一位是 Anthropic 生命科学业务负责人 Eric Abrams（节目描述记为 Eric Kauderer-Abrams，斯坦福电子工程博士，此前创办过多家医疗器械与生物技术公司，末一家为分子诊断公司 Detect），另一位字幕只称 Josh，据字幕判断为分子设计公司 Chai 的联合创始人，早年在 OpenAI 任职，后在 Meta 主导了 ESM 蛋白质模型工作，公开资料对应的姓名待核。本讲之所以值得放进应用层专题，在于它把课程的核心问题“价值在 AI 栈的哪一层沉淀”搬进了一个价值历来沉淀在终端产品（药）、工具层分得很少的行业，两位讲者同处工具层却给出了相反的商业模式判断；同时生命科学是应用层里受物理世界与监管速度约束程度居前的垂直，可以用来检验“软件层零样本化”的逻辑到了实体世界还剩多少。全片观点为两位讲者与讲师的判断，数字均为口播，引用前需回原始口径核对。</p>
+<h3>一、两条互补路线：Anthropic 做端到端平台，Chai 做分子的 CAD</h3>
+<p>Eric 把 Anthropic 生命科学业务的目标定为<strong>“把生命科学研发从头到尾的全过程加速一个数量级或更多”</strong>，覆盖范围从基础研究到药物开发，药物开发内部又包括临床开发、监管流程与生产转移。实现路径分两层：模型层有一套完整的模型训练计划，目标是让 Claude 在生物信息学、化学、结构生物学等硬科学，以及临床试验设计、回应监管反馈、乃至选择靶点与模态、组织研发项目、决定推进或终止项目这类策略性工作上达到或超过人类专家；产品层则针对科学工作者做界面，他预告一个“面向生物学的 Claude Code”将较快推出，后端是 Claude Code 的能力，前端能可视化蛋白质与小分子，并能调度大量算力去运行 Chai 这类领域模型。他把模型层与产品层合起来称为“平台”，这是要在整个生命科学领域推广的东西。</p>
+<p>平台之外，Anthropic 还开了一个湿实验室，第一个选定方向是宏基因组学发现。Eric 的解释是要“吃自己的狗粮”，用自己的模型与产品去测试极限，反过来决定模型训练与产品开发往哪里投。被主持人追问湿实验室是否意味着 Anthropic 要自己做药、自己变现药品时，他明确纠正：<strong>“不，那不是我们的计划。我们同样在做工具，希望行业其他人来用。”</strong>湿实验室服务于“把基础研究本身作为目的来加速”这一另一条主线，公司内有一个基础研究团队专门做科学。</p>
+<p>Josh 对 Chai 的定位是“分子的计算机辅助设计套件”。他给出的中期目标是设计抗体分子——抗体约占当前获批药物的一半——并把公司的核心假设表述为“某一天可以直接从计算机里零样本得到可用于患者的分子”。公司成立约两年半时，他说所有人都认为这两个赌注是疯的：一是这项技术能否成立，二是“你难道不需要自己做药吗”，因为雄心勃勃的生物技术公司通常以成为药企为目标，而 Chai 的目标是让大多数药按这种方式设计、同时自己并不制造大多数药，深度绑定生态。他称一些全球头部药企已在用 Chai 的模型设计药物，具体名单未披露。</p>
+<p>两条路线的互补关系由两人共同表述：领域基础模型（如 Chai）负责“内循环”，即出设计；大语言模型负责“外循环”，即原本由人来做的“拿到设计、思考、送去实验、迭代”这一整套流程。Eric 的原话是“那整个过程现在可以由 Claude 来做，并且越来越好”。Josh 则说，如果外循环的迭代周期能被压短，模型输出就能得到更多“射门机会”，两端互相强化，“整件事在未来几年会是指数式的”。</p>
+<h3>二、药物研发的时间账：中位 10 到 15 年，瓶颈分散在 5 到 10 处，临床前四年在理论上可压向零</h3>
+<p>Eric 给出的行业基准是：从想法到 FDA 批准上市，一款药平均耗时 10 到 15 年，世界纪录接近 5 到 6 年，但那是例外。他特别反对“瓶颈全在临床试验”或“全在药物设计”这两种简化说法，<strong>“瓶颈分布在大约 5 到 10 处。它不是无限多，也不是一件事。”</strong></p>
+<p>流程被他拆成几段。第一段是选病与选靶点，靶点即体内要被药物作用的分子，选靶点等于提出“有效作用于此处将对患者安全且能治病”的假设。这一段的核心问题他称为“靶点拥挤”：<strong>全球整个治疗药物市场每年推进到临床阶段的净新靶点，量级只有约 30 个</strong>，而人类基因组有 19,000 个基因，可成药的靶点粗略估计以千计、可能在 10,000 量级。“仅凭这一点，如果每年只追 30 个净新靶点，我们就不在任何合理时间框架内治愈所有疾病的轨道上。”悲观的一点在于，行业计时通常从选定靶点后才开始。</p>
+<p>第二段是临床前，先选模态（抗体、小分子、分子胶、基因药物等），再设计能结合靶点、对患者安全、无脱靶效应、且在体内以合理方式代谢的分子，从初始命中物到先导物优化，再到锁定生产工艺、达到文档与生产严谨度要求的开发候选物。<strong>历史上从选定靶点到进入临床平均约四年</strong>。Eric 说这是许多人搞错的第一件事，即认为这里没有机会：“我认为在理论极限上，这四年可以压到接近零。”他补充自己的判断：能否做到零样本并不那么重要，“一样本也已经很好了”——向模型要一款药，拿到几个候选物，做一轮测试，几周后得到药，对比四年已是巨大差别。</p>
+<p>第三段是拿到 IND 后的临床期，一期看安全、二期首次看疗效、三期做最终验证，同时并行推进生产转移，这一段合计约 6 到 9 年，成本高度后置在临床。他对压缩空间的整体估计是：<strong>“我们有清晰的路径把整个药物开发周期压到五年区间，我把五年作为上限，可以想象整件事在几年内完成。”</strong>下限由临床试验时长决定，但他认为这里的空间也比一般想象的大：以骨质疏松为例，传统终点要等一年看骨折发生数，若能建立代理测量、从体内各类测量中判断预期效应已经发生，就可以改用不同的试验终点；另外效应量越大，所需入组人数越少，试验越快。</p>
+<p>Josh 从另一端补充了同一逻辑。他把整个流程简化为“找到一种能在患者体内调节某种疾病的分子物质”，临床前是找分子、临床是证明它有效，而 AI 的力量在于把两者重新连起来：分子更强效，试验就更容易。他举的反面是当前大量只延长一两个月寿命的药物，效应太小时试验设计极难达到统计显著性；“如果你有惊人的数据，试验一下子就容易了”。他还提到<strong>约 80% 的有名称的疾病没有获批药物</strong>，因此“零样本药物发现”的意义不止于把四年压到零年，更在于做出更好、更多的药。</p>
+<h3>三、为什么是现在：三条技术趋势同时汇合，加上需求端的开放度</h3>
+<p>Josh 自述整个职业生涯都在做这件事，“AI 变好了”对他不是意外：架构更可扩展、算力大量上线、可构建的新数据集增多。但他强调另一半原因在需求端，工具做出来还需要有人愿意试，“人们现在对 AI 非常开放”，同时行业面临明显的效率压力，药企对新方法的接受度处在高位（他关于外部竞争来源的具体展开本文略去）。</p>
+<p>Eric 的“为什么是现在”把大语言模型的存在与快速进步列为首位，随后给出三条趋势的汇合。第一是大语言模型承担外循环；第二是 Chai 一类领域基础模型进步，使内循环所需的迭代次数减少；第三是<strong>生物学数据生成能力的大规模扩张</strong>——测序已是旧闻，其上有单细胞测序、蛋白质组学、高通量抗体测量等各种成熟中的测量技术持续供给数据。他说“这些趋势恰好同时发生，我们很幸运，因为本可以不是这样”。</p>
+<p>课堂提问触及了训练规模从十亿美元向百亿、千亿美元推进会解锁什么。Eric 的回答给出两种改进形态：一种是每代模型在目标能力上的稳定增量；另一种是规模效应，即某些能力长期为零、到某个规模才“开启”。<strong>他给的例子是模型很长时间对蛋白质几乎不理解，“到 Opus 4.6 我们第一次看到模型开始学到关于蛋白质的东西”</strong>，这与训练内容与规模都有关。他认为这两种形态在生命科学之外的领域同样存在。</p>
+<p>另一位提问者用软件经验质疑：零样本在浅栈（服务类）有效，在数据库、分布式系统这类深栈上效果很差，而生物学是深栈的极端。Josh 承认“幻灯片上的东西有可能根本做不到，我们不知道”，但他给出两点。其一是前沿在持续推进，“不能零样本一个数据库”在今天是否仍然成立他已不确定。其二是一则早期尽调轶事：投资人通过专家网络问药企愿意为零样本分子付多少钱，回答是不愿付，理由是“它不管用”；追问“假设它管用呢”，回答是“那不可能”。他的结论是<strong>“这更多是一个何时的问题，多过能否的问题”</strong>，并且承认不确定性本身是这个领域的兴奋来源。</p>
+<h3>四、价值捕获的核心分歧：工具层是否比过去更值钱，以及“一个人的管线”</h3>
+<p>主持人把课程的中心问题直接放到台上：AI 价值到目前为止大量沉淀在半导体层、应用层拿到的不多；而在生物领域，价值历来沉淀在卖药的公司，传统生物技术投资人对公司的估值就是把药品收入或自由现金流折现到今天。两位讲者都在做工具，“为什么这次会不一样”。</p>
+<p>Josh 的回答是工具的价值正处在历史高位。他描述现有药物“极其原始”，当前工具能发现药物“本身就是个奇迹”；被问到竞争对手时，他的回答是“酵母、小鼠和实验室里的传统工具”。现有药物大多只是“堵住”细胞上的某个靶点，且普遍带有本不该有的脱靶效应。他的定价逻辑是：<strong>“一个不改变你成功概率的工具，凭什么让你付很多钱？”</strong>如果 Eric 描述的图景成真——周期缩短、成功概率上升、上市成本下降——那么采用 AI 工具的药企理应以更高倍数交易，“仅仅因为采用了这些工具你就变得更值钱，所以大量价值应当流向工具制造者”，且工具比终端产品可扩展得多。他对药企本身也看多，把它们视作“资本聚合器”：手握产生数十亿收入的药物、有把收入再投入新药的授权，工具变强后它们会“效率高出很多”。</p>
+<p>Eric 的立场与之相反，他自己也承认这从两位卖工具的人嘴里说出来显得奇怪：<strong>“我总体上看空那些依赖向药企卖工具的商业模式。”</strong>理由是这条路上成功案例极少，远少于“直接去做那件事本身”。他描述的替代路径是门槛正在急剧下降，Anthropic 内部称之为“一个人的管线”（pipeline in a person）：一个人使用大量 Claude 与基础模型，就能运行一组早期药物项目；不久之后前沿会推进到一个 AI 加小团队运营多个临床阶段项目。他补充“当然工具模式也能做出大生意，但那条路非常非常难”，而“把开发疗法本身民主化”正变得越来越容易。被问到若不在 Anthropic 会做什么，他的第一个回答就是“尽可能高效地运行一批药物项目”。</p>
+<p>两人的差异可以这样定位：Josh 的论证是工具改变成功概率因而应当分得溢价，Eric 的论证是工具一旦足够强，使用者绕过“买工具”直接去做药的成本会低到让卖工具这门生意失去议价基础；两条逻辑都以工具变强为前提，分歧在于变强之后买方是付更多钱还是自己下场。Anthropic 作为模型层公司的姿态是“工具留给自己做平台，做药留给生态”，与其在其他垂直的平台定位一致；而 Chai 作为独立工具公司必须回答“为什么不做药”，其回答是行业结构层面的（希望大多数药按此设计），这恰是 Eric 认为难走的那条路（作者归纳）。</p>
+<p>Josh 对行业格局的推演补上了另一半。今天的生物技术创业模式是“比药企效率高一点”：从 Claude 得到一条靶点洞见，把分子赶进临床，在患者身上拿到概念验证，然后被药企收购。两年后若分子可以零样本，“你就能零样本一家生物技术公司”。他不认为生物技术公司会消失，而会围绕这一点演化，类比是今天能零样本一个应用，就不能再卖一个同样简单的工具，必须找到另外的护城河或更复杂的软件。<strong>他的净判断是：若一切静止，价值会向在位者累积；但现实中人们总能找到新机会，创业公司会继续出现，“结果会比以往任何时候都大”。</strong>主持人补充的背景是西方头部生物技术公司多数成立于 20 世纪甚至 19 世纪，过去 25 年只出现了少数几家。</p>
+<h3>五、物理世界的速度约束：开发期被冷落的原因，与“给 Claude 装上手脚”</h3>
+<p>一位有药企小分子背景的学生问，为什么讨论都集中在发现、几乎没人谈开发。Eric 给了四条原因：发现期的机会直白、人人能说出是什么，只是难执行；开发期缺少一两件特别诱人的易事，剩下的大多是不明显受模型智能约束、需要各种连接到位的运营性问题；它不够光鲜；AI 社区偏科学背景，对这一阶段经验少。Josh 补充了更根本的一条：<strong>反馈回路的长短——设计一个分子再送实验室测试几周即可，而用 AI 做一场临床试验要等很久</strong>，短回路的领域自然先被 AI 进入。</p>
+<p>Eric 列出的开发期机会包括：用 AI 做智能化的站点选择与患者招募（看患病率与入组速度）；试验管理中大量的站点监查、电子数据库录入与核对等运营开销，“这些应当立刻自动化，是 Claude 该做的事”；以及与发现期交叉的科学性部分——提高试验先验成功概率、放大效应量。</p>
+<p>对于实验这一物理环节，两人都把它列为看多方向。Eric 说 Claude 让实验跑起来有两条路，一条是接入实验仪器并完成全部集成，Anthropic 正在做；另一条是现在就可行的——<strong>“Claude 现在就能通过向合同研究组织（CRO）下单来做实验，起草方案、发邮件、来回沟通，Claude 现在就在做这件事。”</strong>他看多的品类是“AI 原生的、真实的、高规模湿实验室公司”，以易于 AI 接口的方式生产材料或跑实验，点名的例子是 Plasmidsaurus（测序）、Adaptive 与 Twist。他认为下一层效率跃升要等 Claude 能直接控制实验仪器，这涉及硬件层与其上的软件、协议、通信层，“感觉有可以产品化的东西”，主持人概括为“盒子里的实验室”“可编程化学”，Eric 的判断是有一批创业公司在做，但“可能只走了一两年，这会是一段多年的旅程”。</p>
+<p>Josh 用杰文斯悖论描述实验的走向：外界常以为 Chai 想“消灭实验”，实际情况是实验设计得更好，实验的投资回报就上升，实验总量会进入一个“文艺复兴”，他引用 Dario 关于“十年生物医学发现压缩到一年”的文章，指出那需要大量实验室工作来支撑。他看空的方向是<strong>“纯软件世界里、但不在前沿的东西”</strong>：过去三十年基于物理与计算方法的药物发现公司影响巨大，但“AI 正在变得非常强，也会吃掉其中很多”。他的总结是“物理世界里的 AI 会非常大，但要考虑如何把二者结合”。</p>
+<h3>六、未解问题与商业想象：把更多模态变成工程学科、扩大靶点供给、消费级药物</h3>
+<p>被问到最想被解决的问题，Eric 列了两项。第一是把 Chai 在抗体上做到的事扩展到其他模态：抗体是当前效力居前的药物类别，但许多靶点与疾病不适用抗体，小分子及新兴模态仍是未解问题。他的框架是“当前方法下可信靶点有一条前沿，需要把它推进，把这些模态从近乎炼金术的手艺变成工程学科，就像抗体设计已经完成的转变”。第二是<strong>规模化地发现高质量新靶点</strong>，行业仍拥挤在少数靶点上，正在探索的路径包括虚拟细胞与细胞扰动模型这类新技术，以及把群体规模的人类遗传数据与健康记录关联的传统遗传学方法。Josh 加了一项“更复杂精巧的药物”：Chai 能折叠所设计的蛋白与药物，相当于一台系统内部的“原子级显微镜”，有了它就可以设想远为复杂的分子。</p>
+<p>商业上被问到“下一个 GLP-1”，Eric 说从商业角度看好增加瘦体重的新兴靶点，声明“不对社会价值发表评论”，并承认其中有重要医疗用途。Josh 提名睡眠：GLP-1 与减重药展示的是患者群体大到接近“消费级药物”的经济学，从糖尿病走向肥胖；睡眠障碍同样是许多疾病的上游，可以从睡眠障碍起步再扩展到“让人睡得更高效”这样的需求。两人都把这看作消费级药物可能的开端。Josh 还提出一种研发组织方式：把药物发现的前沿问题写成一组基准，持续把前沿代理放上去测，突破一出现就尽快推向市场，追求“同类第一”；他说药企是竞争极为激烈的行业之一，而“治病是所有商业模式里意图明确程度居前的一种”。</p>
+<h3>七、与软件层的对照：零样本逻辑到了实体世界还剩多少</h3>
+<p>本讲没有回顾 PC、互联网或移动周期，但两位讲者与提问者反复用软件层的经验作对照，这些对照本身构成本专题关心的“跨垂直比较”。第一处是 Josh 用代码生成描述药物设计的演化：一年前用大模型写代码是“拿到初始方案、调试、再找另一个模型提问”的迭代过程，现在可以零样本一个应用，<strong>“这就是零样本药物发现有望解锁的东西”</strong>。第二处是他用同一类比推演行业结构：能零样本一个应用之后，简单工具卖不出去，必须寻找更复杂的软件或其他护城河，生物技术公司也会照此演化。第三处是他对“非前沿纯软件被前沿 AI 吃掉”的判断，对象是三十年历史的计算化学方法公司，这与软件层关于薄封装应用命运的讨论同构。</p>
+<p>差异同样清楚。软件层的迭代以分钟计，生命科学的内循环以周计、外循环以年计，且监管审批把最终验证的时长锁在临床期；因此 AI 的渗透顺序被反馈回路长度排定，先发现、后开发，先“可以发邮件给 CRO 完成的事”、后“需要接管仪器的事”。价值捕获也不同：软件层讨论的是模型层向上挤压应用层的毛利，生命科学的问题则是工具层能否从终端药品的现金流中分得一部分，而两位讲者的分歧说明这个问题在行业内尚无共识（作者归纳）。</p>
+<p>把本讲拆成可复用的结构，评估任何一个受物理世界约束的垂直应用品类时可以依次问五件事（作者归纳）：其一，行业总时间账如何分段、每段各占多少、成本落在哪一段，AI 在理论极限上能压掉哪几段——本讲的答案是 10 到 15 年中 4 年临床前可压向零、6 到 9 年临床有代理终点与效应量两条压缩路径；其二，各段的反馈回路有多长，这决定 AI 渗透顺序与可验证的时间尺度；其三，价值捕获走做终端产品、卖工具、还是做平台，判据是工具是否改变买方的成功概率，以及买方自己下场的门槛是否低到让工具失去议价基础；其四，物理接口（实验、仪器、CRO、生产）是否成为新的瓶颈与护城河，以及“先用人类接口（邮件）过渡、再直接控制仪器”的路径是否成立；其五，该行业内已有的非前沿计算工具是否会被前沿模型替代。至于供给端的新变量，本讲给了三个可跟踪指标：每年净新临床靶点数（当前约 30）、模型对蛋白质等领域知识的“开启”代际（讲者称从 Opus 4.6 开始）、以及 AI 原生湿实验室服务商的规模。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，全部数字为口播。药物研发 10 到 15 年、临床前约 4 年、临床 6 到 9 年、每年约 30 个净新临床靶点、约 10,000 个潜在靶点、19,000 个基因、抗体约占获批药物一半、约 80% 有名称疾病无获批药物，均为讲者口播近似值，无出处；“五年上限”“压到接近零”为讲者判断。模型名称按字幕拼写为 Opus 4.6、sonnet 3.5；“面向生物学的 Claude Code”为预告产品，发布时间与名称待核。Josh 的姓氏字幕未给出，Chai 公司全名字幕未给出，头部药企客户名单未披露。讲者关于外部地域竞争压力的一段本文略去。Plasmidsaurus、Adaptive、Twist 为讲者点名的看多标的，非投资建议；“下一个 GLP-1”部分为两位讲者带玩笑性质的表态。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

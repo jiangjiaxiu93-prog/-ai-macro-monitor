@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Pereyra 论应用层与前沿实验室的“预算内竞赛”：借前沿生态建研究实验室、把评测开源给对手、以及 token 账单会走回计费小时的老路（Sequoia Capital 与 Sourcery 两期合并，2026-08-11）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Pereyra 论应用层与前沿实验室的“预算内竞赛”：借前沿生态建研究实验室、把评测开源给对手、以及 token 账单会走回计费小时的老路（Sequoia Capital 与 Sourcery 两期合并，2026-08-11）</h2>
+<div class="metaline">Sequoia Capital 与 Sourcery 两期合并 · 29+44 分钟 · 2026-08-11</div>
+<p>嘉宾 Gabe Pereyra 是 Harvey 联合创始人兼总裁，此前在 Google Brain、DeepMind 与 Meta 做研究。本文合并他的两次露面：2026 年 8 月 11 日在 Sequoia Capital 的 Own Your Intelligence 活动上的演讲（原题《在预算内建一座研究实验室》，含现场问答，29 分钟），以及 2026 年 6 月 18 日在 Sourcery 节目里与主持人 Molly O'Shea 的对谈（44 分钟，后段由 Harvey 应用研究负责人 Niko Grupen 接续）。两期合起来回答的是同一个问题：钱、人、算力、数据都更少的应用层公司，怎样与前沿实验室同台；以及当推理成本从可以忽略变成“单次查询 20 美元”之后，应用层的定价与毛利会被怎样重排。按 Sourcery 节目描述口径，Harvey 估值 110 亿美元，ARR 超 3 亿美元，960 名员工，2000 家客户，当月处理约 13 万亿 token。全片观点均为嘉宾判断，数字多为口播，模型与公司名称按字幕拼写，文末列口径提示。两期内容按论证逻辑合并，段首标注出处。</p>
+<h3>一、比赛不对等：应用层缺钱缺人缺算力缺数据，出路是借用前沿生态</h3>
+<p>（Sequoia 期）他给演讲起的备用标题是“在预算内建一座研究实验室”，开场就承认这是一场不公平的比赛：“有富队，有穷队，然后是我们这些应用层的。”前沿实验室在钱、人才、算力基础设施与数据四项上都占优。他的答案是借用前沿生态。四年前 Harvey 创立时，今天这批做后训练、推理服务、数据生产的公司多数尚不存在或刚起步，应用公司要么什么都自己造，要么把精力放到别处，Harvey 当时选择了后者，先建销售组织与产品。<strong>“今天借助前沿生态，我认为你可以与前沿实验室竞争，做出前沿智能。”</strong>整套打法分三段：先造评测与训练数据，再与 neolab 合作做后训练，然后把模型稳定地服务到生产环境。</p>
+<p>（Sequoia 期）人才是这场比赛里他自认犯过错的一项。创业初期他因为熟识实验室里的人，试图把他们挖过来，对方拿到的是“一亿美元以上的薪酬包”，Harvey 当时的规模撑不起。他现在的判断是公司刚到一个不必与前沿人才正面争抢的体量：在读博士、不想去大实验室的人越来越多；更重要的是早年需要顶尖人才的原因有一半在于要自建训练与服务基础设施，如今 Fireworks、Tinker 一类 API 把这部分做掉了，<strong>“可用的人才池被打开了，拿到这类人才现在看起来非常可行。”</strong>他提到自己在 Brain 时的室友后来在 OpenAI 负责后训练（Sourcery 期点名为 Barret Zoph），属于当年必须依赖的那种稀缺人才。</p>
+<p>（Sequoia 期）演讲的收尾是《点球成金》的一幕：球队连胜 20 场，Billy Beane 说这不重要，拿不到冠军没人会在意，“但如果我们用这个预算、这支队伍赢了，我们就改变了这项运动”。他认为多数人仍在押注这套打法与应用层会输，而他的预测是每家公司最终都要成为 AI 公司，都需要某个版本的这份手册。</p>
+<h3>二、先造评测：LegalAgentBench 把律所工作写成“法律单元测试”</h3>
+<p>（Sourcery 期）逻辑顺序他说得明白：没有好评测就无法训练模型，训不了模型也就谈不上服务。LAB 的设计直接模仿编码代理评测。SWE-bench、Terminal Bench 的结构是一个代码仓库、一个 issue、一组单元测试，代理写完代码跑测试即得分。他认为“法律太主观所以做不了”是误解，大律所的工作相当部分可以量化，高级律师给初级律师改稿时做的就是这件事。以尽调任务为例：输入是数据室（目标公司全部合同）加一条合伙人式的高层指令（“数据室到了，你看一下”），输出是给客户的尽调备忘录；“法律单元测试”则检查合伙人会核对的每一项，例如控制权变更条款里哪一条会实质性改变一份关键供应商合同。难点在于扩展：尽调只是一个实践领域，基金设立、知识产权诉讼、资本市场都要照此搭建任务、子任务与评分标准的分类树。按节目描述口径，LAB 覆盖 24 个实践领域、1200 余项任务，由大律所律师审核。</p>
+<p>（Sequoia 期）到 8 月他把今年发布的数据集数到三个：LegalAgentBench（大律所 associate 的任务分类树，含基金设立文件起草、判例检索等复杂任务）、一个教代理做谈判的合同数据集，以及他自称格外期待的尽调数据集，<strong>规模居前的数据室达 8000 万 token，是已发布的强化学习环境中规模居前的一个</strong>，用来研究长上下文与高复杂度任务。评测本身很贵：尽调数据集有 1000 多条单元测试，用大模型做裁判，若用头部模型跑 RL rollout 成本很高，他们与 LangChain 做了提效的工作。</p>
+<p>（Sequoia 期）问答里有人问，内部律师并不知道怎样设计“能把前沿模型区分开”的评分标准。他的回答是从工作出发，模型的表现只是结果：<strong>“只要你把顶级律所正在做的客户事务真实地搭出来，前沿模型今天仍然做不了。”</strong>他弟弟是 Harvey 早期雇员之一，与模型打了四年交道，对模型行为与数据生成的直觉“好得不可思议”，并把这套方法教给了其他律师。</p>
+<h3>三、不能碰客户数据，所以用领域专家引导合成数据，缺口在分布错配</h3>
+<p>（Sequoia 期）Harvey 训练模型的约束条件是不能用客户数据：服务对象是规模居前的律所与企业，法律数据受特权保护，“不能放进通用模型，连我们自己的模型都不能放”。今年开始奏效的办法是让领域专家引导合成数据生成。他借用 Reka 的 Brendan 的比喻：工程师现在不再逐行写代码，转为引导编码模型；律师也开始这样做。做法上的关键是从评分标准倒推数据：律所做并购尽调时拿到的是上万份合同外加谈判邮件与会议记录，这些输入数据从不公开，公开的只有收购协议这类最终产物，过去让律师“凭空造一个假数据室”既尴尬又难以让上万份合同彼此吻合。团队里的 Julio 想出的办法是<strong>先写评分标准、在其中预埋问题（合同之间不衔接、某份合同缺失），再据此生成整个数据室，然后用 Mercor、Snorkel 把合同做得逼真</strong>，这样模型生成的尽调备忘录可以对照“我们知道埋了什么”逐项核对。他称这是真正的解锁，因为它打破了与律所的鸡与蛋困局：过去 Harvey 说“我们能用你们的客户数据训模型”，律所回“证明给我看”，Harvey 说“把数据给我们”，律所回“不给”；现在可以先在合成数据上证明，再由律所主动提出“能不能用我们的数据做”。</p>
+<p>（Sourcery 期）Niko Grupen 从执行层面补充了同一流程：<strong>“代理主导、律师审核。”</strong>Harvey 内部有一支全部由前大律所律师组成的“应用法律研究”团队，按律所官网列出的 24 个实践领域，把每个领域里 associate 做的任务写出来，附上“这类工作用哪些文件、一个真实的交易长什么样”的先验，由代理生成数据，再交给更大的律师群体审核输出、评分标准与文件质量。他的评价是“人在环但可扩展”。</p>
+<p>（Sequoia 期）他也直言这条路仍有缺口。第一，<strong>合成数据即便经人工增强，分布仍与生产分布不匹配</strong>，这些数据集“有点面向未来”：可以生成逼真的数据室，但产品今天并未被纯粹用来做尽调，一个在尽调上得分很高的模型拿去写邮件未必好，而不能看客户数据意味着这道缝难以弥合。第二，8000 万 token 的数据室，模型仍不善于管理这种量级的上下文。第三是终局：他把终点定义为帮每家律所与企业客户按自身业务定制，让律所每处理一个客户事务系统就变好一点，同时保护客户数据，单一的顶级法律模型不在他的目标里；某种形式的持续学习在他眼中是技术、运营与 AI 三重难题。（Sourcery 期）他给出的产品抓手是 Shared Spaces：律所与客户（例如一家大型私募基金）在共享工作区里一起做基金设立与并购，训练模型的切口就在这种关系里，前提是穿过执业伦理、监管与客户数据三重约束。</p>
+<h3>四、把评测开源给竞争对手：模型各有所长，与实验室的关系会长成 Snowflake 与云的样子</h3>
+<p>（Sequoia 期）开源数据集在当时“有点争议”。他的理由来自研究经历：在 Brain 与 DeepMind 时，被广泛使用的数据集都是开放的，ImageNet、CIFAR、MNIST 人人都用，问题因此被找出来。<strong>“除非很多人在上面训练，否则你很难知道自己的数据集是好的。”</strong>开源后他们收到大量 pull request 与建议，实验室发布新模型时越来越多地在 Harvey 的数据集上报成绩，以及，用他的话说，“Elon 转发了”。问答里有人追问开源与闭源的两难：开源则实验室可以爬榜，闭源则外界怀疑评测是否真实。他的回答是开源前本就与实验室共享数据帮它们改进模型，这反过来改善 Harvey 的产品；前沿生态的规模超出他预期，太多公司找上门说“我们有个新技术，能试试吗”，过去没有带宽接待，现在可以说“去开源数据集上试，有效我们就投入”。战略上他把数据分成两层：<strong>通用的法律能力尽量开源并与所有提供商一起提升；对 Harvey 有价值的数据是帮律所在私有数据上训练自己的系统。</strong></p>
+<p>（Sourcery 期）主持人问得更直接：研究合作方 OpenAI、Anthropic 同时是头号竞争者，开源难道不是风险？他先承认风险，“如果某家实验室的模型领先，那还要 Harvey 干什么”，随后给出初步结果里的事实：<strong>每个模型擅长的东西不同，Anthropic 的模型相当强，但有些领域 5.5 更好，有些领域开源更好。</strong>而且问题正从“哪个模型领先”转向“哪个模型能以更低价位解决这项任务”，模型变强后出现“智能饱和”，简单任务只需要确认某个开源模型“够好”。Harvey 给律所提供的价值之一正是这张任务到模型的映射表，因为“用一个模型解决所有任务已经太贵了”。按节目描述口径，首批榜单由 Claude Opus 4.7 领先；Niko 补充，同一份榜单还能按成本与延迟切分，例如价格只有榜首三分之一的模型质量损失多少，或 Gemini 3.5 Flash 完成工作的速度约为部分前沿模型的七倍，供生产环境决策，“过去两年的故事是不计成本、不计延迟地拉高质量，现在人们看的是每单位花费与时间换来多少质量”。他也承认<strong>“评测现在成了靶子”，预计一年内饱和</strong>，但所有人为法律能力投入都对 Harvey 有利，因为 Harvey 想做的创新工作并不落在基座模型能力上。</p>
+<p>（Sourcery 期）与实验室的关系他用云来类比，这是两期里对旧周期仅有的一次引用：<strong>Snowflake、Databricks、Datadog 都建在云之上，同时与云竞争，“我认为会长成那样”。</strong>律所不能依赖单一实验室有两个原因。一是利益冲突：一家只用 Anthropic 模型的律所想代理 OpenAI，OpenAI 不会允许自己的敏感法律数据被送进 Anthropic 的模型，因此想服务 OpenAI、Google、Microsoft 的律所必须支持所有提供商。二是平台风险：选定一家后对方算力不足或模型落后怎么办。Harvey 的角色是把这些抽象掉。至于 Anthropic 与 OpenAI 已推出的 Claude for legal、Codex for legal，他认为解决的是个人生产力，Harvey 解决的是律所与大型法务部门的组织生产力，两者问题不同。他随后补的一句划定了价值来源：<strong>“我们不认为通用法律智能是 Harvey 的价值所在，因为有价值的法律数据多数进不了通用模型”</strong>，敏感的内部调查、能影响市场的并购都不能进公开模型。</p>
+<h3>五、开源权重让后训练第一次值得做：与多家 neolab 并行，目标是 Harvey 版的 Composer</h3>
+<p>（Sequoia 期）有了评测就有了训练目标，而让这件事此刻成立的是开源模型追了上来。过去不值得做后训练，因为预训练进步太快，任何后训练成果都会被下一代预训练模型吸收；现在有 Kimmy 3、GLM 5.2 等强开源基座（字幕另有 NeMo-Megatron、Inkling 等拼写），<strong>“可以把它们后训练到前沿智能的水平，也许不是通用前沿，但如果像我们这样有具体任务，它们有竞争力”。</strong>他建议的起步方式是找 neolab：它们有现成的专业与基础设施、有配方，“如果与它们合作还拿不到更好的结果，多半是你的数据集有问题”。他列出的合作项目包括：与 Fireworks 训练 GLM 5.1、让 Fable 或 Opus 4.8 充当顾问模型；与 Base10 做上下文压缩（字幕作 KB compaction，疑为 KV compaction）；与 Ngram 做企业搜索与律所知识；与 Trajectory 训练 NeMo-Megatron 模型；与 Applied Compute 围绕 Vault 产品做实验。</p>
+<p>（Sequoia 期）为什么同时与多家 neolab 合作。他的解释是研究项目多于内部或单一伙伴的带宽，每家 neolab 押的方向不同、想训的开源模型也不同，合作越多学得越多；同时 Harvey 自己做的后训练越来越多，用 Tinker 这类 API 和 Fireworks、Base10 建好的基础设施，“后训练然后服务这些模型，从没有这么容易过”。目标受 Cursor 启发：<strong>把合成数据、Mercor 的规模化、neolab 的合作打包成一个可以与闭源模型并列服务的自有模型，做 Harvey 版的 Composer</strong>（活动章节称之为 Associate 1）。</p>
+<p>（Sourcery 期）两个月前他从推理层的角度解释过同一趋势。模型性能越来越多来自测试时计算、强化学习环境与 harness，这类工作越奏效，应用层能做的事越多；他与 Base10、Fireworks、Together AI、Applied Compute、Trajectory 等做推理或 RL 即服务的公司合作，“研究像是重新开始了，有太多不同的路径”。推理提供商的生意好，直接原因是像 Harvey 这样的客户<strong>“必须把一部分流量迁到开源模型，因为用规模居前的闭源前沿模型来服务已经贵得离谱”</strong>，加上许多客户想拥有自己的模型与数据。他的研究观也来自两家老东家：2016 到 2017 年的 Brain 是自下而上，给聪明人算力任其自选课题，Transformer 就出自那里；DeepMind 自上而下，Demis 有一张通往 AGI 的科技树，各团队按里程碑推进。Harvey 更接近 DeepMind 的路径，因为身处垂直领域，终点清晰，律所做的所有实践领域就是北极星，“更像应用问题”，纯研究的成分少。</p>
+<h3>六、上线闸门：60 个国家的服务矩阵、四道评测、简单开源替换与路由</h3>
+<p>（Sequoia 期）后训练出模型只是开始，服务到生产环境并不简单。他先纠正一个偏见：应用层公司常被想成“调一个模型端点的聊天产品”，而 Harvey 在 60 个国家运营，有多个产品面，客户有各自的模型偏好，单是闭源模型的规模化服务就是过去四年解决的大问题。每个模型家族要服务多个版本，要跨提供商做回退以满足 SLA，现在再把 Fireworks 上的开源模型加进这张矩阵。他的建议是<strong>这套基础设施要在考虑后训练之前就位</strong>，且对自训模型与外部模型一视同仁。</p>
+<p>（Sequoia 期）上线前的闸门有四道：自动化的通用评测（新模型一出，LAB 立刻告诉你它是否前沿、在法律哪些领域强）、人工的通用并排测试、每个产品面的关键用户路径与自动化产品测试（模型通用能力强不代表适合某个产品面）、人工产品测试，再叠加成本、延迟、区域可用性的启发式判断。上线后看 A/B 测试、参与度、可用性、token 效率，以及他称为“愤怒的客户邮件”的产品反馈。问答里有人问端到端出问题通常卡在数据、算法还是基础设施，他的回答是没有单一答案，Harvey 的优势是已有产品市场契合、先用闭源模型建立了端到端的信心，后训练如今只是这套大系统的一个小输入，各阶段有闸门，问题在哪一层会自然显现；他举的典型是<strong>一个在评测上很好的模型可能已经过拟合，放进更通用的助手产品后一出分布就散架</strong>。</p>
+<p>（Sequoia 期）在服务之前还有两步他称为“简单的开源开关”。一是在产品里找可以直接替换开源模型的位置，例如生成引用的环节不需要头部模型，换成 GLM 5.2 即可拿到成本或性能收益，这一步练的是并行服务开源与闭源模型的肌肉。二是模型路由，在不能整体替换的位置按查询路由到开源模型。做完这两步，后训练飞轮的要件就齐了。他专门加了一句限定：<strong>收集反馈“在我们这里不意味着在客户数据上训练”</strong>，信号来自用户测试等渠道，用于指导后续数据集的构建。</p>
+<h3>七、token 清算：单次查询 20 美元、合同审阅 2 万美元、当月 13 万亿 token</h3>
+<p>（Sourcery 期）成本结构的转折点他定在对谈前的约六个月。原产品是面向律师的聊天式副驾，围绕它建了在律所客户事务上工作的产品；当编码模型在命令行里跑通（他提到 Claude Code 与 Codex 一类），Harvey 开始建把命令行代理搬到云端的基础设施，也就是如今的托管代理方案。代价是沙箱、更长的运行时间、多得多的 token：<strong>“让模型起草一份文件”这类单次助手查询可以花 20 美元；上传 10 万份合同让模型审阅的产品，一次可以花 2 万美元。</strong>与此同时法律领域正在经历两年前编码领域经历过的拐点，模型开始能生成整份文件，那些原本觉得“必须比我习惯的方式好很多我才会改流程”的律师开始被吸收进来。于是四件事同时发生：模型更贵、更好、跑得更久因而用更多 token、好到用户用得更多，“用量、成本、token，所有东西都在爆炸”。</p>
+<p>（Sourcery 期）他把此前的状态概括为“能力受限”：任务本身模型做不好，所以总想用头部模型；用量也不到 Cursor 那种服务成本高企的规模，也没有那样的延迟要求。这一切在六个月内变了。<strong>“对部分实验室而言，我们是 embedding 的头号消费者。”</strong>主持人转述 Harvey CEO Winston 的数字是 token 用到 13 万亿（节目描述口径为当月约 13 万亿）。他把这称为好问题，用量曲线“只是开始”，如果所有用户都像少数重度用户那样跑长程代理，成本优化的空间还很大。手段上第一是路由：头部模型变强后，并非每项任务都值得送去，LAB 正是为此而设；第二是把更多流量迁到开源与后训练模型，<strong>前沿模型之所以大，是因为要样样都行，“如果我只需要系统擅长尽调，我大概不需要一万亿参数”</strong>，垂直领域的机会在于以前沿成本的一部分拿到前沿性能。</p>
+<h3>八、定价的讽刺：按工作定价撞上固定收费的老问题，token 账单会长出计费小时的生态</h3>
+<p>（Sourcery 期）被问“人们没在问的问题是什么”，他的回答是没人意识到这会变得多贵，也没人意识到客户应对起来有多难。多数人以为“转成用量计价就解决了”，他认为定价会在两端之间拉扯：一端是 VC 想看到的“给工作定价”，即按交付的价值卖；另一端是按 token 计价。给工作定价的麻烦与律所做固定收费的麻烦相同。Harvey 创立时被问得多的一个问题是“计费小时会怎样”，多数人的假设是一切转向固定费用以保护律所毛利；他认为人们没有理解计费小时的好处，<strong>“它让整个行业能以一种大家都认可的方式，给极其复杂的工作在巨大规模上定价。”</strong>每一家谈过固定收费的律所都说：我们有一万个客户，没法逐个谈判每项委托的价格。</p>
+<p>（Sourcery 期）他预言 token 计费会重演同一幕。Uber 的 CTO 公开说过全年的编码 token 三个月就用完了；客户会陆续收到 1000 万美元级的用量账单，然后问“我的代理做了什么花了我 1000 万美元”。律所当年怎么解决的：客户拿到 1000 万美元的账单，要求说明每名 associate 在每个六分钟计时单位里做了什么，律所就写出来了。<strong>他预计 token 账单会长出同样的生态：逐项解释、优化、审计。</strong>背后还有激励错位：模型提供商卖的是用量，多少有动机让代理尽可能多用 token；解法则是第三方帮客户做基准与路由，“这项任务其实不需要这么多 token”。他承认这比外界想的复杂得多，就像给法律工作定价一样难以量化，Harvey 自己的编程团队用了大量 token，“他们肯定更高产了，但很难量化”。</p>
+<p>（Sourcery 期）对“激励错位必然导致坏定价”的反驳，他也照搬律所的经验：计费小时确实制造了错位，但律所之间的竞争把它压住，价格大致收敛到合理水平。模型提供商也会如此，<strong>他口播的对照是 Opus 4.7 价格约为 5.5 的三倍，性能高出 10% 到 20%</strong>，二者互相施压，开源追上后再添一层压力。若只有一家提供商垄断所有模型，“token 就是这个价，我的代理会用一大堆”，客户就被卡住了；正因如此推理提供商与其他模型提供商才有生意，“你需要很多选项，和你对付专业服务提供商的定价是同一套办法”。（作者归纳：他的定价论证有三层，短期靠多提供商竞争压价，中期靠路由与开源替换压成本，长期定价形式可能回到订阅，理由见下。）</p>
+<p>（Sourcery 期）Harvey 自己的定价结构他说得直白：与 Winston 从一开始就认为要并行建两家公司，一家是传统的按席位收费的企业软件业务，另一家承接模型变强后向用量计价的迁移。两者都需要，因为教育买家怎么买要花时间，<strong>“按 token 买东西复杂得离谱”</strong>，他甚至预计某个时点会回到订阅制之类的形式，因为用量太难预测。他对自己角色的描述与此对应：创业初期他把精力放在研究上，比公司阶段所需的更多，四年前向人推销“代理”时对方听不懂，于是转去做产品、做企业销售；如今基础设施追上了，代理真的在跑，他重新全职回到研究，“很多是数据标注、怎么造好数据集、怎么和这些伙伴合作”，与 Cursor 的 Composer 一样，应用层公司都开始把这件事做通了。</p>
+<h3>九、护城河来源与终局：从个人生产力到组织生产力</h3>
+<p>（Sequoia 期）问答的收尾提问是如何与实验室的通用编码与工作流产品竞争。他的回答把 Harvey 原始产品与实验室产品归为一类，都是个人生产力工具，而 Harvey 正在转向组织生产力。大律所要解决的问题是“我有一万个客户，我在为所有人做项目，我要保证每个项目都做好，并且做得有利润”，单个律师的效率只是其中一环。单个客户项目的难点在于一个持续六个月、横跨全所 20 到 30 人、还要协调外部各方的项目，起草某一节只占很小一部分，<strong>“很多东西开始像项目管理，编排这些人和这些代理”</strong>；上升到组织层面是上千个项目的资源分配、计费与投标；企业法务更复杂，财富 500 强要对接上千家律所与上千名内部人员。他的总结是企业软件的老办法：“在你的领域里做到横向产品不会做的那种超垂直。”</p>
+<p>（Sourcery 期）Niko 从研究侧给出同一判断的时间表：今年是“个人层面的智能被带到组织层面”的一年，Harvey 要在决策上再抽象一层，律师如何在平台上与律师协作、人与代理的团队如何协作，这里有大量产品基础设施问题与 AI 问题，“坦白说此前无法探索，因为模型不够好”。他也点出 harness 是当下热度居前的研究方向：模型周围的工具、技能、代理之间的委托与脚手架，Harvey 反复看到的结论是<strong>专业化与领域知识有用</strong>，律师、开源社区与 AI 研究员可以一起做法律专用的技能与工具。</p>
+<p>（作者归纳）把两期合起来看，Pereyra 描述的应用层护城河有四个来源：一是评测与数据生产能力，把私有工作流转译成可训练、可打分的环境；二是服务矩阵与路由，在多提供商、多国、多产品面上做模型分配，这也是客户规避冲突与平台风险的刚需；三是定价与账单解释权，当用量账单失控时，能说清“这项任务其实不需要这么多 token”的一方掌握议价；四是组织级工作流，项目编排、资源分配与客户共享空间，这是实验室的个人生产力产品尚未覆盖的层。风险他自己也说得清楚：评测会在一年内饱和，实验室可能爬到榜首，合成数据与生产分布之间有缝，而这一切建立在“通用法律智能不是 Harvey 的价值所在”这一判断之上。</p>
+<p>（口径提示：本文基于两期 YouTube 自动字幕整理。估值 110 亿美元、ARR 超 3 亿美元、960 名员工、2000 家客户、当月约 13 万亿 token 为 Sourcery 节目描述口径，13 万亿在对谈中由主持人转述；LAB 覆盖 24 个实践领域、1200 余项任务与 Opus 4.7 领先榜单为节目描述口径；单次 20 美元、审阅 2 万美元、Opus 4.7 价格为 5.5 三倍且性能高 10% 到 20%、Uber CTO 三个月用完全年 token、一亿美元以上薪酬包、60 个国家、8000 万 token 数据室、1000 多条单元测试均为口播；“5.5”“Opus 4.8”“Fable”“GLM 5.1/5.2”“Kimmy 3”“NeMo-Megatron”“Inkling”“Gemini 3.5 Flash”按字幕拼写，其中部分疑为 ASR 误识；“Ngram”“Trajectory”等 neolab 名称与“Julio”为字幕拼写；Sequoia 活动章节称自有模型为 Associate 1，演讲口播为“我们版本的 Composer”；Sourcery 一期录于 2026 年 6 月 18 日，“六个月前”等相对时间以该日为基准。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

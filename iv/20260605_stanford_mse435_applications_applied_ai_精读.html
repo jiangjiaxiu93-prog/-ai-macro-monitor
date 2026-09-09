@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Baseten 的 Srivastava 在斯坦福讲应用层经济学：九成五推理支出流向前沿实验室、应用公司要“拥有自己的智能”、算力短缺不会正常化（Stanford Online MS&amp;E435，2026-06-05）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Baseten 的 Srivastava 在斯坦福讲应用层经济学：九成五推理支出流向前沿实验室、应用公司要“拥有自己的智能”、算力短缺不会正常化（Stanford Online MS&amp;E435，2026-06-05）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 49 分钟 · 2026-06-05</div>
+<p>本讲是斯坦福管理科学与工程系 2026 春季课程《AI 超级周期的经济学》（MS&amp;E435）的一节，主题为“应用与应用 AI”。据字幕判断，客座讲者为推理基础设施公司 Baseten 的联合创始人兼 CEO Tuhin Srivastava（字幕中自报“我叫 Tuhin，Baseten 的 CEO 和联合创始人之一”），提问者为课程主讲人；课程说明列出主讲人为 Altimeter Capital 合伙人、斯坦福兼职讲师 Apoorv Agrawal，字幕中未自报姓名。本讲名为应用层，实际切入角度是应用公司的成本侧：推理支出如何在前沿实验室与开源后训练之间分配、应用公司如何从零毛利走到软件毛利、以及算力这一约束如何塑造应用层的形态。对“应用层探讨”这个专题，它补上了大多数播客缺失的一块，即应用公司账本上销货成本那一行是怎么构成的、由谁定价、能不能改。全片观点为讲者与主讲人的判断，涉及数字均为课堂口播，多次以“大概”“至少按上次披露”限定，引用前需回原始口径核对。</p>
+<h3>一、价值在层间的分配：推理是 AI 的销货成本，九成五流向前沿实验室</h3>
+<p>讲者先交代了 Baseten 的来路：公司成立于 2019 年，三位联合创始人共事十到十五年，当时的想法是“机器学习会很大，那就在旁边建一个基础设施生意，去捕捉它的指数”，结果机器学习比预期大得多、来得快得多，公司过去四年做的事是生产级推理，服务“增长居前的一批 AI 公司”。这段来路解释了他看应用层的视角：他的客户就是应用公司，他的收入就是应用公司的成本。</p>
+<p>他给应用层经济学的起点是一句定义：<strong>“推理就是 AI 价值交付的销货成本。”</strong>在这个框架里，应用公司卖给用户的是产品，产品每一次响应背后消耗的 token 就是这家公司的直接成本，成本流向谁，决定了价值在层间怎么分。</p>
+<p>他给出的分配现状是口播估计：<strong>当前推理支出约 90% 到 95% 流向前沿模型，约 5% 流向自定义模型</strong>，后者主要是经过后训练的开源模型。主讲人复述时把口径确认为“95% 在前沿、5% 在后训练或某种开源”。Baseten 的商业假设正是押这个比例会移动：应用公司要建成“有利润、可持续、可防御”的生意，路径是自定义模型，而这些模型希望跑在 Baseten 上。</p>
+<p>两家客户被用来说明应用公司的模型栈长什么样。语音输入应用 Wispr Flow 为了把“说完话到文字出现”的延迟压到尽可能短，中间串了三到四个语言模型和两个音频模型，全部是自建或深度改造的模型。医疗环境记录公司 Abridge 接入了几乎所有美国医疗系统的电子病历，从手术室或病房的语音到一份进入 EMR 的临床记录，中间跑着约 20 个模型。讲者称这两家的模型全部运行在 Baseten 上。这两个例子说明，规模化应用公司的产品并非一次前沿模型调用，其模型栈是多模型、多模态的流水线，其中相当部分可以由自有模型替代（作者归纳）。</p>
+<h3>二、应用层的护城河与“东印度公司”问题：拥有自己的智能</h3>
+<p>主讲人提出了应用公司做自有模型时的核心疑虑：从开源模型分叉出去，等于脱离了前沿智能的改进谱系，下一代 GPT 或 Opus 几周或几个月后可能直接超过你辛苦后训练出来的模型，为什么不选择“什么都不做”的选项。</p>
+<p>讲者的回答分成“可行性理由”与“愤世嫉俗的理由”两层。可行性理由放在第三节讲成本。愤世嫉俗的理由直指护城河：<strong>“你有什么东西是对前沿模型可防御的？大概是某个工作流、某种只有你才有的用户信号。如果你一直跟前沿实验室合作，某种程度上你就把所有数据和用户信号都给了他们。”</strong>他转述一位不愿具名的上市公司 CEO 的比喻：前沿实验室像东印度公司，到了印度先四处结盟，实际上是在学会统治那里的所有诀窍；等你意识到的时候，他们已经在针对那些对你而言神圣、只有你知道的工作流做后训练了。</p>
+<p>由此推出的结论是应用层公司要“在某种程度上拥有自己的智能”，做法是用开源模型加自有数据做后训练，把这一层栈建在自己手里。主讲人追问 Baseten 自己拿了这些数据是否同样是“东印度公司”，讲者的回答是<strong>“我们是西印度公司，我们在武装反抗军”</strong>，并补充公司同时服务多家互为竞争对手的客户、内部设有隔离边界；他承认数据信任在多数情况下“没有想象中那么难”，因为客户更关心能不能快速解决用户问题，不倾向于什么都从零自建。</p>
+<p>把这一节与第一节合并看，讲者给出的应用层价值分配逻辑是一条链：用户信号是应用公司唯一的独有资产，把它持续喂给前沿实验室等于自我稀释，把它用于后训练自有模型才把资产转成成本优势与防御性（作者归纳）。</p>
+<h3>三、成本结构与毛利路径：开源落后 90 天、便宜七到九成、规模越大越迫切</h3>
+<p>可行性理由的核心是两个数字，讲者配了幻灯片：<strong>开源模型大约落后前沿模型 90 天，运行成本大约便宜 70% 到 90%。</strong>再叠加上一周课程嘉宾（字幕中称为 Josh）讲过的专用模型后训练，他的判断是可以“更好、更快、更便宜”。</p>
+<p>这条路径对应的财务动作被他描述得很直接：客户找上门通常是在“我已经有产品市场契合，需要变成一家规模化公司，需要把毛利从 0 做到 40%、50%、60%、70%”这个时点。主讲人补充了一个市场传闻作为背景：<strong>“不是前沿实验室自己的头部编码公司，仍被传为负毛利。”</strong>在他看来，把 token 量往开源方向迁移对这类公司是生存问题。</p>
+<p>被问到规模与迁移意愿的关系时，讲者的判断是规模越大越迫切：<strong>“你越大，走向这条路就越关乎生死。”</strong>逻辑是当公司做到很大规模，如果只是在倒卖 token，成本会变得非常昂贵、需要的资本越来越多，通往盈利的路径必须依赖后训练。至于迁移之后的体验变化，他坦言 Baseten 内部没有数据，只能说“你会希望它变好”：针对自有用户信号做后训练理应让用户体验改善，而且因为控制权更大，延迟与可靠性也理应更高。主讲人提到 Cursor 发布 Composer 模型引发的讨论，讲者未做具体评价。</p>
+<h3>四、定价：从算力加价到按 token 计价，以及后训练工作流的结构</h3>
+<p>主讲人列出当前 AI 的定价菜单：按结果定价、按 token 定价、按 GPU 小时定价。Baseten 目前的模式是<strong>“对算力加价”</strong>：客户把模型装进 Baseten 的推理栈，选择要跑在哪种算力上，一张 Baseten 的 H100 或 B200 比裸算力贵，贵出来的部分就是软件栈的价值。讲者自评在这方面“相对不成熟”，并说正在转向按 token 计价：随着后训练工作流在平台内部打通，叙事会从“你为算力付多少钱”变成“你为每个 token 付多少钱”，而客户中的头部公司更喜欢这种方式，因为从 Anthropic、OpenAI 迁过来的团队可以做同口径的成本对照。</p>
+<p>后训练工作流被他讲成一个闭环，整理为五步（作者归纳）：客户定义效用函数，即自己要优化的目标，讲者强调“我们帮不了你，我们不知道你的产品、你的用户、你的生意在优化什么”；客户提供数据；客户选择一个开源基座模型；平台提供全部脚手架把它变成后训练模型；模型直接接入平台预先集成好的推理链路。他举的例子是医疗场景的语音转文字，效用函数是转写错误率，客户带着数据与对工作流的理解进来，带着一个跑在 Baseten 上的专用模型离开。</p>
+<p>这一节可与第一节合读：按 token 计价的意义在于把推理成本变成一个可以横向比价的单位，让“开源后训练便宜七到九成”这条主张能在客户账本上被验证；算力加价模式做不到这一点（作者归纳）。</p>
+<h3>五、开源的商业模式与地理：头部开源来自中国，美国的两家实验室没有动机</h3>
+<p>主讲人指出 Baseten 隐含的另一个大赌注是开源会留在前沿或至少落后三到六个月，而开源前沿实验室的经济模型仍是“待定”。讲者把公司的两大赌注明确表述为：<strong>“独立应用层的存在，以及开源好到你可以持续在上面做后训练。”</strong></p>
+<p>关于开源的来源，他的表述直白：<strong>“美国到目前为止、至少过去两年，没能拿出头部水平的开源模型。今天头部的开源模型来自中国。”</strong>原因方面，他认为全球居前的研究人员集中在两家公司，这两家“尽管名字可能暗示了别的东西”，没有动力去做开源；中国团队做开源，起初是为了获得相关性，Moonshot、Alibaba、MiniMax 面对的是一个“与闭源模型反向站位”的市场机会，Meta 几年前也这么做过，后来又“著名地转向了另一边”。</p>
+<p>他把这件事定性为国家安全议题：<strong>“如果美国没有好的开源模型，或者智能的成本在东方比西方便宜 70% 或 90%，这大概不是好结果。”</strong>他列举了美国头部公司在开源上的投入作为对冲：Google 的 Gemma、NVIDIA 对 Nemotron 系列的投入、Reflection AI 未来可能推出的模型。被问及美国开源的速度在增还是在减，他的判断是<strong>“到大约一年前一直在下降，现在有回升”</strong>，并认为今年会看到更多反向的动作。</p>
+<p>对于当天上午 Anthropic 发布的一篇关于中美 AI 关系的文章，主讲人概括为两种情景（美国领先或中美并驾齐驱）与一个建议（收紧），讲者的回应是自己没有细读，但认为表达观点前应先申明自身偏见与激励函数，“我不认为他们承认了这一点”。他给出的立场是 Baseten 前一天刚发布的“多模型世界”：<strong>“智能不应该被两个人拥有。历史上当太多权力集中在一两方手里，通常会发生坏事。我也不认为这两家有巨大利润动机的公司应该成为我们其余人的道德仲裁者。”</strong>他补充说他与中国开源团队都有接触、“他们很棒”，问题在于美国同样应该有好的开源，否则<strong>“我们只会剩下两家公司，不会有 Apple”</strong>。</p>
+<p>问答环节有学生问，前沿实验室为什么不把落后一代但仍然很好的模型开源、再派团队进企业做数据。讲者的回答从激励出发：OpenAI 在某种程度上已经在做，但对实验室来说投入后训练接近于放弃自己的核心论题，<strong>“如果 AGI 就是一切，那他们为什么要做任何别的事？每一美元都应该投进预训练。”</strong>这些模型存在的目的是让实验室卖出尽可能贵的模型，把能力差距推到尽可能大。另一位学生问美国政府是否应为开源创造人为激励，他认为政府已经开始介入，NVIDIA、Microsoft、Google 也已投入很多只是尚未结果，同时明确说“必须创造人为激励，必须有某种联盟，自上而下地激励这些事”。主讲人补了一句当天的背景：两天前中国政府投资了 DeepSeek（口播，未核）。</p>
+<h3>六、算力约束：租与买、价格翻倍、每天 30 万亿 token 与 70 亿美元</h3>
+<p>这一节是全片数字密度居前的部分。Baseten 的技术核心被讲者定义为把不同来源的 GPU 缝合成一个可替换的池子：<strong>“我们跑在 18 家云上，现在应该是 20 家，有 87 个不同的集群在拼算力。”</strong>动机是获取，GPU 本来就难找，如果再加一个“必须在哪家云”的约束会更难。主讲人先问过一个更基本的问题：Abridge、Wispr Flow 这种规模的公司为什么不直接去 AWS、GCP、Azure 或 CoreWeave、Nebius 这类新云。讲者给了三条：性能，去那些云“优化全靠你自己”；可靠性与算力，客户需要推理跨云、容错地运行，Baseten 替他们打通多云；以及开发者平台，包括灵活性、安全与可观测性。他描述的实际路径是很多客户先去了那些云，在算力之上搭整套推理栈时感受到痛苦，然后转来。这意味着对应用公司而言，推理栈的工程成本是一项独立于 GPU 单价的成本，且随模型数量增加而放大（作者归纳）。多家云自己推出推理平台，他表示欢迎并愿意与竞争对手合作，理由是推理栈上有大量价值、而且“推理非常非常黏”。</p>
+<p>租与买的分歧被他讲成两种“傲慢”：Baseten 认为软件是栈里黏的部分，与之竞争的云认为拿到 GPU 才是黏的部分、软件很容易做，“两边大概都有点傲慢”。他承认当初选择租是为了速度、也因为“我们没资格去建数据中心”，但正在转向自有：<strong>“无论别人怎么告诉你供给有问题，实际都要糟十倍。”</strong>他引用 Google 财报里 GCP 约十倍的积压订单（口播），并给出交付周期：现在去要 1000 张 GPU，对方谈的是明年二季度，12 到 15 个月之后。</p>
+<p>价格例子最具体：Baseten 在某家云上有一个 B200 集群，当前单价 <strong>263 美元一小时</strong>（讲者强调绝对值不重要，相对变化才重要），合同十月到期，对方五月就来通知<strong>明年新价 510 美元</strong>，翻倍。主讲人问是否接受，回答是“绝对不”，还有一堆别的云可以谈，截至课堂时尚未答复。</p>
+<p>他引用了 OpenAI 的 Noam Brown 在社交平台流传的一页幻灯片，大意是<strong>“算力的获取是推理的战略优势”</strong>，并披露了自己的规模：<strong>“Baseten 全部客户加总的推理服务，按 token 数算比 OpenAI 的 API 大，比 Gemini 大，每天约 30 万亿 token。”</strong>主讲人追问后他确认对比对象是 OpenAI 的 API 产品，ChatGPT 不在对比范围内，并限定“至少按上次报告”。按此外推，<strong>两年后需要约 15 万张 B200 等价物，折合约 70 亿美元的算力支出</strong>，靠租不可能保证拿到，唯一的办法是与芯片供应商建立强关系、自己买、自己搭。经济上自建也有约 30% 的成本优势，他的参照是像 Oracle 这样规模化的云约 30% 的毛利。他把这条归入 Baseten 的三大风险：开源、应用层、以及“拿不到足够的算力”。</p>
+<p>被问到算力紧缺何时回归正常，他的判断是<strong>“我不认为它会正常化”</strong>：应用在变得更具代理性，模型在变大，两件事都指向推理量大幅上升。他用机场做类比：早上五点的 JFK 没有排队，八点已经排到门外，“我们现在就排在门外”，区别在于机场夜里会关门重置，推理需求没有任何重置期，只会持续叠加；即便本地午夜需求下降，欧洲与亚洲正在上升。</p>
+<h3>七、硬件与推理栈：CUDA 单极、预填与解码分离、一切都是流沙</h3>
+<p>主讲人列举了 NVIDIA 之外的长尾：Trainium 按上次财报约 200 亿美元收入运行率、TPU 规模未披露、当天上午的 Cerebras、以及 Etched、Positron、d-Matrix、SambaNova 等（口播，部分名称按字幕拼写）。讲者的立场是不能一边讲“多模型世界”一边说只有一种芯片能用，“那是虚伪的”，但 Baseten 的机队大部分跑在 NVIDIA 上，TPU“很有前景”，新一代芯片也很有前景，Trainium 尚未见到有人大规模使用。</p>
+<p>NVIDIA 的优势被他归为供应链、极低的资本成本、与台积电的强关系，“今天有人能与之竞争的想法有点异想天开”。再往下一层是开发者生态：<strong>“没有任何东西像 CUDA。CUDA 是疯狂的。”</strong>TensorRT-LLM 是 NVIDIA 为自家芯片写的开源运行时，vLLM 与 SGLang 这两个开源框架同样原生于 NVIDIA，对一家要求“尽可能快地推进”的公司，这就是选 NVIDIA 的理由。</p>
+<p>架构上他给出一个方向判断：推理有预填（prefill）与解码（decode）两个核心部分，历史上都跑在一颗芯片上，“这大概不是终局”；NVIDIA 收购了 Groq（按字幕），很多新芯片都在把这两部分拆开，内存受限的部分在 GPU 上做，计算受限的部分在另一种芯片上做，世界会走向异构架构。问答中他把创新点归为分离式推理（disaggregation）与内核层，提到 NVIDIA 与斯坦福都有人在做 ThunderKittens 一类的工作，并用“流沙”形容这个市场：<strong>“整个栈都在变，你把所有东西扔掉，Ilya 可能拿出一个新的模型架构，一切又重新洗牌。”</strong></p>
+<h3>八、与旧周期的三个类比：数据库、集装箱、东印度公司</h3>
+<p>本讲没有对 PC、互联网或移动周期做系统复盘，但讲者三次借用旧行业的结构来解释本轮，值得单独记下来。</p>
+<p>第一个是数据库。主讲人提到很多人认为推理是大宗商品，讲者的回答是<strong>“它有点像人们过去买数据库的方式：选一次，然后就在那上面长。”</strong>他转述当天上午一位创始人的话：推理黏是因为它就是交付给客户的产品本身，不能有任何中断，“一旦你在 token 路径上，推理宕机就是产品宕机”；对部分公司推理甚至是账本上居首的成本项，超过其云支出。主讲人由此推断这是一个会被激烈争夺的盘子，讲者回答“百分之百”。这个类比的含义是推理层的竞争格局更接近有转换成本的基础软件，价格战不足以改变格局（作者归纳）。</p>
+<p>第二个是集装箱。被问到如果不做 Baseten 会做什么，他先说会走 Crusoe 的路线去投能源与电力，随后讲了一个希望有人去做的想法：从奥克兰开车到旧金山会看到港口的集装箱，<strong>“集装箱是历史上屈指可数的几大经济驱动力之一，因为它把贸易的单位标准化了”</strong>；他希望有人做模块化数据中心，把算力的单位标准化，“谁标准化了算力单位，谁就能真正工业化”，今天每一个数据中心都不一样，标准化之后同一批人可以在各地维护同一种东西，一整个产业会围绕它长出来，主讲人概括为“给算力做一个 API”。有学生问这与虚拟机的区别，他的回答是虚拟机在栈里高几层，模块化数据中心解决的是“怎么把新算力立起来变得更便宜”，在更底层。</p>
+<p>第三个是东印度公司，已在第二节展开。三个类比合起来看，讲者对本轮的历史定位是：推理层像基础软件（有锁定）、算力供给像前集装箱时代的航运（缺标准化）、前沿实验室与应用公司的关系像殖民贸易公司与本地伙伴（数据流向决定权力流向）（作者归纳）。</p>
+<h3>九、问答：算力期货是“毒品市场”、反命题三条、给学生的建议</h3>
+<p>有学生问算力期货市场，讲者的回答是市场远未成熟：<strong>“如果你看算力交易是怎么做的，它基本上是个毒品市场。你得有个人。”</strong>Baseten 办公室里有一位同事整天坐在角落打电话找算力（字幕中称为 Ed）。他认为这里显然会形成一个市场，但目前更像早期的电力市场，“有很多滑点”。</p>
+<p>被问到 Baseten 论题的反命题，他给出三条：世界上只有两家公司拿得到算力并拥有一切；开源模型不够好、不够多；以及如果 AGI 论题被推到底，“我们都无事可做”，随后他与主讲人一起补了一句，那时“推理或许是仅剩的市场”。</p>
+<p>多空游戏他只答了多头一侧：算力建设的任何环节。空头一侧他不点名，只说会看“不创新的公司”；他认为企业本身没问题，但需要想清楚如何把自己独有的东西与预训练模型结合、在其上做推理，不做这件事的企业“我会非常害怕”。给学生的建议是学什么都可以，“六个月你可以成为任何领域的专家”，同时透露自己正在深入研究数据中心融资，认为项目融资这一块“相当巧妙”，值得学。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，说话人依上下文判断。推理支出 95/5 的分配、开源落后 90 天与便宜 70% 到 90%、B200 每小时 263 与 510 美元、每天 30 万亿 token、两年后 15 万张 B200 等价物与约 70 亿美元、自建便宜约 30%、20 家云与 87 个集群、GCP 十倍积压、Trainium 200 亿美元运行率、1000 张 GPU 交付 12 到 15 个月，均为课堂口播且多无出处；“比 OpenAI API 与 Gemini 大”限定为“至少按上次报告”；头部编码公司负毛利为主讲人转述的传闻；Anthropic 当天文章的内容为主讲人概括、讲者自称未细读；“NVIDIA 收购 Groq”“中国政府投资 DeepSeek”为口播时事，未核；Wispr Flow、Abridge 的模型数量为讲者口播；芯片公司名称与 Noam Brown 幻灯片内容按字幕拼写与转述；课程录制日期早于发布日期，讲者提到“五月来通知”“十月到期”，具体录制时点未在字幕中说明。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

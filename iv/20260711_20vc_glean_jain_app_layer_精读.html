@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Arvind Jain 论企业应用层：代理积累的制度性学习归企业、开源三年内承接多数负载、消费计价拆解捆绑（20VC，2026-07-11）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Arvind Jain 论企业应用层：代理积累的制度性学习归企业、开源三年内承接多数负载、消费计价拆解捆绑（20VC，2026-07-11）</h2>
+<div class="metaline">20VC with Harry Stebbings · 60 分钟 · 2026-07-11</div>
+<p>嘉宾为 Glean 创始人兼 CEO Arvind Jain，节目描述给出的口径为公司估值 72 亿美元、累计融资超 7.7 亿美元，投资方含 Kleiner Perkins 与 DST Global；此前他联合创办 Rubrik（已上市），更早在 Google 任杰出工程师十余年，做过搜索、地图与 YouTube。主持人为 Harry Stebbings，录制地点在欧洲。本期标题以“前沿实验室赢不了应用层”作卖点，全片真正的信息量在于一位服务大型企业的应用层创始人对三件事的一手陈述：企业为何要把代理的运行权与学习成果留在自己手里、开源模型在企业负载中的渗透进度、以及在 token 涨价与消费计价并行的当下，应用层的定价与捆绑逻辑如何变化。主持人在多处持相反立场并反复追问，本文按论证逻辑重组，注明何处是嘉宾判断、何处是主持人的前提。全片观点属嘉宾判断，数字为嘉宾或主持人的现场口播，引用前需回原始来源核对口径。</p>
+<h3>一、企业对实验室的恐惧是运营依赖：代理里积累的制度性学习归谁</h3>
+<p>开场引用了 Palantir 的 Alex Karp 在 CNBC 的说法：全球大型企业对前沿模型供应商的怀疑到了空前的程度。Jain 的回应分两层。第一层是恐惧确实存在，其性质与软件公司担心“模型会不会把我们全吃掉”相同，企业领导层担心的是核心知识产权、数据以及“做事的方式”会对模型供应商形成过度的技术依赖。第二层他认为 Karp 真正想说的是 AI 在企业里没有起效，只是没人敢承认，因为那样说“不够酷”。</p>
+<p>被问到企业的恐惧是否合理，他给了肯定回答并把问题往深推了一步。如果谈的是从根本上改变工作方式、让今天多数工作由一个完全由某家前沿实验室驱动的代理来完成，那么企业实际上已把大量运营转移给了技术供应商，<strong>“这已经超出技术依赖，是对替你运行这些代理的公司的真实运营依赖。”</strong></p>
+<p>他用工作流程的演化来解释依赖的具体形态：一项任务第一次做时也许会写下十个步骤的流程文档，随后人们不断优化和微调，其中大部分从未被记录，只是在反复做的过程中形成实时运用的经验；<strong>所有这些制度性学习今后都会累积在执行任务的那个代理里</strong>。如果企业不自己运行代理、不拥有它多年积累的学习，那就完全依赖 AI 公司来完成工作。他由此把企业面前的根本问题概括为：如何使用这些 AI 技术，同时保留控制权和所有随 AI 复利增长的学习成果——“它们属于企业”。这一段是全片标题论断的实际内容：实验室能否赢下应用层，取决于企业是否愿意让运行权与学习成果外流（作者归纳）。</p>
+<h3>二、开源拐点由成本驱动：九成以上企业用例可由多模型胜任，三年内多数负载上开源</h3>
+<p>Jain 称企业向开源迁移“正在发生”，处在真正的拐点。需求端早就存在——<strong>“我们接触的企业里，没有一家愿意说自己用 OpenAI 或 Anthropic 就够了”</strong>，都想掌握自己的命运、使用多个模型；此前缺的是开源模型本身的水平。触发因素是 AI 变得昂贵：企业定下年度 AI 预算，一两个月就花完的故事到处都是，这让开源的吸引力加速上升，再叠加开源模型真的好用了。</p>
+<p>关于企业在意什么，他的判断是当前的开源驱动力来自成本。数据驻留的要求只存在于部分必须把推理负载留在私有数据中心的行业；AI 刚出现时企业普遍害怕数据外流、害怕被拿去训练，这种恐惧现已基本消失，企业相信只要签对合同，模型公司会负责任地不用企业数据训练。</p>
+<p>关于模型商品化，他把讨论限定在企业用例：<strong>“90% 或更多的用例现在可以由许多不同的模型完全处理，包括开源模型。”</strong> 这本身就是 Glean 的核心价值之一——成本控制：用户在平台上完成任务时由 Glean 挑选合适的模型，客户若接受开源模型，就在判断能生成高质量答案时使用开源。至于有多少客户不接受开源，他说这件事太新：<strong>开源模型追到前沿能力三个月以内，是大约一个月前甚至不到一个月才发生的事</strong>；按字幕拼写，GLM 5.2 是 Glean 团队第一次觉得可以把多数负载跑在上面的开源模型。所以客户会怎么答尚不知道，但他认为问题会落在一处：“他们接不接受中国模型，这是这里唯一的问题，问题从来不是开源对闭源。”</p>
+<p>对这层顾虑他的解释是心理层面的：万一出了问题、万一有我们不理解的后门，加上一旦使用被外界知道可能被竞争对手利用。他的预期是一批敢为人先的大企业先动，随后成为常态。他给客户的时间表判断是：<strong>“三年内，多数企业负载肯定会跑在开源模型上。”</strong></p>
+<h3>三、模型生意本身的赚钱能力被高估，实验室早已是应用公司</h3>
+<p>主持人的追问是：如果九成企业工作流可用开放模型完成，前沿模型格局是否被完全错误定价。Jain 先撇开开源谈实验室之间的竞争：即便是三家的竞赛，也能产生相当大的定价压力，何况开源的价格低一个数量级；他还提到听闻 OpenAI 打算大幅下调模型价格以回应竞争与开源（传闻，未经证实）。结论是<strong>“模型生意本身，可能没有大家以为的那么赚钱”</strong>，但这些公司已经有了很多别的东西，业务早已超出模型。</p>
+<p>他把两家实验室区分开：OpenAI 有出色的消费产品；Anthropic 的特点是人们在它的平台上搭建东西，大量的人在开发自动化与技能、为内部系统写 MCP 服务器再全部接到 Claude 上，一个生态正在形成。因此<strong>“应当把它们视为应用层公司”</strong>，模型只是其业务的一部分。主持人的反驳是，如果邻近领域只做浅层的东西，就产生不了 Dario 所说的万亿美元收入；Jain 没有正面回应收入规模，只坚持实验室的业务已经超出模型本身。</p>
+<p>关于价格走向，他记录了一个反常现象：<strong>过去六到九个月每个模型都提高了单 token 价格，而十五个月前所有人都以为 token 价格会像此前一样持续下跌</strong>，他称这件事“怪异”、原因不明。主持人的解释是实验室上市前需要证明自己是好生意，Jain 不置可否，但表示自己押注 AI 会比今天便宜得多、推理成本会以数量级下降。主持人由此推论：若 AI 大幅降价，这些已在亏损却支撑着全球经济的公司将受到威胁；Jain 的回答是“我的看法不变”。</p>
+<h3>四、垂直包很浅、上下文很难：Glean 把实验室当资产</h3>
+<p>所有投资人都让主持人问同一个问题：是否担心 Anthropic 像对 Figma、法律、医疗那样进入 Glean 的领域。Jain 先纠正前提：要谨慎评估实验室对 Figma 或法律、金融领域“实际做了什么”，它们在推垂直包，但<strong>“在我看来相当浅”</strong>，他不知道有谁把工作负载整体从 Figma 或任何工具迁到 Anthropic。他看到的是净增量与市场扩张：设计师仍用 Figma，非设计师开始用 Claude 做设计，AI 让事情变简单，让非专家也能做一部分原属专业工具的工作。</p>
+<p>但他承认竞争每天都在发生，并且实验室比别人更早与 Glean 竞争。客户常问：Claude 也能通过 MCP 连接企业系统，Glean 能做什么 Claude 做不到的。<strong>Glean 要做的是解释“上下文究竟是什么、为什么构建它很复杂”</strong>。他指出 Claude 的企业产品（字幕作 cloud co-work 与 cloud desktop，本文按 Claude Cowork 与桌面端理解）的主要用例一直是问答，而信息寻找与问答本身就是今天全球 AI 用量居首的用例，因此正面重叠不可避免。</p>
+<p>关于先发优势，他的定性是有用但不足以托底：Glean 被视为全球第一家企业 AI 公司、第一个把 RAG 引入企业、第一个做概念语义搜索的公司，这给了品牌与参与竞争的资格，即便公司相对 OpenAI 与 Anthropic 已经小得多，<strong>“这是巨大的资产，但既不是必要条件，也不是救星。”</strong></p>
+<p>给失眠创始人的建议是“绝对不用担心”——创始人的工作是解决问题，要预判实验室的动作、看清其当前能力，但<strong>“对几乎所有不做前沿模型训练的 AI 公司，应该把模型公司看作巨大的资产”</strong>，他明确说不把它们当作竞争对手；Anthropic、OpenAI、Google 与开源的一切进展对 Glean 都是好消息，“它们让我们交付了一个没有这些帮助绝不可能做出的产品”。</p>
+<h3>五、Microsoft 的捆绑比实验室更常挡在门口，消费计价可能拆解捆绑</h3>
+<p>主持人提出另一种竞争：Microsoft 做了七成好的产品、捆进企业套件、贴上标签卖，Copilot 的捆绑压力如何看。Jain 直言 Microsoft 是 Glean 显著的竞争者之一，<strong>捆绑策略确实有效</strong>，必须与之对抗；幸运的是同类领先软件一直有生存空间，客户把 Glean 视为这类产品，愿意在 Microsoft 套件之上再投入。</p>
+<p>他随后提出一条结构性论点：AI 正在转向消费计价，这可能让捆绑失效。<strong>“一旦转向消费计价，捆绑就没有内在优势了”</strong>——作为企业可以买六个工具，让用户自己选在哪里工作，在哪里工作就为那个工作单元付费，消费计价最终可以打破捆绑。主持人从采购流程反驳：大型企业会把 Microsoft 作为一个已合规的供应商通过审批，突然要审批十五家供应商会造成此前不存在的供应商管理问题。Jain 承认这点成立，但补充说与 Microsoft 正面遭遇过的公司多把定价视为致命因素，“很难和免费竞争”。</p>
+<p>被问 Microsoft 与前沿模型谁更凶悍，他说尚早，但 Microsoft 令人生畏：在客户拓展中，<strong>“我们是 Microsoft 客户、已经拿到 Copilot、所以没必要考虑你们”这句话，比“我已经采用了某家实验室的产品、不再考虑别的”出现得更频繁</strong>。对应用层公司而言，这段陈述的含义是：分发层面的现实对手是既有套件供应商，实验室在企业采购中尚未形成同等的排他效应（作者归纳）。</p>
+<h3>六、AI 在企业里没起效的原因是吞吐问题：上下文缺位让 token 烧在拼装原料上</h3>
+<p>主持人把 2026 年下半年与 2027 年定为企业集体追问投资回报的时点，问 Karp 说“大家都在问回报在哪”是否正确。Jain 的回答是价值实现存在于“口袋”里。客服是易于度量的垂直领域：<strong>一名客服每天解决 10 个案例，用了 AI 之后能解决 12 个</strong>，这种生产率提升可以具体度量，而客服工作的大部分时间用于阅读知识再向客户概括，正是 AI 擅长的。</p>
+<p>更复杂的是编码。他判断当前<strong>多数 AI 支出花在编码上</strong>，编码实践已经改变，多数开发者已经用 AI 写代码，不再手写；但被问到产品是否更快上线，“多数公司说没有，交付速度并未提升，尽管写代码的速度显著提升”，因为写代码只是交付产品的一小部分。Glean 自身的交付速度也难以剥离：功能上线确实更快，但团队更大、更资深，效应难以拆分，公司的选择是继续投入。</p>
+<p>关于 Glean 的代码，<strong>“差不多 100% 由 AI 写”</strong>，没人再手写初始代码；但公司强制人工审查，不允许生成大量 AI 代码直接入库，“我们可能比多数公司保守”。内部曾有提议取消代码审查——瓶颈已从写代码的人转到审查的人，很多公司确实这么做了——但他的顾虑是用 AI 可以写一百万行代码，长期却极难维护、理解与管理，AI 做重构与安全审计“现在还不够完美”，公司宁可付审查的成本，且写代码的人做第一轮审查，整体仍比过去快。</p>
+<p>对“ROI 是吞吐问题”的解释直接对应 Glean 的产品逻辑。多数企业推广 AI 的方式是把 AI 扔进系统，用 MCP 服务器以粗糙方式连上所有企业系统，然后让模型对每一件工作暴力摸索、自行拼装完成任务所需的原料。<strong>这种模式下 AI 极慢、极贵，“大部分 token 烧在为给定任务拼装正确上下文上”</strong>，还在把 AI 用于它并不擅长或根本不需要它的事情。他的主张是在 AI 周围投入，提供正确的上下文，使其跑得更快、成本更低——这就是 Glean 对自身护城河的定义：上下文层是应用层公司相对实验室的差异化所在（作者归纳）。</p>
+<h3>七、“用 AI 替代自己”是错误目标：人均产出会飙升，维持同等收入的门槛同步上升</h3>
+<p>主持人问 CEO 们催员工用 AI 替代自己、哪怕浪费 token 是否错误。Jain 认为这是错误的目标，首先是给了 AI 太多信用，它现在还没准备好。他反问：能说出一个可以被 AI 替代的岗位吗。主持人举行政助理，认为 AI 能做九成、剩下一成自己做，岗位会被蚕食。Jain 不同意：<strong>“你想在自己做的事情上表现到极致，我不认为你会接受一个 90% 的解决方案”</strong>——竞争者也有同样的 AI 工具，如果他们在 AI 之上还有一个人，你怎么竞争。</p>
+<p>Glean 现在超过一千人，被问五年后有多少，他答“希望五千”。主持人称这与其接触的所有大公司 CEO 缩减团队的做法完全相反，Jain 的回答是“我绝对不信那套”。他的论证用可口可乐与百事：两家竞争对手拥有相同的 AI 工具，一家决定缩编、另一家保留更多人，缩编者用更少的人做同样多的工作，对手则选择做十倍好的产品或产出十倍多的东西，“他们会更大，会打败你”。他承认更多人会互相拖慢——疫情后很多公司裁员 15% 到 20% 并宣称因此快了 20%，这个论点一直成立，但那与 AI 无关；人也是资产，要部署到正确的项目上，他不认为世界级的伟大公司会是一百人的公司，并反问模型公司为何在激进招聘。</p>
+<p>他对团队规模的最终表述是：<strong>人均生产率会飙升，但维持同等收入所需的产出要求也会同步上升，“未来你必须做出十倍好的产品”</strong>。这与后文复合角色的讨论连起来：角色会通用化——既像工程师又像产品经理与设计师的人，既能谈商务又能演示产品、讲用例的销售，客户经理与解决方案工程师的分工会消失，他在 Glean 内部也在用力推动。主持人指出复合角色本身意味着更小的团队，他承认，但重申“未来要做十倍的工作才能拿到同样的收入，我们只是被迫做更多”。会消失的角色他点了两类：不做业务思考、只按需求建仪表盘与配置后台的数据分析师，商业智能会完全不同，业务负责人直接获得答案；以及招聘中的寻源岗位（sourcer），会被并入全周期招聘角色。</p>
+<h3>八、每月 100 万美元的分诊代理与 token 幂律：技术成本第一次与人力成本同句</h3>
+<p>定价与人力的辩论是全片对撞感居前的一段。主持人认为开发工具仍被严重低估，Benioff 在 Anthropic 上花 3 亿美元只相当于开发者薪酬的 3.7%（主持人口径，随后又说 3.8%）。Jain 的回答是“贵得离谱”，并给出 Glean 自己的例子：公司有一个 15 人的值班团队负责分诊所有生产事故，现在一个分诊代理自动处理了约 95% 的事故，<strong>但这个代理的成本是每月约 100 万美元，高于那个团队的人力成本</strong>，效率是否真的高于人是有疑问的。他补充两点：开源已能以十分之一的成本做同样的工作；以及<strong>“就我记忆所及，历史上从未把技术成本与人力成本放在同一句话里，这是第一次听到‘我宁愿要更少的人和更多的 token’，我觉得这不是技术运行的方式，模型应当越来越便宜。”</strong> 主持人坚持代理在替代人力、理应与人力同句；Jain 的立场是好的技术会想办法让技术变得极其便宜，这里也会发生。</p>
+<p>关于内部 token 预算，Jain 坦承“和多数公司一样，我们什么都没做”，公司处在让人们自己摸索的阶段。观察结果是幂律：在 Glean 与所有客户处，<strong>有人每月消耗 1 万到 1.5 万美元的 token，另一些人只用 20 美元</strong>。所有人都在某种程度上用了 AI——信息寻找与问答是全球 AI 用量居首的用例，团队与客户的每个人都在提问、做基础摘要与信息综合——<strong>但高级用例仅限于约 5% 的员工</strong>。</p>
+<p>在推动采用上，他称主持人转述的 Palo Alto Networks 做法（每周领导会让每人展示一项用 AI 替代或改进自己工作的事）是个好主意，自己想过做但未做；Glean 曾限制“token 消耗排行榜”式的仪表盘，因为他一直认为奖励消耗更多 token 的人并不正确，一家 AI 原生公司的员工足够懂行，需要时自会使用；公司做的是在每次全员会上固定一节，由团队分享正在用哪些新代理改变工作方式。这段与第六节合读，给出企业采用节奏的一手坐标：基础问答已经全员覆盖，工作流级的代理使用集中在极少数人手中，token 支出分布极不均匀，企业“AI 没起效”的体感与“预算一两个月花完”可以同时成立（作者归纳）。</p>
+<h3>九、场外观察：主权模型的声音在减弱、美国开源缺位是投入结构问题、资本过剩制造失败路径</h3>
+<p>录制地在欧洲，主持人问是否需要主权模型。Jain 的观察是主权模型的诉求依然强烈，但<strong>一年前比现在更强</strong>，当时每个国家都以为自己能建一个，后来很多国家发现这条路走不通，转而接受本国企业使用 OpenAI、Anthropic 与其他模型；他自称在这方面不是专家，不确定趋势在升在降。主持人以美国政府一个月前限制 Anthropic 新模型（主持人口径，本文未核）为由认为诉求毫无疑问在上升；Jain 反问“结果在哪”，并指出在此之前也从未发生，<strong>“美国以外唯一产出模型的国家是中国，然后是法国一点点。”</strong></p>
+<p>关于美国为何没有像样的开放模型，他否认是开源文化薄弱：美国开源社区在很多领域相当强。原因是投入结构——模型需要巨额前期投入，与开源的形成方式不兼容，大量开源软件源于没有资金支持的开发者自发工作，模型无法这样造出来，除非出现不需要超高投入的技术路线。主持人称在 OpenRouter 上看到用量前六名都是中国模型、Anthropic 排第七（主持人口径），Jain 认为可以在受控环境内运行推理让企业感到安心，但美国不会接受这一趋势，现在有不少推动美国开源模型的努力，一些模型正在出来，Nvidia 在其中投入很多。主持人假设实验室会推动监管限制开源，Jain 表示怀疑，理由是美国开源现在落后太多、不需要限制，而且<strong>“他们没法通过监管来解决这个问题”</strong>，美国必须自己造出好的开源模型，“不能被看作一个不在技术上创新的国家”。</p>
+<p>创业侧的内容可与应用层竞争格局对读。他自述过去十二个月改变主意的地方，是自己“过于纪律化”的风格可能已经不再是正确策略：团队反馈公司太保守、太在意资本效率，<strong>“在这种心态下我们可能会输掉土地争夺”</strong>，他感到改变自己的压力，同时仍相信生意建立在纪律之上——必须为产品收费、必须给客户创造价值、每一美元营销投入要有回报，不能假设靠不断融资来弥补。被问 Uber 证明了坏商业模式可以靠规模变好，他承认这正是让他怀疑自己思路的案例。对是否处在土地争夺期，他没有保留：<strong>“绝对是土地争夺，世界上每一家公司今天都想要一个我们这样的产品，现在进不去，未来进入的难度会是十倍。”</strong>本期没有系统复盘 PC、互联网或移动周期，与旧周期接近的对照只有三处：疫情后裁员 15% 到 20% 换来 20% 提速的经验、SaaS 高峰期的招聘难度、以及 Uber 用规模翻转商业模式的先例；他对退出环境的看法是，在他看过的二十五年里，今天创业并获得好退出比过去更容易，“创业本来就是残酷的游戏”。</p>
+<p>融资经历上，Glean 除首轮外从未主动出去融资，都是关系积累后投资人主动进入；感觉定价偏高的是 C 轮——<strong>当时收入低于两三百万美元、也许五百万（他称记不确切），估值超过十亿美元</strong>，公司把它当作对潜在员工的一种声明，投资人声誉直接影响公司声誉。人才市场方面，他把近两三个月放在一边，认为相比 SaaS 高峰期招聘其实变容易了：大型科技雇主没有扩员、Meta 每年都在裁员、总人数可能低于 2021 或 2022 年峰值，市场上的人才更多；但顶尖 AI 与机器学习人才的争夺空前，薪酬尺度完全改变，初创公司也不得不高薪——主持人的算法是一位优秀开发者年薪三十万到五十万美元，200 万美元的种子轮雇四个人需要 600 万美元。他因此主张一开始就尽量多融，但在快问快答里又批评资本过剩在制造失败路径：种子期公司给工程师开 50 万美元年薪，创始人与投资人都接受，但这不可持续，“而 Google 并没有这么付，Google 知道自己不需要这样买人才”。快问快答中他把 Google 列为传统公司里拥抱 AI 评分居前者，同时承认把 Google 归为传统公司并不公平。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，说话人按上下文判断。估值 72 亿美元与融资 7.7 亿美元来自节目描述；“90% 以上企业用例”“三年内多数负载上开源”“分诊代理每月约 100 万美元、处理 95% 事故、对应 15 人值班团队”“token 支出 1 万至 1.5 万美元对 20 美元”“高级用例 5% 员工”“客服 10 到 12 案例”“C 轮收入两三百万至五百万美元、估值超十亿”均为嘉宾口播，其中 C 轮收入他自称记不确切；“Benioff 3 亿美元占开发者薪酬 3.7%/3.8%”“OpenRouter 前六名为中国模型、Anthropic 第七”“美国政府限制 Anthropic 新模型”均为主持人口径，本文未核；“过去六到九个月每个模型都提高了单 token 价格”为嘉宾观察，“OpenAI 拟大幅降价”为嘉宾转述的传闻；模型名称 GLM 5.2 按字幕拼写，字幕中 Claude 产品名作 cloud co-work 与 cloud desktop，本文按 Claude Cowork 与桌面端理解；Palantir CEO 在字幕中作 Alex K 与 Alex Cops，按 Alex Karp 理解。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>增长标尺被改写、在位者第一次占优、ARR 年化数学是 VC 共谋：两位早期 VC 论 AI 泡沫（TechCrunch StrictlyVC LA，2026-06-19）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>增长标尺被改写、在位者第一次占优、ARR 年化数学是 VC 共谋：两位早期 VC 论 AI 泡沫（TechCrunch StrictlyVC LA，2026-06-19）</h2>
+<div class="metaline">TechCrunch StrictlyVC · 28 分钟 · 2026-06-19</div>
+<p>场合为 TechCrunch StrictlyVC 洛杉矶 2026 现场对谈，主持人为 TechCrunch 主编 Connie Loizos，嘉宾为 Basis Set 合伙人 Chung Xu（基金 2017 年成立、自称首家专注 AI 的早期基金，现投第四期，管理规模接近 10 亿美元，主领种子轮）与 M13 联合创始人 Carter Reum（管理规模约 25 亿美元，当前早期基金 4 亿美元，自述做过 17 家独角兽的种子或 A 轮投资）。两人都是应用层的一线定价者，本期的价值在于把应用层估值里两个容易被忽略的变量摆到台面上：这轮周期与云、移动周期在竞争结构上的差异，以及 ARR 口径本身的水分。全片为嘉宾判断，数字均为口播，部分为明显口误，文末列出口径提示。</p>
+<h3>一、既是泡沫也不是泡沫：增长标尺被改写，但不能按新标尺给每一笔定价</h3>
+<p>Chung Xu 的开场判断是“既有泡沫，也没有泡沫”。没有泡沫的一面是增长曲线：她引 Anthropic 的收入“六个月里从 10 亿到 400 亿”（口播，与公开口径出入较大，见文末），以及组合公司 OpenArt 第一年 ARR 从 100 万到 1000 万美元、第二年从 1000 万到 7000 万美元、期间大部分时间现金流为正、团队只有 20 人。<strong>“什么算好增长，这条线已经完全变了。”</strong> 有了复合加速增长的可能性，估值就不显得离谱，因为估值定的是终值、定的是多快能到达那个增长水平。</p>
+<p>有泡沫的一面是组合数学。<strong>“如果你把每一笔交易都按那套数学定价，组合不可能有好结果。”</strong> 她给这个状态的定语是“悖论式的时期”：单笔看合理，全部按此定价看不合理。</p>
+<p>Carter Reum 接过这个判断时补了一个投资人视角的后果：在这样的市场里，公司涨得多快就可能跌得多快，<strong>“做对了你像天才，但会有很多挥空”</strong>，他自述在这种市场里投资反而更难。（作者归纳：两人对“泡沫”的回答把问题拆成了两层，一层是单个公司的增长是否真实，一层是全市场按头部公司的增长给所有公司定价是否成立，前者他们回答是，后者回答否。）</p>
+<h3>二、与云和移动周期的异同：周期与涟漪相同，创新者第一次面对占优的在位者</h3>
+<p>Carter Reum 明确反对“这是风险投资第一次遇到这种事”的说法：云是这样，iPhone 发明是这样，往前推到 1920 年代人们担心汽车抢走工作，工作确实被抢走了，生活照旧。相同之处在于结构，区别在于坡度，<strong>“有很多相似之处，只是这一轮更陡、更快”</strong>。他的关注点始终是价值层落在哪里：社交网络与消费软件之所以存在，是因为每个人口袋里有了一台超级计算机，那是技术的涟漪；AI 会改变世界这件事“不需要坐在这栋楼里的火箭科学家来判断”，关键是价值层在哪。</p>
+<p>不同之处他说得更重。<strong>过去的周期是创新者与创新者竞争，Zuck 对 Evan，Travis 对 John Zimmer；这一轮创新者要同时面对资金充裕程度空前的创新者与十家规模居前的科技公司，“我认为这是历史上第一次，他们真的占据优势——技术、资本、数据、人才都在他们手里”。</strong> 主持人补充了 Founders Fund 前合伙人 Brian Singerman 两三年前在 Upfront Summit 的类似判断：这轮的收益会更多归于在位者，因为在位者比以往聪明得多、敏捷得多。</p>
+<p>Reum 用“扔石头打水漂”解释周期内部的时间结构：石头越重、扔得越用力，涟漪越长。任何技术周期的第一波都相对显而易见、竞争更多；第一道涟漪是 Anthropic 与 OpenAI，之后它们会被部分商品化，然后才有第二、第三道涟漪。他用洛杉矶上一轮作类比：上一周期这座城市几千亿美元企业价值来自第二波，Riot Games、Tinder、Snap 都不属于技术层本身。<strong>“我们在一场长比赛的第二局”</strong>，第二、第三道涟漪对 VC 来说难度居前，但想的人少，估值更合理，回报也更好。</p>
+<p>Chung Xu 对这个对照补了一条从业者的经验：VC 唯一不变的东西是“坏主意又变好”。四五年前投 Hollywood 相关的公司被视为坏主意，之后生成图像、生成视频、如今的世界模型，市场比按上一代卖给 Hollywood 的软件推算出来的规模大得多；Cursor 被说成“只是个套壳”，结果是 600 亿美元级别的退出（字幕作“60”，口播）；MIT 博士研究员几年前收入勉强高于贫困线，现在是所有人在 Twitter 上追踪的对象。她的结论是<strong>早期投资人持续被市场规模从投资时点到技术解锁后的变化所惊讶</strong>。</p>
+<h3>三、ARR 通胀：试用收入、年化数学与 VC 的共谋</h3>
+<p>主持人的提问直接点名创始人对数字“变得很松”、VC 也有份。Reum 的回答从一个反例开始：组合里一家不便点名的公司今年将有约 14 亿美元的过去十二个月收入，只融过 A 轮，利润数他口播为“1500 亿美元 EBITDA”，显然是口误。他真正想讲的是团队内部的对话：有人说这是个热门交易，“他们在做 600 万美元 ARR”，他的追问是同比多少，回答四倍，<strong>“那意味着他们这个月实际做了 50 万美元。这不是零，但只是一个信号。”</strong></p>
+<p>他描述了这一轮早期 ARR 的构成：<strong>每家公司的融资材料上都有一页 Apple 之类的 logo，所有大企业都在试，“我们花 10 万美元试一下”</strong>，他妻子经营的媒体公司会把每一款软件都试一遍，因为没人知道哪个会有用。M13 因此把 ARR 在信号体系里降了权重，“它是一个信号，但不是全部”。他的另一条判断是每家公司都有清算日：Cursor 的 600 亿是异常值，每出现一个 Cursor，就会有一批公司均值回归；随着公司规模扩大，问题从下一轮融资与向朋友炫耀 ARR，回到是否在建一个对某个人有价值的生意。<strong>“我承认，VC 在 ARR 与年化数学的注水上相对来说是共谋者。”</strong></p>
+<p>（作者归纳：他描述的 ARR 水分有三个来源，一是试用性质的年度合同被按 ARR 计入，二是月收入乘十二的年化口径把单月脉冲放大，三是投资人把 ARR 当作交易热度的代理指标而放松了核验；对应用层公司而言，这意味着按 ARR 倍数定价时分子本身带有周期性偏差。）</p>
+<h3>四、定价方法：餐巾纸数学与退出终值</h3>
+<p>Reum 的定价纪律是“鸡尾酒餐巾纸数学”。团队看一家面向品牌的 AI 软件公司，说这一轮会更大；他的三个问题是上一轮赢家多大（二三十亿美元）、这一轮品牌数量会翻倍或翻三倍吗（团队认为不会）、品牌愿意为软件付两三倍的钱吗。数学过不去，交易没做。对照是他们领投 A 轮的一家稳定币公司：创始人上一家做到 100 亿美元，第二年交易量 2500 亿美元、明年冲向万亿，<strong>“这个数学在温和成功的情形下也能算通”</strong>。他的流程判断是当下 VC 炫耀“看了 3000 个项目”，两年后 M13 想炫耀的是“只看了 33 个，见了 18 个，投了 12 个”，靠内部生成式 AI 把数据快速堆上来，由经验完成 Gladwell《Blink》式的判断。</p>
+<p>他对退出终值的判断与应用层估值直接相关：<strong>Cursor 的终值对收购方以外的任何人都到不了 600 亿美元，“我不相信它明天能以 600 亿 IPO”</strong>。价值向头部公司集中的另一面是头部公司会非常积极地收购，OpenAI 已经在买，逻辑是资金成本便宜、数据与横向层放进自己平台后价值很高，他用 Amazon 的飞轮作类比：盈利花了很久，但飞轮转起来之后转得很快。（作者归纳：这意味着应用层公司的退出定价有两套口径，一套是独立上市口径，一套是战略收购方口径，两者的差距本身是估值泡沫的一部分。）</p>
+<h3>五、应用层的防御标准：AI 之下与之上、摩擦即护城河、深度市场对速度市场</h3>
+<p>面对“OpenAI 与 Anthropic 会进入每一个垂直领域，怎么投不被它们炸开的公司”这个问题，两人给出的标准不同。Chung Xu 的答案是紧贴技术差异化，这条前沿“每个季度、有时每个月、有时每周”变化。她把投资分成“AI 之下”与“AI 之上”：AI 之下是为人类建的基础设施正在为代理重建，数据库、甚至 GitHub，因为现在是代理在起数据库、写代码、提交代码，<strong>“去年我绝不会想到需要一个新的 GitHub，今年我能用两只手数出多少优秀团队在做代理的 GitHub”</strong>；AI 之上则是应用的大规模扩散，在极度拥挤的地方，她回到什么可防御、什么有长期差异化。</p>
+<p>Reum 的标准是判断实验室去哪里先、去哪里晚。营销是显然先去的地方；他偏好“摩擦即护城河”与受监管行业：一家用 AI 改造 911 呼叫中心的组合公司以接近 10 亿美元退出，实验室可能去，但那只是几十亿美元的结果，短期不会去；医疗会去，但监管多，排在末尾。他补充的经验是先发优势本身没有意义，<strong>“在这个市场里先到什么都不算，因为追上来花的时间太少”</strong>，除非早期领先转化成数据优势之类的东西；组合公司 Neural（代理式薪酬系统）上市前花了两年半在技术与合规上建壁垒。对机器人他直言不确定有护城河：“除非你是 Edison，你有 500 万美元在做的东西，总有人能来追你。”</p>
+<p>Chung Xu 把这个分歧收成一个框架：<strong>快速商品化、追随者比以往更快的领域是速度市场，比的是执行、执行、执行；难的事情今天仍然难的领域是深度市场</strong>，她举的是 Path Robotics 的自动焊接、被 Nuro 收购的自动驾驶卡车公司 Ike、机器人数据公司 Dexterous Robotics，以及用转基因鸡生产复杂蛋白药物的公司。（作者归纳：两人的差别在于，Reum 更倾向于用监管与流程摩擦定义防御，Xu 更倾向于用技术难度定义防御，两人都不把“先做”当作护城河。）</p>
+<h3>六、非共识赛道与人才：共识类别有多个赢家，窗口期只有一年，下一个前沿是品味</h3>
+<p>Xu 对“还有没有真正新的想法”的回答分两类。代理应用于金融、代理应用于医疗这类共识赛道，有很多强创始人在做，很多人会赢，她也会投；另一类是“这能是个生意吗”的想法，OpenArt 就是这样起家：DALL-E 与 Stable Diffusion 发布后做了一个提示词发现页，当时看不出怎么变现，两年内 ARR 从 100 万到 7000 万美元并持续加速。她强调的是窗口：<strong>“如果他们晚一年开始，就拿不到那个位置”</strong>，因为足够早，他们赢下了 SEO，把它变成领先的获客渠道；晚一两年，机会变得显而易见，窗口就关了。</p>
+<p>Reum 对创始人的取向偏向连续创业者：“在座任何人成为 NBA 球员的概率都高于成为独角兽创始人”，M13 过去两年半投了 11 位曾做出独角兽的创始人，理由是这是一场军备竞赛，连续创业者的一项能力是“激发”——让投资人给钱、让记者写稿、让楼上的员工加入。22 岁的创始人当然会出现，但按概率调整，Kobe Bryant 从高中直接进 NBA 不能作为常态预期；组合是两者的混合，原则是“10% 概率拿到 100 倍就得上”。Xu 的观察是 YC 平均年龄在变小（自称未看数据），这与 AI 之下大学教育价值的变化相关；她转述一位办发布会的朋友的说法，创始人年轻到无法办开放酒吧活动。</p>
+<p>谈到 SpaceX 流动性对洛杉矶的影响时，两人给了应用层下一波的地理判断。Reum 认为这一轮第一波是技术波，下一波是新商业模式、创意思考与对影响力的理解，洛杉矶有太多懂品牌、内容、创作者的人；SpaceX 通过 SPV 回流的资金分布之广前所未有，即便 Anthropic 与 OpenAI 上市，钱也主要回到 VC 与机构。Xu 的说法更直接：旧金山的技术人才恰恰是模型擅长自动化与加速的部分，<strong>“下一个前沿是品味”</strong>，是做电影、做视频、做在情感上引起共鸣、与文化贴合的东西。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，Chung Xu 在字幕中拼作“Chong”。Anthropic“六个月从 10 亿到 400 亿”为口播，与公开披露的时间跨度不符，引用前须核对；Carter Reum 口播的“1500 亿美元 EBITDA”为明显口误，原意待核；Cursor 退出金额字幕仅作“60”，按上下文理解为 600 亿美元；M13 的独角兽数字在同一场内出现“17 家种子或 A 轮”与“13 家首位投资人”两个口径；911 呼叫中心公司退出金额“接近 10 亿美元”、稳定币公司交易量 2500 亿美元、SpaceX 十年前 150 亿美元估值均为口播；OpenArt 各年 ARR 为嘉宾口播的组合公司数据；Path Robotics 在字幕中作“past robotics”，按公司实名写出。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

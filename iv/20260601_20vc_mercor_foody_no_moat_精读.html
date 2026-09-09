@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Foody 论应用层无护城河：模型即产品、软件层可被克隆、网络效应是唯一试金石（20VC，2026-06-01）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Foody 论应用层无护城河：模型即产品、软件层可被克隆、网络效应是唯一试金石（20VC，2026-06-01）</h2>
+<div class="metaline">20VC with Harry Stebbings · 74 分钟 · 2026-06-01</div>
+<p>嘉宾为 Mercor 创始人兼 CEO Brendan Foody，主持人为 Harry Stebbings，本期为二人第二次对谈、首次面对面录制。Mercor 向 OpenAI 等前沿实验室供应专家数据与强化学习环境，按节目描述两年内做到 ARR 15 亿美元、估值 100 亿美元。本期对应用层专题的价值在于它提供了一个来自实验室供应链一侧的反方视角：Foody 此前发推称未来十二个月上游基础设施公司的境况将远好于下游应用层公司，本期他把这条推文的论证链讲完整，主持人以应用层投资人的身份逐条反驳，交锋处是全片论证密度居高的部分。全片观点为嘉宾判断，Mercor 自身的收入、毛利、融资倍数与人才报价均为口播，引用前需回原始口径核对。</p>
+<h3>一、核心论断：应用层公司的业务离基础模型公司太近，软件层上的防御性难以建立</h3>
+<p>主持人把那条推文原样念出：“未来十二个月，对 Anthropic 与 OpenAI 上游的基础设施公司来说，会比对它们下游的应用层公司好得多。”Foody 的第一层理由是距离：<strong>“应用层公司的业务与基础模型公司的业务相距并不远。Claude CoWork 把能力扩展到医疗和法律，并不是一个很大的跨越。”</strong>他的参照是编码，实验室已经在软件工程上做成了这件事，金融可以照做。由此他给出结论句：“在模型之上的软件层建立防御性将会极其困难。”</p>
+<p>第二层理由是对照组。他认为基础设施一侧正在形成实实在在的护城河：Mercor 自身在复利式积累网络效应，并在为客户建库存的过程中积累数据护城河；算力公司则通过很长的研发周期形成壁垒。<strong>“基础设施层会实现高毛利、可持续盈利的业务，而在应用层这一点远没有那么清楚。”</strong>主持人补充了一个基础设施定价权的例子：Nebius 全线提价 30%，对需求毫无影响。Foody 说 Mercor 大概也一样，“我们的需求足以一夜之间翻倍，只是没有产能”，产能的瓶颈在于调动人力去建环境的速度。</p>
+<p>他随即给出一个与自身利益相关、但对理解应用层竞争有用的定价观：Mercor 大概可以提价 30% 而不影响需求，但定价的目标是赢得未来十年的市场结构，要为客户和专家做对的事，同时<strong>“确保不在市场里留下氧气，因为高毛利会招来竞争”</strong>。这句话反过来读，也是他看应用层的方式：只要模型公司认为某个垂直领域的毛利够高，它就有动力自己进入（作者归纳）。</p>
+<h3>二、主持人的反方：产品深度、组织成本与市场进入，Foody 用“模型即产品”与“软件可被克隆”回应</h3>
+<p>主持人的第一轮反驳以法律垂直为例。他是若干应用层公司的投资人，提到自己投资的一家法律 AI 公司（字幕拼写为 Legalese）与 Harvey 之争，行业共识已从互相竞争转向共同警惕 Anthropic。但他坚持防御性存在：产品很深、专为律师工作流设计，Anthropic 若要进入必须另建产品团队、销售团队、客户成功与推广团队，“那是一家完全不同的公司”。</p>
+<p>Foody 的回应分两点。第一，<strong>“过去两年所有人越来越意识到，模型就是产品。”</strong>过去人们搭各种抽象层，把 API 调用拼接起来，写补丁式逻辑，做拖拽式的代理构建器；后来发现只要把最终目标交给模型、并训练模型去达成这个目标，“在我们尝试的几乎每个场景里它都胜过其他所有方案”。这对端到端训练模型的人是重大利好。第二，软件层如今可以被极快地重建。Mercor 正在构建一个评测集，测量代理端到端搭建 SaaS 应用的能力。<strong>“2025 年的问题是如何让模型在代码库里提一个 PR，2026 年的问题是如何让模型端到端克隆 Slack。这些能力在未来十二个月内会出现在模型里。”</strong>他认为这对押注软件护城河的公司意味着很多。</p>
+<p>主持人第二轮换了角度：如果模型是产品，那么销售与推广就是产品，卖给顶级律所靠的是进会议室、建立与买方的关系、之后的客户成功与采纳推动。Foody 部分同意，但把这个论点重新切分：真正有差异化的是前置部署（forward deployed）动作，即售后深入客户内部、基于组织内的隐性知识训练代理；售前的市场进入本身，在他看来差异化有限。他给了一个反例：假设你销售能力全球顶尖，卖一款 SaaS，一个精明的客户每年花 100 万美元，然后意识到可以直接让 Claude 复制一份得到同样的东西，“即便你的销售能力在全球居首，维持定价权也会非常困难”。他把 OpenAI 与 Anthropic 大举投入前置部署团队视为同一逻辑的证据，并援引 Sequoia“服务是新的软件”一文：软件护城河在被削薄，在软件之上叠加服务、走完最后一英里，才是更强的防御性所在。</p>
+<p>主持人没有再追问的一个缺口是：前置部署动作本身是否也能被实验室复制。Foody 在后文对主权模型的回答给了间接答案，见第四节（作者归纳）。</p>
+<h3>三、网络效应是唯一试金石：有的公司能把十倍产品速度变成价值，没有的会变得一文不值</h3>
+<p>主持人把“克隆 Slack”外推到“SaaS 已死”：大公司若只需要少量定制与集成，比如一家地产公司需要接特定的定价数据源，会选择自建。Foody 大体同意，但给出一个他认为市场没有充分定价的例外：网络效应。Salesforce 之上有大量公司做集成，形成近似市场的网络；Slack 有 Slack Connect；Carta 的用户希望在自己所有的公司里用同一个平台。</p>
+<p>他由此给出全片可操作性居前的判断：<strong>有网络效应的公司能以十倍的速度迭代，同时借网络效应为客户创造更多价值、收更多钱；没有网络效应的公司会遇到很大困难，因为它们的纯软件里没有可防御的护城河。“对我来说，这就是试金石：这家公司会变得一文不值，还是会因十倍的产品速度而获得巨大价值。”</strong></p>
+<p>模型层他也做了切分。他判断 API 层会被商品化，原因是切换成本为零：每两个月出一个新前沿模型，企业按对应工作流的评测分数决定用谁，一对一可热插拔，“这几乎就是商品的定义”。但工作流层可以有粘性，他举了自己的例子：在 Claude Code 里跑着一堆例行任务，在 ChatGPT 里也有类似的东西，迁移这些例行任务他大概不会花时间去做。他同时判断<strong>五年后大部分推理会跑在开源、定制微调或蒸馏模型上，前沿模型只占少数</strong>；这与他对前沿实验室的看多并不矛盾，因为前沿模型可以作为教师模型蒸馏出领先的小模型，他猜至少一家实验室市值会超过 10 万亿美元。主持人由此提出一个投资推论：如果听完这些，结论是把钱全押 OpenAI 与 Anthropic，但西海岸多数创业公司的做法是先用前沿模型探边界，再用开源（常常是中国模型）以低得多的成本逼近，实验室是否因此受到结构性挑战。Foody 说两者同时成立：五年内需求会多出四到五个数量级，同时蒸馏与微调开源模型的竞争也会加剧；实验室仍是出色的投资，对此的共识两年前并不存在。被问到把钱全押英伟达是否更简单，他说这并不荒唐，只是市场正走向多芯片格局。</p>
+<p>他在快问快答里补充说，过去十二个月改变的看法正是这一条：他曾怀疑实验室能否在竞争环境下维持定价权，看到收入爬坡的斜率后，转而相信它们会成为全球市值居首的公司。</p>
+<h3>四、实验室一侧看应用层：它们采购的正是应用公司想卖的工作流</h3>
+<p>Mercor 的业务说明了实验室在买什么。Foody 说客户一般按任务采购，“他们会为一项带来模型改进的任务付 1000 美元”，Mercor 负责端到端：找专家、雇专家、建专家工作的平台、用 AI 项目经理协调、做自动化质检，交付最终的任务数据。<strong>收入的毛利率在 30% 到 40% 之间</strong>，他强调这是收入、并非 GMV，因为专家只是价值链的一部分，“我们由人才网络驱动，就像 Uber 由司机网络驱动，但最终产品不是那种市场业务”。</p>
+<p>需求的分布与经济价值高度对应：前五大需求是软件工程、金融、医学、法律、咨询，以及其中的长时程任务。<strong>“我们正从让投行分析师做一个财务模型的范式，转向让一个银行家与五位同事沟通、等待回复、准备包含财务模型与分析的完整幻灯片，一个持续数周的项目。”</strong>这些任务是为了推动研究与评测的前沿，“这样六到十二个月后人们就能在模型里用上这些能力”。从实验室视角看，需求是全覆盖的：自动化 Google Workspace 里能做的一切，瓶颈是覆盖上下文的完整分布，即消息、Slack、幻灯片、Excel 以及对应的所有任务、提示与输出，“这适用于经济中的每个人、每个领域”，于是有数十万人、很快是数百万人被动员起来去建这个分布。</p>
+<p>把这两段并起来看，本专题关心的含义相当直接：实验室采购的数据形态，就是应用层公司打算包装成产品卖给企业的那些垂直工作流；实验室通过数据供应商把这些工作流做进模型能力本身，交付周期六到十二个月，这与他第一节里“距离不远”的判断互为因果（作者归纳）。</p>
+<p>数据的幂律也说明了供应商一侧的定价权来源。Foody 说一万条任务的数据集里，头部两千条创造大部分价值，因此高质量供应商在定价上极具差异化，“质量是比其他任何维度都值钱得多的 X 因素”。实验室倾向于与一家能横向覆盖全部垂直、并极快扩张的供应商合作，不愿与一百家各自训练同一数据形态的垂直供应商合作；为律师设计的数据形态与为医生设计的往往非常相似，工具高度可复用。他承认利基供应商在特定垂直里总有一定价值，但规模与聚合的价值更大；主持人提到的手术录像类真实世界医疗数据供应商，他说 Mercor 自己也在做物理世界采集，电工、机械师、科学家把摄像头绑在头上记录。</p>
+<p>对于主持人关心的“数据供应市场是否会拆分成无数垂直玩家”，他的回答同样是横向优势：Mercor 的人才网络超过 500 万人，可以互相推荐，找到边际上的一位医生比垂直供应商容易得多。对于实验室一侧真正短缺的东西，他说 Mercor 现在几乎能调动任何领域的专家，肿瘤科之类的利基人群也能较快补齐，真正稀缺的是既有领域专长、又是 ChatGPT 或 Claude 重度用户的人，因为只有他们能找到模型出错的地方并帮模型学习。</p>
+<p>主权模型的问题上他给出同一逻辑的另一种表述。本地化有价值，实验室常常提出模型需要精通英国法或法国法，这是让模型在各司法辖区可用的最后一英里；<strong>“但实验室会直接在法国雇一万人来教模型法国法，我不认为别人能做什么来阻止这件事，因为从其他领域来的迁移学习能力实在太强。”</strong>他对欧洲的建议是接受模型竞赛已经落后，保留一些后训练与蒸馏能力，“应用层肯定会有一些价值”，但不建议正面与 Anthropic 竞争。</p>
+<h3>五、Token 支出超过工资单，评测成为企业的记录系统，服务本身也在被自动化</h3>
+<p>Foody 披露的一组数据是全片被主持人反复确认的：<strong>“现在我们花在内部代理 token 上的钱，超过了花在员工人数上的钱。”</strong>主持人确认了两遍。他列举了这些代理：管理运营的 AI 项目经理、已完成超过 500 万场面试的面试提问代理、候选人排序代理、会计自动化代理、欺诈检测代理。每个代理都对应一个评测，告诉公司该用哪个模型、该用例的价格性能帕累托前沿在哪里，公司据此分配推理支出、选择供应商。他预期每家财富 500 强都会走到这一步：需要一个记录系统来评估和规定每个工作流里代理的行为，“他们会用它来把模型层商品化，因为他们想要模型之间的完全竞争、零切换成本”。</p>
+<p>主持人引用 Benioff 的说法：Salesforce 在 Anthropic 上花了 3 亿美元，折算只占开发者薪酬的约 3.8%。Foody 不押 24 个月，但<strong>押五年内平均企业在算力上的支出会超过人员支出</strong>，理由是模型能力以指数复利提升，人的智能不会。他的第二层论证是评测的杠杆：有了针对自身工作流的评测，企业可以蒸馏模型、用开源模型以低得多的成本达到同等或更好效果，“这往往是价格性能上的十倍杠杆”。主持人质疑评测在今天并不实用，像驾照考试里的转弯动作与真实驾驶脱节。Foody 说这正是问题所在：过去的学术基准与企业关心的结果脱节，从 GPQA、IMO 到 Humanity's Last Exam；现在的焦点转向端到端工作流，比如协调多位同事完成一个财务模型或幻灯片、端到端搭建一个 SaaS 应用，评测前沿的建设已成为下一轮模型开发的关键研究问题。</p>
+<p>Token 成本上升的问题他归入 Jevons 悖论：模型每年提升十倍、单位性能成本下降，总消耗持续上升，企业内 token 消耗在见顶之前还会显著增长。</p>
+<p>对“AI 驱动的服务”这个新品类，他大体认可，条件是这些公司真的在借 AI 获得竞争优势，他提醒有很多公司只是在做服务、没有从 AI 拿到显著的竞争优势。他以 Mercor 自身举例：交付组织约 100 到 150 人，负责答疑、跟踪项目 KPI、搭建定制工具，是典型的“最后一英里”服务。<strong>而 AI 项目经理刚刚端到端完成了第一个项目：自己雇专家、答疑、用平台内的编码工具搭标注工具、产出最终数据类型，向它汇报的专家反馈体验良好。</strong>“我们正在实时看到服务被自动化。”这与第二节里“服务叠加是防御性所在”的说法之间存在张力：如果前置部署与最后一英里服务同样可以被代理接管，应用公司靠服务建立的护城河也是有时限的，他本人未在片中处理这一矛盾（作者归纳）。</p>
+<h3>六、AI 研究员的成本：年薪两千万美元现金的对手盘，十倍于供给的需求</h3>
+<p>人才是他自认格外挂心的问题之一，原因有两层。一层是创业市场太热，Mercor 已有三名前员工创办了估值超过 1 亿美元的公司；另一层是实验室的报价。<strong>他最近在招的一个人拿到了 Meta 超级智能团队（字幕作 TBD）每年 2000 万美元现金的报价，“或者是股票，但可流动”。“我们经常碰到这类事。”</strong>主持人问一名高质量 AI 研究员的成本，他的回答是<strong>“对真正优秀的人，往往是每年数千万美元的股票”</strong>。</p>
+<p>供需上他给的数字是需求十倍于供给，研究员是当前招聘难度居首的岗位。Mercor 在建自己的研究团队，他点名了 LoRA 论文第一作者 Edward（此前在 OpenAI）。对走势的判断分两段：对更小的一群人，报价会继续升级；但随着更多人掌握实验室如何运作、如何训练前沿模型，这项技能的供给会增加，价格会回到更合理的水平，“希望市场里至少 99 分位以下会自己平衡”。他把人才网络效应视为美国不只在经济上、也在地缘上的一项重要优势：他认识很多法国研究员去了 OpenAI、Anthropic 与 DeepMind，人才聚集带来更多资本、算力与影响力，再吸引更多人才。</p>
+<p>被问到尊敬哪家竞争者，他提到 Surge 的 Edwin 做到了与研究保持贴近，并说这也是 Mercor 与 Surge 区别于其他数据供应商的地方：训练模型的能力与雇到顶尖研究员的能力。他估计<strong>数据供应商里约一半只是交易型的人才市场</strong>。</p>
+<h3>七、Mercor 自身的口径：60 天新增 3 亿 ARR、四轮融资的倍数、以及为整合备下的现金</h3>
+<p>节目前半段主持人以“辟谣”形式过了一遍传闻，Foody 的回答提供了 Mercor 当前状态的口径。安全事件属实，他称公司迅速聘请 Mandiant 等安全咨询机构处理，其他说法不实，<strong>“过去 60 天新增 3 亿美元净新 ARR”</strong>，与所有前沿实验室的关系都扩大了，唯一的例外是 Meta，关系仍处于暂停状态，他将其部分归因于 Scale 收购后 Meta 自然更多与 Scale 合作，并否认 Handshake 收入暴涨是 Meta 从 Mercor 转移支出的结果。他否认向 Micro1 员工发出过任何报价，称起因是团队成员发的一封外联邮件提到了 50 万美元级别的签约奖金；否认 Amazon 出价 130 亿美元收购，并表示 300 亿美元也不卖。</p>
+<p>融资序列他逐轮口播：2023 年 9 月种子轮，收入运行率略低于 100 万美元，General Catalyst 36 小时给出 230 万美元、投后 2300 万美元的条款；2024 年 5 月 A 轮，Benchmark 在约 250 万美元运行率时给出 2.5 亿美元投后；四个月后 B 轮，Felicis 在 2000 万美元收入时给出 20 亿美元估值，“当时是 100 倍收入”；2025 年 9 或 10 月，收入运行率约 4 亿美元时 Felicis 再给出 100 亿美元估值，约 25 倍，“此后业务又几乎翻了四倍”。此前六个月月环比增长 50%。他自评四轮里 B 轮定价领先业务的幅度居首，因为同样是 100 倍收入，基数 250 万与 2000 万的含义不同。下一轮他称收到了估值明显更高的报价，但公司盈利，不急于选择。</p>
+<p>财务上他称公司种子轮后烧掉 50 万美元，此后一直盈利，“账上现金比历史融资总额还多”，超过 5 亿美元。他把现金视为整合期的筹码：市场狂热时任何人都能融到钱、跑负毛利，供应商因此激增，市场回落时就是整合期。被问到“收入是否只是 GMV”这一常见质疑时，他的回答已在第四节写明；被问到确切收入，他只说“远高于任何公开数字”，主持人以 10 亿美元作为便于计算的基数，他回应“比这更多”。规模上，去年初公司 40 人、收入运行率 5000 万美元，此后人数扩大七到八倍，业务规模扩大 25 到 30 倍。对专家的支付为每天超过 300 万美元，他称这是历史上增速空前的新工作类别，十二个月后预期为三倍、也许四倍。</p>
+<h3>八、旧周期复盘：250 年生产率 25 倍与“固定劳动总量谬误”，主持人质疑的是转型速度</h3>
+<p>本期对旧周期的引用集中在就业一段。主持人列出 Intuit、Meta、LinkedIn、Coinbase、ClickUp 的裁员，问人如何在新经济里立足。Foody 的框架是<strong>“过去 250 年生产率提高了 25 倍，相当于自动化了一个人 96% 的工作”</strong>；从农业革命、工业革命到计算机革命，每次人们都因固定劳动总量谬误而恐惧大规模失业，假设要做的事是定量的，250 年后工作岗位反而多于以往，因为社会从不缺问题，气候变化与癌症都还没解决。他认为十年后的工作会比今天多得多，但承认过程中会有大量岗位置换。</p>
+<p>主持人接受方向、质疑速度：工业革命与农业革命的替代周期以数十年计，而“有了 Nano Banana Pro，我几乎可以一夜之间裁掉媒体公司所有设计师”。Foody 的回应是经济在创造新工作类别与重新配置劳动力上已比过去有效得多，Mercor 的专家支付就是例子。他预期五年内一个规模被低估的岗位是训练代理：<strong>“所有知识工作都在向训练代理收敛，因为把一件事做一次在结构上更有效率。”</strong>客服不再重复回复数百张工单，律师不再重复做几十份类似的合同批注，员工的新工作是把组织里没写下来的隐性知识编码进代理。至于企业采纳的障碍，他不认为数据清洗是主要瓶颈，模型读完过去六个月的 Slack 消息就能自行结构化出 CRM 表格，人贡献的是模型拿不到的隐性知识。</p>
+<p>进度的口径他给了 Mercor 自建的 AI 生产力指数（Apex）：<strong>当前前沿模型得分约 40%，十二个月前的前沿模型 o1 得分 1%。</strong>主持人的例子是 Karpathy 对编码代理使用比例的描述在六个月内从 20% 变到 80%。</p>
+<p>对市值集中，他承认担心收益如何在社会层面被抹平，但认为把算力配置给有边际需求的 Anthropic 比配置给用不好的公司更有效率，条件是管理好不平等的社会后果。对英伟达他判断五年内会走向多芯片格局，Cerebras 与 Etched 在推进、多数实验室自研芯片，但即便份额只剩三到四成，在这个市场里仍是全球市值居前的公司。他关于取消美国收入较低一半人口所得税、改征资本利得与碳税的论述与主持人争执较多，与本专题无关，此处从略。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，字幕将嘉宾名与公司名误写为 Brandon Sodi 与 Mcawl，本文按节目描述改为 Brendan Foody 与 Mercor；“Legalese”“TBD”“Claude CoWork”“Apex”“Micro 1”“etch”均按字幕拼写或据上下文推断，引用前需核对。60 天新增 3 亿美元 ARR、30% 到 40% 毛利率、各轮估值与收入倍数、5 亿美元现金、每天 300 万美元支付、token 支出超过人员支出、2000 万美元年薪报价、数千万美元股票、研究员需求十倍于供给、Apex 1% 到 40%、Nebius 提价 30%、Benioff 3 亿美元与 3.8% 等均为口播且无第三方来源；节目描述中的 15 亿美元 ARR 与嘉宾口中“远高于公开数字”的说法口径不一致；“250 年生产率 25 倍”“84% 的年内涨幅由前十大个股贡献”为口播引述，未核。“Sequoia 服务是新的软件”一文的原文标题需另行核对。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

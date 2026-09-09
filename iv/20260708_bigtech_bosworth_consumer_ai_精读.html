@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Bosworth 复盘 Meta 掉队：Llama 3 透支了研究管线、模型可租但产品与分发是自家的牌、消费代理卡在“改习惯”这一关（Big Technology Podcast，2026-07-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Bosworth 复盘 Meta 掉队：Llama 3 透支了研究管线、模型可租但产品与分发是自家的牌、消费代理卡在“改习惯”这一关（Big Technology Podcast，2026-07-08）</h2>
+<div class="metaline">Big Technology Podcast · 44 分钟 · 2026-07-08</div>
+<p>嘉宾 Andrew Bosworth（Boz）为 Meta 首席技术官，同时主管公司内部的“代理化转型加速器”（其中包括应用 AI 团队），主持人为 Alex Kantrowitz，纽约线下录制，时点为 Meta 发布三款新眼镜当日。本期对应用层专题的价值在于两点：一是头部平台公司高管第一次相对完整地解释 Meta 为何在前沿模型竞赛中掉队，二是他就“消费端 AI 为什么慢”给出的一手判断——问题出在界面、分发与习惯，而他所在公司恰好把模型、产品、分发与消费者体验四件事捆在一起作为辩护。本文把他承认的问题与他的辩护分开写。全片观点属嘉宾个人判断，数字为口播，模型名按字幕拼写，文末列口径提示。</p>
+<h3>一、承认的部分：Llama 3 把未来的研究赌注全部前置，Llama 4 阶段没有路径探索可用</h3>
+<p>主持人开场把问题摆得很直接：长期以来的理论是，做出顶尖模型需要大量算力与顶尖研究者，Meta 两样都有，领先模型却没有出现，是否说明这个假设错了。Bosworth 先补了一个要素——数据，然后给出他的版本。<strong>他把 Llama 1 到 Llama 3 定性为“处在前沿并推动行业”的阶段，问题出在 Llama 3 的组织方式</strong>：为了交付那一代模型，团队“拉出了每一个能拉的塞子”，把所有研究力量都投进去，“不知不觉间杀死了管线”。</p>
+<p>他描述的研究组织常态是三层：一个基础模型，一批人做基础上的增量版本，另一批人在外面探索全新的策略。<strong>Llama 3 的做法是把这批探索未来的赌注全部前置到当期交付里，等到 Llama 4 时，其他实验室手里仍在进行的路径探索，Meta 一项都没有。</strong> 结果是在推理模型、专家混合以及一批维持行业进步节奏的关键技术上同时落后。他明确说这“反映了我们当时对这件事的关注不够”，并把一年前的公开失望归结为此。</p>
+<p>后果层面他给了一条组织变化：Mark Zuckerberg 由此把 AI 从“公司众多赌注中的一个”改为“对整个公司具有根基意义的赌注”，进入他称为“创始人模式”的状态——亲自去拿算力与人才。他提到 Alexandr Wang 加入 Meta 刚满一年（字幕拼写为 Alexander Wang），并称已经看到成果。现有最新发布的模型为 Muse Spark，他两次强调这“并非我们的前沿模型”，只是在 Meta 看重的、与自家产品相关的评测上表现良好。他对现状的总结是：团队、算力、数据都齐了，“我非常有信心会到我们该到的位置”。这一段是他承认的部分，接下来的内容全部是辩护。</p>
+<h3>二、辩护的部分：模型可以去租，产品才是价值，消费者不会关心 4.7 还是 4.8</h3>
+<p>他把第二层论点称为“战略上非常重要”：Anthropic、OpenAI、Google 的模型都可以租，都很好，“你可以去拿、去用”。<strong>“我们将在世界上创造的真正价值是产品。模型本身并非价值所在。”</strong> 他为 Meta 给出的差异化是“个人超级智能”这一产品愿景，理由是 Meta 比几乎任何人都更有机会理解用户是谁、想做什么、在意什么。自有模型的意义被他压缩为两点：不依赖别人、掌握自己的命运。</p>
+<p>他预测消费者很快会进入一个不指定模型的世界，类比是数据库：用户不在乎底层是 Oracle 还是 SQL，只要功能可用，“这将是我们所有人都会被拿来衡量的标准”。他随即承认一件事：今天行业的讨论全部围绕模型，“这至少向我表明，我们在用户这一侧、在人类如何受益这一侧的权重偏低”。他给 Meta 开的方向是除了展示技术工作，还要向消费者证明价值。</p>
+<p>对“租模型”他前后有一处需要留意的摇摆。主持人追问“所以你不会租模型”，他的回答是“不，我们确实租”：内部开发大量在自有模型上进行，但也有部分开发使用 Google、Anthropic 或 OpenAI 的模型。<strong>他给出的机制是：做到模型无关并且在经济上说得通，前提是你手里有一个有竞争力的模型可以退回去，“它对别人能向你收多少租金构成了真正的底线”，同时在谈判条款上给你更强的位置。</strong> 换言之，自有模型在他的框架里是议价工具与保险，其价值通过压低租用成本体现，并不要求它是市场上排名第一的模型（作者归纳）。</p>
+<p>他还补了一个面向未来的判断：无论是公司内部的开发者还是外部消费者，“我不希望他们长期为模型操心”，今天模型与产品仍紧紧绑在一起，但随时间推移，使用者只应关心自己要达成的目标。他把“拥有一个绝对领先的前沿模型”称为一种战略构造，重要，“但并非有了它你就突然赢了”，模型必须接到产品、分发与消费者体验上才有意义。这段话与第一节合起来读，Meta 的现实处境是四件事里模型这一件尚在追赶，其余三件是它的存量优势（作者归纳）。</p>
+<h3>三、单体模型时代在 Llama 3 发布前后结束，领先的 AI 产品会在底层同时调度多个模型</h3>
+<p>主持人把科学问题再问了一次：靠算力硬堆出竞争模型的路是否走不通了，是否必须在预训练基座上做推理、专家混合这类精细化工作。Bosworth 回答“不止如此，这是整个行业的事”。<strong>“单体模型的时代大约在 Llama 3 发布前后就死了。”</strong> 他描述的当前形态是：用户在使用 opencode、Claude Code、Codex 这类 harness 时，底层在“按任务向不同模型采购”，比如 Gemini 会把图像生成任务分发给 Nano Banana。</p>
+<p>他给出的架构判断是：真正想要的是一个运行成本很高的高智能模型，把它以各种方式蒸馏到各处，只在必要时调用它的“精致智能”，其余场景用更便宜、更快、延迟更低的模型。理由是人类任务的智能需求并非无限：他相信 scaling law 会让原始智能随算力持续上升，但“很多人类任务用常规水平的智能就能完成”。<strong>结论是模型层会出现分层，问题从“哪一个模型统治一切”变成“哪一组模型以正确的性能、价格与价值平衡组合在一起解决问题”。</strong></p>
+<p>对应用层公司而言，这段话与本专题此前几期路由层、企业应用层嘉宾的说法方向一致：产品层做的事情包括在底层挑选与组合模型，前沿模型只在少数任务上被调用（作者归纳）。他没有给出 Meta 产品内各模型的调用比例或成本口径。</p>
+<h3>四、Apple 租 Gemini 的对照：单靠租来的模型缺一个“更广的整合愿景”</h3>
+<p>主持人举 Apple 与 Google 的交易为例——据报道 Apple 以约 10 亿美元获得 Gemini 的蒸馏或分支版本用于 Siri，早期报道称效果不错——问 Meta 是否考虑过类似安排，一边租一边自建。Bosworth 的回答分两层。第一层是重复第二节的机制：Meta 已在使用多种模型，选择标准是价格、性能与延迟，自有模型提供的是谈判筹码与退路。</p>
+<p>第二层是对 Apple 路线的质疑。他先声明“现在下判断太早，我没有使用权限”，随后把 Meta 的目标框定为“把巨大的特定能力带进产品，通用智能本身只是起点”——Meta 把 AI 看作人与计算机交互的全新方式，延续 Reality Labs 多年的工作：以 Xerox PARC、斯坦福研究所、贝尔实验室为范本，思考如何把信息从大脑送进机器（神经接口）、再从机器送回大脑（增强现实与虚拟现实）。<strong>“AI 可能是我们见过的把信息从大脑送进机器的头号工具，尤其当它能观察我们周围的很多事物时。”</strong> 他对 Apple 的质疑落在一句话上：“我不知道他们是否有更广的愿景来说明它如何融入人们的生活。”</p>
+<p>他把 Meta 的竞争位置概括为四件事的集合：领先模型、产品、分发、消费者体验。<strong>“我们认为这四件事的集合是我们相对竞争者的超能力，他们当中大多数——无论是 Apple、Anthropic、OpenAI 还是 Google——只有其中一件。”</strong> 这个判断属嘉宾自述，其中“领先模型”一项按他自己第一节的说法尚未兑现。</p>
+<h3>五、消费端 AI 为什么慢：愿意跳圈子的人是少数，用户要被要求改变习惯，而他们大多不喜欢</h3>
+<p>这是本期对应用层专题信息量集中的一段。主持人的问题是：Character AI、Replika 之类的尝试有过，OpenAI 也从消费转向了企业收入，为什么消费端 AI 起得这么慢。Bosworth 的回答从炒作周期开始：“我不知道为什么我们以为这一次会免疫，炒作周期是我们这个行业不断上当的常青概念。”他强调人们对炒作周期的误读——它的含义并非技术是假的，<strong>“愿意跳过一堆圈子让它工作的人只占人口中相对小的比例，把它带给所有人的工作是真正的苦活。”</strong></p>
+<p>这项苦活的内容被他拆开：解决了技术难题之后，还要把界面做到可用、做到易用；用户此刻没有这个工具也把生活过得很好，你在要求他们改变习惯、以相当剧烈的方式改变与计算机打交道的方式，“他们大多不喜欢这样”。他给出的原则是“必须以价值领先”：具体为用户做哪几件事、让生活哪里变好。</p>
+<p>他用自己的案例说明代理产品的现状。他自述与业内许多人一样，去年 12 月起就在用 Pi、随后用 Myclaw（字幕拼写）这类代理框架搭东西，“非常强大，但对用户很不友好，很难搭、很难维护、会随时间漂移”。<strong>他给妻子搭了一个放在 WhatsApp 聊天里的代理，“她从来不用，我一直在用”，妻子的做法是直接叫他做事，“我就是那个代理”，他再去找代理执行。</strong> 他的结论是：搜索、研究、内容生成这几类用例已经被用户理解，但“我们还没有做那些让人愿意把它整合进日常生活的工作，它不够易用、创造的价值不够、太麻烦，这是要解决的产品问题”。主持人接了一句“需要好模型，但好模型不够”，他答“对”。主持人在提问里还提到 OpenAI 仍在做营养、健康之类的消费应用，试图接入更广的行业，Bosworth 没有逐一评价，只把这些归入“钱在企业侧、消费侧尚未做成”的整体格局。</p>
+<p>对企业侧与消费侧的分野他说得直白：Anthropic 在做的、OpenAI 看起来越来越集中到 Greg Brockman 名下推进的，是搭建 harness 的企业业务，“那是钱所在的地方，我理解他们需要钱”——大客户意味着更少的销售次数、更大的单笔资金，适合这场资本密集的比赛。Meta 的重心“百分之百在消费者的生活”。他随后给出消费侧的锁定机制：个人助理掌握着用户不愿广泛分发的信息，换一个助理有“上手期”，一个真正嵌入生活并且做得好的助理会形成连接，“竞争者需要拿出很多价值才能替换它”。这一机制目前仍是假设，他本人的案例恰恰说明嵌入尚未发生（作者归纳）。</p>
+<h3>六、界面问题被他还原为“比特率”：自动纠错、二维码、Engelbart 与眼镜是同一条线</h3>
+<p>主持人指出他前一次做客时曾说不会“与 AI 融合”，而现在的说法听起来很像融合。Bosworth 否认，并把自己的框架说清楚：这是一个长期趋势的延续与加速——人到机器、机器到人的比特率持续上升。他举的例子刻意选得很小：自动纠错是“坐在你和计算机之间的一个小 AI”，降低损耗、提高比特率；二维码解决的是“我想输入一个网址，但绝不想手打，因为错误率太高”。<strong>一个能用人类语言理解事物的 AI，即便只作用于输入侧，也是对已有算力利用能力的深刻改进；再加上 AI 在输出侧的信息综合能力，比特率被大幅提高。</strong> 他把这条线追溯到 Doug Engelbart 离开 NASA 创办斯坦福研究所的初衷——人类问题变难的速度超过人类能力的提升，需要人机共生，由此才有第一次视频通话、第一次协同编辑文档、鼠标。</p>
+<p>眼镜在这个框架里的位置由一个简单问题决定：手机很好，“有什么东西是你希望不用把手机从口袋里掏出来就能用的”，答案是摄像头和音频。AI 是这个产品的顺风——它解锁的能力范围远大于两三年前的设想，当时的路线图是终究要加显示、要变成独立系统、要挂一堆配件，现在看市场容得下一整个谱系的可穿戴设备，有些只是手机的输入输出端，有些更完整。他透露带显示的眼镜刚上线了一个“vibe coding”平台，任何人可以为眼镜写应用，并推演下一步：戴着眼镜实时告诉它要什么应用，由它当场生成。</p>
+<p>由此他对应用形态下了一个判断：内容仍需要“家”，类似电视频道或社交媒体上的媒体所在地，但长尾里“为什么我的烤面包机需要一个 app”——他拒绝安装。<strong>“我认为未来的样子并非应用式的，未来是有价值的服务，你按自己想要的方式在需要时获取，并付钱给提供服务的人，这些都提前或按需协商好。”</strong> 现有的雏形是与 Spotify 的合作：对眼镜说放音乐，绑定账号后直接执行。主持人补充了 Garmin 连接器的例子，Bosworth 把目标拔高为“你的 Meta AI 理想上已经知道你在训练、有什么目标，并且接入了营养等所有相关环节”，同时承认“从现在到那一步之间有很多步”。</p>
+<p>全 AR 眼镜 Orion 他仍未给时间表。原因与两年前相同：功能齐全不够，还要好看、舒适到愿意戴、价格让理性的人觉得值。被追问是“以年计还是以月计”，他拒绝回答，只说“我喜欢我们正在取得的进展”。</p>
+<h3>七、Meta 内部的转型：数千人被调去做专家轨迹，键盘追踪是为了教模型使用计算机</h3>
+<p>主持人读了 Wired 引述的一名员工的话——“简直是古拉格，你突然没有了目标，几乎不与任何人互动，每周只有这些任务”。Bosworth 先讽刺了一句该员工是否查过古拉格与硅谷六位数薪资软件工作的相似度，随后正面解释。Meta 的传统是在看到紧迫机会时进入“封闭冲刺”状态，移动、视频、Stories 都这样做过。这一次的触发点是 Muse Spark：<strong>编码并非该模型的重点，但开箱即用的编码表现好于预期，实验发现只需“相对适量”的专家指导样本做后训练，竞争力就能显著提升。</strong> 算下来这是一个建设编码模型的机会——既让公司运营独立，又可作为面向用户的能力，还可能让模型本身更广泛可用——于是“急转弯”，把数千名员工调入 AI 组织做专家轨迹。他强调专业性是硬要求，“用糟糕的代码训练模型会伤到它”。</p>
+<p>他承认执行上的问题：做得太快，缺乏结构，沟通糟糕，没有逐个向被调岗的人说明这是什么、为什么需要、为什么重要，尽管他们放下的是自己本来兴奋的工作。他澄清了一处引述——“二十年来排得上号的糟糕”这类措辞并非他所说，但他说过类似“atrocious”的话并且“没有问题”。他的自我要求是领导层必须更好地解释正在发生什么、为什么、对每个人意味着什么、长期如何演变。</p>
+<p>关于键盘追踪计划，主持人替他给出了一个解释——强化学习时代模型需要在“健身房”里学会完成任务，这是大规模版本。Bosworth 确认强化学习在今天的作用远超两三年前的预期，并加了一层：<strong>“长尾很长。互联网上全部文本的语料尽管庞大，我们知道的大部分东西仍不在互联网上，在我们脑子里，是经验，是习以为常的行为。”</strong> 这个计划的设计在他看来“相当聪明”：员工什么都不用改，照常工作就能产出独特数据，本例中是设计以及“人类如何使用计算机”——“AI 在使用计算机这件事上仍然出奇地差，这是一个没有被很好解决的困难问题，computer use 与代理化的全部精力都在这里”。他把两类数据分开：长尾专家训练仍靠应用 AI 团队做的少量、文档完备的任务；键盘追踪是长期运行的数据集，“等有了一年的数据，才有可能拿来放进模型”。计划上线后已做修改：无限次暂停、多种理由可退出。</p>
+<h3>八、他从旧周期借来的三个参照：Meta 的封闭冲刺、炒作周期、以及从 Engelbart 到 Reality Labs 的实验室谱系</h3>
+<p>本期没有对 PC、互联网泡沫、移动或云做完整复盘，但 Bosworth 在三处调用了旧周期作为参照，值得单独记下。第一处是 Meta 自身的转型史：他把此次数千人调岗与移动、视频、Stories 三次“封闭冲刺”并列，把 AI 定义为同一类事件中程度更高的一次——“这是我们职业生涯中从未见过的东西”，正因为如此才让员工不安、才抬高了对领导层沟通的要求。第二处是炒作周期：他认定 AI 与此前每一轮技术一样要经历峰顶、失望谷底与最终的产品市场匹配，并且把消费端的迟缓解释为这条曲线上的位置，技术本身在他看来没有问题——这与本专题此前几期把互联网泡沫定位为“基础设施先行、应用滞后”的说法相通（作者归纳）。</p>
+<p>第三处是计算史上的实验室谱系。他把 Reality Labs 的自我定位放在 Xerox PARC、斯坦福研究所、贝尔实验室一线，把 AI 定义为 Engelbart“人机共生”议程的当代形态，把自动纠错、二维码这类微小的输入侧工具视为同一趋势的早期样本。<strong>这个框架的含义是：他把本轮 AI 的价值主要落在界面层，落在“人与计算机交互方式的重写”上，模型层在这个框架里只是投入品，眼镜、神经接口与 AI 是同一条曲线上的三个节点。</strong> 这也是他对“所有 AI 产品都会收敛到个人助理”这一问题的回答方式——他没有否认收敛，只是把差异化放在交互入口与对用户的理解上。</p>
+<p>对 AI 陪伴他态度审慎。他承认个性重要——Anthropic 在 Claude 各代上学到的、Meta 自己学到的，都是自然语言是否讨人喜欢对人类影响很大；但他预期人群分布很宽，有人希望 AI 具身、有面孔、甚至为生活各部分建二十个不同个性的代理，“我不是那种人”，他只要一个极其可靠、可信的无形实体，“市场会把这些都提供出来”。对“AI 陪伴成为新的社交媒体”的设想，他的预测是 AI 的主要收益将是增加人与所爱之人相处的时间，对真实人际连接的溢价随时间上升，并以自己重度使用的体验为证：“我大多时候是在少坐在电脑前，不是相反。”</p>
+<h3>九、痛苦是康复：把行业的阵痛定义为“唯一的出路是穿过去”</h3>
+<p>主持人引他一篇旧博客——医生说疼痛就是康复，人类记住的是唤起更强情绪的故事——问 AI 拿走了工作中痛苦的部分之后，痛从哪里来。他先自嘲：让代理把博客搬到 Substack，最近才发现它把所有项目符号列表都删了，“我们在代理上还有很长的路要走”。随后他把当年神经生物学课上的故事讲完：戒断的痛苦本身就是药，去掉痛苦，人就不会重新编程自己的行为。</p>
+<p>他把这个框架直接用在行业上：<strong>“我要说，AI 在每家公司引发的这些阵痛——不只是 Meta——就是我说的那种痛。除了穿过去没有别的出路，你必须自己摸索什么有效什么无效，这就是苦活。”</strong> 他区分了生产性痛苦与非生产性痛苦，用的例子是考试不许用计算器——“我身上随时至少有三个计算器，还能直接问眼镜数学题”，不用计算器做数学题是一种痛苦，但没什么用；用计算器做一份更难、需要批判性思维的题才是更有价值的做法。引申到企业：回避整合 AI 的痛苦很容易，代价是落后于会用 AI 的同行与已整合 AI 的公司。他引用 Sheryl Sandberg 的话作结：公司通常不会因为定了难目标没达成而失败，失败的公司通常是定了容易的目标并一路达成。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，说话人按上下文判断。Apple 向 Google 支付约 10 亿美元为主持人口播的报道数字，嘉宾未确认；Snap 眼镜发布后股价下跌约 6% 为主持人口播；“数千人”调岗为嘉宾口播、无精确数；Alexandr Wang 加入满一年为嘉宾口播；模型与产品名称按字幕拼写：Muse Spark、Llama 3/4、Nano Banana、opencode、Claude Code、Codex、Pi、Myclaw（后者疑为自动字幕误拼，原名待核）；“单体模型时代在 Llama 3 前后结束”“四件事集合”“个人助理的切换成本”均为嘉宾判断，无数据支撑；键盘追踪计划的修改内容为嘉宾自述；所有关于 Apple Siri 效果的表述为转述早期报道，嘉宾自称无使用权限。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

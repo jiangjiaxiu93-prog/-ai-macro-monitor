@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Kapor 复盘 Lotus 1-2-3：人们为一张电子表格买 5000 美元的电脑，杀手级应用反过来拉动平台；AI 时代两个人就能造出大东西，但大企业采纳会更慢（Forbes，2026-06-25）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Kapor 复盘 Lotus 1-2-3：人们为一张电子表格买 5000 美元的电脑，杀手级应用反过来拉动平台；AI 时代两个人就能造出大东西，但大企业采纳会更慢（Forbes，2026-06-25）</h2>
+<div class="metaline">Forbes · 28 分钟 · 2026-06-25</div>
+<p>嘉宾为 Lotus Development 创始人、Kapor Capital 创始合伙人 Mitch Kapor，采访者为 Forbes 撰稿人 John Werner，录制地点在硅谷的 HP 车库，节目属 Forbes 建国 250 周年系列人物访谈。对本专题而言，这是一份稀缺的一手材料：PC 周期的杀手级应用 Lotus 1-2-3 由当事人亲口复盘，从 VisiCalc 的出版商体系、IBM PC 平台押注、第一年 5000 万美元销售额，到创始人为什么在公司做到数亿美元收入时选择退出；后半段他把 Lotus、互联网、流媒体、iPhone、ChatGPT 放进同一个“时刻”序列，并给出对本轮 AI 应用层的直接观察。节目为人物访谈，谈 Lotus 的篇幅有限，没有涉及 Lotus 与 IBM、微软的关系以及后来失守 Excel 的过程。全片观点属嘉宾判断，数字为口播，且多为四十年前的回忆，引用前需回原始披露核对。</p>
+<h3>一、杀手级应用的起点：先有出版商体系，后有 1-2-3</h3>
+<p>Kapor 进入行业的路径全靠 Apple II。1970 年代末他失业在家，为省销售税从马萨诸塞开车到新罕布什尔买了一台没有磁盘驱动器、程序存在磁带上的 Apple II；第二天在剑桥的电脑店里，他听见一位西装革履的眼科医生想给诊所买电脑抵税，上前自称顾问，对方以<strong>每小时 7 美元</strong>雇他用 BASIC 写程序，这是他技术生涯的起点。</p>
+<p>他的第一个商业产品是替读博的朋友写的统计程序，改成 Apple II 上的图形与统计软件包后“可能卖了两千份左右”（嘉宾口播，自称记不准）。这让 VisiCalc 的作者 Dan Bricklin 与 Bob Frankston 注意到他，并把他介绍给自己的出版商。他对当时行业结构的描述值得记下：<strong>“那时候有点像图书业，一批人写东西，另一批人卖东西。”</strong>应用作者与分发渠道是分离的两个角色，作者靠出版商触达用户。他把统计包改成 VisiCalc 的配套产品，从表格里画图表，收入足够买房并攒下一笔钱。</p>
+<p>真正的转折是被拒绝。他手里有一堆生产力工具的产品想法，想和 VisiCalc 团队或其出版商合作，对方没有兴趣，他只好单干，遇到程序员 Jonathan Sachs，两人押注的方向是<strong>“面向 IBM PC 的下一代电子表格，一台面向商业的正经个人电脑”</strong>。这一句里藏着 PC 周期应用层的关键结构：VisiCalc 是 Apple II 的产品，IBM PC 是一个刚出现、还没有杀手级应用的新平台，平台换代给了被在位者拒绝的后来者一个空窗（作者归纳）。</p>
+<h3>二、需求已经存在，应用只是把它解锁：零到 5000 万美元与 5000 美元的电脑</h3>
+<p>Kapor 对产品设计的描述很朴素：他观察早期采用者在用个人电脑做什么，自己也是用户，知道自己想要更容易上手、同时更强大的工具，于是“有机会就去设计这么一个东西”。他对 1-2-3 成功原因的定性只有一句：<strong>“这个产品真正做到的，是解锁了、或者说证明了市场上存在对电子表格的巨大潜在需求。”</strong>他没有把功劳归于发明了新品类，电子表格这个品类是 VisiCalc 开的，1-2-3 做的是在新平台上把需求的规模释放出来。</p>
+<p>规模的口径是：<strong>“我们第一年就从零做到了 5000 万美元销售额，那是 1983 年。”</strong>他随后给出本期可引用度居前的一句：<strong>“人们去买 5000 美元的电脑，就为了跑这个小小的电子表格。”</strong>这就是他对“杀手级应用”的操作性定义，应用反过来成为硬件销售的理由，平台的普及由应用拉动，硬件与应用互为需求（作者归纳）。</p>
+<p>把这段与本专题其他材料放在一起看，PC 周期应用层的三个要素在他的叙述里都出现了：品类由先行者证明，规模由新平台上的后来者兑现，分发经由独立的出版商体系而作者对渠道并无控制权（作者归纳）。他没有谈定价与渠道的细节，也没有谈 Lotus 后来在 Windows 平台上的失利，这些需要另找材料补齐。</p>
+<h3>三、创始人退出：没有剧本的年代，公司在两年里长到数亿美元收入</h3>
+<p>主持人称他是“把自己解雇的创始人”。Kapor 的解释先讲时代：1980 年代没有榜样、没有成功故事、没有剧本，“没有 Y Combinator，什么都没有，我们一路都在发明”。他当时并不知道自己是连续创业者、擅长的是从零开始，回过头看，他应当更早花功夫找一个更好的接班方案。</p>
+<p>他对处境的描述是被自己造出来的东西困住：<strong>“几年之内就是每年数亿美元收入、几千名员工。我没有管理过任何这个规模的东西，也并不真的想做这个规模的事。”</strong>他觉得被逼到了墙角，“于是按下了弹射按钮”。他对这个决定的态度是“不为当年不知道这些而责怪自己”，但承认如果知道自己的长处在于起步阶段，会更早做接班安排。这段话对本轮的含义在于：应用层公司一旦踩中杀手级应用，收入与组织的膨胀速度会超过创始人的管理经验，接班安排是产品成功之后紧接着的第二个问题（作者归纳）。他在本期没有把退出与 Lotus 后来的竞争失利联系起来，两者的因果关系他未作评价。</p>
+<h3>四、五次“时刻”的复盘：从 Lotus 到 ChatGPT，每一次在当时都不是共识</h3>
+<p>被问到是否见过与 1-2-3 类似的时刻时，他给出的序列是：1980 年代的 Lotus，1990 年代的互联网，之后的流媒体，然后是 iPhone，现在是 AI。他的定性是<strong>“ChatGPT 是一系列真正革命性时刻里最近的一次，规模也是空前的，这些时刻都以人们没有预料到的方式突然出现”</strong>。</p>
+<p>互联网那一段他讲得最具体，重点是当时并无共识。人们嘲笑 Al Gore 讲“信息高速公路”；受管制的电话公司投入大量高风险游说，主张“取消管制，我们就把光纤铺到家”；与此同时国防部把 ARPANET 移交给国家科学基金会，作为长期开放接入计划的一部分。他在这个节点上介入，判断“所有人都会想接入这个东西”，这<strong>比 Web、比 Netscape、比 Amazon 早了六七年</strong>，并据此做了早期投资。流媒体的判断来自更朴素的推演：拨号调制解调器把电话听筒扣进两个橡胶杯，带宽只有今天标准连接的百分之一，但足够开始做点事；他想“现在只是在传文字和粗糙的图片，那声音呢”，于是给 Rob Glaser 写了一份备忘录，后者创办了早期流媒体公司 RealNetworks，时间是 1990 年代早期。他的推演链只有一步：“带宽再多一点就能传音频，最终会有视频，这会是变革性的。”今天流媒体已被视为理所当然，但他强调曾有一个它并不存在的时刻。iPhone 他坦承没有提前看出来，“不能把功劳算到自己头上”。</p>
+<p>他对这些时刻的共同结构没有做理论化，但从叙述里可以提炼出一条：每一次的技术前提（Apple II 的硬件、开放的 ARPANET、变快的调制解调器）先于应用几年就位，应用层的机会出现在“基础设施已经能用、多数人还没相信”的那段时间（作者归纳）。这一条与他对 AI 的观察直接相连。</p>
+<h3>五、PC 周期与 AI 周期的对照：相同的是说服过程，不同的是速度、规模与人数</h3>
+<p>Kapor 用一句话概括近半个世纪的对照：“有些事真的一样，很多事真的非常不一样。”一样的是创业的说服过程：有一个想法，起初除了你没人相信，你要靠对自己的信念、坚持和头脑去凑齐钱和人、做出原型、融到资，“这个过程到今天基本还是一样的”。不一样的是三个维度：<strong>“它发生得快得多，赌注也大得多。因为现在，尤其在 AI 时代，一两个人就能很快造出一个巨大的东西，过去不是这样。”</strong>他对当下 AI 初创公司的数十亿美元估值的态度是“结果如何还有待观察”，但节奏、规模与范围与当年判然不同。</p>
+<p>他给了一个自己机构内的样本。Kapor 基金会有一笔捐赠基金，投资组合需要跟踪管理，一位不会写代码的员工用 Claude Code 花<strong>“几周”</strong>做出了一套投资报告与管理系统，“比我见过的任何系统都好”，接入了全部数据，已经是日常在用的工具。他强调<strong>“这套系统三个月前还造不出来，因为 Claude Code 当时还没有这个能力”</strong>，并补了两句行业观察：“我们已经不叫它 vibe coding 了，就叫 coding”；“有那么一分钟我们需要提示词工程师，现在不需要了”。主持人接了一句“过去需要一千人做的事，现在三个人就能做”，他表示同意。</p>
+<p>对照 PC 周期，两个差异可以从他的叙述里直接读出（作者归纳）。第一是拉动方向：1983 年是一个应用拉动人们去买 5000 美元的硬件，应用作者是需求的创造者；2026 年是模型能力每季度往前挪，应用在几周内被非专业人员造出来，应用层成为能力的消费者，其价值取决于比模型的下一次升级跑得更快。第二是构建门槛：当年 Kapor 需要一位“绝对出色的程序员”Sachs 才能把想法变成产品，如今一位非程序员即可完成同等工作量，这直接压低了应用层的进入壁垒，也解释了他为什么对估值持保留态度。他同时给出了一条反向判断：<strong>“大企业要完整采纳 AI 还需要更长一点的时间”</strong>，首要原因是技术演进过快，三个月前不存在的能力今天就有，企业无法在移动的地基上做部署决策。他提到医疗应用越来越可观，以及用 AI 让公民与政府的交互更高效、更有同理心的公司已经在做，但没有点名。</p>
+<h3>六、放大器逻辑与融资结构：互联网的教训与“说的是词，奏的不是那个曲”</h3>
+<p>他对 AI 的自述是“极度兴奋，同时非常担忧”。担忧来自互联网早期一个后来才学到的痛苦教训：<strong>“人做的每一件坏事，和每一件好事一样，都会被信息技术放大，先是互联网，现在是 AI。”</strong>他把近期围绕 Anthropic 的 Mythos 模型与安全漏洞的风波称为“预告片”，从国家之间的战争到针对个人的金融犯罪，武器化的场景都在打开，“我们根本没有准备好，不知道怎么防、怎么保护人，制定有意义监管的方法也已经过时”。</p>
+<p>他对未来的思考落在资本主义多过技术。他认为当前处于商业“只为攫取尽可能多财富”的一个低谷，主张把“结果与影响必须惠及人”作为经营的内在标准，并给出一个务实的切入点：<strong>是否存在不依赖传统风险投资的初创融资方式</strong>，传统模式“只找 100 亿美元的结果，别的都不重要”，而收入分成型融资等工具可以有回报但不以回报极大化为唯一目标。他对 OpenAI 的评价是一句双关：“它起步时走了一次假的开局，说的是那些词，奏的不是那个曲。”这不意味着不能重来。Kapor Capital 的投资逻辑同源：天赋按邮政编码均匀分布，机会并不，他们专投没有名校与 GitHub 履历、靠自身经历找到问题的创始人，“一旦开始找，这样的创始人很多，做得对也能取得不错的投资回报”。</p>
+<p>结尾他对这一届毕业生的话可以作为这一期的落点：他理解毕业典礼上有学生对谈 AI 的演讲者喝倒彩，但不相信“不会再有工作”或“AI 会接管世界”中的任何一种，个人每天都仍有机会用或者不用这项技术去做出改变。他自己的用法是让 AI 按旧歌单推荐新音乐，并考虑“就因为可以”用 Claude Code 搭一个流媒体网络电台。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。Lotus 1-2-3 第一年 5000 万美元销售额、1983 年、5000 美元电脑、每小时 7 美元、统计包约两千份、数亿美元收入与数千名员工、互联网投资早于 Web 六七年、调制解调器带宽约为今天的百分之一均为嘉宾口播回忆，引用前需与 Lotus 历史披露核对；“几周”“三个月前”为其基金会内部案例的口播时间；“vibe coding 一词约 15 个月”为主持人口播。工具名称字幕写作“Claude code”与“cloud code”，按上下文统一为 Claude Code；Anthropic 的模型按字幕拼写为 Mythos。本期未涉及 Lotus 与 IBM、微软的关系、1-2-3 定价、以及 Lotus 后来败于 Excel 的过程，相关内容需另找材料。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

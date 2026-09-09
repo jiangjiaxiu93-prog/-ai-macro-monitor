@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>从 GPU 经济看应用层：推理单价两年降 99% 但 H100 租价上涨、代理让 token 用量升十倍而价值升百倍、实验室从负毛利转正的传导链（Stanford MS&amp;E435，2026-07-23）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>从 GPU 经济看应用层：推理单价两年降 99% 但 H100 租价上涨、代理让 token 用量升十倍而价值升百倍、实验室从负毛利转正的传导链（Stanford MS&amp;E435，2026-07-23）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 56 分钟 · 2026-07-23</div>
+<p>本片为斯坦福 MS&amp;E435《AI 超级周期的经济学》2026 年春季学期的一讲，主题是“GPU 经济”。据字幕判断，开场主讲人为课程讲师 Apoorv Agrawal（斯坦福管理科学与工程系兼职讲师、Altimeter Capital 合伙人），两位客座讲者分别是 Altimeter 创始人兼 CEO Brad Gerstner，以及 Groq 前总裁、现随公司并入 NVIDIA 的 Sunny Madra（字幕将 Groq 拼作“Grok”，据上下文判断为芯片公司 Groq，与 xAI 的 Grok 模型无关）。视频 7 月发布，但从内容看录制时间约在 2026 年 4 月前后（讲者多次提到“本周”出现的 Anthropic 未发布模型 Mythos 与 3 月的收入数据）。本讲对“应用层探讨”这个专题的价值在于视角来自底层：课程开场就把问题定为“软件的边际分发成本接近零，AI 应用没有这个性质”，随后一小时都在回答算力供给、推理单价、token 产出效率如何决定应用层的成本曲线与可行商业模式。全片观点属讲者判断，数字多为口播且部分口径含混，引用前需回原始来源核对。</p>
+<h3>一、课程前提：AI 应用的每一个新增用户都要消耗真实算力，这是与软件时代的根本分野</h3>
+<p>开场把本讲的命题说得很直接：过去几十年软件的增量分发成本接近零，AI 应用做不到，“更多用户用 AI 应用就需要大量算力，所以它不是近零的”。这句话是整个课程的锚，后面所有关于芯片、功率与 token 的讨论都在为它补充量级。</p>
+<p>Sunny Madra 给出了这个成本为何高的量级直觉。他拿 Snowflake 做对照：数据库检索是取一条记录再送回来，消耗的计算周期数并不大；而生成一个 token 所需的浮点运算量“令人瞠目”，<strong>他给的经验公式是“大致等于模型参数量乘以上下文长度的平方”，而且这是每一个 token 的开销</strong>，一次任务要生成大量 token。他由此把当前阶段定性为“技术极其出色但极其算力密集，比此前任何一种计算范式高出好几个数量级”。</p>
+<p>Brad Gerstner 用几张背景图交代为什么值得为这件事投入：全球人均 GDP 在近两千年里有一千八百年几乎不动，此后翻倍所需年数不断缩短，如今全球 GDP 约每 25 年翻一倍；科技占全球 GDP 的比重从 5% 升至约 13%；纳斯达克成分公司过去十年每股收益年复合增长 15%，非科技公司为 6%（均为口播、无出处）。他转述 Demis Hassabis 的说法，AI 的影响会是工业革命的十倍、速度也是十倍，在十年内展开。这些数字与应用层的关系在于：知识工作的可及市场以万亿美元计，而通向它的每一步都要从 token 的生产成本开始算。</p>
+<p>把两位讲者的论述串起来，可以整理出一条从算力到应用层的传导链（作者归纳），本讲其余各节分别对应链条的某一环：</p>
+<ul><li>供给侧三项输入（供应链与光刻、工程创新、电力）决定单位功率下的 token 产出；</li><li>token 产出效率决定推理单价，推理单价决定实验室与应用公司的毛利率；</li><li>模型能力跨过阈值后用户支付意愿上升，支付意愿与推理单价之差决定可行的商业模式；</li><li>需求增速持续快于单价下降速度时，算力租价与资本开支同时上行，形成新一轮供给约束。</li></ul>
+<h3>二、Groq 的转折：芯片卖不动就卖 API，开发者对硬件不忠诚，云端 token 才是产品</h3>
+<p>Sunny Madra 回顾了 Groq 的来路。创始人 Jonathan Ross 在 Google 创造了 TPU，起因是听 Jeff Dean 讲“好消息是我们找到了解决语音识别的算法，坏消息是没有足够强的算力去跑它”，于是用 FPGA 做出第一版。Groq 的芯片是数据流架构，完全确定性，编译器预先决定每一次计算在哪里发生。Brad Gerstner 补充了一个投资人视角的事实：<strong>Groq 与 Cerebras 都成立了十年上下，到第九年仍在为生存挣扎，“他们在为一个当时并不存在的市场造东西”</strong>。转折点是他在 BG2 播客上听 Jensen Huang 说“一切都变了”，从预训练转向推理时推理，推理量“将增长十亿倍，不是十倍、百倍、百万倍”，现有算力系统并不是为这样的负载设计的。</p>
+<p>Groq 在商业模式上的关键决定与应用层直接相关。Sunny 说他们判断“说服人们购买我们的硬件并使用会很难”，于是改为自建云、自运营数据中心、以 API 形式提供，把开源模型（包括 OpenAI 开源的 Whisper）放上去，“开发者其实不在乎背后是什么，只要有 API，开发者是相当可替代的”。据他口播，他们 2018 年设计、2019 年流片的 14 纳米 V1 芯片在云端对上比它新五代工艺的 Hopper 仍具竞争力；云上线几周内达到几十万用户，如今约 400 万用户，而 NVIDIA 用了近 17 年才积累到 700 万开发者。</p>
+<p>推理模型出现之后曲线变陡。他的描述是推理模型对 token 的消耗“贪婪得多”，这还没算代理，token 消耗曲线“直接抛物线化”，Groq 的云开始出故障。他给的当时行业约束是<strong>“OpenAI 只有 1 吉瓦算力，Anthropic 也只有 1 吉瓦”</strong>，所以必须同时做更省 token 的模型和更省 token 的架构。这段话给应用层的含义是：模型层的算力预算是硬上限，应用层能拿到的推理配额与价格由这个上限分配（作者归纳）。</p>
+<h3>三、把推理拆开：预填与解码再拆解码，同一功率下 token 产出 2.5 倍</h3>
+<p>本节是全讲技术密度居前的部分，也是 Groq 与 NVIDIA 合并的原因。Sunny 解释业内已普遍把推理拆成预填（prefill）与解码（decode）两组机器；Groq 进一步把解码本身再拆，因为解码内部既有算力密集的函数也有内存带宽密集的函数。GPU 的特点是算力多、外置 HBM 内存相对慢；Groq 芯片算力不多，但片上 SRAM 很多，带宽“高出近一个数量级”。他们给 Jensen 的邮件提议就是通过 NVLink 把两种芯片连起来，各取所长——NVIDIA 当时可将 72 颗芯片互联、正在扩展到 576 颗，Groq 已有模型跑在 4000 到 8000 颗芯片上。</p>
+<p>结果用一句话概括：<strong>“取同样的功率占用，把两套系统合起来，可以多产出两倍半的 token。”</strong> Brad Gerstner 把这件事放进他的“工厂”模型：OpenAI 有一个固定的功率占用，比如 9 月要接收的约 1 吉瓦 Vera Rubin，工厂一端进电力和芯片，另一端出 token；收购 Groq 之后，同样的功率、同样的厂房，token 产出变成两倍半。“我们这个世界的约束是电力和内存”，在这个约束下把 token 翻两三倍，对 OpenAI 或 Anthropic 是“巨大的经济结果”。他顺带给了一个总量：全球现在每周消耗“数十万亿”token（口播）。</p>
+<p>交易本身的节奏也是数据点：从向 Jensen 展示可运行系统到 NVIDIA 以 200 亿美元收购，Sunny 说“大概三十天出头”。他解释 NVIDIA 没有把 Groq 当作“更好的 GPU”：NVIDIA 已经有七种芯片、五种机架的生态，“NVIDIA 不再只做一颗 GPU”，内部也考虑过做一颗只负责解码、以 SRAM 为主的芯片，Groq 的原型证明了跨两家公司、两套完全不同的技术栈可以协同。对应用层来说，这一节的含义是推理单价的下降越来越多来自系统级拆解与异构组合，而不再主要依赖单颗芯片的工艺进步，这条降本路径的空间比光刻大（作者归纳）。</p>
+<h3>四、推理单价一年降九成、两年半降 99%，H100 租价却在涨：三项输入与跑得更快的需求</h3>
+<p>Brad Gerstner 给出的价格序列是：<strong>推理成本过去一年下降约 90%，过去两年到两年半下降接近 99%</strong>（口播）。他转述 Marc Andreessen 当天的说法，他接触的多数人现在用 OpenClaw 每天花 100 到 1000 美元买 token，并称“硅谷接下来二十年就是做把智能成本压下去的技术”。现场举手显示 OpenClaw 在学生中渗透率相当高。</p>
+<p>Sunny 把单位成本的输入拆成三项：一是供应链，主要集中在台湾，包括 TSMC、封装技术与从他处采购的光刻技术；二是工程师的创新；三是可用电力。他的判断是光刻正在逼近极限，“摩尔定律拿不到了，只能超越它”，办法之一是把芯片做得越来越大（Cerebras 的芯片像披萨盒），办法之二是与模型协同的架构创新、内存带宽升级、电路布局、量化（他点名 NVFP4）。但对面是模型在变大：据他转述的流传信息，新一代模型正在逼近 1 万亿到 10 万亿参数，回到第一节的公式，参数量直接抬高每个 token 的算力需求。<strong>“即便我们五年做出 50 倍，模型和需求跑得更快。这就是为什么出现了一个奇特现象：如果你在做初创公司或者要用 H100，它的价格其实在涨。”</strong></p>
+<p>这是全讲对租赁市场唯一的直接观察，值得单独记下：单位智能的成本在快速下降，同时上一代硬件的租价上升，两者并不矛盾。需求端由推理模型与代理驱动的 token 增速高于供给端效率提升，旧卡的价格由稀缺决定而不由技术代际决定（作者归纳）。对应用层的直接后果是，应用公司的成本曲线由实验室的 API 定价传导，实验室的 API 定价又受到算力稀缺程度的制约，任何“推理会一直变便宜”的假设都需要配上需求增速的前提（作者归纳）。</p>
+<h3>五、从负毛利到正毛利：应用层定价取决于支付意愿与推理单价之差</h3>
+<p>Brad Gerstner 用一个比喻交代实验室的早期账本：OpenAI 与 Anthropic 起步时毛利率“高度为负”，等于“造一个一美元的东西卖两毛钱”，原因是当时模型能力有限、用户愿付的价格有限，而两年前推理成本又高得多。他们下的注是两件事同时发生：推理成本大幅下降，以及智能变得更有价值后用户支付意愿大幅上升。</p>
+<p>他把应用的演进分为两局。第一局是“给出答案”：代码生成是自动补全，ChatGPT 是“稍好一点的 Google”。现在进入“行动”阶段：代理去做事，造一个应用、建一个网站、解决一个客服问题、多卖一件产品、订一家纽约的酒店。<strong>“当它做事的时候，完成任务消耗的 token 增加一个数量级，但作为一个智能单位交付给终端用户的价值上升一百倍，所以支付意愿急剧上升。”</strong> Sunny 补了一个能力证据：Anthropic 未发布的模型 Mythos 本周在 BSD 代码里找出一个漏洞，那段代码被无数工程师看过，“它做的事已超出人类能力，而这才是第三年”。</p>
+<p>Sunny 从供给侧解释了为什么 token 用量会持续上升，这一段对应用层的商业模式设计最有参考价值。第一，今天看到的模型还没有在新一代硬件（Blackwell、Vera、Rubin）上训练过，能力上限尚未显现。第二，实验室在模型外面搭了“harness”：Claude Code、Cowork、Codex、OpenClaw 都是，这层外壳“弄清了怎样从模型里持续榨出更多”，任务卡住时给手机推送、不卡时通宵运行，“我们从没有过这样的东西”。第三，他以 NVIDIA 内部的个人助理为例，它接入 Slack、Teams、邮件与全部文件，每天早上跑一遍整理当日待办并可代为处理；“你现在都不写邮件了，别人的代理写给你，你的代理看完回过去”，工作量反而增加了。</p>
+<p>Brad Gerstner 对账本的收束是：<strong>“一年半到两年前这两家还是负毛利，现在是相当正的毛利。这门本来看起来不经济的生意，今天看起来高度经济。”</strong> 他把成本下降之快归于“极端协同设计”，强调降本发生在整座工厂的层面，“工厂里有一堆摩尔定律在组合式地同时发生”。把两位讲者的论述合起来，应用层可行的商业模式取决于一个差值：用户为“行动”支付的意愿（高于为“答案”支付的意愿），减去实验室按稀缺程度定价的 token 成本；harness 与代理在同时抬高分子（价值）与分母（token 用量），谁能让分子涨得比分母快，谁的毛利率就能转正（作者归纳）。</p>
+<h3>六、收入指数验证资本开支：Anthropic 三个月的数字与每吉瓦 500 亿美元</h3>
+<p>本节回答课程标题里的“超级周期”是否是泡沫。Brad Gerstner 复盘了自己在 BG2 播客上问 Sam Altman 的问题：OpenAI 有 1.4 万亿美元的支出承诺，收入只有 130 亿美元，怎么算得过来。他原本期待对方论证收入会大涨、承诺是可重议的期权，得到的回答却是“你要是不喜欢你的投资，我把你的股份买回来”。进入 2026 年，他的播客搭档 Bill Gurley 等人明确认为这是 AI 泡沫，理由是支出速度没有对应的付费需求。</p>
+<p>改变他看法的是 Anthropic 的三个数字：<strong>据其口播，Anthropic 1 月是“35 亿美元一个月”，2 月是“80 亿美元的月份”，3 月是“105 亿美元一个月”；另一处他又说 Anthropic 3 月“单月新增 100 亿美元年化收入”，相当于 Databricks 加 Palantir 的年收入之和</strong>（两处口径不一致，见文末提示）。他强调这个增量没有经过雇一百万销售员去推销的过程，来源是产品能力跨过阈值后“全球数百万自利的行动者各自独立判断我必须买这些 token”，Claude Code 与 Cowork 是载体；OpenAI 也在增长，但“指数没那么陡”。他称这是自己的“奥本海默时刻”：收入开始与智能在同一条指数上扩张，实验室因此付得起每吉瓦 500 亿美元去建推理工厂。</p>
+<p>Sunny 对“是否过度建设”的回答是否定的，理由除了第五节的 harness 与代理，还有一条来自问答环节的观察，对折旧与回收期的讨论有直接意义：<strong>“训练用的设备会转为推理设备，那些大集群一直在这样转换，两个世界之间有自然的接续。”</strong> 他并引述微软 Mustafa Suleyman 当天的文章，今天的算力比 GPT-2 时期强 50 倍，能力差距却远超此数，用来说明大模型训练的溢出价值。Brad Gerstner 补充的量级是：“Anthropic 与 OpenAI 今年新增的算力将超过过去十年所有实验室之和，明年再翻一倍”，而“目前谈到的一切几乎是在没有算力的情况下发生的”。</p>
+<p>将这一节与前两节合看，讲者实际上给出了一套判断算力资本开支是否过度的方法：看实验室收入是否与能力同指数扩张、看训练设备是否有推理二次生命、看应用层是否已经从“答案”定价过渡到“行动”定价（作者归纳）。三条中任何一条断裂，每吉瓦 500 亿美元的账都会出问题，讲者没有讨论这种情形。</p>
+<h3>七、边缘算不动：80 亿参数模型半小时耗尽 iPhone，推理留在云端意味着应用成本结构长期是变动成本</h3>
+<p>问答环节有学生问到硬件与软件的结合、Apple 的策略与 OpenAI 造设备。Brad Gerstner 的看法是 Apple 内部对自己的策略也紧张：核心矛盾是隐私，边缘侧没有足够能力，而 Apple 又不希望把用户信息上传云端。多头逻辑是设备粘性足够强、时间站在 Apple 一边，装进手机的 Gemini 会是一个“能力强得多的 Siri”，对多数人足够好；空头逻辑是别人做出用户更喜欢的环境计算设备。他坦言“希望 OpenAI 不要做设备，专心做智能”，并认为 Apple 在设备领域会相当有战斗力。</p>
+<p>Sunny 补了一个硬约束的数字：<strong>“一个 80 亿参数的模型，已经算很小了，可以在 30 分钟内把一部 iPhone 的电耗光。”</strong> 他的结论是要把前沿智能推到边缘，先要回到 AI 有多算力密集这个基本事实。</p>
+<p>这条数字对应用层的含义值得写清（作者归纳）：PC 与移动时代应用的算力由用户自带设备承担，开发者的边际成本因此趋近于零；在边缘无法承载前沿模型的条件下，AI 应用的推理成本留在云端、留在开发者的损益表上，成为随用量线性增长的变动成本。这解释了课程开场的前提，也解释了为什么本专题其他几期反复出现按用量、按结果计价的讨论——定价方式必须追随成本结构。</p>
+<h3>八、与前几轮周期的对照：零边际成本的软件、Google 铺路的互联网基建、万亿市值的“大数定律”</h3>
+<p>本讲对旧周期的引用分散在几处，合起来构成一组对照。第一组是课程前提本身：软件时代的应用层建立在近零的增量分发成本上，AI 应用层建立在真实的 token 成本上，这是讲师在开场明确点出的分野。Brad Gerstner 的履历被介绍为互联网泡沫时期参与创办 General Catalyst、早期投资 Google、移动时代投资 Meta、云与软件时代投资 Snowflake、Confluent、MongoDB、GitLab，讲师称跨越多个超级周期、经历过上行市场、下行市场、衰退与危机是顶尖投资人的共同特征，这是本讲的视角来源。</p>
+<p>第二组来自 Sunny 对基建溢出的判断。他说日后回看会发现“有几家公司改变了互联网的形态”，<strong>Google 为搜索与视频建设的基础设施“为互联网其余部分铺了路，包括 CDN 和其他各种东西”</strong>，今天为 AI 建设的基础设施同样会带来创新之外的收益，“不能只靠芯片的创新，需要越来越多的基础设施被建起来”。这与本专题里“泡沫期基建为下一代应用降本”的讨论同源，但他没有展开光纤过剩那类反例。</p>
+<p>第三组是对市值上限与就业的两段回忆。Brad Gerstner 说 16 年前硅谷的共识是不可能有万亿美元市值公司，理由是“大数定律”，他反问“这刻在哪块石板上”，今天 NVIDIA 已是 4.5 万亿美元公司。在被学生问到学习是否还有意义时，他用工业革命作答：手艺人被大规模生产替代“感觉并不好”，但世界没有停下，过去 80% 的人在制造业与农业，今天 70% 的人在服务业，教练、瑜伽教师这类岗位是富余产出创造的；AI 会把过去只有 2% 到 3% 的人负担得起的私人导师与私人医疗普及给其余人。他的口径式总结是<strong>“IQ 会被商品化，EQ 变得极有价值”</strong>，指的是人际网络、说服、组队与领导能力。这些类比属于讲者的判断，与前几节的量化论证不在同一层次。</p>
+<h3>九、NVIDIA 的可持续模型与“指数的尽头”：算力供给方如何看应用层的支付能力</h3>
+<p>最后一个学生问题指向 NVIDIA 六成上下的毛利率是否可持续、会否压缩生态。Sunny 以在职身份回避，Brad Gerstner 以股东身份回答：NVIDIA 是 4.5 万亿美元市值、约 13 倍市盈率的公司，“市场倍数的一半”，增速 70%；市场担心 Trainium、TPU、Cerebras、Groq 会以推理方案与价格抢份额，“这正是资本主义的好处，NVIDIA 要么做出人们愿意多付钱的产品，要么降价、压缩利润率去竞争”。据其口播，<strong>NVIDIA 已宣布未来八个季度有 1 万亿美元订单在手，需求超过内存与供应能支撑的建设量</strong>；他重申 NVIDIA 会是第一家 10 万亿美元公司，并说定制 ASIC 与 TPU 的成功“更多说明智能市场与所需算力的规模，而不说明某一家公司”。</p>
+<p>关于前沿的判断，他转述了与 Jensen、Elon、Sam、Dario 的交流：这些人平日互相争斗，但此刻“惊人地一致”，都以非夸张的口吻说“我们到了，比想的更快，正接近指数的尽头”；Dario 认为当下让他吃惊的是“我们几乎到了指数的尽头而人们似乎没意识到”。Sunny 说 Jensen 对团队的要求是“不到 100 倍别来汇报”，并已在用 AI 设计下一代芯片。对安全与舆论，Brad Gerstner 支持 Anthropic 将 Mythos 置于沙盒（内部测试找出 Safari 浏览器 26 个漏洞），认可 Project Glasswing 这一由 Amazon、Microsoft 等参与的联合加固机制，同时反对“以恐惧营销行监管俘获之实”。</p>
+<p>对应用层而言，这一节交代的是链条顶端的定价权分布：算力供给方按订单能见度定价，实验室按稀缺程度定价 token，应用公司在链条末端承受传导下来的成本，其议价空间取决于自己能否把“行动”卖出比“答案”高得多的价格（作者归纳）。这与本专题其他几期从应用层向上看的结论互为印证，区别在于本讲把成本端每一环的数量级都给了出来。</p>
+<p>（口径提示：本文依据 YouTube 自动字幕整理，字幕将 Groq 拼作“Grok”，人名与模型名按字幕与上下文还原，讲者身份据字幕判断。推理成本降幅（一年 90%、两年半 99%）、每周数十万亿 token、每吉瓦 500 亿美元、1.4 万亿美元支出承诺对 130 亿美元收入、Groq 400 万用户对 NVIDIA 17 年 700 万开发者、NVIDIA 4.5 万亿美元市值与 13 倍市盈率、八个季度 1 万亿美元订单、科技占 GDP 13%、纳斯达克 EPS 年复合 15% 对 6% 等均为口播、无出处。Anthropic 1 至 3 月的“35 亿、80 亿、105 亿美元”与“3 月单月新增 100 亿美元年化收入”两处口径互相矛盾，引用前必须核对原始披露。“参数量乘以上下文长度平方”为 Sunny 的口播近似公式，与标准的 FLOPs 估算口径有出入，作定性理解。Groq V1 对 Hopper 的性能对比、同功率 2.5 倍 token、80 亿参数模型 30 分钟耗尽 iPhone 电量均为讲者陈述、未见测试口径。1 万亿到 10 万亿参数、Mythos 相关细节、SPUD 或 5.5 模型名称为讲者转述的流传信息。本讲未直接讨论 GPU 折旧年限与回收期测算，相关段落为作者从“训练设备转推理设备”“H100 涨价”两处推出的含义，已标注。录制时间为作者据内容推断。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

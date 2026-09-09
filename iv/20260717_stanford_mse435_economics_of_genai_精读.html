@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Agrawal 讲生成式 AI 的经济学：倒三角两年未翻转、增量收入四分之三归芯片层、消费端从每用户 10 美元走向广告（Stanford MS&amp;E435，2026-07-17）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Agrawal 讲生成式 AI 的经济学：倒三角两年未翻转、增量收入四分之三归芯片层、消费端从每用户 10 美元走向广告（Stanford MS&amp;E435，2026-07-17）</h2>
+<div class="metaline">Stanford Online（MS&amp;E435）· 34 分钟 · 2026-07-17</div>
+<p>这是斯坦福 2026 年春季学期课程 MS&amp;E435“AI 超级周期的经济学”的开课第一讲，也是全课唯一由讲师本人主讲的一次，此后每讲均为嘉宾。据字幕判断，主讲人自称 Apoorva，约十三四年前在 Palantir 带工程团队、回斯坦福读研后转入投资、现在主持投资机构 Altimeter；节目描述标注其为 Altimeter Capital 合伙人、斯坦福管理科学与工程系兼职讲师 Apoorv Agrawal。这一讲对“应用层探讨”专题的价值在于它提供了整个专题的理论骨架：把生成式 AI 的收入拆成芯片、基础设施、应用三层，用一张“倒三角”与云时代的形状对照，追问价值为什么停在底层、成本结构如何决定应用层毛利、产能与收入的期限错配如何制造周期、以及消费端扩散受哪些约束。全片观点为讲师本人判断，课堂图表在字幕中不可见，数字均为口播且他多次声明为约数，引用前须回原始口径核对；学生提问依字幕上下文归纳。</p>
+<h3>一、总问题是“钱在哪里”，答案是一张两年没有变形的倒三角</h3>
+<p>他把整门课收束到一个问题：“AI 的钱在哪里。”起点是超大规模云厂商与 NVIDIA 财报会上反复出现的资本开支——按他转述 Jensen 的说法，这是一块“五层蛋糕”，能源、芯片、电力、互连、内存叠成一座数据中心，按小时或按 token 出租，用来训练模型再提供推理服务；图的右侧才是本课关心的部分：这些模型是否在创造经济价值。他把这张图与互联网（约 25 年前）、移动（约 20 年前）、云（约 10 年前）三轮周期的生态形状并列，指出云生态的形状与今天的 AI 生态“截然不同”——AI 这一张，他特意不叫金字塔，叫倒三角：芯片层宽、应用层窄。</p>
+<p>他随后给出了自己两年前做过的同一张图的对照。<strong>两年前整个生态规模约为今天的五分之一，尽管经历了“英雄式增长”，形状几乎没有变化：新增的约 3500 亿美元收入里，大约 75% 直接进了芯片层；应用层收入增长超过 10 倍，仍未在形状上留下多少痕迹。</strong>拆开每一格看，芯片层的约 3000 亿美元绝大部分在 NVIDIA；应用层约 90% 的收入由两家公司贡献（他让课堂猜是哪两家，字幕未记录答案）；中间的基础设施层是竞争烈度居前、“新陈代谢率”也居前的一层——公司大量成立、大量被收购，他称之为当前各层里稳定性居末的均衡。</p>
+<p>由此引出他作为投资人反复自问的时钟问题：一张两年几乎没动的图，需要多久才能变成云软件时代的形状，五年、十年、十五年，还是永远不会。他的回答是相信会发生，“但远没有发生得足够快”。这个时钟问题贯穿全讲，后面几节的成本结构、周期与催化剂，都是在回答“为什么慢”（作者归纳）。</p>
+<h3>二、成本结构：应用层的边际用户不免费，毛利 0 到 30% 对芯片层约 75%</h3>
+<p>课堂对倒三角的三个解释分别是周期尚早、NVIDIA 具有垄断地位、云厂商已经学会用硬件产生收入而 AI 还没有。他对三个解释都接受，随后补上自己认为更根本的一条。Marc Andreessen 说“软件吞噬世界”，前提是任何人都能写软件、分发给数百万人，而运行软件的边际成本接近零，这些软件企业以 80% 甚至 90% 的毛利率运转。<strong>“新的 AI 经济模型里情况完全变了：一个 AI 应用的增量用户不是免费的，边际上不免费，反而相当贵，因为你得烧那些 GPU。”</strong>他举 Cursor 一类产品为例，并指出市场上反复出现的“收入达到数十亿美元规模仍未盈利”的故事，根源都在这里。</p>
+<p>利润率口径下的差距比收入口径更悬殊。他给出的数字是：<strong>NVIDIA 数据中心业务的毛利率约 75%（“别引用我，上下误差几个百分点”），而他估计应用层收入的毛利率“看你问谁，在 0% 到 30% 之间”。</strong>芯片层是整个堆栈里利润率遥遥领先的一层，他认可课堂上一位学生的解释——这一层由一家公司“包了台面”。若把倒三角改按利润画，形状会比按收入画更集中。</p>
+<p>有学生问 Salesforce 这类老牌软件公司的 AI 收入算不算进应用层。他的回答是应当算，Salesforce 的 Einstein、Palantir 的 AIP 都属于“旧经济企业”重塑自身推出的 AI 产品线；但公开披露里很难剥离，他的处理办法是从模型层收入倒推——这些公司要么调用大模型要么自己跑推理，其支出通过底层“基底”被间接计入应用层。这条成本结构的直接推论是：应用层收入增长 10 倍并不意味着利润增长 10 倍，每一美元应用收入都带着一段算力成本回流底层，因此倒三角在利润口径上更陡（作者归纳）。</p>
+<h3>三、供需与周期：产能按五六年建、收入只在当下，训练与推理的负载形状不同</h3>
+<p>一位学生指出倒三角下半部分的本质是在为未来收入购买产能。他把问题重述为期限错配：芯片与数据中心通常按五到六年的周期建设，而应用层收入只反映当下。<strong>“这正是让三角形下半部分具有周期性的原因，你会经历一轮又一轮资本开支周期，把它想成铺铁路。”</strong>他引用课程阅读材料中移动超级周期的对照：第一局里重资本开支公司的市值普遍被推高，一篮子资本开支型公司相对稳态经营型公司的溢价是应当预期的现象，他猜测眼下也正处于这样的阶段。</p>
+<p>训练与推理的比例被他视为 NVIDIA 财报会上“被追逐得最紧的一粒信息”。<strong>按他上次查看的口径，NVIDIA 机队中约 40% 用于推理、60% 用于训练（假设满负荷，卖出一百万张 GPU 中约四十万张跑推理）。</strong>他预期推理占比会上升，但说不出时点，因为世界上仍有大量训练在进行。两类负载的形状截然不同：训练可预测、高利用率、持续时间短；推理是突发式的，“通常在人类醒着的时候发生，直到代理接管，也许那时就是全天候”，且每逢圣诞节与感恩节会莫名下降。提问学生的前提——倒三角翻转的唯一路径是推理规模显著超过训练——他没有否定，只说这是个好假设。</p>
+<p>对想做芯片创业的学生，他给出了客户结构的判断。芯片层有约 3000 亿美元收入可争夺，按 Jensen 在财报会上的披露，其中约一半来自几家超大规模云厂商。<strong>“如果你今天创办一家芯片公司，你的客户群形状是极少数客户下极大的订单”</strong>，与消费或企业软件业务完全不同；长尾企业客户他建议不要指望，因为它们会直接去找云厂商。选定先卖给五家里的哪一家，应当是芯片创业者的头号考虑。</p>
+<h3>四、均衡何时翻转：ASIC 突围与资本开支指引是两个可观测的催化剂</h3>
+<p>有学生问，如果这项技术失败，倒三角会是什么样。他把问题改写成“这个行业的稳定均衡是什么”，并先给出前提判断：AI 不太可能是一时风潮。他自述曾在社交平台上与一位深思此题的人辩论，得出的感受是<strong>“这个形状维持的时间可能比我原本预期的要长”——云时代这个区间约为十年，AI 可能更长，原因是把基底做对实在太难。</strong></p>
+<p>他列出两个可能触发重定价的“解锁”。第一是某个超大规模厂商的 ASIC 项目取得突破性成功——Google 的 TPU、Meta 的 MTIA、Amazon、OpenAI、Microsoft 以及外界尚不知道的实验室项目都算——他认为那将是芯片层规模空前的一次重定价。第二是超大规模厂商停止给出大额资本开支指引，“因为那意味着当前的均衡跑不通”。他顺带给学生一条方法建议：每年四次财报会，上市公司 CEO 会亲口告诉你他们在想什么，值得全部听完；市场对资本开支指引的高度关注正源于此。</p>
+<p>各层的核心追问被他预先写进了后续嘉宾课的提纲。对 NVIDIA：主导地位能维持多久、担心哪些 ASIC、自身业务的“定价压缩向量”是什么。对 OpenAI 与 Anthropic：服务十亿用户的特许经营是否盈利、广告会否成为超过订阅的收入来源（他补充全班“百分之百都在用 Claude”）。对中间的推理层：初创公司目前在赢，但超大规模厂商想在这一层拥有主导发言权，“陪审团还没有裁决”；<strong>这一层的核心问题是“你是一个功能还是一个平台”——很多基础设施创意听起来很好，但只要自问“为什么这不是 AWS 的一部分”，答案往往是它本该是。</strong>对 Google 这样的综合体，他按业务单元拆分：TPU 计入芯片层，GCP 计入基础设施层，Gemini 计入应用层；Gemini 已是使用量排第二的消费应用，但其中多少来自 Google 的分发优势、多少来自产品本身，同样悬而未决。</p>
+<h3>五、扩散的经济学约束：用户层级、单用户变现与广告</h3>
+<p>他把消费级 AI 定义为除编码之外规模领先的 AI 市场，并给出两个基本事实：ChatGPT 的用户约 95% 是免费用户；DeepMind 负责人 Demis 已宣布 Gemini 不打算做广告（字幕此处有口误，原意需回原片核对）。由此他提出两个问题：这类业务能做多大，变现引擎是什么，订阅与广告哪一个会更大。</p>
+<p>他的分析工具是对照 AI 之外的头部消费产品，按用户规模分为三级：约 30 亿用户一级是“近乎生活必需”的产品，如 WhatsApp 与 Chrome；15 亿到 20 亿一级是社交产品，如 Instagram、TikTok、Facebook，并非必需但有很强的网络效应；第三级是既非必需也非社交的“利基”主流产品，购物去 Amazon、听歌去 Spotify、找辩论或猫视频去 Twitter。<strong>按他的图，ChatGPT 刚刚越过利基一级，Gemini 尚未；ChatGPT 正朝社交一级移动。</strong>作为 OpenAI 的投资人，他更希望它朝“核心必需品”一级走，但他自己提出了反对理由：ChatGPT 上没有消息往来、没有收件箱、没有多巴胺，用户到那里必须主动做事、主动提问，而“向技术主动提问的人，并不是全部在线人口”——全球约 80 亿人，40 亿在线。</p>
+<p>变现的量级差距他用三组数字摆出：<strong>Alphabet 约 40 亿用户、每用户每年约 100 美元；Meta 约 35 亿用户、每用户每年约 70 美元；ChatGPT 约 10 亿用户、每用户每年约 10 美元。</strong>按此相乘，三者消费端年变现规模的量级分别约为 4000 亿、2450 亿与 100 亿美元（作者依其口播数字推算，仅示意）。于是消费级 AI 的经济学归结为两道题：用户从 10 亿到 40 亿，他不认为靠知识工作能够做到，必须走到知识工作之外；每用户从 10 美元到 100 美元，他不认为订阅能够做到，“我怀疑我们得进入广告”。他判断 ChatGPT 或 Claude 能投放的广告定价会显著更好，因为系统理解意图、用户处于登录态、归因清晰、信任度更高，并预告这会是今年的另一条大新闻，“理解广告模型这件事里有很多 alpha”。他承认真正的争论在于用户与模型的对话高度私人，不希望被广告打断，他说不出最终形态，但对找到方案持乐观态度。</p>
+<h3>六、与前几轮周期的对照：AWS 的八年、赢家的垂直整合度、手机上的广告位</h3>
+<p>云周期是他校准时钟的主要参照。<strong>按他的口播，AWS 于 2004 年起步，2010 年拿到第一个客户 Netflix，2012 年 Amazon 自身完全迁到 AWS，“从破土动工、从第一轮资本开支算起，八年”。</strong>当年财报评论里的头号争论是 Amazon 会不会因此破产，而今天“至少目前”没有人处在破产边缘，只是数字大了很多。他把这八年与前一节“云的均衡维持约十年”并置，作为 AI 倒三角翻转所需时间的下限参照（作者归纳）。</p>
+<p>垂直整合与赢家规模的关系来自课堂结尾一位学生的提问：过去似乎没有出现过完全垂直整合的一层，Google 在右侧是完全整合的，这会不会改变权力平衡。他逐轮复盘：互联网周期的头号赢家是 Google，市值约 3 万亿美元、搜索份额接近 99%，从自有文件服务器到搜索、广告、用户体验一路自建，算得上相当垂直整合；移动周期的赢家是 Apple，约 2.5 万亿美元；社交周期的赢家是 Meta，约 2 万亿美元，整合度稍低，<strong>“也许正因为没有一路做到服务器，他们少了一万亿”</strong>；云周期则相当异质，没有单一赢家，AWS、GCP、Azure 三家寡头都不是完全整合的。他补充 NVIDIA 一直在向上尝试——DGX Cloud 是其自建云生态的努力，此外还有一系列垂直应用——并对提问学生说“你可能说到点子上了”。</p>
+<p>移动周期还提供了广告的先例。他回忆 Facebook 上市时的一批做空报告，论点是广告在电脑上有效、在手机上无效，理由是手机没有空间；“惊人的是，我们在手机上找到了空间”。他认为今天关于 AI 对话中能否放广告的争论与之同构，同时提醒移动周期第一局里资本开支型公司市值被推高、随后回归的形态，也是当前 AI 底层应当预期的形态。</p>
+<h3>七、把这一讲整理成可复用的分析结构（作者归纳）</h3>
+<p>这一讲没有给出闭合的模型，但其提问顺序可以整理成一套适用于本专题后续每一期的检查表。计量上，先把生态按芯片、基础设施、应用三层拆分，综合体按业务单元归层，传统软件的 AI 收入通过其模型层支出间接计入；成本结构上，追问该业务的边际用户成本是否趋零，这决定其毛利区间落在软件的 80% 到 90% 还是 AI 应用的 0% 到 30%，也决定收入增长能否转化为利润；供需与周期上，比较产能建设期限与收入确认期限的错配程度，错配越大底层越呈周期性，同时跟踪训练与推理的比例；均衡与催化剂上，以云周期的八到十年为时钟基准，把 ASIC 突破与资本开支指引当作两个可观测信号；扩散约束上，用“用户数乘以单用户变现”拆解消费端，按必需、社交、利基三级定位产品，再判断变现引擎是订阅还是广告。<strong>对每一层还各有一句核心追问：芯片层问主导地位能维持多久与定价压缩来自哪里，基础设施层问“功能还是平台”，应用层问增量用户的算力成本由谁承担、以及规模能否越过知识工作人群。</strong></p>
+<p>（口径提示：本文基于自动字幕整理，课堂投影片内容不可见。生态规模“五分之一”、新增约 3500 亿美元、75% 归芯片层、应用层两家公司占 90%、芯片层约 3000 亿美元、NVIDIA 推理占比约 40%、数据中心毛利率约 75%、应用层毛利率 0% 到 30%、三家消费平台的用户数与单用户变现、Google 与 Apple 与 Meta 的市值、AWS 三个年份，均为讲师口播且多数自称约数，其中 AWS 2004 年起步与 2010 年 Netflix 首客、Facebook 上市“十年前”等表述与公开记载可能存在出入，引用前请核对；“两家公司贡献应用层 90% 收入”的具体名单字幕未记录；Demis 关于 Gemini 广告的表态字幕有口误；三家平台年变现规模的乘积为作者示意性推算。产品与模型名称按字幕拼写。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>

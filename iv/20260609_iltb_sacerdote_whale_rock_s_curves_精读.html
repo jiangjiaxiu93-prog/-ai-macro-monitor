@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Sacerdote 论 AI 的“倒 L 曲线”：先买芯片与模型、应用层总在后面，以及应用软件从四五成仓位到净空头（Invest Like The Best，2026-06-09）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.topbar{display:none;position:fixed;top:0;left:0;right:0;height:52px;
+background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+align-items:center;gap:8px;padding:0 10px;z-index:40}
+.topbar .menu{border:none;background:transparent;color:var(--ink);width:38px;height:38px;
+display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:inherit}
+.topbar .menu svg{width:23px;height:23px}
+.topbar .tt{font-weight:800;font-size:16px}
+.topbar .tp{color:var(--sub);font-size:13px;font-weight:600;margin-left:auto}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:45}
+@media (max-width:899px){
+.topbar{display:flex}
+.side{transform:translateX(-100%);transition:transform .22s ease}
+body.nav-open .side{transform:none;box-shadow:0 0 30px rgba(0,0,0,.25)}
+body.nav-open .overlay{display:block}
+.main{margin-left:0;padding-top:52px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<header class="topbar"><button class="menu" id="menuBtn" aria-label="打开导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="tt">AI 产业监测</div><div class="tp">AI 应用主题跟踪</div></header>
+<div class="overlay" id="overlay"></div>
+<aside class="side" id="side"><a class="brand" href="../news.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg>播客精读档案</a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>AI 应用主题跟踪</a><div class="grp">复盘</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg>美股与宏观每日复盘</a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Sacerdote 论 AI 的“倒 L 曲线”：先买芯片与模型、应用层总在后面，以及应用软件从四五成仓位到净空头（Invest Like The Best，2026-06-09）</h2>
+<div class="metaline">Invest Like The Best · 80 分钟 · 2026-06-09</div>
+<p>嘉宾为 Whale Rock Capital Management 创始人兼组合经理 Alex Sacerdote，主持人为 Patrick O'Shaughnessy。Sacerdote 出身 Fidelity，二十年里以公开市场科技股为主业，自述经历了互联网 1.0、移动、云、电商与 AI 五轮平台迁移，2020 年起兼做一级市场，Anthropic 是其当前确信度居首的仓位。这一期对应用层专题的价值在于：他把一套用了二十年的三段式框架（S 曲线、竞争优势、被低估的盈利能力）逐层套在 AI 堆栈上，解释为什么他在 2023 年选择先买芯片、2025 年才买模型层、至今基本不碰应用层，并且用 iPhone、AWS、Apple 的卖点与电动车撞墙等旧案例讲清楚价值在层间迁移的时序。全片观点为嘉宾判断，估值、渗透率、市场规模等数字均为口播，引用前需回原始口径核对。</p>
+<h3>一、三段式框架：S 曲线定方向、竞争优势定赢家、被低估的盈利能力定买点</h3>
+<p>Whale Rock 的框架只有三句话：找到 S 曲线，在曲线上找到有强竞争优势的公司，在盈利能力被低估的时候买。三者的关系是递进的。<strong>“当你踩对了 S 曲线的那一段，你得到的是指数级的销量增长；如果商业模式足够强，利润就不会线性增长，而会指数增长。”</strong>他的经验是每股收益从 1 美元走到 10 美元、20 美元的情况“比你想象的多得多”，这让人得以用极低的市盈率买到全球一线公司。</p>
+<p>他给的锚点是四笔交易：2023 年买英伟达时按其模型付的是 4 倍市盈率，2019 年为汽车 S 曲线买 Tesla 付的是 5 倍，持有 Apple 期间付的是 4 倍，为 AWS 买 Amazon 时“等于白送”。这些倍数显然是按其两三年后的盈利预测计算的，口播中没有说明具体年份口径（作者归纳）。他对为什么市场会给出这种价格的解释很直接：<strong>“世界不按指数思考。很少有人相信你能准确预测两三四年之后，但如果你跟住 S 曲线、懂护城河、会建模，你真的可以。”</strong></p>
+<p>被问到为什么把方法讲给所有人听，他的回答是“赌场也教人玩二十一点”：难点在执行。他列了几件让人做不到的事：过去无人覆盖硬件与芯片，“新手”涌入；股价图已经涨了很多，不敢买；缺少整体图景就没有确信，英伟达过去四年每年都被喊一次泡沫，六个月盘整就被说成“失控”；很多半导体分析师错过了这轮，原因是他们没看懂基础模型层正在发生什么。</p>
+<h3>二、五层堆栈的取舍顺序：先芯片与基础设施，再模型层，应用层等清晰了再说</h3>
+<p>ChatGPT 于 2022 年 11 月发布后，Whale Rock 十人团队做了一次全面深挖。他的出发点是每一次计算范式更替都带来一套新堆栈，并在旧堆栈上制造新的赢家与输家。这一轮的堆栈自下而上是电力、芯片、云、基础模型、应用。2023 年初的决定是先买芯片与基础设施，理由有两条：<strong>这一层最先拿到需求，而且赢家是已知的；无论上面哪家赢，都需要海量算力。</strong></p>
+<p>模型层当时并不清晰。2023 年 4 月他们在网络研讨会上给出四种情景：赢家通吃、因开源而彻底商品化、逐底竞争、三到四家寡头。此后三年的观察是：约六十家参与者里几乎所有创业公司都退出了，Amazon “从未真正出现”，Meta 高调进入后受挫并彻底重启；Anthropic 作为黑马专注企业市场，OpenAI 拿下消费端，Gemini “永远不能被排除”。结果与云市场的演化相似：三家公司支撑整个 SaaS 世界，各自都是很好的生意。对开源的担忧也在这期间消解：<strong>在基准测试上从 80 分到 85 分是巨大的解锁，开源玩家算力不足，能接近前沿但无法超越，随后就掉队。</strong></p>
+<p>应用层则一直没有进入建仓序列。主持人指出历史上应用层拿走了多数市值，而过去没有模型层这一说。Sacerdote 的回答是三点：应用层总是后来的，iPhone 前三四年应用也没起来；模型在哪里结束、应用在哪里开始这条边界不清，应用能否建起足够的护城河未经证明；芯片生态在他们入场时就是清楚的，模型层现在也清楚了，应用层“还有点不清楚，有点危险”。他点名在观察 Brett Taylor 的 Sierra（未持有），“这是橡胶接触地面的地方，他能不能把它做成一家大公司”。</p>
+<h3>三、旧周期复盘：平台迁移里的价值时序，与本轮的对照</h3>
+<p>这一节把他散在全片各处的旧案例集中起来，因为这是本专题特别关心的内容。第一条规律是漫长的平底期。智能手机在 iPhone 之前已经存在十年，互联网在 Netscape 之前存在二十年，Tesla 上市十五年之后才在 2019 年走直，AI 也早就藏在各家公司内部，直到 ChatGPT 把它公开化。平底期的原因是采用障碍：早期智能手机笨重、没有触屏、没有无线数据网络、售价五六百美元；<strong>Steve Jobs 把价格压到 200 美元，AT&amp;T 有了 3G 网络，触屏“简单到你祖母都会用”，再加一个生态系统，所有障碍同时消失，需求的“龙卷风”才出现。</strong>电动车同理：价格降到 4 万美元、续航到 300 英里、供应链能年产百万辆，拐点才被触发。</p>
+<p>第二条规律是要算清曲线有多高。AWS 当年是 Amazon 财报里由零售互联网分析师覆盖的一个隐藏科目，他们算出它直接对应 6000 亿美元的企业 IT 系统，假设云化带来 50% 的通缩，得出渗透率只有 1% 到 2%。后来发现云并不通缩，自建与上云价格相当，意味着市场规模比原先算的大得多。曲线也会撞墙：他们当初认为电动车会占到四五成，实际在 10% 到 15% 遇阻，“通常 S 曲线会走完全程，但这次因为一系列原因没有”。</p>
+<p>第三条规律是卖点与层间迁移。<strong>渗透率到 30% 到 40% 之后指数增长停止，卖方预测追上来，不再有大幅超预期，这通常是卖出时点。</strong>Apple 是他承认的失误：前五六年是其头号仓位，除 2008 年外每年涨 50% 到 70%，2012 年美国智能手机渗透率到五成时卖出；此后 Apple 经历几年跑输、多重压缩，随后靠附加业务以及从应用商店抽取 30% 分成，得以每年约 20% 复合。这里的含义是硬件平台的领导者在曲线后段通过抽成参与了应用层的价值，而应用层本身的爆发在平台成熟之后（作者归纳）。互联网 1.0 时代他覆盖过 B2B 互联网，“基础设施根本不在位，B2B 最终在二十年后由 SaaS 实现”；云的早期也被安全顾虑拖慢，直到 CIA 与 Capital One 上云才真正起飞。</p>
+<p>与本轮的对照有三点。其一，模型层的寡头化与云的三家格局同构，而模型层的差异化程度高于云。其二，Sacerdote 反复用 AWS 2013 年的经验对照 Anthropic：当年人们以为 AWS 只是仓库里的商品服务器，AWS 却在“新的计算方式”上不断发明别人还看不到的产品、慢慢建立锁定；Anthropic 今天围绕 API 建 SDK、编排层、工具与“harness”，被他视为同一种动作。其三，范式切换时也有领导者掉队的先例：AOL 没有跟上拨号到宽带的切换，Netscape 出得早但商业模式不够强。他的总判断仍是“在互联网上，领导者变得更大、更快、并赢下来”，Shopify、Amazon 都是先取得领先然后自我复利。</p>
+<h3>四、为什么 AI 是迄今规模居前的 S 曲线：从 10 个基点到 15%，他称之为“倒 L 曲线”</h3>
+<p>他们请曾与 Clayton Christensen 共事的 Horace Dediu 整理了过去一百年的大 S 曲线，挂在办公室墙上。<strong>收音机是速度居前的曲线之一，七年达到接近全面渗透；洗碗机则很慢，因为它要接进房子的后端管线。</strong>B2B 软件像洗碗机，要接进既有系统；消费品像收音机。云与 SaaS 属于“要接管线”的一类，因此增速是 30% 到 50%。AI 的不同在于“打开浏览器它就在那里”，消费端如此，企业端也接近如此，所以这条曲线“直接向上”，他们内部称其为“倒 L 曲线”。</p>
+<p>渗透率的基数他引用两个来源：Sundar Pichai 说真正在用 AI 的知识工作者占 10 个基点；Anthropic 约有 1400 万到 1500 万 DAU，其中真正按 AI 应有方式使用的只是一小部分。当下约 8 亿人用的还是“AI 1.0”，即“打了激素的搜索引擎”；新的原语（把 Claude 接到电脑上、构建 skills、构建真正的 AI bot）刚刚出现。<strong>他的路径判断是未来四年从 10 个基点走到 1% 到 3%，再到 5%，再到 15%。</strong>企业端今年“灯开了”，所有人都意识到必须现在做、快速做，但状态仍像 1998 年知道需要网站却很难建网站。</p>
+<p>市场规模上他给出的对照是：云市场也许 8000 亿美元，AI 他们现在认为是 3 万亿到 5 万亿美元，“高风险高回报”。供给端的矛盾是，真正用起来的人只有 10 个基点，算力已经全部售罄，<strong>“Anthropic 现在拥有的算力只有它需要的一半，而这是在大规模采用之前。”</strong>他转述 Marc Andreessen 的说法：未来四年他唯一确定的事就是算力不够。这也是他仍把基础设施层（渗透率约 10%）视为参与 AI 的优选路径之一的原因。</p>
+<h3>五、代码是第一个解锁：Anthropic 仓位的建立过程，与模型层为什么不是商品</h3>
+<p>2025 年之前他们对 AI 收入能否兑现、能否真正替代劳动持保留态度，早期模型口碑不错但企业反馈偏负面，能否自主运行存疑。转折是编码工具。第一代是每月 20 美元的 Microsoft Copilot，能改改“代码的语法”、找个 bug、写一段代码；2025 年年中 Anthropic 的产品能做的事多得多，开始自主运行，编码市场随即爆发。<strong>他们听说 Anthropic 内部放开使用的人每天花 100 美元 token，折合每年两三万美元；全球约 2000 万程序员，仅编码一项就是半万亿美元市场，而这是基于七到九个月前的技术。</strong></p>
+<p>建仓过程有一段自我修正。他们看过 600 亿美元估值那一轮但没有参与，原因是“对公司了解不够，毛利率是负的，也没看到编码的爆发”。之后他与 Dario 有过接触，认为管理层专注、几乎没有人员流失、代码质量高、商业计划正在兑现；他们用 Claude Code 扫遍网络上关于编码市场与其产品优劣的反馈，做了一份 90 页的材料，在 2025 年 8 月以 1800 亿美元估值参与投资，并自认拿到了超出体量的份额。当时公司的目标是收入从 1 亿到 10 亿再到 90 亿美元（口播），“没人知道 2026 年会是什么样”。第二个解锁是 Claude Code 近乎完全自主：他转述 Karpathy 与 Torvalds 立场反转，前者去年说工具能写 20%、其余 80% 手写，新模型之后“除了用英语，他没再写过一行代码”。</p>
+<p>模型层为什么不是商品，他给了两层论证。第一层是差异化：云卖的是服务器与存储，基本是商品；模型的训练方法与擅长领域各不相同，路由器切换让它看起来像商品，但 Anthropic 在私募与金融相关任务上强，Google 在读取 PDF 上强，这是关键知识产权。第二层是生态：SDK、编排层、工具与围绕 API 的 harness，“这正是我们 2013 年在 AWS 身上看到的”。套用他的护城河清单，Anthropic 已具备关键知识产权（编码份额）、企业端品牌（“去问任何 CIO，第一个词就是 Claude”）、逃逸速度与规模（十倍销售增长与融资能力），以及“递归改进”：领先的编码能力反哺模型本身，创新速度在加快。他同时承认，在他做过的所有 S 曲线里，AI 的复杂程度与变化速度居首，风险与回报同时处在高位。</p>
+<h3>六、看空应用软件：从四五成仓位到净空头，四重压力与一条尚未成熟的反向线索</h3>
+<p>五年前软件曾占 Whale Rock 组合的四五成。2023 年 4 月的研讨会上他们的初始判断是应用层会受益：这些公司有庞大的销售队伍、有数据，能拿 AI API 做产品。“很快我们意识到它们的 AI 产品不太好，不改变基本面，没人能为其收费。”于是几乎清空了应用软件，仅剩一两个小仓位，<strong>进入 2026 年时整体是净空头，“这在一季度帮了我们很大的忙”。</strong>他的比喻是旧软件像纸笔或马车，新软件像喷气发动机或《星际迷航》的传送器，变化剧烈到“感觉它必须是颠覆性的，哪怕现在还不是”。</p>
+<p>他列了四重压力。一是软件在 CIO 优先级清单上的位置大幅下滑，预算流向 Anthropic 的 token，因为那里的投资回报更快；二是那部分支出挤占总预算；三是过去每年提价的惯例，现在“大概不敢了”；四是就业——部分公司在收缩岗位或冻结招聘，按席位计费的模式受损。至于为什么在位者自己做不出 AI 产品，他的解释是也许只是原语太早，也许缺少合适的人，也许是销售动作不同：交付一个替代人工的系统需要驻场工程师在客户身边确保它真的干活，在位者内部未必有这样的人。</p>
+<p>他也把多头的话讲完整了：旧技术很黏，手游没伤到主机游戏，平板与智能手机没伤到 PC，企业倾向于外购、不再自建（此处为其原意转述），ERP 不会被客户自己重写。但“你无法想象一两三四五年内没有一家 AI 原生公司去追每一个强大的在位者，它们的数据优势可能被抵消，用 AI 把旧系统换掉可能变得容易”。定价上的问题是估值仍高、压力尽人皆知、编码工具还在变好。他给的量化对照是 Salesforce 约 400 亿美元收入，AI 相关 ARR 也许 5 亿到 7 亿美元，基数太大。</p>
+<p>反向线索他自称“半生不熟”：<strong>接入 Claude 的第一件事是接 Slack，如果 Slack 成为关键的信息库，它就成了组织内的永久设施；下一波 AI 代理可能像人一样在既有软件工具里操作。</strong>CRM 正在走向无界面（headless），熊市情形是被降格为一个数据库，但如果代理直接进 CRM 干活，CRM 反而被固化。这条线索的候选对象是网络型工具与大型记录系统（Workday、HR 系统），“我们在这里的思考还很早”。</p>
+<h3>七、看多硬件：四十年商品化之后的“去商品化”，以及 AI 版 40 法则</h3>
+<p>他对硬件的论证从一段长历史开始。过去四十年数据中心没有变化，云时代仍是 Intel x86；算力负载每年增长 25% 到 40%，摩尔定律正好以同样速度改善，于是硬件几乎没有增长，服务器的每一个部件——印刷电路板、内存、机箱、网络——都被商品化，从 1G 到 10G 以太网要花七年。AI 负载每年增长十倍，把每个部件推到物理极限，<strong>“不只是巨大的销量增长，整个行业在去商品化。”</strong>他转述 Shaun Maguire 三年前的话：“真希望能回来做一家硬件对冲基金，所有公司都上市，都有强大的 IP。”</p>
+<p>Celestica 是他给的样本。这家代工厂自 1999 年起“一直是灾难行业”，业务迁往海外、彻底商品化，但保留了 IBM 超算的传承与人才。三年前他们注意到它是 Google TPU 服务器的独家供应商，股价 8 倍市盈率。此后的发现是：AI 服务器液冷、单价二三十万美元而旧服务器 5000 美元，坏了整机停摆，供应商因此变成“飞机上的关键部件”永远不会被换掉；以太网从七年一代变成一年一代，Celestica 参与编写了开源 SONiC 软件层并与 Broadcom 紧密合作，在云以太网交换机市场占五六成份额。PCB 从 10 层到 40 层，能做的供应商很少，Elite Materials 供应覆铜板，单位量 50% 到 60% 的年复合增长叠加 ASP 与毛利上行，可见度从“需要时下周给你打电话”变成“未来四年一起设计路线图”。Corning 的光纤（他读到 Microsoft 一座新数据中心的光纤可绕地球四圈半）、Delta 与 Advanced Energy 的电源（每代英伟达机架功耗多 50% 到 125%）都属同类故事，“ASP 连续四年每年涨 40% 且毛利更高，我听到时不敢相信”。他的总判断是 DRAM、NAND、PCB 当下已短缺约 30%，“就算是商品，也会是一个很好的周期”。</p>
+<p>选股尺子他称为“AI 版 40 法则”：软件的 40 法则是增速加经营利润率，<strong>芯片投资的版本是 AI 收入占比加该品类市场份额，30% 加 30% 得 60，是好位置；应用软件的 AI 占比只有 1% 到 2%，距离尚远。</strong>他补充变化率比绝对值更重要：从 10% 到 30% 的过程中增速与利润率同时加速，2024 年他让 Claude 画这张图没画对，漏掉的正是变化率。</p>
+<h3>八、他自己列的风险清单：舆论与监管、模型停滞、玩家掉队</h3>
+<p>在一小时的多头论述之后，主持人问什么让他担心。第一项是社会舆论与监管：普通人群对 AI 有大量负面情绪，政府部分部门亦然，他提到 Maine 刚禁止数据中心（口播，待核），只有两成人对 AI 乐观，“但我认为精灵已经出瓶”。</p>
+<p>第二项是模型停滞。他认为即便模型不再改进，也还有大量采用要发生，但引用 Jensen 多年前谈显卡的话：“如果够用就够用，我就没有生意了。”<strong>如果 Anthropic 或 OpenAI 撞墙，开源会追上来，可能变成逐底竞争，“对这些股票大概不是好事，但可能对芯片公司是好事，芯片公司不在乎谁赢”</strong>——Jensen 在上一届 GTC 上一直在讲开源。第三项是某一两家玩家掉队，留下它们不再需要的算力；他的对冲是“如果 AI 足够大，别人会把它吸走”，Oracle 取消一笔大单后 Meta 立刻接手就是例子，但如果 Meta 决定退出，就要认真对待。总体上他看到更多公司在真正投入，包括 Microsoft 在尝试自建模型。</p>
+<h3>九、应用层的定价逻辑：公开市场为什么还没给应用层估值，以及研究本身的分工</h3>
+<p>把全片关于应用层的判断收拢，可以得到 Sacerdote 对应用层公开市场定价的三条逻辑（作者归纳）。第一是时序：应用层的价值在平台成熟之后才兑现，iPhone 是前三四年，互联网的 B2B 是二十年，“通常不在前三四年开始，会晚一点到来”。第二是边界与护城河：模型与应用的边界未定，模型公司自己在向上做产品（ChatGPT、Claude 的 harness 与工具），应用公司能否在其之上建起可防守的生意还没有公开市场样本。第三是可观测性：芯片与硬件有份额、层数、ASP 这样可跟踪的硬指标，软件在位者的 AI 收入只有 1% 到 2%，他们“非常密切地观察这些软件公司是否拿到了能改变轨迹的收入”，但改变 400 亿美元基数需要时间。</p>
+<p>一级市场的角色在这套逻辑里是补充：独角兽市场规模已超过德国或英国股市，“有时它们就是这个领域里的头部公司”，因此每年两三千次管理层面对面会议中一到一成五是私营公司，Stripe（2020 年 4 月以 350 亿美元估值接下 1 亿美元老股，倒推 TPV 接近 1 万亿美元而披露口径为 5000 多亿）与 Anthropic 都是先在公开市场把竞争对手研究透之后才进入的。他还提到新设的大盘科技基金：<strong>“小盘股只需要一个人发现它好就能推上去，而要让一百个分散化的组合经理意识到 Google 是赢家，需要一百个人；我们能不能在 95% 的通才 PM 之前想明白。”</strong>在他看来数字经济的规律是领导者更大更快地赢、迅速拿到高份额并在全球销售，由此产生巨大的利润池与市值，而多数捐赠基金在结构上做空了这一点。</p>
+<p>关于研究工作本身，他坦言 AI 尚未取代分析师：方法仍是 Philip Fisher 的“闲聊法”，去和供应商、客户、竞争对手谈；AI 能快速补齐 ABF 载板或 PCB 这类新领域的知识，能把季度回顾写得更好，“但上面必须有一段真正的智慧：这意味着什么，与我们的论点有什么关系，什么变了，别只做记者”。AppLovin 的研究——两位分析师在其私营阶段就跟踪、去拉斯维加斯的应用广告大会、与管理层建立关系——是他给出的 AI 做不到的例子。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理。4 倍、5 倍市盈率等买入倍数为口播且未说明预测年份；Anthropic 的 1800 亿美元估值、600 亿美元轮次、1 亿到 10 亿到 90 亿美元收入目标、1400 万到 1500 万 DAU、“算力只有需要的一半”、每天 100 美元 token 均为口播；“10 个基点的知识工作者”转述自 Sundar Pichai，未给出处；云市场 8000 亿美元与 AI 3 万亿到 5 万亿美元为嘉宾估算；Salesforce AI ARR 5 亿到 7 亿美元、Celestica 五六成份额、DRAM/NAND/PCB 短缺 30%、Maine 禁止数据中心均为口播待核；Stripe 的 TPV 与 take rate 为 2020 年时点的推算；字幕中的 Audion 依上下文判断为 Adyen，Horus Du 判断为 Horace Dediu，公司与人名按此处理。）</p>
+</article></div>
+</div></main>
+<script>
+(function(){const b=document.body,m=document.getElementById('menuBtn'),
+o=document.getElementById('overlay');if(!m)return;
+m.onclick=()=>b.classList.toggle('nav-open');o.onclick=()=>b.classList.remove('nav-open');})();
+</script>
+</body></html>
