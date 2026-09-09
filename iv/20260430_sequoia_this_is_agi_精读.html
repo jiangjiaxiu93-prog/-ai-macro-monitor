@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>红杉的 AGI 论证与它的三根支柱：通信革命对计算革命、能力扩散差、以及"没有安全的领先"（Sequoia AI Ascent 2026 主旨演讲，2026-04-30）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../podcast_archive.html">← 返回播客精读档案</a>
+<div class="card"><article>
+<h2>红杉的 AGI 论证与它的三根支柱：通信革命对计算革命、能力扩散差、以及"没有安全的领先"（Sequoia AI Ascent 2026 主旨演讲，2026-04-30）</h2>
+<div class="metaline">Sequoia Capital · AI Ascent 2026 主旨演讲 · 32 分钟 · 2026-04-30</div>
+<p>本篇是分析笔记，逐段中译另存为精翻，见 `interviews_md/20260430_sequoia_this_is_agi_精翻.md`。讲者为红杉三位合伙人 Pat Grady、Sonya Huang、Konstantine Buhler，分工是校准与应用层策略、当下的代理、未来的认知革命。这场演讲值得单独精读的原因不在于它的乐观程度，而在于它是本轮周期里少数把"为什么这一轮与前几轮不同"讲成了可操作命题的公开材料：它没有停在"更大更快"，而是给了一个类型差异的判断，并从这个判断直接推出了应用层的三条策略。同时它有明确的立场，红杉的钱押在应用层与在模型之上搭建的公司上，因此凡是抬高应用层机会、压低模型层排他性的论证都要打折读。</p>
+<h3>一、论证的骨架：三点不同里只有第三点是真论证</h3>
+<p>Grady 给的三点不同，前两点是程度判断，第三点才是类型判断，读的时候值得分开处理。</p>
+<p>第一点"最大的一浪"的支撑是一个口径转换：这是第一个同时是软件和服务的浪潮。云转型头 15 年软件可寻址市场从约 3,500 亿美元到 6,500 亿美元，云占其中约 4,000 亿；而新增的是服务收入这一整行。他自己先把这个数字的确定性拆了，<strong>"10 万亿美元是一个方便的整数，我们不知道是 10 万亿、5 万亿还是 50 万亿"</strong>，唯一给了具体锚的是"仅美国法律服务就是 4,000 亿美元，那是一个垂直行业、一个地理区域，就抵得上整个软件"。所以这一点的真实内容不是 10 万亿这个数，而是分母换了：从软件预算换成了服务与人力预算。这与黄仁勋在红杉 Training Data 播客上按小时给 AI 付费的说法是同一件事的两种讲法。</p>
+<p>第二点"最快的一浪"的支撑是那张收入十亿美元以上公司的标识图，即空白区域被填满的速度。这是观察不是论证。</p>
+<p>第三点是全篇唯一的类型判断，Grady 注明借自合伙人 Buhler：<strong>"技术革命有两种基本类型。一种是通信革命，关于信息如何被分发……AI 是计算革命，关于信息如何被处理。"</strong>互联网、云、移动都归入前者。他自己也承认"这听起来可能像在抠字眼"，随后给出让它变得可操作的那个体感表述：<strong>"地板一直在脚下移动。"</strong>所有人赖以搭建的技术地基每天都随新能力发布而变化，并列出过去几年的三次拐点，ChatGPT 时刻的预训练、o1 带来的推理与围绕推理时计算的第二条扩展定律、以及最近 Claude Code 展示的长时程智能体，并强调<strong>第二点与第三点之间存在一道断裂，是不连续的变化</strong>。</p>
+<p>值得注意的是措辞。演讲里用的是"three major inflection points"，而红杉 2026 年 1 月 14 日的同名文章《2026: This is AGI》把这三样称作 AGI 的三种"成分"（ingredients），并给了对应时点。引用时按所引载体选词。另外演讲只论证了计算革命中地板在动，并没有反过来断言前三轮的技术地基稳定，把"前三轮地基相对稳定"写进正文属于作者归纳。</p>
+<h3>二、AGI 的功能性定义：这是一个商业口径而非技术口径</h3>
+<p>Grady 对定义问题的处理很干脆，先自我限权再给定义。<strong>"我是学经济学的，我们是风险投资人，不打算提出一个关于 AGI 的技术定义。我们研究的是创始人、市场，以及两者相撞产生的东西，也就是生意。"</strong>然后是那句功能性定义：<strong>"如果你能派一个智能体去干一件活，它能从失败中恢复、并且坚持到把这件活干完，我不知道，那感觉就挺像 AGI 了。"</strong></p>
+<p>这个定义的作用是把 AGI 从能力争论里搬出来，变成一个可以被采购与部署验证的属性：能否交付、能否自恢复、能否坚持到完成。它绕开了智能水平的度量问题，代价是把定义标准降到了工程可靠性上，因此这句话不适合被引用为对模型能力的判断，只适合引用为红杉给企业买家的验收口径。</p>
+<p>紧接的"更快的马"到"汽车"是同一件事的产品侧表述：过去几年是效率提升 10% 到 40%、不改变工作方式的应用，现在开始出现效率提升 10 倍到 40 倍、并且改变工作性质与组织性质的应用。<strong>"汽车已经到了。"</strong>这组比喻在库里与 Brockman 关于聊天与代理合并的说法、Acharya 关于"用上 AI"与"围绕 AI 重组"分水岭的说法互为印证，三方都在说同一个转折点，只是切面不同。</p>
+<h3>三、MAD 三支柱：反直觉的那一条是往客户看而不是往能力看</h3>
+<p>这是全篇对应用层最有操作性的部分，也是红杉立场最集中的地方。</p>
+<p>护城河那一条是明确反直觉的：在计算革命里你会本能地盯着不断冒出的新能力，<strong>"而为了建护城河，你真正应该做的是往上看客户，因为你的客户变化的速度，远远慢于能力变化的速度"</strong>。他给的推论是<strong>"你造的东西明天可能就不相关了，而你把自己缠绕在客户身上的程度，会更持久一些"</strong>，同时补充产品与技术依然极其重要、通常最好的产品会赢。这条判断的逻辑基础正是第一部分那个地板比喻：正因为地基在动，所以护城河不能建在地基上。</p>
+<p>可达性那一条借自设计领域，用锤子作例，<strong>"一个有可达性的物件，是不需要被解释的物件"</strong>。他给的反例点名了 Claude Code：<strong>"Claude Code 强得离谱。去给一个普通的世界 500 强员工打开一个终端，看看他能走多远。"</strong>并明确声明这不是贬低 Anthropic，而是留给在其上搭建者的机会。这句话在库里可以与斯坦福 MS&amp;E435 系列里关于应用层与模型层分工的讨论对读，也可以与 Acharya"堆栈每一层都有二十家玩家"的判断并置：红杉说的是模型层强而入口不友好，因此应用层有活干。</p>
+<p>扩散那一条给了机会的量化方向：<strong>"能力向市场扩散的速度，远远赶不上这些能力被创造出来的速度。基础模型每比一家普通的世界 500 强企业跑快一天，这个差距就变大一点，这个机会也就变大一点。"</strong>这是一个对应用层单方向有利的表述，也是最应该打折读的一条：同一个扩散差既可以解释为应用层的机会空间，也可以解释为企业侧采纳缓慢导致的收入兑现滞后，红杉只取了前一种读法。</p>
+<p>收尾的"没有安全的领先"用赛车比喻：<strong>"晴天你超不了 15 辆车，雨天你可以超 15 辆车"</strong>，而现在新能力正在倾盆而下，"这意味着没有安全的领先，但也意味着任何人都可能赢"。作为面向创始人听众的演讲，这是恰当的收尾；作为投资判断，它同时含着一个不常被引用的含义，即在位者的先发优势在这一轮更容易被抹平，这对已经拿到收入的应用层公司是负面的。</p>
+<h3>四、Huang 的当下：代理三部件，以及"服务是新的软件"</h3>
+<p>Huang 这一段的价值在于把代理拆成了可跟踪的部件，而不是停在现象描述。</p>
+<p>她先用 2022 年的 AutoGPT 与 BabyAGI 定位当时的失败原因，<strong>"看着挺有戏，直到你看着那些智能体一次又一次又一次地失败。有点可爱，有点惹人怜，但完全没用"</strong>，结论是代理要来这件事几年前就能看见，只是模型还没准备好。这个判断很重要，它把代理的可用性归因到模型的长时程能力而不是工程框架。</p>
+<p>三个功能部件是推理与规划、采取行动、朝目标迭代，<strong>"代理性把这三件事结合起来，它就是把事办成的能力"</strong>。对应的三个构成件是模型、工具、harness。模型是大脑，她引 METR 那条任务时长曲线，从一年前的几十分钟量级到今天的数小时量级，并称这是"发生过的最重要的事"。工具是手脚，她给了一个与市场共识相反的判断：<strong>"有一种常见的论调说 SaaS 已死，我的看法恰恰相反：随着使用这些工具的代理数量增加，这些工具的价值将会爆炸。"</strong>harness 给的是持久性，强化学习让反馈回路真正转起来。</p>
+<p>代理性的滑动标尺是这一段最实用的框架：从 2023 年的 tab 自动补全，到一个人指挥一个或一队代理的代理式开发，到后台代理、异步代理、代理派生子代理，最后到她称为"黑灯工厂"的形态，把人类审查完全拿出系统。她给了一个具体的可信度锚：<strong>"这听起来很疯狂，但我在生产环境里见过，包括在网络安全公司。只要护栏够好、工程够好，这是可能的。"</strong>她判断异步代理这套范式很可能在量上超过当前范式。</p>
+<p>"服务是新的软件"是给创始人的落点，她说 Pat 讲了很久、合伙人 Julian 写过文章，"我们早就知道这件事，但我觉得它现在真的在发生"。支撑这个判断的经济学是她那组人与代理的对照：人难以扩展而代理有算力就能扩展，人贵而代理付 token，<strong>"通常用 token 完成一项任务的成本，低于等量工资"</strong>。她主动澄清这不意味着人类失业，"我认为人类独有的特质是适应力"，但预期代理在应用层的部署会以前所未有的速度铺开。这组对照与 NVIDIA 那期讲 token 效用是同一枚硬币的两面：红杉说的是 token 成本低于工资所以会铺开，NVIDIA 说的是必须按用例匹配 token 价值否则价差不成立，后者是前者的约束条件。</p>
+<p>她收尾时给的三个压缩时间线例子（Zed 的 Nathan 假期完成三年项目、Bret Taylor 周末重建 Sierra、Notion 六周重写 800 万行代码）都是转述且无出处，真正有分量的是她加在后面的那句话：<strong>"很少有人见过：当你把这些被压缩的时间线一个个叠起来，会发生什么。"</strong>由此得出"一百年的东西一百天造出来"。这句是全篇最容易被误引的表述，它是把单点提速外推到复合提速的修辞，不是测算。</p>
+<h3>五、Buhler 的未来：一个强类比与它的弱点</h3>
+<p>Buhler 把 Grady 的二分再做一次，把工作分成体力与认知，然后主张两者在革命中遵循相似模式。他的论证结构是：人类历史绝大部分时间体力工作由肌肉完成，水力风力、蒸汽机、内燃机与电动机之后，<strong>"到今天，2026 年，你可以估计地球上为人类完成的所有体力工作中，99% 以上是由机器完成的"</strong>；认知侧刚开始，过去一百年电子计算已经在任一时刻承担万亿次计算，<strong>"我们相信神经网络是下一个大浪，并且在不远的将来，地球上 99.9% 的认知将由机器完成"</strong>。结论是<strong>"认知革命会很像工业革命，只是大得多、快得多"</strong>。</p>
+<p>这个类比的力量在于它把"AI 会渗透多深"从信念问题转成了历史参照问题。它的弱点也明显：两个 99% 的数字都是他自陈的估计，前者他用的措辞就是"你可以估计"，而"认知"缺乏体力工作那样的可加总物理单位，把每一次浮点运算与人的一次判断放进同一个分母本身就是选择，而不是测量。引用这一段应引其类比结构，不宜引其比例。</p>
+<p>四个故事是演讲的修辞高潮，各有一个可用的判断。铝与电解讲的是稀缺技能的价值坍塌，<strong>"一些最珍贵的、需要几十年才能挣到的技能，博士级别的技能，可以被瞬间调用，用完之后你可以把它揉成一团扔进垃圾桶"</strong>，这与 Collison 的食物类比是同一结论的两种讲法，即价值流向稀缺处而智能正在变得丰裕。异星设计讲的是机器接手认知后结果不再符合人的直觉，用 2006 年 NASA 那副演化算法生成的天线作例，<strong>"当 AI 设计芯片、汽车、建筑，它们的样子可能大不相同"</strong>。第三个故事最有方法论价值：内燃机被工程师"鼓捣"了近一百年才等到卡诺把它形式化为热力学，<strong>"现在我们正处在 AI 的鼓捣阶段。即使我们以为它是一门已被理解的科学，它不是"</strong>，他预期未来几十年会出现一门像热力学一样基础的科学。这条判断对如何看待当前的扩展定律有直接含义：扩展定律更接近瓦特时代的经验规律，而不是热力学。第四个故事是摄影术之后绘画转向印象派，用来说明人类如何在机器接手写实后重新定义目的。</p>
+<p>落点是普罗泰戈拉的"人是万物的尺度"，他的解读是任何东西在真空中对人都没有价值，铝没有、艺术没有、智能也没有，<strong>"它有价值，只因为体验"</strong>，然后是<strong>"AI 能做这份工作，AI 也将做这份工作。但只有人与人的连接，能给你一个在意的理由"</strong>。作为面向现场听众的收尾这是得体的，但它与前面 99.9% 的认知外包判断之间存在张力：如果认知几乎全部外包，那么"体验"作为价值来源究竟由什么支撑，演讲没有回答。</p>
+<h3>六、这场演讲在库里的位置</h3>
+<p>三条可以直接接到其他材料上的线索。其一，通信革命对计算革命这个二分，是目前对"为什么本轮护城河更难建"给出的最简洁解释，可与 Foody 关于应用层无护城河、Mignano 关于护城河在上下文与先发的两种相反判断对读。其二，扩散差这个概念给了应用层机会一个可跟踪的指标，但它同时也是企业侧收入兑现滞后的同义词，两种读法在库里分别有支持者。其三，"服务是新的软件"与 NVIDIA 的 token 效用框架互为约束，前者讲替代的空间，后者讲替代成立的条件，合起来比任何一方单独看都更完整。</p>
+<p>---</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，逐段中译见同名精翻。10 万亿服务市场为讲者自陈的"方便的整数"并给出 5 万亿与 50 万亿两个替代值，唯一给了具体锚的是美国法律服务约 4,000 亿美元；云转型头 15 年软件 TAM 数字、模型任务时长量级、体力工作 99% 与认知 99.9% 两个比例均为口播估算且未给来源，后两者讲者自陈为估计；三个压缩时间线例子为转述，无出处；"三次拐点"为演讲原话，红杉同名文章称其为 AGI 的三种"成分"；演讲未断言前三轮技术地基稳定，该推论属作者归纳。）</p>
+</article></div>
+</div></main>
+</body></html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Singhal 论产品经理的两年混乱期：搬运信息的人会变成恐龙、裁三万招八千、以及"这不会持续三十年"（Lenny's Podcast，2026-04-19）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../podcast_archive.html">← 返回播客精读档案</a>
+<div class="card"><article>
+<h2>Singhal 论产品经理的两年混乱期：搬运信息的人会变成恐龙、裁三万招八千、以及"这不会持续三十年"（Lenny's Podcast，2026-04-19）</h2>
+<div class="metaline">Lenny's Podcast · 95 分钟 · 2026-04-19</div>
+<p>嘉宾 Nikhyl Singhal，Meta 与 Google 的前产品高管，Credit Karma 前首席产品官，四次创业者，现经营面向产品负责人的社群 The Skip（约 125 位产品负责人）。这期值得读的原因有三：它是从组织与职业侧观察 AI 冲击的第一手汇总，样本是每月聚会一次的百余位在职产品负责人，而非实验室或投资人视角；它给了一个可被引用的组织变化预测，未来 12 到 24 个月大规模裁员与大规模重新招聘并行，量级是"裁三万招八千"；它给出了这轮混乱的时间边界，明确说不会持续三十年，并用 Google 当年创建 APM 项目的历史类比来定位当下。需要提醒的是，全片是嘉宾基于自身社群观察的个人判断，所有数字与比例均为口播且无统计口径，招聘市场数据来自主持人 Lenny Rachitsky 自己的报告。</p>
+<h3>一、被怀念的过去其实并不好：责任无权力是最大的职场压力</h3>
+<p>Singhal 从纠正一个错觉开始。他与 Lenny 上次录节目大约在疫情末期，也就是所谓零利率时代将尽的时候。他的观察是，如果你真的去问三年前的产品负责人，<strong>"他们并不快乐"</strong>，因为那时候一天的工作主要是把信息从一处搬到另一处，"让我把团队呈现信息的方式重新组织一下，好让我老板能再组织一遍呈给他老板的老板"。他给这种状态的定性是这个职能变得<strong>"极度聚焦于有责任而无权力"</strong>，而这是<strong>"职场压力的最高形式"</strong>。</p>
+<p>这是全篇的隐藏前提，也是他后面所有乐观判断的基础。他要说的不是 AI 让产品经理变好了，而是产品经理原本处在一个糟糕的均衡里，AI 恰好拆掉了其中最糟的部分。他补了一句时代背景：那时候薪酬不错，裁员刚刚开始，行业规模是史上最大，产品经理和首席产品官的数量都是历史上最多的。</p>
+<h3>二、文艺复兴与疲惫并存："微笑的疲惫"</h3>
+<p>变化的一面是人们重新获得了乐趣，尤其是产品人，因为他们能亲手造东西了，不必依赖那么多人才能产生影响，从自己的想法到测试、再到把产品直觉与客户连起来，中间的链路直接了。他给这个状态的定性是<strong>"这在很多意义上是产品行业的一场彻底的文艺复兴"</strong>：他所在的圈子里最强的建造者薪酬处在历史高位，手上的 offer 比以往任何时候都多，下一份工作可能是创始人、CEO，或者是产品之外的另一个 C 级职位。</p>
+<p>另一面是他说自己<strong>"从没见过比现在更累的行业"</strong>。原因不是工作量，而是没有任何东西是恒定的：过去你搞明白怎么做好自己的工作，就可以稳当十年，直到当上经理，然后再稳当到当上高管；现在<strong>"如果你三个月不跟进，别人会说，哦，你还在做那件我们三个月前就不做了的事"</strong>，PRD 之类的东西已经不再是重点，"所有人都处在警戒状态"。他叠加的另一层是中年处境：三十多岁的人正处在职业上精力最好、终于知道自己在干什么的"权力之年"，同时在成家、有孩子、父母老去、身体第一次出现酸痛，"而现在我们还对他们说，跟上啊，Claude Code 最新是什么？今早又改了"。</p>
+<p>被问到人们整体上是变好还是变差，他把两件事分开：<strong>"处在巅峰状态的人过得好得多"</strong>，但<strong>"我们这个行业整体承受着很大压力"</strong>，因为即便干得好的人也更焦虑，担心自己跟不上，或者担心行业变化后自己成为路边的尸体。他在结尾处给了一个很准的短语来概括社群里的状态：<strong>"是微笑的疲惫。我在我的社群里看到的，以前只是疲惫。我宁愿要微笑的疲惫，也不要疲惫。"</strong></p>
+<h3>三、公司侧的两年：判断力成为付酬对象，机械环节被软件淘汰</h3>
+<p>被问到未来两年会怎样，他先讲了上周四那场约 125 人的产品负责人聚会。他们做了个展示环节，从创业公司到中后期公司轮流演示自己为公司或为自己的生产率造的东西。他注意到两件事。一是现场的喜悦，人人抱着笔电互相比拼，"我的幕僚长应用能做这个，我的能做那个"。二是<strong>他们谈论产品决策如何做出、优先级如何确定、信息如何在公司内流动的方式，"看上去与我几年前工作时经历过的任何东西都像是完全陌生的动物"</strong>。他上台说的话是，你们所有人谈论在企业里使用智能体、用幕僚长应用驱动生产率、把全部时间放在判断上、把任何可以被淘汰的东西都写成软件包起来，<strong>"这些东西在 12 个月前甚至不在我们的语言里、不在行话里"</strong>，那么再过 12 个月会是什么样？</p>
+<p>他对公司侧的预测是产品负责人会越来越多地因为"驱动判断"而被付酬，并成为用软件、AI 与智能体去淘汰其他一切的矛头。理由很实在：<strong>"说老实话，你当过产品经理我也当过，你不喜欢做的那些事，恰恰就是 AI 正在真刀真枪下手的东西。"</strong>他给的时间表是<strong>两年内多数公司会淘汰掉造产品过程中所有机械的部分</strong>，同时<strong>呈递到产品面前的变更会比以往多出 10 到 100 倍</strong>，因为测试和改动的成本会低得多；变化如此之快，判断就成了最重要的东西。</p>
+<p>被要求定义判断时，他说的是评估我们要改的这件事是好是坏，评估该往这个方向改还是那个方向改，"你不可能给同一个产品建一百个定制版本，那会影响品牌，影响可维护性"；当客户提要求时，你要想清楚怎么造出可持续、有差异化的东西，以及评估它是否达标、是否值得造和发布。他把这条追溯到更早：<strong>"这几乎是互联网诞生以来就存在的系统性技能，不是关于某个功能，而是关于我们拼在一起的那个系统、那个平台。"</strong></p>
+<p>一段有意思的旁支是他认为两年内"不会再有烂软件"，他自己说这更像愿望而非预测。他的例子是自家房子里有十五个 App 分别控制百叶窗、空调、车库门，几乎每一个都很糟、没人监控、坏了也没人查，<strong>"这些东西都会被修好，因为总会有人坐下来让 Claude 去修，它就修好了"</strong>。Lenny 接的是自己常用的提示词就是"怎么让这个产品体验更好"，然后 AI 给十条，"好，前七条做了"。Singhal 的延伸是会有某种超级技能扫过应用商店里的每一个软件把它们全修一遍。他还讲了一个偏冷的观察：直到不久前 COBOL 的代码行数可能仍多过任何其他语言，主机销售仍然不错，而<strong>"很多写那些代码的工程师已经过世了"</strong>，代码是十年二十年前写的，进去动它是所有人最不想做的事，全是下行风险，"现在我们可以改变这一点"。</p>
+<h3>四、裁三万招八千：过去五年的扩编没有换来对等产出</h3>
+<p>这是全篇被引用最多的一段。他说公司正在非常仔细地审视人员配置，问自己两个问题：我们需要这么多人吗？我们是不是招多了？依据是很多上市公司过去五年把员工数翻了一倍，<strong>"我们拿到两倍的产出了吗？"</strong></p>
+<p>他用自己在 Google 的经历做参照。十到十五年前他在一个非核心团队，当时公司有两三四万人，他们常自问 Google 要达成业绩到底需要多少人。<strong>"如果你问一个不在科技行业的人，他会说大概 90% 吧。而答案大概更接近 9%。你可能需要五百个人来维持运转并把那门生意建起来，你不需要两万五、三万、四万人。"</strong>他补充说公司多招人不是因为想养官僚，而是因为想扩张、想试新东西。</p>
+<p>结论是审判日回来了：公司发现过去五年扩的编没换来对等产出，而 AI 这件事又需要完全不同的技能组合，两者叠加，<strong>"我预测在未来 12 到 24 个月，我们会看到大规模的裁员，然后是大规模的重新招聘。你可能会看到一家公司裁掉三万人、招进八千人，但那八千人会全部是 AI 优先的"</strong>。被裁的三万人，一部分是因为没换来预期产出，一部分是因为公司想以轻得多的载荷重新设定目的地。他自己承认<strong>"这很黑暗"</strong>，会让今年和明年相当难熬。</p>
+<p>主持人在这里插入了一个方向相反的数据：他刚做完一份就业市场报告，<strong>截至当时全球科技公司开放的产品经理岗位是三年多以来最多的，上一次这么高大约是疫情期间</strong>。Singhal 的解释是这取决于你怎么定义产品经理，他认为这是第一次出现了对这个定义本身的剧烈重构。</p>
+<h3>五、搬运信息的人会变成恐龙：一半的产品经理在另一边</h3>
+<p>他把三年前那次对话里的"原型"讨论向前推：<strong>"搬运信息的人基本上会变成恐龙。"</strong>他估计<strong>约一半的产品人拥有的是这项技能与超能力</strong>，而另一批人当初进产品是因为喜欢造东西，"这些人是建造者，而所有人都想要建造者"。他补充说很多工程师是建造者，很多设计师是建造者，很多市场人也是，<strong>"'招建造者'会是接下来两年的大标语"</strong>。</p>
+<p>他解释造东西为什么让人上瘾时讲了一个细节：当产品经理的时候他会中途去换家里的灯泡，因为灯泡坏了，换掉之后灯亮了，那种满足感很强，<strong>"因为在产品这份工作里，几乎没有几天是有满足感的，你没有能力看到一个坏掉的东西被修好"</strong>，这正是有责任无权力的代价。而现在你可以直接参与那份喜悦，可以自己做一版设计，不必等设计师、不必说服他，也不必把东西放进待办队列。</p>
+<p>流动的方向也在变。他的社群五年前头两三年只有一位创始人，最近 12 个月里社群从六七十人扩到 125 人，创始人变成了 14 位，<strong>"14 个人决定他们的下一份工作不是再接一个产品高管的职位，而是去创业"</strong>。他还举了一个更意外的例子：社群里一位非常资深的人去面试首席人力资源官，因为那家公司想要一个产品经理背景的人来做这个职位，理由是需要有人把"淘汰旧做法的技能、判断的技能、赋能的技能、建造者的技能"带进这个职能，<strong>"而这个职能本身可能比这份工作的其他部分更容易学"</strong>。</p>
+<p>反面他也说得直白：如果你不是建造者，如果你会说"我其实对技术没那么感兴趣，我只是发现这是一份收入不错的工作，我擅长沟通、擅长搬运信息、喜欢带团队"，那么<strong>"如果你不喜欢造东西，你有麻烦了"</strong>，而他估计约一半的人在这个阵营。出路可能是离开科技行业，或者用这些 AI 工具去科技之外创业。</p>
+<h3>六、品牌在贬值：简历上的大厂标识可能反而是负担</h3>
+<p>他称这是最出人意料的转变之一：<strong>"你的品牌不如你在交付产品上的现代程度重要。"</strong>过去十年的逻辑是"你见过这部电影吗"，个人品牌很重要，我在这家公司做过、他们交付过规模化的产品，于是别人认为你懂行。但如果造软件和交付产品的方式与过去十年完全不同，那么你在旧版本里怎么交付的就越来越不相关。他从面试反馈里听到的是现在会给你一个场景，问你用什么工具、你的判断是什么、你怎么想，<strong>"而不是问五年前你发布了那个东西时的思考过程"</strong>。</p>
+<p>他把这条推到一个有点扎人的位置：那些最大的品牌，甚至很难讲清楚你做了什么。<strong>"如果你在 Meta 待了两年，说我让算法的这一部分跑快了一点，而且它影响巨大，说实话在走廊里推动这个决策、找到增量有多难，作为在那里工作过的人我理解也尊重，那是值得晋升的成就。但在一个对方活在未来、产品已经完全不同的对话里，这话落地是很平的。"</strong></p>
+<p>Lenny 的总结是过去简历上的一堆标识很体面，现在有时反而可能伤到你。Singhal 顺势给出全篇最凝练的一句概括：产品经理身上被真正看重的技能<strong>"几乎在重要性上被上下颠倒了"</strong>。他解释这个颠倒的路径：我们很多人的职业生涯从建造者开始，然后被教导要杠杆、要规模、要组织、要精简、要赋能、不要自己造，<strong>"别修车，去修工厂，这是我们这一行的成熟过程"</strong>。然后你发现规模可以用完全不同的方式实现，而所有人只在乎你的观点和你造的东西，<strong>"这非常刺耳，而这就是我们正在经历的"</strong>。</p>
+<h3>七、为什么重塑这么难：同等地让每个人失望，以及"影子超能力"</h3>
+<p>被问到具体建议时，他先解释阻力。他的观察是人类不是被设计来轻易改变的，而且随着年纪增长我们被教导要少变：小孩不断摔倒，而成年人上一次摔倒是什么时候？孩子学语言快是因为不怕犯错，"我们被训练去找到一个舒适的中间状态，然后尽可能少地做改变"，找伴侣安定下来，找份工作尽量留下，能不换工作就不换。于是我们对"重塑自我"这件事建立了心理障碍：被要求改变时，第一反应是这真的必要吗？听起来好累，我这么辛苦才走到这里。</p>
+<p>更深的一层他说得很直接：在有些人内心最里面，<strong>"这不是当初的交易。交易是我做了我该做的，上了学，努力工作，拿到工作，建立了品牌，当上经理，挣到了收入，有了伴侣和家庭。你现在告诉我这么久之后我得从头再来？"</strong></p>
+<p>他还给了一个关于时间的说法很值得记：在权力之年，<strong>"你的目标是同等地让你生命中的每一个人失望"</strong>。这话听起来很糟但是真的，你有六小时、八小时、十二小时可给，而需求有二十小时，你的优先级机制就是均匀分配失望，不让父母比孩子、比健康、比家庭、比朋友、比伴侣、比工作更失望。而现在你告诉他第一要务是重塑自己。</p>
+<p>雪上加霜的是目标在移动：好吧，我请一周假去搞清楚大家在做什么、最新是什么，"结果三个月后那一周的成果已经过时了，你得一直做下去，因为靶子一直在动"，<strong>"我永远不在心流里，因为我得一遍又一遍地重来"</strong>。</p>
+<p>他称之为"影子超能力"的观察是全篇最锋利的一条：<strong>"过去最擅长工作的人、把旧游戏玩到大师级的那些人，最难通过这个重塑阶段。"</strong>因为你越擅长掌握一个系统，越不容易认出新的那个，你的整个世界都在告诉你这套管用；<strong>"而你越弱，你对改变越兴奋，因为我现在做的不管用，那不如换"</strong>。如果你真的很强，你没有改变的激励，甚至你的雇主也看你干得很好。</p>
+<p>他的第一条建议因此是心理上的：<strong>"你必须有勇气，必须相信，必须有那个力量对自己说，我知道我们工作的方式在变，我需要保持现代、保持当下，所以我要跨过那道心理门槛，并且把它的优先级放在一切之上。"</strong></p>
+<h3>八、APM 类比与两年后的稳定态：这不会持续三十年</h3>
+<p>这是全篇提供时间边界的一段，也是被外部引用最多的一段。他称之为"婴儿版本"的安慰。</p>
+<p>历史类比是：当年 HP、思科、AMD 这些公司造的是物理硬件、工程周期很长，由此诞生了叫产品管理的学科，那套做法有非常具体、非常结构化的工作方式，<strong>"而当互联网公司出现时，它基本上被炸掉了"</strong>。Google 是其中之一，创建了 APM 项目，因为他们觉得市场上现有的这套产品做法不是他们需要的，也没看到成效，"事实上我们要从头培养这个新品种"。这催生了如今大量的产品经理，微软、Meta 和其他大雇主也开始创建各自的新版本。而<strong>"头几年非常刺耳，因为他们做的那些被称为产品管理的事，与旧的产品管理几乎只剩名字相同"</strong>，也不再是读个商学院学位就能当产品经理，你得先工作、建立专长，然后进来做组织与协作。</p>
+<p>落到当下：<strong>"接下来这几年就会像那样，每三个月我们就会有更多智能体、不同形式的判断，它们在模糊角色和职责的边界，不同背景的人进来，有人离开，会是混乱。"</strong>紧接着是关键的转折：<strong>"但随着一两年过去，事情会安定下来。公司会以某种确定的方式被建起来，而不是你要持续改变工作方式。你会到达某种形式的优化状态。我们现在无论从哪个角度看都还完全不在那个状态里。"</strong>他重复了一遍：<strong>"再过几年，这件事会有某种常规性，会有培训，会有一致性，你的下一份工作会看起来像上一份工作。"</strong></p>
+<p>然后是那句明确的边界：<strong>"我不想传达这样一个意思，说未来三十年你都会待在一个转得越来越快的旋转木马上，最后你只能跳下来跑到角落里吐。我完全不是这个意思。"</strong>他要说的只是，现在是这样一个时刻：如果你热爱造东西，你必须保持当下，因为你会更快乐也更相关；如果你不爱造东西，你必须认清行业正在离你而去。</p>
+<p>需要注意引用边界：他讲的是产品管理这个职业与造产品的方法多久重新稳定，用词是"a couple of years"这种松口径，并不是企业完成 AI 部署的时间表，也不是这轮技术变革整体的时间表。</p>
+<h3>九、喜悦是倦怠的解药：跨过门槛的那一刻总是一件小事</h3>
+<p>他最重视的机制不是纪律而是喜悦。他建议人们做一个练习：给这一周开过的会分别标绿、黄、红，然后看颜色分布，<strong>"我打赌绝大多数在产品组织里的产品经理会是大部分黄和红。而我告诉你，那些转向建造模式的人，大部分是绿和黄"</strong>，然而多数人仍坐在那里非常害怕、觉得自己被卡住。</p>
+<p>他观察到的转折点是<strong>第一次使用新工具时体验到的喜悦</strong>，"每个人都有一个故事，故事各不相同，但都非常个人化"。通常是我本来用某种方式做事，突然之间我造出了这个东西，可能是我和伴侣用的一个 App，可能是一个盯着收件箱的幕僚长应用，可能是用它管家里的灯，"都是些傻事"，并且往往伴随一个熬夜或者花大量时间跟朋友聊、跟 Claude 聊的过程。他自己的妻子有一个这样的故事，从用 AI 做商业计划到真的去做市场测试。<strong>"每个人都有那个喜悦的时刻，然后他们就像中了毒一样。那一刻他们跨过了从恐惧到喜悦的门槛。而喜悦是倦怠最大的解药，因为一旦有了喜悦，它就不再像工作。"</strong></p>
+<p>他的判断是如果不做建造，产品管理这份工作大多感觉像苦役，而现在正在进入一个产品管理等于建造和喜悦、而不是苦役的世界。他也留了诚实的余地：有一类人会说这一切都不有趣，"那你大概不适合我们这个行业的下一个版本，你应该尊重这一点，也该对自己诚实"。对管理者他的建议是去在下属身上找到那些喜悦的时刻，因为它有传染性。</p>
+<p>他自己的用法很具体：这三个月基本全押在 Claude 上，此前有一个月比较激进地用 Codex；他给社群造网页设施，比如一百个人无法互相认识 99 个人，谁该见谁、怎么配对、怎么保证配到没见过的人，<strong>"这整件事以前是我坐下来想，现在我写软件来做，我写一个智能体去做匹配"</strong>；还有智能体去汇总社群里在招的职位并自动匹配给感兴趣的人。他的方法论来自第一份工作时问一位顶尖工程师什么是好工程师，对方说是他父亲，而定义是<strong>"工程师是那种把自己从所做的每一件事里淘汰掉的人"</strong>。他说 AI 给这条定义加了倍数，"我的技术栈就是我能做什么来淘汰我每天做的任何事和所有事"。Lenny 补的一条实用建议是解决你自己的问题，随便挑一件日常里不顺的事让 AI 帮你做。Singhal 观察妻子后修正了自己的看法：原以为这需要系统工程技能，但<strong>"你甚至不需要是工程师，你只需要对你想看到什么有主见"</strong>。</p>
+<h3>十、具体建议：提速、吞下自尊、长期视角</h3>
+<p>除了找到喜悦时刻和"淘汰自己"的工程师心态，他给的三条更硬。</p>
+<p>第一是提速。<strong>"接下来两年需要肚子里有火"</strong>，需要大量能动性。他的类比是换新工作的第一年，或者一段新关系的第一年，你会拿出最好的状态；现在需要的就是那种储备，得挤出时间，<strong>"可能得以过去没有过的方式让别人失望，好为自己创造时间去保持当下"</strong>。</p>
+<p>第二是吞下自尊。<strong>"我不想听到任何人说，我曾是某某级别的领导者，我只考虑同级别的职位。"</strong>他要求的是无自尊的视角：如果一切都在变，过去做过什么不重要，品牌也不重要，你不仅要愿意、而且要主动去找那些甚至更小的机会，以确保自己正确地穿过隧道。</p>
+<p>第三是长期视角，这也是他社群名字 The Skip 的由来。他说最好的职业建议从来不是想下一步，而是想下下步，"什么是 skip 的工作，什么是 skip 的机会"。在当下这个世界里，<strong>"重点不是现在的机会，而是确保你的下下个机会被保住"</strong>，能拿到高薪，能拿到那些顶级的建造者职位。</p>
+<h3>十一、产品经理会外溢到各行业，同时各职能会涌入产品</h3>
+<p>被问到五年后产品经理这个角色是否还在，他给了一个双向流动的图景。</p>
+<p>外溢的方向：产品经理会作为<strong>"变革的代理人"</strong>进入每一个行业，因为他们能沟通、对组织有最宽的视野、而且是透过技术镜头看的。他推演的路径是未来一年产品组织先完成造产品方式的变革，12 个月后市场、销售、被私募基金买下的那家公司、路边的学校都会发现自己不够当下、快被淘汰了，"我们该找谁来负责这场变革？这个人活在未来，而我们要去未来"。他的比喻是产品负责人会像蒲公英的种子被吹到各处。</p>
+<p>涌入的方向：很多进入产品的人会来自设计、数据科学、工程，因为有判断力、能沟通、想保持当下的人会说"我不想只待在自己的车道里，我对这件事该怎么运作有观点"。他说三种变化同时发生（外溢、涌入、还有人担心自己进不来），这解释了为什么这么多人焦虑。</p>
+<p>关于工程师，Lenny 提出会活得好的工程师会变得更像产品经理，因为编码部分被解决了，剩下的是该造什么、这是不是好方向、成功长什么样。Singhal 同意并补充工程师的两个优势：<strong>他们用系统思考，而且更有效地思考"淘汰"这件事</strong>。他给出的分工判断是产品人在判断与沟通上略有优势，工程师在系统扩展与影响面上略有优势，设计师在品味上略有优势，全都仍然重要，"显然三样都有的人会比只有一两样的人做得好"。</p>
+<p>关于对齐（alignment），他的拆解值得记：过去的对齐工作很大一部分是把正确信息、地面真相递给人，<strong>"那部分工作说实话糟透了"</strong>，是把文档改一版发给老板、老板再改一版发给他老板，"地面真相被埋在组织的某个地方，然后一堆人在上面加自己的旋"。这部分正在被大幅改善。但接下来仍然要有人决定、有人对该为什么而战有观点，<strong>"而这个对话现在清楚多了，因为你知道地面真相，旋更少了"</strong>。他的结论是对齐不会消失，<strong>"只是不会有那么多戏剧性"</strong>。附带一个他自己标为打赌的观察：如果你诚实地问产品经理是否想要老板的老板那份工作、不算薪酬和地位只算那种背靠背的会议日程，<strong>"我打赌大多数人会说不想。而我要说的是，这个答案在未来两年会变。"</strong></p>
+<p>关于设计，Lenny 指出数据显示设计岗位在走平，这与产品数量暴增的直觉相反。Singhal 的猜测是<strong>行业可能把设计与产能混同了，而不是与品味挂钩</strong>："有像素生产者，也有品味制定者"，很多公司招设计负责人时想的其实是更多产能，而伟大的设计师更多是品味制定者，这个偏差进入了招聘计划。</p>
+<h3>十二、闪电问答里值得留的两条</h3>
+<p>他坦承自己不读书，"我现在基本是用 vibe coding 代替了大部分内容消费"，读的东西都是为了跟上，"那是个牺牲品"。唯一提到的书是《James》，从 Jim 的视角重讲《哈克贝利·费恩历险记》，他感兴趣的点是拿一部经典换一双眼睛去看，以及<strong>"你读《哈克贝利》时是个孩子，而现在作为成年人你从另一个角度看这本书"</strong>。</p>
+<p>更值得留的是他的座右铭，高中年鉴上写的那句"天才是百分之一的灵感加百分之九十九的汗水"。他自己给了 AI 时代的新读法：<strong>"如果你透过 AI 的镜头读这句话，会极其有意思，因为结果是 AI 会去做那份汗水。"</strong>推论是我们都在走向一个人人都要靠灵感的世界，是有灵感的个体会继续繁衍，"别担心汗水，但要认识到汗水才是让事情跑起来的必需品"。</p>
+<p>另一条是他讲特斯拉自动驾驶时的产品洞察，与 AI 采纳有直接类比价值：很多人试过早期版本然后关掉了，<strong>"所以特斯拉有一个不寻常的挑战，是要让人们把它重新打开"</strong>，一旦有过一次体验，就很难说服人再试一次，"这是产品行业的一条老话"。他自己的使用理由也很朴素：开了近四十年车，直到用了自动驾驶才发现自己开车时一直有轻微焦虑，<strong>"到我这个人生阶段，任何引起焦虑的东西我都试着消除"</strong>。</p>
+<p>---</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，嘉宾姓名字幕拼作 Nikhil/Nikhail，正确拼写为 Nikhyl Singhal。"裁三万招八千""12 到 24 个月""一半的产品人是信息搬运者""Google 只需要 9% 的人""社群从 1 位创始人到 14 位"均为嘉宾口播估计，无统计口径与出处；"全球开放 PM 岗位为三年多最高"来自主持人自己的就业市场报告，节目中未给方法论；"两年内不会再有烂软件"嘉宾自陈是愿望而非预测；关于多样性倒退、设计岗位走平的判断均为其个人观察。APM 一段是本篇的时间边界，注意他谈的是产品管理这一职业与造产品方法重新稳定所需的时间，用词为松口径的"a couple of years"，不是企业完成 AI 部署或整轮技术变革的时间表。）</p>
+</article></div>
+</div></main>
+</body></html>
