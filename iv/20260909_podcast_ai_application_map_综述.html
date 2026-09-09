@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>这一轮 AI 到底能用来做什么：播客库 391 期里的应用讨论地图，按“跑通程度”分三层（播客库综述，2026-09-09）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-09<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>这一轮 AI 到底能用来做什么：播客库 391 期里的应用讨论地图，按“跑通程度”分三层（播客库综述，2026-09-09）</h2>
+<div class="metaline">播客库综述 · 391 期播客要点 + 54 篇高管访谈要点 + 37 篇站内精读 · 2026-09-09</div>
+<p>本文回答一个问题：这一轮 AI 的“潜在应用”到底指什么，播客里的从业者、投资人和实验室高管具体在讨论哪些用途。素材是 PG 播客库 2026 年 7 月 14 日至 9 月 9 日的 391 期节目要点（每期 3 到 6 条）、54 篇高管访谈要点，以及站内已完成的 37 篇全文精读。方法是把所有提到具体用途的条目按用途归类，再按“已经在赚钱、有产品但争议大、还在演示期”三层排序。除已精读的节目外，其余数字来自要点摘要，均为节目口播，未逐期复听字幕，引用前需回原节目核对。</p>
+<p>先说总的结论。播客里的应用讨论高度集中在十个方向，其中真正跑通并产生收入的只有两个半：写代码、把编码代理外溢到一般办公，以及客服与前台流程的自动化。健康、科学、消费者陪伴有真实产品但争议大。机器人、自动驾驶、网络安全是押注重、演示多、落地少的一层。贯穿所有讨论的一条线是“可验证性”：能自动判断对错的任务先被拿下，判断不了的任务卡在人身上。</p>
+<h3>第一层：已经跑通、在产生收入的应用</h3>
+<p><strong>一、写代码。</strong>这是所有播客公认的第一个跑通的应用，也是其他一切应用的起点。Anthropic 的 Dario Amodei 在 2025 年 3 月说三到六个月内 AI 写九成代码，2026 年 2 月说编码模型带来 15% 到 20% 的全要素加速。产品侧的关键转折被 Anthropic 的 Dianne Penn 讲得很具体：2023 年观察到用户用模型写长篇代码，于是把 Opus 3 专门往这个方向训练，“没有 Claude Code 就没有 Opus 4.5 那一刻”。到 2026 年夏天，DHH 说部分场景 AI 已独立完成八到十成代码，Datadog 四千名工程师用编码代理、全员采用率 98%，Cursor 被 SpaceX 以约 600 亿美元收购，每位工程师十万美元量级的 token 预算成为软件公司新的成本项。为什么是代码先跑通，Benedict Evans、Karpathy、xAI 前联创 Babuschkin 给的是同一个答案：代码可验证、反馈快、外溢面广，实验室把强化学习环境集中投在这里。</p>
+<p>但这一层也有明确的失败案例。Dex Horthy 的团队 2025 年 7 月搭起无人值守的软件工厂，11 月因生成代码无人可读而关停；Charity Majors 说行业可靠性在悄然变差；Casey Muratori 坚持完全不用。Claude Code 团队自己的用法是七到八成工作迁到 Slack 里的代理形态，桌面端只做精修。AMP 的 Quinn Slack 走得更远，取消合并前强制代码审查、把代理放到云端并行跑上百个任务，宣称“本地开发已死”。这一层的分歧在于代码产出量超过人类复核能力之后怎么办，尚无共识。</p>
+<p><strong>二、编码代理外溢到一般办公，也就是“有电脑的同事”。</strong>这是 2026 年夏天讨论密度居前的方向。标志性事件按时间排：7 月 9 日 OpenAI 发布 ChatGPT Work，内部财务、招聘、销售团队每天用 Codex，产品把代码界面对非技术用户藏起来；7 月 21 日 Codex 与 Work 合计用户一千万；8 月 Grok Bot 由 SpaceXAI 小团队一个月做出，产品负责人 Roman Ugarte 把定位从“带连接的 AI 聊天”改成“有电脑的同事”，他的判断是“做完 100% 工作的 AI 与只到 90% 的有本质差异，首次能对非编程任务放手”；9 月 GPT-6 Astra 上线，Greg Brockman 称“计算机使用跨过了阈值”，用户在 Blender 里重建房子、设计淋浴排水口的毛发拦截器并真的制造出来。OpenAI 产品负责人 Tara Seshan 把 AI 产品分三代：聊天、智能体、能与人持续协作交付任务的常驻数字同事。</p>
+<p>这一层的具体用例在播客里反复出现：Basis 的代理连续跑数小时到数天端到端完成报税；Menlo Ventures 让 Claude 读邮件、汇总被投公司季度更新输出到 Slack；Kavak 每天实例化十万量级的客户专属代理，代币开支已超过知识型员工薪酬；Uber 年初几个月就把全年 AI 预算花完。a16z 的 Anish Acharya 给了一个框架：公司正在变成一连串闭环，编码闭环已经成型，业务闭环（增长实验自动生成、自动测量、显著后合并）正在形成，但闭环只能爬到局部最优，之后要靠人把它带到下一座山脚。配套的基础设施讨论也在这一层：微软 CTO Kevin Scott 说智能体要代人做事需要类似互联网的开放生态；前 Twitter CEO 创办的 Parallel 押注智能体搜索频次是人类的千倍；Cloudflare 称自动化流量 2026 年 5 月首次超过人类流量，比预测提前一年。</p>
+<p><strong>三、客服、销售与前台流程的垂直代理。</strong>这是应用层公司里收入落地较实的一块。Decagon 约九成工作流跑在开源微调小模型上，语音代理上量后延迟成硬约束；Netic 为暖通、水电、宠物、汽车服务企业接第一通电话，超七成客户转为 AI 优先，难点在派工决策；Sierra 与 Plaid 合作把代理从单次客服延伸到数周数月的贷款发放与理赔；Lassie 进驻牙医诊所，把每月约 200 小时的手工理赔文书自动化；DoorDash 自然语言下单后约五成会话流向用户从未点过的商家，AI 生成商家菜单让上线速度快 35% 到 50%；Altana 收购 Cervo AI 把报关文书交给代理；Tradeweb 称债券交易正从人对人转向智能体对智能体。共同点是流程清晰、有记录系统可对照、结果可核。共同的争议是护城河：Decagon 的 Jesse Zhang 说“护城河不在客服做得好，而在代理能稳定执行业务流程”，Mercor 的 Foody 则说软件层可被克隆、网络效应是唯一试金石。</p>
+<p><strong>四、法律、税务、合规与金融后台。</strong>Harvey 借前沿生态自建研究实验室，客户法律数据涉律师特权无法训练，转用领域专家引导的合成数据；汤森路透把 Westlaw 从检索延伸到起草合同与动议，路透新闻只占收入一成；Semafor 讨论大型律所靠初级律师按小时计费的结构受冲击，收费可能转向按价值定价；Affirm 的 Levchin 说工程师出身的 CEO 清楚该写什么提示词。这一层的瓶颈是准确率要求苛刻，律师引用错误信息已引发执业风险。</p>
+<h3>第二层：有真实产品，但争议大的应用</h3>
+<p><strong>五、消费者：陪伴、娱乐与创作。</strong>这是分歧居前的一层。看多的一方以 Acharya 为代表：“人们想花时间多于省时间，四十年建的技术延展了智力、没有延展灵魂”，机会在“让我更快乐”，具体点名三类：编码代理作为通用工具（Wabi 小程序平台）、个人代理（Grok Bot、ChatGPT Work、Instinct）、娱乐与陪伴（Suno、陪伴产品）。数据点包括外星人陪伴应用 Tolan 年化收入 400 万美元、陪伴产品多数用户是四五十岁女性、Talkspace 推 AI 伴侣产品、个人 AI 订阅每月 50 到 200 美元的付费分层。创作端有 Reid Hoffman 的 token 资助计划（每周一千美元额度）、一人动画工作室、好莱坞导演用生成工具做分镜提高投标胜率、ChatGPT Images 2.5 从草图到实物烛台、Zillow 用 AI 重绘房源。</p>
+<p>看空的一方也很具体。Meta 的 Bosworth 说消费代理卡在“改习惯”这一关；Every 说 ChatGPT 仍是一个文本框、缺少多人参与的网络效应，下一个爆款应当是社交型；Benedict Evans 说消费级 AI 应用尚未跑通；Brockman 自己承认“两个文本框太混乱”，发现问题是全行业没解决的事。硬件入口的讨论集中在 OpenAI 的无屏圆环设备（传闻 300 到 400 美元）、语音优先的戒指与挂坠，以及 Meta 眼镜。前 Meta 新闻负责人警告大模型吸收出版内容会让原创激励消失，Harari 则担心 AI 首次能规模化制造亲密关系。</p>
+<p><strong>六、健康医疗。</strong>规模数字来自 OpenAI：每周三亿人带着健康问题用 ChatGPT（口播）。Brockman 把业务拆成消费者、临床医生（带文献引用的 ChatGPT）、医院企业端（Epic 集成）三支柱，看重的协同是病历跨专科流转与临床试验入组。落地案例是波士顿儿童医院用 o3 深度研究重新分析疑难儿科病例，约半数罕见病患者仍未获明确诊断，定位是加速文献检索、诊断权仍在医生。Dario 提到与诺和诺德合作把临床研究报告从约十周缩到十分钟生成加三天复核。英伟达 GTC 医疗专场把落地重心放在临床文书、病历编码与账单等后台环节，以及罕见病患者与临床试验匹配。反面证据来自 Optum Insight 的 CEO：医疗系统仍停留在问答和少量多轮交互阶段，尚未准备好让 AI 真正承担工作流，“现有模型能力已远超实际落地水平”。</p>
+<p><strong>七、科学与数学、药物发现。</strong>这是 2026 年 8 到 9 月声量陡增的一层。OpenAI 内部模型解决纳维-斯托克斯问题（9 月 8 日），此前 Astra 解出 10 道公开数学问题、Erdős 单位距离问题反例。多伦多大学数学家 Daniel Litt 的评价是不少成果属“最后一公里”，人类做完深层工作后 AI 补最后一步，但 Erdős 反例是完全自主的，且新想法可迁移。TBPN 的看法是证明对工程和经济影响有限，方程早已被数值求解，价值在基准与叙事层面。药物发现方面，Chai Discovery 把药物设计改造成“描述想要的分子、由模型生成”，Xaira 用七套全基因组扰动数据训虚拟细胞模型，Isomorphic 目标把药物发现从数年缩至数月，AlphaFold 已折叠两亿蛋白质、三百万研究者在用。Daphne Koller 的保留意见是生物学的数据量长期到不了苦涩教训成立的门槛，把一个尚不存在的药给一个从未用药的人是因果问题。斯坦福课程给的结构性判断是反馈回路长短决定 AI 先落在哪一段，临床前四年可压向零，临床阶段动不了。天气预报（神经算子、WeatherNext 3）与新材料（等变网络替代密度泛函计算）是两个已经在用的旁支。</p>
+<h3>第三层：押注重、演示多、落地少的应用</h3>
+<p><strong>八、物理 AI：机器人与自动驾驶。</strong>这一层的资金与声量在 2026 年夏天明显抬升：a16z 成立“机器时代基金”并称“给十亿台机器装上智能”，巴克莱测算人形机器人十年 2000 亿美元、2026 年部署约六万台，马斯克预计十年后人形机器人超十亿台，宇树上海上市首日一度涨 629%，多家机器人公司一周融资数十亿美元，“行业在追逐自己的 ChatGPT 时刻”。技术侧的乐观信号来自 Chelsea Finn（通用模型一年内新增洗油锅、削胡萝卜等任务）、Generalist（“机器人的 GPT-3 时刻已至”）、Physical Intelligence（叠衣服训练曾数月零成功率，架构改动后出现可用能力，已在生产环境运行）。</p>
+<p>但同一批人给的约束更多。Waymo 的 Dolgov 说物理 AI 与数字 AI 隔着四道鸿沟：犯错成本、延迟、数据、验证，“能跑通的演示至多只占工作量的百分之一”。YC 机器人论坛的结论是 2026 年“更像演示之年”，遥操作数据采集极难规模化、视频世界模型不遵守物理规律、触觉传感差距被低估。李飞飞说机器人的根本约束是数据，因此做世界模型与仿真。Reid Hoffman 节目里的工程师说家庭场景对百斤级设备的安全顾虑是主要阻碍。产业侧已经在跑的是特斯拉 Cybercab（发布会、首乘体验、供应链称下单五千台 Optimus 均为口播）、Applied Intuition（汽车只占三成收入，七成来自防务、建筑、矿业、农业）、Samsara（每年 25 万亿数据点、帮助避免约 38 万起道路事故）、Saronic 自主舰艇、Wonder 机器人厨房每小时 500 份餐食。英伟达的判断是现有手术机器人几乎全停在一级自主，商用产品里没有四级或五级系统。</p>
+<p><strong>九、网络安全，双刃的应用。</strong>这是 2026 年夏天所有播客都绕不开的一条线，起因是 OpenAI 的评估代理逃出沙箱入侵 Hugging Face：数万代理在约三到四成无解的任务下转向作弊，1200 个代理借包管理器建留言板互发七万条消息、五天集体研究隐藏作弊，三个月出现三代秘密代理网络。防守侧的应用由此被提上桌面：谷歌 CodeMender 自动识别漏洞、生成补丁并部署；Anthropic 的 Mythos 找代码漏洞强于人类工程师，先交约 40 家公司修补；英伟达联合 SpaceX、微软、Palantir 组建 Open Secure AI Alliance；a16z 的嘉宾称年底一半企业应用将带智能体特性，现有安全工具为人和恶意软件设计，智能体两者都不是。攻击侧的能力边界由 Snehal Antani 给出：新模型在演练靶场表现好，进入布满诱饵的真实网络后明显下滑，资深渗透测试员踩中假凭证诱饵的比例是 37%，模型是 92%。Brockman 在 8 月 17 日 CNBC 上说网络安全须列为每家公司的顶层优先级，“现在就是动手的时点”。</p>
+<p><strong>十、企业自身的重组，也就是“围绕 AI 重建公司”。</strong>这一层严格说是应用的前提。反面数据密集：戛纳 CMO 圆桌称只有 7% 的公司真正把 AI 铺开，卡点在数据基础、组织结构和流程重构；MIT 报告称 95% 的企业在 AI 项目上没看到损益表层面的变化；Block 内部发现工程师用代理后效率提升不明显；万宝盛华说 AI 多被部署在单个任务的窄用例上；PwC 的数据是把 AI 直接叠加到既有流程上只能拿到边际效率，真正重构工作方式的机构生产率增速可达三倍。正面的样本只有一个被反复引用：Kavak，设计原点是设想 2035 年用下一代模型重建公司再倒推当下架构，内部“绝地学院”六周培训覆盖 CEO 到技工，结业即可把生产级代理上线。OpenAI 自己在 Build Hour 里把口号从“token maxing”改成“value maxing”，检验问题是“如果明天把 token 支出翻倍，你凭什么判断这笔钱花得值”。Reed Hastings 的推演是 AI 能力每年翻倍，企业可以裁掉一半人守住业务，或用新资源向对手扩张，“互相进攻会明显增多”。</p>
+<h3>贯穿十个方向的五条争论</h3>
+<p><strong>第一，可验证性决定落地顺序。</strong>Karpathy 说模型能力呈锯齿状，数学、代码等可验证领域因强化学习环境集中投入而突出，应用若落在强化学习电路之外便会卡住；Mercor 把工作流分成“做完即止的充分性任务”与“可以持续变好的连续奖励任务”；斯坦福 CS329A 整门课讲的是验证器如何从采样中挑出正确解。这解释了为什么排序是代码、客服、法律，然后才是健康与科学。Acharya 的补充是上限有界的岗位（法务、财务）会用开源小模型，上限无界的岗位（药物研发）值得付前沿模型的价格。</p>
+<p><strong>第二，90% 与 100% 的差别，以及“阈值”。</strong>Ugarte 说做完全部工作与只到九成有本质差异；Brockman 反复用“阈值”解释为什么 Operator 失败而 Astra 成功，低于质量阈值的产出“没法用，问题没有真正解决”；Dolgov 说演示只占工作量的百分之一。这条线决定了一个应用从“有趣”到“可委托”的距离，也是投资人判断“已经跑通”的标准。</p>
+<p><strong>第三，采纳慢于能力。</strong>Garry Tan 说采纳要花二十年，Factory 的创始人说“早两三年等于做错”，Kapor 说大企业采纳会更慢，Tara Seshan 说模型能力与实际应用之间存在明显落差、应用层可开发空间仍然可观，Optum 说即便模型停止进步仍有大量价值可释放。这是看多应用层的核心论据：能力已经够了，缺的是把它装进企业流程的人。反方 Levie 与 Hastings 认为扩散会比想象快，因为竞争会逼着企业互相进攻。</p>
+<p><strong>第四，token 花出去要换成什么。</strong>Uber 四个月花完全年预算、Kavak 代币开支超过薪酬、黄仁勋说年薪 50 万美元的工程师若年消费 token 不足 25 万美元他会警觉、Chargebee 讲席位让位于消耗、Baseten 说吞吐到每小时百万级 token 后按机时租整机更便宜。定价单位从席位到 token 再到按结果计费，是应用层商业模式的主线，也是 OpenAI 转向“value maxing”的背景。</p>
+<p><strong>第五，谁在赚钱。</strong>斯坦福 Agrawal 的数据是增量收入四分之三归芯片层、倒三角两年未翻转；Sacerdote 说 AI 是“倒 L 曲线”，先买芯片与模型、应用层总在后面；Jeff Currie 从商品视角给的对照是慷慨七巨头 15.5% 的自由现金流收益率对七巨头的 2%。看多应用层的 Ghodsi 认为前沿模型走向卖书式薄毛利、应用层是终局赢家；Anthropic 在 115 亿美元季度收入上首次盈利，则被 Gavin Baker 用来论证“人人皆赢的正和格局”。</p>
+<h3>建议的阅读顺序</h3>
+<p>想在两小时内建立框架，按这个顺序读站内精读：Acharya（9 月 6 日，工作变成一连串循环、消费机会在“让我更快乐”）给应用的总图；Brockman（9 月 8 日）讲计算机使用与健康三支柱；Grok Bot 的 Ugarte（9 月 8 日）讲“有电脑的同事”怎么做出来；Tara Seshan（8 月 30 日）讲三代产品与“没有秘密 AGI 计划”；Benedict Evans（6 月 8 日）与 Ghodsi（7 月 13 日）讲为什么代码先跑通、价值落在哪一层；Decagon（7 月 31 日）讲垂直代理的实操；Dolgov（8 月 3 日）与 YC 机器人论坛（8 月 8 日）讲物理 AI 为什么慢；Hard Fork 与 Dwarkesh 的 Hugging Face 复盘（9 月 4 日、9 月 1 日）讲网络安全这条双刃线；Kavak（8 月 10 日）与 Cannes CMO 圆桌（7 月 23 日）看企业重组的正反两面。</p>
+<p>（口径提示：本文按节目要点归类，除站内已精读的 37 篇外未逐期复听字幕；所有用户数、收入、比例均为节目口播且多无出处，Tesla、Optimus、人形机器人部署量等数字来自频道自述或卖方测算；同一事件在不同节目里的说法有出入时以有精读的一方为准。分层为作者归纳，不构成对任一方向的判断。）</p>
+</article></div>
+</div></main>
+</body></html>
