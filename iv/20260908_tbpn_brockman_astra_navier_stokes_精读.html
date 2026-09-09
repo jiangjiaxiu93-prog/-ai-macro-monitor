@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Greg Brockman 谈 Astra 与 OpenAI 的下一步：纳维-斯托克斯是能力坐标，计算机使用跨过阈值，聊天与代理两种形态走向合并（TBPN，2026-09-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65;padding-bottom:76px}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navbg);
+backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;
+padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
+.nav a{flex:1;text-align:center;color:var(--sub);font-size:11px;line-height:1.2}
+.nav a .ic{display:block;font-size:19px;line-height:1.25;font-weight:700}
+.nav a.on{color:var(--blue)}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+.nav a svg{display:block;margin:0 auto 2px;width:21px;height:21px}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>Greg Brockman 谈 Astra 与 OpenAI 的下一步：纳维-斯托克斯是能力坐标，计算机使用跨过阈值，聊天与代理两种形态走向合并（TBPN，2026-09-08）</h2>
+<div class="metaline">TBPN · 24 分钟 · 2026-09-08</div>
+<p>嘉宾为 OpenAI 联合创始人、总裁 Greg Brockman，访谈录于 OpenAI 宣布其内部模型解决纳维-斯托克斯存在性与光滑性问题的当天（美东 9 月 8 日周二），全长 24 分钟，是本轮发布潮里 OpenAI 高层篇幅较长的一次对外表态。本期值得读的原因有三：他把千禧年难题定位为“能力坐标”，其分量重于科研成果本身，并给出了从数学到药物研发的推演路径；他用“计算机使用跨过阈值”来解释 Astra 上线后 Blender 建模刷屏的现象，并将其与两年前 Operator 的失败放进同一条产品谱系；他第一次比较完整地讲了 ChatGPT 的聊天与代理两种使用模式如何并存、如何合并，以及健康业务的三支柱结构。全片观点为嘉宾本人陈述，涉及的用户数（周活“远超十亿”、健康查询周活三亿、曾试用者十亿至十五亿）均为口播、无出处；纳维-斯托克斯的算力投入、代理规模等细节他在访谈中并未披露，本文据 WSJ 同日报道补充，已单独标注。</p>
+<h3>一、纳维-斯托克斯：结果是新知识，更重要的是它代表模型能力到了哪一格</h3>
+<p>开场主持人请他“摆桌”。他的表述是模型“解决了纳维-斯托克斯问题”，具体形态是<strong>找到了一个反例，或者说一个证明，表明这组理论方程在特定条件下确实会出现奇点、会失效</strong>。这是七个千禧年难题之一，悬置时间很长。他给结果本身的评价分两层：其一，“这是人类的新知识”，证明“非常优雅、漂亮”，方程在流体力学等领域应用广泛；其二，也是他反复强调的一层，<strong>“对我来说更重要的是这代表了我们在模型能力上处于什么位置，以及我们确实能生成可以从中学习的新知识”</strong>，让模型帮助解决原本够不着、或者要花很长时间才能解决的问题。</p>
+<p>主持人的追问带着明显的怀疑：这会帮我订机票吗、会治愈癌症吗、还是只是帮你招到对这类东西着迷的研究员？他判断这件事不会出现在“与科技圈隔了三层的亲友后院烧烤”的话题里。Brockman 的回答分两段：方程本身的应用覆盖从洋流到飞机周围气流、湍流等现象；但真正的意义在于“更广泛的洞见与方法”能帮科学家与数学家加速研究，<strong>“如果我们有了能解决这类问题的模型，那么接下来会发生什么、还有哪些问题是可以立刻着手的”</strong>。他把治愈疾病、开发新药归入“当模型到了这种辅助水平时开始变得真实得多”的范畴，并称我们现在可以对能够着手的挑战抱有大得多的野心。</p>
+<p>据 WSJ 同日报道补充（嘉宾访谈中未提及）：证明长 165 页并附逐步形式化验证；完成证明的是一个未发布的内部模型，OpenAI 称其“显著强于”上周刚发布的 GPT-6 Astra，在公司自建的数学题库上 Astra 约解出一成、该模型接近五成；模型自 8 月下旬开始训练，9 月 1 日被同时投向六个未解难题，50 小时后人工把算力集中到纳维-斯托克斯一题，代理数量从 100 扩到最多约一万个，共发送 270 万条消息、消耗 1300 亿输出 token，耗时约 88 小时、算力成本“数百万美元”；结果未在发表前交外部数学家审阅，发布前数小时有包括 Anthropic 研究员在内的竞争对手对 OpenAI 的叙事提出异议。这些数字说明访谈里“模型解决了”一句背后是万级代理的协作搜索，与单个模型推理是两种口径，评估“能力到了哪一格”时应当把算力投入一并计入（作者归纳）。</p>
+<h3>二、Astra 与“计算机使用的新阈值”：从 Blender 建模到淋浴排水口的毛发过滤器</h3>
+<p>对 Astra 发布后的反馈，他说“被社区的反应震住了”，用词是“非常谦卑”。他的核心判断是<strong>“很清楚，我们已经到达了计算机使用的一个新阈值”</strong>：这个模型能以此前不可能的方式与各种应用程序协作，人们正在充分利用这一点去创造。主持人补充的现象是整个周末科技圈都在谈 Blender，很多人“把自己的房子在 Blender 里重建了一遍并规划了装修”。他列举的用例包括大量 3D 创作、把实体地点映射成 3D 模型、设计实体零件，其中一个用户设计了淋浴排水口的毛发拦截机构并真的把它制造了出来。主持人戏称这是“淋浴毛发超级智能”，他接住了这个梗：宏大挑战和冷僻应用固然常被谈论，<strong>“但真正重要的是你生活里那些你很想解决的日常问题，现在都可能了”</strong>，目标是赋能个人、让人拥有“超能力”。</p>
+<p>主持人接着问的是合并问题：Codex、ChatGPT Work、桌面版 ChatGPT，加上他自己装了英伟达显卡的游戏 PC 和 Mac Mini，眼下的“解锁”工作是早期用户自娱自乐，未来会不会都收进一个提示框里。Brockman 的方向性回答是要把工具从“需要底层接入或指引”转向<strong>“让人真正能飞起来”</strong>：人设定目标，仍然可以下到细节、提供监督，“最终你应该对结果负责”，但手里有一个绝对的放大器，“蹦床，或者说思维的火箭”。他明确说，Blender 一类工具在引擎盖下被调用、作为细节隐入背景，“绝对是行进方向”。</p>
+<p>背景补充：GPT-6 Astra 于 9 月 3 日先向 Daybreak 计划的企业测试者开放，付费 ChatGPT 用户拿到的是加了网络安全护栏的版本；Brockman 在当天简报会上称该模型未来会被视为通用人工智能的早期阶段，并说“留给读者自己判断这是否够格”（据 Bloomberg）。此前 9 月 1 日 OpenAI 公告内部测试认定 Astra 能在有限人工输入下设计并执行新型网络攻击，因此限制公开版本的网络能力、只向少数测试者开放完整版（据 WSJ）。本次访谈全程未触及网络安全这条线，安全只出现在一句“我们在安全地开发这些东西，这是我们的核心承诺之一”（作者注）。</p>
+<h3>三、聊天与代理两种模式：聊天“活得很好”，代理采用是“近乎垂直的墙”，两者是一个时点现象</h3>
+<p>这是本期信息密度较高的一段。他给出的结构是：今年以来使用形态明显从纯聊天转向代理，<strong>但“聊天活得很好”，ChatGPT 周活“现在远超十亿”，市场份额“又开始爬升”</strong>，原因是公司在教育、健康等大量重要用例上持续投入；与此同时，生产力与深度知识工作类用例“真正起飞”，<strong>“自从推出 ChatGPT Work 以来，我们看到的是一堵近乎垂直的代理采用之墙”</strong>。他强调两种模式并存只是“一个时点”，公司正在持续把它们统一、合并，一种新的 AI 消费形态正在浮现。</p>
+<p>他对这个形态的描述回到了“AI 的承诺”：一个你可以对话、可以把工作委托出去、主动且持久的东西。<strong>“如果倒回五年、十年，我们被许诺的从来不是一个底层语言模型，你得考虑上下文窗口、得选思考强度、得在不同模型之间挑。这些都不是未来。”</strong>方向是“真正的放大、真正把时间还给你、真正让计算机按你的目标和意愿运转”。</p>
+<p>背景补充：ChatGPT Work 于 7 月 9 日发布，基于 GPT-5.6，定位是连续数小时处理文档、表格、演示与网页应用；7 月 21 日 OpenAI 披露 Codex 与 ChatGPT Work 两款代理产品合计用户达一千万，较月初接近翻倍，同期 ChatGPT 周活为“超过九亿”（均据 Bloomberg）。对照本次口播的“远超十亿”，周活口径在七周内跨过了十亿，但他没有给出代理产品的最新用户数，“垂直的墙”缺少数字支撑，是本期需要等待后续披露来验证的一处（作者归纳）。“市场份额又开始爬升”同样为口播，未说明份额口径与来源。</p>
+<h3>四、发现问题与先发者劣势：两个文本框太混乱，模型应当主动告诉你它还能做什么</h3>
+<p>主持人提出一个策略层面的问题：AI 行业存在某种“先发者劣势”，几十亿人试过 ChatGPT，其中相当比例在早期形成了固定印象；而最近几周新的代理产品上线，用户一试就“被彻底震住”，先发者需要不断提醒市场有哪些新用法。他自己的例子是跑着一个持久代理，每次 SpaceX 发射或延期都会通知他。Brockman 承认这是“能力过剩”下的发现问题，<strong>“我们作为一个领域需要以第一优先级面对它，我们还没有完全做到，但我认为我们有机会比以往任何产品都解决得更好”</strong>。</p>
+<p>他的自我批评相当直接：ChatGPT 和 ChatGPT Work 现在都是文本框，“新的文本框比旧的强得多，可有些原因让你仍然想用旧的”，<strong>“这太混乱了，人们只是想要一个能帮他们解决问题的东西，全部意义在于把时间拿回来，你不该被迫成为所有内部细节的专家”</strong>。解法在于模型已经理解你要做什么、掌握大量关于你的上下文，因此应当能够主动说“如果你换个问法、加上这个连接器、授权我做这件事、这样接入你的凭证，我就能替你做另一件事”，公司正在大量投入这种“自我认知”与引导流程。他把先发者劣势与优势并列：印象固化是劣势，但<strong>周活超十亿是“没有任何人在这些模型上拥有的使用量”</strong>，此外“大约还有十亿到十五亿人以前试过 ChatGPT”，这是可以回头告诉他们“现在能解决你的问题了”的存量。</p>
+<p>营销一段由主持人发起：人人想做“AI 界的苹果”，想到的是 1984 广告与 Mac 对 PC，但苹果真正做得好的是反复敲打非常具体的产品细节，新相机、Memoji、Safari 里的某个功能；AI 需要传达的表面积“大一个数量级”，Astra 的发布视频很棒，但应当有广告牌列出 ChatGPT 能替你省时间的具体事项。Brockman 说这是他今年“真正意识到的一件事”：刚发布的 ChatGPT Images 2.5 的发布视频展示了一个人画烛台草图、生成多个变体、选中一个、最后出现实物烛台，“那就是你想要的，它立刻对你说话”。他补充了一条反直觉的经验：<strong>公司有时展示冷僻用例，对某个特定的人很惊艳，但人们不会由此推出“既然它这么强，我也能做我一直等着的那件事”，这种联想比他以为的难得多</strong>。他要的是让人说“我现在就想要那个东西”的用例，再从那里开始探索。主持人给的旁证是他一个做房地产开发的朋友整天用 ChatGPT 写交易备忘录，却总来问他“ChatGPT 能不能做这个”，而他手里明明有一个会解释自己能做什么的东西。</p>
+<h3>五、图像是能力包的一部分：质量阈值之上才出现新应用，图像、语音、编码要合成一个整体</h3>
+<p>主持人说 Images 2 发布时他一度觉得“图像已经解决了”，周六花几个小时设计家具、跑了几百个提示词，问图像模型还能走多远。Brockman 的回答是他反复用的“阈值”框架：<strong>每跨过一个新的能力阈值，“根本上全新的应用会以你事先几乎想不到的方式被解锁”</strong>。在知识工作、专业工作、营销等领域，你只需要高于一个质量阈值，低于它就只是“很酷的概念，但最终材料没法用，问题没有真正解决”；跨过之后，精确的编辑控制、速度、创造力、结果的多样性以及与人的往复互动，会打开整块新用例。他举的例子是幻灯片制作与网站搭建，<strong>“在中间拥有图像生成能力，是 OpenAI 相对于部分竞争对手非常独特的地方”</strong>，下游能产出好得多的成品。这一比较为其一家之言，访谈未与竞品能力逐项对照。他的总结是把图像、语音、编码“视为一个包”，合成一个赋能个人的 AI，“你能创造任何你想象的东西”。</p>
+<h3>六、健康三支柱：消费者、临床医生、医院企业端，合力后才能碰“把医疗带进 AI 时代”</h3>
+<p>他把健康业务拆成三边。<strong>消费者侧：每周三亿人带着健康问题来用 ChatGPT</strong>（口播）。临床医生侧：自下而上，是一个为临床医生调校过的 ChatGPT，直接给出医学文献引用。企业侧：直接卖给医院、由医院开通，已有嵌入 Epic 系统的集成。三个支柱各自先做到尽可能好的服务，形成动能之后会出现协同，届时“真正改造美国乃至全球医疗”才会摆上桌面。他列的协同点有两个：一是患者作为信息搬运工的负担，看不同专科要自己带着病历、反复解释问题，“最终你是那个必须做决定的医生，不管你愿不愿意”，所有人在一个平台上时信息共享才可能；二是临床试验入组，这是药物开发的巨大瓶颈，找到符合条件且能受益的人依赖这类数据，前提是人们愿意托付信息。他把公司的目标定为建成医疗领域的头部平台，并称已经在“非常具体的方式”里看到效果，他喜欢的用户故事是“从 ChatGPT 得到的信息帮我救了自己或亲人”，医生说了一件事、用户能复核并提出异议，最后得到好结果，“这每天都在发生”。</p>
+<p>主持人把记忆功能与健康连在一起：ChatGPT 的记忆已经能在新线程里主动带出三周前的相关信息，用在健康上可能识别出人类要花数年才发现的模式。Brockman 用自己家的经历作答：他的妻子公开谈过自己的病情，那是一段五年的历程，看了许多专科医生，<strong>每位医生“摸的是大象的一部分”、只处理那一部分，直到过敏科医生说所有症状是相连的，是一种影响全部子系统的遗传病</strong>。他说很难估计有多少人有类似情况却永远查不出来，功能上高度专科化的体系永远拼不出完整诊断，而一个既深度参与你生活各方面、又是全部医学领域的领域专家的 AI，正是能补上这一环的东西。</p>
+<h3>七、Operator 的谱系：低于阈值的产品失败了，团队“烧掉一长串问题”后计算机使用被解决</h3>
+<p>收尾问题是如何讲 Operator 的故事：它看起来像失败或支线任务，但在计算机使用的进展之下又显得极其重要。他的框架是“时机”与“迭代部署”：<strong>总有一个阶段能力还不到位，但从真实世界部署里学习非常有帮助</strong>。他对 Operator 的定性毫不回避：它是一个基于云的计算机使用系统，慢、不够准确、“用起来相当痛苦”，有些人得到了价值，但整体在阈值之下。今年团队“真正建立起动能”，公司“投入大量精力去烧掉一长串问题”，聚焦解决计算机使用，交付了显著成果，“永远没有做完，但这是一个真正的里程碑”。他的对照是过去代理通过连接器、通过“极其费力地手工编码的系统”使用计算机，与人类的用法完全不同，而人类已经能用计算机上的一切，因为一切都是为人设计的；<strong>从 OpenAI 成立之初就有一个梦想，有一天能造出以这种方式操作的 AI，“我认为在 Astra 上我们做到了”</strong>。</p>
+<p>主持人的观察是 Astra 像是多条押注在同一时点汇合，模型本身、计算机使用、语音；去年 OpenAI 像一家大公司在运营，产品实验的心态类似超大规模云厂商“有 20% 甚至 5% 的命中率就行”，今年整家公司“切回了创业公司模式”，聚焦、所有人朝一个方向划桨，动能与增长的差别由此而来，“把一家公司从像大公司那样运营和发布，拉回像创业公司那样发布和聚焦，感觉是不可能的任务”。Brockman 的回应只有“聚焦”二字，加上“每一件事都应当加总起来帮助我们完成使命”。</p>
+<h3>八、研报视角的读法与验证点（作者归纳）</h3>
+<p>第一，能力梯度的坐标已经错位。访谈里“模型解决了纳维-斯托克斯”与 WSJ 披露的“未发布模型远强于上周刚发布的 Astra”放在一起，说明 OpenAI 对外发布的产品与内部能力之间留有一个代际，Astra 在自建数学题库上约一成的解题率是可以被后续披露验证的锚点。评估这条线时应当区分单模型推理与万级代理协作搜索两种口径，后者的算力成本本身就是一个可比指标。</p>
+<p>第二，代理采用的“垂直之墙”需要数字。7 月 21 日的一千万代理用户是已知的上一个刻度，本期没有更新，下一次官方披露的 Codex 与 ChatGPT Work 用户数是检验这句话的直接方式；“市场份额又开始爬升”同样待第三方流量数据核对。</p>
+<p>第三，“计算机使用跨过阈值”与连接器生态是两条路线的竞争。Brockman 明确把连接器路线称为“极其费力的手工编码系统”，把 GUI 直接操作视为终局。这对依赖 API 集成的 SaaS 与代理工具链意味着什么，眼下只有周末 Blender 刷屏这一类定性证据，可观察的验证点是 Astra 计算机使用在企业侧的付费落地与错误率披露。</p>
+<p>第四，健康三支柱里企业端与临床试验入组是商业化的关键路径。消费者侧三亿周活是免费流量，临床医生侧与医院侧（Epic 集成）才是收入与数据托管的入口，临床试验入组一旦成型会直接触及药企的成本结构，这是下一步值得跟踪的合作公告。</p>
+<p>第五，与 Anish Acharya 9 月 6 日在 Lenny's Podcast 的说法对读。Acharya 认为“太危险不能发布”的说法混淆了营销、推理算力与竞争考量，而 OpenAI 在 Astra 上做的正是同类限制（限制公开版网络能力、完整版只给少数测试者）。Brockman 本期对此只字未提，只留了一句“安全地开发”的承诺，两期放在一起读能看到实验室对外叙事与投资人怀疑之间的距离。</p>
+<p>（口径提示：本文基于 YouTube 自动字幕整理，字幕中 ChatGPT 多处被识别为“chat GBT”“Chach BT”，已按上下文还原；“ChatGPT Images 2.5”“Codex”“Operator”“Epic”按字幕与公开产品名还原。周活“远超十亿”、健康查询“每周三亿人”、曾试用者“十亿到十五亿”均为嘉宾口播且无出处；纳维-斯托克斯证明的页数、代理数量、耗时、token 与算力成本、Astra 与未发布模型的解题率对比，均引自 WSJ 2026-09-09 报道，嘉宾访谈中未提及；GPT-6 Astra 发布节奏、网络安全限制与 ChatGPT Work 用户数引自 Bloomberg 与 WSJ 报道，日期以美东为准。）</p>
+</article></div>
+</div>
+<nav class="nav"><a href="../frontier.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg>前沿</a><a href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg>融资</a><a href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg>资讯</a><a href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg>财报</a></nav>
+</body></html>
