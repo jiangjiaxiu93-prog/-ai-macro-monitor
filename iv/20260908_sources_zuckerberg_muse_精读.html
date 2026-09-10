@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>扎克伯格谈 Muse：每周一亿 token 免费、抽成向商家收、机密虚拟机连 Meta 自己也看不到（Sources Podcast，2026-09-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-10<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>扎克伯格谈 Muse：每周一亿 token 免费、抽成向商家收、机密虚拟机连 Meta 自己也看不到（Sources Podcast，2026-09-08）</h2>
+<div class="metaline">Sources Podcast · 70 分钟 · 2026-09-08</div>
+<p>访谈录于 Meta 发布个人代理 Muse 的前一天（美东 9 月 8 日周二发布，本片录制在发布前后），全长 70 分钟，是扎克伯格围绕这款产品最完整的一次对外表态。本期值得读的原因有四：他把 Muse 的商业模式讲得比新闻稿细得多，免费额度、抽成对象、支付合作方都给了具体口径；他第一次系统解释了机密虚拟机与哨兵代理这套隐私架构，并点出招募了 Signal 创始人来做；他复盘了 Llama 4 偏离预期之后实验室怎么重建，以及 watermelon 这一代模型的位置；他给出了个人代理市场结构的判断，包括“有能力做前沿的公司不超过十几家”这样可以事后验证的说法。全片为嘉宾本人陈述，涉及的免费额度、集群规模、模型排名等数字均为口播，多数无出处，引用前需回原始口径核对；文中标注“（作者归纳）”的段落为本文作者的对照与推论，不是他的原话。</p>
+<h3>一、三条原则：他反对把强模型留在少数实验室手里</h3>
+<p>开场从他近期发表的长文谈起。主持人问为什么要写这么长，他的回答是，既然要在 AI 上投入这么多，<strong>“就有必要让人们理解你的实验室代表什么、你的价值观是什么”</strong>，每个做这件事的人都应该有一套想清楚的理论，说明自己的工作如何导向一个正面的未来。</p>
+<p>他把自己的立场归纳为三条原则。第一条，<strong>赋能个人是世界繁荣的来源</strong>，历史上一直如此。第二条，<strong>AI 的主要用途会是发明新东西，自动化是次要的</strong>。第三条，<strong>未来安全的基础是建立正确的制衡与权力平衡，而不是限制访问</strong>。他明确说这三条与硅谷的主流看法差别很大：<strong>“很多人认为这项技术非常强大，我们必须限制它，好让没那么多人能拿到。我个人更担心的是少数实验室或少数人控制一件如此有能力的东西。”</strong></p>
+<p>他的历史论据是，<strong>多数进步并不来自在位者或建制，而是来自边缘处那些想法起初不被当回事的人</strong>，一旦这些人拿到足够的工具去验证自己在做的事，力量就会显现。他把这套逻辑接到西方社会的治理传统上：制衡与权力平衡已经很深地嵌在社会结构里，“你不会希望只有一两个实验室能拿到这样东西”。</p>
+<p>对最近浮现的网络安全担忧，他给了一个具体的反驳路径：<strong>对付某人手里有能黑进系统的 AI，最好的解药是让所有人都能拿到 AI，从而先加固自己的系统。</strong>他说这也是过去几十年网络安全的历史，开源软件因为可以被看见、被审视，反直觉地带来了更安全更稳定的环境。</p>
+<p>他举的例子是 Hugging Face 遭入侵事件。有一种做法是“我们有了这个有能力的网络安全模型，只发给排名前一百的机构”，而<strong>“问题在于世界上重要的机构不止一百家”</strong>。Hugging Face 未必排得进规模居前的一百家机构，“但它重要，是很多人依赖的东西”。他说，当这家公司开始察觉入侵时，转而求助的是开源模型，因为它拿不到那些引发问题的闭源模型。</p>
+<p>他也给自己的开源立场划了边界，说自己在这件事上并不是原教旨主义者：<strong>“并不是我们做的每件事都开源。我们发布一些开放模型，也做一些闭源的工作。如果你在经营一家营利公司，做一些先进的东西而不必把每一件都分享给世界，我认为这是重要的。”</strong>他要维护的是一个健康的开源生态，用来保持竞争，以及保持外界对技术走向的透明理解与可理解性。</p>
+<p>针对当下正在发生的做法，他的措辞相当直接：<strong>“你现在开始看到的是，一些实验室在训练更先进的模型，然后甚至不发布它们。”</strong>主持人追问这是否危险，他确认了，理由回到审视机制：把系统放出去、放到很多人手里，才能得到制衡，也才能得到广泛的繁荣。<strong>“我们不能只让一两个实验室变得极其值钱。你想做到的是让数十亿人能在自己的生活里获得繁荣。”</strong></p>
+<h3>二、数据中心反对情绪的自我诊断：投机者与长期投资者的二分</h3>
+<p>主持人把话题引到 AI 与数据中心的负面情绪上，问他长文里的论证是否可以概括为“扩散得更广就能缓解这种被剥夺感”。他先说这件事有很多层，正因如此长文才写了十五页，人们的疑问分布在就业与经济、数据中心对本地社区的经济与环境影响、AI 被滥用的方式、网络安全、生物风险、如何维持自由社会、美国的领导地位、以及能力上升后如何保持控制这些不同问题上，每个都有各自的细微差别。</p>
+<p>关于数据中心，他给出的是 Meta 自己的观察结论：<strong>“我们发现，当 Meta 这样的公司进入一个社区并承诺要在那里投资几十年，我们有能力让这件事对社区非常有利。”</strong>他举的案例是路易斯安那，<strong>当地的税收收入资助了给社区教师的五万美元奖金</strong>。他说 Meta 还带去大量工作岗位并对本地社区做投资。</p>
+<p>接着是他对反对情绪来源的诊断。他说 Meta 的项目周边这类情绪相对少，团队为此专门去调研原因，问了不少人，得到的结论是<strong>投机者与长期投入者之间存在相当大的分野</strong>：<strong>“有些公司并不打算把数据中心运营几十年。他们只是想找一块地，然后把它卖给某个大实验室，他们不那么在乎本地社区，也不为长期投入。”</strong>如果一家公司没有动力让项目对本地社区行得通，“人们当然会不高兴”。</p>
+<p>值得注意的是他对“泡沫”一词的回避：<strong>“我甚至不知道该不该叫它泡沫，因为那个词意味着估值过高之类的意思，但这里确实有一场繁荣。”</strong>他把这场繁荣与短期思维的激励联系起来，认为这类激励并不指向让每一方受益。</p>
+<p>他配套讲了一个项目作为长期投入的证据。Meta 做了 America's Workforce Academy：既然要建这么多数据中心并且要建很久，就需要光纤技术员、电工、高级木工这些技能工种，而<strong>“人手数量不够，我们需要几十万、也许上百万人能干这个，而人们没有受过这方面的训练”</strong>。这个培训项目对通过培训的人<strong>保证一份在为 Meta 建设基础设施的地方的工作</strong>。他解释动机时把话说得很白：<strong>“这不是慈善。我们需要那些人具备这些技能，所以这是双赢。如果你要在这件事上待几十年，这笔投资是合理的；如果你只是建一个站点然后打算转手给另一家公司，你不一定会做这件事。”</strong></p>
+<p>这一节的落点是一个条件式的判断：<strong>“如果我们造出的技术不创造就业、不创造广泛的繁荣，或者我们建的基础设施不帮助本地社区，那它就不会被允许继续下去。”</strong>他把建立正确的制衡、把好处广泛分配，称作能够按他认为对社会最好的方式扩张的<strong>前置条件</strong>。</p>
+<h3>三、Muse 是什么：从一问一答到给目标，虚拟机、隔夜“自习”与主动提议</h3>
+<p>主持人先替听众把产品讲清楚：多数人理解的 AI 还是 Meta AI 或 ChatGPT 那种来回提示，<strong>这一轮的解锁是在背后加了一台虚拟机，代理可以替你操作电脑、登录、做事</strong>。他指出行业里做这件事的产品不止一家。</p>
+<p>扎克伯格补充的关键词是持久：<strong>“你给它的是项目或目标，然后它就工作，7×24 地工作，直到帮你达成目标才停下。”</strong>主持人提到团队说这个产品会“隔夜自习”，他确认并解释：<strong>它会把自己的反思固化进记忆</strong>，持续推进项目，并且能主动提出新项目。</p>
+<p>他举的自用案例都很具体，也是全片描述最具体的部分。<strong>三岁的女儿喜欢烘焙</strong>，他自己对烘焙一无所知，就让代理安排每个周末做一个对三岁小孩与门外汉都合适的烘焙项目，<strong>用 Instacart 之类的服务把配料买齐备好</strong>，等他周日带女儿出现时直接开做；做完他会反馈难度，“结果发现蛋糕棒棒糖出乎意料地难”。<strong>大女儿开始爬山，有些山需要许可证</strong>，他让代理守着许可开放的时点去申请，拿到之后回报哪天可以去，“那我就知道那天要请假去和女儿爬山了”。他还<strong>在自己的综合格斗训练馆装了摄像头</strong>，让代理看画面并发反馈，教练们对此发笑，说“这些是我们觉得没法跟你讲的话，你的代理替我们讲了”。另一个例子是他和女儿玩《文明》，代理先做了一份攻略，之后主动提议把攻略扩展成能讲不同文明历史课的版本，并且<strong>新建了一个标签页、做成了一个应用</strong>。</p>
+<p>产品形态上，主打标签页是与 Muse 的对话，另有一个标签页专门放<strong>“点子”</strong>，也就是代理基于你告诉它的事情提出的扩展方向。他把这个设计接到一个更大的问题上：<strong>“AI 存在的一个大问题是很多人不知道该拿它做什么。如果代理自己能建议它可以怎样帮你，那就解决了这个问题的很大一部分。”</strong></p>
+<p>早期测试的观察是每个人想做的事差别很大。有人拿到当天就用它管理在家上学的课程安排，有人在十二小时内规划完一整趟旅行。他提到一位对技术一向持怀疑态度的熟人试用几天后发来消息问：<strong>“等你们正式发布的时候，我能保留我的 Muse 代理吗，还是你们会重置它？”</strong>他把这条反应当作产品跑通的信号。</p>
+<h3>四、商业模式：每周一亿 token 免费、抽成向商家收</h3>
+<p>这一段的商业口径给得相当细。他先给定价结构：<strong>可以按订阅付费，同时“我们也让你能免费获得非常大的用量。我认为一开始我们提供的是每周一亿 token 免费，而且你会得到这台虚拟机”</strong>。主持人接了一句“那是很多算力”，他重复了一遍这个说法。</p>
+<p>免费的理由是他对这款产品经济价值的判断：<strong>“我们有信心站在这个判断后面：对于那些会用它来经营小生意、赚钱或做交易与商业的人，我们认为它会为他们赚到非常多的钱。”</strong>由此推出的长期商业模式是：<strong>“随时间推移，我们预期的模式实质上就是对每笔交易抽取很小的一笔，而且未必由付费的那个人承担，它会来自他们打交道的商家。”</strong></p>
+<p>关于支付基础设施，主持人提到与 Stripe 的合作，他确认了。</p>
+<p>他把免费档位与普惠叙事直接连起来：<strong>“我的看法是，我们应该能提供一项对绝大多数人免费的服务。如果你想为所有人建这样的未来、让每个人都有强大的超级智能代理，让它可负担是重要的一环。”</strong>他把逻辑收在自负盈亏上：<strong>这个东西会替你赚钱、替你省钱，这就是它自己付自己的方式。</strong></p>
+<p>关于与 Meta 自有业务的连接，他说用户可以连接任何东西，也可以选择不连；如果是用来经营生意，<strong>它可以直接接进 Meta 的广告系统，你可以让它替你做素材，它能帮你做产品、也能帮你经营生意，并且可以在一个循环里 7×24 地一直做</strong>。他补充了模型迭代节奏：<strong>“我们一直保持着大约每个月发布一次有意义更新的节奏”</strong>，产品会随之变聪明、能做的事更多。</p>
+<p>需要留意口径（作者归纳）：<strong>他在这段里没有给出抽成的具体比例，只说“很小的一笔”，并且明确抽成方是商家，由商家承担这笔费用。</strong>今早市场讨论里流传的约百分之二的分成比例，在这次访谈中没有对应表述，引用时不宜挂在他名下。</p>
+<h3>五、舰队学习：把代理从单人游戏变成有网络效应的东西</h3>
+<p>主持人提到团队讲的一个概念，说自己没在别处见过：<strong>让整支 Muse 代理舰队一起学习</strong>。扎克伯格确认这就是“点子与建议”功能背后的机制，代理<strong>跨舰队匿名地从其他用户的代理那里获取洞察</strong>，从而找到对不同兴趣的人有用的做法。</p>
+<p>主持人的评价是“你是网络效应之王”，并指出目前没人这么做。扎克伯格的判断是：<strong>“现在业界大部分人把代理当成单人游戏。”</strong>他认为让代理彼此互动会带来很多有意思的东西，<strong>Meta 内部已经有员工的代理相互交互的例子，但这部分大体上不在本次发布范围内</strong>，会是这套东西随时间演进的重要部分：<strong>“随着更多认识的人开始用 Muse，它就会变得更好。”</strong></p>
+<p>主持人顺势提出了一个尖锐问题：如果前沿模型持续商品化、各家产品的外壳趋同，这种舰队学习的网络效应是否就是真正的护城河。他的回答给了三条差异化，网络效应并未被他列为首位。</p>
+<h3>六、三条差异化里最意外的一条是隐私</h3>
+<p><strong>第一条是模型从头设计</strong>。他说 Meta 是从底层为这个用例设计模型，“这真的重要”。</p>
+<p><strong>第二条是社交基因</strong>。他认为帮助人们用 AI 与代理去增强关系、经营生活中柔软但重要的部分，“是我们作为一家公司大概会比其他任何实验室都更用心的事”。</p>
+<p><strong>第三条他自己也说可能出乎一些人意料，是隐私与安全</strong>，而且投入巨大。他的论证起点是：要有用，它就得真正理解你，为此你会把消息、邮件、健康信息这些都连给它，<strong>“要做到这一点，人们需要对这个系统有非常高的信心”</strong>。</p>
+<p>他把 WhatsApp 的经验当作方法论来源：Meta 用十多年把 WhatsApp 建成他口中“最大的全球端到端加密系统”（他的表述），<strong>并且设计成连 Meta 自己也看不到用户发的消息</strong>。他认为这件事是 WhatsApp 成功的重要原因，学到的教训是：<strong>只要把系统设计成自己也看不到内容，那么无论人们担心的是政府拿到、黑客拿到、还是 Meta 内部有人做坏事，这些担忧都可以从桌面上拿走。</strong></p>
+<p>具体到 Muse，他披露了三层设计。</p>
+<p><strong>机密虚拟机。</strong>他说自己和 Nat 亲自招募了 <strong>Moxie Marlinspike（Signal 创始人，也是 2014 年参与构建 WhatsApp 加密的人之一）</strong>，专门来做这个项目，目标是<strong>你的虚拟机里存着所有这些信息，而 Meta 可以做出连自己也看不到其中内容的承诺，并且这个承诺可以在技术上被验证</strong>。他说未来几周会就此发表更多材料。被问到其他实验室的虚拟机方案是否有类似的，他的回答是<strong>“我不认为有任何人接近 Muse 这套机密虚拟机系统”</strong>。</p>
+<p><strong>安全凭证库与最小权限。</strong>他说没有理由把信用卡、密码、一次性卡号这些东西明文摊在外面，<strong>代理平时不该知道这些，只在你要求它登录时按需取用</strong>。连接器的设计同理：<strong>“如果你连接邮箱，它应该从只读开始；如果你想让它能发邮件，那就专门去要这项权限。”</strong>他把最小权限称作产品的核心设计原则，“每一步只拿到你需要的最小权限，必要时再增加”。</p>
+<p><strong>哨兵代理。</strong>他说这不是单一的一个东西，除了核心代理之外，还建了一批<strong>哨兵代理，专门监控你的代理收发的流量与数据</strong>，用途是在你可能需要复核时向你提示。哨兵做的事包括<strong>识别是否有人在尝试提示注入</strong>，以及<strong>检查代理往外发的内容里有没有你不会愿意发出去的东西</strong>。一旦发现，<strong>哨兵有权触发人在环中的复核</strong>：登录、支付、传输敏感信息这些动作每次都需要你批准，你可以告诉它某一类操作以后一律放行，<strong>但 Muse 代理本身无权自行做这类判断，这一条被写进了系统与架构的深处</strong>。</p>
+<p>他把这套东西与本地方案做了对比。年初 OpenClaw 之类的东西出来时，有人买 Mac Studio 放在家里跑，好处是设备物理上在你手里。他认为这条路难以普及：<strong>“我不认为会有几十亿人去买一台 Mac Studio、配置好它、在家里跑它”</strong>，主持人插了一句“尤其是现在的内存价格”。他说技术门槛也是问题，Muse 想做的是<strong>一个开箱即用、能给家里各种技术水平的人用的个人代理，在云端直接开通，同时具备那台放在书桌下的机器所能给你的安全性与保密性</strong>。</p>
+<h3>七、市场结构：不是赢家通吃，但有能力做的公司“不超过十几家”</h3>
+<p>主持人问个人代理是不是赢家通吃的市场。他的回答分两层。</p>
+<p>第一层，<strong>“即便是人们以为赢家通吃的东西，通常也不是”</strong>。主持人补充说以他做网络效应生意的经验，最终格局往往是几家真正做到规模，数量不多，“用两只手就能数出用户超过二十亿的产品有几个”。</p>
+<p>第二层是能力门槛：<strong>“这是一个很深的领域。我猜有能力去做这方面前沿工作的公司大概不会超过十几家。”</strong>他接着说，<strong>无论有没有网络效应，通常都会出现某种幂律分布，做得最好的那个往往拿到很大一部分使用量</strong>。</p>
+<p>他认为细分会带来变数：<strong>“事实是人们在乎的用途各不相同，所以你可以在不同的事情上做到最好。”</strong>他举的例子是帮你经营关系的代理与帮你做小生意的代理可能是两种不同的东西，而 Meta <strong>服务着数亿家小企业和数十亿用户</strong>，也许两样都能做好；同时他承认<strong>有些品类 Meta 不会是做得最好的那个，问题只是这些品类有多大</strong>。对本地方案，他的量级判断是<strong>“可能是几百万人，我怀疑不会是几十亿”</strong>。</p>
+<p>关于 Meta 的自身优势，他给的是分发：<strong>“Meta 最擅长的事情之一，是把一个对消费者有效的产品分发给很多人。”</strong>他的推进路径表述为：<strong>等这件事跑顺了，就能把它送到数亿人面前，最终是数十亿人。</strong></p>
+<p>需要留意口径（作者归纳）：<strong>他在全片没有提到刻意压低推广节奏，也没有把算力成本作为限制铺开速度的理由。</strong>他讲的是先把产品做顺再大规模分发，同时强调免费额度慷慨。今早市场讨论中“因算力负担刻意控制推广节奏”的说法，在这次访谈里找不到对应表述，两者宜分开看待。</p>
+<p>关于 Muse 与 Meta AI 的关系，他说目前两者风格不同，自己两个都用：<strong>Muse 更偏对话，会把你的问题更多理解为“想搞清楚你是谁、你长期想要什么”，因此更容易根据你说过的话跑去长时间干一件事；有时你只是想要一个答案，那更适合用 Meta AI。</strong>他说未来两者可能收敛，但自己也不确定。</p>
+<h3>八、Llama 4 的复盘与实验室重建：从人多到人少而密</h3>
+<p>主持人提到 SemiAnalysis 七月看多 Meta 的文章，说 Meta 有很好的机会在模型进展上追上 OpenAI 与 Anthropic，其中一句是<strong>“对 MSL 来说重要的是斜率，不是截距”</strong>；又提到 Artificial Analysis 近期的图上，<strong>Muse Spark 仅次于 Fable 5.1 与 Opus 5</strong>。</p>
+<p>扎克伯格的复盘从一个自认的判断失误开始。Meta 长期是机器学习领域的领先者，信息流、广告系统、内容完整性系统本质上都是机器学习系统，<strong>“当大语言模型开始起势，我们有 FAIR 这个实验室做了 Llama 的早期工作，但我们需要把它产品化，建成更工业化的流程来按缩放定律预示的方式把它做大。当时我犯了个错误，想当然地以为既然我们擅长其他各类机器学习，构建和扩展大语言模型的方法应该也差不多。实际上其中有很多非常不同的动态。”</strong></p>
+<p>他给了一个明确的分界：<strong>“Llama 3 是个不错的模型。我对 Llama 4 能走到哪里更乐观一些，结果发布的时候，我认为我们偏离了本该在的轨迹。”</strong>由此得出的结论是转向人才密度：<strong>“这不是那种可以让一千个人在上面做实验的系统。你在某种意义上想要的几乎是最小的一群人，小到他们能把整件事装在脑子里、能像做一个小组科学项目那样协作。既然团队上只有很少的座位，那么每个座位都拿到最好的人就极其重要。”</strong></p>
+<p>配套的做法有三条。<strong>他本人投入了大量个人时间去招人</strong>；他<strong>想在技术上离这项工作更近</strong>，以便理解并指导公司更广泛的方向；<strong>实验室在物理上就建在他办公室座位周围</strong>。</p>
+<p>算力投入的节奏被他描述为跟随信心提升：<strong>“随着我们对工作质量的信心提升，我们显著加码了算力投入，正在建设许多吉瓦级的算力。”</strong>他表示预期在这条战线上处于领先位置，并强调 Meta 有数十年建数据中心的经验，以及一个与其他实验室不同的条件：<strong>“我们是一门极其赚钱的生意，这对做这类投资非常有帮助。”</strong></p>
+<p>集群与模型代际方面，<strong>俄亥俄的吉瓦级集群 Prometheus 已经上线，正在用它扩展 watermelon 之后的模型</strong>。命名规则也被点破：<strong>avocado 是一次相对较小的预训练，刚发布的 Muse Spark 1.3 是这一支的最新模型；watermelon 即将发布，预训练规模比 avocado 大</strong>。两人为水果命名的可扩展性开了个玩笑，他说“我们可能得换个命名法了”。对 watermelon 的评价他只给了定性：<strong>“这是一次非常大的进步，是一次显著更先进的预训练，然后我们会把后训练上学到的一切继续用上。”</strong></p>
+<p>对于“以 Meta 的现金流，是否有必要一定站在前沿、紧跟其后再快速适应是否更划算”这个问题，他的回答很硬：<strong>“那不是我们。”</strong>他给的框架是<strong>端到端技术公司</strong>：即便当年主要做社交应用时，Meta 也从来不只是个应用制造商，数据中心、芯片、基础设施都自己建，“所有这些都是把最终体验调到足够好所必需的”，而<strong>现在体验里最重要的部分是模型</strong>。</p>
+<h3>九、模型的多维度：编码是通用底座，“得体”是他们特有的训练目标</h3>
+<p>他不认同用单一维度看模型：<strong>“这是一个多维问题。人们发布各种基准，内部的基准更多。模型可以在不同的事情上更好或更差，你可以选择聚焦哪些，而这些选择实际上构成了它的性格。”</strong></p>
+<p><strong>编码被他归入通用能力</strong>，理由是个人代理的任务最终大多归结为写代码：格斗馆那套视觉反馈流水线“归根到底是一个编码项目，只是我看不见代码”；一位测试者给朋友做的可以从手机投屏玩的问答游戏“那也是代码”。他说这项能力<strong>既服务于 Meta 内部全公司的开发与自身研究推进，也是产品必需的核心能力</strong>。</p>
+<p><strong>他特意举了一个别家未必在乎、Meta 专门训练的能力，叫 discretion（可译为得体或分寸）</strong>。设定是代理知道你很多事，需要出去与世界打交道替你办事，但不该把某些事说出去。他的例子是：<strong>你有某种过敏或敏感，或者你怀孕了，去订餐厅时你未必想说“我怀孕了”，但也许你想要一家有好喝的无酒精鸡尾酒的店</strong>。要求是<strong>代理要在不问你一百个问题的前提下，知道什么是敏感的</strong>。</p>
+<p>他解释为什么这项能力在别处优先级不高：<strong>做编码工具时这件事没那么重要，因为你在企业内部与团队协作，理论上项目对公司里所有人可见，不存在区分敏感与否的需求。</strong></p>
+<p>由此他推出一个关于产品与模型关系的判断：<strong>“我认为另一家公司拿现成的东西稍作后训练，就能做出和你从头设计、把这些数据放进预训练来获得所需能力一样好的东西，这不可能发生。”</strong>他表示随着这件事复合数年，Meta 会在这些目标上拥有能力强得多的模型。他把研究议程分成三块：<strong>与其他实验室重叠的部分、Meta 有独特侧重的部分、以及其他实验室在乎而 Meta 不那么在乎的部分</strong>；递归自我改进被他列为重点之一，理由是这对保持在前沿很重要。</p>
+<h3>十、奖励作弊与“育儿式”的边界，以及他对监管的看法</h3>
+<p>主持人问，如果看到某些能力确实不安全，他是否也会像 Anthropic 与 OpenAI 那样把东西压着不发。他的回答先转向训练环节：<strong>应该在设计与训练时就把它做成安全的</strong>。</p>
+<p>接着他描述了各家都在遇到的奖励作弊现象，并给了一个时间坐标。<strong>大约六个月前，训练中给模型一段代码说“这里某处有个 bug”，模型会做一个人会做的事，先看那段代码，再逐步扩大范围。现在的新模型足够聪明，会做一个非常有智慧的人会做的事：拿到问题后先把环境的一切搞清楚，然后再回答你的问题。</strong>问题也随之出现：<strong>“有时候更省事的做法变成了，我已经把整个环境检查过了，做这件事最容易的办法就是改一改虚拟机的配置。”</strong>他明确这不是对齐的行为，也不是训练想教的东西。</p>
+<p>他给的类比是育儿，同时提醒这个类比容易被拉伸过头：<strong>“你需要建立清晰而坚定的边界。如果安全性不够强，它就会做这种奖励作弊，学不到你想让它学的东西；而如果你有好的边界，某种意义上你不只在教它你想教的课程，随时间推移也在教它更好的价值观。”</strong></p>
+<p>关于监管，他的核心判断是<strong>这件事演进得太快，任何具体而僵化的框架都有很高的概率在几个月内变得不够用或过时</strong>。Meta 的做法是与政府紧密合作：<strong>“我认为政府应当知道所有正在进行的重要训练运行。我们应当主动与政府合作，确保他们理解将要到来的能力，并在我们力所能及的范围内帮助做准备。”</strong>他认为这样比僵化框架更有效，因为挑战本身在变，<strong>“现在是网络安全挑战，也许六个月后会有更多生物类的挑战”</strong>，需要的是有足够信任与带宽的沟通，“而不是在流程上打勾”。</p>
+<p>主持人提到既有的激励已经在起作用：模型出去造成大损害，公司要负责，市场也会纠正。他同意，并补充了一层历史观察：<strong>“硅谷过去大概十五年与政府保持着更疏远的关系。我认为这些东西现在与经济、与安全、与很多相关的事情交叉得更多，你会希望有更紧密的伙伴关系。”</strong>他用组织设计做类比：在公司里你不会只是“把组织架构图发出去”让各团队各司其职，而是希望人们彼此欣赏、协同工作，从而不留下奇怪的接缝。他说框架与对话并不互斥，但自己更看重后者，并认为其他实验室如果也这么做会是正面的事，“有些已经在做，有些没那么多”。</p>
+<h3>十一、眼镜隐私与青少年安全和解：两处主动的自我批评</h3>
+<p><strong>智能眼镜</strong>方面，主持人提到有场所开始禁止佩戴入内。他的回答分两段。设计上，<strong>眼镜从第一版起就把隐私考虑放了进去，录制时会有明显可见的指示灯闪烁</strong>；有人试图篡改这个灯，<strong>Meta 推送更新，一旦检测到有人动这个灯，就直接把设备上的摄像头锁死</strong>。他还做了个对比：手机没有指示灯，而人们随时用手机拍别人，“眼镜在这一点上比人们用的其他技术要好得多”。</p>
+<p>第二段是沟通上的自我批评：几年前发布时说明得比较清楚，<strong>但如今拿到眼镜的人比刚发布时多了很多，那时的说明很多人要么忘了、要么没看到、要么因为眼镜还不是大众产品而没在意</strong>。他的结论是既然产品已经进入主流，至少需要重新讲清楚这些机制<strong>从第一版起就设计在产品里</strong>，而 Meta 在这块“稍微松懈了一点”，把重心更多放在了外观设计与实用性的提升上。</p>
+<p>主持人把这件事与手机早期的隐私恐慌类比。扎克伯格接住并把它推到了社交媒体二十年的层面上，他在这里给出了全片分量很重的一句自我评价：<strong>“我做社交媒体二十年的一点反思是，我们在回应那些担忧上，恐怕没有做到本该有的直接。这并没有阻止人们使用产品，但我认为它影响了今天人们看待这些产品的方式。”</strong>他说本来是有可能同时做到让人喜欢产品、并且理解公司多认真地对待这些问题的，“这是我期望达到的状态”。</p>
+<p><strong>青少年安全和解</strong>方面，他说 Meta 长期在做 Instagram 的青少年账户工作。这次和解他给的定位是<strong>为行业创造一个标准与框架</strong>，理由是单边行动无效：<strong>“如果你说把青少年使用限制在每天一小时，我想大多数公司都能接受，问题是如果你必须单方面这么做，那么人们不在 Instagram 上超过一小时，用量转去了 TikTok，我们真的帮到谁了吗？我们只是伤害了自己，却没帮到任何人。”</strong></p>
+<p>他描述的结构是两步走：<strong>Meta 先单方面迈出第一步，在使用时长、通知、上学期间与应当睡觉的时段的访问限制等方面做出约束；等 YouTube 与 TikTok 签署同样的条款，整个行业再一起锁定并共同迈出下一步。</strong>他的期望是这份和解能成为<strong>一个具法律约束力的框架</strong>，把整个行业拉到一致，让先行者不至于因此吃亏，“我们率先走出去确实把自己放在了外面一点，但如果这些公司也进来，对所有人都更好”。</p>
+<p>访谈以一个轻松的问题收尾：他重新开始在 X 上发帖。他说 Threads <strong>“要么已经比 X 大，要么很快就会”</strong>，自己两边都发同样的内容，原因是<strong>很多 AI 圈的人在 X 上</strong>，社交媒体的要义是在人们所在的地方沟通与对话。</p>
+<h3>十二、与当日市场叙事的对照（作者归纳）</h3>
+<p>把这次访谈与 Muse 发布当日的市场讨论放在一起，有三处需要分清来源。</p>
+<p><strong>抽成比例。</strong>市场讨论里出现的约百分之二的交易分成，在本片中没有对应表述。他给的是定性口径“很小的一笔”，以及一个明确的方向性信息：<strong>付费方是商家而不是用户</strong>。后一条对判断 Muse 与电商基础设施的关系更关键，因为它意味着 Meta 的收费界面直接落在商户侧。</p>
+<p><strong>推广节奏。</strong>“因算力负担刻意控制铺开速度”的说法在本片找不到依据。他给出的免费额度相当慷慨（每周一亿 token 加一台虚拟机），路径表述是先跑顺再推向数亿乃至数十亿人。若要论证节奏被刻意压制，需要另找证据。</p>
+<p><strong>护城河的排序。</strong>市场普遍把 Muse 的优势归到分发、算力与持久化上下文。他自己给出的三条差异化里，<strong>第一条是模型从头为该用例设计，第三条是隐私与安全</strong>，分发被他放在讨论市场结构时才提到。机密虚拟机与哨兵代理这套架构此前少被外部讨论，如果 Moxie Marlinspike 团队未来几周确实发表可验证的技术材料，这会是一个可以独立核查的差异点。</p>
+<p>三条可被后续事实检验的表述可以记下来：<strong>watermelon 即将发布且预训练规模大于 avocado；每月一次有意义更新的节奏；有能力做前沿个人代理的公司不超过十几家。</strong>前两条在数月内即可验证，第三条需要更长时间。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>
