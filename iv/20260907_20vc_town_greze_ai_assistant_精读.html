@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Town创始人Grèze：自家工程师人均AI工具年化开支至少7.5万美元，试用转付费超15%，前沿任务占比决定助手毛利（20VC，2026-09-07）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>Town创始人Grèze：自家工程师人均AI工具年化开支至少7.5万美元，试用转付费超15%，前沿任务占比决定助手毛利（20VC，2026-09-07）</h2>
+<div class="metaline">20VC with Harry Stebbings · 76 分钟 · 2026-09-07</div>
+<p>本期嘉宾Jean-Denis Grèze是AI工作助手Town的联合创始人兼CEO，此前任Plaid首席技术官七年、Dropbox工程总监。Town把助手放进用户的邮箱和日历，根据过往邮件与日程推荐自动化任务，录制时上线约三个月。这期对研究员有用的信息分两类：Town作为买方在编码代理上的人均支出，以及Town作为卖方的定价、转化与单位经济。口径提示：文中数字均为口播，多数没有出处；YouTube自动字幕没有说话人标记，引述归属按上下文判断，归属存疑的原话不引；10亿美元估值洽谈融资一说出自节目简介，简介本身标注为报道口径，嘉宾在节目中称不能确认也不能否认。中心判断：本期可直接使用的需求证据集中在AI原生团队的编码工具预算和工作场景用户的付费意愿两端，助手层能否形成可持续毛利取决于前沿模型任务占比，这个变量嘉宾本人也给不出答案（作者归纳）。</p>
+<h3>7.5万美元是Town自家工程师的编码工具年化开支，主力工具五个月内从Claude为主变为与Codex约各半</h3>
+<p>“每名工程师7.5万美元”出自访谈末尾的快问环节，样本是Town自己。主持人先引用Benioff称Salesforce在Anthropic上花费3亿美元（字幕中对照基数与5%占比一句有缺损），再问Town在开发工具上的支出占工程师薪酬多少。Grèze答“run rate至少7.5万美元”，说成“每名员工”后当即改口为“每名工程师”。原话没有给时间单位，他随后以年度口径谈公司算力开支，按年化理解较合理（作者归纳）。这是一家处于融资期的AI原生创业公司的内部数字，属于技术团队的单一样本，外推到一般企业需要额外证据（作者归纳）。</p>
+<p>工具构成由他逐项说明。Devin承接大量缺陷修复、小改动和视觉微调，他称团队在Slack里协作的体验很好；少数人用Cursor做前端，理由是Composer模型快；主力在Codex与Claude之间“大约五五开”，他称五个月前还以Claude为主，新版Codex和移动端体验很好；Town自家产品也列在其中。访谈没有拆分订阅费与按量计费，也没有说明是否包含Town内部使用自家产品产生的推理成本。主力工具份额在五个月内随版本更替迁移，说明编码代理的预算有延续性，具体供应商的锁定弱，模型厂商在这块的份额对新版本发布敏感（作者归纳）。</p>
+<p>他衡量这笔钱的框架是ROI与招聘替代。他举例称，一家收入100万美元、成本80万美元的公司，20万美元利润够雇一名工程师，若AI让工程师创造的收入从15万美元升到25万美元，公司反而会多雇一人。Town眼下的约束是招人速度、资金和收入增速：有客户要集成、审计日志、支持手机号的SSO才肯签更大合同，他形容眼前“遍地是金子”，若有更好的模型能让他多花钱去做这些高回报的事，他会“立刻就花”。他以含糊的口吻把公司全年算力开支估为“大概一百万美元或者别的什么数”，折合三到四名工程师，计入股权后约一名半，并称“离担心token maxing还差得远”。这笔算力开支是否只含内部工具、与人均7.5万美元是否同口径，访谈没有交代，两者不宜互相换算（作者归纳）。对下游需求的含义是，在收入仍在增长的AI原生公司里，工具预算由“替代多少人力成本”来锚定，模型能力继续提升时支出上限会跟着上移；收入放缓、招聘收缩的传统企业是否适用这一逻辑，本期没有证据（作者归纳）。</p>
+<h3>试用用户超过15%转为付费，代价是入口强制授权邮箱日历时先流失30%</h3>
+<p>Grèze称，试用Town的用户中超过15%最终付费，他形容这在PLG产品里“极高”。他给出的解释只有一条：要求用户一上来就连接邮箱和日历，产品就能了解用户平时做的工作，并主动推荐AI可以代劳的自动化任务；ChatGPT允许用户不连邮箱，基础体验是一个聊天框。主持人把这一步比作硬付费墙，追问流失，Grèze答“30%，一开始就流失”，并称必须承受这个损失。15%的分母是全部注册者还是完成授权的用户，访谈没有说清，分母不同会改变这个转化率的含义（作者归纳）。</p>
+<p>他把成功用户定义为“每个月持续付费的人”，并称Town目前每名用户年收入超过700美元，字幕原话未注明是否仅指付费用户。问及成为千亿美元公司的条件，他答约1000万付费用户，并补充还需要保持增长。按两个口播数字相乘约为70亿美元年收入，对应估值约14倍收入（作者归纳）。主持人问当前收入，他拒绝透露。录制时产品上线约三个月，访谈没有给出续约、留存或净收入留存数据，700美元这一数字的持续性无从检验（作者归纳）。</p>
+<p>早期扩散的线索有两条。其一，团队里若有一个爱折腾的“tinkerer”搭建团队技能、集成和例行任务，其他成员可以直接复用，采用就快，他称这是扩散的预测指标之一。其二，增长先来自AI渗透低的职能，他列举行政助理、幕僚长、HR、初级财务人员和招聘人员，对照是销售团队三年来被各路AI产品反复推销；这些人常与高管和运营团队协作，产品再经由他们渗透进运营团队。助手类需求的增量来自此前被企业AI采购覆盖不足的岗位，获客路径依赖个人自发采用后的组织内扩散（作者归纳）。</p>
+<h3>三档订阅叠加超额按量计费，Grèze称15美元档补贴多、99美元档盈利好</h3>
+<p>主持人列出每月14、49、99美元三档，Grèze确认，并以15美元称呼入门档。据他介绍，15美元档单位经济差、补贴多，作用是让用户用到觉得该升级49美元档，他称49美元档“产品真正强大”；他认为99美元档总体盈利好，用户属于重度但不无节制的类型；用户触及套餐上限后多数转入按量计费。Town没有Max档，有重度用户提出要求，他在考虑是否因营销价值给这批“鲸鱼用户”开放。订阅加用量的结构把重度用户的算力成本转嫁回用户，入门档承担获客成本，这与他“短期为增长花钱、长期优化毛利”的说法一致（作者归纳）。</p>
+<p>零价格期的数据提示了需求与价格的关系。Grèze称，产品在私测和公测的前五个月没有定价，有用户每月消耗2000到4000美元算力，有一位五个月累计2.6万美元，原因是“token开销没有任何阻力”，团队会打电话与这些用户沟通例行任务是否真有价值。主持人问为何不再融2亿美元全面补贴，他称PLG部分可能加大补贴，但团队用户达到三到五人就要赚钱，理由是企业想提前知道将来要花多少钱，不能让500人的公司免费用到业务流程都跑在上面再关掉。零价格下的千美元级月耗说明重度需求存在，也说明这类用量不能直接当作付费需求的代理变量（作者归纳）。</p>
+<p>他明确反对以token用量衡量成功。他称此前企业告诉员工AI随便花是错的，现在企业在设计激励，让员工有理由地使用AI；同一个会前准备流程，对连轴开会的人价值高，对只旁听的人几乎没有价值，token成本却一样。近一个月Town受欢迎的功能之一，是检测到“失控的例行任务”大量耗费token时主动发邮件提醒，他称用户因此更信任平台。这是企业AI预算从放量试用转向ROI审视的一手描述，按用量计费的应用层要维持收入增长，需要让客户看得见单位产出（作者归纳）。</p>
+<h3>毛利押注推理价格每9到12个月减半，前沿任务占比是嘉宾自认的主要风险</h3>
+<p>Grèze称推理价格每9到12个月减半，因此可以按18个月后产生20%到30%毛利的水平给今天的产品定价，Town目前“大部分”任务仍用前沿模型。邮件打标签这类简单任务已改用前沿厂商的廉价模型，尚未使用开源权重模型；理由是优化COGS不带来产品优势，工程师时间优先投向网络效应功能和新数据源接入，他称“我们的经济性还行”。他还称除极少数外，他认识的创业公司都在寄望成本曲线在18到24个月内让经济性成立，眼下部分是补贴。章节标题把问题设为能否达到SaaS毛利，嘉宾给出的18个月目标是20%到30%，节目没有给出SaaS毛利的对照数字（作者归纳）。</p>
+<p>问及真正担心什么，Grèze答是前沿任务的占比：其他环节的价格他都能想象降下来，但在前沿他“零定价权”。终局若仍有10%、20%或30%的任务留在前沿，这部分收入就交给了同时是竞争对手的OpenAI和Anthropic。他以Cursor为例，市场份额再高、客户再喜爱，一边付钱给供应商一边与之竞争终究吃力，原话提到70%毛利，所指主体在字幕中不够清晰。主持人点名Astra，Grèze承认今天“百分之百”在与之竞争。他本人点出了其中的含义：工作场景里创造更多收入的任务往往在前沿。他的扩张逻辑是让助手在工作中做更多事以提高单用户收入，这会同时推高前沿任务占比，增长叙事与毛利叙事之间存在张力（作者归纳）。</p>
+<p>另外两项成本约束来自语音和模型一致性。他称ElevenLabs声音效果好但很贵，若有两三百万用户使用语音会冲击毛利；语音在语气与情绪理解上再好一倍之后，他会转向尽可能便宜的方案，对ElevenLabs的220亿美元估值他称“是很多钱”，风险在于语音质量触顶后开源模型也能做到。模型路由方面，用户对助手“性格”的稳定性敏感，回复长度或大小写习惯变化都会引来工单，面向用户的输出层难以随意更换模型家族。用户侧的一致性要求压缩了应用层在模型厂商之间比价切换的空间，削弱了应用层对上游的议价能力（作者归纳）。</p>
+<h3>创业对手从约15家收敛到两三家，功能复制周期缩短到两到四周</h3>
+<p>Grèze称今年一二季度他眼中有意义的创业对手约15家，现在降到两三家，他拒绝点名；功能被对手复制只需两到四周，他的说法是“构建可以用机器的速度，学习只能用人的速度”。他称自己在做的东西未来12个月会是谷歌和苹果的“前三优先级”，个人场景里他更担心Meta借WhatsApp的分发。研发有相当部分花在“跟上别人”：Codex背后有上百人，他只有两名工程师在追；若Codex能做、Town做不到且用户在意，用户就会问为什么每月付50美元给Town，OpenAI只要24.99美元。领先优势难以靠功能迭代积累，竞争更依赖资金储备与分发，他评估欧洲同类公司时问的也是市场空间、战备资金能否跟上能力迭代和本地胜出理由（作者归纳）。</p>
+<p>他关注GrokBot多于Instinct，理由是GrokBot瞄准相近的工作市场，Instinct像是全额补贴的免费获客策略。他同时称市场是蓝海，多数客户没听过任何同类产品，人们只把ChatGPT当“增强版谷歌”。对苹果，他认为其短板在于不擅长云、把隐私叙事绑定在端侧模型上，新版Siri能力上约落后九个月。Town押注的护城河有三项：每人一个有名字和形象的助手（Townie）、助手之间互相询问的agent-to-agent网络效应、预先投入算力为用户建立工作画像。三项押注里，网络效应直接对应组织内的迁移成本，Grèze称整队用上后“很难想象换到别的产品”，它依赖整队采用，与前述“团队三到五人即收费”的节点重合（作者归纳）。</p>
+<h3>看多依据落在工作场景的收入扩张，家庭场景需求真实但变现弱</h3>
+<p>主持人给出1亿用户每月付20美元与100万用户每月付100美元的二选一，Grèze选前者，理由是工作场景里AI能做的事会越来越多，单用户收入有长期增长空间，个人场景的订餐厅、安排旅行次数有限。他举的案例是一家招聘公司：所有账号每月合计付给Town约500到600美元，借助自动化在不增员的情况下多接客户，每多一个客户每月增收约3000美元。这是本期唯一带收入回报的客户案例，单一案例无法说明分布（作者归纳）。</p>
+<p>家庭用户是意外出现的需求。学校邮件、体育联赛、理发和夏令营的排期让Town在家长群体中有“巨大的产品市场契合”，但Grèze称其付费意愿低于中型企业，也缺少在组织内扩张的路径，他以Revolut的7000人说明企业扩张的量级，是否投入营销仍在内部争论。需求真实而变现弱，意味着消费级用户数不能直接折算为助手公司的收入潜力（作者归纳）。他对广告模式存疑，理由是token太贵，且广告激励会污染助手给出的建议。</p>
+<p>主持人以Instinct按25亿美元融资（字幕原句不清，按语境应为估值）、尚无变现质疑赛道。Grèze答Town有收入和增长，他不清楚对手的增长；若创业公司里能跑出一家让数千万人把它当作数字生活的入口，就会有“巨大的公司”。他也自己提出了反方：AI产品可能因普遍补贴而缺乏真实的产品市场契合。另一条与估值相关的一手见闻来自他作为天使投资人的经历：他称见过一轮6500万美元的融资，只有500万美元按5亿美元估值进入，其余6000万美元按2亿到3亿美元进入，对外宣布5亿美元，他称硅谷这类做法很多，并认为对员工不道德。公开估值与加权估值之间的偏离意味着以公开估值衡量赛道热度会高估资金实际的定价（作者归纳）。</p>
+<h3>需求证据的边界（作者归纳）</h3>
+<p>本期能证明的是：一家收入增长中的AI原生创业公司愿意为每名工程师付出至少7.5万美元的年化工具支出，并认为离ROI边界还远；工作场景用户在强制授权邮箱日历后仍有超过15%付费，存在愿意为超额用量付费的重度用户，至少一个招聘公司案例的月增收约为其月付费的五到六倍。本期不能证明的是：7.5万美元的样本只有Town一家，团队由前Plaid首席技术官带领、处于融资期，偏向技术公司，也未拆分订阅与用量、未说明是否含自用产品的推理成本；产品上线约三个月，没有续约、留存或净收入留存数据，15%转化率分母不明，收入未披露，700美元年收入口径未注明；私测期的千美元级月耗发生在零价格下；20%到30%毛利是18个月后的前瞻目标；10亿美元估值未经嘉宾确认。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若Town或同类工作助手后续披露的付费用户月度留存或企业账户续约数据走弱，则“工作场景付费意愿真实、单用户收入可随使用深化扩张”的论点被削弱。</p>
+<p>若推理价格未能延续每9到12个月减半，或Town的前沿任务占比随工作流复杂化上升，则“按18个月后20%到30%毛利给今天定价”的路径被削弱。</p>
+<p>若谷歌、苹果或Meta在12个月内推出接入邮箱日历的工作助手，且Town的试用付费转化率随之降到15%以下，则“巨头只能复制、需要先有人做出主流产品”的判断被削弱。</p>
+<p>若AI原生公司在一年内普遍把人均编码工具支出压到7.5万美元以下，则“工具预算由人力替代锚定、离ROI边界还远”的判断被削弱或证伪。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>强化学习只泛化出任务时长，持续学习卡在灾难性遗忘，研究员十倍提速的时间表分歧在两年与五到十年（Dwarkesh Podcast，2026-09-11）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>强化学习只泛化出任务时长，持续学习卡在灾难性遗忘，研究员十倍提速的时间表分歧在两年与五到十年（Dwarkesh Podcast，2026-09-11）</h2>
+<div class="metaline">Dwarkesh Podcast · 97 分钟 · 2026-09-11</div>
+<p>本期是主持人 Dwarkesh Patel 召集的研究者圆桌，时长 97 分钟。三位嘉宾分别是 Thinking Machines 首席科学家、OpenAI 联合创始人 John Schulman（曾主导催生 ChatGPT 的 RLHF，即基于人类反馈的强化学习），开源模型公司 Zyphra 首席技术官 Beren Millidge，以及 Baseten 模型训练负责人 Charlie O'Neill。开场问题是：若到 2036 年世界仍未被超级智能改写，技术上的首要原因会是什么。口径提示：观点均为嘉宾个人判断，实验数字与模型规模猜测均为口播；自动字幕没有说话人标记，归属按点名、互相引用和观点前后一致性判断，存在误差，判断不了的写作“一位嘉宾”。三人给出的时间表从一年跨到十年，对未来几年约束项的判断却多有重合，都落在算力、环境构建与目标设定上；据此，递归自我改进快慢之争无论偏向哪一边，算力都仍是约束项，两边的差别在于算力流向更多实验与推演，还是流向构造成本逐级抬升的环境阶梯（作者归纳）。</p>
+<h3>强化学习泛化出了任务时长，跨领域迁移仍靠逐域铺环境</h3>
+<p>三位嘉宾都承认强化学习（reinforcement learning，RL）存在泛化，分歧集中在泛化的方向与幅度。Charlie O'Neill 的拆法是：业内原先期待推理能力横向泛化到各个领域，这一点没有兑现，只练数学未必成为出色的程序员，代码环境仍要单独做；兑现的是时长泛化，模型学会用更多 token、在更长时间里持续推进任务。他引用 EdgeBench 论文称模型可持续工作的时长每三个月翻一番，并把单项金融或 Excel 任务上通过率从 0.5% 跳到 90% 比作预训练里的“量子”式相变。</p>
+<p>Beren Millidge 更乐观，认为强化学习的泛化在实践中已能看到，数学、代码与谜题之间确有迁移，环境覆盖面也比两年前宽得多。John Schulman 更谨慎：整个领域高度依赖泛化，何时出现分布外泛化很难预测，从可验证任务迁移到难验证任务“先验上没有理由期待”。</p>
+<p>主持人追问：实验室押注在数百万个环境上扩大可验证奖励强化学习（RLVR）来获得通用能力，为何还要把 PowerPoint 这类技能逐项练进模型。John 的回答是，即便模型能在上下文里现学，把直觉写进权重也能提高运行时效率，模型参数足够大，两头兼顾代价不高。</p>
+<p>John 还用难度与真实度两条轴解释蒸馏为何追不平前沿：难而易验证的刷榜分布（benchmaxxing）容易批量制造，真实编码代理场景的多轮往返与多重目标需要评分细则或人类反馈；只在刷榜分布上蒸馏，学生模型能追平基准分数，在真实分布上表现更差。一位嘉宾认为蒸馏是对抗供应商集中化的主要力量，强化学习学到的行为只含少量信息比特，拿到轨迹就容易复制。</p>
+<p>若横向泛化持续偏弱，能力扩张就要按领域补环境，节目中描述的 Anthropic 环境谱系（编码、金融 Excel、PowerPoint 依次推进）就是这条路径，环境与算力投入随覆盖领域数增加；若蒸馏持续有效，单家实验室在环境上的领先更易被复制，其资本开支的独占回报会被摊薄（作者归纳）。</p>
+<h3>持续学习卡在小批量迭代时的灾难性遗忘，John Schulman 提醒短板不止样本效率</h3>
+<p>主持人的出发点是：推理占用约一半算力，却不直接让模型变好；样本效率上，模型相对人类“可能落后百万倍”。他默认十年内会出现递归自我改进（recursive self-improvement，RSI），主要疑虑就在这里。开场描述停滞情形的嘉宾（按上下文判断为 Beren）给出的条件也是元学习泛化困难叠加持续学习（continual learning）无解，外加消除不了的仿真到现实（sim-to-real）差距。</p>
+<p>Charlie 给出的实验证据区分了两个尺度。在批量足够大、噪声被平均掉的尺度上，把部署数据放进中期训练（mid-training）并自建环境的外环已经有效；放大到单个模型，比如针对一家律所用少量数据连续做数百次微更新，就会出现灾难性遗忘（catastrophic forgetting）与通用能力退化，在策略蒸馏（on-policy distillation）只能推迟。他的解释是监督微调破坏性太强，强化学习对模型改动很小，也因此难以装进“某律所某流程”这类显性知识。</p>
+<p>另一位嘉宾判断问题主要出在方法上，容量是够的：同尺寸模型纳入全部数据从头预训练效果更好，在同一基座上持续中期训练终会走平，所以业界不断训练新基座；被问到是否因此卡在从头重训，回答是“这当然非常昂贵”。</p>
+<p>John 认为样本效率只是短板之一，另有思维多样性低、长期判断差等短板；他把品味的一部分定义为知道什么在长期有效，例如哪些软件系统长期可维护。他也质疑仿真到现实能否一直是主导框架，因为与大量真人实时互动的场景难以仿真。</p>
+<p>一位嘉宾把任务分成可累积与非平稳两类：RSI 可累积，注意力、混合专家、GRPO 一经发现就留在训练栈里；律所助理面对人际关系与隐性流程不断变化的非平稳分布。若实验室相信 RSI 可累积，更多算力会集中投向它。</p>
+<p>若持续学习长期无解，基座模型需要周期性从头重训，预训练算力按代际延续；若小批量更新不再遗忘，嘉宾设想的“永远不再训练新模型”会把训练算力从阶段性大投入摊平为持续更新，训练侧需求的节奏与形态都会改变（作者归纳）。</p>
+<h3>代码产出放大不等于研发提速，瓶颈落在判断、选题与定义目标</h3>
+<p>嘉宾把研发提速的上限归到写代码以外的环节。一位嘉宾描述了反复出现的循环：新模型发布，人们惊呼这就是 AGI，用上一个月又觉得它笨；做研究与工程时仍被模型判断较差、无法充分自检的环节卡住，“即使模型写的代码远多于人，也不会让你效率提高 100 倍”。</p>
+<p>另一位嘉宾给出目标明确时的提速空间：若当年有 AI 审视 Kaplan 缩放定律（scaling laws），会发现中间检查点没有计入学习率退火，能省下一两年进展；在优化现有目标的范围内，他设想约 10 倍提速，但思考只能更新后验、得不到新的信息比特，也换不来正确的目标。</p>
+<p>John 认为研究离天花板很远，未来 AI 花在分析与理论构建上的算力可与实验本身相当。他判断留给人类时间长的工作是定义目标，包括决定助手如何行为、撰写宪法与模型规范，后训练团队需要很多人，是因为每个领域都要有人想清楚模型该怎样表现。另一位嘉宾补充，目前 AI 决定做什么实验的能力远弱于写实验代码，提议多是很小的步子。</p>
+<p>快问环节里，对“AI 研究员十倍提速”，嘉宾给出两年与五到十年两个答案。Beren 以编码环节“肯定已经超过十倍”为由认同两年，认为模型能连续跑一两轮实验反馈就很可观；给出更长时间的一方把约束归为“我吸收信息并对下一个实验做贝叶斯最优决策的能力”。</p>
+<p>若瓶颈在选题与目标设定，代码代理释放的产能会转化为更多实验与分析，John 设想的分析算力与实验算力相当，意味着每轮研究的算力开销上移；若两年十倍兑现，约束会转移到算力与实验排队上（作者归纳）。</p>
+<h3>百万副本能否转为快速起飞，取决于 AI 自行提出目标的闭环能否长期不出轨</h3>
+<p>一位嘉宾复述了起飞论：AI 研究员只要比所有人强 0.1%，就能并行运行数十万乃至上百万个副本，芯片提速后跑得更快，足以压倒其他瓶颈。</p>
+<p>Beren 把核心问题放在 AI 能否泛化到学习自己的目标：闭环要求提出目标、优化、再提出新目标，并在很长时间里不出轨。他提出莫拉维克悖论式的可能，即人类觉得理所当然的自主性对 AI 反而难，但也承认如今智能体“非常执着”，这本身是反证。</p>
+<p>John 对首批自动化 AI 研究员如何训练的判断偏工程化：用人类反馈吸收研究员的品味，加上大量多步研究项目练习环境，每一代修补上一代的明显缺陷。一位嘉宾补充，算力紧张会让实验室停在谱系前沿，把近几个月发现的训练栈漏洞变成环境，相当于把近三个月的研究进展蒸馏回模型，“这也许就是我们有人觉得它是渐近的原因”；另一位嘉宾提出，环境可以设得远超人类，这是越过轨迹蒸馏上限的途径。</p>
+<p>若自提目标的闭环不能长期稳定，百万副本主要放大现有目标下的优化，对应上文约 10 倍的量级；若闭环成立，副本数量与芯片速度会直接折算为研发速度，算力需求对能力进展的弹性会放大（作者归纳）。</p>
+<h3>渐近线之争：环境阶梯可以攀爬，每一级的构造成本在上升</h3>
+<p>一位嘉宾担心撞上渐近线：摩尔定律的直线背后是许多离散突破，大模型也在预训练收益递减后靠强化学习接续；若还需要一次不连续突破，靠强化学习环境训练出的模型未必能发现它。John 回忆早年在 OpenAI 时直觉只降低对数损失得不到智能，“结果它就是奏效了”。</p>
+<p>一位嘉宾承认存在一组环境阶梯，能得到至少与人类研究员相当的 AI，但爬每一级的投入“大致指数式增长”，现有环境利用的倒推比正推容易等不对称用完后，曲线会走平。他举例，把只会五年级数学的模型直接用强化学习训大学数学爬不上去，逐年级训练才行；强化学习不擅长探索，“128 次推演里拿不到，就很难得到信号”。Beren 顺着区分信号来源：预训练的信号已在 Common Crawl 里，难点是过滤噪声；中后期训练所需的信号原始数据里没有，“Common Crawl 里没有藏着千禧年难题的证明”，只能从人、环境或部署中取得。主持人给出反例：只用 1930 年前数据训练的 Talkie 模型，经编码代理数据微调后在 SWE-bench 上超过 Claude 3 Opus。</p>
+<p>节目中一位参与者介绍的小规模网格实验显示，2019 年以来数据约带来 12.0 倍算力效率提升，架构约 3.7 倍，与 Epoch 估算的每年约 3 倍之间的缺口被归于规模依赖与后训练。</p>
+<p>若每级环境的构造成本指数上升，单位能力增量对应的环境与算力投入会抬升，投入规模可以维持，边际回报随之下降；若 Talkie 式“有示范即可复制”普遍成立，追赶方的成本会低于开拓方（作者归纳）。</p>
+<h3>算力配比：未来几年受算力约束，推理效率压低活跃参数，总参数跟着硬件内存走</h3>
+<p>嘉宾都把未来几年的约束项放在算力上，分歧在模型会否继续变大。Charlie 认为强化学习推演（rollout）越来越长，推理效率很关键，瓶颈仍在环境，参数规模可能进入平台期；他感觉 Mythos 与 GPT 系列“比外界传的 10 万亿参数小得多”，模型大小应由预训练数据量和难度顶端环境上的单次通过率决定，“很大程度取决于 Mercor 与内部团队扩展环境复杂度的速度”。一位嘉宾补充，业界在 1000 亿至 2 万亿参数区间徘徊已有一段时间。</p>
+<p>另一位嘉宾（按上下文判断为 John）预计模型会随算力扩张与 GPU 变大继续变大，高质量预训练数据趋紧后数据效率对架构选择的影响会超过算力效率。Beren 认为推理效率会把活跃参数压得很低，总参数取决于内存带宽与显存，行业从 H100 迁到 GB 系列再到 Vera Rubin 后，才更有能力服务多万亿参数模型、做更大规模的强化学习推理；眼下数据充足、算力是约束，所以模型偏小。有嘉宾把问题归结为训练与推理算力的配比：卡数据就做大，卡算力就做小。</p>
+<p>若活跃参数被推理效率压低、总参数随显存与内存带宽扩张，强化学习推演规模会与高内存带宽机架系统的换代节奏绑定，推理侧算力需求增长更快；若数据先于算力成为约束，模型重新变大，训练侧单次投入会回升（作者归纳）。</p>
+<h3>时间表：远程员工约一到三年，全面超越顶尖专家三到十年</h3>
+<p>对能胜任一个月白领工作的远程员工，Charlie 给出约一年（强制走浏览器则两年左右），Beren 给出完全通用约三年、此前可完成八到九成，John 同意二人“一年左右会有还行的版本”。对在所有计算机可完成的认知工作上超越顶尖专家，答案有三到四年与五到十年，给出五到十年的一方认为自动化 AI 研究几乎等同实现超级智能。时间表偏长的一方更强调持续学习与长时程学习（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 EdgeBench 一类可持续工作时长度量的翻倍周期拉长到三个月以上，则 Charlie O'Neill 的时长泛化论点被削弱；若模型在未做专门环境训练的新领域取得接近专训领域的表现，则“逐域铺环境”一方被削弱。</p>
+<p>若前沿实验室的模型更新节奏从季度级缩短到周级，且没有通用能力退化的报告，则“持续学习卡在灾难性遗忘”一方被削弱。</p>
+<p>若到 2028 年 9 月前后，前沿实验室的下一轮实验仍普遍由人决定、模型只能连续执行一两轮实验反馈，则“两年十倍提速”一方被削弱；若届时主要实验室公开称研究产出提速达到十倍量级，则“五到十年”一方被削弱。</p>
+<p>若在 GB 系列与 Vera Rubin 普及后，开源前沿模型总参数仍停留在 1000 亿至 2 万亿区间，则“模型随算力继续变大”的判断被削弱；若突破该区间，则 Charlie 的参数平台期判断被削弱。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>

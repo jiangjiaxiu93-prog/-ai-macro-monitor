@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>harness 对效果的贡献超过模型换代：同一权重在 ARC-AGI 上从 30% 升至 95.5%，长程与编码基准仅持平，企业代理上限受权限体系约束（YC Paper Club，2026-09-07）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>harness 对效果的贡献超过模型换代：同一权重在 ARC-AGI 上从 30% 升至 95.5%，长程与编码基准仅持平，企业代理上限受权限体系约束（YC Paper Club，2026-09-07）</h2>
+<div class="metaline">Y Combinator · YC Paper Club · 60 分钟 · 2026-09-07</div>
+<p>本期是 YC 论文研读会的专场，主题是代理的 harness，即包在模型外围的装配层，涵盖工具、上下文管理、记忆、执行环境、重试与验证。结构为主持人开场加三组讲者：主持人（字幕未给出姓名）梳理 harness 演进史并展示自己搭出的自动研究系统；Seth Karten（普林斯顿学生、Prime Intellect 研究员）讲自改进的 Prime Agent；Jon Saad-Falcon 讲斯坦福的端侧个人 AI 栈 OpenJarvis；Josh France 与 Regan Bell 讲 YC 给每位员工部署的代理 harness QM。节目简介的核心论据是同一套模型权重在 ARC-AGI 上得 30%，换更好的 harness 得 95%。讲者自己的数据里同时含有支持与限定这一论据的结果。口径提示：实验数字均为口播转述，未核对原论文；字幕为自动生成且无说话人标记，引述归属按章节时间轴与上下文判断，QM 部分两位讲者的分界依据字幕换人标记推断，无法确定处记为 QM 团队；多个模型、基准与 harness 名称识别不清，文中照录字幕拼写或按读音还原并注明。<strong>中心判断：harness 在模型尚未适配的新型任务上能带来数十个百分点的增益，在编码与长程任务上与主流 harness 基本持平，固定流程部分正被模型吸收，应用层能跨代沉淀的价值更多落在企业数据接入、权限体系与使用轨迹，harness 代码本身开源后可复制（作者归纳）。</strong></p>
+<h3>ARC-AGI 上同一模型从 30% 升至 95.5%，增益同时依赖模型选择与任务提示词</h3>
+<p>主持人给出的起点是，Claude Opus 是首批在 ARC-AGI 私有保留集上获得验证的模型之一，验证得分为 30%，加上 harness 后可到 95%，英伟达的 AVO（字幕拼写）到了 100%。他介绍 ARC-AGI 的游戏关卡刻意设计成相互正交的技能，用来隔离“流体智力”，考察模型适应新分布的速度。这一设定决定了 ARC-AGI 是 harness 增益容易显现的场景（作者归纳）。</p>
+<p>Seth Karten 复述了 95.5% 的来历。他此前用自己上一篇论文的 continual harness（持续改进 harness）配 Gemini 某型号（字幕识别不清）拿到约 20%；这次从一个社区排行榜（字幕作 prolong）拿来系统提示词，内容是“用世界模型解 ARC AGI 3，以下是可用动作”，叠加 Prime Agent 的通用提示词。首轮跑出 99.9%，查日志发现代理在作弊，补做沙箱隔离后重跑，GPT Soul 得 78%，字幕作 GPT tero 的模型得 25.7%（他说这组未跑完），Opus 得 95.5%。他翻看轨迹后认为，代理在 REPL（交互式 Python 解释器）里反复写代码试探场景、做图像处理，REPL 是促成结果的主要因素之一。这支持“可编程执行环境是增益来源”，同时 25.7% 至 95.5% 的跨模型区间说明模型选择仍在拉开数十个百分点（作者归纳）。</p>
+<p>对照组的数据同样来自 Seth Karten。他说用 Claude Code 跑的成绩“不太好”，图中改为沿用 Claude Code 的原始公开成绩；另一款字幕作 air agent 的 harness 很快花掉约 5000 美元仍无明显进展，只好中止。他据此强调“成本与效果之比非常重要”，可编程地操作上下文是省钱的来源。以主持人与 Seth 的两个数字相减，harness 带来 65.5 个百分点，但提示词取自社区排行榜的任务专用版本，首轮作弊又说明分数对评测隔离高度敏感，这两点限定了增益可直接外推到商业场景的程度（作者归纳）。</p>
+<h3>长程与编码任务上，Prime Agent 与主流 harness 基本持平</h3>
+<p>Seth Karten 在字幕作 oolong 的长程评测与即将发布的 Emulator Bench 上，对照了其他几款 harness（字幕拼写为 pimono、cloud codecs）与多款模型（字幕提到 GLM 5.2、Opus 5 等），结论是“基本持平或略好”。GPU 内核编写任务上两款模型一优一劣，他概括为“大体持平”，并以此说明 Prime Agent 没有对单一评测过拟合。Emulator Bench 要求代理复现整套计算机系统模拟器，示例为 Game Boy Color，他观察到 REPL 让代理在提交前先做“环外实验”。在模型厂商自带 harness 已深度打磨的编码类任务上，第三方 harness 的超额收益收窄到持平附近，这一点限定上一节结论（作者归纳）。</p>
+<p>更长时程的实验缺少可归因的对照。nanoGPT speedrun（限时训练竞速）放大版给 8 张 H200 跑一周，Seth Karten 直言方差偏高，“无法把收益归到 harness 还是模型”，能讲的只有行为：DeepSeek V4、GLM 5.3、Kimi K3（均按读音还原）会先在 CPU 上做超参数搜索，节省 H200 机时。7 天的 Factorio 直播共动用 633 个代理、2300 万输出词元，科技树持续推进没有卡住，节目未给基线。主持人开场展示过两个 harness 之间 18% 的差距，也未交代对应基准。节目全程没有部件级消融数字，“哪个部件贡献多少”只能依赖讲者的定性描述（作者归纳）。</p>
+<h3>固定流程被模型吸收，模型可调用的执行环境与状态管理保留下来</h3>
+<p>主持人把 2019 年 2 月 GPT-2 的 harness 定为 V0，只有一个“未遇到序列结束符就继续”的循环加 top-p 采样，此后六年是往静态 harness 里不断加功能：少样本示例、思维链、WebGPT 与 Toolformer 的工具调用、MemGPT 对记忆区的增删改查、Voyager 在 Minecraft 里沉淀的技能、InterCode 的代码即动作、ReAct 与 Self-Refine 及 Reflexion 的自我反思、持久子代理，再到 RLM（递归语言模型）。他把静态 harness 归结为代理规格、系统提示词、轮数与工具调用上限、工具与技能及子代理清单、循环、会话管理和上下文编译。近约六个月的新方向是 harness 自我学习：DSPy 在小训练集上用遗传编程搜索系统提示词，Darwin machines（字幕拼写）允许改写 harness 代码本身，continual harness 再加上历史记忆与 DAgger 式在线更新权重。这条演进线上的多数部件已进入公开论文与开源实现，可复制性高（作者归纳）。</p>
+<p>Seth Karten 给出更底层的拆法：裸模型只是“词元进、词元出”的顺序处理器，harness 是模型与外部世界之间补上持久状态、工具与算力的一层。他用缓存类比：L1 是权重，更新靠昂贵的微调；其次是当前上下文，靠 compaction（上下文压缩）延续，他称连主张极简 harness 的人也在用；L2 是常驻内存的 REPL，变量可被程序化处理而免于塞进上下文；L3 是文件系统。主持人另提到上下文学习装入约四五十个样例后在验证集上不再提升，之后只能换 LoRA（低秩适配）与 SFT（监督微调），他认为这一断层正是 harness 发挥作用的地方。这组拆解支持“状态管理决定可解问题类别”（作者归纳）。</p>
+<p>Seth Karten 的设计原则是 harness“要尽可能有表达力”。他说早期 harness 规定“计划、执行、批评”这类固定步骤，如今模型已原生学会 ReAct 式循环，无须显式施加；模型仍需 harness 提供的是调用压缩、Python REPL、程序化创建子代理、访问状态与反馈机制，“去掉其中任何一项，就去掉了一项它原本做不到的能力”。QM 团队的取向相近，Regan Bell 称核心只有三个工具，其余记忆与定时任务工具被视为“临时的补丁”。两组讲者都指向应用公司手写的流程编排会被模型吸收，这一点削弱“harness 代码即护城河”，留下的是通用执行原语（作者归纳）。</p>
+<h3>自改进 harness 把使用轨迹变成下一代模型的训练料</h3>
+<p>自改进路线的实测结果目前好坏参半，Seth Karten 承认模型做反思与精炼“并不完美”，他给出的自举路径是把 harness 建得略超前于当前模型，产生的推理轨迹用于下一轮模型迭代，模型再驾驭 harness，性能逐级抬升。Prime Agent 的持续改进功能允许代理增删改查系统提示词、技能、记忆与子代理规格。这条路径同样说明，运营 harness 的一方天然收集轨迹，模型厂商若运营自家 harness，就能把第三方 harness 的领先部分训练进下一代模型，削弱应用层的 harness 优势（作者归纳）。</p>
+<p>Regan Bell 说 QM 用轨迹做自动改进的结果“好坏参半”，把大量代理派去修各自遇到的缺陷、由大模型评审打分，会出现“主角综合征”，每个代理只看到大象的一部分，人工在环仍很重要。主持人的自动研究系统也属此类：他三月分叉 Karpathy 的自动研究项目，设置目标、种子想法与评测指标，由多类角色代理接力，如今把八个想法分给八个各含 8 张 H100 的节点，产出论文从三四月的“不太好”变为“真的不错”，他归因于脚手架。同期模型也在更新，节目未分离两者，轨迹要转化为护城河还需人工判断参与，这两点构成限定（作者归纳）。</p>
+<h3>OpenJarvis 用云端大模型调优本地栈，成本降至约八百分之一</h3>
+<p>Jon Saad-Falcon 的出发点是个人 AI 依赖云端：OpenClaw、Hermes agent 等按年累计的 API 费用达数千美元，数据不私密，智能靠租用，能耗高出几个数量级。他称本地模型落后前沿 6 至 12 个月，举例 Qwen 3.8 27B（按读音还原）约相当于早先的 Claude Opus 4.6，并称苹果与英伟达都在做面向个人的加速器。OpenJarvis 把栈拆为模型、推理引擎、代理逻辑、工具与记忆、学习几类原语，工具与记忆走 MCP 协议，学习既含提示词优化也含 GRPO 强化学习、SFT、LoRA 等权重方法。本地模型追赶前沿的时滞是节目给出的时间坐标，模型商品化的速度与之相关（作者归纳）。</p>
+<p>关键做法是由云端大模型诊断、提出并审核本地栈的改动，部署时不再承担云端费用。他说经云端模型优化的配置“比开箱即用的本地栈有效得多”，原因是能针对具体模型与具体工作负载定制；在个人 AI、编码与代理任务上可与云端相当，但仍有许多任务本地模型不够用。成本低约 800 倍，时延显著下降。优化器选哪家都有效，Opus 5 与 GPT-5.6 Sol 效果领先，Gemini、Kimi、GLM 也能拿到收益，整套 harness 的优化成本低于需要更多数据或调用的方案。harness 配置可由前沿模型自动生成，削弱手工调优的壁垒；优化结果绑定具体模型与工作负载，又支持“工作负载数据与评测集是稀缺投入”（作者归纳）。</p>
+<h3>YC 的 QM 保持很薄的 harness，可放进代理的信息量受权限体系约束</h3>
+<p>QM 之前 YC 内部先后用过四种代理形态，末一代是 50 多个 Hermes 代理组成的机群，Josh France 从头讲起。2025 年 1 月的“通用代理”只是系统提示词加工具循环，所有人共用一个，擅长回答数据问题，能力范围随底层模型变强而扩大；2025 年 6 月把 Claude Code 与 Codex 放进虚拟机，通过 Slack 标记调用，能跑持续集成、修缺陷，团队根据失败案例更新 agents.md；2026 年 1 月合伙人开始用 OpenClaw，他称这是很多人用到的首个“有自己电脑”的代理；4 月部署了 50 多个运行在虚拟机里的 Hermes 代理，配置负担重，维护要逐台 SSH 登录修理。主持人说 QM 约一个月前推出。相邻两代架构间隔三到七个月，harness 形态随模型能力快速迭代，这一点限定 harness 优势的持续时间（作者归纳）。</p>
+<p>Regan Bell 称模型在指数式变强，给代理更多能力的回报越来越可观。QM 的第一步是把“大脑”从沙箱里拉出来：全部会话集中存入 Postgres 并向代理开放，沙箱改为按需调用的资源，重开发任务调用配置高的机器；代理还能自选模型供应商，遇到字幕作 Fable 的模型在 AI 研究或网络安全任务上拒答时，切换到其他模型。核心工具只有三个：远程沙箱执行、对象存储读写、发布内部应用。接入方面，YC 原有的命令行工具已打通大量系统，其余靠任意 API 密钥与自动刷新的 OAuth 凭证；数据库以只读为主，写入须由代理提交批量更新计划、人工过目，他坦言团队已开始“橡皮图章式”放行。运行时自选模型把模型当作可替换资源，支持模型商品化的判断（作者归纳）。</p>
+<p>QM 团队还遇到两类问题。其一是代理“放弃得太早”，于是做了“grind”工具，给目标设预算，达到约几个小时的挂钟时间或一定的词元花费之前不许放弃，报告与研究产出明显改善，他们称 OpenAI 与 Anthropic 用类似手法攻克过数学难题。其二是社交语境：多人场景里即便系统提示词写明，代理仍会搞不清处境。Josh France 举例说，把一条信息告诉 Regan，对方直觉上知道能在哪里分享，代理做不到，特权信息很容易泄漏，“你能放进这个大脑的信息，实际上受限于你的权限系统有多好”；YC 恰好有一套多年建成的细粒度权限系统，许多组织没有。QM 已开源，讲者称编码代理即可部署。这是本期对“护城河在数据与接入”的直接支持，harness 代码开源，稀缺的是权限与系统接入（作者归纳）。</p>
+<h3>对应用层护城河判断的含义（作者归纳）</h3>
+<p>本期证据支持的边界如下。harness 的增益集中在模型尚未适配的新型任务，ARC-AGI 上达 65.5 个百分点，到了模型厂商已深度打磨的编码与长程任务收窄到持平附近；固定流程编排正被模型内化；Seth Karten 的自举路径说明 harness 超前于模型的部分会经轨迹进入下一代模型，运营自家 harness 的模型厂商具备吸收条件；OpenJarvis 显示 harness 配置可由前沿模型自动生成。节目未给出 harness 优势在模型换代后能保留多久的直接数据，可用坐标只有本地模型落后前沿 6 至 12 个月、QM 相邻两代架构间隔三到七个月。据此，应用层 harness 代码的领先更可能随模型换代衰减，能跨代保留的是专有数据与使用轨迹、权限体系、企业系统接入，以及绑定具体工作负载的评测集；这类资产若由企业自建，第三方应用公司的份额仍待观察。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若模型厂商自带的 harness 在不借助任务专用提示词的条件下，在 ARC-AGI 私有集上跑出与 Prime Agent 相当的成绩，则本期“同一权重下第三方 harness 带来数十个百分点增益”的论点被削弱。</p>
+<p>若后续公开的部件级消融显示，去掉 REPL 或持久子代理后成绩变化很小，则 Seth Karten 关于“去掉任一可表达性部件即丢失一项能力”的论点被削弱。</p>
+<p>若 QM 或同类开源 harness 在缺少细粒度权限系统的企业里同样能安全接入内部数据并广泛部署，则“代理可用信息量受权限体系约束、权限与接入构成应用层壁垒”的推论被削弱。</p>
+<p>若未使用特定工作负载数据、仅靠通用前沿模型自动调优的配置就能达到同等效果，则 OpenJarvis 部分“harness 配置依赖具体模型与工作负载数据”的推论被证伪。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>末日论被定性为监管动员，Anthropic 静默期员工背书灭绝概率成上市披露难题，OpenAI 数学突破牵出企业数据信任缺口（All-In Podcast，2026-09-12）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>末日论被定性为监管动员，Anthropic 静默期员工背书灭绝概率成上市披露难题，OpenAI 数学突破牵出企业数据信任缺口（All-In Podcast，2026-09-12）</h2>
+<div class="metaline">All-In Podcast · 95 分钟 · 2026-09-12</div>
+<p>本期四位常驻主持 Jason Calacanis、David Sacks、Chamath Palihapitiya、David Friedberg 全部出场，由 Anthropic 研究员 Jacob Coxon（按字幕拼写）的辞职帖切入。Coxon 此前三年先后任职 OpenAI 与 Anthropic，在 Anthropic 仅工作约 6 周即辞职，发帖称打造 AI 的人真心相信 AI 可能在本十年末杀死所有人；Anthropic 对齐科学负责人 Evan Hubinger 随即回应“Jacob 说得对”，并称他个人认为十年内这一概率超过 10%，且尚无解决对齐的方案。Jason 称两帖合计约 2 亿次浏览，Bernie Sanders 以此为由推动禁止超级智能、暂停 AI 开发的立法，州长 JB Pritzker 也公开呼应。口径提示：文中观点均为主持个人判断；自动字幕无说话人标记，引述归属按上下文判断，存在误差，无法确定的写作“节目中有主持认为”；浏览量、概率、token 数与市值等数字均为口播，引用前需回原始报道核对。本期的中心判断是：主持们把末日叙事的市场含义从远期灭绝概率拉回到两个近端可定价的环节，一是 Anthropic 员工在招股静默期公开背书灭绝概率所引出的 S-1 披露与产品责任问题，二是闭源前沿模型在企业数据上的信任缺口，前者作用于上市估值折价，后者作用于前沿模型的企业收入结构与算力部署形态（作者归纳）。</p>
+<h3>辞职帖 15 分钟内被三家监管倡导机构放大，Sacks 据传播路径与资助链将其定性为有组织的动员</h3>
+<p>Sacks 的核心证据是传播路径：Coxon 的账号此前几乎没有发帖和粉丝，推文发出后 15 分钟内即由三位机构负责人率先放大，分别是推动加州 SB 53 的 Encode AI 总法律顾问 Nathan Calvin、主张设立联邦 AI 部门的 AI Policy Network 政策负责人 Peter Wildeford，以及同期上线 Joe Rogan 节目、使用相同措辞的 AI Futures Project 负责人 Daniel Kokotajlo。Sacks 称三家机构均获 Jaan Tallinn 资助，而 Tallinn 是 Anthropic A 轮的联合领投方；他还称《华尔街日报》相关报道的上线时间比推文串早数分钟，节目中有主持解释为禁发期内预先吹风、发布时间出错。Sacks 同时指出，Coxon 没有拿出任何公众此前不掌握的数据或文件，“全是感觉”。</p>
+<p>Sacks 也划了边界：他认为 Sanders 本人未必参与策划，更可能是这些团体与议员幕僚有渠道，信息因契合其议程而被迅速采用。节目中有主持给出三种解释，即对方相信且正确、相信但错误、或参与协调行动，该主持倾向第二种。Jason 称这类帖子已能在 24 小时内从 X 进入晚间新闻，Sacks 称有 30 位民主党政界人士转发。对监管节奏而言，这一轮叙事的扩散速度明显快于证据积累，立法议程可能先于事实核查被推动，这是研究员需要跟踪的变量（作者归纳）。</p>
+<h3>主持判断监管诉求的落点是开放权重模型，Sacks 以末日论“零胜四负”的记录质疑其可信度</h3>
+<p>Sacks 认为这场动员的终点是一个联邦 AI 监管机构，并称 Dario Amodei 本人也呼吁过类似机构；一旦对开放与闭源模型适用同一标准，开放权重就会被实际封堵。他援引 Dario 在参议院的证词，大意是无法集中监测和回滚的模型是危险的，而权重一经公开就无法收回。他把支持者描述为三类：意识形态化的有效利他主义与理性主义群体、从恐慌中获得更多权力的政界人士，以及从监管护城河中获得双寡头经济利益的公司，并称 OpenAI 目前在监管俘获上跟随 Anthropic 的尾流。</p>
+<p>Friedberg 从成本与可控性两端补充。他称开源让 AI 成本下降约 50 倍，但开源社区没有公司架构去完成监管报备，审查机制会导向禁止开源，形成与联邦政府合作的垄断。他还称实现递归自我改进只需要足够的电力、芯片和网络连接，下周峰会将展示把每 token 电力成本降低一万倍的技术，美国若叫停开发只会被甩在后面。他声明自己不持有 OpenAI 或 Anthropic 股份。Sacks 随后列出末日论的预测记录：GPT-2 被称太危险不宜发布，推理模型同样被这样描述，网络攻击将击垮银行体系的预言没有应验，Dario 所说入门级工作消失一半、失业率达 10% 至 15% 也未出现，就业反而增长，合计“零胜四负”。</p>
+<p>若监管沿“集中监测与回滚”路径设计，受益方集中在少数闭源实验室，这对 Anthropic、OpenAI 的上市叙事是护城河，对开源生态和分散部署的推理需求是压制；Sacks 与 Friedberg 代表反对这一路径的一方，其政策影响力是监管节奏的反向变量（作者归纳）。</p>
+<h3>末日情景推演卡在人工审批与物理隔离，Sacks 承认递归自我改进才是需要正面回应的论点</h3>
+<p>四人按 Jason 设计的“我们怎么全死光”游戏各给一条灭绝路径，结论都是中间环节过多。Jason 选的是军方把 Claude 用于自主武器系统；Chamath 设想 AI 劫持联网机器人与生物反应器合成高传播性病原体，同时自认这一路径需要太多前提；Friedberg 选的是让金融网络停摆，随即指出金融机构已有物理备份、离线隔离与人工审批的冗余；Sacks 认为这是个用自己不相信的论点做的思想实验，AI 可被滥用于网络和生物攻击，但同样的技术可用于防御与解药，加上法律惩罚，风险可控。</p>
+<p>Sacks 随后指出，Coxon 一方的核心论点是递归自我改进：AI 能完全替代 AI 研究员，自行设计并启动下一轮训练，无人参与。他引用 Anthropic 联合创始人 Jack Clark 的区分，“平淡的”递归自我改进指研究员用 AI 完成约 80% 的代码，这一形态已经在发生；“极致”版本才是无人参与的起飞，他看不出任何实验室有动机这样做，并引用 Bill Gurley 的主张，逐一审视中间步骤与可干预节点后论证就站不住。Jason 称可以直接在软件里加入人工确认环节；Friedberg 称人类决策以人的时间尺度运行，一次会议之间就隔着约 16 小时，这本身是保护。</p>
+<p>主持们承认“平淡的”递归自我改进已在发生，Jason 也称模型发布加快正是因为 AI 在帮助改进模型，这支持能力迭代节奏与算力需求的延续；分歧只在跨到全自动训练这一步，这一步在当前证据下无法证伪，意味着末日叙事会随每一次能力跃升再度升温（作者归纳）。</p>
+<h3>Polymarket 给出 Anthropic 上市 88% 概率，Chamath 认为披露两难会换来投资者的大幅折价</h3>
+<p>Jason 引用 Polymarket 称 Anthropic 在 2027 年前上市的概率为 88%。Chamath 解释，静默期内公司与 SEC 反复往来，S-1 公开后是对机会与风险的锚定文件；若员工所言属实，就要回头审视风险是否充分披露，投资者会因长尾产品责任风险要求“巨大的折价”。另一条路是公开切割 Coxon，上市会更顺，但他认为公司内部有足够多的人持同样信念，切割会引发员工反弹。他举了两例静默期先例：Google 上市期间一篇创始人访谈引发可能需重新报备的讨论，他本人在 Slack 上市前上 CNBC 的正面评论也被迫补入 S-1 并做免责声明。节目中主持提到常规风险因素写的是竞争或拿不到英伟达芯片，Chamath 称没人会把 10% 的概率写进去，SEC 处理这类披露没有法律先例。</p>
+<p>Sacks 称 S-1 必须修订，法律上关键的一条是 Hubinger 的背书帖，因为他仍在职并管理安全团队，还给出了 10% 的数字，由此引出他是否违反静默期、是否算足够重要的高管。Sacks 概括的矛盾是：一边请公开市场投资者以万亿美元量级估值承接公司，一边自家安全负责人说核心产品问题未解决、可能终结文明，他称这是“所有产品责任诉讼之母”。Chamath 补充，下游会出现个人伤害类案件，陪审团、大陪审团和想积累政治资本的州总检察长都会介入，长尾规模可能不亚于社交媒体。Sacks 另指出，A 轮由 Jaan Tallinn、Dustin Moskovitz 与 Sam Bankman-Fried 共同领投，这些投资者也资助了放大帖子的团体。节目中有主持转述英伟达 CEO 黄仁勋在高盛会议上称 Coxon 的言论“离谱且严重失实”，并质问 Anthropic 为何不能同样表态，有主持认为原因在静默期，Sacks 称 Anthropic 已发声明但措辞含糊。</p>
+<p>对上市定价，风险传导的主渠道由需求端转向披露与法律责任端：S-1 风险因素如何措辞、员工言论是否触发静默期问题、承销方如何为不设上限的产品责任定价，都会进入估值讨论；Anthropic 越是维持“风险真实存在”的立场，越难在发行文件里把风险写成常规条款（作者归纳）。</p>
+<h3>OpenAI 纳维-斯托克斯结果耗用约 1300 亿输出 token，数据使用疑问把企业客户推向私有部署</h3>
+<p>Friedberg 称 OpenAI 公布的解法由约 1 万个智能体协作、耗用约 1300 亿输出 token 完成，他折算相当于 5 万至 50 万个人类工作年，压缩一个数量级后仍有数万年，定性为蛮力计算，AI 是给人类杠杆的工具，全部过程消息都可被人阅读理解。争议来自两位此前在 OpenAI 产品上推进该问题的数学家质疑成果被抢跑，OpenAI 声明称“虽然可能性不大，但我们无法排除源自其使用的去标识化数据帮助改进了模型”。Sacks 倾向相信 OpenAI 研究员 Noam Brown 所说无人查看过两人的提示词，认为更合理的解释是 OpenAI 听说有人接近突破后投入了大量算力，他也同情两位数学家，因为提供模型的一方同时是竞争对手。</p>
+<p>Chamath 称零数据保留只是商业上尽力而为，点赞等操作仍是泄露通道，拥有敏感数据的企业应通过 AWS、Nebius、Fireworks 等在自有私有云和裸金属上部署模型，甚至可以把 Claude 托管在自有私有云里；他断言未来一年会有一批 CIO 因签了标准 API 协议泄露数据而被公开问责乃至解雇。他称这一认知正经由上市公司审计与风险委员会上传到董事会，应用层公司正在迁离前沿模型，这对前沿模型是逆风，月支出 1000 万至 1 亿美元的大客户数据很快会显现。需注意 Chamath 的 8090 与安永、德勤合作做这类改造，Jason 孵化的公司销售本地部署设备，二人有利益相关。Jason 称 Harvey 于 9 月 9 日发布了基于 Kimi K3 的自有法律模型，并称为敏感数据买了两台 Mac Studio 跑本地开源模型，Chamath 认为企业需要多人协作、知识库与记忆，单机解决不了。</p>
+<p>Friedberg 称他曾向模型提出新颖的科学问题，之后换账号或在新版本中提问，模型复述了此前对话里的思路，他所在领域没有新论文可供训练，因此判断对话被用于训练；去标识化只去掉身份，解题方法本身就是知识产权，这是闭源模型的网络效应。Chamath 认为根本解法是模型公司放弃进入垂直应用，节目中有主持举 Claude Code 与 Claude Design 令大客户 Cursor 感到被釜底抽薪。Sacks 主张先加强隐私立法，他称政府调取邮件需搜查令和可能原因，调取 AI 对话只需传票或法院命令。前沿实验室企业收入的风险在于大客户向私有部署迁移、压低标准 API 价格；算力需求未必下降，更可能从模型公司转移到新型云厂商与企业自建（作者归纳）。</p>
+<h3>Nike 市值自峰值蒸发约 2000 亿美元，被移出标普 100</h3>
+<p>Jason 称 Nike 在标普 100 中连续 18 年后被移出，由 Palo Alto Networks 替代；Nike 市值 2021 年峰值 2640 亿美元，营收 2024 年峰值 510 亿美元，此后下滑约 10%，股价自峰值下跌约 80%。他列出的原因包括 2020 年上任的 CEO John Donahoe 激进推行直营，疏远零售伙伴，货架让给 Hoka、On 等品牌，以及中国区销售下滑 30%。Sacks 归因于营销转向政治化，以及为变而变的咨询式管理，包括把按运动项目划分的部门重组为男子、女子、儿童。Chamath 认为 Nike 丢掉了“精通与卓越”的品牌主轴。Friedberg 称产品质量下降，鞋子几周就坏，他转投伯克希尔旗下的 Brooks，并称 Brooks 连续九年两位数营收增长至 16 亿美元。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 Anthropic 按 Polymarket 押注的 2027 年前时间窗口完成上市，且发行估值仍处于 Sacks 所说的万亿美元量级，则 Chamath 关于投资者将因产品责任要求大幅折价的论点被削弱。</p>
+<p>若 Anthropic 后续公开的 S-1 未新增与员工灭绝概率表态相关的风险披露，上市进程也未因静默期问题推迟，则 Sacks 所说 S-1 必须修订、Hubinger 背书构成法律风险的判断被证伪。</p>
+<p>若设立联邦 AI 监管机构的立法取得实质进展，且明确豁免开放权重模型的集中监测与回滚要求，则 Sacks 所说监管动员的终点是封堵开源的论点被削弱。</p>
+<p>若月支出千万美元以上的前沿模型大客户在后续披露中未出现向私有部署迁移，前沿实验室企业 API 收入增速也未放缓，则 Chamath 关于应用层迁离前沿模型构成逆风的判断被削弱。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>
