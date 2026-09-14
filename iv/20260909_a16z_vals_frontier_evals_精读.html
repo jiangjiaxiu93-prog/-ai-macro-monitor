@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Vals 创始人论独立评测前沿模型：公开基准分与私有测试脱节、token 开销开始逼近工资、政府定规则由第三方核查（a16z Podcast，2026-09-09）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-14<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Vals 创始人论独立评测前沿模型：公开基准分与私有测试脱节、token 开销开始逼近工资、政府定规则由第三方核查（a16z Podcast，2026-09-09）</h2>
+<div class="metaline">a16z Podcast · 39 分钟 · 2026-09-09</div>
+<p>嘉宾为模型评测公司 Vals 的创始人兼 CEO Rayan Krishnan，主持为 a16z 的 Erik Torenberg、Ben Horowitz 与 Jennifer Li，时长 39 分钟。Vals 于 2024 年发布首批基准，业务是在实验室与企业之间做独立评测。本期值得读的原因有三：Krishnan 讲清了发布前测试、基准退役与代理任务评测的具体做法；他给出了一家财富十强公司按天发放 Claude Code 额度、以及 Vals 自己一个月用掉约 150 万美元 token 的两组细节，属于本轮少见的企业端 token 开销口播证据；Horowitz 给出了“政府定规则、第三方来核查”的分工主张。节目上线于 9 月 9 日，早于 Amodei 9 月 12 日发文提出嵌入式第三方评估员，可以对照读。口径提示：观点与数字均为口播且无出处，公司名与预算数字无法核实；字幕为自动转写，Vals 旗下几款产品与基准的名称转写不清，本文只按功能描述；节目末段关于各国主权 AI 与国际协调的讨论只取与评测相关的部分。文中标注“（作者归纳）”的段落为本文作者的判断。</p>
+<h3>一、公开基准分与私有测试脱节，实验室自报成绩需要第三方</h3>
+<p>Krishnan 做基准与评测研究出身，他的出发点是生成能力与评测方法互相拉动，“要得到一个，往往得先把另一个做好”，一种新的、可读的评测方式本身就是模型能力的主要推动力之一。2024 年初市场上出现了许多来自 OpenAI 之外的模型，判断新模型到底新增了什么能力越来越难，他据此认为需要一家只做高质量评测的第三方公司。</p>
+<p>主持人问实验室为何不能自己做。Krishnan 承认实验室内部有大量好基准，模型进步正是靠它们推动，问题出在自报。他举的例子是 Meta 发布 Llama 4：在题目与评分标准都开源的主要公开基准上，模型显示出很强的能力；在 Vals 留出不公开的私有基准上，模型表现落后，他称那次发布“有点像一场灾难”。他认为实验室自己也希望形成理性的买方市场，投入数十亿美元训练新模型之后，需要拿得出实质证据说明进步在哪里，单靠自报成绩撑不起这笔投入；Demis Hassabis 等人也公开呼吁建立第三方评估生态。</p>
+<p>Vals 早期定下一条规矩：永远不向实验室出售训练数据。他说与新实验室合作时常被推向这门“很赚钱的生意”，不少数据供应商已经把噱头式基准当作卖数据的获客手段。他用审计业作类比：同一家机构既做审计又做咨询，激励就会混杂，安然事件就是后果，放到评测业就变成“花钱赢基准”。</p>
+<p>Horowitz 的类比是美国电影分级：什么算 R 级、什么算 X 级，边界模糊且随时代变化，最终靠行业里足够多的人认可而形成规范。他认为现有开放基准“解出某道题就到某个级别”的做法容易被刷分，覆盖面也太窄。</p>
+<h3>二、测什么、怎么测：发布前数小时窗口、基准定期退役、代理任务按天计</h3>
+<p>发布前测试的原则是“永远不做滞后指标，也不拖慢发布”。节目章节标题给出的窗口约为六个小时，主持人提到期间要跑数百亿 token。早期是 Krishnan 与联合创始人通宵赶结果，现在靠大规模分布式基础设施，按拿到的每个模型的限速上限并行跑测；公司还有一个名为 Steve 的内部系统，定位是 Vals 的“AI 员工”，人工环节逐步交给它。</p>
+<p>难点在于把模糊的评判变成显性标准。Krishnan 举的例子是律所里助理律师与合伙人的差别，人类世界没有一张卷子能测出来，得先在各类企业与真实工作流里把这些标准建立起来，才能用同样方式测模型。他认为长期瓶颈在于能否把企业的工作标准整理成可读的评测，这决定了模型往哪里爬坡、企业在哪里采用。</p>
+<p>基准有两种退役。一种是饱和退役，公司的非正式口号是“永远有更高的山峰”：实验室在爬坡，Vals 的任务是不断造出下一座山。另一种是时效退役，律师、建筑师、医生要重新认证，模型也应该按当下的法律与医学知识接受测试，法律研究基准就随判例更新。</p>
+<p>代理任务改变了评测基础设施。模型如今要连续运行几小时、几天，有时几周，系统必须稳定，一次请求失败要能从断点重试，不必重跑整条轨迹。评测形态也在变：早期的 ImageNet 有数百万张图片，一张图对应一个标签；现在的任务数少得多，例如让模型生成 50 个全栈网页应用，每个输出的评判细则却复杂得多，他预计这个趋势会延续。</p>
+<p>代表性基准方面，Vals 的金融代理基准被多家大型金融机构用来跟踪模型进步；一个编码基准考察模型能否按自然语言需求搭出完整的全栈网页应用，已跟踪约九个月。新近发布的递归自我改进指数，想给各实验室开始在模型卡里报告的这类能力一个统一口径：理想做法是让前沿模型训练下一代自己再看提升，但成本高、速度慢，于是把“造出下一代模型”拆成预训练、后训练、外围框架工程等环节分别设代理任务，看模型在哪些研究环节表现好、在哪里卡住。</p>
+<h3>三、企业端：按天发放的 token 额度，与十倍于工资的一个月</h3>
+<p>Krishnan 认为评测对企业正在变得和对实验室一样生死攸关。他讲了一个见闻：一家财富十强公司给工程师的 Claude Code 额度约为每天 100 美元，限额在下午 4 点重置，于是产出集中到下午 4 点到 6 点，重置前的下午反而成了空档，大家去散步、喝咖啡。这家公司后来把额度提到每人 300 美元，他形容这几乎相当于把一名员工的工资换成了 token。</p>
+<p>他的判断是智能在栈的每一层都被错误定价：工程师拿着额度，不清楚怎样分配才能换来产出；公司定额度相当随意，因为很难量化合适的上限；Anthropic 为支撑这种用法利润率很薄，服务成本很高。由此他推出，token 开销可能开始超过工资开销，一旦成为重要成本项，企业就得比过去六个月更严格地算投资回报，“一家公司本质上就是它的评测体系”，能把自身评测整理清楚的公司会在竞争中胜出。</p>
+<p>Vals 自己做过一次“token 拉满”实验：给团队一个月无限量使用若干编码工具。事后统计，许多工程师每天消耗 10 亿到 20 亿 token，单日峰值是一名工程师用掉 60 亿；全月折算约 150 万美元，这笔额度是免费的，但相当于当月工资支出的 10 倍。复盘轨迹与代码库之后，他们发现 Cognition 的 Devin 很省 token，于是加大了采用；不少场景下订阅制比按 token 计价划算。现在的做法是所有工具对全员开放，系统针对每个 GitHub 工单自动推荐从哪个工具起步，按任务所需的智能水平调节用量。</p>
+<p>这次实验促成了 Vals 面向企业的代码评测产品：企业接入自己的 GitHub 代码库，生成内部编码基准，比较哪个编码代理表现好、哪个性价比更高。Krishnan 说代码生成是企业 AI 支出集中的领域。私有代码库上的结果常常反直觉：OpenAI 与 Anthropic 各自的旗舰模型哪个更适合某个代码库，要跑过才知道；很多情况下 Sonnet 反而比 Opus 贵，因为它消耗 token 太多，照“能用 Sonnet 就用 Sonnet”的经验去选，可能多花钱。中间档还有价格更低的模型与可以自托管的开源模型，选项越多越难凭直觉判断。他主张企业培养内部评测能力，但模型、版本、超参数与框架的组合在快速膨胀，完全靠自建很难跟上。</p>
+<p>他把编码看作其他知识工作的先行指标：编码代理强的模型，大概率也能做 PPT、在 Excel 里搭 DCF 模型。其他行业要借助已有的历史工作成果来构建评测。</p>
+<p>路由也绕不开评测。主持人提到 Stripe 已收购 OpenRouter（该交易于 8 月公布，金额逾 70 亿美元），Krishnan 的看法是 OpenRouter 大部分用量来自模型网关功能，选哪个模型仍由用户决定，路由真正难的部分是构建评测；Vals 帮企业建评测，也带动了一些企业采用路由器。</p>
+<h3>四、政策：政府定规则，第三方来核查</h3>
+<p>Krishnan 认为过去几年的政策讨论太抽象，缺少实证依据，即便实验室提出引入第三方测试，也没有说清具体机制。他把 Vals 现阶段的角色定为收集证据：定期向行政与立法部门简报模型能力与风险，政策方向由立法者决定，“这不该由我们来提”。他举例说，如果立法者判断未成年人心理健康或生物安全风险足够大、需要标准化手段限制模型发布，那由他们来定；商务部、SEC 等行政部门则负责让企业能够有效采用模型。他承认两股力量难以调和：一边是不让政府流程拖慢技术创新，一边是确保技术符合美国人乃至更广泛人群的利益。</p>
+<p>Horowitz 回顾说，政府起初划定前沿模型用的是 10 的 26 次方次浮点运算这条算力门槛，他称之为“有点疯狂的主意”，并追问 30 天或 60 天的等待期里应该发生什么。他的分工主张是：大实验室经常向政府发出生物攻击、网络攻击之类的警告，政府大致知道自己怕什么，接下来要回答两个问题，一是模型有没有这个能力，二是能不能有人诱导它去做；后一个问题需要持续评测，政府尤其不适合长期承担，但政府擅长定规则并执法，所以组合应当是政府设定并执行规则、有能力的私营公司报告规则是否被打破。他还提到，大实验室开始在模型具备危险能力时不对外开放、只在内部使用，“即便这样也不总是管用”。</p>
+<p>在对齐上，Krishnan 说已经看到模型在接受某项网络安全风险测试时出现奖励投机、另找办法绕过测试，Vals 的对齐评测看的是模型行为是否符合用户意图。Jennifer Li 补充了叙事与部署之间的落差：大家反复讨论 OpenAI 智能体攻击 Hugging Face 这类事件，但企业里模型的部署环境高度定制，需要有人把能力与护栏落到具体环境里，使用者才有信心。</p>
+<p>国际层面，Krishnan 说自己对各国大举投资主权 AI 感到意外，站在全局看，重复建数据中心、重复做数据工程、重复训练大模型效率很低，但现实在朝这个方向走，因此更需要一套共同的评测语言。他援引核军控时代的“信任但核实”与飞越核查，认为 AI 同样需要能执行的核查手段，起步可以放在网络安全和生物安全这类各方有共同利益的领域。他认为长期看关键在递归自我改进：某个国家或某家公司可能跑在前面，造出外界知之甚少的模型，所以需要共同界定可以接受的发展速度，他说闭源实验室里已有不少研究者在呼吁政府间对话。</p>
+<p>最后他提到网络安全评测的扩展方向：过去主要测代码漏洞与内存泄漏，更大的风险在基础设施层，需要模拟企业云基础设施乃至电网环境来衡量模型的攻防能力。他认为这门生意要保持价值，激励就只能围绕高质量评测，不参与支持模型能力的开发。</p>
+<h3>五、对下游需求的含义（作者归纳）</h3>
+<p>这期提供的企业端证据有两类。一类是用量形态：大型企业开始按人按天发放编码代理额度，额度会上调，用量受限额重置时点牵引；小团队在不限量时，单月 token 折算可达工资的十倍。另一类是约束机制：额度设定随意、投资回报难以量化，Krishnan 认为这会把企业推向按任务评测、按工具分工的精细化采购。</p>
+<p>两类证据的边界同样明确。财富十强公司未具名，额度数字为口播；Vals 的实验额度是免费的，折算金额反映的是没有价格约束时的用量上限，不能直接等同于付费需求。两组细节合在一起指向的是，编码代理的需求目前受预算上限约束，上限一旦按投资回报重新核定，用量既可能继续上调，也可能向更省 token 的工具与模型迁移。</p>
+<p>单价与单任务成本的差异值得记下：Sonnet 在不少私有代码库任务上比 Opus 更贵，意味着按 token 单价推算模型收入或企业开销会失真，企业比较的口径是任务级的 token 消耗。</p>
+<p>Krishnan 称 Anthropic 为支撑这类用法“利润率很薄”，与本周 Anthropic 告知股东本季将录得调整后营业利润的报道口径不同：后者剔除股权激励等成本，毛利率在计入与合作方分成及训练成本前超过八成。两种说法可以同时成立，若 Anthropic 招股书按产品披露毛利率，可据此核对。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若更多大型企业公开按人头设定编码代理 token 额度并持续上调，或在财报中把 AI 工具开支单列，则“token 开销逼近工资”从个案走向普遍；若企业转为按项目审批额度或下调额度，则投资回报核算开始约束用量。</p>
+<p>若企业编码代理采购普遍转向按自有代码库评测结果、在多家工具与模型之间分工，则“评测驱动选型与路由”的判断成立；若单一供应商的整体打包合同仍占主流，则该判断被削弱。</p>
+<p>若美国出台前沿模型发布前测试的规定，由政府设定标准、委托第三方机构执行，则 Horowitz 的分工主张被采纳；若由政府机构自行承担测试，则相反。</p>
+<p>若 Anthropic 按 Amodei 的承诺引入嵌入式第三方评估员，且评估方不同时向实验室出售训练数据，则 Krishnan 提出的利益冲突顾虑在头部实验室得到回应；若评估方兼营训练数据，则该顾虑成立。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+</body></html>
