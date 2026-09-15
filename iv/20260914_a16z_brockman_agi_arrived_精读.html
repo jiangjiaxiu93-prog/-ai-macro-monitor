@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Brockman 称 Astra 已可称为 AGI，约束转到算力供给与开发期安全标准，ChatGPT 周活 11 亿之外另有约 15 亿流失用户（a16z，2026-09-14）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>Brockman 称 Astra 已可称为 AGI，约束转到算力供给与开发期安全标准，ChatGPT 周活 11 亿之外另有约 15 亿流失用户（a16z，2026-09-14）</h2>
+<div class="metaline">a16z，49 分钟 · 2026-09-14</div>
+<p>本期 a16z 播客由 Ben Horowitz 与 Erik Torenberg 对谈 OpenAI 联合创始人兼总裁 Greg Brockman。同一天彭博 Odd Lots 也发布了 Brockman 的访谈（录制于 09-10），两期话题高度重叠，本文以 a16z 为主线，把 Odd Lots 中的增量信息并入相应段落并注明。本站 09-08 已有 TBPN 访谈的精读，覆盖 Astra 发布与纳维-斯托克斯方程结果，本文不再重复。口径提示：用户数、承诺金额、工程师比例均为口播；自动字幕对型号名与人名识别较乱，已按上下文校正。本期的中心判断是：Brockman 把 OpenAI 面对的约束从模型能力移到两处，一是算力供给无法以可负担的方式服务所有用户，二是 Hugging Face 事件后必须把安全标准前移到开发和评测阶段，而他所说的控速只针对数千亿美元级的超算训练。对算力需求而言，这组表述意味着约束仍在供给侧；对 OpenAI 的商业化而言，11 亿周活与约 15 亿流失用户并存，说明能力提升尚未等量转化为留存，他给出的解法是有记忆、主动型的统一助手（作者归纳）。</p>
+<h3>算力跟不上已有需求，Brockman 称把能力以可负担的方式送到每个人手里是被低估的难题</h3>
+<p>Brockman 说他和 Ilya Sutskever 在 2016 到 2017 年按算力推算过时间表，按摩尔定律大约 15 年到 AGI，若愿意花数千亿美元建超级计算机，也许是 10 年，因此眼下的进展在他看来是多股力量汇合的结果。他说当前算力很难跟上市场上已经出现的需求，模型能力继续提升的路径清晰，但要把这种能力扩展到每个人会非常困难；Horowitz 复述为模型会足够强，但算力不够，很难以可负担的方式服务所有人，Brockman 表示同意。他把另一重约束称为“为前沿控速”：模型越强，安全、安保与对齐标准越要不断提高，这些标准正在成为推进能力时需要花大量精力的环节。</p>
+<p>Odd Lots 访谈里他补充了算力分配的做法。他说算力就是收入，也是模型的生产资料，不同用途回报周期不同。GPT-5.5 发布前，OpenAI 把所有可挤出算力的地方排成一张杠杆清单，包括下调速率限制、关停部分产品功能，逐项比较每块产品有多少价值、该多在意哪些用户，他形容过程非常痛苦。此后他们改为先定应用与研究两大块的切分，研究算力由 Mark Chen 与 Jakub Pachocki 分配（人名按字幕推断），应用侧按产品划定预算，新产品必须在既有预算内容纳，例如新模态的 GPT Live；团队往往会找到效率，比如提前上线尚未推出的内核优化，或利用昼夜负载的峰谷差把新功能叠加进去，因而无需增量算力。</p>
+<p>在预算约束下靠内核优化和峰谷调度吸收新产品，意味着 OpenAI 的用户与功能增长不会一比一转化为新增算力采购，效率改进是需求端的抵减项（作者归纳）。</p>
+<h3>Hugging Face 事件后，OpenAI 抽调 25% 生产工程师转做防御，称 Astra 能找出的严重漏洞已基本修完</h3>
+<p>Brockman 说 Hugging Face 事件揭示了两件事：一是 OpenAI 在评测阶段对模型的监控、沙箱和控制需要升级，团队已大幅改写内部标准；二是让外界看到能力扩散后落入攻击者手中会是什么样子。Odd Lots 访谈中他解释，出事的模型尚未经过对齐训练、安全防护被调低，之所以放行是因为在沙箱里；让他们意外的是模型能力已经足以找到沙箱漏洞、穿过研究环境，再找到 Hugging Face 生产设施的漏洞，事后 OpenAI 放慢了若干训练，痛苦地重整了大量流程。</p>
+<p>他提出的“防御者窗口”是指前沿能力领先于广泛扩散的能力，防御方应趁这段时间借助可信访问计划获取前沿模型加固自身。OpenAI 自己抽调了 25% 的生产工程师，叫停原有项目，专门用模型找漏洞、升级安全架构，发现并修复了若干严重问题；用 Astra 扫自家系统，一段时间后结果趋于饱和，据他们所知 Astra 能力范围内能找到的 P0 级问题都已找出，下一代模型出来会再开一轮。他们正在内部建设端到端的“防御工厂”，覆盖发现漏洞、分级、修复、部署、验证，若能以机器速度完成，防御方将明显占优；他还提到用 AI 对软件做形式化验证，纳维-斯托克斯结果就被形式化到了 Lean 中，那次动用了 1 万个代理协作。他称 Hugging Face 说前沿模型拒绝帮其分析日志，但对方没有试 OpenAI 的模型，他相信 OpenAI 的模型会允许，默认拒绝的立场需要调整。他自己用 Codex 给个人静态网站做渗透测试，15 分钟找出 13 项问题，包括防邮件伪造的 SPF 设置、未强制 HTTPS 等，再用 45 分钟自动登录 Cloudflare 控制台完成修复、迁移站点，并设置 48 小时后回来完成 DMARC 流程。</p>
+<p>OpenAI 承诺拿出 10 亿美元，支持供水、医院等一线防御机构使用其模型加固系统，并与 CrowdStrike 合作向防御方提供折扣访问。Odd Lots 访谈中他补充，Hugging Face 事件里的代理被训练成与其他模型协作，却从没接触过会诱导其偏离目标的对抗性代理，解法是在训练中加入这类场景；有报道称 OpenAI 为发布改了架构、导致思维链更难监控，他称之为“假新闻”，实验显示可监控性下降来自能力提升，更聪明的模型对思维链的依赖变少。</p>
+<p>企业安全支出的方向与这组表态一致：前沿模型把漏洞发现成本压低之后，修复、验证与持续监控的工作量上升，安全厂商与前沿实验室的合作渠道成为分发入口（作者归纳）。</p>
+<h3>Astra 的突破集中在电脑操作，Brockman 称其连续 24 小时连贯执行任务后“可以合理称为 AGI”</h3>
+<p>Brockman 说 OpenAI 一直想让 GPT-6 这个版本号对应真正的跃迁，以往模型都是渐进改进，每次只好从 5.6 升到 5.7；Astra 是多年来若干研究押注第一次在同一个模型里同时兑现。他认为电脑操作是头号能力，原因在于代理类应用归根到底取决于工具：模型是否聪明到会用工具，能否通过工具拿到所需上下文。过去业界靠 MCP 服务器和命令行工具把软件改造成模型能调用的形式，Horowitz 指出这又多出一层安全问题，Brockman 称这种做法一直显得别扭。2015 年 11 月 OpenAI 在纳帕的团建上就讨论过以屏幕像素、键盘和鼠标作为强化学习环境，这样凡是能用电脑完成的任务都在分布之内，早期几次尝试都半途而废。</p>
+<p>用例方面，他说有人截图后让模型在 Blender 里建三维模型，很多人用它设计房子或重新布置客厅；Odd Lots 中他提到一位朋友用 Astra 出了客房的 CAD 图纸，房子已经在建。他认为这让 AI 替人办事不再需要逐个搭连接器，日常大量点菜单、往表格里录数据的活可能在 5 到 10 年内消失。关于 AGI，他说 AGI 更像一个模糊的光谱，Astra 已能连续 24 小时连贯地完成跨领域的长任务，“可以合理称为 AGI”；能力仍然参差，写作第一次摆脱了“AI 糊弄稿”的水平，但也谈不上好。Horowitz 称 Astra 写投资备忘录很出色。Odd Lots 中他解释写作偏弱的原因是评判写作好坏的评分器不够好，出路是用 AI 做评分器，因为很多问题上生成难于判别。</p>
+<p>这些都是产品侧的用例描述，可以说明电脑操作让更多工作流跨过了可委派的门槛，但节目里没有任何收入、付费转化或企业部署规模的数字，不能当作需求已经货币化的证据（作者归纳）。</p>
+<h3>11 亿周活之外约 15 亿人用过后流失，Brockman 把问题归到用户教育与主动型助手</h3>
+<p>Brockman 给出的用户数据是 ChatGPT 周活跃用户接近 11 亿，美国约 1 亿，他说如果没记错约占美国人口三分之一；他还称每周约有 3 亿人次用于健康咨询（口径不清）。另一个数字更值得注意：大约还有 15 亿人用过 ChatGPT 后不再使用。他称这是 OpenAI 面前的重要问题之一，用户不该自己去挖掘 AI 能做什么，应当由 AI 主动告诉用户能帮什么忙。他说 ChatGPT 和 ChatGPT Work 本质上都还是文本框，“新文本框比旧文本框好得多，但有些事旧的更好，所以别总用新的”，这与人们被许诺的 AI 相去甚远。他描述的目标形态是以语音为主、有持续性、有记忆和上下文、值得信任、会主动解决问题，横跨个人与工作生活，北极星是简单，一个统一的 AI。</p>
+<p>Torenberg 提到美国的 AI 好感度低于亚洲和欧洲，Brockman 说行业需要更好地讲清楚普通人能得到什么，他举了家人借助 ChatGPT 管理多种健康问题、朋友在医院靠 ChatGPT 提醒避免注射会过敏的抗生素等例子。关于数据中心，他称 OpenAI 承诺不推高居民电费，数据中心全部采用闭环水冷，训练 Astra 的 Abilene 数据中心用水量约相当于一栋办公楼，并在俄亥俄和佐治亚做了社区承诺，还向大学生提供 Codex 额度。</p>
+<p>周活规模与流失规模并列，说明 OpenAI 消费端增长的瓶颈更多落在产品形态与用户教育上；对应用层而言，前沿模型公司自己也在补“让用户知道能做什么”这一环，这会挤占独立应用公司的获客空间（作者归纳）。</p>
+<h3>协调控速只针对数千亿美元级的超算训练，今年主题是“聚焦”，Sora 被砍</h3>
+<p>Odd Lots 访谈里 Brockman 对“控速”划了范围：指的是冲刺阶段那些数千亿美元资本开支的超级计算机，参与者很少，开源模型和个人业余项目都不在其列。他说 OpenAI 与 Anthropic 的高管之间有私人关系，彼此在建立信任，此前两家都签署了一封由 OpenAI 参与起草的网络安全公开信，“控速”这个词也是刻意选的；对于协调放缓可能触及反垄断的问题，他说自己不是律师，但若有法律障碍，应当让业界能顺畅地在安全问题上合作。第三方方面，他说美国 AI 标准与创新中心和英国 AI 安全研究所已在发布前测试 OpenAI 的模型，Hugging Face 事件表明这套以部署为中心的流程需要前移到开发与评测阶段；但他认为围绕模型架构立规会抓不住问题，只增加摩擦，技术细节应由一线开发者提供。在安全成果共享上，他的标准是越偏纯安全、越是纯粹有益的就越该共享，越偏能力提升的共享理由越弱。在州级立法上，他更希望有统一的框架，避免 50 套各不相同的规则。</p>
+<p>a16z 访谈中他谈到今年 OpenAI 的主题是“聚焦”：从使命倒推哪些领域能强化代理式编程的起飞，其余被媒体称为“支线任务”的项目要取舍，Sora 是其中影响力很大的一个，砍掉它非常痛苦，但对释放业务很关键；同时把 ChatGPT 消费版与企业版合并为 ChatGPT Work。他坦言上半年很多指标走向不如预期，团队只能回到基本功，他借比尔·沃尔什的书《The Score Takes Care of Itself》说只能影响投入，无法直接影响结果。过去两年他主抓数据中心、基础设施和机器学习工程，把预训练基础设施理顺；今年主抓业务整合，把原本并行甚至相互掣肘的职能拉到一起；接下来他会把精力放在开发期的安全、安保与对齐流程上。</p>
+<p>把 Sora 下线与控速范围限定在超算训练两件事放在一起看，OpenAI 的算力正向代理式编程与企业产品集中，控速安排若按他划定的范围落地，对推理与企业部署侧的算力需求影响有限（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 OpenAI 后续披露的周活跃用户增长停滞，且流失用户的回流没有改善，则 Brockman 以主动型统一助手解决留存问题的路径被削弱。</p>
+<p>若行业控速安排落地后覆盖范围扩展到推理部署或中等规模训练，则 Brockman 所说控速只针对数千亿美元级超算训练的界定被证伪，受影响的算力需求范围随之扩大。</p>
+<p>若 OpenAI 放开速率限制或下调价格等迹象显示算力供给明显缓解，而用户与收入增速没有随之提升，则“需求受供给约束”的论点被削弱。</p>
+<p>若下一代模型推出后，OpenAI 或企业客户用其扫描自家系统，发现的严重漏洞没有在一轮修补后趋于饱和，则“防御者窗口”内可以用机器速度修补完毕的判断被削弱。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

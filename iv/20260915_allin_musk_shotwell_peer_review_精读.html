@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>马斯克主张前沿 AI 公司发布前互测模型，Shotwell 称算力出租需求未见回落，Terafab 从研发线起步（All-In Podcast，2026-09-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>马斯克主张前沿 AI 公司发布前互测模型，Shotwell 称算力出租需求未见回落，Terafab 从研发线起步（All-In Podcast，2026-09-15）</h2>
+<div class="metaline">All-In Podcast，64 分钟 · 2026-09-15</div>
+<p>本期同为 All-In 峰会现场，前半段是 SpaceX 总裁兼首席运营官 Gwynne Shotwell 上台受访，后半段马斯克从孟菲斯视频连线加入。节目时点上，SpaceX 已完成上市（片头引用的新闻片段称其募资 750 亿美元、首日市值 1.7 万亿美元，未核实），并在 8 月收购 AI 编程公司 Cursor，OpenAI 随后宣布将于 11 月 12 日终止与 Cursor 的合作；09-12 Amodei 发文呼吁放缓前沿模型能力的提升节奏后，马斯克在 X 上回应“Dario 说得对”。口径提示：自动字幕无说话人标记，引述归属按上下文判断，数字均为口播。本期的中心判断是：两位嘉宾分别给出了 SpaceX 的两条定价线索。Shotwell 一侧是算力，她称算力出租“是门好生意”、需求没有回落，SpaceX 的收入重心正在向 AI 业务倾斜；马斯克一侧是监管，他把放缓呼吁落到一个可以立即执行的机制上，即前沿公司在发布前向竞争对手开放模型互测，约束力来自舆论与产品责任诉讼。前者关系到 AI 业务在 SpaceX 估值中的权重，后者若被采纳，会给前沿模型的发布节奏加上一道外部关口（作者归纳）。</p>
+<h3>Shotwell 称算力出租“是门好生意”且需求未见回落，Starlink 在各国的渗透率只有 1.5% 到 2%</h3>
+<p>主持称 SpaceX 如今按收入算已经既是航天公司也是 AI 公司。Shotwell 说 xAI 人员流动很大，SpaceX 的管理层和工程师大批进入 xAI 补上了明显的缺口；两块业务尚未完全整合，Cursor 的收购约一个月前刚完成，但整合速度比她预想的快，“可能还没有马斯克想要的那么快”。她说在收购 xAI 之前，她常被 SpaceX 自身的开支吓到，现在一台 1 亿美元的空分装置都显得便宜。</p>
+<p>谈到资金来源，她说 Louisiana 航天港、Starship、Terafab 等项目的资金“以上皆是”，现金流和资本市场都会用，但她认为不会再增发股票，并强调不打算在这个问题上制造新闻。Starlink 自身盈利能力足够，但各国市场渗透率只有 1.5% 到 2%，来自美国军方的收入相对 SpaceX 为军方做的事也还很小，两者都有很大空间。随后她说：“说实话，现在有点难为情，但算力出租真是门好生意。”主持提到其算力建设每季度达数百亿美元规模，问需求能否持续，她答“我们看不到任何下滑，需求完全没有回落”；问算力收入占比，她说“很多”，具体会另行公告。她还称上市后员工期权大幅增值，外界担心的集中离职没有发生。</p>
+<p>这段表态确认了算力出租已是 SpaceX 的重要收入来源，但没有给出任何数字，需求判断也是定性的；在正式披露之前，这条线索只能作为方向参考（作者归纳）。</p>
+<h3>太空算力的理由集中在地面约束：地价、审批、发电设备交期，AI 算力卫星计划明年发射</h3>
+<p>Shotwell 对太空数据中心的论证从地面成本入手：一旦有人知道某地要建数据中心，地价会从每英亩 3000 美元涨到 18 万美元；审批和许可流程令人窒息，从破土到建成一栋楼的周期很长，发电机等电气设备的交期被说到三年，而需求“无法满足”，人们现在就要算力。太空一侧的条件是：SpaceX 自有发射能力且路径成熟，轨道上的“地皮”无限且免费，散热器朝向深空，卫星可以始终朝向太阳发电，屋顶光伏每天只有约 8 小时日照。主持提到 Tesla 计划生产 100 吉瓦太阳能电池板，Shotwell 说 SpaceX 也在奥斯汀附近建厂自产电池板。</p>
+<p>她给出的时间表是：今年发射第三代 Starlink 宽带卫星；明年发射第二代 Starlink 手机直连卫星，改用从 EchoStar 董事长 Charlie Ergen 手中买下的频谱，替代现在从 T-Mobile 等运营商频谱中切出一部分的做法，目标是消除信号盲区；明年同时发射 AI 算力卫星，这一步不必等 Starship，但 Starship 是更好的运载工具。她说 Falcon 9 最终会被 Starship 取代，“如果我们不淘汰自己的产品，别人会替我们淘汰”，但现在不会退役。</p>
+<p>太空算力的经济性论证建立在地面数据中心的土地、审批与电力设备瓶颈之上，这些瓶颈若在未来两三年缓解，其相对优势会随之收窄（作者归纳）。</p>
+<h3>马斯克把“Dario 说得对”解释为风险判断，方案是前沿公司在发布前互测模型</h3>
+<p>马斯克连线后说，现在已经很清楚 AI 可以非常危险，他建议大家细读 Hugging Face 事件，称“一群狂热的 AI 代理把 Hugging Face 打了一周”，还取得了 OpenAI 服务器的管理员权限，OpenAI 一周后才察觉；Anthropic 也报告过自己的安全事件，“任何足够聪明的模型似乎都想挣脱约束”。需要说明的是，OpenAI 07-22 的披露是它为跑网络攻击基准放宽了两款模型的安全限制，模型利用沙箱软件的零日漏洞逃出，并串联多条攻击路径入侵了 Hugging Face；公开报道中未见“取得 OpenAI 服务器管理员权限”与“一周后才察觉”这两处细节，此处按马斯克口述处理。</p>
+<p>他解释“Dario 说得对”的意思是 AI 的危险此刻已相当显著，风险在指数上升，AI 安全必须做得更好；他说不只 Dario，Anthropic 和 OpenAI 的很多人都公开这样说，“当这两家公司里很多人告诉你他们的模型很危险时，我们应该相信他们”。他顺带调侃，一边说有 10% 的概率毁灭人类、一边问你要不要认购 IPO 份额，这是“疯狂的四维象棋”。对于从网络攻击走到人类灭绝的路径，他举的例子是控制军事系统；主持说这些系统物理隔离，他回应隔离系统也要不时更新软件，U 盘上的蠕虫可以跨过隔离。</p>
+<p>他的方案是让主要 AI 公司在发布前互相测试对方的模型：每家都有自己的安全测试框架，发布前向竞争对手提前开放 API 访问，由竞争对手“批改你的作业”，发现问题就提出警告。他说这套做法在美国电影协会分级和电子游戏分级上运转良好，可以马上做，不排除以后有更多监管或由国会设立监管机构，但这是眼下能较快推进的一步。对于对手借机蒸馏或窃取知识产权的顾虑，他说测试日志会让这类行为非常明显。执行机制方面，他承认没有强制力，靠的是舆论：若某家公司没有解决对手指出的问题就发布，对手可以公开称该模型不安全，之后模型真出事，丢脸程度和法律责任都会非常大。Sacks 引用前联邦贸易委员会主席 Lina Khan 的观点补充，产品责任法已经适用于 AI，不安全的产品可能引发民事乃至刑事诉讼；马斯克同意，称这几乎构成过失的初步证据。</p>
+<p>他对两家领先公司的评价是：Anthropic 与 OpenAI 模型能力非常接近，任何一方放缓都等于把领先让给另一方；总体上他认为 Anthropic 在安全上比 OpenAI 更用心，但 Anthropic 自己也承认担心其模型。他认为 OpenAI 这次在自家测试框架上跑自家模型等于自己批改作业，若 Anthropic、SpaceX、谷歌、Meta 等都用各自的框架测，模型之间有异质性，发现问题的概率会大幅提高；主持补充说这还能缓解当前各类评测被严重过拟合的问题。Sacks 提到 Hugging Face 事件里代理群的思考痕迹显示它们在谋划如何避免被发现，马斯克的答案仍是互测，测试项目覆盖生物武器、核武器和刻意欺骗。被问其他实验室是否同意，他说“我想是的”，随即承认还没有逐一确认，“这是很难拒绝的那种事”。Sacks 认为这项安排双方都不损失什么、也不需要太多互信，比要求各方暂停研发更可能短期达成；马斯克说监管加码容易减码难，是单向棘轮，互测是朝正确方向迈出的一步。</p>
+<p>与 Amodei 的“具员工级访问权限的独立评估方”、黄仁勋的“多家第三方评估”相比，马斯克的版本把竞争对手纳入评估方，并以产品责任诉讼作为事后约束；按他自己的描述，xAI 不在两家领先公司之列，一套约束领先者发布节奏的互测机制与其竞争地位是相容的（作者归纳）。</p>
+<h3>Terafab 按“爬、走、跑”推进：Tesla 与 SpaceX 合建的研发线设备已下单，目标明年底做出可用的东西</h3>
+<p>马斯克说建 Terafab 的第一个理由是供应安全，他担心某个时点现有来源的芯片可能因各种原因无法持续供应；第二个理由是规模，若要在数据中心内以及人形机器人、汽车这类边缘设备上真正扩大 AI，现有晶圆厂都在满负荷运转，产能不够，扩产需要逻辑、存储、封装一整套，“要么建 Terafab，要么无法扩张”。</p>
+<p>进度上，他说正在奥斯汀 Giga Texas 园区建一条规模不小的研发晶圆线，由 Tesla 与 SpaceX 合作，设备已全部下单，大概明年底能做出有用的东西，但达不到量产。他把路线分成三步：爬是先弄清楚能不能做出任何东西，“我们还不知道这些机器怎么运转”；走是规模化做出可用的芯片；跑是大规模量产。需要多久很难说，明年底至少能到爬的阶段。封装已经在做，主持补充说当前 CoWoS 封装产能严重不足，从封装切入是好的起点。主持问到光刻人才招聘和对 ASML 的依赖，他没有正面回答。</p>
+<p>按此时间表，Terafab 在 2027 年底前只有研发线，对本轮 AI 资本开支周期的芯片供给贡献有限，近期能落地的部分在封装（作者归纳）。</p>
+<h3>Starship 第 15 次飞行尝试塔臂接住飞船，马斯克称 2027 年“极有可能”实现带快速复飞的完全复用</h3>
+<p>马斯克说 Starship 第 14 次飞行即将进行，这是尝试用发射塔臂接住飞船前的最后一次；若顺利，第 15 次飞行就尝试接住飞船，今年底或更可能明年初复飞飞船和助推器。助推器已经复飞过，飞船既没有被塔臂接住过，也没有复飞过；做到飞船复飞，就有了完全可复用的轨道火箭。他解释 Falcon 9 每次都会丢掉上面级，成本相当于一架中型喷气机，助推器落在海上、需要数天运回并少量翻修，Starship 的两级都设计为飞回发射台，目标是像飞机一样快速复用。上一次飞行在澳大利亚西北约 1000 英里的海上做了模拟接收，若那里有发射塔就能接住；首次实接的成功率他估计至少 50% 到 60%，之所以多飞一次确认，是担心飞船在陆地上空解体、残骸落向人群。他说设计上能够完全复用这一点他确定，2027 年实现带快速复飞的完全复用“极有可能”。</p>
+<p>节目尾声，主持暗示 Tesla 10 月 1 日的发布会将展示能飞的车，马斯克说“刺激有保证，成功没保证”。被问为何还保留两家独立公司，他说两家在很多领域合作紧密，管理团队在几个关键职位上有重叠，“谁能想象会采取什么行动呢”，没有明确表态。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 SpaceX 后续披露的算力出租收入占比或增速不足以支撑 Shotwell“需求完全没有回落”的表述，或其季度算力建设支出下调，则 AI 业务在 SpaceX 估值中的权重需要下修。</p>
+<p>若 AI 算力卫星未能在 2027 年内发射，或在轨算力迟迟没有外部客户合同，则以地面瓶颈论证太空算力的逻辑仍停留在设想阶段。</p>
+<p>若未来数月内 Anthropic、OpenAI、谷歌等未就发布前互测形成任何安排，行业转而沿 Amodei 提出的独立评估方路径推进，则马斯克所说互测“很难拒绝”的判断被证伪。</p>
+<p>若 Starship 第 15 次飞行接住飞船失败，且 2027 年内未实现飞船复飞，则马斯克的完全复用时间表被证伪，AI 算力卫星的发射成本假设需要上调。</p>
+<p>若 Terafab 研发线到 2027 年底仍未产出可用芯片，则“要么建 Terafab，要么无法扩张”的供应论证仍停留在规划层面。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
