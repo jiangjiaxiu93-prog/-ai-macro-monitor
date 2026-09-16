@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Levie 称五年后企业 90% 的 token 由用户从未触发的后台任务消耗，Box 自建 harness 把百页贷款文档抽取准确率从 70% 推到 97%（Sequoia Capital，2026-09-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-16<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Levie 称五年后企业 90% 的 token 由用户从未触发的后台任务消耗，Box 自建 harness 把百页贷款文档抽取准确率从 70% 推到 97%（Sequoia Capital，2026-09-15）</h2>
+<div class="metaline">Sequoia Capital，65 分钟 · 2026-09-15</div>
+<p>本期红杉资本播客由主持人与 Box 创始人兼 CEO Aaron Levie 对谈，主题是 AI 时代的公司自我重塑与企业侧扩散（字幕中未出现主持人姓名，故此处不具名）。口径提示：收入运行率、准确率、token 占比、毛利水平均为口播，未经财报或第三方核对；自动字幕把 Levie 记作 Levy，模型名与公司名识别较乱，Fable 5.1、Grok、Muse、GPT-5.6、GDPval、Mercor 的 APEX、Decagon、Engram、Prime Intellect、Applied Compute、Harvey、Legora、Cognition、Factory 等均按上下文还原。本期的中心判断是：模型能力与企业实际工作流之间隔着权限体系、数据形态、变更管理与遗留系统，这段落差本身撑起应用层的收入空间；Levie 据此认为编码之外的扩散会明显慢于硅谷的预期，而价值会沿着「谁能把技术送到律师、销售代表、研究员手上」这条线分配（作者归纳）。</p>
+<h3>模型到工作流之间的落差被押上约一万亿美元，Levie 称市场已在为落差很大定价</h3>
+<p>Levie 说两年前「模型套壳」还是个贬义标签，如今应用层公司被当成热门的新实验室，这件事主要因为开源而跑通了。他把关键变量描述为一座桥：从模型能力通向企业既有工作流，业内大约一万亿美元的下注落在这座桥「很窄」还是「很宽且需要伸进组织深处」两个结果之间。只做多模型与超级智能，或者同时做多应用层，是同一道题的两种答案。他的观察是落差确实很大，而当你把这段落差补上，你会积累到足够的数据与领域知识，届时自己去做模型也变得合理，形成一个飞轮。</p>
+<p>他用基础设施与应用的历史关系做类比：AWS、GCP、Azure 创造了数万亿美元市值，同时又长出了只因这些基础设施而存在的数万亿美元软件价值；十年前看 GCP 或 AWS 早期的数据产品，很难预测出 Snowflake 与 Databricks 会各自长出上百亿美元收入。智能层会重演这一点，模型极有价值，把模型接进银行、生命科学、医疗、政府的真实流程仍然是大量软件工作。未来两到五年的悬念在于模型厂商要往上走多少，这对实验室自身也是张力：既想更靠近客户，又需要生态相信自己不会在上面竞争。</p>
+<p>他给的机制解释是通用对话框可以完全横向，而工作流需要在特定节点主动提醒人、需要对话框天然拿不到的数据访问权、需要有人进组织把它装起来、需要有人把领域知识喂给模型，还要面对未现代化的遗留系统、人在环的等待与业务流程的变更管理。除非认定大实验室会扩张到十万人规模去逐项处理这些事，扩散型经济就会很庞大，从五十人的事务所到几千人的公司都需要一支队伍做落地与变更管理。</p>
+<p>对投研而言，这组表述把应用层的收入来源指向实施与流程改造，应用层公司的毛利结构与人力密度会长期高于纯软件（作者归纳）。</p>
+<h3>token 补贴被判为阶段性现象，非经济动机的参与者可以把推理毛利压到 10%</h3>
+<p>Levie 说模型厂商对 token 的补贴在一定支出门槛内有效，而在数百亿美元级资本规模上可能已经越过那个门槛，因为训练本身最终也要被收回。主持人指出实验室可以把 API 定价定得高于自家一方产品，他承认这个路径成立，但补了一句均衡条件：如果 API 是支撑补贴的高毛利业务，而客户都被迁到应用侧产品、API 收入随之消失，这套内部补贴就难以为继。他的结论是 token 补贴只能是阶段性安排。</p>
+<p>更重要的变量是那些游戏规则不同的参与者。他点名 Meta、SpaceX、英伟达以及中国厂商这几类，认为它们不需要与 Anthropic、OpenAI 相同的毛利结构，为了消化庞大的算力集群，接受 10% 的推理毛利也可以。只要没有极其封闭、别人复制不了的技术秘方，同等能力下的每 token 成本就会持续下行，而下行的部分更多沉淀到应用层。他因此说不会押注一两家实验室拿走 95% 的价值创造，还反过来提醒实验室：如果智能只剩一家供给，反垄断压力会推向国有化，保留一定竞争对实验室自身更有利。</p>
+<p>对成本曲线的这套判断意味着应用层公司的推理成本是可预期的减项，定价权更多取决于工作流的深度，与某一家实验室的商务条件关系较小（作者归纳）。</p>
+<h3>Box 的 harness 与两套评测：模型排名基本跟着编码走，Gemini 在部分用例上偏离</h3>
+<p>Box 坐在数千亿份企业文件上，Levie 说这些合同、研究文档、营销素材、贷款文件里装着关键信息，而企业通常不知道里面写了什么。Box 的做法是搭一套自有的代理 harness，把文件系统、权限结构、搜索引擎的内部理解写进去，包括人在十份文件里如何判断该打开哪一份这类经验；harness 可以只取正文、只取分块、即时做嵌入，一次并发多路检索再重排，必要时读全文。与把 Claude 或 OpenAI 直接接到 Box 的 API 相比，他称准确率与延迟都有可度量的优势。他自己的账号累积了数千万份文件，现在可以对全量提问。</p>
+<p>评测方面，每个新模型要跑数百项测试，眼下有两套评测集。一套是对外发布的 complex work eval，覆盖生命科学、金融服务、公共部门、科技等领域的文档型任务，给定若干文档与一组问题看模型作答；另一套是 Box 自身实例与员工真实用法构成的保留集。半个点的模型改进能被看出来，Box 按成本与准确率阈值设定默认模型，客户也可以在自家的 model garden 里任选。</p>
+<p>模型排名与编码能力高度相关，例外是 Gemini 在部分用例上明显好于其编码表现所对应的位置，他猜测来自工具使用能力和 Gemini 生态的需求形态。他称 Fable 5.1 是他们见过的 state of the art，GDPval 与 Mercor 的 APEX 等榜单方向一致，Grok、Muse、Fable 一档与 GPT-5.6 目前处于胶着。按用户数看，多数客户直接用默认模型；按 token 量看，体量更多走工作流代理与数据抽取，这里客户会自己做评测，例如要求在给定成本档位下数据抽取达到 98% 准确率，Box 会派 FTE 进场理解数据环境、对比五个模型。</p>
+<p>Box Labs 是内部的应用研究团队，Levie 说重点是给定问题再往上爬十个点的准确率，以及在 harness 层做自动化的爬坡搜索。他举的例子是银行的百页贷款文档，开箱模型给 70% 与体系化调优后的 97%，决定这条流程能否真正自动化。</p>
+<p>准确率门槛是应用层定价能力的直接来源：能把开箱模型与可自动化水平之间的差距填上的公司，才有资格按处理量收费（作者归纳）。</p>
+<h3>开放权重采用「高于外界估计、低于企业意愿」，成熟用例会被逐步剥离过去</h3>
+<p>被问到客户里开放权重模型的采用度，Levie 的答案是高于外界的估计，低于企业自己想要的水平，且远低于五年后的水平。他把其中三成以上归因于尝鲜与对冲心态，说听到财富 500 强的 CIO 讲在试开源，自己心里清楚同一成本档位上 Gemini 或 Muse 本来也够用，但企业希望手上有个对冲选项。当下的障碍包括 token 效率有时更差，以及偶尔出现推理链中途改说中文这类不稳定行为，对银行客户会是问题。</p>
+<p>他认同 Decagon 的 Jesse 提出的剥离机制：闭源模型的收入继续指数增长的同时，每个成熟下来的用例会被逐步挪到开放权重，前提是确实更便宜，或者做一轮后训练能拿到额外性能。两种编排形态并存，一种是用前沿模型做编排、把长尾任务派给便宜模型，另一种是便宜模型默认承担、遇到明显超纲的任务再上抛。结果可能是支出在两侧各占一半，而开放权重承载十倍的 token 量。</p>
+<p>这条机制解释了闭源收入与开放权重调用量同时高增长的表象，对推理基础设施而言，路由与编排层的价值随之上升（作者归纳）。</p>
+<h3>持续学习的约束落在权限与访问控制上，Levie 想要一张「进上下文还是进权重」的判断表</h3>
+<p>谈到记忆与个性化，Levie 说他对把上下文烘进权重的路线很感兴趣，同时指出企业环境里的权限与访问控制是这类方案的摩擦点。研究员容易按自己的处境想象世界，因为研究员对所有材料都有访问权；而一位律师的访问面可能只有手上五个项目，一墙之隔的同事在做竞对方的项目，两侧之间连一份文件都不能流通。即使为单个用户训练模型，他每天被加入或移出项目也会改变可用的上下文边界。</p>
+<p>他提出的实践问题是需要一张判断表：数据变化率不高、而进权重能显著抬升准确率时，就该进权重，其余走上下文。主持人引 Karpathy 的设想，把记忆性的信息从权重里拿出来，只保留推理能力与一家机构做事的方式，内容交给查询系统；Levie 认为悬念在于企业的区分度有多少来自执行风格、有多少来自具体案件与具体 IP 的知识深度，后者往往才是价值所在。</p>
+<p>他点名 Trajectory、Applied Compute、Prime Intellect 这类方向，理由是机构层面的定制几乎一定存在，比如 Eli Lilly 会想要一个属于自己的药物发现模型，而药物发现流程里的信息隔离墙较少，企业反而希望信息在内部尽量流通。结论是这件事按垂直领域分化，取决于防火墙在流程里的位置。</p>
+<p>对定制化模型公司而言，可触达的市场首先由客户内部的信息隔离结构决定，隔离墙少的研发型场景先跑通，受合规隔离约束的专业服务场景滞后（作者归纳）。</p>
+<h3>系统记录的两件必修课：自建代理要比通用代理领先 10 到 20 分，同时把 API 向外部代理开放</h3>
+<p>针对「每家软件公司都想卖我一个自家代理」的讨论，Levie 说凡是建了 SaaS 平台、手上有数据与工作流的公司，有两件事必须同时做，只做其一会输。第一件是自建代理要在使用自家系统这件事上被证明比开箱代理好十到二十分，靠的是评测驱动的深度调优，与限制外部接入无关；此外因为每天与客户交谈，会看到别人想不到的用例。他举的例子是一位客户想要常驻的治理代理，在员工即将触犯留存或法务保全策略时当场提醒，因为合规与治理负责人无法同时出现在每个人身边。</p>
+<p>第二件是走 headless 路线，把 API 通过 MCP 之类的方式暴露给 Claude、ChatGPT 以及各类外部平台，或者让自家代理本身可被这些系统调用。他说很多人低估了这里的纯增量用例：他自己通过 MCP 使用 Salesforce 的频次比以往高出一个数量级，因为随时可以对 CRM 数据提问；他也对 LinkedIn 的产品经理说过，如果能 MCP 接入，他愿意付十倍的价格。商业模式上他对「收费站」的说法有保留，理由是系统记录承担组织工作流、管理与保护数据、提供护栏这些职责，对应的是按调用量计费的模式。</p>
+<p>产品形态上，他认为通用对话框会长期存在，横向与垂直产品都会有；而企业大量流程运行在后台，有的由计算机执行，有的由人执行，还有一类是本该由人执行却雇不起人所以从未发生。这类场景要的是仪表盘、工作流、队列与任务列表，聊天更多用于事后回看。横向产品若把这些组件全部装进去会变得笨重，垂直产品能按具体流程给按钮与标签页命名。他给出的量化预期是五年后企业九成的 token 属于用户从未主动触发的任务，用户只看到结果并去审核；法律侧已有 Harvey 与 Legora，安全侧在成形，长时编码侧有 Cognition 与 Factory。</p>
+<p>后台化的 token 结构意味着推理需求与席位数脱钩，按流程量计费的定价形式更贴合这种消耗曲线（作者归纳）。</p>
+<h3>编码扩散靠六项条件，销售岗位一项也不占，Levie 称硅谷要为更慢的扩散做准备</h3>
+<p>Levie 用编码与其他知识工作的对照来解释扩散速度的差异。编码有六项有利条件：价值创造几乎完全体现在产出的文本上；模型在代码上被重度训练；各家实验室把编码当作彼此竞逐的基准并且每天自用自测；使用者技术能力足够，代理报连接失败时自己就去开端口，无需求助支持团队；这是高薪岗位，哪怕只拿到 10% 到 20% 的效率提升也自动有价值；代码在 GitHub 里，早期的编码代理连注册都省了，接上仓库即可。知识工作没有对应的入口，数据散在本地系统、遗留文件共享与不擅长与代理对话的企业环境里，他顺带点出 Box 的收入运行率是 13 亿美元，意味着大量企业的内容并不在这类系统中。权限方向也相反：写代码基本能拿到岗位相关的全部材料，知识工作则要逐个申请访问权，还得解决代理如何持有这些权限。</p>
+<p>按照与编码的相似度排下来，法律靠前，因为大量价值同样来自坐在电脑前审阅与撰写文档、处理大体量信息；销售代表在另一端，其价值创造是说服外部客户购买，即便配上高水平的自动化，仍受制于客户是否回复、有无预算、能否本周见面这些外部条件。他的结论是硅谷需要为扩散比预期更慢做准备，而慢下来的部分正好对应应用层的价值创造：把技术送到律师、销售代表、生命科学研究员、客服主管手上，是眼下万亿美元量级的机会。</p>
+<p>他还谈到内容侧的一层阻力。对多数人而言代码是工具属性，生成出来能跑就是好事，因此编码的接受度很高；文档与演示稿承担的是判断一个人是否值得信任的功能，所以收到明显由 AI 写成的材料会引发排斥反应，而接收者自己往往也在用同样的工具。他预计这需要三到五年消化，类比是没人介意财务模型由宏算出来。</p>
+<p>扩散顺序与岗位的外部约束强度直接相关，这给应用层公司的行业选择提供了排序依据：文档密集、闭环可控的岗位先跑通（作者归纳）。</p>
+<h3>Box 的内部做法：全公司非结构化数据只落在一个系统，保留代码评审带来一点生产率折价</h3>
+<p>Levie 说 Box 在数据架构上占了便宜：任何被记录过的东西，会议记录、项目计划、路线图、演示稿、财务文件与财务规划材料，全部在 Box 里，公司不允许员工用别的系统，加上 Salesforce 等核心系统，数据卫生较好，代理跑在上面更顺。运营上，CIO 深度使用 AI，公司设了小型的 AI 卓越中心，招了内部 AI 岗位来推动流程改造，起点是找出杠杆较高的工作流。</p>
+<p>他们确实有一份按 token 用量排列的名单，用途是检查：用量前三的人里可能有一个在浪费，另两个的用法值得复制到别的职能，两周前他就要求把某个团队拉进会议室，让同事现场演示自己的用法。产出侧，部分模块对客户可见的功能交付量提升到原先的两到三倍，他强调看交付了多少客户要的功能，代码量本身不作为指标。与此同时他承认与 Anthropic 那类公司仍有差距，因为客户把数据安全与合规托付给 Box，取消代码评审这类做法他们做不了，因此接受一点生产率上的折价。</p>
+<p>被问到当下做创始人的感受，他说一周半前看到一个两人团队的产品演示，同样的东西五年前需要四十人；代价是每个好点子会立刻冒出五个竞争者，而 Box 早年还能有几年安静打磨产品的窗口。他的收尾判断是，当 AI 把构建这件事大幅加速之后，位置会移向能把产品送到客户手上的一方，这是一场企业扩散的仗，看错这个任务定位的公司会出局。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若开放权重在企业侧的 token 占比在未来数个季度没有随着用例成熟而上升，闭源与开放权重的支出结构维持现状，则 Decagon 式的剥离机制与 Levie 引用的判断被削弱。</p>
+<p>若模型厂商的一方应用持续向上吞并流程层，且应用层公司的续约率与客单价随之下行，则「落差很大、应用层长期存在」的判断被削弱。</p>
+<p>若头部实验室在公开披露中把 API 毛利维持在高位且客户仍在迁往其一方产品，则 Levie 关于补贴难以为继的均衡论证可以被直接检验。</p>
+<p>若企业客户在后续采购中仍以席位计费为主，且后台代理消耗的 token 占比没有明显抬升，则五年后九成 token 来自未触发任务的预期被证伪。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
