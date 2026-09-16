@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>MCP 转到 Linux 基金会后聚起 250 多家成员公司，Demetrios 说 computer use 让代理不必等对方先建服务器：绕开 LinkedIn 锁死的接口自取全量数据、筛出 500 人名单（Practical AI，2026-09-09）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-16<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>MCP 转到 Linux 基金会后聚起 250 多家成员公司，Demetrios 说 computer use 让代理不必等对方先建服务器：绕开 LinkedIn 锁死的接口自取全量数据、筛出 500 人名单（Practical AI，2026-09-09）</h2>
+<div class="metaline">Practical AI，55 分钟 · 2026-09-09</div>
+<p>本期由 Practical AI 的联合主持人 Chris Benson 与 Demetrios Brinkmann 对谈，后者是 MLOps 社区的创始人，现在在 Agentic AI Foundation 负责开发者体验（他自称是那里的「非技术成员」）。口径提示：字幕为自动转写，Demetrios Brinkmann、Chris Benson、Agentic AI Foundation、MCP、AgentCon、Claude Code、Opus 5、Fable、Hermes、Pi、WhisperFlow、Shopify、PayPal 等名称按上下文还原；成员公司数、大使申请数、城市数、名单人数均为口播，无出处；嘉宾提到的 OpenAI 最新一代模型在字幕里读作「5.6」，本文照录口播而不另行确认。节目前段的社区活动安排、直播筹备与闲聊与投研关联弱，本文只取三条线索：代理访问外部系统的两条路径（MCP 与 computer use）各自的经济含义、harness 与模型边界模糊后实验室与第三方框架的位置、以及代理式电商对现有电商与支付环节的冲击。本期的中心判断是，代理接入外部系统这件事眼下有一条不需要对方配合的路径，它降低了打通的门槛，同时把企业侧的约束从接口工程转移到了权限与安全（作者归纳）。</p>
+<h3>MCP 从 Anthropic 手里交给 Linux 基金会，250 多家公司围过来做中立治理</h3>
+<p>Demetrios 说的第一件事是治理结构的变化：去年底到今年初，MCP 被捐给 Linux 基金会，围绕它成立了 Agentic AI Foundation，MCP 由一家公司拥有的协议变成由中立机构主导。他把顶级厂商的兴趣归因于这一步。MLOps 社区随之并入，正在更名为 Agentic AI 社区，这条路径他描述为把机器学习上生产、把大模型上生产一路走到把代理上生产。</p>
+<p>规模方面他给了几个口播数字：成员公司超过 250 家，大使计划开放后收到一千多份申请，社区分会覆盖 80 多个城市、有 250 位左右的分会负责人。他说这可能已经是 Linux 基金会里体量靠前的基金会之一，并提醒自己这话不确定，成立至今还不到一年。近期活动包括日本的 MCP Dev Summit、9 月 17 日在阿姆斯特丹的 AgentCon 和 10 月 22 日在圣何塞的北美场，他为阿姆斯特丹那场准备了 36 小时连续直播。</p>
+<p>对投研而言，值得记下的是协议归属的转移本身：MCP 成为中立标准，意味着代理接入企业系统的入口层更难被单一模型厂商独占，围绕它的服务器建设与合规工作会长成一层独立的供给（作者归纳）。</p>
+<h3>computer use 把没有接口的窗口变成可自动化的入口，德国车管所与 LinkedIn 是两个样本</h3>
+<p>Demetrios 说自己此前是代理这个词的怀疑者，早年用 baby AGI 时因为递归循环收到过 80 美元的 OpenAI 账单，当时的结论是这东西根本跑不通；他现在承认那个判断错了。转折点是最新一代模型配合 computer use 这项能力，他的说法是很少有任务丢过去完成不了。带来的直接变化是不再需要为每件事找接口，也不再被某处数据取不到卡住。</p>
+<p>他举的第一类用例是日常：三四个 Gmail 账号和五个 Slack 工作区同时读、汇成每日简报，不必逐个配置连接。第二类是订票，他让代理按日期找航班，付款前的那一下由他自己点，理由是账户里的零还不够多；值机则完全交出去，代理盯着邮箱，看到值机通知就去办，把登机牌发到手机。第三类是表格，他说现在在网上遇到表单会条件反射地想为什么不交给 computer use，姓名、电话、护照号这类信息存在一份文档里由代理取用。</p>
+<p>真正说明问题的是两个没有接口的场景。一个是他把西班牙驾照换成德国驾照：所在小镇的政府没有接口给编码代理调用，有的是一个网页，代理去预约、生成日历邀请、列出需带材料与编号，改期也只需一句话。另一个是 LinkedIn，他形容那里的接口锁得很死，付费也拿不到数据。他要找出所有有过多轮往来的联系人，代理自己发现了官方的数据导出功能，触发导出、给自己设提醒、在 48 小时内反复查收邮件，拿到数据后分析私信、筛出 500 人名单，逐人生成个性化邀请文案，还为每个人做了一页专属网页，附上可直接复制的贴文、提示词与照片素材。</p>
+<p>他自己给这条路径的定位是它绕开了等待：使用 MCP 需要对方先建好一个足够好用的服务器，而这类服务器还需要时间成熟；德国小镇的车管所大概不会去建。对应用层公司而言，这意味着打通长尾系统的边际成本下降，可触达的流程集合扩大，代价是稳定性与合规性都押在界面操作上（作者归纳）。</p>
+<h3>消费端尝到的便利会反压企业软件，而企业侧的门槛落在权限与安全</h3>
+<p>Demetrios 把消费者正在经历的事形容为尝到了禁果：原来事情可以这么简单。他举了妻子的例子，这位平时尽量回避手机与电脑的人要注销并重开 PayPal 账户，他给她装上聊天应用和语音输入，任务完成后对方的反应是还能做什么。他由此推断压力会往办公场景传导：如果上班时用的软件仍然笨重，或者要足够技术才能吃到进步，那说明做法有问题。</p>
+<p>他同时点出反面。他的朋友 Sam 的说法是这套在面向消费者时成立，放进企业就另说。Demetrios 承认企业里全员开着 computer use、同时连着五个邮箱和 ERP 系统，是一场安全灾难。他对基于角色的访问控制给了一个偏乐观的观察：既然代理用的是员工自己已登录的身份，角色边界天然还在；但他也说不会天真到认为这就是终局，企业里它可能制造不少麻烦。Chris Benson 的补充是，随着更好的安全架构成型，这些做法要进入基金会层面才能被广泛接受。</p>
+<p>这一段对企业落地节奏有直接含义：界面操作把接口工程的门槛去掉之后，剩下的门槛是审计、留痕与越权风险，这几项由谁承担，决定了企业版产品的形态与定价空间（作者归纳）。</p>
+<h3>harness 正在被训练进模型，第三方框架要和模型自带的习惯打架</h3>
+<p>Demetrios 想聊的第二个话题是 harness 与模型之间的界线在变模糊。他的描述是实验室提供的 harness 针对自家模型做过深度优化，业内有人称之为内层 harness；系统提示词会随着用户长期使用越写越长，等下一代模型出来，上一代那份长提示词几乎被强化学习进模型，提示词于是又能缩短。这个来回会带来一些古怪的行为。</p>
+<p>他给出的一手观察是自己已经基本不用 Claude Code 了，理由是 Fable 与 Opus 5 这一代下 Claude Code 的体验让很多人不满意，他特意为这句话打了时间戳。他补了一句半年前自己愿意忍受各种问题，因为产品确实领先，并说下一代模型出来大概又会回到令人惊叹的状态。</p>
+<p>模型带着自家 harness 的习惯这件事有个具体例证：他的朋友 Drew 转述 Pi 的作者 Mario 的经历，Mario 要不断和 Claude 较劲，阻止它按 Claude Code 的方式发起调用，模型会照着训练时那套 harness 行事。Demetrios 由此建议，如果要跑自己的 harness，比如 Pi 或 Hermes 这类，选开源模型可能表现更好，他提到来自中国的一批开源模型在这件事上配合得不错。</p>
+<p>顺着这条线，Chris Benson 问实验室与用户各自该往哪走。Demetrios 的判断是实验室手里握着大量真实使用数据，能直接喂回产品，研究实验室在产品上落后于人才是反常的；但就今天而言，情况确实如此。他给正在被冗长输出困扰的用户推荐了两个技能，一个叫 bro skill，强制模型用大白话解释，一个叫 show me，让模型用图示表达，省去大段文字。</p>
+<p>这段对第三方代理框架的处境给了一个清晰的约束条件：谁想用别家的模型跑自己的 harness，就要付出与模型既有习惯对抗的成本，开源权重因此获得一部分需求（作者归纳）。</p>
+<h3>聊天成了新的浏览器，电商 25 年优化出来的加价销售对代理失效</h3>
+<p>Demetrios 说这个问题的起点是他在首尔与几家刚加入 Agentic AI Foundation 的支付公司交流，对方问的是支付的未来在哪里发生。他的框架是聊天正在成为新的浏览器，大部分工作已经在聊天里完成，购物也会跟过去。Chris Benson 说自己已经在这么做，不想再打开购物网站，只希望代理在阈值内把东西买掉。</p>
+<p>Demetrios 列出的第一个问号是电商平台为什么要接受这件事。人类用户逛站会留下第一方数据，用来做推荐和提升客单价；代理逛站时平台读不出意图，代理的行为方式与人类不同，并且会跳过过去二三十年优化出来的那一整套，包括加价销售、弹窗，以及「再花三美元就免运费」这类提示。代理直接拿走目标商品就走，眼下没有这种分寸感，可能以后会把优惠转述给用户，也可能不会。他的结论是电商网站将来要按吸引代理来建，而商家与顾客之间的关系随之断掉。</p>
+<p>Chris Benson 给出的替代设想是代理对代理的接口：卖方不止提供工具调用，而是让两边的代理直接谈，买方可以派出由采购代理与谈判代理组成的小型集群，代理在过程中学习用户的偏好，判断哪些优惠值得转述。Demetrios 对这个愿景表示认可，同时提出了一个更现实的疑问：既然浏览器操作已经足够让代理在前端拿到他想要的东西，建设这套代理互联网的推动力从哪里来，这件事有可能始终不发生。</p>
+<h3>支付环节可能被模型厂商接管，中间层的位置成为悬念</h3>
+<p>把购物场景推到多商户时，Demetrios 的问题落在钱在哪里结算：代理要在三家不同商户买三件东西，今天的做法是逐个网站下单，或者把付款按钮推回给人确认。他推演的下一步是模型厂商说不如直接付给我，由我来做支付处理。一旦成立，中间层就被绕开，商户不再需要自建店铺，只需要把商品目录做成一个可被代理检索、可在聊天里成交的代理。他由此发问，那时候所谓的市场是什么。</p>
+<p>他随后自己给这条推演加了限定：这属于潜在的时间线之一，被点名的厂商目前没有市场业务，也从未表达过要做市场。他更在意其中的利益冲突：如果厂商既掌握用户的全部信息，又能从每笔交易里分成，就有只展示自家货源的动机，用户会觉得自己被两头吃，信任度随之下降；相比之下，代理替他去外面搜寻的形态更容易接受。Chris Benson 的判断是各类商户会同时试各种路径，第三方市场也会出现，过程会很乱。</p>
+<p>对这条线的投研读法是，代理式电商的争夺点在于谁持有需求端的身份与支付，商户侧的第一方数据与转化工具在代理流量里贬值，中间层要么重新定义自己的职能，要么被压缩（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若面向企业的 MCP 服务器在未来数个季度快速铺开且质量达到可直接调用的水平，Demetrios 关于界面操作绕开等待的优势会随之收窄，两条路径的分工会重新划分。</p>
+<p>若企业在全员范围部署界面操作型代理后出现可观察的越权或数据外泄事件，企业侧的落地节奏会明显慢于消费端，本期对压力自下而上传导的判断需要打折。</p>
+<p>若下一代模型发布后第三方 harness 与模型自带习惯的冲突没有缓解，选用开源权重跑自有框架的做法会继续扩散，这一点可以用开源模型在代理框架里的调用占比来检验。</p>
+<p>若模型厂商在未来推出自有的商品目录或支付通道，中间层被绕开的推演进入可验证阶段；若始终没有出现，那么浏览器操作已经够用这一反问成立，代理互联网缺少推动力。</p>
+<p>本期缺少的数据同样值得记下：成员公司与社区规模、名单人数均为口播，computer use 的成功率、失败模式与单位成本、企业客户的实际采用情况、代理成交在电商中的占比，节目里都没有给出。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
