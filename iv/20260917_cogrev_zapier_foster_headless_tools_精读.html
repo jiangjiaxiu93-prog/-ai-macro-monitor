@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Zapier 的 Foster 称知识工作者已各自选定一个「日常主驾」而应用层要做无头工具接进去，AutomationBench 约 600 项任务上新模型只做对约四成，客户交给代理的活八成本该用确定性代码，席位定价「已死或将死」，个别工程师月耗 token 3 万美元（Cognitive Revolution，2026-09-17）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Zapier 的 Foster 称知识工作者已各自选定一个「日常主驾」而应用层要做无头工具接进去，AutomationBench 约 600 项任务上新模型只做对约四成，客户交给代理的活八成本该用确定性代码，席位定价「已死或将死」，个别工程师月耗 token 3 万美元（Cognitive Revolution，2026-09-17）</h2>
+<div class="metaline">Cognitive Revolution，67 分钟 · 2026-09-17</div>
+<p>本期由 Nathan Labenz 主持，嘉宾是 Zapier 联合创始人兼 CEO Wade Foster，距他上次做客（2024 年 9 月）约 18 个月，当时的口径是 40 万客户已通过 Zapier 把超过 1 亿项任务交给 AI。这 18 个月里 Zapier 补齐了代理、聊天机器人、MCP 服务器、SDK 与护栏产品。口径提示：字幕为自动转写，Zapier、Cursor、Claude Code、Grok Bot、Composio、Salesforce 等名称按上下文还原；节目里称上周发布并刷新 AutomationBench 纪录的模型读作「Astra」，字幕同处又记作「GPT-6」，本文照录口播；「Gemini 3.7」「Fable」「Mythos」同为口播模型名；AutomationBench 任务数、成功率、员工数、token 支出均为口播，未经核对。节目末尾关于人机共同写作与公司内部沟通规范的内容与投研关联弱，本文只取四条线索：应用层的形态从 SaaS 转向无头工具、代理与确定性代码的分工与 AutomationBench 的读数、定价从席位转向用量与结果、以及 AI 转型在企业内部的真实瓶颈与 token 支出治理。本期的中心判断是，应用层公司的分发位置正在被用户的「日常主驾」重新定义，价值留给能把自家数据与执行能力接进这个主驾的第三方，而模型公司因为不能互相卖 token 而拿不到这层生意（作者归纳）。</p>
+<h3>每个人选定了一个日常主驾，应用层的赢法是「无头」</h3>
+<p>Foster 说 18 个月前业内还不知道 AI 体验会以什么形态起量：是渗进已有产品，是新产品冒出来，还是实验室直接做出来。从 Zapier 自己的用量看，答案是多数人各自选定了一个日常主驾工具，可能是 Claude Code、Cursor 或 ChatGPT，然后在那里完成多数工作。这意味着 Zapier MCP 这类把用户上下文与数据带进主驾的工具，成了知识工作的走向。他把市场划成两派：一派仍想把用户拉到自己平台上搭代理，另一派像 Salesforce 那样宣称「无头」，随你把能力带到哪里，他认定后者是赢的策略，因为这是用户作为工具消费者想要的，也是增长所在。第三方应用与工具仍有空间，但要进入用户的日常工作流，就必须接进那个核心主驾。</p>
+<p>他自己的主驾是 Cursor。Zapier 内部有一个多数员工在用的 harness，也带 MCP，他把它拉进 Cursor 里用：它有一个虚拟文件系统充当上下文层，上面挂着自动化和可部署的应用。主持人转述 Tasklet 的 Andrew Lee 的观点，即长期只有三类软件公司存活，大家其实都在做同一件事，也就是给模型套上「机甲」的横向层，这层公司数量不多但价值很高，因为没人想被一家模型绑死。Foster 同意末句：从 AutomationBench 看，新模型 Astra 拿到约 40% 的任务准确率，是榜上新高，但 Gemini 3.7 以很小一部分的成本做到接近的表现，组织要在「这类任务用便宜模型可全做对、那类任务要换前沿模型」之间做取舍，因此需要一个能按工作流换模型的工具。他把这十年与上一个十年对照：上一个十年是 SaaS 爆发，现在是无头工具的爆发，而且 harness 自己就能造出一些工具，「自建」选项比过去容易得多。他随即提出保留：能造并不等于该造，自建意味着接下维护、可靠性与在线率。他判断应用层仍有大量创新未发生，模型公司有先手，但会卡在一个结构性问题上，即它们不能卖彼此的 token，也不能卖开源模型的 token，所以需要一个第三方来统筹市面上的全部能力。</p>
+<p>对投研而言，这段话把应用层的分发前提从「自有界面」改成了「进入用户主驾」，应用公司的收入将取决于它在 Claude Code、Cursor、ChatGPT 这类入口里的调用量，而主驾的拥有者掌握流量分配（作者归纳）。</p>
+<h3>AutomationBench：约 600 项知识工作任务，新模型约四成，代理用途八成本该是代码</h3>
+<p>Foster 描述 AutomationBench 的任务样式，举的例子是「我们刚签下 Meridian Core 平台的单子，把它标成赢单，按路由规则发到对应团队的赢单通知，去账户层级表核对账户级别，必要时换算货币，再查有没有未关闭的支持升级」。这类跨营销、销售、人力、运营的任务约有 600 项。模型在变好，但基准远未饱和。主持人误以为签单是低频事件，Foster 纠正说这种流程在公司里每天发生甚至一天多次，任何像样的组织都在不停签单，有些面向消费者的公司一秒钟发生多笔购买，人不可能放在环里，自动化没有别的选择。</p>
+<p>Zapier 的做法是确保把 Zapier 装在代理旁边时，基准得分高于裸模型。路径是用户在主驾里说「去搭一个工作流」，调用 Zapier MCP，它去搭，某些环节直接写代码来完成，以获得确定性、更低成本与更高可靠性，只在真正需要推理的地方调 AI 或建代理。他给了一个数字：看自家客户对代理产品的用法，八成的场景其实应该用老式的确定性代码，AI 只应推理那些需要它推理的部分。他不认为这会很快改变，有些工作确定性代码永远更可靠更便宜，有些工作它做不了，那才需要「机器里的幽灵」。正确的做法是教会代理自己判断该用哪种工具，让它知道每次都建一个从头到尾代理式运行的东西是浪费。主持人问把 Zapier 接给 Claude 能把 40% 拉到多少、省多少 token，Foster 说要等 AutomationBench v2，那正是要回答的问题：给模型工具之后分数、成本与速度各能改善多少，这是应用层可以跑的空间。</p>
+<p>「无代码」在他看来已经过时，他的说法是「新的无代码就是代码」，因为 AI 过逻辑比人快得多。但人仍受益于工作流的可视化，它用来核对「这东西是否在做我想要的」，也充当可分享的文档。旧式的方框拖拽已经不是人们现在或未来的用法，取而代之的是对代理说话让它改；出错时代理去排障，用推理修好工作流或修好那一次运行。代理接管了人搭建与维护的角色，而真正在跑的仍是一条确定性工作流，AI 只嵌在必要的位置。排障这块 Zapier 内部的一个学习是多代理并跑：正在运行的自动邮件项目会起 5 个独立代理评估同一个故障，4 个一致时多半就是真因。人工审核只做点赞或点踩并写原因，原因回流进系统，循环往复。他把护城河归到这里：15 年的自动化数据、接入所有东西的连接，用这些数据做出模型单独做不到的产品，在位者只要能把自家数据用起来就有优势。他举了最平常的例子，把 Gmail 接进来后模型写邮件自然变好，因为它看到了你怎么写，用户几乎没做调优。</p>
+<p>对投研而言，「八成代理用途该是代码」与「新模型只做对四成」这两组数字合起来，说明当前企业侧的 token 消耗里有相当部分是可以被确定性代码替代的低效用量，代理平台的价值在于把这部分压缩下来，这与模型公司希望的用量扩张方向存在张力（作者归纳）。</p>
+<h3>竞争：实验室已是大公司，「千篇一律」之外真正的对手是用户不知道拿 AI 做什么</h3>
+<p>主持人列了三类对手：前沿实验室、Composio 等「统合工具」新玩家、Salesforce 这类有数据有资源的在位者。Foster 引 Paul Graham 在 YC 时的话：当年的问题是「谷歌做了怎么办」，实际情况是创业者面对的从来是对方一个想升职、干两年就走的中层产品总监，Larry 与 Sergey 本人并不会下场。OpenAI 与 Anthropic 现在就是大科技公司，会把模型做到顶尖，其他地方也会有好产品，但它们造不了所有东西。眼下确实有一片「千篇一律的海」，人人都在做所有东西；可另一面是，去问普通 AI 用户，他们坦白说没做什么，多数人只在谷歌搜索的默认位置用过 Gemini，或在公司里用 Microsoft Copilot。所以他认为多数公司真正的对手是人们还不知道拿这些工具做什么，同行之间的较量反在其次。他说自动化市场比 15 年前创业时想的大了几个数量级，可能大一千倍，有大量客户根本不知道主持人刚报的那串竞争对手。</p>
+<p>主持人补了一段自我修正：他五年前预期经济中做事的方式会变得多得多，模型公司收入确实爆发，但生活基本照旧，家人朋友用 ChatGPT 做做餐单、规划假期，完全没用到 Astra 级别的能力。Foster 说 Zapier 多年来的一个难题就是推荐，即告诉用户到底该拿它做什么。如果他本人坐在你旁边看你一天的工作，能立刻列出六件你会说「要」的自动化，难在把这种体验做进产品。他今年年初开始给自己跑一条每周自动化：通过 API 收集 Gmail、Slack、浏览器与 Cursor 里的事件流，每周告诉他「注意到你做了这个和这个，建议搭这样一个工具」，然后他回一句「去做」或「加个改动再做」。一两个月后能感觉到很多事已经在自动跑，即便其中不少是他本来就知道该做的，打动他的是「我看见你在这里做了这件事」的具体性。Zapier 多数员工都有类似设置，他说很可能会以某种形态产品化给客户。主持人指出这条路要求客户先接入所有平台，屏幕录制只需一次安装；Foster 回答 Zapier 擅长 API，这是自然涌现的实验，理想体验应当用上所有可用的工具。</p>
+<h3>定价：席位「已死或将死」，用量与结果之间由产品离结果几步决定</h3>
+<p>Foster 的立场是席位定价基本上已死或将死，个别小领域可能还说得通，但当智能是产品体验的核心时，固定席位没有道理，最后落到用量计费或结果计费。走商品化路线的更接近用量计费，也就是 Sam Altman 说的「做一个公用事业，智能随取随用」；更面向企业的会尝试按结果收费，客户支持工具已经这样做，按解决的工单计费，因为成功有清晰界定。如果产品能有一个各方认可的固定结果，那是优势；难点是眼下多数产品比真正交付结果差一两步，只交付了结果的一部分，这就把它拉回用量计费。无论哪种，都是一个转着的计费表在卖某种份额的「工作」，公司要开始想「工作的预算」是多少。</p>
+<p>主持人问他是否担心模型公司的价格歧视：Claude Max 或 OpenAI Pro 套餐用满时拿到的 token，与同样的钱走 API 买到的相比大约是 20 比 1，第三方增值服务因此难以竞争，要不要一条「token 对所有人同价」的规则。Foster 倾向自由市场，公司有权定价，但他说很多人经历过、现在仍在经历微软如何用捆绑把更好的产品挤出去，什么算垄断行为由各国自行判断；他的工作是在场上按规则打，找到自己的优势，不怪任何公司动用工具箱里的手段。他补了一句观察：有意思的是看谁愿意咬牙承受、谁坚持了自由市场原则。</p>
+<p>对投研而言，这段话给出了应用层定价的一个分类依据，即产品与「可界定结果」的距离，离得近的有机会按结果收费并留住毛利，离得远的只能按用量走，而用量计费直接暴露在模型公司套餐与 API 之间约 20 倍的价差之下（作者归纳）。</p>
+<h3>企业内部的瓶颈：全员会用之后卡在岗位、薪酬与重训，token 支出先做仪表盘再谈预算</h3>
+<p>Zapier 把 AI 转型交给了首席人力官 Brandon，主持人问这与上次「AI 是每个人的事」矛盾在哪里。Foster 说两者不矛盾，取决于阶段与问题：第一章是全员上手，没有 AI 委员会；ChatGPT 发布后一年左右，员工几乎 100% 在日常使用 AI，技术采纳已经过关。接下来的问题是把个人的成功推到公司级的生产工作流，它开始像人的问题：改写岗位说明、重想薪酬、这个组不需要了但那边要加人、怎样把有部分技能的人重训到新技能。人力官恰好擅长这些，就交给他，换成 CMO 或 CPO 也可以，他不建议其他公司照搬「必须是人力官」。内部沟通上，Zapier 一直有默认透明的价值观，随规模扩大部分工作滑进了私密频道与私信；促使他们纠正的第二个原因是代理在能看到 Slack 上下文时有效得多，于是高管团队搞了一场把沟通放进公开频道的友谊赛，没有考核。人事事件与进行中的安全漏洞仍在私密处理，但他说多数人高估了需要私密的事，也低估了人和代理都能看到公司全部上下文时的威力。</p>
+<p>安全上，Zapier 持有海量用户凭证已 15 年，不同之处是现在有 Mythos 级别的安全模型能耐心地逐个漏洞往下找，每个软件项目都有漏洞，只是有没有被找到，模型让找变容易，也让修变容易，聪明的公司同时用它做攻防。他提到 Hugging Face 事件像科幻小说，猜测多数公司是一次性投入重新适应，然后回到攻防的稳态。他确认想尽早拿到最好的能力，主持人认为进入早期访问名单会成为保管凭证公司之间的差异点。</p>
+<p>token 支出上，主持人提到他发推说有工程师一个月花 3 万美元 token。Foster 说那几位是异常值，但促使公司做了自我约束工具：目前没有给个人设预算，员工能看到自己的花费，看到同一工作流选强模型与便宜模型的成本差。看到有人花得很多，第一反应是去问在做什么，有的人产出高得惊人，有的人混着有效用量与「这件事不必用 Fable 或 Astra」的用量，接近 800 人的组织里这是教育工程。他预计 token 预算会成真，而且会按 AI 熟练度分配，知道怎样从 token 里拿到更高产出的人拿更高预算，怎样落地还在摸索。组织形态上，他说团队一方面看着和过去很像，工程、设计、产品都在；另一方面经典的 EPD 三件套基本没了，管理层级压平但强管理仍关键，只是每个经理能管更多；人人都是自己的数据分析师，分析师人数减少但做的是更高价值的事。他把方向描述为团队转向「造工厂」，软件工厂、支持工厂，工作流处理内环，人来设计工厂；工厂里处处能碰到「AI 还不够好，这里要人」的环节，但每次模型发布、每轮内部学习循环都在削掉一点。</p>
+<p>对投研而言，这段材料的要点是企业 AI 支出治理的顺序：先有可见性再有预算，且预算会与熟练度挂钩，这意味着 token 用量的增长会在部门层面被纳入常规预算流程，曲线的斜率由预算审批决定（作者归纳）。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
