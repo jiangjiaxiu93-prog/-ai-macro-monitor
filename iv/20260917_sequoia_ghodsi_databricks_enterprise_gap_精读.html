@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ghodsi 称模型已比多数同事聪明而企业只拿它当聊天机器人，自己两天写成的连接器团队要花三个季度、流程重造后一季做七个，扩散要以十年计，Databricks 现金流打平、等市场平静再上市（Sequoia Capital，2026-09-17）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Ghodsi 称模型已比多数同事聪明而企业只拿它当聊天机器人，自己两天写成的连接器团队要花三个季度、流程重造后一季做七个，扩散要以十年计，Databricks 现金流打平、等市场平静再上市（Sequoia Capital，2026-09-17）</h2>
+<div class="metaline">Sequoia Capital，74 分钟 · 2026-09-17</div>
+<p>本期是 HubSpot 联合创始人 Brian Halligan 主持的 Long Strange Trip 播客，挂在红杉资本频道，嘉宾为 Databricks 联合创始人兼 CEO Ali Ghodsi。节目前四十分钟讲他 2015 年被动接任 CEO、砍掉产品驱动增长改建企业销售、对 Snowflake 的打法与 Lakehouse 品类的创设，后半段才转到本课题关心的企业 AI 采用落差、组织结构与上市时机。本文按相关度分配篇幅，前半段只取与企业软件市场结构有关的线索。口径提示：收入、员工数、融资额、连接器工期均为口播，未经财报核对；自动字幕把 Ghodsi 记作 Goatsy、Databricks 记作 Data Bricks、CRO Ron Gabrisko 记作 Ron Grisco，均按上下文还原；「AGI」在他的定义下指模型多数时候比身边多数人聪明，与业内常用定义不同。本期的中心判断是：模型能力已经过剩，企业侧卡在流程重造与企业上下文的沉淀，这段落差以十年计，而公开市场在 SaaS 与半导体之间的来回摆动说明它还没有给这种转型定价的能力（作者归纳）。</p>
+<h3>企业里的 AI 用法只有两种：聊天机器人与编码代理，落差出在企业上下文的缺失</h3>
+<p>Ghodsi 说他在每一场演讲都问同一个问题：有多少人认为 AI 多数时候比身边多数人聪明，大约九成的手举起来，在 Moscone 中心面对 3.2 万人时几乎全场举手。他把这个定义为 AGI，承认它可能还算不上超级智能，但「和身边多数人一样好」这一点没有争议，人们不承认 AGI 已到只是因为用了别的定义。幻觉的批评他不接受，人也会幻觉，他自己天天犯错。</p>
+<p>然后他描述企业内部的实际用法：员工去问聊天机器人拿答案，再加上写代码的编码代理，稍作简化就是全部。他接着问第二个问题，有没有人手下有几百个代理同事彼此协作、给你提方案、随时同步进展，从来没有一个人举手。他把这段落差归因于企业上下文的缺失：人脑子里的知识、每天做的决策、每场录下来的会议、每封邮件，都要被捕捉进上下文再喂给 AI，Databricks 把这套东西叫本体（ontology），为此做了 Genie 这个产品。他随即说清楚，买了产品并不等于问题解决，本体还要自己建；Databricks 内部建了一套很完整的本体，客户用同一个产品却没有建起来。在内部，Genie 已经能回答他在任何会议上的任何问题，并开始自动化任务，高管们成天在手机上用 Genie 应用，边用边把更多上下文喂进去。</p>
+<p>对投研而言，这段话把企业 AI 的瓶颈定位在数据与流程的整理上，受益方是掌握企业数据层的平台，而通用模型厂商拿不到这部分工作（作者归纳）。</p>
+<h3>一次亲手写代码的实验：两天的连接器与三个季度的工期，重造流程后一季七个，扩散「至少十年」</h3>
+<p>去年 11 月他开始把代码提交到生产环境，起因是一个实验。他花两天写了一个连接器，而团队做同类连接器要一个人三个季度。团队的回应是他的东西不安全、没经过充分测试、只是个能跑的原型，进不了生产。他想弄清这段差距从何而来，于是坚持把面向客户的代码提交上线。团队被推了一把后回来说他说得对，AI 很有效，之前没用起来，工期可以从三个季度压到七个半月。他反问这怎么可能，对方还是那套「不安全、不达生产标准」的说法。</p>
+<p>他找了一个不吃这套的人插进团队，三个季度后团队回报一季可以做七个连接器。他把人拉到一边问真实原因，得到的答案与模型关系不大。过去做一个连接器要先花一个季度去访谈客户、写产品需求文档，那一季整条流水线停着；然后要搭 Salesforce、Workday、NetSuite 这类目标系统的环境，团队不擅长、对方也未必配合，费时且易错；最后再用一个季度做测试。重造后的做法是需求文档一周写完、放进一个 md 文件、不好以后再改，环境搭建外包给顾问，测试挪到前面并用 AI 端到端做，一人一个连接器改成七人七个，有人休假也不停摆。</p>
+<p>他由此形成的判断是，人类至少要花十年来吸收与扩散 AI，理由就是他在一家想用 AI、员工聪明的科技公司里亲历的这一段：所有组织都要做这样的流程重造。</p>
+<h3>组织结构：信息流与汇报线要分开，一人管 25 人兼写代码的模式他认为会垮</h3>
+<p>主持人提到 Jack Dorsey 与 Brian Armstrong 在重做 CEO 模型，把公司看成一个 AI、员工围着它训练、管理层级压到两层以内。Ghodsi 说方向上他同意，Databricks 也在做，但要把两件事分开：公司正式的组织架构，与公司收集信息、汇总信息、做决策的方式。一二十年前两者是同一回事，信息只能沿汇报树上下传递，现在信息层可以由 AI 承担，Genie 做的就是这件事。</p>
+<p>至于人的金字塔要不要拆，他说待定。他看到有公司据此把每个经理的直接下属扩到 25 人，同时要求经理当球员兼教练、八成时间自己写代码上线。他的评价是这行不通：经理的工作大量是人的事，职业选择、目标不清、情绪不满，25 个直接下属不可能都被照顾到，经理又忙着写代码，员工见不到上级，跨组决策没人拍板，结果是一堆不知道公司在干什么的不开心的员工。他说自己没有被说服。</p>
+<p>邓巴数的关口他记得发生在 250 人左右，正好是 CEO 换人的时候，从 CEO 什么都知道、公司像一颗星那样运转，转到必须通过中间层、用评审与 KPI 确认船的方向。Databricks 现在 1.2 万人、3500 名工程师，他说大公司的自然状态是各方相互抵消，所以要用清晰到黑白分明的表述让所有人朝一个方向走。</p>
+<h3>上市时机：他认为现在公开上市反而更值钱，但转型期要留在私募市场，「一年左右会平静」</h3>
+<p>被问为什么要上市，他先说如果 Databricks 今天是上市公司，他认为估值会高得多，上一轮融资募了 50 亿美元而认购意向有 200 亿美元，按供需本可以把价格定高很多，但那不是他们优化的目标。上市的真实理由是员工流动性：公司每年为在职与离职员工办要约收购，覆盖近百个国家的税法、约 1.5 万人，等于在私募市场里模拟一个纳斯达克，到某个点上市更省事，他说这不会太远。</p>
+<p>不现在去的理由是转型期。他把当下类比软件公司从永久授权转向订阅时的私有化，转型要在私募市场做完再出来。Anthropic 与 OpenAI 是另一回事，它们需要巨额资本，而 Databricks 自由现金流已打平，不需要钱。他描述公开市场对这轮转型的反应：一会儿「SaaS 末日、AI 会摧毁所有软件公司」，一会儿某家 SaaS 财报好就「该买 SaaS」，一会儿「半导体是瓶颈、全押半导体」，一会儿某只大基金出事就「半导体全卖掉」，软件的价值是零还是应该给高估值，市场来回翻。他认为公开市场擅长处理常态而处理不了这种变革，估计一年左右会安定下来，届时再去。</p>
+<h3>前半段的三条线索：砍掉 PLG、竞争对手的三处弱点、品类创设要三四年</h3>
+<p>前半段与本课题相关的只有三点。第一，2015 年 Databricks 的 GAAP 收入约 150 万美元，开源项目 Spark 很成功而商业化失败，公司信奉产品驱动增长、不想要销售，还做过「零接触」实验，结果收入连续两个季度走平。他的推理是一个企业销售的年配额就有一两百万美元，一个人打出来就等于过去几年的全部，于是转向企业销售，考察后发现顶尖销售没有一个是技术出身，改按职业进攻性、情商与摸清客户决策权力结构的能力来招人，CRO Ron Gabrisko 至今在任，他称对方把年化收入从 100 万做到 70 亿美元。</p>
+<p>第二，对 Snowflake 的打法。当时 Databricks 收入只有对方一半且增速更慢，他研究出对方三处弱点：数据存在专有格式里、客户怕锁定；没有像样的 AI 支持；定价贵，因为产品好而能抽取高利润。Databricks 就打开放格式、AI 原生与总拥有成本三分之一这三点，策略是先共存，逐个账户把适合机器学习的负载抽出来转成开源格式。他的一般结论是要研究对手但不能复制对手，复制是他见过的头号失败模式。</p>
+<p>第三，Lakehouse 品类。2018 年到 2019 年公司年化收入已有数亿美元，他仍不满足，因为对公开市场投资人讲的愿景与实际卖的东西对不上，于是押上整个公司去建这个品类，战略咨询公司、内部销售都反对，上线后被嘲笑了很久。他的做法是所有人全部围绕这个词，广告转化率更高的 Spark 文案也换掉，销售不愿卖就写进提成方案而不争论，坚持三四年直到品类成立。他对第二增长曲线的建议是私募公司有余地把短期增速放慢，公开市场投资人只在新产品收入出现后才在意愿景。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若未来数个季度企业软件厂商的财报与电话会中，「代理协作」类产品的收入贡献仍以个位数百分比计，而聊天与编码助手占据企业 AI 支出的绝大部分，则「企业用法只有两种」的描述持续成立，扩散以十年计的判断得到支持。</p>
+<p>若 Databricks 在 2027 年内启动 IPO，且届时软件板块相对半导体的估值波动明显收窄，则他「一年左右市场安定再上市」的判断兑现；若公司在市场仍剧烈摆动时上市，则说明资本需求或员工流动性压力大于他所讲的从容。</p>
+<p>若采用大幅扁平化并要求经理兼写代码的科技公司在一两年内出现管理层回摆、重新加回中间层的公开案例，则他对「一人管 25 人兼球员教练」模式的否定得到印证。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
