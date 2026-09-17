@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Instinct 以 100 亿美元估值融资 10 亿美元、五个月前投前约 5000 万，Lemkin 称 1000 万用户每月 10 美元对应每年 12 亿美元开支，Meta 自带模型做 Muse 令应用层「豁免期」结束（20VC 周评，2026-09-17）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Instinct 以 100 亿美元估值融资 10 亿美元、五个月前投前约 5000 万，Lemkin 称 1000 万用户每月 10 美元对应每年 12 亿美元开支，Meta 自带模型做 Muse 令应用层「豁免期」结束（20VC 周评，2026-09-17）</h2>
+<div class="metaline">20VC with Harry Stebbings，79 分钟 · 2026-09-17</div>
+<p>本期为 20VC 周度新闻评论，主持人 Harry Stebbings，嘉宾为 SaaStr 创始人 Jason Lemkin 与 Scale Venture Partners 的 Rory O’Driscoll，录制于周二、周四播出。本文按应用层相关度分配篇幅：Meta Muse 的体验与成本、Instinct 本轮估值的正反论证、Miro 出售与 Adobe、Canva 的估值切换写得较细，Mistral 融资与「控速前沿」（pacing the frontier）争论压缩处理；开场预告的 Town、Jeff Dean 新公司估值由 100 亿升至 500 亿美元、OpenAI 暂停 Pro 订阅注册等条目在字幕中只被点名、未展开，SBF 上诉与 WordPress 母公司 Automattic 董事会风波与 AI 应用层关系弱，略去。与本站既有精读的重叠：Muse 每周一亿 token 免费额度、向商家抽成、机密虚拟机等产品设定见 09-08 扎克伯格访谈精读；Instinct 此前 25 亿美元一轮、Index 为其退出 Town 见 09-10 上期周评精读，本文只一句带过。口径提示：估值、收入、成本均为口播，未经核对；自动字幕无说话人标记，归属依据点名与上下文判断；专有名词按上下文还原，Instinct 创始人字幕记作 Noah Shin，Mistral 记作 Mral，Anthropic 记作 Antropic，Replit、Lovable、Vercel 记作 replets、lovables、versels，Iconiq 记作 Iconic，Accel 记作 Excel，Poolside 记作 pool sale。本期的中心判断是：模型厂商亲自下场做消费级代理后，独立应用层公司的估值越来越依赖并购退出与组合期望值，而上一代 SaaS 公司正从收入倍数被重新定价到现金流倍数（作者归纳）。</p>
+<h3>Muse 的虚拟机账：同类公司每用户交付成本 3 至 4 美元，Meta 给得更多并跑在自家模型上</h3>
+<p>Lemkin 周末重度试用 Muse，评价是「作为软件非常非常好」，看不见的难活都做完了：订餐厅、按时把本期节目选题邮件发给他和主持人，还登录 WordPress 把 SaaStr 网站整体重做了一遍，完成度不错。他说 Muse 团队周末在推特上实时回应他提交的缺陷，据他了解 OpenClaw 走红后扎克伯格抽调约 500 人的 AI 团队专做「面向消费者的 OpenClaw」，自那以后一直是最高优先级。</p>
+<p>他更关注的是成本。按他的记忆，Muse 给每个用户一台免费虚拟机，配置约为两颗 CPU、两颗 GPU、8GB 内存、100GB 存储；Replit、Lovable、Vercel 这类公司给每位用户提供类似环境的成本约 3 至 4 美元，已是其销售成本的主要部分，这些公司每周都在压这项成本，Wix 在 Base44 之前托管一个网站的成本只有两美分。Muse 给的资源比它们多，原因是 Meta 既有基础设施，又跑在自研的 Muse 模型上，这解释了它为什么快、为什么给得起更多 CPU 与 GPU。他的结论是从基础设施角度「几乎没人能竞争」，而且在订位、邮件这类日常用途上 Muse 模型已经足够好。</p>
+<p>对应用层单位经济而言，这组比较意味着按用户分配常驻计算环境的产品，其毛利由底层算力与模型的自有程度决定，租用第三方模型与云资源的独立公司在免费档上与 Meta 处于不同成本曲线（作者归纳）。</p>
+<h3>杀手级应用之争：订位与排课能否撑起每天 8 小时的使用</h3>
+<p>Lemkin 在肯定产品之后提出「它重要吗」：扎克伯格举的例子是给女儿安排拼车、报芭蕾课，这类随机任务撑不起平台，真正要紧的是像 Claude Code 或 Codex 那样让人每天用上 8 小时。他认为 OpenClaw 至今没有杀手级应用，Muse 与 Instinct 也未见到，Muse 的「点子」标签页推荐的事他大多做过，体验很好但谈不上杀手级。</p>
+<p>主持人以 Instinct 重度用户身份反驳：Instinct 包揽他的订票、订餐厅、购物与日历邀请，没有单一杀手级功能，但处处比别的工具好一点；同时他承认 Instinct 的延迟严重，有时要等上几分钟才回复，像 ChatGPT 刚上线时。O’Driscoll 用自己的三个风投问题拆解：这是不是一个类别、谁是赢家、承担的风险有没有得到补偿。他用过 Instinct 与 Muse 后认为类别成立，并以微信超级应用为参照：Facebook 早年在 Messenger 上尝试过，失败原因是 AI 之前在聊天界面里订东西很麻烦，直接上航空公司网站看全部航班更省事；后台有了智能、云端足够了解用户之后，手机上的对话界面可能变成「把事办完的地方」。他认为悬而未决的是第二问，赢家会是独立公司，还是带 Muse 的 Meta 与 OpenAI 未来推出的产品。</p>
+<h3>Instinct 本轮 10 亿美元、估值 100 亿：Lemkin 先写投决赞成意见，再逐条推翻</h3>
+<p>主持人口述 Instinct 的估值路径：不到五个月前投前约 5000 万美元，随后投前约 4 亿至 5 亿美元（O’Driscoll 记为五六月、Kleiner 领投的 5 亿美元投前），此后一轮 25 亿美元，传闻本轮以 100 亿美元估值融资 10 亿美元。他请 Lemkin 以投委会形式评估是否在本轮投 2 亿美元。</p>
+<p>Lemkin 的赞成版本承认若只与 Meta 正面竞争会输，资产负债表、服务器、毛利和模型都比不过，随后给出三条理由。一是 Meta 做不到跨平台，产品集中在自家应用，不会接入所有运营商与服务，18 至 55 岁的人整天挂在 Facebook 上的很少，WhatsApp 与 Instagram 虽然流行，但封闭性限制了覆盖面。二是 Meta 的投入能否持续：他举 Workplace 为例，这款产品在 Meta 全线 NPS 居前、对 Facebook 重度用户可能比 Slack 好用，最后仍因收入微薄被放弃；他称参考访谈认为 Alex（按上下文为 Meta 首席 AI 官 Alexandr Wang）一旦离开，Muse 就会散架。三是团队出色。结论是建议领投，但要谨慎安排后续预留资金，因为下一轮估值可能触及现实的 IPO 上限。他还说自己在 Claude 上做了十几次合成参考访谈。</p>
+<p>随后他明确表示自己「绝不会」投这一轮，理由有三。其一，基础设施成本太高，Instinct 的慢本身就是算力成本的信号，这也是它要融 10 亿美元的原因。其二，节目开播以来大家一直在问「如果 Anthropic 和 OpenAI 自己做应用怎么办」，他的判断是两家除 Codex、Claude Code 外只做了半个应用 Claude Design，风投整个 AI 周期都拿着一张「豁免证」；Meta 这次是握有模型、成本、速度和算力的巨头亲自做应用，未来 24 个月都会是其重点。其三，单位经济：风险资本可以替每个用户每月补贴 5 至 10 美元，一旦要过度变现就可能重演 Poolside 的处境，1000 万用户、每月 10 美元，对应每年 12 亿美元要覆盖的开支，下一轮融资会很吃力。</p>
+<p>O’Driscoll 认为 Meta 会持续重投入：在 AI 上花 1000 多亿美元、提出做个人 AI，Muse 就是 Meta 最该全力做的事，他不接受与 Workplace 的类比，因为后者对 Meta 只是玩具级的非核心业务。他预计 Muse 虽是独立应用，后续会接入 Messenger 乃至 iMessage 等渠道。</p>
+<h3>退出路径：Poolside 式并购能否支撑 100 亿美元定价</h3>
+<p>O’Driscoll 提出 Poolside 的另一面：它资本耗尽，但因英伟达想要其模型与人才而得到很好的结局，Instinct 也可能在积累大量用户后被 OpenAI 这样的买家接手；他提到 Instinct 创始人与 Sierra 有渊源，Sierra 创始人 Bret Taylor 同时是 OpenAI 董事长。他判断 Instinct 可能做不出现金流为正、可以 IPO 的公司，但有吸引人的并购上行，100 亿美元「也许有点高」。主持人补充，他接触的人都把创始人视为世代级人才，在战略性赛道里被数万亿美元市值公司收购的情景下，500 亿至 600 亿美元的结果「虽然听起来疯狂」也说得通。</p>
+<p>Lemkin 的投资原则是不押必须靠并购才能成功的项目，因为买方决策反复无常。O’Driscoll 表示自己也不这样投资，但承认一组此类押注的期望值可能明显为正、方差很高：一个 30 笔投资的组合里放三笔「大概不行」，但在 5 亿美元投前估值投进去并不鲁莽，前提是赔付结构约为十分之二的概率拿到 20 倍。他的关键结论是这类押注的风险收益比随估值快速恶化，4 月投前 5000 万美元时很有吸引力，五六月 5 亿美元投前仍是好赌注，到 9 月的 100 亿美元就需要五六百亿美元的退出；他以 Cursor 的 600 亿美元为参照，认为没有大量收入很难拿到 400 亿美元级的结果。</p>
+<p>Lemkin 补充 Menlo Ventures 的建模口径：刚加入 Menlo 的 Alex Kurlin 在一份材料里写到，Menlo 瞄准 250 亿美元以上的科技公司退出，并预计会有 100 个；他称目前约有 81 家这样的公司，十年前是 23 家，Cursor 到 600 亿、Cognition 刚以 480 亿美元融资。若优质退出都在 250 亿美元以上，Instinct 本轮至少对应三倍回报的空间。主持人提到自己为 Instinct 发了一条 Instagram 短视频，收到 1000 多条私信索要邀请码，他以此作为产品市场匹配的旁证。</p>
+<p>对应用层定价而言，本期三人的分歧集中在同一个变量：独立代理公司的价值有多少来自可持续现金流，有多少来自头部平台的收购需求；后者占比越高，估值对 OpenAI、英伟达等少数买家的战略节奏越敏感（作者归纳）。</p>
+<h3>Miro 以 13.5 亿美元卖给 Bending Spoons，2021 年估值为 175 亿，老 SaaS 的退出席位所剩无几</h3>
+<p>主持人口播 Miro 以 13.5 亿美元出售给 Bending Spoons（后文亦说 13 亿），2021 年一轮估值 175 亿美元；据其合伙人测算，早期的 Accel 赚了钱，创始人和员工赚了钱，后期投资人大致只拿回 1 倍。O’Driscoll 称这在意料之中：他在 Salesforce 里按投后估值给所有独角兽排序，Miro 是那一代估值里停滞程度居前的一家，个人生产力工具的定价远高于其市场空间。他认为这对后期投资人算好结局，后期游戏的逻辑就是输的项目靠优先清算权拿回 1 倍。他注意到部分对价换成了 Bending Spoons 股票，解读为按约 2.7 倍收入卖给一家交易在 12 至 14 倍的公司，因为后者肯做风投辛迪加做不到的事：砍冗余成本、提价、接受流失。</p>
+<p>Lemkin 称 Bending Spoons 收购后的用量流失「非常残酷」，公司靠提价与极端控本，价格翻三倍、流失 30% 至 40%，账很好算；O’Driscoll 认为这揭示了行业在销售与营销上过度投入，Bending Spoons 只要离不开产品的那部分客户。Lemkin 用抢椅子游戏形容：Bending Spoons 每年认真看 1000 个标的、只做 5 到 10 笔，资产负债表也有限，私募股权基金大多观望，Airtable 与 Miro 都只拿到一份报价，按 2.4 至 2.5 倍收入成交本身说明没有竞价者。Miro 年经常性收入约 6 亿美元、仍有高个位数增长且现金流为正，他据此判断比它差的公司很难找到买家，许多公司将进入零至 5% 的增长状态。</p>
+<h3>Adobe 与 Canva：30% 增速线决定按收入估值还是按现金流估值</h3>
+<p>Adobe 新 CEO 由内部两位业务单元负责人中选出，Lemkin 称这是「规模化的 Miro」、不会带来改变，公司在高毛利核心产品上叠加一些 AI 功能收工，并把免费用量当作「本周的伪 AI 指标」。O’Driscoll 补充，Adobe 的 AI 相关年经常性收入上升，但净新增 ARR 明显下降，总体增长没有发生。三人口径是市值约 1050 亿美元、收入约 250 亿美元；Lemkin 预测三年后市值 1200 亿至 1300 亿美元，O’Driscoll 称按不到 10 倍现金流估值，只要 ARR 不蒸发就不会出事，但相对地位会随 250 亿美元以上新公司增多而下降。O’Driscoll 还提到近几周软件整体表现好，网络安全股大涨，「SaaS 末日」交易已被回补，市场在区分哪些业务会赢。</p>
+<p>关于 Canva，O’Driscoll 依据澳大利亚强制披露的收入称其增速由 30% 降至 20%。Lemkin 举 ServiceTitan 因下调指引上周下跌 30% 为例，强调增长放缓的代价。O’Driscoll 引述一条推文的规则：增速在 30% 以上用收入倍数，30% 以下只能用 EBITDA 倍数或很低的收入倍数；从六七倍收入切换到约 20 倍现金流，现金流利润率要做到 30% 才能让股价持平，这个过程要三四年，私有状态下完成尤其困难。他的比较框架是，Adobe 约 8 倍现金流、增速 13% 且有流动性，Canva 增速 20% 仍在减速，关键看它能否熬过流动性窗口；Stripe 因重新加速到 40% 避开了这道坎。</p>
+<h3>Mistral 融资 30 亿欧元、年底收入目标 10 亿美元：O’Driscoll 按欧洲主权需求解读</h3>
+<p>主持人口播 Mistral 融资 30 亿欧元，为欧洲科技公司单轮融资规模纪录，年底收入目标 10 亿美元。O’Driscoll 认为把它视为与 OpenAI、Anthropic 竞争前沿模型不成立，这轮融资反映的是欧洲认定 AI 必须有主权组件，并会给 Mistral 足够订单，类比空客的形成路径。他凭记忆提到美国政府曾要求 Anthropic 对其他国家切断 Fable 访问，欧洲当天就意识到不能依赖美国供应商。他粗算美国赢家值 1 万亿美元、欧洲 GDP 约为美国七到八成，欧洲赢家终局可能到 300 亿至 400 亿美元。Lemkin 指出本轮由三星领投、上一轮由 ASML 领投，资金是真的，估值与财务投资人的独立定价未必可比。</p>
+<h3>「控速前沿」：Lemkin 读作 2 万亿美元 IPO 前的风险因素披露，市场反应集中在网络安全股</h3>
+<p>主持人概述 Anthropic CEO Dario Amodei 提出需要「控速前沿」、设外部监管机构，Sam Altman 与马斯克表示赞同。O’Driscoll 把 Amodei 列出的风险归为网络攻击、经济冲击、失去对 AI 的控制三类，认为网络风险真实但已无法收回，经济风险站不住，只有递归自我改进导致失控值得认真对待；他称第三方监测若自愿随意，若变成法律则监管者不会由企业挑选。他的另一点是，若 CEO 认为自己在造无法控制的东西，就该自己停下来。Lemkin 的解读偏战术：Anthropic 在走向上市，一位员工公开称十年内人类灭绝概率约 10%，Amodei 是在 2 万亿美元 IPO 路演前把这一风险因素提前放到公共讨论里消化；他同时预计未来 24 个月国会听证会将接连不断。两人都认同 David Sacks 与 Lina Khan 同周的批评：风险真到那一步，处理它是 CEO 的职责。</p>
+<p>市场层面，O’Driscoll 称周一半导体与 AI 资本开支相关股票只有轻微下跌，CrowdStrike 等网络安全股上涨约 10%，软件指数 WCLD 相对半导体指数 SOX 表现好，他引用推文概括为「10% 的灭绝概率换来 0.1% 的波动」。这组反应显示市场把这轮讨论定价为网络安全需求增量，对算力资本开支预期的扰动有限（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 Instinct 本轮最终以 100 亿美元左右完成，且后续披露的付费用户数与单用户算力成本能支撑每月 10 美元量级定价，Lemkin 关于补贴难以为继的推演被削弱；若本轮估值下修或以战略投资人主导完成，则 O’Driscoll 所说风险收益比随估值恶化的判断得到印证。</p>
+<p>若 Muse 在未来数月接入 Messenger、WhatsApp 或 iMessage 等外部渠道，Lemkin 赞成版本中「Meta 无法跨平台」这条论据失效；若 Meta 在 Muse 收入贡献微薄的情况下持续扩大免费虚拟机配额，则 Workplace 式半途放弃的风险相应降低。</p>
+<p>若 Replit、Lovable 等公司后续披露的毛利率在 Muse 上线后继续承压，或下调免费档资源配置，可检验按用户分配常驻计算环境的成本曲线差异。</p>
+<p>若 Bending Spoons 类买家之外的私募股权基金重新以明显高于 2.5 倍收入的价格收购增速个位数的 SaaS 公司，「退出席位所剩无几」的判断被证伪；若 Canva 后续披露增速回升至 30% 以上，O’Driscoll 的估值切换框架对其暂不适用。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

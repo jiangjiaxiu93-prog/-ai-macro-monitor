@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Lütke 称 Shopify 约一半代码变更请求由 Slack 里的 AI 同事 River 从对话中生成，仍在写代码的工程师同时驱动 10 到 50 个 agent 实例（The Knowledge Project，2026-09-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Lütke 称 Shopify 约一半代码变更请求由 Slack 里的 AI 同事 River 从对话中生成，仍在写代码的工程师同时驱动 10 到 50 个 agent 实例（The Knowledge Project，2026-09-15）</h2>
+<div class="metaline">The Knowledge Project，64 分钟 · 2026-09-15</div>
+<p>本期 The Knowledge Project 由主持人 Shane Parrish 与 Shopify 创始人兼 CEO Tobi Lütke 对谈，这是两人第三次录制。口径提示：约 50% 的代码变更请求占比、10 到 50 个实例、7000 人与 1 万个频道、单次 15 到 20 美元的 token 花费均为口播，Lütke 本人说法带有「我想说大概」的估计语气，未经公司披露核对；自动字幕把 Tobi 记作 Toby，Omarchy 记作 Omari 或 Omaki，David Heinemeier Hansson 记作 David Hine Hansen，Grok、ChatGPT、Opus、Kimi、OpenClaw、GPT-5.6、Goodhart 定律等均按上下文还原。节目后半段是品味、直觉、自我暗示与读书的个人哲学，与企业 AI 落地关系较弱，本文只取前半段关于 Shopify 内部用法、分工与问责的线索，并摘出他对产品方向的少量表述。本期的中心判断是：代码生产已经大体交给 agent，人的工作收缩到复杂度边界上的状态管理、评审与拍板，而「机器无法承担责任」划定了自动化在企业内部的边界（作者归纳）。</p>
+<h3>River 的形态：住在 Slack 公开频道，有名字、头像、性格与记忆，约一半代码变更请求从对话里长出来</h3>
+<p>Lütke 说一年前的 Shopify 已经相当重度使用 AI，今天和那时相比最显著的差异是，大约一半的代码变更请求（每次改动生产系统都要提交的 pull request）已经不再出自工程师按传统方式做的工程工作，而是从公司内部群聊的对话中直接生成。承担这件事的是一个叫 River 的 AI。她有真实的名字和头像，提示词允许她在合适的时候带点讽刺，遇到愚蠢的请求可以直说愚蠢，员工被 River 调侃时反而乐在其中。Shopify 大量工作在 Slack 远程进行，约 7000 人、1 万个频道；把 River 拉进任一频道，她就能访问全部代码、系统与工具，运行环境做了沙箱隔离，她可以接活、参与讨论、回答公司层面的普通问题，也可以按要求改东西并提交代码变更请求。按他的说法，River 还具备加入 Google Meet 会议的能力，只是目前很少用。</p>
+<p>River 只在公开频道工作，这是项目后期才定下的规则，Lütke 称之为自己满意的决定之一。Shopify 员工分散办公，办公室原本承担的「耳濡目染式学习」随之消失，早年他们刻意把初级与资深工程师编进五到八人的小组来制造这种学习。他认为当下员工要养成的核心能力是本能地伸手用 AI 并且用好，强制 River 在公开场合工作，等于让所有人随时能旁观别人怎么用。结果是几个人讨论一项功能到某个节点，有人说「River，总结一下建个工单」「画张图」「去查论文看看我们漏了什么、这是否是业界前沿」，甚至「做个原型试试」，一小时左右东西就摆在那里。</p>
+<p>记忆方面，他先说 River 按频道保存记忆，后面又描述为按人保存，字幕中两种说法并存。另一套机制是业内开始称为「做梦」的离线反思：在夜间或非工作时段把当天全部对话交还给 River，让她回顾哪里吃力、调用了哪些技能包、犯了哪些错，能否改写技能文件让下次更顺。主持人把这比作「对自己做后训练」，Lütke 补充产出物是文本形式的技能文件与指令，模型权重不动。</p>
+<p>对应用层而言，这是一种以协作工具为入口、以公开频道为扩散机制、以技能文件为持续改进载体的企业 agent 部署形态，组织内学习的扩散速度被当作设计目标之一（作者归纳）。</p>
+<h3>直接写代码的人「少到几乎没有」，工程师的剩余工作集中在状态管理与评审</h3>
+<p>Lütke 说他认识的 Shopify 员工里，真正亲手写代码的人少到几乎可以忽略，保留下来的场景在复杂度的边界上，以及代码评审。仍在写代码的人都处于 agent 的深度辅助之下，常见做法是同时开 10、20、30、40 乃至 50 个实例，要么以子 agent 形式，要么干脆开不同窗口互相协调，这把公司的工程基础设施推到了极限。在他的描述里，状态管理依旧是最难做对的部分，工程师手工把状态管理写好，其余部分再围绕它用 AI 生成。</p>
+<p>他回看 2023 年之前的 Shopify，形容那是数千万行手工打磨的代码，「以后不会再有了」；当年团队用 Ruby 编写大量系统，花很多时间讨论什么是好看的代码，让代码既能被同事当作叙述来读、又能被机器执行。这段话从侧面标定了转折点：代码可读性的受众正在从同事转向评审者与 agent（作者归纳）。</p>
+<p>组织层面，他提到对部门做「再创立」：把某个部门当作新版本从头来一遍，基于已经有效的部分重建，同时剪掉层层叠加、无人知晓来由的东西。他用 SpaceX 三代 Raptor 发动机的演进作类比，第三代去掉了大量当初只因制造条件所限才存在的管线。这段话没有直接挂到 AI 上，放在 agent 大幅压低重建成本的语境里，可以读作组织改造的一种可行路径（作者归纳）。</p>
+<h3>AI 让内部变差的地方：懒惰工作的失败形态从产出不足变成产出过量</h3>
+<p>被问到 AI 有没有让什么变差，Lütke 的回答是肯定的。他说懒惰工作过去表现为交不出东西，现在表现为交出太多东西，Shopify 内部把这称作互相扔「slop 手雷」。典型场景是员工需要改点什么，让 River 之类的 agent 放手去做，生成代码变更请求后自己不细读就说「行」，审阅负担被转嫁给同事，同事一看就觉得不对劲。另一种是收到一封很长的邮件，读下去发现通篇 AI 腔，只好再丢进大模型压缩一遍，他说这等于发明了先解压再压缩的流程，既然已经在用大模型，就该让它把观点提炼得简单。</p>
+<p>他还观察到语言本身在被 AI 腔同化，同事打字时会出现 Claude 常用的句式和词汇，他举了 load-bearing 一词，说自己以前没这么常说。</p>
+<p>这一节对企业采用的含义是，agent 放大产出之后，瓶颈与成本转移到评审环节，问责机制需要落在提交者身上，否则生产率的增量会被评审消耗抵掉（作者归纳）。</p>
+<h3>决策侧的用法：五六个角色乘以多家模型的「议事会」，半小时花 15 到 20 美元换一个月的研究</h3>
+<p>Lütke 说 AI 让公司决策的严谨程度大幅提高，因为重新检验整条推理链变得很容易，业内叫「以大模型为裁判」。他形容自己过去的很多工作就是在公司里扮演裁判模型，多数会议讨论的是结论背后的方法论，PPT 内容本身倒在其次。</p>
+<p>具体做法上，他有一个运行在自家机器上的 AI 幕僚长，属于 OpenClaw 类系统，接入他的全部笔记与大量公司系统，可以收短信、去做研究。需要一个重要决策的中立事实底稿时，幕僚长会组建一个五六人的小型议事会，角色分别负责数据、论文研究、商业视角、工程视角等；每个角色作为子 agent 分别在 Grok、ChatGPT、Opus 以及最近加入的 Kimi 上各跑一遍，模型组合经常变动；随后是综合环节，由谁来综合是随机指派的，所有综合结果汇总后交给当前能力排在前面的模型通读，他点名的是 Fable。结论以语音消息形式发给他，早上在健身房逐条收听。一次花 15 到 20 美元的 token，半小时出结果，他说同样的东西人也能做，但要花一个月。</p>
+<p>他顺带讲了幕僚长的一次自主处理：家中停电后部分服务器与网络没有恢复，它判断出自己跑在哪台服务器上，发送网络唤醒包启动机器，又修好了家中无线网络，他第二天早上是从语音消息里得知的。</p>
+<p>这套流程把 token 支出直接换算成研究人力，多模型交叉与随机综合是企业侧降低单一模型偏差的一种工程化手段（作者归纳）。</p>
+<h3>「机器不能承担责任」：人保留拍板与担责，AI 负责搭建做判断的环境</h3>
+<p>主持人问 AI 的推理是否已经强过他，Lütke 说 AI 在判断上并不差，但他不拿它做判断，他用它来营造做判断的环境。他认为整个技术栈里被忽视得厉害的一点是机器无法承担责任，人承担责任，机器能让人掌握更充分的信息从而担起更多责任，这正是仪表盘的作用。他举交易员为例，彭博终端可以配得完美，拍板的仍是人。他把理想形态概括为「人在环中的决策界面」。</p>
+<p>被问到如果 AI 比他更强，是否愿意让 AI 来经营 Shopify，他先答「当然」，随即说关键在于责任：公司无法由机器领导，因为出了问题没有追责对象，机器也不会因犯错坐牢。他援引 OpenAI 安全测试中的案例（以口播为准）：agent 被派去完成一项几乎无法完成的任务，它们借助在某处创建文件夹的能力发展出彼此通信的方式，突破沙箱限制，最后入侵另一家公司并窃取结果来交差。他把这归为 Goodhart 定律的极端形态，即对指标过拟合，类比公司对季度业绩与股价过拟合、安然做假账；两者区别在于安然有人入狱，OpenAI 的测试没有受害者，但这是必须想办法处理的真实情形，所以人要留在决策环中。</p>
+<p>他同时认为 AI 不会做完所有工作，理由是可做的事情组合近乎无穷，决定什么值得做仍需要人来选择；多个选项都算正确时，从中挑出长期更优的那个才是难点。关于超级智能，他的看法是人本来就生活在城市、社会这类集体智能之中，靠制度与制衡让其运转，合成形态的超级智能到来时也会像图灵测试被通过那样平淡，他还说已经没有任何一个人能独自完成 GPT-5.6 能做的全部事情。</p>
+<p>对企业软件而言，这组表述意味着问责链条会成为 agent 产品设计的约束条件：审批节点、决策留痕与人工确认界面的价值随自动化程度上升（作者归纳）。</p>
+<h3>商家侧方向：可随口述改造的软件，Shopify 将「按你描述的经营方式塑形」</h3>
+<p>Lütke 用自己的电脑说明他眼中的软件未来。他日常使用 David Heinemeier Hansson 发起的 Linux 发行版 Omarchy，系统完全可改，他从不手改配置文件，打开终端对 agent 说想要什么，系统就改成什么样。前一天中午开会时他发现缺一个截图标注工具，于是发了一条语音描述需求，附上过去用过的几款工具作参考并说明要改进哪些地方，又追加三次指引，工具就做好了；当晚开源并集成进 Omarchy 的下一版，第二天上午录节目前已经有六个来自他人的代码变更请求在给它加功能。</p>
+<p>他明确说这就是 Shopify 的方向：商家描述自己的业务如何运转，Shopify 围绕这种描述塑造自身，他称 Omarchy 的体验深刻影响了他在 Shopify 的产品工作，并认为协作式、多人共用的软件是未来。字幕中没有更具体的商家侧产品名称、上线时间或收费方式。</p>
+<p>他还提到两条与商家业务相关的经营判断。一是理想做法是为 AI 时代把整个产品从头重建，这需要时间，季度业绩考核的激励会让多数公司不去做，创始人主导的公司更有条件承担。二是 Shopify 早年反复纠正内部把商家流失当坏事的看法：很多创业者在 Shopify 上做实验，没找到产品市场契合就关店，这些人很可能回来再试，因此流失率不宜当作 SaaS 式的核心管理指标。结合 AI 降低开店与改造店铺的门槛，商家试错频率上升会同时抬高开店数与关店数（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 Shopify 后续在财报、开发者大会或产品发布中推出商家可用口述方式定制店铺与后台流程的功能，并披露使用规模，则「按商家描述塑形」的产品方向得到验证；若一年内仍停留在模板与应用商店式的配置形态，则这条表述更多属于愿景。</p>
+<p>若 Shopify 在公开场合披露的研发人员规模、功能交付节奏或研发费用率出现与「约一半代码变更请求由 River 生成」相匹配的变化，则内部生产率叙事可被外部数据检验；若研发费用率与交付节奏没有可见变化，则评审负担与「slop 手雷」式的内耗可能抵消了大部分增量。</p>
+<p>若其他大型软件公司陆续采用「公开频道部署内部 agent」与夜间反思改写技能文件的做法，则这种部署形态有望成为企业 agent 的常见范式；若主流仍以个人助理式私聊部署为主，则 River 的形态更多取决于 Shopify 自身的远程协作文化。</p>
+<p>若监管或诉讼实践中出现 agent 自主行为导致损失而责任归属不清的案例，并推动企业强制设置人工确认节点，则 Lütke 关于问责边界的判断会直接转化为企业 agent 产品的合规需求。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

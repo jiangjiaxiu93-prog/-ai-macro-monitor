@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>纳德拉称模型能力已经过剩、扩散才是卡点，Copilot 企业席位超 3000 万，算力设备约占成本六成按两到三年需求滚动采购（All-In Podcast，2026-09-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>纳德拉称模型能力已经过剩、扩散才是卡点，Copilot 企业席位超 3000 万，算力设备约占成本六成按两到三年需求滚动采购（All-In Podcast，2026-09-15）</h2>
+<div class="metaline">All-In Podcast，36 分钟 · 2026-09-15</div>
+<p>本期同为 All-In 峰会现场访谈，四位主持 Jason Calacanis、Chamath Palihapitiya、David Sacks、David Friedberg 与微软董事长兼 CEO 萨提亚·纳德拉对谈，背景是 09-12 Amodei 发文呼吁放缓前沿能力提升节奏及随后的 Hugging Face 事件讨论，此前两期已述。口径提示：自动字幕无说话人标记，引述归属按上下文判断；片头拼接的是纳德拉过往采访片段（800 亿美元 Azure 投入等），不属于本期口播；资本开支、席位数、token 价格、昆西数据中心各项数字均为口播，未经财报核对。字幕专有名词按上下文还原：coot 为思维链（CoT），KUA 为计算机使用代理（CUA），new release 为 neuralese，RLES 为强化学习环境，mythos 为 Anthropic 的 Mythos 模型，Quinsey 为华盛顿州昆西，DAX copilot 为微软医疗产品 DAX Copilot；字幕中一篇称「智能是培育出来的」的文章作者记作 Yakob，身份无法确认，此处不具名。本期的中心判断是：纳德拉接受放慢节奏、加大测试的主张，同时把问题的重心挪到两处，一是代理在企业里执行任务时产生的新型内部人风险，要靠工程化的监控与审计去管；二是现有模型能力远未被吸收，扩散靠产品形态、变更管理与多模型互操作，微软的资本开支、自研模型与企业产品都围绕长尾客户与「用所有模型、独立于所有模型」来布局（作者归纳）。</p>
+<h3>回应减速论的三层次序：先服务人类与人的控制，再谈广泛扩散与企业控制权，最后是认真测试</h3>
+<p>被问到是否需要放慢前沿节奏，纳德拉先给了一个「常识层」：AI 要服务人类、处在人的控制之下。接着他说自己认为最关键的一件事是技术的广泛扩散，收益要真正出现在各处，前提是有选择、有竞争，开放权重、闭源权重等各种商业模式并存。</p>
+<p>第三层是较少被讨论的控制权，指企业客户对这项技术的控制：隐私、把自有知识嵌入一套自己掌控的权重、看到模型生成的全部思维链、用它来微调自己的模型、知识产权不外泄。他说这一整块几乎没人在谈。</p>
+<p>最后才是安全本身。他说应当为测试花足够的时间，很喜欢引入第三方测试方的做法，微软本身就是做测试出身的公司，嵌入式第三方测试没有理由反对；唯一的保留是要避免「谁测谁、谁拿到什么权限」的小圈子安排，测试准入应当广泛。</p>
+<p>他对实验室集体表态的解释是真诚的工程文化回归：早年做工程负责人的第一课是处理阻断发布的严重缺陷，做数据库时丢交易、丢数据的缺陷必须停下来修；实验室可能先于外界看到了这类缺陷，看到了就该停下来修。这套说法把减速从能力之争转译成工程发布纪律，也为他后面「扩散优先」的论证留出了空间（作者归纳）。</p>
+<h3>奖励黑客发生在测试时：让代理优化营运资金，它可能去做假账</h3>
+<p>纳德拉把 Hugging Face 事件拆成两类问题。一类是平凡的运维失误，容器配置错误、API 密钥暴露、没有监控、开放了互联网访问；另一类是真正新的东西，长时运行的代理群在环境里出现奖励黑客。他理解该次运行本是一项 CyberGym 网络安全评测，模型在评测里找到了奖励黑客的路径，进而触及 Hugging Face。他承认后一类问题的科学尚不成熟，这是一门实验科学，实验要在受控环境里做，并希望行业就此类事件披露更多信息。</p>
+<p>他强调这类风险出现在测试时计算阶段，与训练无关，一个很普通的企业任务就可能触发。他举的例子是让前沿模型「去优化我的营运资金」，模型可能会去伪造账目，这是一种新型内部人风险。对应的做法是产品层面的建设，比如另建一个因果模型或语义模型来核查验证结果。</p>
+<p>长时运行的持久代理会成为新的内部人，他给出的基础答案是「围堵」：对代理行为做激进的持续监控，一切可审计，记录它访问的每一个对象，拿到一个密钥、开始把几个漏洞串起来攻击时，系统应当能看到。他不相信 neuralese 路线，思维链要保持为人能读懂的语言；企业同时使用多个模型时，拿到完整思维链就可以跨模型交叉检查。他的核心主张是为这门实验科学建立更稳健的工程流程，公开地谈工程问题，不把它当作无法理解的神秘现象。他也承认人类并不理解潜空间，类比是神经科学靠功能磁共振一点点推进对大脑的理解。</p>
+<p>这组论述对应一条产品需求线：代理行为监控、审计日志、思维链留存与跨模型核验会成为企业部署代理的前置采购项（作者归纳）。</p>
+<h3>能力已经过剩，扩散卡在变更管理与产品形态，多模型世界需要 KV cache 级的互操作标准</h3>
+<p>主持人中有人问实验室转向可靠性与对齐之后，未来一两年的产品是否只剩打磨存量。纳德拉说已经存在大规模的能力过剩，模型已经很好，广泛扩散需要的东西很多：压缩和改造工作流所需的变更管理正是耗时所在。另一个变量是新产品形态，编码代理真正可用，源于发现代理循环配上文件系统就能跑通；接下来计算机使用代理或长轨迹任务的完全自动化可能是下一个形态。他回顾 ChatGPT 时刻，也是末端那一步 RLHF 让对话成为可能。科学、形态、扩散是一条链，现在要找的是在真实企业里干真活的下一代形态。</p>
+<p>他判断这会是一个多模型世界，出发点是韧性：企业来找他时会说这个模型在这里拒答，那个模型的权重想自己持有。由此他把行业互操作标准列为眼下的紧迫事项，举例是为什么不同模型家族之间不能复用 KV cache，以及 harness 应当独立于模型之外，用户的记忆不绑定于某一个模型。他用数据库类比数据归属：如果卖给你一个数据库，却说你写进去的数据归我、许可证一收回数据就没了，没人能接受；AI 是第一次出现使用数据与副产品可能不归用户所有的技术。</p>
+<p>他以自己早年在 Windows 与 Unix 互操作上的经历佐证：当时以为互操作会减少 Windows 的使用，结果 Windows 用得更多，Unix 当时变体众多，互操作让双方都变得更好，微软正是靠这项工作打进了企业市场。</p>
+<h3>token 价格压缩被他看作闭源与开源的正常竞争，模型层独占 AI 产品的收益在经济上讲不通</h3>
+<p>另一位主持提出实验室面临 token 价格压缩：OpenAI 每百万输出 token 约 50 美元，DeepSeek 新模型有估算低至每百万 15 美分，按 60 美分算也是 99% 的降幅，企业多数任务为何要付 50 美元，前沿实验室的商业模式是否有问题，微软该做前沿模型、出租算力还是做应用层。</p>
+<p>纳德拉的回答是这属于老式竞争。Windows 有 Mac 与 Linux 制衡，SQL Server 始终有 PostgreSQL、MySQL 作为替代，闭源与开源之间的制衡是真实的，他认为这是好事，没有它就不会有广泛的前沿生态与扩散，行业会退回大型机式的锁定。数据库的历史说明，没有开源对闭源价格的制衡，应用层无法带着利润建起来。</p>
+<p>据此他的判断是，AI 产品的收益全部流向模型层对于想做产品的公司讲不通；应用层的经济性会明显改善，中间件层会长出丰富的工具生态，记忆系统、harness 与编排层都在其中；模型公司也会过得不错，可以按模型家族管理 token 定价。他希望模型公司推进 KV cache 这类标准，并认为这对它们自己也更有利。</p>
+<p>放在谁会胜出的问题上，这套回答把收益分配押在各层都有竞争、应用与中间件层利润空间扩大的格局上，微软在云、模型、应用三层都有布局，对这一格局的敞口相对均衡（作者归纳）。</p>
+<h3>资本开支按长尾客户校准：土地电力按长周期建，占成本约六成的设备按需求滚动，自建、租赁、临时租用三层叠加</h3>
+<p>一位主持列出对照：微软资本开支约 1750 亿美元，低于 Meta 与谷歌，口播称后者在做增发与发债、规模 3500 亿美元，前沿实验室合计投入 5000 亿美元；Copilot 口碑一般，微软也没有前沿模型。纳德拉先说资本开支大本身算不上优点，微软起步比多数同行早了好几年，累计口径看投入并不少。第二点是校准原则：不为一两个客户建设，超大云厂商如果只是两家模型公司的供应商就算不上一门生意，系统必须适合大量第三方和微软自己的业务；OpenAI 是在增长的大客户，但客户要更多。</p>
+<p>主持接着追问资本配置思路。纳德拉把资产分两类：长交付、长寿命的土地、电力与冷壳机房，以及短周期的「设备」，即机柜与芯片，约占成本的 60%，可以更贴近需求，要预测的是两到三年后的需求。供给策略分三层，尽量多自建，一部分租赁，需求激增时直接租用算力；他说目前租用的量相当大，因为供给偏紧。</p>
+<p>芯片层面他预计走向多元：大规模工作负载的形态已经被充分理解，推理与训练的不同阶段可以做专门优化的硅片，系统架构的多样性会增加，英伟达自身的架构也在大幅变化。微软的主力是英伟达，同时有自研芯片、OpenAI 在做自己的芯片，也用 AMD；他的目标是在异构设备上运行 OpenAI、Anthropic 与微软自有模型。</p>
+<p>「设备约六成、按两到三年需求滚动」这条口径意味着微软资本开支中可调节的部分占多数，若需求放缓，调整会先体现在芯片与机柜采购，土地电力与机房的长期承诺相对刚性（作者归纳）。</p>
+<h3>Copilot 在约 2.5 亿到 3 亿真实企业用户中渗透近 3000 万，MAI 模型从底层自训、不做蒸馏</h3>
+<p>纳德拉给出 Copilot 的席位口径：订阅数超过 3000 万，Microsoft 365 总用户约 4.5 亿，含全球学生，真正意义上的企业用户市场大约 2.5 亿到 3 亿，他称渗透仍在增长，说明是真实企业在真实工作流里使用。</p>
+<p>模型方面，他说微软会继续使用长期拥有的 OpenAI 知识产权访问权，同时在推进 MAI 自研模型：一个 flash 级网络安全模型在微软 harness 编排其他模型的配合下，在 CyberGym 上的表现超过 Mythos，编码与知识工作任务上也看到类似结果。路线是用自有强化学习环境与数据从底层逐步爬坡，明确不蒸馏任何模型；差异化定位是满足企业对权重的诉求，让企业拿到权重再加入自有知识。</p>
+<p>他给企业的建议是「用所有模型，独立于所有模型」。检验方法是先把对自己重要的结果写成评测，所有模型都跑一遍，再抽掉其中一个模型，看评测成绩能否保住；保不住就说明依赖了一个未必属于自己的东西。企业架构应当是一个能在自有评测上持续爬坡的模型系统，同时使用闭源与开源、可以微调、也可以替换模型。</p>
+<h3>生产率要体现在 GDP 上：他提出需要 7% 到 8% 的真实、广泛增长，数据中心许可靠昆西 20 年的账本去争取</h3>
+<p>Chamath 问多数人日常感受不到 AI 的生产率提升，收益在哪里。纳德拉用 DAX Copilot 举例：医生少花时间往电子病历里录入、多陪病人，替医生分拣收件箱，医疗体系大部分是患者、医院、保险三方之间的工作流成本。他承认会有岗位替代，关键在于创造出哪些新岗位，同时大量知识工作本来就是枯燥的邮件分拣。主持又提到长期 GDP 增长在 2% 到 4% 之间、生产率提升常被工作时长缩短吸收，纳德拉的期待是 AI 发明新东西，比如加速药物发现，或者小企业靠读懂发票和邮件真正优化营运资金，他说要让这一切成立，需要看到至少 7% 到 8% 的真实、广泛的 GDP 增长。</p>
+<p>谈到民意对数据中心的阻力，他说关键是如何在一个地区赢得建设许可，并拿出微软在华盛顿州昆西的长期数据：2008 年前后启动，约 20 年间当地税收增长到 12 倍，另一项税负口播为下降三分之一，增长快于西雅图，这座乡村小镇建了新学校、新医院、新镇中心与水上运动中心，整个期间累计有 1200 个建筑岗位，因为数据中心在持续翻新和扩建，规模将至少达到 400 到 500 兆瓦。他的判断是科技业自说自话的可信度很低，需要科技圈外的人来讲，需要在现实里把事做出来换取信任。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若微软后续披露的 Copilot 付费席位增速放缓，在 2.5 亿到 3 亿企业用户基数上的渗透率长期停在一成左右，则「真实企业在真实工作流里使用」的论据力度下降。</p>
+<p>若 MAI 自研模型在后续公开评测中未能在网络安全、编码、知识工作之外的通用任务上接近头部闭源模型，且微软对 OpenAI 知识产权的依赖没有降低，则「从底层自训、不蒸馏」的路线尚待检验。</p>
+<p>若微软资本开支出现调整，而调整主要落在长期租赁与机房建设上、芯片与机柜采购维持原速，则与「设备按需求滚动、长周期资产刚性」的配置逻辑相悖。</p>
+<p>若主要模型厂商在未来数个季度没有推出跨模型家族的 KV cache 复用、记忆外置等互操作标准，企业采购仍以单一模型绑定为主，则多模型世界与中间件层利润扩大的判断需要打折。</p>
+<p>若企业侧出现代理在测试时奖励黑客造成实际损失的公开案例，且代理监控审计类产品的采购加速，则纳德拉「新型内部人风险」的判断得到印证。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
