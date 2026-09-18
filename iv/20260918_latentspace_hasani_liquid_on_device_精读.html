@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Liquid AI 的 Hasani 称主流手机上九成 AI 调用仍走云端、端侧只接住一成，奔驰北美第三代车型年内装入约 600MB 的车内模型并跑在约 100 美元的芯片上，Shopify 的 Shop 应用每月过其模型超 10 亿次请求，收费是按设备按年授权，下一步押注「定制 token」接棒推理 token（Latent Space，2026-09-18）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-19<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Liquid AI 的 Hasani 称主流手机上九成 AI 调用仍走云端、端侧只接住一成，奔驰北美第三代车型年内装入约 600MB 的车内模型并跑在约 100 美元的芯片上，Shopify 的 Shop 应用每月过其模型超 10 亿次请求，收费是按设备按年授权，下一步押注「定制 token」接棒推理 token（Latent Space，2026-09-18）</h2>
+<div class="metaline">Latent Space，70 分钟 · 2026-09-18</div>
+<p>本期由 Latent Space 主持，新任编辑主管 Richard 从英国连线参与，嘉宾是 Liquid AI 联合创始人兼 CEO Ramin Hasani。Liquid 是一家从头预训练的基础模型公司，源头是 Hasani 与现任 CTO 约 12 年前在维也纳技术大学做的「液态神经网络」研究：他们以只有 302 个神经元的秀丽隐杆线虫为模型生物，用一阶微分方程描述神经元之间的信息交换，发现几十到几百个神经元的小网络就能控制机器人。2017 年 MIT CSAIL 的 Daniela Rus 邀请两人到 MIT，在那里结识第四位联合创始人 Alexander Amini。「在算力很小的地方装进足够的智能」从那时起就是这支团队的研究主题。口径提示：字幕为自动转写，Liquid、LFM、LEAP、Shopify、Mercedes-Benz、AMD、Qualcomm、llama.cpp、Unsloth、Modular、Mojo、Taalas、Etched 等名称按上下文还原；节目里点到的两家机器人客户与几家「定制」赛道公司转写不清，本文不录名称；手机九成调用走云端、奔驰模型体积与芯片成本、Shopify 请求量、下载量、财富 500 强接触家数、八成 POC 未投产、九成 token 无用等数字均为口播，未经核对；公司成立时间口播一处说约三年前、一处说创业已第四年，本文照录。节目中段关于光子计算、量子计算、世界模型与视觉机制的讨论与投研关联弱，本文只取五条线索：端侧与云端的现状分工及端侧的成本动机、已落地的客户与场景、收费方式与平台化、企业需求侧的读数、架构路线与硬件生态约束。本期的中心判断是，端侧 AI 的需求方是要向数亿终端免费提供智能的设备厂商，它们的动机是把云端推理成本转成自己的毛利，卡点在端侧模型的生产级可靠性，Liquid 的生意就建在这个卡点上（作者归纳）。</p>
+<h3>九成调用仍走云端：端侧的第一动机是成本</h3>
+<p>Hasani 描述当前设备智能的通行做法是混合方案，云端一个模型，设备上若干模型，两边协作。他给的读数是，在用户量居前的手机上，无论 Apple Intelligence 还是 Galaxy AI，约九成调用去了云端，一成留在设备上，原因是端侧模型还不够强、不够可靠，接不下更多原本由云端处理的用例。这就是本期标题的依据，属于他的口头估计，节目没有给出来源。</p>
+<p>厂商为什么仍然想把工作负载搬到设备上，他排的第一条理由是成本：一家公司如果有 4 亿部手机乃至数十亿客户要支持，要给他们免费的智能入口，同时又得在云端某处提供这份推理，成本会高到难以承受；把负载放到设备上，等于给自己创造毛利。其后才是离线可用、隐私敏感场景等好处。</p>
+<p>难点在生产级质量。他强调这件事远不止从开源社区下载一个模型放进设备：要做热控制，模型在长上下文下的行为会变，可靠性要达到一定程度，设备上的质量基准分数只是其中一小部分。Liquid 过去两年半走过多轮量产周期，他的体会是端侧生产级 AI 极难。</p>
+<p>对投研而言，这段话把端侧 AI 的需求来源说得很具体：付费意愿来自承担免费推理成本的终端厂商，端侧每多接住一成调用，对应的是厂商云端推理账单的下降，端侧模型的可靠性进展因此是观察手机厂商云端推理支出的一个变量（作者归纳）。</p>
+<h3>落地场景：奔驰车机、AMD AI PC、Shopify 私有部署，机器人刻意排在后面</h3>
+<p>Hasani 说 Liquid 把模型针对 CPU 做了优化，目标是把智能带到数据中心之外，客户是在数据中心之外有算力部署的企业，包括汽车厂商、机器人厂商、笔记本厂商与手机公司。</p>
+<p>汽车一侧的客户是梅赛德斯-奔驰，合作于 4 月宣布（口播为「last April」，未指明年份），他说这个推进速度在汽车行业算快。用户在车里与车对话、使用「Hey Mercedes」一类功能，背后是一个直接装在车内的基础模型。这套方案是多模态的，可以接摄像头、做语音交互，推理部分由文本模型承担，模型体积约 600MB，因此可以通过 OTA 推送到每一辆车。首批部署定在今年，覆盖北美所有第三代的奔驰车型，运行在一颗成本大约 100 美元的芯片上，他称这是车内 AI 首次规模化部署。</p>
+<p>PC 一侧的伙伴是 AMD。他给的量级是全球每年出货 3 亿到 4 亿台 AI PC 笔记本，其中约 1 亿台可能以 AMD 为核心。双方在推进让 Liquid 的模型直接跑在笔记本上，他举了两类用途：一类是隐私过滤，用户要发给 ChatGPT 或 Claude Code 这类云端代理的大段敏感内容，先过一遍本地模型，把敏感信息屏蔽掉再发出；另一类是常驻设备的主动式代理，读取本机信息做分析，同时带来离线与物理隔离环境下可用的能力。</p>
+<p>Shopify 的用法不属于端侧。Shopify 在意的是延迟与质量，采用私有部署，通过 Shop 应用在面向商家与面向消费者的多条产品线上使用 Liquid 的模型。他举的例子是，今天在 Shop 应用里输入一段文字，信号就会送到一个 Liquid 模型。仅这一项指标，每月请求量已超过 10 亿次，并在指数式增长。引荐来自 Shopify 的 Mikhail Parakhin，Hasani 称他为导师，对方当初的态度是：你说你有模型，我们团队自己也在做模型，拿来测，好坏由测试说话；第一次测完，对方对质量与效率都感到意外。开源侧，Liquid 已发布的模型参数从 1 亿到 240 亿，较大的几款是混合专家架构，支持音频、视觉、文本输入与音频、文本输出，累计下载超过 4000 万次，每周约 150 万次。</p>
+<p>机器人是团队的出身领域，却是公司从第一天起刻意搁置的垂直方向。他的解释是，围绕机器人建立生意很难而且回报滞后，量产级机器人要走完技术的验证与确认，再进入监管流程。所以公司先做横向的智能层，先服务整车与设备厂商，把验证要求更敏感的「动作」世界放到后面。目前已有工业机器人公司用 Liquid 的视觉语言模型做指令跟随，也有工厂摄像头监控类用法，用例多在工厂内。他说现在模型更成熟，对数据、后训练与定制流程的掌控更强，是认真启动机器人垂直方向的合适时点。</p>
+<p>对投研而言，节目里能确认的端侧出货场景目前是车机与 AI PC 两条，加上一条以低延迟为卖点的企业私有部署，手机厂商只被笼统提到，未给出客户名称与部署进度（作者归纳）。</p>
+<h3>收费方式：设计伙伴付服务费，上线后按设备按年授权，再用平台换规模</h3>
+<p>主持人判断这类生意应当是授权协议，Hasani 确认并给了流程。早期合作以「设计伙伴」形式展开，Liquid 派一支应用机器学习团队与客户一起做，这段合作期本身收费；方案做成并部署之后，按年、按设备收取授权费，依部署位置而定，模型费用是经常性的。一个垂直行业里的方案做出来之后，下一家同行业客户所需的服务时间会下降，变成方案部署。他举例说，奔驰作为汽车行业的设计伙伴把方案做成之后，后续车企客户需要的服务量就少得多。按垂直行业沉淀方案，是 Liquid 加快销售的办法。</p>
+<p>在此之上，公司正在做一个自助式的模型开发平台，目前处于测试阶段。它的形态是一组工具，放进客户自己惯用的代理框架里，用法类似今天使用 Claude Code：客户把 Liquid 的工具交给代理，由代理一步步带着开发者完成模型的开发、构建与部署，目标是达到 Liquid 自己动手时的生产级质量。现阶段这个过程需要开发者在环；平台也有一键全自动模式，他承认那样得到的模型质量不如交互式做出来的。主持人追问：如果评测集足够好，何必关心过程。他的回答是，首次部署时这个说法成立，可模型上线后新数据与新请求涌入，用户需求分布会突然漂移，静态评测会过时，所以需要一个持续演进的系统。现有的开发者入口 LEAP 是面向人工使用的库与开源手册，可以微调模型，也可以导出 llama.cpp 可用的 GGUF 部署包直接上设备；新平台是它的自动化版本。</p>
+<p>他对行业阶段的判断是，眼下约九成的市场围绕推理 token，前沿实验室与 Fireworks 这类推理服务商都是托管模型、按推理收费。下一波公司会做「定制 token」的变现，他点到 Thinking Machines 等几家，并说这一类里已经出现估值百亿美元级的公司。他给「定制」划的范围很宽，从预训练、中期训练、后训练、数据生成到强化学习都算，再交给代理去做并形成循环，结果是客户拥有自己的模型，上线后还能持续保持在想要的水平。他称这是「主权 AI」的本义，再往前一步是每个人拥有自己的智能。这条判断同时也是他在为自家平台立论，读者应按此折算（作者归纳）。</p>
+<h3>企业需求侧：约 200 家财富 500 强接触下来，八成 POC 到不了生产</h3>
+<p>Hasani 说 Liquid 迄今与财富 500 强中的大约 200 家打过交道，他看到的第一件事是企业的疲惫。这些成熟企业花了很长时间自建智能，组过自己的应用机器学习团队，试过下载开源模型，也试过针对自家课题从头训练，多数没有变成真正的生产线，最后退回云端方案。他给的比例是约八成的概念验证达不到生产级。</p>
+<p>第二件事是开发者一侧的需求很旺，人人都想用上能力靠前的模型来写代码，想把 token 用到上限，他把这种心态形容为开发者脑子里的一种病毒。但在成熟组织里去核算这些靠氛围编程（vibe coding）生成的代码仓库到底创造了多少价值，他的结论是约九成 token 是无用的。企业看到这一点、同时又要控制成本，于是对自助式平台有很强的需求：一边尽快拿到自己要的价值，一边满足内部开发者。</p>
+<p>对投研而言，这两组口播数字指向同一件事，即企业侧存在把一部分云端前沿模型用量替换为自有小模型的成本动机；需要注意的是，这个动机目前由一家卖小模型的公司转述，节目没有给出任何一家企业的替换规模（作者归纳）。</p>
+<h3>架构与硬件：八成卷积加两成注意力，按目标芯片搜索架构，生态总是赢</h3>
+<p>Liquid 的模型系列叫 LFM。Hasani 回顾了路线的来历：循环结构的计算量随输入增长接近线性，注意力是二次方，可非线性的循环算子在 GPU 上难以并行；状态空间模型靠线性化换来并行，代价是表达力，用在语言上学不好长程依赖，始终落后于 Transformer。Liquid 从第一天起就没有押单一架构，它把液态神经网络、Hyena、状态空间模型等几条替代路线的发明者聚到一起，做了一个按部署环境搜索算子组合的系统，相关论文名为 STAR。搜索同时优化四项：质量相对纯 Transformer 不让步、内存占用尽量小、延迟尽量低、计算速度尽量快。目标芯片是 GPU 还是 NPU，决定混合架构长什么样。</p>
+<p>第一代 LFM 是卷积、注意力与原始液态结构的混合，他自己形容为一团乱。第二代专门为在 CPU 上跑得好而优化，结构很简单，约八成是双门控的一维卷积，约两成是分组查询注意力。目前在 LFM 2.5，下一代 LFM3 会做小幅修改，加强质量、稳定性与延迟控制。公司内部跑缩放定律的范围从数千万参数到 700 亿参数。搜索得到的经验是，模型越大，架构里的结构性偏置应当越少；在内存只有 8GB 这类小规模场景，可以加入更多反馈回路换取表达力；状态空间模型与循环结构在音频这类连续序列上效果好，在文本上差；200 亿参数以下循环结构可以很有效。被问到注意力是否就是全部所需，他说注意力肯定是需要的一个部件，会长期存在，还要加上硬件感知、具身以及持续学习。他也提醒，应当假定各家前沿实验室都有团队在做替代架构，多数人眼下的精力放在推测解码、量化这类事后优化上。</p>
+<p>硬件一侧，这套搜索是硬件感知的，所以与芯片伙伴保持紧密对 Liquid 很重要。他举例说，像 Qualcomm 这样的公司若想为下一代 NPU 找到一张在自家芯片上表现靠前的计算图，可以把现有乃至下一代硬件放进搜索回路；主持人提到的 Taalas 与 Etched 这类把网络权重直接刻进芯片的公司，对架构搜索的兴趣比谁都大。软件栈上他的原则是不重复造轮子。很多推理公司想替换 llama.cpp 或在它外面包一层来做端侧 AI，他的评价是，凡是想做成通吃所有硬件的通用方案的，细看都不如原版 llama.cpp；成功的是锁定单一生态的那几家。主持人提到 Modular 已归入 Qualcomm，他预计 Mojo 会因此走得更顺，但 Liquid 自己的部署没有用它，要在 AMD 或 Qualcomm 上跑好都得写各自专用的内核。他的总结是「生态总是赢」，这对新进入者并不公平。他还指出，现有 GPU 基础设施是为并行矩阵乘法优化的，循环与层间回环这类结构缺少合适的基础设施。近期研究重心是大规模多模态、更长程的推理以支撑可靠的端侧助手、从内核到强化学习基础设施的效率工程，以及 DNA 这类人读不懂的长序列数据。</p>
+<p>对投研而言，Liquid 把自己定位为与所有硬件厂商合作的中立方，竞争位置取决于它能否在 CPU 与 NPU 这类受限硬件上持续拿出同等质量下更省内存、更低延迟的模型；节目没有给出与大厂端侧模型或主流开源小模型的同口径对比数字，这一点只能留待第三方测试验证（作者归纳）。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
