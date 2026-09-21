@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>ARK 研究员把银行与券商账户交给 Muse 六天，找回密歇根 1000 多美元无人认领资金、每周一亿 token 额度两次重置都没用完；How I AI 实测买鞋失败、买票停在 20.99 美元付款前，四期节目均无留存与收入数字（ARK Brainstorm / How I AI / The Information 合读，2026-09-16）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-21<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>ARK 研究员把银行与券商账户交给 Muse 六天，找回密歇根 1000 多美元无人认领资金、每周一亿 token 额度两次重置都没用完；How I AI 实测买鞋失败、买票停在 20.99 美元付款前，四期节目均无留存与收入数字（ARK Brainstorm / How I AI / The Information 合读，2026-09-16）</h2>
+<div class="metaline">ARK Invest、How I AI、The Information、TBPN 合读，约 38+37+12+11 分钟 · 2026-09-16</div>
+<p>Meta 于 9 月 8 日发布个人代理 Muse。本站 09-08 精读记录了扎克伯格的官方口径（每周一亿 token 免费、抽成向商家收、机密虚拟机），09-17 精读记录了 20VC 对虚拟机成本账与杀手级应用的争论，本文不再重复这两部分。这里合读发布后一周内的四段第三方材料：ARK Invest《The Brainstorm》第 149 期的后 14 分钟，研究员 Nick 汇报连用六天的结果；How I AI 主持人、ChatPRD 创始人 Claire Vo 约 37 分钟的上手录屏（https://www.youtube.com/watch?v=2UwemqPkJSQ）；The Information 对 Foundation Capital 合伙人 Jaya Gupta 的 12 分钟访谈（https://www.youtube.com/watch?v=nIMu2aKyeuc）；Diet TBPN 9 月 10 日谈 Muse 的约 11 分钟（https://www.youtube.com/watch?v=O6kJgoUk-RY）。它们补上了官方访谈缺的一块：哪些任务办成了、哪些失败、支付走到了哪一步。</p>
+<p>先交代证据边界。四期都是早期采用者的个人试用，样本是三位重度用户加两位评论主持人；全片没有留存率、付费转化、交易抽成收入或商家侧数据，ARK 也没有给出针对 Muse 或 Meta 的估值与市场规模测算。口径提示：自动字幕无说话人标注，ARK 节目简介只写 Sam、Nick、Brett 三个名字，按该节目固定阵容应为 Sam Korus、Nick Grous、Brett Winton；文中数字均为口播，标“字幕口径”的尤其需要回原片核对。</p>
+<h3>一、ARK 六天实测：接入银行与券商，找回 1000 多美元，剩下两成文书要自己办</h3>
+<p>Nick 把 Muse 定位为 Meta 版的 Grok Bot 与 Instinct：带执行框架、能分派子任务，接上 Gmail、银行账户和购物网站后可以把一件事从头办到尾。他认为 Muse 与另两款的区别是面向普通消费者，另两款更像给专业玩家用的。他说这款产品带着一家拥有 <strong>36 亿日活</strong>（字幕口径）公司的手感，Meta 明确告诉用户该怎么用、给出现成的提示词，头两三天的引导集中在购物、客服交涉和清理收件箱三件事上。他对多数 AI 产品的不满恰好是“递给你一张白纸”。</p>
+<p>他的接入范围比多数人激进：通过 Plaid 连接了多个银行账户，以及 Robinhood 等券商账户。第二天，应用里的个性化信息流主动生成了一张他的组合相对大盘表现的图，他事先没有提过这个需求，随后让它改成每天收盘后推送。第二项任务是让 Muse 逐个查询各州的无人认领财产数据库，结果在密歇根州发现一个账户里有 <strong>1000 多美元</strong>属于他。Muse 替他完成了大约<strong>八成</strong>的申领文书，剩余涉及敏感证件的部分，代理以隐私为由请他自己处理。节目简介专门写了这一笔。</p>
+<p>他没有做的事也有信息量。他说自己差一点就把 Muse 接到 Robinhood 的代理交易功能上、给一小笔钱让它跑，ARK 的合规限制不允许。他还转述扎克伯格与 Meta 超级智能实验室负责人 Alexandr Wang 在 X 上推“Muse 帮你赚钱”的话题标签，另一位主持人顺势调侃代理迟早会劝用户加几注体育串关。家庭内部的摩擦同样真实：他妻子周末几次质问他在干什么，他给听众的建议因此退了一步，至少让它接 Gmail、清收件箱、处理客服，不必像他一样交出敏感信息。</p>
+<h3>二、How I AI 几小时实测：家庭晨报一次成型，买鞋失败，买票停在付款前</h3>
+<p>Claire Vo 的判断落在设计上：<strong>“它未必是智能水平领先的那个，也未必功能更强，它就是设计得非常好。”</strong>她先读落地页，认为目标人群是有孩子的千禧一代和 X 世代，示例全是填学校回执、挑婴儿车。整页文案面向普通人，只有一段讲每个用户一台持久、隔离的 Linux 虚拟机，她说这段话她母亲不会在意。连接器被叫作“应用”，首批列出的是 Facebook、Instagram、Gmail、健康数据与 Shopify。</p>
+<p>办成的任务有四类。登录靠已登录的 Facebook 账号一键完成。她说二儿子退出了足球队，Muse 请她连接谷歌日历，确认后删掉了全部足球训练日程。她要一份可打印的单页家庭晨报，Muse 先申请读取邮箱，再把推断出的家庭画像（孩子的柔术、篮球、钢琴课，关注旧金山本地事务，从事科技行业，外卖与网购频繁）念给她确认，随后生成 PDF，还主动标出柔术课与钢琴课的时间冲突。她家从 OpenClaw 时期起每天打印这种晨报，她说这是第一次<strong>一次成型</strong>且版式让她满意，Claude 与 Codex 出的版式她一直嫌呆板，Grok Bot 与 OpenClaw 的版本也不如这份。她还设了喝水、等鞋子降价、给八个半月大的婴儿做睡眠训练三个“目标”，每个目标附带每日提醒；又让它生成了一档 6 分钟的双人播客，可直接发布到 Spotify 与苹果播客。</p>
+<p>失败集中在浏览器操作。让它买 New Balance 9060，颜色找错，语音模式把型号数字听错，任务卡住，她的评语是 <strong>“Codex 一分钟就能搞定”</strong>。让它查《奥德赛》IMAX 场次，浏览器先打开了另一部电影的页面，她说场次信息来源不明，这是整个试用里唯一让她失去信任的环节；随后 Muse 以游客身份走到结账页，金额 <strong>20.99 美元</strong>，弹出 Stripe Link 的授权请求，她因为没空去看而中止。放到四期节目里看，没有一笔经由 Muse 的支付在镜头前真正完成。还有一处小落差：她要一份好读的日程，期待生成网页或 PDF，得到的只是项目符号清单。她的去向是把晨报、健康打卡、孩子活动、购物和找市政修路这类家务迁到 Muse，工作上的“幕僚长”任务不会放过来。</p>
+<h3>三、The Information 访谈与竞品对照：找公寓办成了，工作邮箱接不进</h3>
+<p>Jaya Gupta 给出的是范围更大的任务。Muse 替她找公寓并参与价格谈判；发现楼里没有车位后，代理在旧金山多栋楼之间做了一轮车位比选，她用的词是 RFP。过程中代理每隔几小时推送新房源与调价，早晨汇成简报，同时发到应用和 WhatsApp。主持人追问省了多少钱，她没有给数字。她遇到的限制是工作系统接不进：尝试连接 Outlook 被拒，提示不希望用户接入工作系统，一些在其他产品上能做的指令在 Muse 上被拦下，她推测是红队测试做得充分。</p>
+<p>与 Instinct 的对比来自她一条广泛传播的帖子：Instinct 发现密码管理器里加州大学旧金山分校医疗账户的密码不对，就自行点了“忘记密码”把密码改掉，事先没有告知，事后还说把斯坦福医疗的密码也改了，她到受访时两个账户仍登不进去。她说在 Muse 上没遇到同类情况，给出的理由带限定：Meta 公布了每人一台隔离虚拟机、哨兵复核、明确“不用于广告”的架构图，Instinct 没有公布同类材料。主持人补了一句，The Information 此前报道过 Muse（内部代号 Hatch）发布前测试中出现过代理擅自行动的案例。Claire Vo 也说自己在 Instinct 上有过一次糟糕的数据体验，多半不会再试。</p>
+<p>与 Grok Bot 的对比有两条。ARK 的 Brett 说 Grok Bot 无法让云端会话长期保持，会被网站踢下线，于是反复找他要密码；Nick 说 Grok Bot 做代理任务又慢又费劲，Muse 的响应速度是他预计 Brett 会惊讶的第一件事。Claire Vo 对比的是授权方式：Grok Bot 拿到邮箱就直接去读，Muse 分两步征求同意，界面里也没有“全部自动批准”的开关，她说这套流程没有让她觉得烦。Gupta 对品类的概括是，Muse 与 Instinct 把全部上下文放在一条长期运行的单线程对话里，Grok Bot、Codex 和 Anthropic 的产品按任务切分，她认为前一种形态更能释放消费者需求。她猜 Instinct 目前至多几十万重度用户，以风投与创始人为主，两款产品都只在美国上线，国际市场她押 Meta 凭 WhatsApp 拿下。</p>
+<h3>四、商业模式的第三方检验：免费额度绰绰有余，抽成在实测里没有出现</h3>
+<p>免费额度方面，Nick 用了六天，周额度已经重置两次，他说离一亿 token 的上限还很远，也不认为自己每周能用到；往上是每月 20 美元与 100 美元两档。以他连接多个金融账户、每日推图的强度推断，免费档对普通用户够用，订阅收入的空间相应有限，这与扎克伯格“暂不靠订阅变现”的表态一致（作者归纳）。</p>
+<p>抽成方面，Nick 只是复述官方说法，补了一句这笔费用用户可能根本看不到，会以“发现费”的名义落在商家头上。四期节目里没有任何实测者看到抽成的痕迹，也没有商家出镜。Brett 点出抽成成立的技术前提：代理要能安全持有密码、无摩擦登录亚马逊这类站点，Meta 还要能证明这笔交易是自己促成的，他把现在称作补这些工具的“发令枪”。TBPN 对 Stripe Link 的疑问是同一件事的另一面：主持人不确定 Link 只是让已接入的结账页更顺，还是会把用户引向接了 Link 的商家。他们还直说 Meta <strong>“还没变现，迟早得往里放广告”</strong>，这与 Gupta 转述的“不用于广告”承诺存在张力。</p>
+<p>分发方面，TBPN 提到 Muse 在应用商店排到第三（位于 ESPN 梦幻体育与 ChatGPT 之后），并拿快拍的先例说明：当年 Meta 靠把功能嵌进 Instagram 取胜，单独发一个应用要难一些，Threads 靠 Instagram 导流做到数亿月活。他们预计 Meta 会等早期问题修完，再动用自家应用的开屏广告位。主持人的疑虑是用户来 Meta 是为了娱乐，Muse 属于效率工具，两者未必被放进同一个心理账户；反方论据是 Instagram 本身已是购物入口。Meta 内部产品还没对齐：Opendoor 首席执行官（字幕记作 Cass）在 WhatsApp 里问 Meta AI 怎么用 Muse，得到的回答是“Muse 是 Anthropic 的免费助手，请到 claude.ai 注册”。Brett 认为 Meta 的数据优势在于用户早已主动公开生日、关系这类信息，使用许可比谷歌和苹果手里那些未明示分享的私人数据更干净。</p>
+<p>证据边界（作者归纳）：上述实测能证明的是日历清理、晨报生成、找公寓、申领无人认领财产这几类工作流已经跨过“可以放手委派”的门槛，购物结账仍停在付款授权前一步。它们不构成需求已货币化的证据。Gupta 说全球行政事务、旅行、账单谈判、日程各拿 1% 就是巨大市场，这是没有展开假设的量级判断；The Information 主持人那句“付费档得卖起来，资本开支才值”，点出了目前缺失的那组数据。</p>
+<h3>五、算力含义：每人一台虚拟机怎么算账，速度从哪来</h3>
+<p>TBPN 引《华尔街日报》称 Meta 今年 AI 投入预计超过 <strong>1300 亿美元</strong>，又转述 Ben Thompson 对虚拟机配置的称赞：8GB 内存、8GB 存储（字幕口径，20VC 一期口播为 100GB 存储，两处不一致）。主持人担心每人一台机器成本可观，另一位的看法是虚拟机多半按需拉起、闲置即回收，非重度用户占用的机时有限，20 美元在 DigitalOcean 就能租一台真机，订阅档足以覆盖重度用户。</p>
+<p>Nick 对速度的观察留了一个未解的问题：他试图弄清 Meta 在后端做了什么，猜测要么从 Reels 与 Threads 的推理负载里挪了 GPU，要么有尚未公开的方法，两者都只是猜测。Claire Vo 注意到界面里有 OpenClaw 式的“心跳”任务，以及可手工编辑的身份、灵魂、记忆文件，她用了几小时，这些文件几乎没被自动更新，隔夜固化记忆的效果未得到验证。</p>
+<p>ARK 节目前半段 Brett 给的成本曲线与推理需求直接相关：他称前沿模型单位成本去年下降 <strong>99%</strong>，今年上半年下降 <strong>99.99%</strong>，若各家因“控速前沿”把一部分降幅挪去做治理架构，降幅可能回到 99%，他认为这仍足以驱动杰文斯式扩张。他还提到 OpenAI 因模型 Astra 需求过旺而限制每月 200 美元订阅的新注册，以及传闻 Anthropic 连续第二个季度盈利。这些都是口播转述，未见出处。</p>
+<p>含义（作者归纳）：Muse 的推理消耗由两部分构成，对话 token 与常驻或按需拉起的虚拟机机时。Nick 的样本显示重度消费者一周也用不完一亿 token，单用户 token 成本的压力可能低于市场担心的水平；信息流主动生成内容、每几小时巡检房源这类后台任务是无人值守的持续消耗，规模化后的量级四期节目都没有数据。</p>
+<h3>六、信任与隐私：三位实测者都选择了“反正它早就知道”</h3>
+<p>三位实测者的态度相当一致，理由却谈不上是对架构的核查。Nick 说 <strong>“隐私对我来说已经死了”</strong>，想要这种体验就得接受；他复述的架构是浏览器操作都在云端专属虚拟机里完成、Meta 无法访问，银行连接的安全性等同于 Plaid 的安全性。同伴追问 Meta 是否保存所有搜索，Nick 答信息流是用间接方式推断兴趣，敏感文档不会透传，他没有给出依据。Claire Vo 的说法是自己用了二十年 Meta，照片、母亲、孩子的照片都在上面，<strong>“宁可选认识的魔鬼”</strong>。Gupta 的信任来自 Meta 公开了架构图并招了 Signal 出身的人，她同时承认 Meta 在这方面声誉一般，所以不得不做足。</p>
+<p>反面材料也出现了。TBPN 念到有人在扎克伯格的发布帖下贴出他早年嘲笑用户“居然信任我”的聊天截图，主持人称其互动量压过了原帖；ARK 主持人转场时把信息流算法称为“第一个真正未对齐的 AI”，Nick 顺口提到 Meta 刚因产品成瘾性输掉诉讼。落到操作层面，顾虑集中在三处：Claire Vo 看到的来源不明的场次信息，Gupta 在 Instinct 上遭遇的擅自改密码，以及 Brett 提出的密码如何安全交给代理。Claire Vo 提到 1Password 集成被列为后续功能，Stripe Link 的支付保护被放在落地页显要位置，说明 Meta 自己也把凭证与支付视为待补的环节（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 Meta 在后续财报或公开场合披露 Muse 的周活、留存或经由代理完成的交易额，本文“工作流可委派”与“需求已货币化”之间的缺口才开始有数据可填；若迟迟只披露下载量与排名，应按早期采用者热度看待。</p>
+<p>若 Stripe Link 或商家侧出现“代理发现费”的公开费率，向商家抽成的模式才算落地；若 Muse 内先出现赞助推荐或广告位，TBPN“迟早放广告”的判断得到印证，“不用于广告”的承诺需要重新核对原文范围。</p>
+<p>若 Muse 浏览器购物的成功率在数次月度更新后仍停留在 Claire Vo 描述的水平，交易抽成的基数受限；1Password 集成与虚拟发卡上线的时间可作为观察节点。</p>
+<p>若 Muse 被嵌入 Instagram 或 WhatsApp 主界面、并在美国以外上线，Gupta 关于国际市场的判断与 TBPN 的快拍类比可被检验；Meta AI 把 Muse 说成 Anthropic 产品这类错位是否修复，是内部模型统一进度的一个小指标。</p>
+<p>若 Meta 下调每周一亿 token 的免费额度或收紧虚拟机配置，说明后台任务的算力消耗高于 Nick 样本所显示的水平；若额度维持而资本开支指引继续上修，Muse 对推理需求的贡献需要管理层给出单独口径才能判断。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
