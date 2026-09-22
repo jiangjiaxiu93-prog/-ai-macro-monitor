@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Stengel 称 Opus 4.5 之后模型已能做初级银行家的全部工作，Rogo 仍按席位卖给银行、而它付给 Anthropic 的 token 账单无人经手即指数上升，Pat Grady 判断全金融业 18 个月内必买 AI（Invest Like The Best，2026-09-22）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-23<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Stengel 称 Opus 4.5 之后模型已能做初级银行家的全部工作，Rogo 仍按席位卖给银行、而它付给 Anthropic 的 token 账单无人经手即指数上升，Pat Grady 判断全金融业 18 个月内必买 AI（Invest Like The Best，2026-09-22）</h2>
+<div class="metaline">Invest Like The Best，67 分钟 · 2026-09-22</div>
+<p>本期 Invest Like The Best 由 Patrick O'Shaughnessy 主持，嘉宾是面向金融机构的 AI 平台 Rogo 联合创始人 Gabe Stengel；O'Shaughnessy 在节目中说自己是 Rogo 的投资人，Rogo 也是本期赞助商之一，读者应把这两层利益关系放在前面。口径提示：收入目标、席位数、时间节省倍数、融资被拒次数等均为口播，未经核对；自动字幕把 Dario 记作 Daario、GPT-3 记作 GB3、ChatGPT 记作 chat GBT、o1 Pro 记作 01 Pro、Opus 4.5 记作 Opus 45、Moltbook 记作 malt book、FactSet 记作 Faxit、Claude Code 与 Claude Cowork 记作 cloud code 与 cloud co-work、Max Levchin 记作 Max Lebchin、Pat Grady 记作 Patrady、Keith Rabois 记作 Keith Ra boy、David Tisch 记作 David Tish、Harvey 的 Winston Weinberg 记作 Winston、Goldman/Citi/Jefferies/Ares 记作 Goldminer City/Jeff/Aries、Rocket Mortgage 记作 Rocket Mort、Morningstar 记作 Morning SAR、Lee Sedol 记作 lease it all，均按上下文还原；被点名做"数字分身"的 Moelis 联合创始人字幕作 John Mumazi，人名无法确认，下文只写职务。本文只取与 AI 产业相关的线索：模型代际、金融机构的采购方式与定价、试点到生产的卡点、Rogo 与前沿实验室的分工、合规约束、代理替代分析师之后的资本市场形态；Stengel 的创业心路、招聘话术与家庭往事在此略去。中心判断是：金融机构对 AI 的支出眼下仍走席位制的老渠道，消耗制账单在应用商与实验室之间已经跑起来，Rogo 这类垂直商的位置由三样东西决定，合规管道、交易场所与一支懂金融的团队（作者归纳）。</p>
+<h3>产品代际被 Stengel 直接绑在模型代际上：o1 Pro 让它成为可靠的检索工具，Opus 4.5 之后能接下初级银行家的活</h3>
+<p>Stengel 说 Rogo 在 GPT-3 发布后、ChatGPT 之前起步，早期能演示出漂亮的东西，但没有一样真正好用。他把此后的产品代际直接对应到模型代际：第一个节点是 o1 Pro，模型第一次可靠到让人愿意让它去算某家公司过去 12 个季度的某项财务指标；第二个节点是 Opus 4.5，时间落在 2025 年底到 2026 年初，用他的话说，只要给对指令和上下文，模型基本能做初级投资人员或初级银行家在做的任何事。他承认应用层存在先发劣势，看对了终局却在模型没到位时推出产品，用户试一次就说这是垃圾，好处是模型到位那一刻产品立即可用。</p>
+<p>他举的用例是投行 MD 把一份 deck 的批注通过邮件发给 Rogo 的 AI 分析师，20 分钟拿回改稿，此前交给人工分析师要两天；系统同时通知该项目的初级分析师，附上每处修改的完整可审计记录。他说这是为十年没登录过电脑、只会在 iPad 上批注的金融人设计的入口。往前看，他把 Moltbook 那类多代理协作当作前沿方向：设想对冲基金每个 PM 手里有 1 万个代理彼此辩论、读笔记，24 小时后交出一个想法；能这样烧 token 的理由是投资人愿意为一个好主意付 5 万美元，别的行业很少有人肯为一条洞见花这么多算力。他说眼下模型比他认识的任何人都聪明，剩下的全是管道，即把模型接到客户的上下文、论点与工作方式上。</p>
+<p>投研含义：垂直应用的收入拐点由模型代际决定，Stengel 给出的两个节点可以当作金融行业 AI 采购加速的时间锚，Opus 4.5 之后的季度才是看客户扩张的窗口（作者归纳）。</p>
+<h3>核心客户是做交易的人，半数产品面在系统之下与 CRM、组合监控和 LP 报告对接</h3>
+<p>Stengel 说他直觉上公开市场是 AI 的合适场景，因为数据都摆在那里，比的是谁更聪明；但 Rogo 的核心客群是"做交易的人"，买公司、卖公司、协调交易的投行与 PE。产品做的事包括准备数据室、拆解数据室、协调与第三方讨论数据室的电话、走完从启动到交割的每一步；卖方把公司模型、客户结构 PPT、DDQ 答案放进数据室，买方的代理拆开这些数据，对照基金的投资理念判断客户集中度是否越线。用户从邮件、聊天机器人、主动提醒进来，但他说 Rogo 有一半的表面积在冰山之下，即随着交易推进去更新 CRM、组合监控系统与向 LP 分发信息的系统。</p>
+<p>公开市场这一块他还没做，理由是不懂公开市场投资人的工作方式，需要先招来领域专家再把已有系统套上去。董事会推他扩大 ICP，他的回答是做交易这条线的 TAM 足够深，且他的终局是私募市场的交易基础设施，公开市场的交易所早已存在。他由此总结，垂直 AI 的机会落在管道尚未建成的行业，私募市场的协调、标准化、尽调与成交至今全由人工完成。</p>
+<p>投研含义：AI 在金融的落地顺序与数据可得性反着走，先进入人工密集、系统缺失的私募交易环节，公开市场投研的自动化要另起一支团队（作者归纳）。</p>
+<h3>定价仍按席位，对标 Bloomberg 与 FactSet，Stengel 想跳过按 token 收费直接收"每个好主意"</h3>
+<p>Stengel 把 Rogo 定义为经典企业软件公司，眼下按席位定价，理由是买家习惯按席位付费，把它归到 Bloomberg、FactSet、Capital IQ、PitchBook 一类。每一单都要 AE、解决方案架构师与销售工程师上门握手、讲集成，签不出一单用量自动涨百倍的合同。他拿自己做对照：Anthropic 卖给 Rogo 很容易，Rogo 付给 Anthropic 的钱按 token 消耗计，无人经手就指数上升；而在金融这类行业，搭 token 消耗的顺风车做企业销售行不通，所以 Rogo 要以五倍于通常企业销售组织的速度搭建市场机器。他把 AI 软件分成两类，一类是传统企业销售加 AI 做出百倍更好的产品，一类是 Cursor、Factory、Claude Code 这样卖给习惯按用量采购部门的"token 经纪商"，后者用更少的人走得更远。</p>
+<p>关于未来，他说每家公司都要经历两次定价革命，先到用量制再到结果制，而他想跳过用量制，直接对每个好投资想法、每份发给 LP 的季报、每份银行家做出的 SIM 收费。理由是 token 账单与价值难以对齐，客户花了 10 万美元 token 说不清换回了什么，而一个好主意赚了多少钱、一份 SIM 对应多少卖公司的佣金，客户自己算得清。被问到席位制下客户越用越多、Rogo 成本越高的错配，他的回答是 Rogo 只走了产品路线图的 1%，资本市场 99% 的创新还在前面，眼下要紧的是做客户 AI 战略的好管家。</p>
+<p>投研含义：金融机构的 AI 预算眼下从数据终端预算里走席位制渠道，token 消耗的增长发生在应用商与实验室之间的第二层，实验室金融业务的收入弹性要连同应用商的账单一起看（作者归纳）。</p>
+<h3>与 OpenAI 和 Anthropic 的分工：实验室不会去做数据室，Rogo 要做交易场所与通信层</h3>
+<p>被问到怎样与把金融列为重点行业的 Anthropic 和 OpenAI 竞争，Stengel 的说法是做与实验室垂直的东西。有时为了快速进入市场会先做聊天机器人，但表面之下有一大堆实验室不会为金融建的东西。他算的账是，整个金融是一堆细分领域的集合，各有自己的数据、对"好"的定义与监管要求，Rogo 可以靠在这些领域做深、做记录系统拿到 50 亿美元收入，而对 Anthropic 来说这像是在从 1000 亿美元收入奔向 1 万亿美元的路上停车捡一枚硬币。</p>
+<p>他给的两个"最后一公里"例子都在合规侧。一是处理 MNPI 时的可审计性，监管方要查时，每一步是否记录得像素级完整；二是大型上市公司之间的收购需要一个合规、安全并且接入代理与工作流的数据室，而实验室不会想做数据室生意。他的结论是，若想成为整个高端金融与资本市场的交易所，除了智能还得拥有交易场所、通信场所、工作流与全部数据输入。O'Shaughnessy 的概括是三要素里 harness 与基础设施比数据和模型更重要，Stengel 用 Claude Code 与 Claude Cowork 对 ChatGPT 的对比作答，模型相近，harness 让模型发挥出长程能力，这解释了用量的跃升。他把 Rogo 的 harness 比作 Max Levchin 所说每年重写一遍的账本系统，模型变化太快，不可能停在局部最优。对于模型眼下做不到、做到会改变产品性质的能力，他只点了一项，即记忆压缩：一个代理与一个人对话一百次后如何把该记的东西压进可用的 token 里，而当代理从一对一走向与整家公司一百个人协作时，这个问题按指数放大。</p>
+<p>投研含义：垂直应用商与实验室的边界被 Stengel 划在合规管道与交易场所，实验室的金融产品若停留在聊天与检索层，短期难以侵入这条边界，长期的变量是实验室是否愿意把可审计与数据室这类低毛利的基础设施纳入路线图（作者归纳）。</p>
+<h3>客户主要是大银行，个人生产率已被验证，公司层面的生产率仍没人算得清</h3>
+<p>Stengel 说客户主要是大型银行，理由是银行是金融业的人才分发渠道，也拥有多得多的席位，签下一家 Bank of America 触达的人数远超签下十位各带十人团队的基金经理。关于企业采用曲线走到哪里，他的描述是多数机构已看到大量个人生产率提升，正在想办法把它变成可度量的公司生产率。他引 MD 的话，过去要和分析师来回三天做出的五页材料，现在自己十分钟做完，而这些人 20 年没打开过 Excel。问题在于效率流向了哪里，是否赢下更多交易、是否服务了过去够不着的市场，这变成削成本还是进新市场的公司战略问题。他举 JPMorgan 刚宣布要为中小企业做更多并购业务为例，过去这类交易费太低、配不起人手，一名银行家可以是一个人的交易团队之后，进入这类市场就说得通了。Stengel 说瓶颈会落在客户想清楚自己要什么，如果明天来一百位优秀投资人，分工、分配资金、攻哪个方向都要想很久。</p>
+<p>"幻觉"一词退出讨论后，他的说法是可审计比准确更重要：答案不准但假设与数据来源一眼可见，仍可用且省时间；答案准但不可核查，用户不敢用。从"副驾驶"走向"自动驾驶"，即代理自行做投资决策或发邮件后，必须能回溯每个决定的成因，就像复盘一位做错决定的投资人要查数据输入是否有误；在有监管的市场里，讲不清决策依据行不通。他还提到，若有一天特拉华州法院把 AI 输入与研究列为可取证材料，机构必须早已按不混用信息的方式记录完整血统。</p>
+<p>投研含义：金融机构的 AI 支出从试点转向生产的判据，在 Stengel 的表述里落在两处，一是机构能否把个人时间节省转化为可度量的交易数量或新市场，二是产品能否提供满足监管取证的审计链，这两条分别决定预算续约与代理权限的放开（作者归纳）。</p>
+<h3>Rogo 自己把每场对话录下来喂给公司大脑，月度用量榜垫底者被贴上"傻瓜帽"</h3>
+<p>Rogo 的增长受制于让人快速上手的速度，Stengel 说培训与反复再培训是核心问题。公司内部每一场对话都被录下来，新人入职即被告知会有 Granola 之类的转写工具一直在跑，所有信息汇入一个叫 Shrek 的公司大脑。它接入所有系统，被告知公司目标与北极星指标，既能被动回答，比如如何向大型机构讲模型路由的价值主张，也会主动推送，比如看到某人周四要见一家私募信贷公司，就把能引起共鸣的用例与过去客户关心的 ROI 指标推过去。他每月收到一份全公司 AI 工具使用报告，每个部门的前五名与后五名被贴出来，垫底者的打印件戴上傻瓜帽贴满办公室；他承认公司变大后不认识他的人真的会害怕。</p>
+<p>投研含义：应用商自身的运营方式给出了它向客户兜售的模板，即把员工的隐性知识转成公司持有的系统，这也是它向金融机构推销"公司大脑"的样板（作者归纳）。</p>
+<h3>融资时 40 家机构连续拒绝，Rabois 称其"金融版 Harvey"，Rogo 后来收购了六家金融 AI 初创</h3>
+<p>Stengel 回忆 A 轮时 David Tisch 引荐的 40 家机构全部拒绝，Sequoia、Kleiner、Benchmark、Thrive 都在其中，一个月后 Keith Rabois 进场，Rabois 的话是这算不上逆向押注，就是金融版的 Harvey。他给出的被拒原因有三条：硅谷低估金融的 TAM，因为 Ion、Bloomberg、S&amp;P、FactSet、PitchBook、Morningstar 都没有风投背景；产品当时一半时间是错的，投资人自己试过就断言做不成；没人相信他能迭代出来。为什么没有更多可信的金融 AI 竞争者，他的解释是分发难破，本质上是与机构建立信任的人的问题，工程门槛同时很高；Rogo 早期雇员多来自 Goldman、Citi、Jefferies、Apollo、Ares、Blackstone，团队里有超过一百人在投行或投资机构工作过。他说领域知识与产品直觉的价值在上升，团队里表现好的多是前创业者，Rogo 已收购了六家起步阶段的金融 AI 初创公司。</p>
+<p>他还转述了 Sequoia 的 Pat Grady 在周三董事会上的推理：如果金融业每个人都会在未来 18 个月做出 AI 采购决定，并且无论 Rogo 在不在都一定会买，那么唯一要紧的就是尽快扫遍市场保证自己在场；据此原本激进的年度计划被判定还不够激进。Stengel 说风投支持的公司要加厚分布的两条尾巴，失败概率多 30% 换千亿美元公司的概率多 20% 可以接受，他向人才讲的目标是 5000 亿美元规模。</p>
+<p>投研含义：这段给出金融 AI 赛道的两个结构事实，一是市场正在被并购整合，二是买方决策被压缩在一个 18 个月的窗口里，这意味着席位争夺会先于产品分化发生（作者归纳）。</p>
+<h3>十年后机构 90% 的企业价值将由软件与数据承载，私募市场标准化的速度是 Stengel 说不准的事</h3>
+<p>Stengel 称这是金融业长期以来第一次创新者困境：过去一二十年做资本配置很赚钱，私募机构一只基金接一只基金有自然惯性，从没有过让每家机构都要重想商业模式的冲击，如今会有成百上千家 AI 原生的投资机构与投行来攻击现有模式。他给在位机构的两个问题是：若今天 90% 的企业价值在人身上，而十年后世界上头部投资机构与投行 90% 的企业价值将由软件、数据与系统承载，现在该做什么，答案是把顶尖人才头脑里的隐性知识装进机构自有并自主运行的系统；其次是拆开交易生命周期的每一环，逐一判断自己拥有的是别人没有的关系或上下文，还是只是自认为更聪明、读得更多，后者会被 AI 抹平。他举了一位 Moelis 联合创始人的例子，两年前就要求给最好的银行家做数字分身，替他出席电话、按他的思路说话，并让该行每个初级员工都能立即调用他的经验与关系。</p>
+<p>他描绘的资本市场终局对标 Bloomberg 的路径：先用一点数据进门，再把分析与工作流铺上去，最后提供交易与通信平台；Rogo 的版本是用一点 AI 进门，从副驾驶做到自动驾驶，保证 IC 备忘录与 DDQ 百分之百准确，再提供交易对手之间的通信渠道，区别在于这条渠道是给代理之间交易用的。他设想大型 PE 放心让代理替自己谈判、与 QoE 顾问和法律顾问往来、并跑一场多家赞助人出价的拍卖，最终形态像一个面向非标准化资产的交易所。他引用抵押贷款的先例，如今 40% 到 50% 的按揭由 Rocket Mortgage 这类平台线上完成；他预期企业融资与举债会像在 Robinhood 上点一下买股票一样容易，KKR 判断能否把一家组合公司卖给另一家赞助人只需五分钟，资产定价时间缩短一个数量级，30 万家说不清 Goldman 做什么的美国企业能够接入资本市场。他自认说不准的两件事，一是私募市场标准化的速度，私募市场因非结构化数据而免于标准化，AI 应当补上，但是否有监管或市场力量加速，超出他的控制；二是人际关系里还剩多少 alpha，微型并购里经营了二十年的业主大概率仍要握手成交，而赞助人持有的公司、私募信贷与 GP/LP 二级交易可以完全自动化，长尾中小企业愿意点按钮出售需要多久，他没有答案。</p>
+<p>投研含义：Stengel 把私募市场交易基础设施当作终局，这条路的收入弹性取决于标准化速度与监管态度，两者之外还要看代理间通信协议由谁定义，眼下这一层尚无在位者（作者归纳）。</p>
+<h3>验证点（作者归纳）</h3>
+<p>若 Rogo 在未来几个季度公开转向用量制或结果制定价，则席位制只是过渡的判断得到支持；若大型银行续约仍按席位、且席位数扩张，则金融机构的采购习惯比 Stengel 预期的更顽固。</p>
+<p>若 OpenAI 或 Anthropic 的金融产品在后续版本中加入数据室、MNPI 隔离与监管取证级审计链，则 Stengel 划定的分工边界被侵蚀；若实验室的金融产品仍停留在检索与文档处理，则边界成立。</p>
+<p>若 JPMorgan 等大行在中小企业并购上的交易数量出现可见增长，则"一个人的交易团队"从个人效率转为公司产出的传导得到验证；若只见效率口述而无交易数量变化，则预算从试点走向生产的节奏要放慢。</p>
+<p>若未来两年出现按代理协议成交的私募二级或私募信贷交易，则代理间通信层这一终局开始兑现；若私募市场标准化仍无监管推动，则 Bloomberg 式三段路径的第三段需要推后。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
