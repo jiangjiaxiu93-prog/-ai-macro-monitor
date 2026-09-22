@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>TypeSafe 创始人 Almeida 讲 Jev：发布不到一周日调用量过一万亿 token 且夜间不落、发布前几乎没有收入、超半数试用者「没看懂」；模型只输出选择、是非、评分三种可被代码消费的概率，拒绝公开基准与拒答，「给我十亿美元也不做预训练」（Latent Space，2026-09-21）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl on" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../frontier.html">← 返回前沿</a>
+<div class="card"><article>
+<h2>TypeSafe 创始人 Almeida 讲 Jev：发布不到一周日调用量过一万亿 token 且夜间不落、发布前几乎没有收入、超半数试用者「没看懂」；模型只输出选择、是非、评分三种可被代码消费的概率，拒绝公开基准与拒答，「给我十亿美元也不做预训练」（Latent Space，2026-09-21）</h2>
+<div class="metaline">Latent Space，143 分钟 · 2026-09-21</div>
+<p>本期录于 Jev 发布当周，嘉宾 Diogo Almeida 是 TypeSafe AI 联合创始人兼 CEO，此前在 OpenAI 参与 InstructGPT 的指令跟随工作，主持人 swyx 与他相识多年并审过公司宣言。本站 09-22 博客要点已收录 Simon Willison 对 Jev 的介绍：输入文本只返回类别、是非、评分与置信度，只按输入计费，每百万 token 0.042 美元，低于 GPT-5 Nano 的 0.05 美元，社区已基于 Qwen 3.5 做出开放权重复刻版 Kev。本文不重复产品说明，只整理访谈里关于用量、商业判断、技术路线与行业争论的信息。全部数字为口播，公司未发布任何论文或财务数据；Almeida 多次自称「不看基准」「不做演示」，因此本文没有可核对的性能坐标，评价其能力只能等第三方评测。</p>
+<h3>一类新模型：代码是消费者，输出是三种概率</h3>
+<p>Almeida 把 Jev 定义为「System One 模型」，也叫机器原生的大型可编程模型，与三类既有模型的区别在于消费者：预训练大模型服务于互联网文本的自动补全，RLHF 模型服务于回复人类，RLVR 模型处于两者之间的灰色地带，Jev 的输出直接由代码消费，公司名 TypeSafe 由此而来。三种输出原语刻意不复用编程语言里的既有类型：choice 对应枚举上的 switch 语句，nool（取名自 Bernoulli）对应 if 语句，score 对应排序或阈值比较；输入端的状态、指令、判据都可以是嵌套的 JSON 对象，他认为把结构拍平成系统提示是「旧思路」，系统消息相当于把所有指令塞进一个全局变量再祈祷每条都被执行。</p>
+<p>他推荐的用法是把任务拆到语义上的最小单元，并行问许多小问题，每个问题都可单独评测，出错就加一个问题、加一个阈值、留一个测试用例，「像没有机器学习的机器学习」。他承认拆小后会重复传状态、显得不经济，解法是给长状态里的每条消息编号，状态付费一次，对每个编号各问一个问题。swyx 自己的测试结论是单跳判断表现居前，多跳推理随跳数增加而衰减，Almeida 未反驳，只说能挖出多少能力是经验问题。</p>
+<h3>用量与商业化：一万亿 token 一天、发布前几乎零收入、瓶颈从等候名单变成速率上限</h3>
+<p>他给的唯一里程碑是日调用量超过一万亿 token，并强调这是「夜里也在跑」的稳定用量，说明调用方以机器为主。注册人数他认为对开发者平台没有意义，等候名单已经全部放行，很多注册者根本没在编程，「一个重度用户的 for 循环抵得上全人类各写两句查询」；真正稀缺的是速率上限，用户一旦从中获得价值就会不断要额度，甚至提出直接送 GPU。发布视频播放 3800 万次，他自己拿来对照的是 OpenAI Navier-Stokes 成果的 7400 万和 Fable 5 的 5700 万。Discord 社区 10 万人。</p>
+<p>发布前的情况与之相反：公司隐身两年，「几乎没有收入」，试用者超过一半没看懂，看懂的问「怎么过采购流程」，非技术同事担心产品只是「维生素」，解决不了痛点。他由此质疑「产品市场契合」这个概念，认为当时产品和市场都在，只是没有人相信。这段对判断这类平台的早期数据有参考意义：它的用量指标在发布一周内从零跳到万亿量级，收入指标仍是空白，两者之间的转换率没有任何披露（作者归纳）。</p>
+<p>定价上他把品牌定义为「单位美元智能」的前沿，Jev 这个名字取自 Jevons 悖论，即成本下降会带来更多消耗；他不押「单位秒智能」，认为实时场景很值钱，但留给别家去做。swyx 的解读是市面上「更快」通常意味着「更贵」，Jev 占了「更快且更便宜」这个空着的象限，前提是智能水平大致不变，Almeida 承认「智能不变」是最难的部分。为了留在这条前沿，他说公司在做「令人作呕的事」，不承诺确定性输出（相同输入相同输出），因为确定性可以换成本；也不承诺长期支持，当前版本 Jev 1.13.0 可能临时进入 LTS，理由是不想让机群碎片化。他明确承诺的只有一条：已部署的模型不会被悄悄替换或量化。</p>
+<h3>技术路线：RLCD 是「新任务」，零 RLVR，不预训练，全部合成数据</h3>
+<p>他把大模型发展中的路线转折归为「2.2 次」：RLHF 把任务改成指令跟随，RLVR 只是小幅修正，RLCD 是他提出的第三个北极星，目标是「程序在环」。RLCD 没有论文，他解释这是一个任务定义，就像 DPO 及其后代没有用原论文算法也都归入 RLHF，重点在任务。对 RLVR 他的判断是强于 System Two 推理但脆弱、参差，「每一个进入 RLVR 类别的东西按定义都是基准」；Jev 不做推理链，「零 RLVR 对我们这种形态是最优量」。他反对 RLHF 的核心论据是模式坍缩：字符串生成要避免明显错误就必须过度自信、丢掉少数模式，这破坏了概率分布的校准，所以用字符串模型做决策「是糟糕的时间」。他把 LeCun 关于自回归误差随长度累积的著名论断称为「数学上显然、经验上不成立」，原因正是模型靠模式坍缩规避了误差累积。</p>
+<p>数据是他反复强调的重点：模型能力等于数据，公司正在「无限」招聘数据人员。训练数据全部合成，且明确不用用户数据，理由有二：真实数据有幂律偏差，会让模型过拟合当下；公司瞄准的是多年后作为基础设施层的用途，「如果拿今天所有数据训练，只会过拟合今天」。他的表述是 LLM 像 UDP，Jev 像 TCP，上面还有多层可建。关于预训练，他说「给我十亿美元也不会预训练」，路径是把已有的预训练核心拼接、打磨，公司内部对「弗兰肯斯坦」这个说法有异议但他仍在用。他对新实验室的评价很直接：大多数「不行」，从头重做低概率推进前沿，是在毁灭价值；他不重视研究者履历，重视是否选对任务。</p>
+<p>微调、视觉、多尺寸模型、欧洲服务器都在「可能」清单里，均不承诺。微调他的顾虑是通用性本身有价值，窄任务微调可能损害边缘情况；swyx 提到 OpenAI、Anthropic、Gemini 都推出过微调又收回。不同尺寸模型级联（低置信度时升级到更大模型）是他设想的替代方案。欧洲用户目前只比其他方案快约三倍，他本想做到百倍，因为没有当地服务器。</p>
+<h3>用例地图与对编码代理的判断</h3>
+<p>他在发布前从第一性原理划出的用例有五类：企业囤积多年却因成本从不敢用 LLM 处理的「暗数据」，编码代理，实时决策（他估计电商公司都清楚每省 10 毫秒产品会好多少），助手类产品，以及「验证一切」的可观测性。前两类是他眼中的主要收入来源，因为量在那里。发布后社区自发做出的电脑操作用例（语音指挥整台电脑）超出预期，他认为模型可以针对这类场景大幅改进。</p>
+<p>对编码代理市场他给了一个结构判断：Claude Code 与 Codex 位居前两位，但都围绕单一模型构建；开源编码代理正在接入 Jev，各家目前大致齐平，因为 while 循环能做的事有限，一旦某家找到只有它能做的用例，其他开源代理都能复制，而绑定单一模型的两家会怎么办是悬念。他写过一篇《KV cache rules everything around me》，论点是 KV 缓存把编码代理锁死在一个模型上，为了效率只能不断追加上下文，于是状态管理、抽象、分解这些软件实践都做不了，子代理不好用、压缩很难做都源于此；如果智能足够便宜，可以给子任务树打标签做检索、让并行子代理互读状态，「持续学习」问题会变成内存管理问题。他说这份内部设计文档打算公开，团队可能否决。</p>
+<p>对比本站 09-17 收录的 Gerstner 判断，实验室收入是「市场上唯一重要的数据点」，这期给的是另一侧：一家没有收入、靠低价三原语切入的平台在一周内拿到万亿 token 日用量，说明推理需求对价格的弹性很高，也说明「按 token 计价的智能」正在被拆成更细的商品（作者归纳）。</p>
+<h3>对「放缓前沿」的回应：那个论证假定所有人都必须做更多 RLVR</h3>
+<p>swyx 提到欧洲研究者圈普遍担心节奏，各前沿实验室已联署文件。Almeida 的短版回应是：RLVR 的危险性来自它的形态，为了解最难的问题就要让模型在中间「想做什么做什么」，沙箱问题本可解决而实验室选择不解决，因为限制会让模型稍弱；「放缓」论证的前提是每家都必须做更多 RLVR，这是一个有替代项的假设，他自己的模型就不需要。他认为责任在研究者，公众只能假定 OpenAI 与 Anthropic 已尽力，不知道还有别的路。swyx 转述与几家实验室人员的交流，称这件事更多是政治定位，Almeida 表示不愿评论政治，只说误导公众即使出于善意也会反噬。</p>
+<p>与此相关的是他对拒答的立场：安全对齐适用于 ChatGPT 这类第一方产品，放进 API 就是「类型错误」，一个后台依赖因为用户发了奇怪的消息而随机崩溃是不可接受的；每在技术层强加一次价值取向都会「碎裂智能」，他把智能类比为数据库，数据库不负责审查用途。他不给模型设身份（不训练「你是 TypeSafe 的 Jev」），理由同样是避免碎裂。这一立场与 Anthropic 的路线直接对立，也是本周安全争论里少见的来自模型供给方的反方表述（作者归纳）。</p>
+<h3>宏观口径与来路</h3>
+<p>他在讲稿里写过「五年内 TFP 增速 3%」，swyx 说没见过其他实验室关心 TFP。他的判断是所有模型在「世界经济有价值工作」上目前大致并列为零，可能已经开始但不到 1%，真正发生时会出现在经济统计里，不会造成大规模失业；软件行业会迎来「反向 SaaS 末日」，因为 SaaS 公司最清楚什么值得自动化，而 2019 年到 2026 年软件除了多一个聊天框几乎没变，原因是没人敢让模型做公司要担责的决定。</p>
+<p>来路部分有几条可记：InstructGPT 上线后「立刻拿下当时 LLM 市场份额的一半」，但用途集中在文案生成，他由此反思「聪明但不创造价值」缺的是什么，答案是调用方应该是代码；他向 Altman 提过这个方向，对方让他去做，他当时以为 Anthropic 必然已在做；2023 年 11 月 OpenAI 董事会风波期间他曾利用假期 GPU 跑实验；公司成立两年多，两周内拿到融资。他自称「零点零成分的创业者」，没想过当 CEO，「不能想象有人做两次」。</p>
+<h3>小结</h3>
+<p>这期的可用信息集中在三处：用量口径（万亿 token 日调用、机器调用为主、瓶颈是速率上限）、商业化空白（发布前几乎无收入、无微调、无 LTS、无基准）、以及一条与主流实验室相反的技术与安全叙事（零 RLVR、不预训练、不拒答）。对投研而言，值得跟踪的是它能否把用量变成收入，以及低价决策型模型对按 token 计价的推理市场会不会构成分流。数字都需等公司或第三方披露后再核。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
