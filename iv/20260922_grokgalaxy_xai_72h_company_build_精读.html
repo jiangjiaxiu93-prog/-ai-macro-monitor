@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>xAI 团队 72 小时直播建公司：产出一款靠直播流量的网页卡牌游戏、约 274 个 PR、零收入；客服场给出每张工单 1 到 2 美元、批处理 0.2 美元的单位成本，编码执行层多处明言“底下是 Cursor”（Grok Bot Galaxy 三日直播，2026-09-22）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-24<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>xAI 团队 72 小时直播建公司：产出一款靠直播流量的网页卡牌游戏、约 274 个 PR、零收入；客服场给出每张工单 1 到 2 美元、批处理 0.2 美元的单位成本，编码执行层多处明言“底下是 Cursor”（Grok Bot Galaxy 三日直播，2026-09-22）</h2>
+<div class="metaline">Grok Bot Galaxy 直播三日精简版（Chansoo Byeon 频道转载），3 × 240 分钟 · 2026-09-22</div>
+<p>本文合读的是 xAI 在旧金山 Dreamforce 会场旁举办的 Grok Galaxy 活动期间、三位员工（开发者体验 Matt Palmer、产品 Roshan、做 Grok Bot 的 Lauren，网名 Potato）连播三天“用 Grok Bot 在 72 小时内建一家公司”的精简版，中间穿插了 xAI 与 Cursor 员工面向工程、产品、销售工程、销售、SDR、客服、收入运营、售后、营销的九场主舞台演讲，以及 Peter Yang、Codie Sanchez、Karen Cheng 等外部嘉宾连线。口径提示放在前面：这是一场产品推广直播，三天里五次口播 Starbase 观看星舰发射的抽奖、三轮“价值 200 美元的最高档免费月”赠送，所有用户数、直播在线数、内部效率数字均为讲者口述，无独立核实；自动字幕把 Grok Bot 记成十余种拼法、把 xAI 记作 SpaceX AI、把疑似 Cursor 的公司名记作 Kurt，均按上下文还原，拿不准处在文中注明。本文只取投研相关线索：产品形态与竞争定位、编排层与执行层的分工、定价与单位经济、企业采用路径与护栏、官方承认的短板，以及这场 72 小时实验本身的含金量。中心判断是：Grok Bot 把“多 bot 团队、每个 bot 一台云端电脑、计算机使用兜底、模板市场”四件套做成了平台自带能力，讲者反复强调“没有 MCP 不是阻碍”，而全场唯一给出的单位经济数字来自客服场景，量级与按解决量计费的第三方客服 agent 处在同一区间（作者归纳）。</p>
+<h3>产品形态：iMessage 式的 bot 团队，每个 bot 一台云端 Linux 虚拟机，记忆存 S3，密钥不出客户端</h3>
+<p>售后场讲者 Blake 开场就说“看着像 iMessage，我们确实抄了 iMessage”。左栏是一组有固定职责、长期保留的 bot，101 场的 Roman 把设计决定归为三条：按工作单元建 bot、与按任务开新聊天相对，bot 会记住几周前说过的格式偏好；每个 bot 有自己的电脑，除了 MCP 与 API 还能像人一样看视频、听播客、点老旧的政府网站，他说区别在于“做到九成”与“端到端做完”；全部跑在云端，批评现有 AI 工作流绑在本地笔记本上，凌晨两点的定时任务会因为合盖不触发。营销场的 Josh Kim 把这条说得更直白：“不用再开着笔记本或配一台 Mac mini”，这是对本地常驻 agent 方案的隐性比较，工程场的 Lingxi 则直接点名，说自己曾是 OpenClaw 等本地 agent 的重度用户，“它们做不好工程，因为缺一方集成”。</p>
+<p>技术细节由 Q&amp;A 给出：bot 的电脑是轻量 Linux 虚拟机，一个账号下的多个 bot 共用一台虚拟机的文件系统但各有独立记忆；记忆存在 Grok Bot 内的 S3 桶里，可口头让它忘掉；1Password 一类的密钥在客户端弹安全模态框录入，“不暴露给 xAI 一侧”，bot 看不到密码；把 bot 分享为模板时带走记忆、指令与一方插件，不带聊天记录与敏感数据。截至 Day 3，客户端覆盖 iOS、iPad、Android、Windows、Linux、macOS，语音模式在 Day 3 当天宣布上线并数日内推送。Day 3 时 Roshan 展示的插件列表有 Slack、Vercel、X、PlanetScale、Notion、Clerk、Excalidraw、Remotion、1Password，即将上线 AgentMail、Canva、Clay，任意 MCP URL 可直接安装。Lauren 的判断是“Grok Bot 最重要的事甚至不是建 bot，是把你所有的工具和插件接上”。</p>
+<h3>编排层与执行层分工：Grok Bot 是轻量 harness，代码交给 Cursor cloud agents</h3>
+<p>三天里最一致的表述是分工。Day 1 Matt 解释：“Grok 是模型，然后有 harness……Grok Bot 很轻量……正经的工程工作我们会踢给 Cursor，Cursor 的 harness 很擅长写代码。”销售工程场的技术专家 bot Sherlock“底下用的是 Cursor cloud agents”，营销场的 website ops bot“底下是 Cursor”，Day 3 修 bug 的口令是“用 Cursor cloud agent 去调查，先别开 PR”。Lauren 的工作流是在 Grok Bot 里口述、用 Cursor 的插件与自动化写码与审 PR，她说“Cursor 更像编码工具，Grok Bot 做知识工作的通用 bot，两者配合很好”。</p>
+<p>讲者对两家公司的关系有多处直接表述，字幕原话如下，本文未做外部核实：Lingxi 自述“我加入了 Cursor，现在是 xAI 了，不到九个月已经发了两个产品”，此前做 Cursor 3 的 agent 窗口，现在做 Grok Bot；创始人场的 Shub 说与 Cursor cloud agents 的一等公民集成“算是 Grok 与 Cursor 在一起的福利”；Day 2 主持全部工作坊的讲者自称“Cursor 的现场工程师”，其客户案例幻灯片全是“某公司如何使用 Cursor”；Matt 说自己入职“正赶上这次收购”；客服场答定价时说用量计入“你的 Grok 订阅或目前的 Cursor 订阅”。Lingxi 给出的团队效率口径是 Cursor cloud agents 的 automations 让“Cursor 团队几乎每个人都 10 倍了”，他一人三周做出 Grok Bot 移动端首版，管理 15 个 cloud agent 时已经吃力，Grok Bot 的用途之一就是替他写提示词、排队与催促这些 agent。</p>
+<h3>定价与单位经济：不单独收费，最高档月约 200 美元，客服每张工单 1 到 2 美元</h3>
+<p>Grok Bot 没有独立价目表。客服场被问定价时的回答是“用你通过任何 Grok 订阅或目前 Cursor 订阅拥有的用量，它只是跟踪用量”。三轮赠送都以同一口径计：“一个月免费，价值 200 美元，我们的最高档位”，Day 3 又提到给排行榜前十送“Grok Bot Ultra plans”需内部审批，可推断最高档月费约 200 美元（促销口径，作者归纳）。Day 2 的赠送名额首次口播“前 1000 名”，第二次改为“前 10000 名”，原样记录。</p>
+<p>唯一的单位经济数字来自客服场的 David。他说按自己目前的用法，“回答中到高复杂度的工单大约每张 1 到 2 美元”，对低复杂度的计费类工单先用脚本分桶再批量回复，“可以压到每张 0.2 美元左右”，对比对象是“其他客服 agent 通常按解决量收费，至少 1 美元，一般在 1 到 10 美元之间”，人工更高。他补充这只是“花了半天调优”的结果，并演示让 bot 在 Postgres 里自建 eval 表与 trace 表记录每次回复看了哪些文件。SDR 场被问“每天 50 条线索要花多少 token”时，回答是“很难说，取决于拉多少 Gong 通话与 Databricks 上下文”，建议改成每周一次 250 条，没有美元数字。</p>
+<p>成本控制话术贯穿三场 GTM 演讲：少跑例程，曾有人误设每 15 分钟一次；直接用专才 bot、少让 chief of staff 编排，省 token；“有 MCP 就别用计算机使用”，Gong、Granola、Salesforce 等已开箱提供；别滥建 bot，SDR 讲者说“我一度有太多 bot，反而更乱”；模糊指令如“回复 Alex”会让 bot 拉全部工单做字符串搜索，直接给工单号便宜得多。创始人场的 Shub 对多 bot 群聊的提醒是“它们会互相抢话，而且随着做的事越来越多会变得很贵”，建议少用群聊、按需 @。销售场的 Mark 则给出成本叙事的另一半：“我们用一方模型，这确实有助于降低成本。”</p>
+<h3>企业采用路径与护栏：自下而上起步、角色模板分发、系统记录之上的编排层</h3>
+<p>销售场对企业标准化部署的描述是三段：起点是“每个人装上 Grok Bot、先为自己建”；正在推的变化是登录时询问角色并预置模板；较先进的公司由 power user 建模板向团队分发，“作为销售代表，我登进来就有这五个 bot”。Christa 把 Grok Bot 定位为“所有这些工具之上的编排层”，数据可能在 Databricks、Salesforce、Notion、Slack 任何一处，Salesforce 仍是 source of truth。这是一种坐在系统记录厂商之上、以“没有 API 就登录网页”绕过集成缺口的定位（作者归纳）。</p>
+<p>护栏方面各场口径一致：先只读，再开写权限并要求人工审批，不同 bot 权限分开；企业管理员可限制 bot 访问的网站与下载；关键动作弹出审批，已授权动作可改“always allow”；营销场提到有数据隐私模式可选择是否用于训练，安全问题“逐案处理”。Josh Kim 说“xAI 有工程师带着整队 bot 直接把代码推到生产”。</p>
+<p>比示范项目更值得引用的是 xAI 员工对内部效率的自述：收入运营讲者的“给线索用的约会应用”（AE 左滑结束线索回写 CRM、右滑进跟进序列）“从想法到落地两周，实际构建时间约 10 小时”，其余时间用于培训销售；售后讲者说自己九到五里 75% 是会议，一个 Scout bot 替代了过去 30 到 40 个 Slack 频道，他只与一个 chief of staff 对话、由它管十个 bot；销售工程讲者一周要为 15 到 20 个客户做案例幻灯；SDR 讲者每天 50 条新线索、5 条优先，训练文案语气时“对近期获正面回复的邮件加权，因为三个月前有效的东西现在完全不同了”。外部客户样本只有一个：Potrero Hill 的 Icon Coffee 让 bot 接 POS 系统，指出几个月只卖几份的菜单品项后下架，创始人估算每天省一到两小时。</p>
+<h3>官方承认的短板：验证码、登录态丢失、计算机使用慢于 API、跨账号互通不存在</h3>
+<p>问答里的坦白比演示更有信息量。销售工程场承认“我不是机器人”验证码当天已经出现几次，“有时过不去”，企业建议直接屏蔽 Facebook 等站点；Day 2 早些时候“有一次故障”；演示中 bot 登录 Google Slides 卡住需人工代登；Karen Cheng 的首要功能请求是“把登录管好”，虚拟机上的账号总被登出。Shub 承认“比 API 更快这个承诺有点难”，团队在做 headless（直接点 DOM 元素，跳过截图、判断、再点的循环）与模型加速。功能层面尚不存在的有：跨账号 bot 互通“今天不在我们能力范围内”；人类进入 bot 频道协作（Peter Yang 问“你们为什么还要用 Slack”）；API key 仍需手工创建；企业多人协同被两次问到，收入运营讲者说“有东西我不能抢先宣布，但很快会有”；Grok Bot 何时上 Tesla，两次回答都是“我不能回答”。营销场还澄清 OpenClaw 与 Grok Bot“并非原生互通”，但提供导入模板。</p>
+<h3>72 小时实验本身：方向反转、约 274 个 PR、零收入、“没有直播就没人玩”</h3>
+<p>Day 1 定下的方向是“快闪活动平台加自己在旧金山办一场”，当天收尾时 Lauren 已经在问“这是不是该追的问题”。Day 2 开场宣布转向，Roshan 的理由是“旧金山有很多限制与许可”、在直播上展示这类工作“不够有趣”，以及“我们让 agent 连夜跑了一遍，agent 告诉我们要转向”，改做游戏工作室，第一款游戏让观众把自己的 Grok Bot 模板铸造成卡牌互相对战。工程范式是极快且未经检验的：原型阶段 Lauren 决定删掉全部测试，“agent 总体上不太会写测试，等知道要测什么再写”；直推 main；Day 3 Matt 的反馈去重 bot“设成 YOLO 模式，直接合并”，与 Lauren 的 PR 撞车；Lauren 对隔夜自动合并的 PR 说“老实说我完全没看代码”。</p>
+<p>Day 3 上线的 Thursday Arena 在收官时的数字（Vercel analytics，约中午开启）：约 1.7 万页面浏览、4500 练习局、近 2000 次 X 登录、练习到登录转化约 8%、近 5000 场对战、移动与桌面约五五开，流量主要来自 X 链接，每次回到直播就有一个流量小峰；团队三天用了“40、50、60 个 bot”，PR 编号到 274。Day 3 上午一位游戏设计评审 bot 的结论是“这游戏对上线来说太难了”，新注册在上午晚些时候开始放缓。变现停留在设想：体育场横幅广告位拍卖、“付费买排行榜置顶行”，最后一分钟以 1 美元竞价演示时“审核模块坏了”，Roshan 的收尾是“我们赚到了理论上的第一块赞助美元”，全程无真实收入，也没有留存数字。Lauren 的反思是“要不是在直播上，会有人玩这游戏吗？我觉得不会”，最难的是让人在意；Roshan 的收获是内部大公司用例出乎意料地能迁移到从零到一的小公司，“可以跑一套通用的生意剧本”，Eric 的总结是“先以人的身份去发现问题，解决之后再把它变成 bot 永远跑下去”。</p>
+<p>外部嘉宾在 Day 1 给出的判断与主队的实际经历相互印证。Peter Yang 说“现在人人都能造东西，纯软件反而更难赚钱，我为什么要为一个带数据库的落地页付钱”；Codie Sanchez 说她的公司两年接入 1600 家小企业，为新书投放的“几百万美元”广告里企业感强的素材效果只有非企业感素材的四成，卖 AI 服务给小企业“绑不上即期收入就卖不动”，并明说自己的测评工具是用 Claude、Vercel 与 Replit 做的。Karen Cheng 的对照是自己此前用 Cursor 做硬件项目“像个冒牌货”，在 Grok Bot 里接 Vestaboard 只需贴 API key，“两分钟后显示屏开始翻页”。</p>
+<h3>对应用层的含义（作者归纳）</h3>
+<p>第一，模型厂自带的不再只是 harness，而是 harness、云端电脑、模板市场与 IDE 的整套垂直栈。本文之前精读过的 Zapier 的 Foster 主张应用层做“无头工具”接进用户的“日常主驾”，Grok Bot 的三天演示就是这个“主驾”的样子：编排层由平台自带，执行层由同一集团的 Cursor 承接，连接层靠计算机使用兜底。对靠“把模型接进企业工具”立身的应用商，这压缩的是集成本身的溢价，剩下的价值落在垂直知识、验证环境与合规责任上。</p>
+<p>第二，单位经济的量级第一次从平台方口中给出。客服每张工单 1 到 2 美元、批处理 0.2 美元，与 Decagon 一类按解决量计费 1 到 10 美元的区间重叠，这意味着平台方的通用 bot 在简单工单上已具备价格压制能力，而讲者同时承认这来自“半天调优”、没有准确率与升级率数据，SDR 场对 token 花费的回避也说明用量计费下的成本仍不透明。三场 GTM 演讲把大量篇幅花在“怎么省 token”上，本身就是席位制向用量制迁移期的典型症状，与 Harvey 一期讨论的负毛利问题是同一件事的另一面。</p>
+<p>第三，示范生意的含金量应打折。72 小时的产出依赖直播流量，转化约 8%，无收入无留存，团队自己承认没有直播就没人玩；真正有参考价值的是 xAI 员工的内部效率自述（两周落地、十小时构建、一个 bot 替代三四十个频道），以及验证码、登录态、故障这些反复出现的运行摩擦。把这两组信息放在一起看，Grok Bot 当前更接近“给已经 AI 化的旧金山公司用的内部工具”，Carrot 的 Eric 也说“可能先被我们这些很 AI 化的旧金山人采用，希望有一天所有中小企业主都用”。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
