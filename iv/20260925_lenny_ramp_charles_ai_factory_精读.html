@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ramp 的 Charles 称自研编码代理 Inspect 已跑 100 万次会话、生成 75% 的合并 PR 且上月有一千个由非工程师提交，Review Buddy 自动处理 93% 的 PR、测试代理 Testo 30 天内找出 425 个缺陷，产品经理被问的 85% 问题由 AI 作答、60% 的 UX 问题 24 小时内修复，瓶颈已从写码移到定义与协调，产品负责人的工作是持续改造“工厂”本身（Lenny's Podcast，2026-09-25）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Ramp 的 Charles 称自研编码代理 Inspect 已跑 100 万次会话、生成 75% 的合并 PR 且上月有一千个由非工程师提交，Review Buddy 自动处理 93% 的 PR、测试代理 Testo 30 天内找出 425 个缺陷，产品经理被问的 85% 问题由 AI 作答、60% 的 UX 问题 24 小时内修复，瓶颈已从写码移到定义与协调，产品负责人的工作是持续改造“工厂”本身（Lenny's Podcast，2026-09-25）</h2>
+<div class="metaline">Lenny's Podcast，Lenny and Friends Summit 演讲，Ramp CPO Geoff Charles，20 分钟 · 2026-09-25</div>
+<p>本文整理的是 Lenny's Podcast 发布的一段 20 分钟演讲，讲者是 Ramp 首席产品官 Geoff Charles，场合为 Lenny and Friends Summit。口径提示放在前面：这是一场面向产品经理的舞台演讲，全部数字均为 Charles 口述，无独立核实，也没有说明统计窗口以外的口径细节；字幕是语音转写，个别专有名词有翻译痕迹，Ramp 内部工具名 Inspect、Glass、Review Buddy、Testo、Gadget 按上下文还原，“Gadget”一名转写不甚清晰，本文照录。演讲用赛车做贯穿全场的比喻，本文略去比喻细节，只取投研相关的线索：Ramp 把 AI 代理铺到产品开发流程哪些环节、各环节的使用量与替代率、还没被替代的部分是什么、对 token 预算与产品组织的看法，以及这套做法对 SaaS 产品公司与应用层需求的含义。中心判断是：Ramp 的样本说明当写码环节的成本被压低后，瓶颈依次转到需求定义、代码评审、测试与内部协调，一家应用公司为此要为每个环节自建接入自家数据与系统的代理，这意味着企业内部的代理使用量会随瓶颈转移逐级扩散，而产品经理这一职能的工作内容随之改写（作者归纳）。</p>
+<h3>车手只决定 15% 的胜负，换胎从 67 秒缩到 1.8 秒靠的是找瓶颈，写码被自动化后瓶颈已经转到产品端</h3>
+<p>Charles 开场讲了自己参加“24 小时 Lemons”业余耐力赛出事故的经历，然后引出他的框架：在职业赛车里车手对结果的影响只有约 15%，真正起作用的是车手、赛车与车队之间的配合，赢的办法是消除驾驶周围的瓶颈。他举进站换胎为例，1950 年代换一条胎要 67 秒，如今是 1.8 秒，缩短的办法显然与把技师累到 37 倍无关，靠的是找到瓶颈并消除它，用专门化的分工、更好的技术和更多的练习。他又说 F1 车队每年更换 90% 的零件，一辆车的 1.6 万个零件里只有 10% 沿用到下一年，随即反问听众，如果你们的代码每年也换 90% 会怎样，“因为这正是现在的标准”。</p>
+<p>他把这套框架套到产品开发上：计时从客户的痛点出现开始，到客户拿到解决它的产品为止，AI 只是消除了一个瓶颈，然后把瓶颈往后推，赢的团队是最快找到下一个瓶颈、消除它、再转向下一个的团队。产品开发周期依次是定义、规划、创造、打磨，工程师已经把大量写码工作自动化，写码变得容易得多，于是 Charles 对产品经理的建议是“像工程师一样懒”，因为瓶颈已经转到产品这一端，要定义更多、协作更多、协调更多、发布更多、测试更多，产品团队必须投资自己的“工厂”。他随后按五个步骤逐一讲 Ramp 的自动化进展。</p>
+<h3>识别痛点：100 万 token 的上下文窗口装不下 Ramp 0.5% 的销售通话记录，客户洞察代理与“仇恨播客”替代了人工筛噪</h3>
+<p>第一步是识别问题。Charles 说痛点散落在 Gong 的销售通话记录、Zendesk 工单、LogRocket 的用户会话回放、调查问卷和写给老板的投诉信里，孤立系统太多、意见太多，第一个要解决的瓶颈是从噪音里筛出信号。他给了一个尺度：大模型很好，可 100 万 token 的上下文窗口装不下 Ramp 的 Gong 记录的 0.5%，所以只能从小处起步。Ramp 先建了一个“仇恨频道”，每天把客户说的难听话贴进 Slack，他承认这个做法很快失控，“我对此并不自豪”，于是推倒重来，做了一个真正的客户洞察代理。这个代理从公司所有数据源取数，用传统的 ETL 管道与向量检索，按相近的语境聚类，理解 Ramp 的产品、团队与功能划分，并向整个组织开放。</p>
+<p>搭好之后的问题变成怎样让尽可能多的人用上它，Ramp 又做了几轮实验，包括一个可以在 Slack 里直接提问的代理、一个登录即可阅读的 HTML 看板，以及 Charles 说自己偏爱的形式，一档“仇恨播客”，一天从听一百个客户对着你吼产品哪里不好开始。他强调这套东西的目的是让人尽快接触到数据，与客户交谈仍然要做，这套东西的价值在于精确地告诉你该找谁谈，因为这些数据是可追踪的。</p>
+<h3>定义产品：自研代理 Glass 接入 Snowflake、用户研究、产品策略与代码库，产品经理交付给工程的“新契约”是数据、需求与能跑的原型</h3>
+<p>第二步是从一个概念走到成型的想法。Charles 说市面上的 AI 工具看起来都一样，开口就问“你想做什么”，他反问，面对一个超级智能，这真的是最好的起点吗。他认为用 AI 的意义在于把它接到自己的系统上，Ramp 于是自建了一个叫 Glass 的代理，给它所有需要的上下文：它接入公司全部系统，读得懂 Snowflake 里的数据，读得懂用户研究，能定位客户想解决的问题，从而把定性与定量数据结合起来给出具体判断。Glass 同时理解 Ramp 的产品策略、技术需求的定义方式和代码库，于是产品经理不必再缠着工程师问“这能做吗、会不会弄坏什么、我漏了什么”，改为问 AI，Charles 称之为“AI 成了你的技术负责人”和“最好的思考伙伴”。因为 Glass 理解产品原则、设计系统与代码库，产品经理可以直接在真实产品里定义并搭出一个能运行的原型。</p>
+<p>由此他改写了产品与工程之间的契约。工程团队不需要单独拿到原型，“原型没用”，也不需要长篇规格文档，“那也没用”，他们需要的是三样东西的组合：证明问题存在的定性与定量数据、可以直接喂给编码代理的真实需求，以及一个能给他们灵感的原型。</p>
+<h3>创造与评审：Inspect 已跑 100 万次会话、生成 75% 的合并 PR、上月一千个由非工程师提交，Review Buddy 自动处理 93% 的 PR，Testo 30 天找出 425 个缺陷</h3>
+<p>第三步是创造。Charles 说写码已经算不上瓶颈，但事情比这复杂，每解决一个瓶颈下一个就出现，第一个瓶颈是编程，到这个阶段每家公司都应该有自己的写码代理。Ramp 自研了名为 Inspect 的编码代理，自研的理由是想要一套稳健的工具链并确保代理真正理解自家代码库。它在 Slack 里工作，配置完备，几秒钟内就能启动，能把成品放到预览环境里，让产品经理直接使用并与正在生成的代码交互。他给的使用量是：现在 Ramp 所有人都能写代码，Inspect 已经进行了 100 万次会话，Ramp 75% 的合并 PR 由 Inspect 生成，其中上个月有一千个 PR 由非工程师提交。他紧接着加了一个前提，编码代理只有在架构强健、代码库质量高的情况下才有效，满足这个前提，公司里能用 AI 的人的圈子才会扩大。</p>
+<p>代码产出上去之后，第四步验证成了新瓶颈，工程师不停地在评审巨量代码。Ramp 为此做了 Review Buddy，它理解代码库、质量标准与安全问题，会找到合适的专家参与评审，而且理解生成这段代码的全部上下文与提示，也就是能核查“你是怎样使用 AI 的”，评审与协作从此建立在可见的上下文之上。Charles 说 Ramp 93% 的 PR 现在由 Review Buddy 自动处理，这让最好的工程师把时间花在真正要紧的那 7%，也就是“我们做对了吗、有没有风险”这类问题上。</p>
+<p>再下一个瓶颈是测试。他对台下曾做过产品经理的人说，大家都熟悉那种搭测试环境、改设置、逐屏点过去、看工程师有没有漏掉自己最在意的那个功能的日子，Ramp 把这件事自动化了，做了一个叫 Testo 的浏览器测试代理。它基于 Ramp 能访问的真实生产数据，用 100 种不同的组合跑产品，像用户一样在产品里操作，接受诸如“付这张账单，但要分期摊销”之类的指令，反馈的内容包括卡点、缺陷与问题，也包括他称为“相当有想法”的设计与质量反馈，比如哪里不清楚、哪里破坏了设计系统或设计语言，这些再回流到产品开发周期。过去 30 天 Testo 找出了 425 个缺陷，Charles 说“这些错误由我们找出来，好过由客户找出来”。</p>
+<h3>协调与小循环：人的注意力成为瓶颈，“每个问题都是一个 API”，产品经理被问的 85% 问题由代理作答，60% 的 UX 问题 24 小时内修复</h3>
+<p>第五步是协调。Charles 说发布得太多太快之后，下一个瓶颈变成人的注意力，产品经理被通知淹没，流程太多会拖慢开发者，流程太少则人人困惑。他的解法是一句口号，“每个问题都是一个 API”，然后围绕它设计系统。Ramp 做了一个转写为 Gadget 的代理，它理解每个提问的意图，并把提问接到正式的记录系统上，包括 Notion 里的路线图、规格文档与客户通话记录，以及 Slack 和 Linear 里的工单。原则是要让代理有能力，它必须能读懂组织，组织也必须对代理是清晰的。他举例说，“这个项目进展如何、这次发布进展如何、是否按计划”这类问题由代理回答，它掌握全局，知道下一步谁负责，用事实作答，而且不止于此，它还更新路线图、发状态通报、催促延误的人。销售部门问“这个功能是什么、怎么卖、巴西能用吗、用法是什么、定价多少”，Gadget 也能完全理解，答不上来就转给对的人。再往前一步是发布环节，Gadget 理解产品，所以能写帮助中心文章、协助写博客与客户信。他给的数字是，现在向产品经理提出的问题里 85% 已完全由 AI 覆盖，没有答案的那些会被处理后回流到系统里。</p>
+<p>最后一步是打磨，周期由此重新开始。Charles 认为产品经理天然倾向于做那些显眼、确定能做成、能带来即时多巴胺的小型被动任务，他称这是“巨大的错误”，专注小事不会让人有野心，必须把流程自动化才能跳出这些小循环。Ramp 的做法是让大多数小任务完全由 AI 独立完成：把问题路由到对的团队，与 Linear 里的待办比对，去重、计数、排序、执行计划，需要时通过 Slack 找人确认“这个可以做了吗，我准备写代码了”，然后写码、测试、走 CI/CD，上线时更新知识库，人在其中只有很少的参与。几千个这样的小循环处理几千件小事，人才能专注于大事。他给的结果是，由客户、销售、支持或 Ramp 自己发现的 UX 问题，60% 在 24 小时内解决。</p>
+<h3>三个追问：速度要靠“知道真正的快是什么”的人来校验，token 与工程师都是有限资源，产品经理走向技术型、品味型与总经理型三条路</h3>
+<p>Charles 预设了听众的三个问题。第一是怎么知道自己变快了，以及怎样在保持质量的同时更快，他承认这比赛道单圈时间难量化得多，讲了 Niki Lauda 1974 年试驾 Ferrari 后向 Enzo Ferrari 直言操控、抓地与刹车都差，工程师随即把问题全改掉的故事，说这有点像 Ramp 的文化，然后给出他的答案：只有雇到知道真正的高速是什么的“车手”、把控制权交给他并让他挑战你，才知道自己够不够快，这对一些领导者会很难，但正是所需要的。第二是预算，他说资源有限，“无论是工程师还是 token”，怎样与没有约束的公司竞争。他举 2006 年 Audi 的例子，车慢，于是选择在燃油效率上胜出，少进站、多在赛道上，连续三年赢下勒芒。他的结论是约束迫使你选一个能做到世界一流的维度，“拥抱你的约束，但别拥抱你的瓶颈”，找到那一个可能让公司增长十倍的瓶颈，从它开始。</p>
+<p>第三是产品这个职能的未来，如果这些循环不需要产品经理也能运转，产品经理是否在自动化掉自己的工作。Charles 先说产品经理从很多工程师能自行处理的事情里退出是好事，带来巨大的杠杆，不必害怕。然后他给出三条路。第一条是技术型产品经理，他认为投入远远不够，这类人建的是真正的工厂，识别组织里的瓶颈并拆掉刹车，他们交付的产品面向的对象是帮助公司或帮助 AI 造出面向客户的产品的那套系统。第二条是“品味制定者”，也就是赛车里的车手，最终总要有人握住缰绳、做 AI 做不了的事、守住什么是好产品与好品味的标准，这条路得到的关注最多。第三条是总经理，他相信产品经理会把职责扩展到营销、销售、分析与运营，对真实的业务结果负责并领导整个职能。</p>
+<p>他的三条总结是：速度指的是识别并消除开发流程中的瓶颈，每个组织都有；解决一个瓶颈下一个就会出现，任务是尽快穿过它们；产品负责人要少关注交付的产品本身，多关注帮助更快造出产品的“工厂”。他最后说，今天展示的一切其实已经过时，如同 F1 车队互相抄袭，他希望听众抄 Ramp，并且超越 Ramp，一切取决于下一个赛季，引 Enzo Ferrari 的话“最好的 Ferrari 是下一辆”作结。</p>
+<h3>投研视角的几点归纳（作者归纳）</h3>
+<p>第一，Ramp 给出的是一组分环节的替代率，比单一的“AI 写了多少代码”更有信息量：写码环节 75% 的合并 PR 由代理生成，评审环节 93% 自动处理，协调环节 85% 的产品经理问询由代理作答，修复环节 60% 的 UX 问题 24 小时内闭环。四个数字放在一起，勾勒出代理替代沿产品开发流程逐级向后推进的路径，也说明人的介入正在集中到少数高价值节点，如 Review Buddy 留下的那 7% 需要人判断的 PR。第二，Ramp 的每一个环节都选择了自研，未采购通用工具，理由高度一致，即代理必须接入自家的 Snowflake、Gong、Notion、Linear 与代码库才有效，Charles 明确说通用工具“开口就问你想做什么”是错误起点，这对通用型 AI 产品工具是一条不利证据，对数据平台、工单与文档系统这类“记录系统”则是有利证据，因为它们成了代理的上下文来源。第三，“100 万 token 窗口装不下 Gong 记录的 0.5%”这一尺度，加上客户洞察代理走 ETL 与向量检索的路线，说明企业级代理的推理消耗大头在检索与上下文组织，与 Collison 在 Stripe 案例里强调的“token 流向基础设施与护栏”方向一致。第四，Charles 把 token 与工程师并列为有限资源，并以 Audi 的燃油效率类比主张在约束下选一个维度做到极致，这是应用层公司对推理成本约束的一次公开表态，说明至少在 Ramp 这类公司里 token 预算已进入产品负责人的决策变量。第五，非工程师上月提交一千个 PR、以及“人人都能写代码”的前提被讲者本人限定在“架构强健、代码库质量高”，与 Collison 所说 Stripe 的护栏与数据权限体系是前置条件互为印证，意味着这套玩法在存量代码质量差的传统企业里难以直接复制。第六，产品经理三条路的判断，加上 Ramp 自建“工厂”的做法，指向 SaaS 公司内部会出现一层新的内部工具与代理编排工作量，这部分需求目前由各公司自建承担，是否会沉淀为可采购的产品，是应用层值得跟踪的方向。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

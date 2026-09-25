@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Midha 称 token 经济五年内约 5 万亿美元、十年到 10 万亿美元，Atallah 称 OpenRouter 开发者超 1000 万、token 量周增约 9%、上月拦截的欺诈金额是前月 10 倍，Mixtral 价格战曾把价格压低约 80%，“前沿创新拉动用量、30 天后看账单、开放权重三个月后接住”循环已重复数次，加价转售推理的模式将让位于按事件计价（Latent Space，2026-09-25）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Midha 称 token 经济五年内约 5 万亿美元、十年到 10 万亿美元，Atallah 称 OpenRouter 开发者超 1000 万、token 量周增约 9%、上月拦截的欺诈金额是前月 10 倍，Mixtral 价格战曾把价格压低约 80%，“前沿创新拉动用量、30 天后看账单、开放权重三个月后接住”循环已重复数次，加价转售推理的模式将让位于按事件计价（Latent Space，2026-09-25）</h2>
+<div class="metaline">Latent Space，swyx 主持，OpenRouter CEO Alex Atallah 与 a16z 的 Anjney Midha 对谈，83 分钟 · 2026-09-25</div>
+<p>本文整理的是 Latent Space 2026 年 9 月 25 日一期 83 分钟对谈，swyx 在 Anjney Midha 家中采访 OpenRouter 联合创始人兼 CEO Alex Atallah 与 OpenRouter 的投资人、a16z 合伙人 Midha，背景是 Stripe 收购 OpenRouter 这笔交易刚刚公布。口径提示放在前面：全部数字均为两位嘉宾或主持人口述，无独立核实；“token 量周增约 9%”是 swyx 报出、Atallah 以“听起来差不多”确认；“每天 10”这一日 token 量在转写里没有单位，按上下文应为万亿 token；“五年 5 万亿、十年 10 万亿美元”是 Midha 的个人预期，他没有给出推导的分项；Midha 说 Anthropic“五年内成了万亿美元公司”与“起步时落后 OpenAI 100 亿美元”均为其口述；转写把 OpenRouter、Anthropic、Mixtral、Cline、OpenClaw 等名词写得很乱，本文按上下文还原。本文只取投研相关线索：token 需求的量级与增速、10 万亿美元 token 经济的口径、路由层的商业模式与它为何将从加价转售转向按事件计价、开放权重与闭源模型在用量上的轮动机制、模型分发的经济学、多模型融合的可行时点，以及 Stripe 收购背后的欺诈与安全逻辑。中心判断是：这期节目把 OpenRouter 从“模型市场”重新定义为 token 流的清算与风控层，Atallah 给出的“前沿模型拉动用量、账单驱动降本、开放权重接住需求”循环，是判断闭源与开放权重用量份额此消彼长的一个可操作框架，而 Midha 把 token 经济与 1990 年代在线支付类比，其含义是欺诈与信任基础设施会成为这一轮基础设施投资中一条独立的赛道（作者归纳）。</p>
+<h3>Midha 的 10 万亿美元口径：类比在线支付十年做到 1 万亿美元，token 流五年约 5 万亿、十年 10 万亿，前提是欺诈不把信任毁掉</h3>
+<p>Midha 给出的量级判断出现在讨论欺诈的段落。他说在线支付大致从八九十年代起步，十年间做到 1 万亿美元以上，为此不得不建起全新的支付方案对付线上欺诈；他认为 token 今天大致处在同一位置，未来五年预计 token 经济做到约 5 万亿美元，十年内若做不到 10 万亿美元的 token 流他会感到意外。他没有拆分这个数字的构成，也没有说明是按推理收入还是按 token 所承载的 GMV 计，节目里他交替使用“token 流”“GMV 与全球 GDP 增长”两种说法，投研上只能当作一个数量级的表态。</p>
+<p>他强调的重点是这个量级与欺诈之间的关系。他的经验来自 Discord 平台负责人任上：Midjourney 早期靠免费试用做拉新，团队发现用户生成 10 张图之后就会被打动，某天 David Holz 一早连打三个电话，因为一夜之间涌入的新用户来自有人把免费试用批量转售，Midjourney 关掉了免费试用，Midha 说据他所知至今没有再打开。当时 Midjourney 的年化收入还不到 3 亿美元，一个应用层产品在这个规模就遭遇有组织滥用，让他意识到 token 是一种在互联网上流动的新价值单位，越值钱就越会被盯上。他把这个推到十年后：今天由人发起的滥用，将由 AI 代理以递归的规模发起，而实验室手里只有自家模型失控的数据，看不到全生态的坏行为，所以需要跨实验室、跨部署的“整个 token 经济的护盾”，否则 10 万亿美元里会有相当大比例是欺诈与滥用，甚至因为人们不信任 token 而根本到不了那个数字。</p>
+<h3>OpenRouter 的量级与增速：开发者超 1000 万，token 量周增约 9%，日量已到“10”，上月拦截的欺诈金额是前月 10 倍</h3>
+<p>Midha 回忆 Black Forest Labs 发布模型时，OpenRouter 可以承诺“发布当天送来 100 万开发者”，swyx 追问这是否是真实数字，Atallah 说现在超过 1000 万，随即补充说账号去重工作很多，这个数字不容易精确。Midha 补了一层参照：一家实验室发布模型当天能有 1000 个开发者真正去调用并反馈，就已经比它们自己能触达的多出 1000 个。</p>
+<p>增速方面，swyx 说 OpenRouter 目前 token 量周环比增长约 9%，Atallah 说这大致对；swyx 又提到 OpenRouter 在 State of AI 报告里晒过 100 万亿 token 的累计量，而现在“每周 10”，Atallah 纠正为“每天 10，还不止”，转写里没有单位，按上下文应为每天 10 万亿 token。Atallah 说自己发过帖，OpenRouter 上月拦截的欺诈金额是前月的 10 倍，欺诈类型正在分化：盗刷信用卡、违反服务条款转售流量、被盗账号、整个公司被攻陷而不自知、账号私下转售推理、以及并非被黑但代理失控跑飞的账单。信任与安全团队针对每一类建了模型，并且与 Stripe 合作已久。</p>
+<h3>用量轮动的机制：前沿模型拉动用量、30 天后账单驱动降本、开放权重三个月后接住，Mixtral 价格战曾压价约 80%</h3>
+<p>swyx 请 Atallah 按时间标出增长拐点，Atallah 说拐点大多围绕模型发布。2024 年 5 月之前 OpenRouter 的重心一直在文字创作类用途，因为编码能力还不够、应用建不起来，模型有多样性但用途不广，当时的头部应用之一 Dream Tavern 的作者现在负责 Cognition 的产品。2024 年年中 Claude Sonnet 3.5 发布，他称之为编码上的巨大跃迁，建在 OpenRouter 上的应用形态随之改变，用量激增，也正是从这时起用户开始盯着账单问“怎么回事”，去找更便宜但等效的模型。他概括为一个反复出现的摆动：实验室推出前沿创新，用量激增，用户 30 天后看到发票，开放权重模型大约三个月后交付性价比选项，这个过程他们见过好几次。swyx 打趣说“所有的实验室都在帮你”，Atallah 说“养一个 OpenRouter 需要整个生态”。</p>
+<p>Mixtral 8x7B 是他们眼中提供商市场跑通的第一个清晰案例。swyx 回忆那次价格战把价格压低约 80%，Atallah 说这是他所知第一次有开放权重模型被认真地视为全球领先的模型，虽然有影响者炒作的成分，但很多例子显示它在部分任务上超过 GPT-4，大家都想试试“对我是否也成立、以什么价格”，当时推理服务市场很混乱，OpenRouter 让提供商在一处比价，把价格竞争的好处交给开发者。Midha 补了一段旁证：他在 NeurIPS 问 Mistral 的 Guillaume Lample 感觉如何，对方说“还行，没那么好”，并认为人们觉得它强于 GPT-4 的部分原因是速度，MoE 架构做得很高效，模型快会让人觉得它更聪明。swyx 把这称为“人作为路由器”的起点：先问快模型，不满意再手动升级，后来这件事交给了自动路由。</p>
+<p>2025 年年底的变化来自 OpenClaw。Atallah 说此前排行榜上的编码应用全是 IDE 或终端代理，Cline 曾长期居首；OpenClaw 带来一种新形态，把生产力用户和互联网创作者第一次带进 AI，并且其架构会用所选模型做心跳检测确认自己还活着，心跳不值得花大钱，于是自动路由对这批用户突然变得很有用，用量呈指数式上升，Hermes 随后跟进并在技能与记忆管理上做出社区。他说 OpenRouter 的排行榜随时间的变化就是一部 AI 行业变迁的电影，Karpathy 曾说自己不再看 LocalLlama，直接看 OpenRouter 排行榜。</p>
+<h3>商业模式：早期就定了抽成，未来转向 Datadog 式按事件计价，加价转售推理受欺诈与实验室两头挤压</h3>
+<p>swyx 说 OpenRouter 很早就定下了抽成的商业模式，Atallah 没有异议。但他对“转售推理加价”这一行业通行模式给出了明确的方向判断。他说做网关或卖通用推理的公司天然是欺诈目标，卖的若是边界清晰的智能产品，只做某件具体的事、附带少量功能，被欺诈者盯上的概率会低得多。他预计公司会从“转售推理加附加能力”转向按离散任务和增强项收费，让用户以第三方方式自带推理。swyx 问是按结果还是按任务付费，Atallah 说 Datadog 的定价页是未来的样子，基础设施公司会对提供的各类事件收费，出现很多连续型定价，越靠近消费端定价越简单、订阅越多。他给了第二个理由：实验室和优质推理提供商会施加很大压力，让客户与它们签承诺量、把推理搬到自己那里，因此单靠在推理上加价的模式会两头受压。他说 OpenRouter 主动选择了不做微调服务与记忆、技能、沙盒等相邻层，原因是这些抽象很难对所有开发者都适用，开发者偏好差异大，OpenRouter 作为中立市场与做这些事的公司合作更合算。他也提到数据政策：OpenRouter 默认看不到提示与补全，机构须自行开启才能记录，免费端点同样不收集提示。</p>
+<h3>路由层为什么有价值：Anthropic 用了 12 个月才到 1000 万美元收入，Google 一夜能把新模型推到十亿设备，中立第三方替开发者“照亮黑屋子”</h3>
+<p>Midha 从投资人角度解释他为何在其他 VC 说“只是一个市场、只是一层代理、只是套壳”时坚持投资。他说实验室的预训练团队思路高度相似，训练完成、checkpoint 出炉、挂成 API，然后“一片寂静”。Claude 第一个 checkpoint 在内部完成后放了一年，ChatGPT 出来才决定对外发布，Claude 1 博客里的三个开发者案例分别是一个 Discord 机器人、他妻子的创业公司和 Notion，全是团队的朋友，因为分发计划就是这么临时。他说 Anthropic 用了超过 12 个月才做到第一个 1000 万美元收入；相比之下 Google DeepMind 训练完新模型按一个按钮就能推到 Google Docs 与 Android 上的十亿台设备，这种隐形的分发优势多数人没有意识到。OpenRouter 出现之前，每家实验室要自己解决密钥管理、配额、端点版本控制这些科学家眼里的“管道”。他说自己不想再教育其他 VC，直接投了，一个月后 Menlo Ventures 的 Matt Murphy 把估值抬高了 10 倍。</p>
+<p>Atallah 的解释偏产品：模型是黑盒，开放权重也一样，无法像普通产品那样把功能列在网页上，用户像走进一间黑屋子摸索桌上的东西，需要有人把每个角落照亮，而照亮的人必须是中立第三方。他把这归结为开发者体验之外的第二层价值，即模型的营销与包装，OpenRouter 为一个模型做的营销与实验室为自己做的完全不同。他提到融资时遇到的主要反对意见是“大模型赢家通吃”，即规模定律与网络效应会把价值归到一家公司、像 Google 赢下搜索那样；他的反驳是大模型是用来建立全新业务的基础，若真出现 Google 级垄断，整个经济都会依赖它，这个结果本身就不合理，而且造出好竞争者的经济学比搜索时代分散得多。Midha 则说规模定律对 OpenRouter 从来是利好，因为当时已有 OpenAI 与 Anthropic 两个算力扩展有效的证据，他又投了 Mistral、Black Forest Labs 与 Luma，多模型生态是显然的。</p>
+<h3>开放权重需求的起点：Discord 2.5 亿月活的内容审核被闭源模型拒答，Alpaca 花 600 美元证明数据可以“压缩成模型来卖”</h3>
+<p>两位嘉宾各讲了自己转向多模型的时刻。Midha 在 Discord 任平台负责人时拿到 GPT-3 早期访问，内部两个用例是新手引导助手 Clyde 与内容审核。Discord 有 2.5 亿月活，外包内容审核团队超过 5000 人，设想是把每个服务器自己的社区规范交给模型做“上下文内审核”，但很多服务器的规范本身违反 OpenAI 的规则，模型会直接拒答，一个 Harry Potter 粉丝社区就因为商标内容被拒。他们向 OpenAI 要权重被拒，回答是“我们是闭源公司”。他说这是他第一次意识到企业需要开放模型、需要对能力的更多控制，并最终需要一个控制面来编排这些模型；六个月后 Llama 出来，再六个月他领投了 Mistral 的 A 轮。</p>
+<p>Atallah 的起点是 Alpaca。他说 2022 年底 OpenAI 是唯一选择，2023 年初 Llama 出来在个别基准上超过 GPT-3 但无法对话，Stanford 团队用合成数据微调只花了 600 美元，他在飞机上用 Alpaca，很多情况下分不出与 ChatGPT 的差别。他由此推出两点：任何有价值的数据都可以花 600 美元压缩成一个模型来卖，这是经济中全新的商业模式；每当出现一个突破性应用与一个模仿框架，就会产生一整个生态，因为单一公司的决策与整个生态能做出的变体之间差距巨大，于是需要一个市场来发现这些服务。他说当时互联网上没有一个能看到哪些模型被用、被谁用、为何用的“大本营”，Hugging Face 相对接近，但它没有闭源模型、当时也不能直接调用、也没有使用数据。</p>
+<h3>多模型融合的时点：2024 年初的 MoM 原型因头部模型差距太大被删码，2026 年“Fusion”回归，理由是排名靠前的三四个模型已经接近</h3>
+<p>Atallah 讲了一个与用量份额判断相关的技术细节。2024 年初 OpenRouter 做过“mixture of models”原型，选几个模型并行作答，再由其中能力靠前的模型把结果融合，像一个早期的模型议事会。当时的问题是融合结果有时比单独用头部模型还差，原因是头部模型远远领先于第二、三名，产品形态也不对，于是删掉了全部代码。到 2026 年初，他们把它作为 Fusion 重新做出来，理由是现在有两三四个前沿模型都很好，强化学习扩展了各实验室研究人员的创造力面，模型之间的推理风格“仍然各异，但都能插入相当有意思的想法”。他自己做过实验：把一份代码改动的架构方案交给所有模型，融合结果后再请每个模型评判融合稿是否强于自己的稿，都答是，多次抽查后决定做基准测试并推出产品。swyx 提到这个功能在 Fable 上线时一起推出。</p>
+<h3>Stripe 收购的逻辑：Midha 称这是一个安全故事，Stripe 靠 Radar 成为“安全公司”，OpenRouter 保留品牌、未来六个月路线图不变但更快</h3>
+<p>Midha 说 Stripe 决定收购 OpenRouter 不应让人意外，原因是同时理解机器学习社区、开发者体验与终端用户体验的人极少。他讲了一段 2010 年代在 Discord 与 OpenSea 做 NFT 集成时的往事：七个人开了几周会都同意点链接跳出到 OpenSea，只有不在 Discord 任职的 Atallah 反对，提出在 Discord 内嵌 iframe 直接结账，即便这对 OpenSea 自身是不利的。他从中得出 OpenRouter 团队把用户体验放在自身利益之前的判断。</p>
+<p>关于交易本身，Midha 把它定义为“互联网生态与前沿 AI 生态的安全故事”。他回忆十年前投资 Stripe 时 Patrick 与 John Collison 的说法：传统支付工具要做七天的 KYC 验证，Stripe 把欺诈成本当作获客成本先承担下来，五行代码五分钟收款，多年积累数据后推出 Radar，今天很多服务商能提供更便宜的支付通道，Stripe 在美欧维持地位靠的是欺诈识别，“人们以为它是支付公司，其实它是安全公司”。他认为每当有大量价值在网络上流动，都需要新的保护与安全基础设施，让坏人进不来、好人的交易快起来。Atallah 说这笔交易让 OpenRouter 加快市场推进、更快向企业上层客户走，双方在信任与安全、让应用接受 token、让用户自带推理这些方面有清晰的协同。OpenRouter 品牌、产品与路线图保持不变，未来六个月做的多数事情与独立时一样，只是所有事情都会更快，更长期的计划他说现在还不能讲。</p>
+<h3>投研视角的几点归纳（作者归纳）</h3>
+<p>第一，“10 万亿美元 token 经济”是一个投资人的十年数量级判断，口径在推理收入与 GMV 之间游移，无法直接用作需求预测，但它给出的类比框架有用：在线支付十年做到 1 万亿美元的过程中，欺诈与信任基础设施是与支付通道并列的独立赛道，Midha 把 Stripe 收购 OpenRouter 定义为安全交易，意味着 token 计费、风控与代理身份将是应用层之外的一条基础设施投资线索。第二，Atallah 的“前沿创新、30 天账单、三个月后开放权重接住”循环，为观察闭源与开放权重用量份额提供了可证伪的节奏：一次头部闭源模型的能力跃迁之后约一个季度，若开放权重模型在等效任务上以明显更低价格跟上，用量份额会向后者迁移，这与 2024 年 Sonnet 3.5 之后、2025 年底 OpenClaw 心跳流量之后的两次实证一致，也说明 token 需求的价格弹性在“后台、低价值调用”这一层更高。第三，路由层自身的商业模式正在从推理抽成转向按事件计价，Atallah 给出的两个理由（欺诈集中攻击通用推理转售者、实验室与推理提供商用承诺量把客户拉走）适用于所有靠加价转售模型能力的应用层公司，这类公司的毛利与留存都会受到同一对力量的挤压。第四，OpenRouter 上月拦截欺诈金额环比 10 倍、日 token 量周增约 9%，两者同时出现，说明 token 需求增长中有一部分是滥用与代理失控产生的“无效需求”，用路由层或实验室披露的 token 总量推断真实需求时应打折扣。第五，Fusion 在 2024 年失败、2026 年可行的原因是头部模型之间差距收窄，这是从产品侧观察前沿模型同质化程度的一个信号，与实验室之间价格竞争加剧、开发者切换成本下降的方向一致。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
