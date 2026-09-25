@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Lemkin 称 Muse 是 ChatGPT 第一个真正的对手、两周内替他建起跟踪 150 家赞助商的“一人 CRM”，O'Driscoll 算 LLM 调用年支出约 1000 亿美元中两成可被 Jev 类分类模型以五分之一价格接走，Dreamforce 高管“不信任 OpenAI 与 Anthropic 保管数据”支撑 Factory 50 亿估值（20VC 周评，2026-09-24）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客精读档案</span><span class="sh">播客档案</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-25<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Lemkin 称 Muse 是 ChatGPT 第一个真正的对手、两周内替他建起跟踪 150 家赞助商的“一人 CRM”，O'Driscoll 算 LLM 调用年支出约 1000 亿美元中两成可被 Jev 类分类模型以五分之一价格接走，Dreamforce 高管“不信任 OpenAI 与 Anthropic 保管数据”支撑 Factory 50 亿估值（20VC 周评，2026-09-24）</h2>
+<div class="metaline">20VC with Harry Stebbings，81 分钟 · 2026-09-24</div>
+<p>本期为 20VC 周度新闻评论，主持人 Harry Stebbings，嘉宾为 SaaStr 创始人 Jason Lemkin 与 Scale Venture Partners 合伙人 Rory O'Driscoll。本文按应用层与下游需求相关度分配篇幅：Meta Muse 对 ChatGPT 的挑战与 Lemkin 的“一人 CRM”实测、Amazon 封锁与 Shopify 接入 Muse 的取舍、代理对系统记录（systems of record）的冲击、Jev 廉价分类模型引发的 LLM 栈拆分与路由评测负担、编程作为 AI“母矿”与企业对模型厂商保管代码的戒心、Factory 50 亿美元估值的投决写得较细；Anthropic 推迟 IPO 与 OpenAI 烧钱压缩处理；种子轮、支票规模、LP 与“安静的复利者”等风投行业内部话题合并成一节；Legora 与 Crusoe 两笔投决附在 Factory 之后简写；Keith Rabois 与 Airwallex 的争论与 AI 无关，略去。与本站既有精读的重叠：Muse 免费额度、机密虚拟机与 Instinct 估值路径见 09-17 上期周评精读与 09-08 扎克伯格访谈精读；Jev 的模型机制与调用量见 09-21 Latent Space 的 TypeSafe 创始人精读；Harvey 负 50% 毛利率与 Amazon 广告收入对电商利润的口径见 09-23 TBPN 精读；企业代理式开发的可靠性样本见 09-24 Collison 精读，本文均一句带过。口径提示：估值、收入、烧钱与市值均为口播，未经核对；自动字幕无说话人标记，归属依据点名与上下文判断；专有名词按上下文还原，Anthropic 字幕多记作 Antropic 或 Entropic，ChatGPT 记作 chat GBT，Vercel 记作 Vel，TypeSafe 记作 type safe，Legora 记作 Lorra 或 Lagora，Gokul 记作 Goku。本期的中心判断是：Muse 以自有模型加免费算力把消费级代理的成本曲线压到独立公司之下，Jev 则从开发者接口一端把“简单判断”从前沿模型的账单里切走，应用层的竞争同时在消费端与开发者端被两头压缩；与此同时，企业对模型厂商保管数据的不信任成为独立编程代理公司的定价支点（作者归纳）。</p>
+<h3>Muse 两周：Lemkin 称其为 ChatGPT 第一个真正的对手，Meta 本周市值增加约 1000 亿美元</h3>
+<p>主持人把 Muse 连续数日占据应用商店第一、Meta 股价上涨列为本周头条。Lemkin 说这是“ChatGPT 第一个真正的竞争者”，Anthropic 此前并未真正在意 Claude 的消费端，而 Muse 集多种功能于一身，是他用过的软件里非常出色的一款，同时也是“打 ChatGPT 的特洛伊木马”，因为底层模型足够好：用代理办事时用户顺带会问问题，问天气、问电影、问本期 20VC 怎么样，它有观点，是一个很像样的消费级 LLM。他判断没人会用 Muse 写湿实验室生物软件，但对普通人而言它免费、带真正自主的代理（ChatGPT 没有）、token 额度远多于 ChatGPT，犯错时还会写道歉信，“如果它免费，普通人为什么要付费”。</p>
+<p>O'Driscoll 完全同意，并说两周前节目里刚说 Meta 得把它发出来，录完到发布之间就发了。他此前对 Meta 押注企业模型的路线持保留态度，而这次“正中要害”，产品接入了 Meta 的分发杠杆，深度使用 Instagram 或 Facebook 的用户本来就在场内。按他的口径，Meta 股价本周涨 7% 到 8%，市值增加约 1000 亿美元，“一个产品换来 1000 亿美元”提醒他面对超大终端市场时一个入口的价值有多大，也解释了为什么 OpenAI 会被逼着考虑“要不要买 Instinct”。主持人补充 Meta 本月涨 34%，有人说测试用户在发布前就买了股票。O'Driscoll 说他对 Meta 的看法从“很好的生意在企业 AI 这个无底洞里花钱”变为“很好的生意在 AI 里可能真有一出戏”，这值得重评。</p>
+<p>Lemkin 给了一个更具体的样本：Muse 替他建了一整套 CRM，实时跟踪 SaaStr 约 150 家赞助商的每一封邮件与每一条事项并自动更新。它无法协作，撑不起一个销售团队，是“一人 CRM”，但在他看来是这档节目开播以来第一次见到真正跑得起来的“可组合软件”，成本为零。O'Driscoll 补充这需要数据库、智能、邮箱权限等全部组件，Lemkin 显然不是典型用户，Meta 的经济模型也不会按“人人自建 CRM”来设计，否则算力会被吃光；但 Muse 给每个用户的独立算力与沙箱据他判断多于 Instinct。</p>
+<h3>Amazon 封锁与 Shopify 接入：广告收入与购物篮的算术，以及“需求先出现，协议才有人谈”</h3>
+<p>用户开始用 Muse 跨平台购物，Amazon 选择封锁，Shopify 选择合作。O'Driscoll 认为两家都对。据他了解，Amazon 从其他代理商务里发现两件事：一是代理下单不产生广告收入，而 Amazon 广告业务的规模已超过电商利润，等于是电商这一块利润流的全部；二是 Walmart 近期的数据显示代理购物会缩小购物篮，因为用户失去了“看到别人也买了什么”而顺手加购的机会。Amazon 的下一句是关键：“我封了他们，他们照样会来，因为我是 Amazon”，这是巨头之间的碰撞，Amazon 在说“Meta，谈过之后我才让步”。Shopify 代表大量长尾商家，乐于多一份需求，购物篮压缩也不明显，没有大广告业务，只要支付走它的通道就满意。他把六个月前 Google 与 OpenAI 关于代理支付协议的讨论称为“聪明人在房间里想事情”，真正起作用的是 Instinct 与 Meta 这样聚合了消费需求的一方开始猛敲 API，他打赌 Resy 与 OpenTable 此刻正在制定代理 API 政策，Amazon 本周正在和 Meta 谈。</p>
+<p>Lemkin 的判断更重：这是“不必要的系统记录的最后一搏”，Resy 会输，Amazon 因为在自营商品上接近独家而短期损失较少，但代理终将绕开它们，Shopify、Stripe、PayPal 是受益方。他说代理不但会绕，而且“乐于”绕：“要我直接打电话给餐厅吗”“我找到一个 OpenTable 后端 API 还能用”“DoorDash 有个没关的入口”，代理擅长找到不该暴露的接口。他把结果概括为“不会被杀死，会被打残”，哪怕只影响 Amazon 广告收入的 10%，对利润率的影响也足以压低股价。他还举当天早上的例子：一家核心供应商大幅涨价，他们的代理立即提出绕开方案，并自行列出 12 个月的迁移计划，“它们不容忍这种事”。O'Driscoll 引用约 25 年前的说法“互联网厌恶低效”，旅行网站把供需拉近，AI 会以同样方式压中间商，只靠信息差报价的环节会承压；他不认为会像 Lemkin 说的那样惨烈，但 5% 到 10% 的影响已经有意义。Lemkin 补了一句，Amazon 封 Perplexity 很容易，因为它“只是一只蚊子”，等对面是所有人的时候，“确定要全封吗”会变成复杂的选择。</p>
+<h3>Jev：只做分类的模型、五分之一到百分之一的价格，以及被拆开的 LLM 账单</h3>
+<p>O'Driscoll 把 Jev 列为本周的“story of the week”，主持人口播它是“做决定、不做聊天”的模型，上量速度创 Vercel 平台发布以来新高。Lemkin 周末重度使用后认为它不算模型，更像“由 LLM 支撑的分类器”：他用它判断 SaaStr 社区里谁该与谁见面，周六整天失败，因为提示的写法必须重做，周日改完后能在毫秒级作答，价格约为 Anthropic 的百分之一甚至更低；它不输出文本，做不了复杂推理，在他这个应用里大约对应两成的 LLM 调用。他说 Jev 提醒大家“我们在简单事情上浪费了太多 token”，每家都会做一版，Exa、Parallel 也该做，但它不会接管整个栈，也不会替代 ChatGPT。</p>
+<p>O'Driscoll 的框架是：LLM 返回文本、计算密集、慢且贵，Jev 只返回真假、排序或分数三种答案，快而便宜，官网甚至不对输出 token 收费，自称卡尼曼意义上的“系统一”。他周一在合伙人会上算过一笔账：当前 Anthropic、OpenAI 与开源模型合计的 LLM 调用支出约 1000 亿美元一年，若 OpenAI 做到 3500 亿、Anthropic 做到 2500 亿（字幕记作 Amazon，按上下文应为 Anthropic），五年后可能到 5000 亿；其中约两成是“用复杂贵模型做本该简单的事”，对应 200 亿美元；但价格降五倍后这 200 亿会变成 40 亿，Jev 或 TypeSafe 的赌注就是拿下这 40 亿。他引 Foundation Capital 一篇帖子的说法，这只是本来注定流向 OpenAI 与 Anthropic 的支出里“被削去的一块”，复杂任务仍由前沿模型做，“基础模型没有终结，只是被打残了两成收入”。Lemkin 坚持成本差是百分之一，其余同意。</p>
+<p>拆分发生在哪一层，O'Driscoll 说不在 ChatGPT 应用端，在 OpenAI 与 Anthropic 的 API 端：终端用户不会用 Jev，做软件的人会发现自己需要的智能里有相当一部分是“系统一”，只要一个快答案，不要“这是个好问题”式的奉承；消费者与开发者对 AI 的需求会持续分化。Lemkin 提出的代价是路由与评测负担：用 harness 挑模型“累得筋疲力尽”，何时该用 Jev、何时不该，每个用例都得跑评测，比如“Rory 和 Jason 该不该喝咖啡”它答对，“三人里谁更适合加入 20VC 做合伙人”它会答错；他在 Replit 上切到自动路由后不知道底下跑的是 Astra、Fable 还是开源模型，出现性能退化又切回 Astra。他把这称为“DevOps 的文艺复兴”，评测要 7×24 跑遍无数组合，团队要变大；Databricks 式“八成流量走开放权重模型”对 CFO 好听，对他不好用；有人拿 Jev 当即时路由器，若它两成的时候选错模型，写关键功能就会一整天在修 bug。他的结论是选模型正在变难，“对投资人是好事，对做产品的人是负担”。</p>
+<p>关于 OpenAI 与 Anthropic 的反应，O'Driscoll 认为 OpenAI 已经“无情地商业化”，几周内就会推出低价版；Anthropic 在“造神”，Jev 显然不是神，不屑于沾手。Lemkin 认为两家是有意放弃低端：各自的低配模型 Mini 与 Haiku 在他的小评测里全部失败，问 Claude 简单流程用什么它推荐 Haiku，问 ChatGPT 它推荐 Mini，这是“打勾式产品”，两家周末就能做出一版 Jev 但故意不做，它们真正紧张的是开放权重模型比预期更早逼近。主持人补充 Jev 的种子轮为 4000 万美元，引出下一节。</p>
+<h3>风投内部话题：2000 万美元起步的“种子”、周期顶部的支票与 LP 的两难</h3>
+<p>主持人说团队反映“再也看不到低于 2000 万美元的首轮”，问传统种子是否正在消失。Lemkin 称 a16z 当天宣布投 4000 万美元办“大学”做 pre-inception 投资，是 Thiel Fellowship 的放大版；O'Driscoll 用名义 GDP 算账，2010 年至今约 2.5 倍，当年 400 万美元的支票折成今天是 1000 万美元，再叠加眼下科技全面向好，“眨眼就到 2000 万”，退出规模涨得比名义 GDP 更多，其上可能还叠着一层估值抬升。他推荐 Menlo Ventures 一位合伙人关于“周期顶部如何出手”的文章，将参与者分为拿着 Anthropic 赚来的“庄家的钱”的一方与错过早期轮急于追赶的一方，两者之间大量支票带着错失恐惧。主持人与 Lemkin 都认为文章“居高临下”，Menlo 在多数轮次里出价居前；O'Driscoll 的辩护是同一笔交易今天的价格可能高三四倍，按四年前的框架承保等于回报除以四。</p>
+<p>Lemkin 2021 年全年只投了 Owner 的种子轮，该公司刚以 23 亿美元估值完成融资；但他反问“不投 AI 投什么”：投一家 5000 万美元估值、年增 60% 的公司，指望它以 3 倍收入卖给 Bending Spoons？而后者一年看 1000 个标的只做两到四笔，“我喜欢安静的复利者，只是没有市场了”。Gokul 发推称只要资本效率高，他愿意投“三倍三倍两倍两倍”的公司，主持人反驳这是空话，因为 LP 会把钱给 Sarah Guo 这样的管理人：她在 Instinct 5000 万美元投前做种子，随后四个月内 Kleiner 以 3.5 亿投前、Index 与 Benchmark 以 25 亿、如今传闻 100 亿，四轮之间价格差 20 倍。Lemkin 承认 2021 年顶部四分位 LP 的 IRR 达 90%，2026 年会重演，但十年跨度上 30% 出头已是上限；O'Driscoll 说成长期今天像 2021 年，“在 5000 万投前投 Instinct 每天都投，在 100 亿时安全边际可能只剩 1 倍”。Lemkin 的 LP 结论是追逐回报在种子层面比平时更难，因为会把下一个 Sarah Guo 筛掉；O'Driscoll 补充，风投业绩的持续性远高于公开市场基金，部分追逐在私募市场并不愚蠢。</p>
+<h3>Factory 50 亿美元：编程是 AI 的“母矿”，企业不愿把代码交给卖模型的人</h3>
+<p>Factory 以 50 亿美元估值融资 2 亿美元，估值为上轮三倍，主持人自述为其投资人，Droid 产品收入“可观”但不便公开。Lemkin 批准：推理需求无论被 Muse、Factory 还是 Anthropic 拿走都只会超出现有模型，而他刚从 Dreamforce 回来，两条主题突出，主权（“我要知道数据在哪”）与模型选择。他与高管交流的结论是他们“不信任 Anthropic 和 OpenAI 保管数据”，这种情绪来自线下交流，他本人也这样想：上传机密数据，“我不确定它不会通过 LLM 流到竞争对手那里，实际上我相当确定会”，这与恶意无关，源于 LLM 的工作方式。他判断一年内企业界不会有人放心把数据交给两家厂商。他回忆在 Adobe 任高级副总裁时引入 GitHub 都要过无数关卡，人们容忍今天的状况只因开发者对这些产品的需求“疯狂”，“他们训练过所有人的数据，当然会训练你的”。</p>
+<p>O'Driscoll 一反此前的谨慎，赞成投资，理由是他们内部两年来反复说的一句话：“编程是母矿”，按当前 AI 创造的价值算，编程是其他一切的十倍，编程、QA、测试、审查，全栈上下的押注“不嫌多”。企业会想从“不同时卖你模型的人”那里买编程方案，因为企业界已经不再相信 OpenAI 与 Anthropic 是善意的，“他们也许不会像自己说的那样毁灭人类，但可能偷走我的数据”。Cursor 已被“从桌上扫走”，面向大企业说“把这件事替你办掉”的只剩 Factory 与 Cognition。他把这类公司归为“可以熬过一年颠簸”的非杠杆资产，与数据中心交易形成对照。</p>
+<p>两笔附带投决。Legora 当日宣布 ARR 达 2 亿美元、下轮估值 110 亿美元，Lemkin 投反对票，理由是 The Information 报道 Harvey 毛利率为负 50%，若同类公司毛利率持续下行、未见 V 形回升，他会紧张到不领投；O'Driscoll 为负毛利率给出正面解读，“律师在猛用产品”，自有模型上线后不会流失，但法律的每人头支出低于软件工程师，110 亿美元“按律师人头算不到”，给出否决。Crusoe 以 309 亿美元估值融 39 亿美元，合同总额约 1400 亿美元，Lemkin 称这是“电子表格投资”，略高于其回报门槛，遗憾放弃；O'Driscoll 提醒数据中心交易有四到五倍杠杆，暴露于 AI 用量的增速，上行时优异、下行时艰难，他愿意持有但不愿全仓，并偏好稍低价格换更长的债务跑道。他提到《华尔街日报》同一天早晨的标题是“数据中心交易担忧下多笔交易撤回”，当天纳指大涨后晚间变成“AI 资本开支担忧消退”。</p>
+<h3>Anthropic 推迟 IPO 与 OpenAI 的 2780 亿美元：银行家想要一个干净的季度</h3>
+<p>Anthropic 把 2 万亿美元级 IPO 从 10 月推到 11 月。O'Driscoll 认为原因就是招股书的季度选择：Anthropic 二季度“惊人”，规模终于超过 OpenAI，OpenAI 随即在 7 月大力宣传三季度数字，银行家会建议把这一个季度放进故事里，10 月上市时无法披露 10 月数据，11 月上市则可以直接印出来，“数字自己会说话”。主持人读出一丝压力，认为超额认购 20 到 30 倍的预沟通可能没有那么顺；O'Driscoll 同意，一个“不惜代价拿到钱”的 CFO 会接受估值降到 1.5 万亿照样 10 月走，Anthropic 没有这样做，说明管理层自认处于强势位置，愿意多担一个月窗口风险换估值，他给这个决定 90% 的正确概率。一位投资人问主持人，没有保险公司愿意承保责任险，前沿模型公司怎么上市。O'Driscoll 认为这是噪音：2 万亿美元市值的公司可以自保，证券法的要义是披露风险，S-1 写明员工对风险的看法即可。Lemkin 说 Anthropic 会养 200 人的内部法务团队应诉到底，“这是我记忆里第一次一家公司如此明确地危险还要上市，但开局了”。</p>
+<p>OpenAI 被报道到 2030 年将烧掉 2780 亿美元、2028 年现金耗尽，同时传闻以 1.5 万亿美元估值再融资。Lemkin 打赌实际更多，“可能需要 4000 亿”，因为投资组合里烧钱永远比模型高 30% 到 50%，换谁当 CFO 都一样。O'Driscoll 列出三个数字：ARR 从今年底的 350 亿增至三四年后的 3500 亿，十倍，对照 Anthropic 去年一年增十倍，“几乎算保守”；净烧钱 2780 亿，账上现金 1220 亿，有时间再融；需要的资本开支约 7000 亿美元，其中大部分不在 OpenAI 的资产负债表上，由 Oracle、英伟达等以收入支持与兜底安排代为承担并租回，否则烧钱数字会更难看。他的结语是“智能不便宜”。</p>
+<h3>投研视角的几点归纳（作者归纳）</h3>
+<p>第一，本期对 Muse 的判断从上期的“豁免期结束”推进到具体的替代关系：Lemkin 认为其对 ChatGPT 的威胁来自“免费、自主代理、更多 token”三者叠加，而“一人 CRM”样本说明消费级代理已能在个人范围内生成本该由 SaaS 提供的软件，尽管缺协作、且 Meta 的经济模型不按此设计。Meta 市值一周增加约 1000 亿美元定价的是入口，留存、收入与单位经济仍无数字。第二，Amazon 封锁 Muse 的算术给了代理商务一个可检验的量级：广告收入已超电商利润、购物篮缩小，因此代理渗透率每上升一个百分点，损失集中在利润率一端，Lemkin 的“10% 广告收入”与 O'Driscoll 的“5% 到 10%”可作为后续观察 Amazon 广告增速的阈值。第三，Jev 的意义在账单结构，O'Driscoll 的 1000 亿、两成、五分之一价格三步算账给出一个可核对的框架：前沿模型的收入被切走的部分有限，但开发者端的拆分会推高路由与评测成本，Lemkin 描述的“DevOps 文艺复兴”与 09-17 Zapier 精读里“八成任务本该用确定性代码”、09-09 Vals 精读里评测脱节的判断指向同一层需求，评测与路由工具是这一轮拆分的直接受益方。第四，Factory 一轮的定价支点是企业对模型厂商保管代码的不信任，两位嘉宾都把它当作可以持续一年以上的结构性趋势，这与 08-10 OpenRouter 精读里的观察一致；若 OpenAI 与 Anthropic 的数据隔离与不训练承诺被大企业采信，独立编程代理公司相对模型厂商的溢价会收窄。第五，OpenAI 的 7000 亿美元资本开支多数在他人资产负债表上，与 Crusoe 一节里“四到五倍杠杆”的提醒合读，说明本轮资本开支风险的承担方在云与芯片供应商一侧，O'Driscoll 把编程代理归为非杠杆资产、把数据中心归为杠杆资产的分类，是本期给出的直接组合配置口径。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
