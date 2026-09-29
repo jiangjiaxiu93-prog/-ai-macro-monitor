@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>代理时代的应用生态重塑、聚合理论推演与平台入口之争——Ben Thompson文章要点梳理（Stratechery，2026-09-28）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>代理时代的应用生态重塑、聚合理论推演与平台入口之争——Ben Thompson文章要点梳理（Stratechery，2026-09-28）</h2>
+<div class="metaline">Stratechery，Ben Thompson 周度文章与周报合读 · 2026-09-28</div>
+<p>——据Stratechery文章《Apps, Agents, and Aggregation》（2026-09-28）与周报《2026.39: Begun, the Aggregator Wars Have》（2026-09-25）整理</p>
+<p>摘要：本文对Stratechery作者Ben Thompson于2026年9月28日发表的《Apps, Agents, and Aggregation》一文及9月25日周报中有关Meta Muse与聚合者竞争的主要观点进行了梳理汇总。梳理了其对AI代理改变人机交互方式与应用使用习惯的判断，介绍了Meta Muse为用户配置虚拟计算机、按需生成个性化应用的产品定位，以及聚合理论由“发现”向“激发意愿”的推演，最后阐述了亚马逊屏蔽Muse、微软Copilot改版所反映的平台入口之争及Meta与微软的分发优势。据其介绍，Muse为每位美国用户配置一台2核处理器、8GB内存、8GB存储的虚拟机；他借助Muse用5分钟生成了一款整理Instagram收藏食谱的应用；其手机上的应用数量已由2013年的151个增至689个，实际打开的应用则明显减少。</p>
+<p class="kw">关键词：个人代理；企业代理；代理商务；分发渠道；应用层护城河；Meta Muse；微软；亚马逊</p>
+<h3>一、代理时代的人机交互与应用生态</h3>
+<p>Thompson认为，以消息对话与AI交互、由AI代替人操作计算机、按需生成界面取代预制界面，这三项变化在2026年已成为现实，只是尚未普及。</p>
+<h4>（一）对人机交互的三项判断</h4>
+<p>Thompson以乔布斯（Steve Jobs）发布初代iPhone时的开场作引：乔布斯依次介绍“宽屏触控iPod、革命性手机、突破性互联网通信设备”，随后反问听众“明白了吗”，揭示三者是同一台设备。Thompson指出，当时观众并未真正理解“互联网通信设备”的含义，而这恰是iPhone具有革命意义的能力。</p>
+<p>他借“明白了吗”一问提出三项判断：一是消息对话将是人与AI沟通的方式，当前体现为聊天机器人，未来将演进为更自然的交互界面；二是人们不仅不再为计算机编程，也将不再亲自使用计算机，由AI代为操作；三是“一次编写、处处运行、人人通用”的预制界面将走向终结。他认为三者是同一现实的三个侧面，且在2026年已经发生，“未来已来，只是尚未广泛分布”，并就此提出能否普及的疑问。</p>
+<h4>（二）移动时代应用生态的回顾</h4>
+<p>Thompson从三个方面回顾了移动时代的应用生态。</p>
+<p>一是消息应用的地位。他在2014年2月18日发表《Messaging was Mobile's Killer App》，次日Facebook即宣布收购WhatsApp。其论点是，智能手机起初是便捷的信息设备，杀手级用例却是消息：家用电话实现了实时沟通，网页实现了被动沟通，消息则实现了持续沟通，人们乐于把大量注意力投向消息。</p>
+<p>二是“以人为中心”与“以任务为中心”之争。Thompson认为，收购WhatsApp在雄心上是Meta的一次退让，一年前Facebook曾为安卓推出Facebook Home，意在把手机变成“Facebook设备”，扎克伯格（Mark Zuckerberg）当时表示“应用不是世界的中心，人才是”。Thompson在《Apps, People, and Jobs to Be Done》一文中表示反对：据其统计，当时手机三屏共151个应用，对应80项待办任务（jobs to be done），与“人”相关的只有4个；他认为智能手机主导世界，原因在于能为更多人、在更多场合完成更多任务，Facebook Home则让这些任务更难完成。</p>
+<p>三是应用数量的扩张与核心应用的稳定。据其介绍，其手机目前装有689个应用，多数很少打开，这一数字反映了iPhone与App Store带来的变化，即为大量此前无法随身完成的活动提供了定制界面；核心应用则相当稳定，包括WhatsApp等消息应用、以X为主的社交媒体，以及新近加入的ChatGPT与Claude。</p>
+<h4>（三）代理即“拥有计算机的AI”</h4>
+<p>Thompson指出，理解代理的关键在于，代理是能够使用计算机的AI。他在2023年ChatGPT推出插件（包括Wolfram|Alpha插件）时撰写《ChatGPT Gets a Computer》，提出AI助手的“思考”与沟通方式高度类人，计算类问题本应交给计算机，而ChatGPT从此拥有了自己的计算机。据此他认为：一是AI的角色在于操作计算机，概率性的大模型无需变成确定性系统，只需调用确定性的计算机完成计算机擅长的工作；二是代理正是这一思路的实现，并借助书面记录能力得到增强；三是对于无力或不愿为代理自行搭建计算机的普通用户，要让代理可用，就必须同时提供代理与供代理使用的计算机。</p>
+<p>在此基础上，Thompson描述了自身使用方式的变化：一是其实际打开的应用数量正在骤减；二是他理解让代理访问个人计算机令人不安，但带命令行的应用早已可被代理使用，自GPT-5.6 Sol起所有带用户界面的应用也可被代理使用，只是速度较慢，OpenAI的Astra使其变快，AI基本可以代他使用任何他不愿亲自操作的应用或网站；三是他对此并无顾虑，装有689个应用是因为曾需要与这些服务或游戏交互，每一个都要先学会用法，用他的话说，他只是一个想把事情办成的人，而AI能够把事情办成。</p>
+<h3>二、Meta Muse的产品形态与交付定位</h3>
+<p>Thompson认为，Muse为普通用户补齐了代理所需的计算机基础设施，并以按需生成的界面和自有硬件承载交付。</p>
+<h4>（一）为每位用户配置虚拟计算机</h4>
+<p>据其介绍，他此前已深度使用代理：一是编程代理；二是基于Claude专用对话线程搭建的想法跟踪代理；三是针对其公司需求专门调校的代理。这些经历使他对Muse抱有期待，原因在于Muse为普通人提供了拥有自有代理所需的基础设施。</p>
+<p>Thompson表示，在Muse的发布内容中，他关注的重点在于配套的计算资源，底层的Muse Spark模型居于其次：Meta为每位美国用户（预计将来扩展至全球）配置一台2核处理器、8GB内存、8GB存储的虚拟机。他认为这是一台“货真价实”的计算机，也是让大多数人用上代理的必由之路。</p>
+<h4>（二）按需生成的个性化应用</h4>
+<p>Thompson以亲身使用为例。据其介绍，他受WhatsApp群聊中一位朋友用Muse查看Instagram收藏的启发，请Muse整理自己在Instagram上收藏的全部食谱：一是Muse起初交付了一份PDF，他追问能否以更便于使用的格式存储后，得到一款食谱应用；二是全程耗时5分钟，对话在遛狗途中完成；三是应用尚不完善，目前主要是对Instagram视频进行分类，他要求Muse读取说明文字并观看视频，这项工作正在进行，并受到Instagram访问频率限制。</p>
+<p>Thompson认为，这款“食谱盒”应用虽可算作其手机上的第690个应用，实质上代表“无限应用”：用户选定的代理可按指令生成任何所需应用，即便仅供本人使用。他将其视为大模型兴起后另一未来图景的早期体现，即真正定制化的界面。他在2024年《The Gen AI Bridge to the Future》中曾提出，生成式AI可用于按需生成界面，例如手表应用若能在特定时刻直接呈现用户需要作出的选择，将比模仿小号iPhone的触控导航更加好用；生成式AI正在搭建通往可穿戴设备的桥梁，使其成为独立的通用计算机。就当前进展，他表示“即时界面”仍在路上，但生成式界面已经出现，专为个人生成、无需与他人共享，并因数量无限而近乎“用后即弃”。</p>
+<h4>（三）硬件作为Muse的交付载体</h4>
+<p>Thompson指出，上周的Meta Connect大会一如往年以眼镜为主推出新设备，今年的不同之处在于Muse让整体布局变得清晰：Meta的设备本质上是Muse的交付载体；他此前设想的通用计算机已经存在，Meta已把它交给每位用户、供Muse使用。</p>
+<h3>三、聚合理论在代理时代的推演</h3>
+<p>Thompson认为，代理时代的稀缺环节由“发现”转向用户的意愿，掌握代理入口的企业将对所有需要完成事务的供给方获得支配力。</p>
+<h4>（一）互联网时代的聚合逻辑</h4>
+<p>Thompson将当前变化视为网站时代的重演：一是出版物过去依赖印刷机与运输车，具有稀缺性；二是分发成本降至零后，网络内容变得充裕，“发现”成为亟需解决的问题；三是解决“发现”问题的企业聚合了需求，从而获得对供给方的支配力，其中Meta与谷歌由此建立了规模可观的广告业务，此即其提出的聚合理论（Aggregation Theory）。</p>
+<h4>（二）由“发现”转向“激发意愿”</h4>
+<p>Thompson指出，互联网时代仍然稀缺的是在网页或应用中实际完成事务的能力。代理带来的变化主要包括三点：一是“做事”的能力变得充裕，稀缺的是用户的意愿（volition）；二是待解决的问题由“发现”转向“激发”（inspiration），能够激发用户意愿的企业，将对一切有事务待完成的主体获得支配力；三是一旦用户专注于解决某个问题，完成该问题所需的各类应用与服务都被抽象为实现细节，沦为供给方，面临与聚合者之下出版物相同的处境，只能从代理手中争取有限的份额，代理由此成为用户需求乃至欲望的把关者。</p>
+<h4>（三）平台与聚合者的合一</h4>
+<p>Thompson以微软Copilot改版作为对照。据The Verge报道，微软在上月预告后正式发布改版的Copilot“超级应用”，把聊天、编程与代理三项能力整合进单一界面，主要包括三方面内容：一是新增Code标签页，任何人都可创建应用、跟踪器、仪表盘或自动化流程，并以云端托管的内部应用形式与同事共享；二是新增Autopilot，前身为最初以桌面应用形式提供的Scout，被微软副总裁Jared Spataro称为“数字队友”，拥有自己的云端计算机实例，可在用户睡眠时持续运行，承担监看Teams频道、执行周期性工作任务、跟进后续事项等工作；三是面向企业级需求，据Spataro介绍，Autopilot运行在客户自己的租户（tenant）内，拥有独立的身份、记忆、计算机与工作空间，基于Microsoft IQ理解组织的实际运作方式，出现在Teams、Outlook、聊天、频道与文档等员工已有的工作场景中，可像同事一样被@提及，并配有权限、审计与治理机制。微软首席执行官纳德拉（Satya Nadella）在X上表示，微软正把Copilot打造为覆盖所有模型、所有终端形态与所有任务的“新的工作操作系统”，此次更新整合了Autopilot、Code等四项内容。</p>
+<p>对此，Thompson认为：一是他多年前即把Teams理解为微软面向SaaS的操作系统，新版Copilot是这一思路的自然延续，要义在于掌握界面，迫使其他各方按微软的条款接入；二是新版Copilot与Muse相近，Autopilot同样配有云端计算机实例，差别在于接入了企业所需的各类管控；三是这是科技行业新一轮争夺的终局目标，Muse与Copilot试图同时成为Windows式的平台与Facebook式的聚合者，即满足用户一切需求的单一界面，代用户使用计算机，在需要时生成所需界面，其余时间在用户不参与的情况下替用户办事。</p>
+<h3>四、平台间冲突及对电商与企业软件的影响</h3>
+<p>代理入口之争已在电商领域引发平台间的直接冲突，企业软件的操作界面也面临被代理绕开。</p>
+<h4>（一）亚马逊屏蔽Muse与聚合者之争</h4>
+<p>当周周报以“聚合者战争已经开始”为题。Thompson指出：一是代理的重要用例之一是处理必要但琐碎的日常事务，亚马逊提供的重要服务之一是可靠地配送必要而琐碎的日常用品，因此Muse若能使用亚马逊，体验会更好；二是这对亚马逊构成问题，原因在于Muse代用户操作时不会看到广告，这正是亚马逊屏蔽Meta新代理的原因；三是亚马逊之所以能够这样做，在于其差异化植根于实体世界，Meta要跨越这一护城河，需要沃尔玛（Walmart）的协助。</p>
+<p>在当周的两篇更新中，Thompson进一步表示：一是亚马逊屏蔽Muse在意料之中，但双方仍有达成协议的空间，依据在于亚马逊在实体世界的投入本身构成AI时代的护城河；二是Meta需要借助沃尔玛与亚马逊打持久战；三是在旅行领域，Expedia力图保住自身的中间层位置；四是谷歌在这场竞争中的位置尚不明朗，他就此提出疑问。当周Sharp Tech播客将这一局面形容为“金刚大战哥斯拉”式的聚合者战争。</p>
+<h4>（二）企业软件界面的价值变化</h4>
+<p>Thompson认为：一是没有人愿意使用企业软件界面，那些难以理解的界面只是用来暴露繁复功能并锁定用户的手段；二是一旦人们意识到只需说出需求，并且借助计算机使用能力，无需完全依赖功能欠缺且被刻意限制的应用程序接口（API），过去的方式将显得落后；三是部分企业软件公司已预见这一前景，据其观察，Salesforce在近期的Dreamforce大会上计划为将旗舰产品做成Claude插件收取三位数的溢价，Thompson认为，在计算机使用能力面前，Salesforce的界面此后将不再由人直接操作。</p>
+<h3>五、代理入口之争与分发优势</h3>
+<p>Thompson认为，代理终将普及，竞争焦点在于成为用户对话的那个代理，率先推出适配产品的Meta与微软具备分发优势。</p>
+<h4>（一）代理普及的前景</h4>
+<p>Thompson表示，真正使用代理的人会觉得上述判断显而易见，但仍有大量用户尚未使用，能否普及仍是问题。他的判断是肯定的：人们使用应用从来都出于完成任务或自我娱乐的需要，应用只是载体，一旦人们意识到可以直达待办任务，过去的方式会显得奇怪。</p>
+<h4>（二）代理粘性与入口之争</h4>
+<p>Thompson指出，吸引关注的将是成为用户对话对象的代理之争：一是模型之间的可替代性相对较强；二是代理掌握的用户背景信息越多、获得的登录凭证与文件等访问权限越多，运行效果越好，粘性随之上升；三是粘性抬高了竞争的利害关系，多数个人和企业只会使用一个代理。</p>
+<h4>（三）Meta与微软的分发优势</h4>
+<p>Thompson认为，其他参与者面临的挑战在于，率先推出真正贴合用例的代理产品的两家公司，恰好拥有分发渠道及运用分发的经验。贴合用例的要素主要包括：一是广泛触及个人或员工的生活与工作环境；二是成熟的消息服务；三是为每个代理配置一台计算机。Meta几乎触达全球每一个人，微软几乎触达每一位职场员工，他据此判断，这一未来的普及速度可能快于预期。</p>
+<p>总的看，Thompson认为，AI代理已具备代替用户操作计算机、按需生成界面的能力，应用与服务将逐步退居为代理背后的实现细节，稀缺环节由“发现”转向用户意愿，掌握代理入口者有望同时具备平台与聚合者的双重地位；亚马逊屏蔽Muse显示这一入口之争已在电商领域展开，亚马逊在实体世界的投入构成其护城河；鉴于代理粘性高、多数用户只会使用一个代理，拥有分发优势的Meta与微软可能使这一未来的普及快于预期。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

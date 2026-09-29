@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI视频生成平台的收入增长、模型成本与护城河——Higgsfield联合创始人兼首席执行官Alex Mashrabov访谈要点梳理（20VC with Harry Stebbings，2026-09-28）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI视频生成平台的收入增长、模型成本与护城河——Higgsfield联合创始人兼首席执行官Alex Mashrabov访谈要点梳理（20VC with Harry Stebbings，2026-09-28）</h2>
+<div class="metaline">20VC with Harry Stebbings，76 分钟 · 2026-09-28</div>
+<p>——据20VC with Harry Stebbings节目《The Untold Story of Higgsfield | $1B ARR in 18 Months | Why Moats in AI are BS | CEO, Alex Mashrabov》（2026-09-28）整理</p>
+<p>摘要：本文对20VC节目主持人Harry Stebbings专访AI视频生成平台Higgsfield联合创始人兼首席执行官Alex Mashrabov的主要观点进行了梳理汇总。梳理了Higgsfield的收入增长路径、年化收入口径与收入结构，介绍了其用户付费分层与留存、自有内容分发、模型自研与采购策略、毛利结构及内部模型支出，最后阐述了Mashrabov对护城河、竞争格局、融资估值与收入前景的判断。据其介绍，Higgsfield年化收入由100万美元增至10亿美元用时18个月，企业业务收入占比略超过50%，运行自研及开放权重模型的毛利率超过80%，运行闭源模型约为20%至30%。</p>
+<p class="kw">关键词：垂直应用；模型路由；开放权重；应用层护城河；融资估值；Higgsfield；Alex Mashrabov</p>
+<h3>一、收入增长路径与收入结构</h3>
+<p>Higgsfield在种子轮资金消耗过半后转向产品驱动增长，产品上线约18个月年化收入突破10亿美元，企业客户贡献略超过一半收入，收入扩张主要来自直面消费者（DTC）电商与短剧等商业内容生产。</p>
+<h4>（一）产品市场契合的形成过程</h4>
+<p>Mashrabov此前创立的AI Factory被Snap以1.66亿美元收购。据其介绍，其团队在Snap开发的人脸滤镜在手机端侧运行、几乎不产生算力成本，一度驱动了Snapchat大部分新增日活用户；他由此注意到广告端的缺口，社交媒体内容趋势几乎每天变化，多数企业跟不上内容生产节奏。</p>
+<p>据其介绍，公司种子轮融资1600万美元，此后一年多时间里探索产品方向，消耗超过1000万美元。Mashrabov表示，这一阶段他过于追逐热点与叙事，剩余资金不足600万美元时，公司决定转向产品驱动增长（PLG）。团队随后访谈了8位创意总监，得到的共同反馈是AI视频缺少镜头控制，而镜头控制对讲故事至关重要。</p>
+<p>Higgsfield于2025年3月31日发布产品，此后收入分三个阶段抬升：一是依靠视觉特效（VFX）与镜头控制功能，年化收入在头三个月左右由约100万美元增至约2000万美元；二是推出擅长美学写真与产品一致性的自研图像模型，推动年化收入由2000万美元增至1亿美元；三是节目录制当天彭博报道其年化收入突破10亿美元。据其介绍，从100万美元到10亿美元用时18个月，Cursor用时24个月，他认为这一速度可能仅次于OpenAI与Anthropic。</p>
+<h4>（二）年化收入口径</h4>
+<p>Mashrabov对年化收入（ARR）的计算口径作了三点说明：一是取过去四周收入乘以13，据其了解OpenAI等公司采用同一方法；二是按确认收入计算，年度订阅或年度企业合同按月分摊，只取对应28天的部分；三是只计在线运行的收入，三年期企业合同不会整体计入10亿美元。</p>
+<h4>（三）收入结构与客户扩张</h4>
+<p>收入结构方面，Mashrabov介绍了三个维度。一是客户类型，企业业务收入略超过50%；消费者一侧，纯消费用途约占总收入的10%，大致对应移动端用户，移动端收入占比不足10%，其余主要来自承接社交媒体营销项目、希望借视频AI增加收入的自由职业者等“准创作者”群体。二是计费方式，他认为视频AI的采用程度仍落后编程约两年，头部编程公司的按需用量收入占比可能超过50%，视频领域明显低于这一水平；据其在接受彭博采访时介绍，订阅收入占比已由早期的90%以上降至略高于60%，企业客户合同收入增至6月的10倍，公司近两个月现金流大致盈亏平衡，平台用户超过3200万、付费订阅用户接近100万。三是地区分布，西方市场贡献远超70%的收入，公司未进入中国市场，使用量居前的城市为韩国首尔，国家为美国。</p>
+<p>客户扩张方面，据其介绍，一位客户6个月前以每月99美元的订阅起步，近期签下每年超过600万美元的合同。大额需求主要来自由亚洲兴起的两类趋势：一是DTC电商企业以AI原生方式重建市场推广体系，每周制作数百乃至上千条广告做A/B测试；二是短剧产业规模已超过100亿美元，以中国公司为主，影响遍及中国、美国与欧洲，新剧多由AI端到端制作。他表示，亚洲大量IP与产品方希望与客户建立直接关系，因而积极采用视频AI等新工具。</p>
+<h3>二、用户付费分层、留存与获客</h3>
+<p>Mashrabov认为每月20美元的消费订阅市场难以守住，公司着力推动用户向高付费层级迁移，并依靠自有内容与社区获客。</p>
+<h4>（一）付费分层与留存</h4>
+<p>在付费分层上，Mashrabov表达了三点判断。一是低价订阅承压，他认为谷歌与OpenAI提供的横向产品将冲垮每月20美元的消费订阅市场，用户会停止为众多垂直产品付费，他承认这是逆共识的判断；主持人以Canva受到的冲击为例，Mashrabov表示认同。二是推动升级，公司关注如何让每月20美元的订阅用户看到价值，升级至每年在Higgsfield花费超过1000美元。三是准创作者群体流失率偏高，但多数人会在一年内回流再次尝试，公司认为其中多数将成为AI原生劳动力，因此投入Higgsfield学院、YouTube频道等用户教育。</p>
+<p>留存方面，据其介绍，按客户数计的首月流失约为30%，此后基本走平；他表示这一水平算不上理想，B2B SaaS时代首月客户留存率通常要求在80%以上，公司需加强用户教育。企业客户的扩张则较为显著，据其介绍，企业业务第12个月的净收入留存率（NRR）超过300%，他表示B2B SaaS中难以见到这一水平。</p>
+<h4>（二）自有内容与分发</h4>
+<p>Higgsfield不做付费广告投放。据其介绍，团队中有人曾以付费广告把其他业务做到10亿至20亿美元收入，公司仍选择不投放。与网红的合作通常包括一笔视频制作费，再按点击归因付费，这一方式在YouTube上效果较好。对于此前因网红营销引发的争议，Mashrabov表示，当时创作者与客户成功团队只有两人，相关工作外包给了代理机构，结果并不理想，由此得出的教训是必须掌握自有分发，客户成功团队现已超过40人。</p>
+<p>据其介绍，自有内容是消费端订阅增长的主要来源，做法主要包括三点。一是组建内部创意团队，规模超过150人，他称接近全员的一半，负责制作产品发布视频、教程等内容，展示如何做出专业水准的商业视频。二是公开完整工作流，公司制作了一部AI生成电影并将全部素材开源，90分钟电视级内容背后是超过100小时的生成素材，挑选取舍的创意决策仍然重要。三是尝试新内容形态，公司与主播Neon合作推出其AI生成直播，Mashrabov认为数字分身将成为创作者变现的方式之一。</p>
+<h3>三、模型策略、毛利结构与内部模型支出</h3>
+<p>Mashrabov表示，公司已从追逐基准测试转向按客户需求选择模型，自研与开放权重模型的毛利率显著高于闭源模型，模型路由由此成为核心能力。</p>
+<h4>（一）自研模型的取舍</h4>
+<p>Mashrabov承认，早期追逐基准测试（benchmark）是其失误，并从三个方面阐述了看法。一是大型机构存在刷榜激励，部分研究人员为季度奖金把测试数据放入训练、以大模型充当评判者参与训练；他援引OpenRouter数据称，美国在位大厂中仅谷歌的模型具有实际竞争力。二是视频基准大多测试文生视频，与真实工作流脱节；他将视频模型比作现代渲染引擎，类似Unreal Engine或Unity，仅靠文字几乎无法定义视觉输出，公司开源电影项目的平均提示词超过3000词，每个场景至少有10张参考图，用于确定角色外观、背景与人物位置关系。三是自研以客户需求为准，公司在美学写真等特定用例上仍自研模型，决策依据是客户反馈。</p>
+<h4>（二）开放权重与毛利结构</h4>
+<p>关于企业是否都将自建模型，Mashrabov表示，多数自称自研模型的企业实际是在开放权重模型上用自有数据做后训练，Cursor即是如此；价值较高的后训练是强化学习，即利用客户的连续决策数据，教会模型把十个步骤压缩为一步，他认为越来越多企业将不得不这样做。</p>
+<p>他对模型市场的判断包括三点：一是多数企业并不需要Astra或新一代Fable这类前沿模型，据OpenRouter数据，开源模型的份额今年内由不足30%升至60%以上；二是按金额计，OpenAI与Anthropic两年后仍将占据50%以上的市场，编程仍是用户持续追逐新模型的主要用例；三是社交媒体营销市场的动态有所不同，企业每周批量制作数百条广告素材，更需要便宜、稳定的模型，做出一条爆款短视频并不需要博士级智能。</p>
+<p>毛利方面，据其介绍，公司运行自研模型及经后训练的开放权重模型，毛利率超过80%，对终端客户也更具成本效率；运行闭源模型的毛利率约为20%至30%。关键因此在于能否引导流量，随着企业搭建代理式工作流批量制作广告，由Higgsfield决定调用哪个模型的场景已超过40%。Mashrabov将此称为“token经济学”，即针对客户要完成的工作量，优化所需token数量并挑选效率较高的token；主持人认为模型路由已成为业务核心功能，Mashrabov表示认同。他还表示，Astra这类擅长计算机操作或编程的前沿模型价格可能高得难以承受。另据彭博报道，Higgsfield平台聚合了约35个图像、视频、音频与大语言模型。</p>
+<h4>（三）内部模型支出</h4>
+<p>据其介绍，Higgsfield员工接近400人，分布于美国与亚洲，内部每月模型支出超过400万美元，人均超过1万美元。支出变化主要体现在三方面。一是创意团队开始“氛围编程”（vibe coding），自行开发生产环境尚未提供的功能；本月有一名员工因素材整理与自动剪辑流程不理想，连续五个晚上使用Astra模型，一周花费超过3万美元，许多人一周花费超过1万美元，他认为这是一次净收益为正的学习。二是支出将继续分化，他预计12个月后顶尖工程师与创意人员的月均模型支出将升至5万至10万美元，其薪资要求也会相应上升，法务、财务等岗位的支出则会较快趋于稳定。三是编程工具周期性切换，3月至6月全员包括创意团队转向Claude，6月中旬起工程师由Claude转向Codex，顶尖创意人员随后跟进，他认为这种切换具有周期性。</p>
+<h4>（四）组织与岗位</h4>
+<p>组织层面，Mashrabov介绍了四点情况。一是人员布局，团队约50人在加州、约50人远程、超过300人在哈萨克斯坦，他强调当地人才密度，核心团队多为国际数学、物理竞赛获奖者。二是AI对岗位的影响，法务团队超过10人、客户成功团队超过40人，均大量使用AI；他此前预期法务与客服将大部分被替代，公司因此未及时扩充这些团队，他称这是一项运营失误；目前60%以上的一线客服请求可由AI处理，但在B2B场景下AI难以胜任，他并未看到岗位被取代。三是产品迭代对客服代理的约束，公司几乎每周推出新产品，代理所依赖的上下文与规则每周变化两次，高度协同的团队仍然重要。四是安全与欺诈，AI公司面临利用大模型入侵企业、机器人消耗额度后自动退款等新型攻击与欺诈。</p>
+<h3>四、护城河观点与竞争格局</h3>
+<p>Mashrabov认为当下的价值创造来自交付结果与网络效应，AI原生的记录系统具有长期价值，内容生产的行业格局正在重构。</p>
+<h4>（一）护城河的两种来源</h4>
+<p>主持人Stebbings认为护城河之说大多站不住脚，以Lovable与Instinct为例，称其虽是“套壳”产品，决策速度、产品执行与快速积累价值更为关键。Mashrabov表示，价值在产业链中的归属难以判断，当下的价值创造或护城河只有两种。一是交付结果，对Higgsfield而言即帮助企业借助AI广告卖出更多商品。二是网络效应，他认为AI无法替代网络效应，也不认为AI代理群体相互对话的情景会在未来五年出现；据其介绍，公司鼓励社区创作并开源项目，让用户借用彼此的成果形成滚雪球效应，类似在GitHub上分叉他人项目推动软件快速增长，开源项目数量由约8周前的约10个种子项目增至目前的10000个以上，他认为这类网络效应可逐步形成护城河。</p>
+<h4>（二）AI原生的记录系统</h4>
+<p>Mashrabov认为，能够建立AI原生记录系统（system of records）的企业将胜出，并从三个方面说明。一是以专利领域的Solve Intelligence为例，企业即便外包专利工作，也希望以一套记录系统掌控全流程。二是视频素材管理，企业目前分散使用Dropbox、Google Drive、Miro、Frame.io等工具存储素材，营销人员需要检索内容，并确保内容符合品牌视觉识别与品牌规范，语义理解与语义控制如今才成为可能。三是软件范式更替，Adobe与Canva为以像素定义一切的“像素优先”时代打造了优秀软件，他认为未来用户希望以自然交互方式检索和处理素材库与知识，掌握这一界面并建立分析能力十分重要。为此，Higgsfield在智能体框架（harness）上大量投入，使其随时间学习客户的视觉风格，他表示这是Claude与OpenAI未必能做到的。</p>
+<h4>（三）竞争格局与行业判断</h4>
+<p>Mashrabov对行业格局作了四点判断。一是模型发布节奏短期不会放缓，OpenAI已推出面向法律领域的产品，他视之为初版，前沿厂商将推出更多针对特定用例的专用模型。二是好莱坞态度正在转变，据其介绍，好莱坞目前主要把AI作为混合制作工具和新型CGI，行业情绪已由明确负面转向中性偏负面，私下交流中超过一半的一线人才表示永远反对AI，但越来越多人开始询问能否借助AI讲更多故事、突破既有预算限制。三是内容生态将重构，他认为社交媒体上的多数内容将由AI生成，真实内容的千次展示成本（CPM）将比AI生成内容高10至15倍，数量更少但创造更多价值；五年后创意总监将直接与计算机对话、实时生成故事，品味将变得重要。四是市场势头难以持久，Snap市值一度约800亿美元、与Meta的差距不到10倍，目前低于150亿美元，他认为许多上市公司尚未讲清自身的AI故事，Snap即是其中之一，因此Higgsfield不把当前的增长势头视为理所当然。</p>
+<h3>五、融资、估值与收入展望</h3>
+<p>Mashrabov以长期视角看待估值，认为视频AI面向规模达数万亿美元的广告与营销市场，对未来一年收入的判断高于公司财务模型。</p>
+<h4>（一）融资经历</h4>
+<p>Mashrabov表示，Yuri Milner在市场判断上与其一致，深刻理解内容形态的转变：DTC广告与短剧等趋势由亚洲传向西方，多数内容将由AI辅助或生成，以情境广告为主要商业模式、规模达数万亿美元的互联网广告业将被视频AI大幅改变。据彭博报道，Higgsfield于8月完成4亿美元融资，估值54亿美元，由DST Global领投，高盛另类投资（Goldman Sachs Alternatives）与英特尔资本（Intel Capital）等参投。他也谈及融资中的教训，曾有投资人握手敲定价格，次日即联系其他投资人组建跟投方，试图以低30%的估值入股，这种情况在Milner那里没有发生。</p>
+<h4>（二）估值与市场空间</h4>
+<p>主持人认为，Higgsfield因不属于硅谷圈内公司而被打了折扣，若是硅谷公司，以10亿美元收入和18个月的增速，估值可轻松达到250亿美元；Mashrabov提及Cognition的估值达到500亿美元，认为仍有上行空间。他从三个方面阐述了长期空间：一是基础设施定位，Shopify成为搭建DTC业务的基础设施，Higgsfield希望成为DTC企业构建分发能力的基础设施；二是对标AppLovin，其市值超过2000亿美元，Higgsfield着眼长期，目标是公司价值超过1000亿美元，短期估值倍数并不重要；三是市场规模，据其团队核算，剔除医药与大型科技公司后，上市公司的销售与营销支出高于研发支出，销售与营销的目标是提供转化率高的个性化内容，其中大量将以个性化视频的形式呈现。</p>
+<h4>（三）收入展望与上市意愿</h4>
+<p>关于未来12个月的收入，Mashrabov表示，公司财务模型预计到明年年底年化收入达到45亿美元，这一预测已包含大幅减速，公司仍以月环比增长至少30%为目标，他本人判断将超过100亿美元。其依据主要有两点：一是创意AI领域的采用由变现驱动，DTC品牌持续增加AI广告制作；二是具有电影质感的AI内容激励创作者探索工具。谈及下一轮融资，他表示公司并不追逐估值，目标是让公司在公开市场上可持续经营，收入之外还有大量公司建设工作要做；他表示希望公司上市，并认为Higgsfield有潜力在体量上超过AppLovin与Shopify，理由是分发能力长期起决定作用。</p>
+<p>总的看，Mashrabov认为视频AI的采用仍落后编程约两年，社交媒体上的多数内容将由AI生成，数万亿美元规模的广告与营销业将因此改变；当前的护城河来自交付结果与网络效应，毛利水平取决于公司自主选择模型、调用自研及开放权重模型的比例；Higgsfield将以企业客户扩张与自有内容分发为主线，力争成为DTC企业的分发基础设施，并以上市为长期目标。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
