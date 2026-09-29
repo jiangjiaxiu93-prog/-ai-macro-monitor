@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>NVIDIA 讲 tokenomics：token 是基建投资与 ROI 之间唯一的桥，而并非所有 token 等价，用例决定你该买哪一种（AI Factory Insider Ep.4，2026-09-01）</title><style>
+<title>AI工厂token经济学的成本、需求与价值测算——英伟达Shruti Koparkar、Tue Tran访谈要点梳理（AI Factory Insider，2026-09-01）</title><style>
 :root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
 --blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
 --barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
@@ -162,55 +162,58 @@ font-family:inherit;white-space:nowrap}
 box-shadow:0 1px 2px rgba(20,40,80,.10)}
 </style></head>
 <body>
-<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
 <main class="main"><div class="wrap">
-<a class="back" href="../podcast_archive.html">← 返回播客与访谈档案</a>
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
 <div class="card"><article>
-<h2>NVIDIA 讲 tokenomics：token 是基建投资与 ROI 之间唯一的桥，而并非所有 token 等价，用例决定你该买哪一种（AI Factory Insider Ep.4，2026-09-01）</h2>
-<div class="metaline">NVIDIA · AI Factory Insider Ep.4 · 34 分钟 · 2026-09-01</div>
-<p>本期是 NVIDIA 自家 AI Factory Insider 系列第四集，主持人 Kaushik Shirhatti（AI 工厂业务副总裁）对谈 Shruti Koparkar（AI 基础设施产品市场高级经理，刚与人合著了一份 tokenomics 白皮书）与 Tue Tran（GTM 战略运营，在做 tokenomics 的内部测算工具）。这期值得读的原因有三：它是厂商侧目前把"每个 token 的成本、需求、价值"讲得最结构化的一次公开材料，给出了需求估算的三层法与供给侧的三层效率分解；它提出了一个对应用层定价有直接含义的框架，即 token 的价值由嵌入的智能、可看的上下文与到达速度共同决定，因此为不需要的场景买旗舰 token 是纯粹的浪费；它给了一个可被引用的采纳侧数字，某电信客户发现开发者习惯默认调用旗舰模型，但实际只有 8% 到 16% 的任务真的需要。需要提醒的是，这是厂商自制内容，落点始终是自家产品（NeMo Switchyard、NeMo Relay、Dynamo、NVL72、Nemotron），框架可用但结论带立场，其中的比例与案例均为口播且未给出处。</p>
-<h3>一、为什么用 token 记账：客户不关心工厂内部，只关心第一个 token 何时落地</h3>
-<p>开场把记账口径立住。主持人说，如果你在为公司建 AI 工厂，要始终记住你的客户，而"你唯一的客户就是那些用户、机器和智能体"，他们会借 AI 的力量让公司、公司的产品与服务变好。关键的一句是这些客户<strong>"不关心工厂里面发生了什么，不关心工厂怎么建的、用了什么基础设施、用了什么软件。他们唯一关心的是业务成果何时落地，而那发生在第一个 token 落地的时候"</strong>。</p>
-<p>由此得出这期的方法论前提：<strong>"如果你想把基础设施与 AI 工厂的投资，和业务上的投资回报率挂上钩，那座桥就是产出，而产出就是 token。"</strong>这句话是全集的骨架，后面的需求、供给、变现三段都挂在它上面。这个记账方式本身值得注意，它把一笔资本开支的回报问题，转换成了一个单位产出的价差问题，与卖方研究里用单位经济性替代总量叙事的做法是同一路数。</p>
-<h3>二、token 与 tokenomics 的定义：价差决定一个用例能否活过试点期</h3>
-<p>Koparkar 给 token 的定义是"人工智能最基本、最基础的单位"。对语言模型，它是"一组数字，通常代表四个字符"，再简化可以理解为代表一个词；对图像生成模型，最基础的单位是像素，token 是代表一个像素的一组数字；对生物学模型，可能是代表蛋白质分子结构的东西。她的收束是所有 AI 回答、所有智能体做的活，最终都建立在这些 token 上。</p>
-<p>Tran 说 tokenomics 这个词还没进词典，但"照这个势头，它可能会成为 2026 年的年度词汇"。定义不意外，就是 token 与 economics 的合成，指的是对生成一个 token 的经济学的审视：<strong>"生成一个 token 的成本是多少？这些 token 的需求是多少？让这些 token 被生成出来的价值是多少？"</strong>他给出的落点是价差：价值与成本之间的那个差额，是企业真正在意的东西，而<strong>"它真正决定了一个 AI 用例是被规模化、在公司里取得成功，还是在试点阶段之后就被砍掉"</strong>。</p>
-<p>这是全篇最有转述价值的一句。它把 AI 项目的生死判据从"模型好不好"移到了"单位价差正不正"，也解释了为什么大量企业 AI 试点无法进入生产：不是技术不成立，而是在那个特定用例上，token 的价值撑不起生成它的成本。</p>
-<h3>三、并非所有 token 等价：智能、上下文、速度三个绝对维度，加一个相对维度</h3>
-<p>被问到怎么给 token 分桶时，Koparkar 用了大宗商品的类比：我们确实把 token 当商品谈，但<strong>"即便是商品，比如一袋米，也分不同品种，有白米、茉莉香米、糙米，品质各不相同。token 也一样，并非所有 token 生而平等"</strong>。</p>
-<p>她给的价值构成有三条。第一是嵌入其中的智能，取决于生成它的模型，模型更复杂更智能，token 就带更多智能。第二是上下文，即模型能同时看多少数据，允许模型看更大的上下文，它产出的 token 就更智能。第三是到达速度，即 token 的生成速率，也就是她所说的交互性（interactivity）。</p>
-<p>关键的补充是这三条是绝对视角，还存在一个相对视角，即<strong>"你的用例需要多少 token 价值"</strong>。她的判断很直接：<strong>"如果你在不需要溢价 token 的用例上使用溢价 token，那么溢价 token 提供的所有额外价值都被浪费了，这对经济性显然是坏事。"</strong>由此得出这期最核心的操作概念，token 效用（token utility）：把用例映射到正确的 token 价值与 token 效用上。主持人用一句玩笑把它落地：同一个周末，有人用同样数量的 token 做了了不起的研究，而他在生成猫的视频，"做研究也许该用溢价 token，而如果你只是生成猫视频，你不需要为溢价模型付钱"。</p>
-<h3>四、场景匹配的两组例子：交易台的两种速度，与零售的一个 token 对一百个 token</h3>
-<p>Tran 只取智能与速度两个轴，给了两组行业例子，这是全篇最实用的部分。</p>
-<p>第一组是金融服务与资本市场客户，他们的交易或投资活动有三种不同速度。极高频那一端，速度就是一切，必须有极低时延，但他的观察是<strong>"在那个速度上，他们需要做的决策其实相当简单"</strong>，所以真正要最大化的是生成这些简单 token 的速度。另一端是做五年或十年投资论文的人，论文以周或月为单位形成，"一份好报告对这样成熟的投资者来说是个好起点，他们可以等两小时，可以等一小时"。他们真正在意的是这个 token 被一个非常好的模型带着大量上下文反复推理过，几百份不同的报告被塞进去，<strong>"有子智能体在互相积极地反驳，真正确保论证是站得住的"</strong>。在这个场景里速度的重要性低得多，准确度与智能高得多。</p>
-<p>第二组是零售。一个是监控摄像头，引用了 NVIDIA Metropolis 团队的蓝图，模型只是盯着流媒体视频，给一个 token 的答案，有没有事件发生，比如有没有偷窃，<strong>"就那一瞬间，它只需要给你一个非常短的答案，是或否"</strong>，然后一遍遍地看下一段视频。另一个是同一家零售连锁给客户寄来的视频或广告视频做字幕，同样是十秒的片段，模型要生成一百个、两百个 token，"但他们不必实时做，可以放到晚上批处理"。同样的素材，token 的量与质高得多，速度要求低得多。</p>
-<p>这组对照的意义超出了 NVIDIA 想讲的产品。它实际上说明 token 消耗量本身不是有效的需求指标，同样的业务动作可以对应差着两个数量级的 token 账单，取决于产品形态是实时判定还是离线生成。任何用 token 总量推算收入或算力需求的做法，都要先问清楚是哪一种。</p>
-<h3>五、需求怎么估：三层法，以及会让需求爆炸的几个乘数</h3>
-<p>回答观众关于"如何为重要项目估算 token 数量"的提问时，Koparkar 给了一个分层方法。</p>
-<p>第一层是"背包算术"（back of napkin math）：你有多少用户，他们在你的分析周期内会发起多少请求或会话，以及每个请求需要多少 token。最后这一项取决于用例，聊天类用例需要的 token 少于智能体类用例。三个数字相乘得到基础需求。</p>
-<p>第二层是几个"很关键、可以让 token 需求迅速爆炸"的乘数。其一是是否使用推理模型，因为<strong>"推理模型会生成用户看不见的思考 token，但你仍然得把它们生成出来"</strong>。其二是是否为智能体工作流，主智能体会派生多个子智能体与工具调用，走一遍规划、行动、再规划、再行动的循环直到拿到结果，这些循环都推高需求。其三是缓存命中率，方向相反，如果语言模型见过同样的提示词，有时不需要重新计算和处理，可以直接取用已处理的 token，这会压低需求。</p>
-<p>第三层是运营因素：负载在一天中如何变化，早高峰夜低谷，以及季节性，零售客户在节日推产品时对 token 的需求会大增。她承认"听起来复杂，但一旦开始动手做，一切其实都回到用例"。</p>
-<p>被追问缓存命中率是否指 KV cache 时，她确认并补充说明。KV cache 简单说是模型的短期记忆，模型处理输入提示词时会算出对应的 KV 值并存下来，因为生成后续输出需要它们；后面进来的提示词如果与之匹配，就可以直接取用。相关的还有提示词缓存与前缀匹配，即把进来的输入与已见过的部分做匹配，让系统聪明地避免重复计算。她举的高命中率场景是企业内部搜索，因为<strong>"很多人都在问，我的 401(k) 信息在哪儿找？我的工资单在哪儿找？"</strong>，提示词高度相似。</p>
-<h3>六、供给侧：AI 工厂像发动机，效率分模型、硬件、软件三层</h3>
-<p>Tran 用汽车发动机类比供给侧：能量进去，东西出来，发动机看马力，AI 工厂看吞吐，即每台发动机、每座工厂每秒能为你生成多少 token。他把决定生成速率的因素归为三类效率。</p>
-<p>模型层的效率变化他讲得最细。早期大语言模型参数较少，但属于稠密模型，<strong>"每次你想生成一个新 token，都必须读取并对每一个参数做数学运算，那是大量的运算"</strong>，而参数量又与智能相关，于是权衡近乎"你得不到多少智能，却还是得做大量运算"。更现代的架构是混合专家（MoE），参数可以多得多、训进去的知识多得多，但每次生成新 token 只读取所谓相关的专家，<strong>"于是你做的运算少得多，得到的答案反而更好"</strong>。代价在网络：MoE 的专家可能分布在不同 GPU 上，为了让 token 被正确高效地生成，GPU 必须在那些瞬息之间不断互相通信，所以网络必须非常好。</p>
-<p>硬件层的效率就是上面那件事的延伸。软件层他强调必须以正确方式与硬件对话，并有效编排调度任务运行的时机，让停机尽可能少、整个集群的利用率尽可能高。三层叠起来，才构成一座能把投入的能量转成 token 的完整 AI 工厂。</p>
-<h3>七、选对模型比选对硬件更早决定经济性：只有 8% 到 16% 的任务需要旗舰模型</h3>
-<p>Koparkar 接过来把供给侧收到两个选择上：你选什么 token，以及你选什么基础设施来生成它们。而选什么 token 又回到选什么模型，"对你的用例来说，不是每个用例都需要溢价模型"。</p>
-<p>她给的案例是全篇最有引用价值的数字：某电信客户发现，尽管<strong>"很多开发者总是默认用溢价模型，实际上只有大约 8% 到 16% 的任务真的需要溢价模型"</strong>。其余任务他们本来就可以、现在也确实已经转向使用经过后训练的开放模型，或者在某些情况下通过 API 消费一个更小、更贴题的模型的 token。</p>
-<p>做到"对的任务配对的模型"靠智能路由，她借此引出 NeMo Switchyard，NVIDIA 作为 NeMo Agent 工具包一部分新发布的东西，可以基于模型匹配度、定价、成本画像等因素把进来的请求路由到合适的模型。第二件事是可观测性，企业需要知道 token 去了哪里、什么 token 被用在什么用例上、是否真的产生了业务价值，对应产品是 NeMo Relay，她强调这些都是开源软件。基础设施侧，NVL72 系统适合 MoE 模型，但企业并非总是从白纸开始，所以还有 HGX 系统直到 RTX PRO 服务器等不同规格来匹配现有环境与能耗约束。软件侧她引黄仁勋的说法，Dynamo 是 AI 工厂的操作系统，负责调度、把请求发给正确的 GPU、让工厂始终保持高利用率。主持人的收尾是这就是他们称之为"极致协同设计"的原因，横跨计算、存储、网络、软件、安全。</p>
-<p>这一段的产品营销成分最重，但剥掉产品名之后剩下的判断是成立的，并且对应用层公司有直接含义：模型选择与路由发生在硬件选择之前，且对单位成本的影响可能比换硬件更大。8% 到 16% 这个区间如果在别处能被复现，意味着当前旗舰模型的调用里存在大比例的过度供给。</p>
-<h3>八、变现的四条路径与 ROI</h3>
-<p>被问到变现，两人合起来给了四类。第一是直接卖 token，把生成的 token 供给市场让人来买，"几乎就是云的模式"。第二是靠只有你才有的智能产生直接收入，Tran 把它与提供服务区分开。第三是 AI 原生产品，即用 AI 建起来的产品，Koparkar 说的"我们看到的所有这些新一代公司"，以及把 AI 注入现有产品让产品更好或提供差异化能力。第四是用 AI 改造内部运营，不以对外产品的形式出现，可能是提升员工生产率，也可能是优化供应链管理。</p>
-<p>主持人在最后一类上加了一句：<strong>"AI 给了每个人的机会，不只是在内部优化一个流程，而是重新想象这个流程。"</strong>Tran 关于工具的说法值得一记：一两年前他会回家打开 Excel 建模型，"就这么简单"，而每个企业、每位 CFO、CEO、COO 今天都能做这件事；现在借 AI 工具本身可以更有效地把业务逻辑做进工具里。他给所有还在观望 tokenomics 的组织的唯一建议是<strong>"就是开始做"</strong>，因为虽然因素很多、兔子洞可以无限深，但起步时的驱动变量相当清晰简单，从高层次开始、边做边细化、并且要让业务侧和 IT 侧一起参与，业务侧定义用例与所需的速度和质量，IT 侧回答什么是对的发动机、上云还是本地。</p>
-<h3>九、token 海啸的护栏：不是压需求，而是让每个 token 的 ROI 站得住</h3>
-<p>观众问该用什么护栏来限制"token 海啸"。Koparkar 提到她曾与机场 AI 联盟的一群 CEO 讨论过是否该给用 AI 的人设 token 限额，她说自己并不必然反对，但给出的框架是另一个方向：<strong>"token 海啸之所以成为海啸，只是因为你没看到成果。如果你的 token 需求很大而你也看到了对等的成果和 ROI，你会很高兴。"</strong></p>
-<p>所以她的处方仍然是从用例出发，弄清需要什么 token 效用，再去想供给侧如何最大化，选基础设施也选对的模型。她举的例子是能否使用更高效、在智能体上走更高效轨迹的模型，<strong>"比如 Nemotron 3 Ultra 每轮用的 token 更少、总轮数也更少，这样为了同样的成果，它需要的 token 就更少"</strong>。推导是把每项任务的 token 数降下来、把每个 token 的成本降下来，就降低了每项任务的成本，ROI 就开始显现。她的结论句是<strong>"这与其说是要最小化 token 需求，不如说是要确保你认为自己需要的那些 token 的 ROI 是合适的"</strong>。主持人补了一句方向性判断：如果前期功课做足了，你不会想去压制真正驱动创新的东西，"token 是创新的燃料"。</p>
-<h3>十、企业侧的落点：AI 工厂可以从 16 到 32 张 GPU 起步</h3>
-<p>收尾时主持人做了总结，并强调了一个他说自己每周都在纠正的误解：人们一想到 AI 工厂就想到吉瓦级的庞然大物，行业里确实有巨大的基建扩张，云厂商在建，但那些是全新场地。<strong>"而对企业来说，它可以从 16 张 GPU 开始，可以从 32 张 GPU 开始，你可以爬、走、再跑。"</strong>路径是先做几个用例、理解那些负载、给项目排优先级，然后开始学习和微调，再把 AI 工厂规模化。</p>
-<p>这个落点与全篇的记账方式是自洽的：既然判据是单位价差而不是总量，那么起点规模就不必大，先把某一个用例的 token 效用、需求与供给算清楚，再复制到下一个。</p>
-<p>---</p>
-<p>（口径提示：本文基于 PG 播客库字幕整理。本期为 NVIDIA 自制内容，落点为自家产品线，所有框架均带厂商立场。"只有 8% 到 16% 的任务需要溢价模型"为口播转述的单一电信客户案例，未给客户名、任务口径与统计方法；"一个 token 的答案"与"一百到两百个 token"为举例的量级说明，非实测；Nemotron 3 Ultra 每轮更少 token 为厂商自述，未给对比基准；tokenomics 白皮书在节目中提及但未在字幕里给出链接；"16 到 32 张 GPU 起步"是主持人的建议起点，非产品规格。）</p>
+<h2>AI工厂token经济学的成本、需求与价值测算——英伟达Shruti Koparkar、Tue Tran访谈要点梳理（AI Factory Insider，2026-09-01）</h2>
+<div class="metaline">NVIDIA，AI Factory Insider Ep.4，34 分钟 · 2026-09-01</div>
+<p>——据NVIDIA AI Factory Insider节目《Tokenomics 101: What Are Tokens &amp; Why They Matter | AI Factory Insider Ep. 4》（2026-09-01）整理</p>
+<p>摘要：本文对英伟达（NVIDIA）AI Factory Insider系列第四期节目的主要观点进行了梳理汇总。该期由英伟达AI工厂业务副总裁Kaushik Shirhatti主持，AI基础设施产品市场高级经理Shruti Koparkar与市场进入战略运营负责人Tue Tran参与讨论。梳理了以token连接AI基础设施投资与业务回报的计量思路，介绍了token价值的构成、需求估算的三层方法与供给侧的三层效率，最后阐述了变现路径与token用量管控的思路。据其介绍，某电信客户发现只有约8%至16%的任务真正需要旗舰模型；企业AI工厂可从16至32张GPU起步。</p>
+<p class="kw">关键词：token需求；推理成本；单位经济；模型路由；AI资本开支；英伟达；NeMo Switchyard</p>
+<h3>一、以token计量AI基础设施的投资回报</h3>
+<p>三位参与者将token视为连接AI基础设施投资与业务回报的计量单位，并以token价值与生成成本之差判断用例能否规模化。</p>
+<h4>（一）以产出连接投资与回报</h4>
+<p>Shirhatti表示，建设AI工厂的企业应始终着眼于客户，即使用AI的用户、机器与智能体，这些客户“不关心工厂里面发生了什么，不关心工厂怎么建的、用了什么基础设施、用了什么软件”，关心的是业务成果何时落地，“而那发生在第一个token落地的时候”。基于此，他提出本期的方法论前提：“如果你想把基础设施与AI工厂的投资，和业务上的投资回报率挂上钩，那座桥就是产出，而产出就是token。”</p>
+<h4>（二）tokenomics的定义与价差判据</h4>
+<p>Koparkar将token定义为“人工智能最基本、最基础的单位”：一是对语言模型而言，token是一组数字，通常代表四个字符，可近似理解为一个词；二是对图像生成模型而言，基础单位是像素，token是代表像素的一组数字；三是对生物学模型而言，token可能代表蛋白质分子结构。所有AI回答与智能体完成的工作，最终都建立在token之上。</p>
+<p>Tran表示，tokenomics即token与经济学（economics）的合成，“照这个势头，它可能会成为2026年的年度词汇”。其审视对象包括三个问题：“生成一个token的成本是多少？这些token的需求是多少？让这些token被生成出来的价值是多少？”他认为，价值与成本之间的差额是企业真正在意的内容，“它真正决定了一个AI用例是被规模化、在公司里取得成功，还是在试点阶段之后就被砍掉”。</p>
+<h3>二、token价值的构成与场景匹配</h3>
+<p>Koparkar认为token并非同质商品，其价值由多个维度决定，用例所需的价值水平决定应当采购哪一类token。</p>
+<h4>（一）价值构成的三个维度与相对视角</h4>
+<p>Koparkar以大宗商品作类比，“即便是商品，比如一袋米，也分不同品种，有白米、茉莉香米、糙米，品质各不相同”。她认为token价值主要由三个维度构成：一是嵌入的智能，取决于生成它的模型，模型越复杂，token所含智能越多；二是上下文，即模型能同时查看的数据量，上下文越大，产出的token越智能；三是到达速度，即token的生成速率，她称之为交互性（interactivity）。</p>
+<p>在上述绝对视角之外，还存在相对视角，即用例需要多少token价值。她表示，“如果你在不需要溢价token的用例上使用溢价token，那么溢价token提供的所有额外价值都被浪费了，这对经济性显然是坏事”，并据此提出“token效用”（token utility）概念，即把用例映射到相应的token价值上。Shirhatti补充举例，做研究也许应使用溢价token，生成猫的视频则无需为溢价模型付费。</p>
+<h4>（二）金融与零售场景的匹配</h4>
+<p>Tran以智能与速度两个维度，给出两组行业案例。</p>
+<p>一是金融服务与资本市场。据其介绍，客户的交易与投资活动存在不同速度：高频交易一端速度至关重要，须有极低时延，但“在那个速度上，他们需要做的决策其实相当简单”，要优化的是生成简单token的速度；另一端是以周或月为单位形成五年或十年投资论点的投资者，“他们可以等两小时，可以等一小时”，在意的是token经过强模型、大量上下文的反复推理，数百份报告被纳入分析，“有子智能体在互相积极地反驳，真正确保论证是站得住的”，此时准确度与智能的权重远高于速度。</p>
+<p>二是零售。一方面，基于英伟达Metropolis团队蓝图的监控摄像头模型持续查看视频流，只需输出是否发生偷窃等事件的一个token答案，“就那一瞬间，它只需要给你一个非常短的答案，是或否”；另一方面，同一零售连锁为十秒的广告视频生成字幕，模型需生成一百至两百个token，但无需实时完成，“可以放到晚上批处理”。同样的素材，token的数量与质量要求高得多，速度要求则低得多。</p>
+<h3>三、token需求的估算方法</h3>
+<p>Koparkar给出了分层估算token需求的方法，并表示“听起来复杂，但一旦开始动手做，一切其实都回到用例”。</p>
+<h4>（一）基础需求</h4>
+<p>第一层是粗略测算（back of napkin math），由三个数字相乘得出基础需求：一是用户数量；二是每位用户在分析周期内发起的请求或会话数；三是每个请求所需的token数，这一项取决于用例，聊天类用例所需token少于智能体类用例。</p>
+<h4>（二）放大与抑制需求的乘数</h4>
+<p>第二层是可使token需求迅速扩张的若干乘数。一是是否使用推理模型，“推理模型会生成用户看不见的思考token，但你仍然得把它们生成出来”。二是是否采用智能体工作流，主智能体会派生多个子智能体与工具调用，在规划、行动、再规划、再行动的循环中推高需求。三是缓存命中率，方向相反，若模型见过相同提示词，可直接取用已处理的token，从而压低需求。</p>
+<p>据其介绍，缓存命中率即指KV缓存（KV cache），可理解为模型的短期记忆：模型处理输入提示词时算出对应的KV值并存储，后续提示词若与之匹配即可直接取用；提示词缓存与前缀匹配也起到类似作用。高命中率的典型场景是企业内部搜索，因为“很多人都在问，我的401(k)信息在哪儿找？我的工资单在哪儿找？”</p>
+<h4>（三）运营因素</h4>
+<p>第三层是运营因素：一是负载在一天之中的波动，存在早高峰与夜间低谷；二是季节性，零售客户在节日推广产品时token需求会大幅上升。</p>
+<h3>四、供给效率与模型选择</h3>
+<p>Tran将AI工厂的供给能力归结为吞吐，即每秒能够生成的token数量；Koparkar认为供给侧的经济性取决于模型与基础设施两项选择。</p>
+<h4>（一）模型、硬件与软件三层效率</h4>
+<p>Tran以汽车发动机作类比，能量进入、产出流出，发动机看马力，AI工厂看吞吐，并将决定生成速率的因素归为三层效率。</p>
+<p>一是模型层。早期大语言模型参数较少，但属于稠密模型，“每次你想生成一个新token，都必须读取并对每一个参数做数学运算”，参数量又与智能相关，形成运算量大而智能有限的权衡。混合专家（MoE）架构的参数量与知识容量大得多，但每生成一个token只读取相关专家，“于是你做的运算少得多，得到的答案反而更好”。其代价在网络，专家可能分布于不同GPU，GPU之间须高频通信，对网络性能要求很高。二是硬件层，即上述需求在硬件上的延伸。三是软件层，须以正确方式与硬件协同，有效编排任务运行时机，使停机尽可能少、集群利用率尽可能高。三层叠加，构成把投入能量转化为token的完整AI工厂。</p>
+<h4>（二）旗舰模型的实际需求比例</h4>
+<p>Koparkar将供给侧归结为两个选择：选择何种token，以及选择何种基础设施生成token；前者又取决于模型选择，“不是每个用例都需要溢价模型”。据其介绍，某电信客户发现，尽管“很多开发者总是默认用溢价模型，实际上只有大约8%到16%的任务真的需要溢价模型”，其余任务已转向经过后训练的开放模型，或通过API调用更小、更贴合任务的模型。</p>
+<p>基于此，她介绍了配套工具：一是智能路由，英伟达在NeMo Agent工具包中新发布的NeMo Switchyard可依据模型匹配度、定价与成本画像等因素，把请求分配至合适模型；二是可观测性，NeMo Relay帮助企业掌握token去向、各类token用于何种用例以及是否产生业务价值，上述软件均已开源；三是基础设施，NVL72系统适合MoE模型，考虑到企业往往须适配现有环境与能耗约束，另有HGX系统至RTX PRO服务器等不同规格；四是调度软件，她援引黄仁勋的说法，Dynamo是AI工厂的操作系统，负责把请求发送至正确的GPU并保持工厂高利用率。Shirhatti将其概括为横跨计算、存储、网络、软件与安全的“极致协同设计”。</p>
+<h3>五、变现路径与投资回报管理</h3>
+<p>两位嘉宾梳理了token的变现路径，并认为用量管控的重点在于确保每个token的投资回报合理。</p>
+<h4>（一）四类变现路径</h4>
+<p>一是直接出售token，将生成的token供给市场，“几乎就是云的模式”。二是凭借独有智能获得直接收入，Tran将其与提供服务相区分。三是AI原生产品，包括Koparkar所说的新一代公司用AI建立的产品，以及把AI注入现有产品以提供差异化能力。四是以AI改造内部运营，如提升员工生产率、优化供应链管理。Shirhatti认为，“AI给了每个人的机会，不只是在内部优化一个流程，而是重新想象这个流程。”</p>
+<p>Tran建议仍在观望的组织“就是开始做”，起步时的驱动变量相当清晰，可从高层次入手、边做边细化，并由业务侧与IT侧共同参与：业务侧定义用例及所需的速度与质量，IT侧回答选用何种“发动机”、上云还是本地部署。</p>
+<h4>（二）token用量的管控思路</h4>
+<p>针对如何为“token海啸”设置护栏，Koparkar表示曾与一群企业CEO讨论是否应为AI使用者设定token限额，她并不必然反对，但认为“token海啸之所以成为海啸，只是因为你没看到成果。如果你的token需求很大而你也看到了对等的成果和ROI，你会很高兴”。她的处方仍是从用例出发，明确所需的token效用，再从供给侧优化基础设施与模型选择，例如使用在智能体任务上轨迹更高效的模型，“比如Nemotron 3 Ultra每轮用的token更少、总轮数也更少”。降低每项任务的token数与每个token的成本，即可降低每项任务的成本，投资回报随之显现。她的结论是，“这与其说是要最小化token需求，不如说是要确保你认为自己需要的那些token的ROI是合适的”。Shirhatti补充认为，“token是创新的燃料”。</p>
+<h4>（三）企业AI工厂的起步规模</h4>
+<p>Shirhatti表示，业内确有大规模基建扩张，云厂商在建设吉瓦级新场地，但对企业而言，“它可以从16张GPU开始，可以从32张GPU开始，你可以爬、走、再跑”。其路径是先做若干用例、理解相应负载、为项目排定优先级，再开展学习与微调，最后把AI工厂规模化。</p>
+<p>总的看，三位参与者认为，AI基础设施投资的回报应以token为单位计量，一个用例能否从试点走向规模化，在很大程度上取决于token价值与生成成本之间的价差；token并非同质商品，需求估算须回到具体用例，推理模型与智能体工作流会成倍放大需求，缓存则起抑制作用；据其介绍，只有约8%至16%的任务真正需要旗舰模型，供给侧的关键在于为任务匹配合适的模型与基础设施，用量管控的重点在于确保每个token的投资回报合理。</p>
 </article></div>
 </div></main>
 <img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""

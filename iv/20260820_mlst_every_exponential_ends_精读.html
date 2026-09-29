@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Adam Becker：每个指数增长都会终结（Machine Learning Street Talk，2026-08-20）</title><style>
+<title>指数增长的物理边界、AGI叙事与AI泡沫判断——天体物理学家Adam Becker访谈要点梳理（Machine Learning Street Talk，2026-08-20）</title><style>
 :root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
 --blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
 --barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
@@ -162,23 +162,32 @@ font-family:inherit;white-space:nowrap}
 box-shadow:0 1px 2px rgba(20,40,80,.10)}
 </style></head>
 <body>
-<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
 <main class="main"><div class="wrap">
-<a class="back" href="../podcast_archive.html">← 返回播客与访谈档案</a>
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
 <div class="card"><article>
-<h2>Adam Becker：每个指数增长都会终结（Machine Learning Street Talk，2026-08-20）</h2>
-<div class="metaline">Machine Learning Street Talk · 78 分钟 · 2026-08-20</div>
-<p>嘉宾 Adam Becker 是天体物理学家、《More Everything Forever》作者，本期是当前市场上泡沫怀疑派的一份系统性论述，可作反方素材对照着读。</p>
-<h3>一、核心论点：指数增长唯一确定的属性就是终结</h3>
-<p>Becker 以 Kurzweil 的"加速回报定律"为靶子：Kurzweil 把摩尔定律这个约 50 年的技术现象泛化为贯穿生命史乃至宇宙史的普遍规律，并据此预言 2045 年奇点。Becker 指出其证据是挑选出来的数据点——人们回望历史天然呈"对数视角"（近处清晰、远处模糊），Kurzweil 把这种视觉错觉误认成真实的指数趋势。他引用 Kurzweil 自己的睡莲例子反驳：第 30 天铺满池塘后，第 31 天就没有池塘可长了；连 Gordon Moore 本人都说过摩尔定律会在 2020 年代终结，因为晶体管不可能小于硅原子。</p>
-<p>对行业标准的"S 曲线堆叠"辩护（指数由一段段 sigmoid 接力构成，总有新技术接棒），他的回应是：没有任何理由保证接力永远发生，目前看不到能拯救摩尔定律的候选技术，指望每个领域无限接棒是一厢情愿（wish casting）。</p>
-<h3>二、对 scaling 到 AGI 叙事的批评</h3>
-<p>针对"只要继续 scale、下一代模型会回来重构今天的垃圾代码"的行业说辞，Becker 直言不认为这是真的：幻觉与模型正常运作是同一个过程（他反对"幻觉"这个词，正因它暗示出错时发生了不同的事），因此除非出现让今天 LLM 看起来像 ELIZA 的根本性突破，这些系统将永远需要人类监督；且模型越强，错误越难被察觉，风险越大。</p>
-<p>他对智能爆炸论的批评落在两个前提上：智能是单一数值的标量、且与算力成正比——而智能是情境性、集体性、社会性的，行业甚至没有好的定义。他的类比：袖珍计算器自动化了四则运算却没人说它有意识，这次自动化的是语言，才让人觉得它"在思考"；没人问 AlphaFold 是否有意识，说明拟人化来自语言能力。</p>
-<h3>三、末日叙事与资本的合流</h3>
-<p>延续其在 Atlantic 的文章论点：不需要阴谋论——末日论者大多是真诚的信徒，但"AI 即将无比强大、搞错会灭绝、搞对则获得神力"的故事，恰好与硅谷风投体系对永续增长承诺的结构性需求同构。末日论表面上是批评，实际为行业提供了"这技术强大到能毁灭世界"的营销背书；这些叙事给持有者带来金钱和权力，反而使他们更可能真诚相信。</p>
-<h3>四、对市场的直接判断</h3>
-<p>Becker 明确说："这里非常清楚地存在一个金融泡沫，泡沫破裂时会发生什么我不知道。"他观察到公众对 AI 的情绪很差、对数据中心建设的抵制持续增强，并预言最终将对科技业（不止 AI）实施激进监管。他的处方偏政治性：对亿万富翁课重税、激进监管，"许多时代最大问题是社会问题，需要社会解法"。这部分立场先行，听的时候需要打折，但其对指数外推的物理约束论证值得单独保留。</p>
+<h2>指数增长的物理边界、AGI叙事与AI泡沫判断——天体物理学家Adam Becker访谈要点梳理（Machine Learning Street Talk，2026-08-20）</h2>
+<div class="metaline">Machine Learning Street Talk，78 分钟 · 2026-08-20</div>
+<p>——据Machine Learning Street Talk节目《Every Exponential Ends — Silicon Valley Forgot — Adam Becker》（2026-08-20）整理</p>
+<p>摘要：本文对Machine Learning Street Talk节目专访天体物理学家、《More Everything Forever》作者Adam Becker的主要观点进行了梳理汇总。梳理了Becker对“加速回报定律”与指数外推的批评，介绍了其对规模扩展（scaling）通向通用人工智能（AGI）叙事以及智能爆炸论的质疑，分析了末日叙事与风险投资体系之间的关系，最后阐述了其对AI金融泡沫与监管走向的判断。Becker认为，摩尔定律是一个持续约50年的技术现象，不能泛化为普遍规律；他明确表示当前“非常清楚地存在一个金融泡沫”。</p>
+<p class="kw">关键词：AI资本开支；融资估值；AI监管；Adam Becker；Kurzweil</p>
+<h3>一、指数增长的物理边界</h3>
+<p>Becker认为，指数增长终将终结，将某一阶段的技术趋势外推为普遍规律缺乏依据。</p>
+<h4>（一）对“加速回报定律”的批评</h4>
+<p>Becker以Kurzweil的“加速回报定律”为批评对象。Kurzweil把摩尔定律这一持续约50年的技术现象泛化为贯穿生命史乃至宇宙史的普遍规律，并据此预言奇点将在2045年到来。Becker的反驳主要有三点：一是证据经过挑选，人们回望历史天然呈“对数视角”，近处清晰、远处模糊，Kurzweil把这种视觉错觉误认为真实的指数趋势；二是以Kurzweil自己的睡莲例子反驳，第30天睡莲铺满池塘后，第31天便没有池塘可长；三是Gordon Moore本人也曾表示摩尔定律将在2020年代终结，因为晶体管不可能小于硅原子。</p>
+<h4>（二）对“S曲线接力”的回应</h4>
+<p>对于行业常见的“S曲线堆叠”辩护，即指数增长由一段段S型曲线（sigmoid）接力构成、总有新技术接棒，Becker认为没有任何理由保证接力会永远发生，目前也看不到能够延续摩尔定律的候选技术，指望每个领域无限接棒属于一厢情愿（wish casting）。</p>
+<h3>二、对规模扩展通向AGI叙事的质疑</h3>
+<p>Becker认为，持续扩大模型规模难以消除大语言模型的内在缺陷，智能爆炸论所依赖的前提也难以成立。</p>
+<h4>（一）幻觉与人类监督</h4>
+<p>针对“只要继续扩展规模，下一代模型会回来重构今天的低质量代码”的行业说法，Becker表示不认为这是真的。其理由主要有三点：一是幻觉与模型正常运作是同一个过程，他反对“幻觉”一词，正因为这一说法暗示出错时发生了不同的事情；二是除非出现让今天的大语言模型看起来像ELIZA的根本性突破，这些系统将始终需要人类监督；三是模型能力越强，错误越难被察觉，风险也越大。</p>
+<h4>（二）对智能爆炸论的质疑</h4>
+<p>Becker认为智能爆炸论建立在两个前提之上：一是智能是单一数值的标量；二是智能与算力成正比。他认为智能具有情境性、集体性与社会性，行业甚至缺乏对智能的良好定义。他以袖珍计算器为例指出，计算器自动化了四则运算，却无人认为它有意识，这次被自动化的是语言，才使人觉得它“在思考”；也没有人追问AlphaFold是否有意识，说明拟人化在很大程度上来自语言能力。</p>
+<h3>三、末日叙事与资本的关系</h3>
+<p>Becker延续其在《大西洋月刊》（The Atlantic）文章中的论点，认为末日叙事与硅谷资本体系在结构上相互契合，这一判断无需借助阴谋论。一是末日论者大多是真诚的信徒；二是“AI即将无比强大、搞错会灭绝、搞对则获得神力”的故事，恰好与硅谷风险投资体系对永续增长承诺的结构性需求同构；三是末日论表面上是批评，实际上为行业提供了“这项技术强大到能毁灭世界”的营销背书，而这些叙事为持有者带来金钱与权力，反而使他们更可能真诚相信。</p>
+<h3>四、对AI金融泡沫与监管的判断</h3>
+<p>Becker明确表示，“这里非常清楚地存在一个金融泡沫，泡沫破裂时会发生什么我不知道”。他观察到，公众对AI的情绪较差，对数据中心建设的抵制持续增强，并预计最终将对科技业（不止AI）实施激进监管。他的主张偏向政治层面，包括对亿万富翁征收重税与实施激进监管，认为许多时代的核心问题属于社会问题，需要社会层面的解法。</p>
+<p>总的看，Becker认为每一段指数增长终将终结，将摩尔定律等阶段性趋势外推为普遍规律缺乏依据，持续扩大模型规模难以消除对人类监督的需要；末日叙事与风险投资体系对永续增长的需求在结构上相互契合，当前AI领域存在明显的金融泡沫，公众情绪与数据中心建设阻力可能推动对科技业的激进监管。</p>
 </article></div>
 </div></main>
 <img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""

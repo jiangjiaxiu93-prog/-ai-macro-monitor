@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Light Street 创始人 Kacher：眼下更像 1990 年代中期，四只半导体约占公开持仓四成，基础设施、平台、应用三段周期合计 15 至 20 年、第一段走了约三分之一（彭博 Masters in Business，2026-09-18）</title><style>
+<title>AI基础设施周期定位、半导体集中持仓与算力供需——Light Street创始人Glen Kacher访谈要点梳理（Masters in Business，2026-09-18）</title><style>
 :root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
 --blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
 --barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
@@ -162,41 +162,52 @@ font-family:inherit;white-space:nowrap}
 box-shadow:0 1px 2px rgba(20,40,80,.10)}
 </style></head>
 <body>
-<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
 <main class="main"><div class="wrap">
-<a class="back" href="../podcast_archive.html">← 返回播客与访谈档案</a>
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
 <div class="card"><article>
-<h2>Light Street 创始人 Kacher：眼下更像 1990 年代中期，四只半导体约占公开持仓四成，基础设施、平台、应用三段周期合计 15 至 20 年、第一段走了约三分之一（彭博 Masters in Business，2026-09-18）</h2>
+<h2>AI基础设施周期定位、半导体集中持仓与算力供需——Light Street创始人Glen Kacher访谈要点梳理（Masters in Business，2026-09-18）</h2>
 <div class="metaline">Bloomberg Masters in Business，70 分钟 · 2026-09-18</div>
-<p>Glen Kacher 1993 年大学毕业进入老虎基金，跟着 Julian Robertson 看戴尔、微软、康柏、思科；斯坦福读完 MBA 后转到 Roger McNamee 的 Integral Capital，13 年里主导或联合主导 46 笔私募投资；2010 年在帕洛阿尔托创办 Light Street Capital，公开市场与一级市场并做。近两周播客里专门复盘软硬件轮动历史的节目基本空缺，这期在内容上贴近该主题，且是一手材料：受访者亲历过个人电脑、互联网、移动三轮周期，当前把公开持仓的约四成压在四只半导体上，并且在节目里给出了一套带年份的三段式周期划分。访谈由 Barry Ritholtz 主持，业绩与持仓数字多数由主持人念出、Kacher 未作更正，下文逐处注明。</p>
-<h3>“更像九十年代中期”：硬件复兴与他对本轮位置的判断</h3>
-<p>主持人说春天去旧金山时感觉整座城市在沸腾，问这是否像九十年代末。Kacher 的回答是<strong>“我会说更像九十年代中期”</strong>。他的理由落在技术层级上：当前的创新发生在很底层的位置，硬件行业出现了一轮复兴，要以十倍、百倍的速度扩张算力，半导体、网络一直到印刷电路板，堆栈的每一层都得创新，以有竞争力的价格提供 AI 算力是一件非常难的事，<strong>“规模化的需求回来了”</strong>。</p>
-<p>在解释为什么看十年需求周期时，他给了一套带年份的周期框架。他认为这是对整个计算堆栈的改造，此前能类比的只有从客户端/服务器架构迁到互联网架构那一次，这类计算周期自计算机诞生以来大约每 15 至 25 年发生一次。按历史经验，新架构要花 10 至 15 年才能占到全行业总容量的四分之一。他把技术发展分成三段：<strong>大规模基础设施建设占 5 至 10 年，平台或操作系统在第 6 至 16 年成形，应用大致在第 11 至 21 年进来</strong>，而应用后来会成为企业投资与创新的主要发生地，所以整轮周期至少 15 至 20 年。主持人问现在是不是 10 至 15 年第一段的第四五年，他的原话是<strong>“我们大概走完了第一段的三分之一”</strong>。</p>
-<h3>四只半导体占四成：行业整合留下的寡头格局</h3>
-<p>主持人引用几个季度前的持仓申报，称台积电、英伟达、博通、AMD 四家约占 Light Street 公开持仓的 40%。Kacher 没有否认，解释是要把资本集中到创新集中发生的地方，当下就是加速计算的核心。</p>
-<p>他把这组持仓的根基追溯到二十多年前。2000 年代初半导体行业被允许整合，资本也到位，字幕里的“Embargo”应为 Avago，他说陈福阳那样的人把行业重新组织了一遍，各家之间交换业务线，行业由此理性化。AI 起来以后，享受到的正是<strong>“少数几家公司竞争一个巨大市场”</strong>的结构：设计端是英伟达、AMD、博通，制造端是台积电，再往上是 ASML 这样的半导体设备公司，份额高、需求大、护城河深。</p>
-<p>四家各自的逻辑他也讲了。英伟达在 AI 加速器里的份额约 85%（他在另一处说“八成以上”）；很多人假定英伟达会丢掉这一份额，向推理迁移确实给了对手机会，但他认为市场低估了英伟达自身的创新空间，推理最终会是比训练更大的市场，专用低成本芯片会有很多种形态。AMD 的价值在代理式 AI 带来的下一段增长里，它同时是台式机与服务器 CPU 市场的两大玩家之一。博通靠与谷歌多年合作 TPU 拿到了 OpenAI 等客户。台积电给这三家全部代工，<strong>“无论谁赢它都赢”</strong>，接近垄断。除此之外他提到也喜欢存储公司，理由是它们握着瓶颈。</p>
-<p>2024 年他把这四家加上微软称作“AI 五强”，主持人说这一组合当年明显跑赢七巨头。微软在其中进出较多，多数时间不在组合里。Kacher 的评价是微软把与 OpenAI 的先发优势“搞砸了”，其 AI 产品早期的采用效果不好，之后一度收缩了 AI 研发与资金投入。他现在把微软放回了组合，理由有三：微软是全球收入规模居前的安全厂商，AI 给企业带来大量新的安全漏洞；Azure 的重新定位做得好；游戏等进展不佳的开支被收缩。七巨头里他看好的仍是亚马逊、谷歌、英伟达，加上回归的微软，对 Meta、特斯拉、苹果的保留态度与春天时“基本一致”。</p>
-<h3>英伟达那笔仓位的来历：2005 年前后的一条线索与 2022 年下半年的错配</h3>
-<p>他讲了一个来历。在 Integral 时，办公室设在凯鹏华盈的楼里，Sun 联合创始人 Bill Joy 当时是凯鹏合伙人。大约 2005 或 2006 年，Bill Joy 谈起他遇到的一组工程师（Kacher 记得是加州理工的），在用 GPU 做早期的 AI 计算，那支团队和 Bill Joy 本人的结论都是 GPU 会是做 AI 运算的合适架构。此后每次拜访英伟达他都会问 AI，黄仁勋也会谈，但那时 AI 在英伟达内部是很小的产品线，加密货币重要得多。</p>
-<p>转折在 2022 年下半年。加密货币崩盘与 AI 起飞在时间上重合，市场盯着加密业务把股价打了下来，对新机会关注不足，Light Street 在这个窗口建了重仓。他强调线索也来自一级市场：2022 至 2023 年与早期创业公司交流时，他们会问对方用什么芯片、什么基础设施、哪家服务商来做 AI，这些从白纸起步、没有存量客户要照顾的公司选什么，就指向了英伟达、AMD、博通和 Marvell，时间上早于主流讨论。</p>
-<h3>软件：2021 至 2022 年的回撤与“SaaS 末日论”的过度简化</h3>
-<p>主持人念了业绩：2021 年下跌 26%，2022 年下跌 54%，2023 至 2025 年分别上涨 46%、59%、37%。Kacher 的复盘是，2020 年疫情前转空、之后在 SaaS 与电商上赚了一大段，走出疫情的切换做得很差，<strong>软件在 2022 年一两个月内被重挫</strong>，团队被迫重新评估，之后才转向 AI 与当时估值有吸引力的那批公司。</p>
-<p>对眼下的软件，他的态度是两边都交易。他说软件在最近一两个月出现了<strong>“令人难以置信的反弹”</strong>，“SaaS 末日”那种软件注定完蛋的看法是巨大的简化。他的历史依据是存量技术的黏性：一项技术如果把问题解决得很好，可以存续很久，直到不久前许多券商和银行还在跑大型机，因为它管用。企业拿到新技术会去做能拉开竞争差距的新事情，没有人会把新技术先用在已经自动化且运转良好的枯燥流程上，所以核心系统通常不会被替换，这就留出了反弹机会。他说自己既利用悲观情绪，也利用对新事物的兴奋。</p>
-<p>对标普其余 493 家公司，他认为董事会和管理层都已经被 AI 惊动，都在要求拿出计划，但<strong>“这家公司 AI 用得好所以买它的股票”在今天还构不成投资论点</strong>。</p>
-<h3>需求仍跑在供给前面，代理让单用户 token 消耗到五倍</h3>
-<p>他把自己的“差异化认知”放在市场情绪上：AI 正被描绘成会夺走工作、由一群过度花钱的人推动、迟早坠毁的“邪恶帝国”，而他看到的是终端用户每天在浏览器、代理软件和开发工具里自发选择用它来更快完成工作，这才是算力建设的来源。主持人提到黄仁勋把 2030 年 AI 基础设施支出预期从 1 万亿美元上调到 4 万亿美元（主持人口径，他自己也不确定是哪个季度），并拿光纤过度投资作比。Kacher 的回答是，亚马逊、微软、谷歌与 Anthropic、OpenAI 合作建设算力，现实是它们<strong>落后于需求、在追赶</strong>，悲观者预期的过度投资今天没有发生；存储与台积电的扩产速度有上限，瓶颈把价格推得比应有水平更高，这也是更便宜的开源模型有需求的原因。</p>
-<p>关于五年后的形态，他只给了一个词：代理。让技术在你不指挥的时候持续处理问题，会让用户消耗的 token 达到像用搜索引擎那样直接提问时的<strong>五倍</strong>。关于使用成本，他说程序员一天花掉的金额“并不少见”，具体数字在字幕里缺失，主持人紧接着说“每月三万美元不是小数”，可据此推断量级约为每天一千美元（作者推断，非原话）。</p>
-<p>对数据中心的地方性反对，他承认这是正在浮现的投资风险，目前还不足以改变他对英伟达、台积电“数字仍显著好于华尔街预期”的判断。他主张电源放在表后，电力不足的地方由业主自带，举了帕洛阿尔托附近圣马特奥一个规划中的数据中心，方案是表后安装 Bloom Energy 的天然气燃料电池，几乎无排放、几乎无噪音，居民仍然反对。</p>
-<h3>两个历史类比：电流之战与智能手机的十五年</h3>
-<p>他最近重读《光之帝国》，讲爱迪生、特斯拉、西屋的交直流之争。爱迪生为了抹黑交流电，推动把它用于电椅。他拿这段对照今天把 AI 说成邪恶帝国的舆论，并指出结局是西屋靠稳定的执行和后端的工业化胜出，他由此联想到亚马逊、微软、谷歌建设后端的机会，AWS 已是亚马逊利润的主要来源。</p>
-<p>被问到 1993 年入行时若知道什么会有用，他的答案是事情需要时间。智能手机的序列是牛顿、General Magic、Palm、Treo、黑莓，然后才是 iPhone。苹果当年看着诺基亚和黑莓把市场做出来，再拿出更优雅的方案，账上有钱、用户肯等，后发策略就成立；他认为苹果在 AI 上是同一套打法，手机同时握有个人与工作数据且有隔离两者的安全机制，位置独特，前提是执行到位。</p>
-<h3>与四轮周期行情的对照（作者归纳）</h3>
-<p>Kacher 的三段式是按产业投资的重心划分的，没有声称股价领涨顺序也按基础设施、平台、应用依次轮转，引用时要保留这个限定。拿行情去对，三段式与几轮周期的吻合程度不一：个人电脑时代软件篮子从 1986 年起就持续跑赢，芯片到 1992 年才发力；互联网时代半导体、网络设备、软件在 2000 年 3 月的十几天内先后见顶；移动时代先掉队的是终端。他自己的经历也说明顺序不固定：九十年代在老虎基金同时持有戴尔、康柏、思科与微软，2010 年建仓主题是移动、社交、云与电商四条应用线，2022 年以后才把重心压到半导体。</p>
-<p>他的框架里对当前定价更有用的是两处。一处是半导体本轮的利润集中有产业结构上的来历，2000 年代的整合把设计、代工、设备各环节压成了寡头，九十年代末光通信与电信设备环节则有多家厂商同时扩产，这一差别是评估“英伟达是否重演思科”时应当纳入的变量。另一处是他对软件的判断建立在存量系统黏性上，对应的是反弹交易；软件在历史上形成持久领先的两次，一次有微软式的平台垄断，一次发生在 2001 年投资崩塌之后，他在节目里没有主张眼下具备其中任何一项条件。</p>
-<p>需要保留的疑问有三处。业绩与持仓比例均为主持人念出的二手数字，四成持仓来自“几个季度前”的申报。他说需求跑在供给前面，依据是瓶颈与涨价，全片没有给出终端付费或留存数据。按他的三段式，应用段要到第 11 年前后才成为重心，这与他同时强调的代理五倍 token 消耗、需求已跑在供给前面之间存在时间上的张力，他没有展开。</p>
-<h3>验证点（作者归纳）</h3>
-<p>台积电、英伟达、博通、AMD 在 Light Street 后续 13F 中的合计占比是否维持在四成附近，微软是否留在组合内。软件板块近一两个月的反弹能否延续到三季报之后，可看 IGV 相对 SOXX 的比值。存储与先进制程的合约价是否继续上行，这是他“需求跑在供给前面”的直接读数。圣马特奥等地表后供电方案的审批结果，以及 11 月中期选举后各州数据中心限制法案的走向。</p>
+<p>——据Bloomberg Masters in Business节目《Investing for the AI Boom: Masters in Business with Glen Kacher》（2026-09-18）整理</p>
+<p>摘要：本文对彭博（Bloomberg）Masters in Business节目主持人Barry Ritholtz专访Light Street Capital创始人Glen Kacher的主要观点进行了梳理汇总。梳理了Kacher对本轮AI计算周期所处阶段的判断及其三段式周期框架，介绍了其集中持有半导体龙头的产业逻辑、英伟达仓位的形成过程以及对软件板块的看法，最后阐述了其对算力供需、代理带来的token消耗与数据中心建设风险的判断。据介绍，台积电、英伟达、博通、AMD四家约占Light Street公开持仓的40%；Kacher认为整轮周期至少15至20年，目前约走完第一段基础设施建设期的三分之一，代理可使用户token消耗达到直接提问方式的五倍。</p>
+<p class="kw">关键词：AI资本开支；token需求；企业采用；Light Street；英伟达；台积电</p>
+<h3>一、本轮AI计算周期的阶段定位</h3>
+<p>Kacher认为，本轮AI浪潮是对整个计算堆栈的改造，目前仍处于基础设施建设阶段的前段。</p>
+<h4>（一）“更像九十年代中期”</h4>
+<p>Kacher于1993年大学毕业后进入老虎基金，跟随Julian Robertson研究戴尔、微软、康柏与思科；斯坦福大学MBA毕业后加入Roger McNamee的Integral Capital，13年间主导或联合主导46笔私募投资；2010年在帕洛阿尔托创办Light Street Capital，兼做公开市场与一级市场投资。</p>
+<p>主持人提及春季旧金山的热烈氛围，询问当前是否类似九十年代末。Kacher表示，“我会说更像九十年代中期”。其理由在于技术层级：一是当前的创新发生在很底层的位置，硬件行业出现复兴；二是算力须以十倍、百倍的速度扩张，从半导体、网络到印刷电路板，堆栈每一层都须创新；三是以有竞争力的价格提供AI算力难度很大，“规模化的需求回来了”。</p>
+<h4>（二）三段式周期框架</h4>
+<p>Kacher认为，此前可与本轮类比的只有从客户端/服务器架构向互联网架构的迁移，这类计算周期自计算机诞生以来大约每15至25年发生一次；按历史经验，新架构需要10至15年才能占到全行业总容量的四分之一。他将技术发展分为三段：一是大规模基础设施建设，历时5至10年；二是平台或操作系统，在第6至16年成形；三是应用，大致在第11至21年进入，此后会成为企业投资与创新的主要发生地。因此整轮周期至少15至20年。就当前所处位置，他表示，“我们大概走完了第一段的三分之一”。</p>
+<h3>二、半导体集中持仓的产业逻辑</h3>
+<p>Kacher将资本集中于加速计算的核心环节，其依据是半导体行业经过整合形成的寡头格局。</p>
+<h4>（一）行业整合形成的寡头结构</h4>
+<p>据主持人援引几个季度前的持仓申报，台积电、英伟达、博通、AMD四家约占Light Street公开持仓的40%。Kacher表示，资本应集中到创新集中发生的地方，当下即加速计算的核心。</p>
+<p>他将这一格局追溯至二十多年前：2000年代初半导体行业获准整合、资本到位，以安华高（Avago）的陈福阳为代表的经营者重组了行业，各家之间交换业务线，行业由此趋于理性。AI兴起后，行业享受的正是“少数几家公司竞争一个巨大市场”的结构：一是设计端的英伟达、AMD与博通；二是制造端的台积电；三是上游的阿斯麦（ASML）等半导体设备公司，普遍具有份额高、需求大、护城河深的特点。</p>
+<h4>（二）四家公司的持有逻辑</h4>
+<p>一是英伟达，在AI加速器中的份额约85%，市场普遍假定其份额将流失，向推理迁移也确实为对手提供了机会，但他认为市场低估了英伟达自身的创新空间，推理终将成为比训练更大的市场，专用低成本芯片会有多种形态。二是AMD，其价值在于代理式AI带来的下一阶段增长，且是台式机与服务器CPU市场的两大厂商之一。三是博通，凭借与谷歌多年合作TPU获得了OpenAI等客户。四是台积电，为上述三家全部代工，“无论谁赢它都赢”，接近垄断。此外，他也看好存储公司，理由是其掌握瓶颈环节。</p>
+<h4>（三）“AI五强”与微软的进出</h4>
+<p>2024年，Kacher将上述四家与微软合称“AI五强”，据主持人介绍，这一组合当年明显跑赢七巨头。微软在组合中进出较多，多数时间未被持有。Kacher认为微软错失了与OpenAI合作的先发优势，其AI产品早期采用效果欠佳，此后一度收缩AI研发与资金投入。他目前已重新持有微软，理由有三：一是微软是全球收入规模居前的安全厂商，AI为企业带来大量新的安全漏洞；二是Azure的重新定位较为成功；三是游戏等表现不佳的开支已被收缩。七巨头中，他看好亚马逊、谷歌与英伟达，加上回归的微软，对Meta、特斯拉与苹果仍持保留态度。</p>
+<h4>（四）英伟达仓位的形成过程</h4>
+<p>据其介绍，Integral Capital的办公室位于凯鹏华盈（Kleiner Perkins）楼内，时任凯鹏合伙人的Sun联合创始人Bill Joy约在2005至2006年谈及一组用GPU进行早期AI计算的工程师，其结论是GPU是AI运算的合适架构。此后他每次拜访英伟达都会询问AI，但当时AI在英伟达内部只是很小的产品线，加密货币业务重要得多。</p>
+<p>转折发生在2022年下半年：加密货币崩盘与AI起飞在时间上重合，市场聚焦加密业务使股价承压，对新机会关注不足，Light Street在这一窗口建立了重仓。他强调线索也来自一级市场，2022至2023年与早期创业公司交流时，这些从零起步、没有存量客户负担的公司所选用的芯片与基础设施，指向英伟达、AMD、博通和Marvell，时间上早于市场主流讨论。</p>
+<h3>三、软件板块的回撤与反弹</h3>
+<p>Kacher认为，“SaaS末日”的看法过于简化，存量系统的黏性为软件板块留出了反弹空间。</p>
+<p>据主持人介绍，Light Street 2021年下跌26%，2022年下跌54%，2023至2025年分别上涨46%、59%、37%。Kacher复盘称，2020年疫情前转为做空，此后在SaaS与电商上获得可观收益，但走出疫情阶段的切换不够及时，软件在2022年一两个月内大幅下挫，团队重新评估后才转向AI以及当时估值具有吸引力的公司。</p>
+<p>对当前软件板块，他采取双向交易的策略。他表示软件近一两个月出现了“令人难以置信的反弹”，认为软件注定衰落的看法是巨大的简化。其依据主要有三点：一是存量技术的黏性，一项技术若能很好地解决问题便可长期存续，直到不久前许多券商和银行仍在运行大型机；二是企业运用新技术的方向，企业会优先把新技术用于能拉开竞争差距的新业务，已经自动化且运转良好的流程通常不会率先改造；三是核心系统通常不会被替换，由此留出反弹机会。他表示自己既利用市场的悲观情绪，也利用对新事物的兴奋。</p>
+<p>对标普500中的其余493家公司，他认为董事会与管理层都已高度重视AI并要求拿出计划，但“这家公司AI用得好所以买它的股票”在今天还构不成投资论点。</p>
+<h3>四、算力供需与投资风险</h3>
+<p>Kacher认为，终端用户的自发使用是算力建设的来源，当前算力供给落后于需求，数据中心的地方性反对是正在浮现的风险。</p>
+<h4>（一）需求领先于供给</h4>
+<p>Kacher将自身的差异化认知放在市场情绪上：AI正被描绘成夺走工作、由过度花钱者推动、迟早坠毁的“邪恶帝国”，而他观察到终端用户每天在浏览器、代理软件与开发工具中自发使用AI以更快完成工作，这才是算力建设的来源。据主持人介绍，黄仁勋已将2030年AI基础设施支出预期由1万亿美元上调至4万亿美元，主持人并以光纤过度投资作比。Kacher认为：一是亚马逊、微软、谷歌与Anthropic、OpenAI合作建设算力，现实是其落后于需求、仍在追赶，悲观者预期的过度投资目前尚未发生；二是存储与台积电的扩产速度存在上限，瓶颈使价格高于应有水平；三是这也是更便宜的开源模型存在需求的原因。</p>
+<h4>（二）代理带来的token消耗</h4>
+<p>对于五年后的形态，Kacher只给出了一个词：代理。让技术在用户不作指挥时持续处理问题，会使用户消耗的token达到像使用搜索引擎那样直接提问时的五倍。关于使用成本，他表示程序员单日花费可观的情况“并不少见”，主持人随即提到“每月三万美元不是小数”。</p>
+<h4>（三）数据中心的地方性反对</h4>
+<p>Kacher承认数据中心遭遇的地方性反对是正在浮现的投资风险，但目前尚不足以改变他对英伟达、台积电“数字仍显著好于华尔街预期”的判断。他主张电源置于表后，电力不足的地区由业主自带电源，并以帕洛阿尔托附近圣马特奥一个规划中的数据中心为例，该方案在表后安装Bloom Energy的天然气燃料电池，几乎无排放、几乎无噪音，但居民仍然反对。</p>
+<h3>五、技术周期的历史类比</h3>
+<p>Kacher以两段历史说明技术周期的演进需要时间。</p>
+<p>一是电流之战。他近期重读《光之帝国》，书中讲述爱迪生、特斯拉与西屋的交直流之争，爱迪生为抹黑交流电推动将其用于电椅。他以此对照当前将AI描绘为邪恶帝国的舆论，并指出结局是西屋凭借稳定执行与后端工业化胜出，由此联想到亚马逊、微软、谷歌建设后端的机会，AWS已是亚马逊利润的主要来源。</p>
+<p>二是智能手机的演进。被问及1993年入行时若知道什么会有帮助，他的回答是事情需要时间。智能手机依次经历了牛顿、General Magic、Palm、Treo、黑莓，然后才是iPhone。苹果当年看着诺基亚和黑莓把市场做出来，再拿出更优雅的方案，账上有钱、用户愿意等待，后发策略即可成立；他认为苹果在AI上采取同一打法，手机同时掌握个人与工作数据并具备隔离两者的安全机制，位置独特，前提是执行到位。</p>
+<p>总的看，Kacher认为本轮AI是对计算堆栈的整体改造，更接近九十年代中期，整轮周期至少15至20年，目前约走完基础设施段的三分之一；半导体行业经整合形成的寡头结构支撑了其集中持仓，终端用户的自发使用与代理带来的token消耗使算力需求仍领先于供给，悲观者预期的过度投资目前尚未发生，数据中心的地方性反对则是需要关注的风险。</p>
 </article></div>
 </div></main>
 <img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""

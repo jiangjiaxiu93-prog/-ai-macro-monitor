@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>ClickHouse CEO 的反泡沫论：需求真实性的一手证据与“收入持久性”这个真正的风险（20VC，2026-08-31）</title><style>
+<title>AI需求真实性、收入持久性与数据基础设施格局——ClickHouse联合创始人兼首席执行官Aaron Katz访谈要点梳理（20VC with Harry Stebbings，2026-08-31）</title><style>
 :root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
 --blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
 --barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
@@ -162,41 +162,52 @@ font-family:inherit;white-space:nowrap}
 box-shadow:0 1px 2px rgba(20,40,80,.10)}
 </style></head>
 <body>
-<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl on" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-09-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
 <main class="main"><div class="wrap">
-<a class="back" href="../podcast_archive.html">← 返回播客与访谈档案</a>
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
 <div class="card"><article>
-<h2>ClickHouse CEO 的反泡沫论：需求真实性的一手证据与“收入持久性”这个真正的风险（20VC，2026-08-31）</h2>
-<div class="metaline">20VC with Harry Stebbings · 65 分钟 · 2026-08-31</div>
-<p>嘉宾为 ClickHouse 联合创始人兼 CEO Aaron Katz，Salesforce 早期员工出身、后任 Elastic 高管，约五年前将开源列式数据库 ClickHouse 公司化。披露的规模口径：ARR 刚过 3.5 亿美元，今年收官“北向 5 亿”，估值超 150 亿美元，客户超 4000 家，净收入留存率超 200%，现金储备 10 亿美元。需注意主持人是公司新近投资人，对话带利益相关。本期的价值在于它提供了泡沫争论中稀缺的东西——<strong>一家横跨几乎所有 AI 原生公司的基础设施供应商的一手需求数据</strong>，其客户名单包括 Anthropic、OpenAI、Harvey、Sierra、Decagon、Tesla。</p>
-<h3>一、周期判断：矛盾数据点与“我们才刚开始”</h3>
-<p>主持人开门见山给出他的困惑：老朋友们警告债务水平与估值亢奋，而他亲眼所见的是采用率与收入扩张速度，两组数据点互相矛盾。</p>
-<p>Katz 的回答构成全片题眼：“我们才刚开始。”其资历背书为亲历互联网、移动、社交三轮周期，而作为建设者的体感是：<strong>过去几轮周期的展开要渐进得多，本轮在以前所未见的速度加速</strong>——体现在 agentic 体验成熟的速度、这批公司的收入增速（“我们此生没见过这样的收入增长”），以及 agentic 应用对底层系统的需求强度。</p>
-<p>对毛利率质疑（主持人以推理服务商 30% 至 35% 的毛利为例），其回应并未否认低毛利现状，而是更换评判框架：这批公司“似乎有无限的资本可用”且增长极快，因此可以运行在传统公开市场投资者不会接受的毛利水平上；只要能展示未来数年毛利扩张路径、同时维持增速与健康的资产负债表，其担忧就远小于五年前看传统企业软件时。</p>
-<p>但他主动给出了自认<strong>真正的单一最大风险：收入的持久性</strong>。基础设施软件切换成本高，而 agentic 应用的切换成本可以很低——模型供应商“几乎每隔一周就互相跨越一次”，因此“我会质疑其中一些 AI 应用收入的持久性”。当主持人问 Claude Code 是否属于低切换成本类别时，其直言“我会把它归入那个类别”——随即用自家数据反证需求的真实性：<strong>ClickHouse 自己在 Anthropic 上的支出比年初上涨了 100 倍。</strong></p>
-<h3>二、token 预算观：收入增长比 token 成本重要</h3>
-<p>其披露的内部管理细节为：年初向全公司发出主题为“AI 觉醒”的邮件，直言公司对编码类 AI 应用的采用度低于预期，此后内部使用量爆发式增长，目前正评估在前沿实验室之外引入更多开放权重模型。</p>
-<p>模型选型的分层很具体：<strong>开放权重模型可用于代码评审，但不用于交付生产代码</strong>——顾虑在输出层面的保障；而头部两家实验室的独特优势是“既是模型提供方又是 harness 提供方”，开放权重阵营目前在 harness 上落后。</p>
-<p>对 token 预算失控之问，其取舍逻辑明确：公司首要度量是收入增长；只要增长持续，就不担心编码 agent 上的开销——理由为路线图正以前所未见的速度加速、token 单价在下降、收入增速快于历史任何时期。“这个交易我任何一天都愿意做。”</p>
-<p>其复盘的最大遗憾与该判断同向：<strong>过去两年该多招销售而没招</strong>——公司仅约 100 名背负指标的销售，对手有数千人的销售军团。其引用 Benioff 给他的一课作结：“一年能做成的事会被高估，五年能做成的事会被低估。”</p>
-<h3>三、agent 成为买家：数据基础设施的三年图景</h3>
-<p>这是全片对赛道格局信息量较高的一段。其框架为：过去的软件为组织内特定角色设计、查询模式可预测；<strong>agent 没有角色设定</strong>，默认要横穿可观测性、数据仓库、CRM 等所有系统，不接受访问限制与延迟，“体验由链条中最慢的一环定义”。因此 agent 查询的第一需求是低延迟（并发数十条查询、模式不可预测），第二是效率。支撑数据为：<strong>Tesla 正以每秒 10 亿事件的速度向其灌注数据</strong>（披露，后半句自评带宣传性质）。</p>
-<p>更进一步的判断为 <strong>agent 正从用户变成选型者</strong>。其披露的具名案例：Anthropic 当初选型时问 Claude“这个可观测性用例该用什么技术”，Claude 建议了 ClickHouse（嘉宾转述）。其正在把公司定位为“下一代由 agent 构建的应用的默认数据库”。</p>
-<p>由此推出其认为“今天听来疯狂、三五年后将成常态”的命题：<strong>agent 需要有身份和预算</strong>。企业不会放任 agent 随意消耗资源、访问数据、花未授权的钱——当前靠人工盯支出与管控，三五年后 agent 完全自主时需要授权、身份、预算三件套，且治理与监督需求决定了这必须是独立的一层。其给投资人的提示为：去找最有条件把 agent 建应用所需全部资源自动开通的公司。</p>
-<p>配套判断有二：多部署模式是必需品，且<strong>回迁本地部署的趋势真实存在</strong>——“连一些我以为永远不会回本地的、硅谷最创新的数字原生公司，都在考虑把技术栈从超大规模云搬回来”；人类买家十年内不会退场，预算仍由人控制。</p>
-<h3>四、开放权重五五开论</h3>
-<p>主持人抛出市场主流叙事：三年后 90% 的 token 走开放模型。<strong>Katz 明确不同意，其预测为五五开</strong>——类比当前企业软件中开源与专有的大致分布。不同意的核心理由在企业侧：企业要的是<strong>赔付保障与输出层面的法律保护</strong>，这是开放权重模型目前给不了的，会限制其用例范围。其特意区分：开放权重模型与开源软件属两回事，对两者在企业渗透的判断“非常不同”。</p>
-<p>一段值得记录的交锋：主持人转述“大型企业反而更怕前沿实验室，因为不信零数据保留的口头承诺”。Katz 承认该担忧真实存在（“我每天都看到，我们内部也有”），但在敏感数据的托付上站在前沿实验室一边：“当你需要大多数企业需要的法律保护时，你会想跟前沿实验室合作；对一些开放权重模型的顾虑今天成立，但一两年内会被解决大半。”其同时拒绝跟进后门猜测：“我个人不喜欢猜测用了这些软件就等于参与了什么间谍活动，那说法挺离谱的。”</p>
-<p>对专业化与通用模型之争其拒绝站队：“我们是卖铲子的，不挑赛道赢家。”但其不排除更远的威胁：“我不会把 Anthropic 和 OpenAI 排除在核心基础设施提供商之外——它们进入新品类的速度那么快，想象三年后它们覆盖的表面积。它们还在造自己的芯片。”其自称最怕的对手是“还没进入市场的那个”。</p>
-<h3>五、收入集中度应该被庆祝？——实际论证是两面的</h3>
-<p>需注意节目标题的立场比嘉宾原话更激进。主持人的问题原型为：投资人常拿收入集中度说事，“可英伟达也集中，集中度还是不是有效的投资担忧？”</p>
-<p>Katz 的回答实为两面。作为经营者，其认为集中度是“非常有效的担忧”——任何单一客户、品类或行业占收入超过 10%（其称此为行业标准阈值）就须限制敞口。但 ClickHouse 的答案是用客户结构对冲：<strong>“几乎每家 AI 公司都建在我们上面，但这一篮子 AI 公司合计占收入不到 12%。就算其中一半消失，赢家的增长会抵消输家的流失。”</strong>该论证的要点在于：AI 收入敞口应看篮子的分散度，而非单个标签——这与其反泡沫论的收口一致：“我挑不出谁赢谁输，但<strong>赢家会远远盖过输家</strong>。”</p>
-<p>对“一年冲到 1 亿美元”的增长崇拜其给出反向提醒：他反而担心“拿什么护城河守住这 1 亿”——<strong>收入持久性是这批公司被低估得最厉害的属性</strong>。</p>
-<h3>六、10 亿赌局与不上市的理由</h3>
-<p>节目立了一个公开赌局：何时到 10 亿美元 ARR——Katz 押 2027 年 12 月之前，主持人押 2028 年 2 月，赌注 1000 英镑。</p>
-<p>IPO 立场鲜明：“我押不上市——我们明年想上就能上，但没必要急。”理由有三：公开市场当前“比很长时间以来都更不理性”，一个季度小幅不及预期股价能跌四五成；私有公司做大已无障碍，与上市公司的差别只剩员工盯股价与被做空两条，前者已被结构化老股转让解决；并购货币论也已过时——其举例大额并购正以私有公司身份完成（口述市场动态，未经核实）。但其并非反公开市场：公开市场的长期价格发现更理性，私有投资人愿为“押注未来”付溢价，公开市场给的是当下执行的定价。</p>
-<p>组织与市场结构的两个数据点：<strong>收入超一半来自美国以外</strong>（EMEA 四成、亚洲一成），产品在三大云的 36 个区域运行；其观察到<strong>企业销售周期在压缩</strong>——以前卖进大型金融机构以年计，现在以季度计，开源加自助的无摩擦体验是加速器。</p>
-<p>（口径提示：本文基于补抓的自动字幕整理。主持人为公司投资人；收入路径与 ARR 的多个口径在节目中并存、关系未说清；“Anthropic 2 万亿上市”为主持人口述、嘉宾未确认；文中并购金额为嘉宾口述的市场动态、未经核实；Tesla 每秒事件数等为嘉宾单方披露，引用前请核对原始来源。）</p>
+<h2>AI需求真实性、收入持久性与数据基础设施格局——ClickHouse联合创始人兼首席执行官Aaron Katz访谈要点梳理（20VC with Harry Stebbings，2026-08-31）</h2>
+<div class="metaline">20VC with Harry Stebbings，65 分钟 · 2026-08-31</div>
+<p>——据20VC with Harry Stebbings节目《ClickHouse CEO: The AI Bubble Is Wrong | Revenue Concentration Should be a Concern》（2026-08-31）整理</p>
+<p>摘要：本文对20VC节目主持人Harry Stebbings专访ClickHouse联合创始人兼首席执行官Aaron Katz的主要观点进行了梳理汇总。梳理了Katz对本轮AI周期、应用层毛利与收入持久性的判断，介绍了ClickHouse内部的token预算取舍、代理驱动的数据基础设施需求以及开放权重模型与前沿实验室的竞争格局，最后阐述了其对收入集中度、上市安排与经营数据的看法。据其介绍，ClickHouse年度经常性收入（ARR）刚过3.5亿美元，估值超过150亿美元，净收入留存率超过200%，公司在Anthropic上的支出较年初上涨100倍，AI公司合计占其收入不到12%。</p>
+<p class="kw">关键词：token需求；企业采用；开放权重；应用层护城河；融资估值；ClickHouse；Aaron Katz；Anthropic</p>
+<h3>一、AI周期判断与需求真实性</h3>
+<p>Katz认为本轮AI周期“才刚开始”，需求真实存在，需要警惕的是部分AI应用收入的持久性。</p>
+<h4>（一）公司概况</h4>
+<p>Katz为Salesforce早期员工，后任Elastic高管，约五年前将开源列式数据库ClickHouse公司化。据其介绍，ClickHouse的ARR刚过3.5亿美元，今年年末有望超过5亿美元，估值超过150亿美元，客户超过4000家，净收入留存率超过200%，现金储备10亿美元；客户包括Anthropic、OpenAI、Harvey、Sierra、Decagon、特斯拉（Tesla）等。主持人Harry Stebbings为ClickHouse的新近投资人。</p>
+<h4>（二）周期判断与毛利率</h4>
+<p>主持人认为，一方面有业内人士警告债务水平与估值亢奋，另一方面其亲眼所见的采用率与收入扩张速度很快，两组数据点相互矛盾。Katz表示“我们才刚开始”，他亲历互联网、移动、社交三轮周期，以往周期的展开较为渐进，本轮的加速明显快于以往，主要体现在三个方面：一是代理体验成熟的速度；二是这批公司的收入增速，“我们此生没见过这样的收入增长”；三是代理应用对底层系统的需求强度。</p>
+<p>对于毛利率质疑，主持人以推理服务商30%至35%的毛利率为例。Katz承认低毛利的现状，但认为这批公司“似乎有无限的资本可用”且增长很快，因此可以在传统公开市场投资者不会接受的毛利水平上运行；只要能展示未来数年的毛利扩张路径，同时维持增速与健康的资产负债表，其担忧就远小于五年前审视传统企业软件时。</p>
+<h4>（三）收入的持久性</h4>
+<p>Katz认为，真正需要关注的风险在于收入的持久性：一是基础设施软件切换成本较高，代理应用的切换成本则可能很低；二是模型供应商“几乎每隔一周就互相跨越一次”，因此“我会质疑其中一些AI应用收入的持久性”。对于Claude Code是否属于低切换成本类别，他表示“我会把它归入那个类别”。与此同时，他以自身数据说明需求的真实性：ClickHouse在Anthropic上的支出较年初上涨了100倍。</p>
+<h3>二、token预算与企业内部AI采用</h3>
+<p>Katz以收入增长作为首要度量，认为只要增长持续，编码代理的开销可以接受。</p>
+<p>据其介绍，公司年初向全员发出主题为“AI觉醒”的邮件，指出公司对编码类AI应用的采用程度低于预期，此后内部使用量快速增长，目前正在评估在前沿实验室之外引入更多开放权重模型。在模型选型上，他的分层做法是：一是开放权重模型可用于代码评审，但不用于交付生产代码，顾虑在于输出层面的保障；二是头部两家实验室“既是模型提供方又是harness提供方”，开放权重阵营目前在代理运行框架（harness）上落后。</p>
+<p>对于token预算是否失控，Katz给出三点理由：一是公司路线图推进明显加快；二是token单价在下降；三是收入增速快于以往任何时期。他表示，“这个交易我任何一天都愿意做”。他反思的遗憾与此同向，即过去两年应多招销售而没有招，公司仅有约100名背负指标的销售人员，对手则有数千人的销售队伍。他引用Salesforce创始人Marc Benioff的话：“一年能做成的事会被高估，五年能做成的事会被低估。”</p>
+<h3>三、代理驱动的数据基础设施需求</h3>
+<p>Katz认为，代理正在从数据系统的使用者转变为技术选型者，并将对身份、预算与部署模式提出新的要求。</p>
+<h4>（一）代理查询对低延迟与效率的要求</h4>
+<p>Katz指出，过去的软件为组织内的特定角色设计，查询模式可以预测；代理没有角色设定，默认要横穿可观测性、数据仓库、客户关系管理（CRM）等所有系统，不接受访问限制与延迟，“体验由链条中最慢的一环定义”。基于此，代理查询的第一需求是低延迟，需要支持数十条并发查询和不可预测的查询模式，第二需求是效率。据其介绍，特斯拉正以每秒10亿事件的速度向ClickHouse写入数据。</p>
+<h4>（二）代理成为选型者</h4>
+<p>据其介绍，Anthropic当初选型时向Claude询问某一可观测性用例应使用什么技术，Claude建议了ClickHouse。基于此，ClickHouse正把自身定位为“下一代由代理构建的应用的默认数据库”。</p>
+<h4>（三）代理的身份与预算</h4>
+<p>Katz提出一个“今天听来疯狂、三五年后将成常态”的判断，即代理需要拥有身份和预算：一是企业不会放任代理随意消耗资源、访问数据或花费未授权的资金；二是目前依靠人工盯控支出与权限，三五年后代理完全自主时需要授权、身份、预算三项配套；三是治理与监督需求决定了这必须是独立的一层。他建议投资人关注有条件为代理自动开通构建应用所需全部资源的公司。</p>
+<h4>（四）部署模式与人类买家</h4>
+<p>Katz还给出两点配套判断：一是多部署模式是必需品，回迁本地部署的趋势真实存在，“连一些我以为永远不会回本地的、硅谷最创新的数字原生公司，都在考虑把技术栈从超大规模云搬回来”；二是人类买家十年内不会退场，预算仍由人控制。</p>
+<h3>四、开放权重模型与前沿实验室的竞争格局</h3>
+<p>Katz预计开放权重模型与前沿实验室模型的token份额将大致各占一半，企业对法律保护的需求是主要约束。</p>
+<p>主持人转述市场主流叙事，即三年后90%的token将流向开放模型。Katz不同意这一判断，预测二者将五五开，类比当前企业软件中开源与专有软件的大致分布。其理由在于企业侧需要赔付保障与输出层面的法律保护，开放权重模型目前难以提供，这将限制其用例范围。他同时区分了开放权重模型与开源软件，认为两者在企业中的渗透前景“非常不同”。</p>
+<p>主持人认为，大型企业反而更担心前沿实验室，因为不信任零数据保留的口头承诺。Katz承认这一担忧真实存在，“我每天都看到，我们内部也有”，但在敏感数据的托付上倾向前沿实验室：“当你需要大多数企业需要的法律保护时，你会想跟前沿实验室合作；对一些开放权重模型的顾虑今天成立，但一两年内会被解决大半。”</p>
+<p>对于专业化模型与通用模型之争，他表示“我们是卖铲子的，不挑赛道赢家”。但他不排除更远期的威胁：“我不会把Anthropic和OpenAI排除在核心基础设施提供商之外，它们进入新品类的速度那么快，想象三年后它们覆盖的表面积。它们还在造自己的芯片。”他表示更担心尚未进入市场的对手。</p>
+<h3>五、收入集中度、上市安排与经营数据</h3>
+<p>Katz认为收入集中度是有效的担忧，ClickHouse通过分散的客户结构加以对冲，并暂不急于上市。</p>
+<h4>（一）收入集中度</h4>
+<p>主持人认为，投资人常以收入集中度为由提出质疑，但英伟达同样集中，集中度是否仍是有效的投资担忧。Katz的回答包含两个方面：一是作为经营者，他认为集中度是“非常有效的担忧”，任何单一客户、品类或行业占收入超过10%即须限制敞口，他称这是行业标准阈值；二是ClickHouse以客户结构对冲，“几乎每家AI公司都建在我们上面，但这一篮子AI公司合计占收入不到12%。就算其中一半消失，赢家的增长会抵消输家的流失。”据此，他认为AI收入敞口应看篮子的分散程度，并表示“我挑不出谁赢谁输，但赢家会远远盖过输家”。对于“一年冲到1亿美元”的增长，他更担心的是“拿什么护城河守住这1亿”，认为收入持久性是这批公司被严重低估的属性。</p>
+<h4>（二）上市安排</h4>
+<p>节目设立了一个公开赌局：Katz认为ClickHouse将在2027年12月之前达到10亿美元ARR，主持人押2028年2月，赌注为1000英镑。对于上市，Katz表示“我们明年想上就能上，但没必要急”，理由有三：一是公开市场目前“比很长时间以来都更不理性”，一个季度小幅不及预期，股价就可能下跌四到五成；二是私有公司做大已无障碍，与上市公司的差别仅剩员工关注股价与被做空两项，前者已通过结构化老股转让解决；三是以股票作为并购货币的理由已经过时，大额并购正以私有公司身份完成。他同时认为，公开市场的长期价格发现更加理性，私有投资人愿为押注未来支付溢价，公开市场给出的是对当下执行的定价。</p>
+<h4>（三）市场结构与销售周期</h4>
+<p>据其介绍，ClickHouse收入的一半以上来自美国以外，其中欧洲、中东和非洲（EMEA）约占四成，亚洲约占一成，产品在三大云的36个区域运行。他观察到企业销售周期正在压缩，以往卖进大型金融机构以年计，目前以季度计，开源加自助的无摩擦体验起到了加速作用。</p>
+<p>总的看，Katz认为本轮AI周期的需求真实且加速明显，赢家的增长将远远超过输家的流失；应用层低毛利在资本充裕、增长强劲的条件下可以接受，需要重点关注的是代理应用切换成本低所带来的收入持久性问题。</p>
 </article></div>
 </div></main>
 <img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
