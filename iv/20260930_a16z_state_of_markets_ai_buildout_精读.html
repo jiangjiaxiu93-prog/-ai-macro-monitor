@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI基础设施建设规模、企业采用进度与软件行业分化——a16z成长基金团队David George等State of Markets解读要点梳理（a16z，2026-09-30）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-01<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI基础设施建设规模、企业采用进度与软件行业分化——a16z成长基金团队David George等State of Markets解读要点梳理（a16z，2026-09-30）</h2>
+<div class="metaline">a16z，52 分钟 · 2026-09-30</div>
+<p>——据a16z节目《Inside the Trillion-Dollar AI Build-Out》（2026-09-30）整理</p>
+<p>摘要：本文对a16z成长基金团队David George、Sarah Wang、Alex Immerman、Santiago Rodriguez解读年度State of Markets演示一期节目的主要观点进行了梳理汇总。梳理了科技投资周期与泡沫判断、超大规模云厂商资本开支与算力供需，介绍了企业采用进度、推理成本下降、消费级AI与代理商务以及软件行业分化，最后阐述了一级市场格局与团队后续关注方向。据其介绍，Alphabet、亚马逊、Meta、微软与甲骨文2026年资本开支合计约7800亿美元，2025年为4160亿美元；标普500公司中已上线AI部署的占69%，对效果指标进行持续跟踪的仅占2%；2026年美国风险投资交易活动中AI相关公司占86%。</p>
+<p class="kw">关键词：AI资本开支；算力采购；企业采用；推理成本；代理商务；融资估值；a16z；State of Markets；David George</p>
+<h3>一、科技投资周期与泡沫判断</h3>
+<h4>（一）科技在投资与市值中的比重</h4>
+<p>据David George介绍，科技的带动作用体现在四个方面：一是高科技设备、软件与研发约占美国资本支出的55%；二是科技板块占美国股市总市值近40%，全球市值前十的公司中有八家是美国科技公司；三是模型公司累计融资超过3500亿美元；四是本轮建设占GDP的比重刚刚超过铁路建设时期。他表示，团队判断5至10年后回看，上述数字的累计规模可能再扩大20倍。</p>
+<p>a16z团队指出，这是“软件吞噬世界”的下一篇章：过去15年只有少数人能够开发软件，如今普通人也可以搭建自动化流程，软件需求的扩大相应带来对算力、芯片、电力与建筑的更多需求。</p>
+<h4>（二）盈利驱动的市场上涨</h4>
+<p>针对“是否存在泡沫”的问题，a16z团队从三方面作了回应：一是市场创出新高的同时估值倍数回落，股价上涨约20%，估值倍数下降约20%，上涨由基本面盈利驱动；二是标普500市盈率低于20倍，盈利增速约15%，与互联网泡沫时期部分大市值公司市盈率达到100倍的情形不同；三是周期性较强的存储公司远期市盈率仅约6至7倍。</p>
+<p>a16z团队同时表示，自ChatGPT发布近四年来市场累计上涨90%，年化约17%，当前确实处于较热的时期，人们自然会认为涨幅需要回落；但与2021年和2000年估值与增长相背离的阶段相比，当前情形有所不同。</p>
+<h3>二、超大规模云厂商资本开支与算力供需</h3>
+<h4>（一）资本开支规模与预测上修</h4>
+<p>据其介绍，Alphabet、亚马逊、Meta、微软与甲骨文五家公司2026年资本开支合计约7800亿美元，2025年为4160亿美元，各方预期自2027年起每年将超过1万亿美元。a16z团队指出，市场对这五家公司资本开支的预测在较短时间内被连续大幅上调，过去四年各方一再低估这一趋势的强度，原先被视为若干年后上限的支出水平已成为近期现实。</p>
+<p>对于建设速度很快、需求仍超过供给的原因，a16z团队认为有两点：一是分发渠道现成，本轮技术建立在互联网、云计算与移动电话之上，可以立即触达数十亿用户；二是使用方式已从偶尔的查询转向代理，并行任务与长时间运行的任务增多，代理自主编写代码、搜索并执行任务，平台的算力需求远高于此前的设想。</p>
+<h4>（二）需求超过供给的表现</h4>
+<p>a16z团队表示，供应链各环节的反馈一致，主要表现在四个方面：一是数据中心供应链中的部分材料与产品要到2028年才能拿到；二是OpenAI约一年前因大规模算力承诺受到质疑，如今看这一决策颇具预见性，即便如此，两周前其仍暂停了Pro档的新订阅；三是微软、谷歌与亚马逊的云业务积压订单合计约1.7万亿美元，客户承诺增长较快；四是存量GPU在现货市场上的定价具有吸引力，能够上线的GPU都可为云厂商带来可观回报。</p>
+<h4>（三）自由现金流、融资与产业链订单</h4>
+<p>a16z团队指出，超大规模云厂商正将近期全部经营现金流投入产能建设，自由现金流在建设期内承压，市场一致预期显示自2028年起恢复并在此后大幅增长。据其介绍，亚马逊在最近一次财报电话会上解释了这一“J曲线”特征：数据中心建筑与芯片需要先行投入，GPU与TPU的经济使用寿命则比各方原先的预期更长。对于部分云厂商举债支持资本开支受到的批评，a16z团队认为，与模型实验室的情形类似，投入较为保守的一方事后多感到后悔。</p>
+<p>从产业链看，a16z团队表示，用户获得较高价值，服务用户的厂商盈利良好，一直到芯片层，获取芯片的价格较12至24个月前明显上升，厂商仍可取得很高的利润率。云厂商的资本开支即是他人的订单，带动芯片、电力与建筑订单增长，科技热潮由此扩展为工业热潮。</p>
+<h3>三、实体基础设施投资</h3>
+<h4>（一）“原子时代”的投资需求</h4>
+<p>a16z团队认为，当前已进入新的“原子时代”。据其介绍，到2040年全球基础设施投资需求估计为90万亿美元，范围远超AI与数据中心，还包括电力、供水、道路与交通。其投资组合中的案例包括：一是Anduril的大型制造工厂；二是Waymo加快扩建车辆场站；三是SpaceX在路易斯安那州的1000亿美元投资。a16z团队表示，马斯克多年前提出“工厂即产品”，工厂执行能力在企业扩张过程中构成重要的竞争优势。</p>
+<h4>（二）数据中心与居民电价</h4>
+<p>针对“数据中心抽干水资源”“推高居民电费”等说法，a16z团队指出，数据中心有助于降低电价。据其引用的一项近期美国研究，数据中心容量每增加10%，居民电价下降40个基点。其解释是，电网属于共享的固定成本，包括电线杆、线路与变电站，数据中心这类规模大、负荷稳定的用户可以把固定成本摊到更多的用电量上。a16z团队表示，Meta在路易斯安那州的项目即与当地社区合作降低了用电成本。</p>
+<h3>四、企业采用进度与推理成本</h3>
+<h4>（一）模型公司收入与企业采用阶段</h4>
+<p>a16z团队表示，OpenAI与Anthropic合计年化收入增长很快，市场对两家公司新增收入的预测已远超历史上表现突出的软件公司，规模与速度兼具。与2008年测算iPhone持有者占比不同，AI既要看使用人群的占比，也要看用户的使用深度与支出份额，两方面均处于早期。</p>
+<p>据其介绍，标普500公司的情况分为三个层次：一是已上线AI部署的占69%；二是取得可量化成效的占30%；三是对效果指标进行持续跟踪的仅占2%。a16z团队认为，下一阶段是从单点部署走向影响较深的常态化工作流；据其交流，多数企业接触AI仍以微软Copilot为主。</p>
+<p>a16z团队指出，模型能力与实际使用之间的差距正是应用层的机会所在。Databricks首席执行官Ali Ghodsi曾表示，AI对世界了解很多，对具体企业了解很少。其举例称，Revolut拥有成熟的工程团队，仍选择与ElevenLabs合作，将其语音模型安全接入客户账户与银行业务流程。</p>
+<h4>（二）重度用户与普通用户的支出差距</h4>
+<p>a16z团队指出，重度用户正在与其他用户拉开距离，主要有三组数据：一是据YipitData数据，AI供应商支出处于前1%的群体，其中位支出约为前10%群体的8倍，前1%的支出大致相当于第2%至第10%的总和；二是在其投资组合中的AI原生企业内部，头部用户每月支出约7500至9000美元，中位用户约200至400美元，相差20倍以上；三是以AI工具支出相对于人员开支的比例衡量，较为积极的《财富》500强企业目前约为1%，其投资组合中投入力度居前的企业可达10%。a16z团队同时表示，企业采购Cursor或Cognition的产品只是起点，从采购试用到全面采用还有很长的路。</p>
+<h4>（三）可量化案例与投入方向</h4>
+<p>a16z团队列举了上市公司披露的案例：一是成本端，Chime过去四年每年将服务成本降低10%以上，据其表述累计降幅接近50%，其中得到a16z所投企业Decagon的支持；二是收入端，Shopify推出AI助手Sidekick后，入驻15天内达到5笔订单的商户占比提高8%，该指标与商户留存相关；三是存量厂商的变现，ServiceNow披露的AI年度合同价值（ACV）超过10亿美元，代理部署量增长9倍。</p>
+<p>在投入方向上，a16z团队表示，其与Stripe等企业讨论过新增AI投入用于开发新产品带动收入，还是用于优化成本，并以此观察创始人认为机会在哪里：收入增长的上行空间没有上限，成本优化属于长期存在的潜在机会。a16z团队还指出，若工程师为节省数十万美元而在内部重建记录系统，这些资源应有更好的用途。</p>
+<h4>（四）代理用量与推理成本</h4>
+<p>a16z团队表示，代理执行任务需要多个步骤、多次模型调用，OpenRouter上的代理token用量增长14倍。同时，单步成本不断下降，途径主要有三：一是缓存，系统可复用背景信息，Hebbia的金融对话类负载运行成本降至原来的十分之一；二是模型路由，Databricks的智能路由按任务选择模型，解决的问题更多，成本比表现居首的单一模型低35%；三是微调，EliseAI微调了一个较小的模型，成本降低60%，延迟明显下降，实时语音场景得以落地，Harvey也采用了微调。</p>
+<p>a16z团队认为，成本下降使代理可以尝试、自查与重试，原先因推理或工具调用过于昂贵而无法开展的任务得以打开；若成本再下降一至两个数量级，可用场景将大幅增加，这符合杰文斯悖论。对应用企业而言，相关单位是完成客户任务的成本，按完成任务收费并通过路由降低成本，优秀应用企业的利润率有望继续改善。</p>
+<h3>五、消费级AI与代理商务</h3>
+<h4>（一）付费渗透、留存与使用时长</h4>
+<p>据Santiago Rodriguez介绍，近期一项调查显示，美国仅略高于2%的家庭拥有付费AI订阅；订阅收入的留存表现在消费领域十分少见，留存曲线在走平之后回升，呈“微笑”形态。a16z团队以Amazon Prime超过2亿户、Netflix约7000万户作对比，认为AI订阅仍处于起步阶段。Alex Immerman提到，其合伙人Josh Elman将消费级AI定义为用于日常生活、无须报销的产品，按这一口径，使用AI的家庭中约97%尚未付费并不令人意外。</p>
+<p>Immerman表示，大型消费平台的共同特征是使用时长，Facebook、Instagram、TikTok与Snap的活跃用户每天使用30至60分钟；他期待AI助理持续在线、主动行事，未来未必是用户停留时间较长的应用。a16z团队指出，代理在后台运行后，屏幕使用时长等外部数据将难以反映真实的参与度。</p>
+<h4>（二）平台应对的分化</h4>
+<p>a16z团队表示，Muse与Instinct增长很快，与ChatGPT一道分流了传统搜索的查询。既有的消费发现平台与交易平台需要考虑两个问题：一是AI代理能带来多少增量需求与订单；二是自身利润池有多少来自掌握客户关系与发现环节。</p>
+<p>据其介绍，上周亚马逊拒绝接入Muse，Instacart则选择接入。a16z团队认为，两家的处境不同：一是剔除AWS的亚马逊与Instacart，广告收入均超过其全部营业利润，掌握客户关系十分重要；二是亚马逊接入Muse能够获得的新增订单与客户有限；三是生鲜杂货的线上渗透率仍处于较早阶段，Instacart有更多订单可以争取。</p>
+<h4>（三）广告利润池的再分配</h4>
+<p>a16z团队指出，亚马逊广告业务规模超过700亿美元、利润率很高，其前提是消费者访问网站并点击广告；Meta与谷歌在美国等发达市场的单用户收入约为200美元以上。谷歌搜索业务此前表现出韧性，原因之一是保险、酒店等变现水平较高的搜索词尚未受到冲击，AI当时还不能代用户采取行动；这一点若发生变化，局面可能不同。</p>
+<p>对于上周偏负面的市场叙事，a16z团队提出了正和的看法：一是代理下单免去多次点击，原本未完成的行程预订与订单得以成交，商品交易总额（GMV）有望增加，弥补部分广告收入损失；二是投放在亚马逊上的约700亿美元广告预算可能转向其他渠道，包括以新的形式直接投向代理；三是摩擦降低可能带来更多消费。a16z团队表示，部分利润池可能消失并被重新分配，整体经济则可能受益；从市场的即时反应看，Meta的市值增幅远超各交易平台的市值损失。</p>
+<h3>六、软件行业分化与一级市场</h3>
+<h4>（一）上市软件公司的增长与分化</h4>
+<p>据其介绍，上市软件公司样本中约75%已实现盈利，收入增速达到20%以上的仅占30%；若以30%增速为线，公司数量不足5家，其在一级市场接触的企业增速则普遍远高于30%。a16z团队认为，企业信息技术预算向AI倾斜，资金较容易从新增SaaS项目中挤出。</p>
+<p>a16z团队表示，要消除市场对“SaaS末日”的担忧，软件公司需要做到三点：一是继续保持98%左右的总金额留存率；二是继续提升效率；三是实现收入增长的重新加速，其提出的目标是加速10%以上，认为在AI预算充裕的条件下，产品足够出色即有可能实现，未来12至18个月或有数家公司兑现。</p>
+<p>分领域看，网络安全、可观测性与垂直软件的表现好于横向应用。a16z团队的分析框架是看AI如何改变客户对产品的需求：软件与代理的增加带来新的安全与监控需求，利好相关领域的存量厂商；应用软件则面临不同程度的工作流变化。在一级市场，Harvey、Abridge、EliseAI等垂直AI企业的增速快于所在行业的历史先例。据其介绍，软件指数目前已回到年初水平，内部分化为被视为AI受益者与受损者的两类；受益者除改善成本结构外，还实现了收入加速并获取了新增预算。Stripe的SaaS客户数据显示，进入2026年后新老企业的增长均在加速，Stripe称之为“复兴”。</p>
+<h4>（二）未上市公司规模与上市选择</h4>
+<p>据其介绍，按最近一轮融资估值计，Anthropic、OpenAI、Databricks、Stripe、Revolut等估值居前的六家未上市公司合计约2.4万亿美元，高于过去10年全部IPO公司（不含SpaceX）约1.7万亿美元的合计市值，接近罗素2000指数的规模。</p>
+<p>David George表示，创始人本身已成为一种资产类别，上市只是又一次融资事件，需要比较上市与保持私有各自的收益：一是保持私有便于企业下回报周期较长的大赌注，Databricks与Stripe在新产品领域的大规模投入带来了收入加速；二是上市公司做同样的事会受到更多审视，Meta在AR/VR投入受质疑时股价一度跌破100美元；三是部分企业受益于公开披露财务信息带来的客户信任，Navan上市后因大型企业客户信任度提高而重新加速；四是部分企业的资本需求未来可能超出一级市场的承载能力。</p>
+<h4>（三）要约回购与二级交易</h4>
+<p>a16z团队表示，越来越多的未上市公司为员工组织要约回购。据Carta统计，员工参与率仅为58%，反映出员工对公司前景信心较强、选择继续持有。a16z团队认为，要约回购有两方面作用：一是帮助未上市公司在人才竞争中应对上市公司限制性股票每季度到账的流动性吸引力；二是使估值得到更频繁的重置，便于与员工沟通，也为并购提供可用的股权对价。此外，2021年之后的几年里，二级交易价格相对最近一轮融资价存在明显折价，目前这一折价基本为零。</p>
+<p>据其介绍，在2026年的统计中，AI相关公司占美国风险投资交易活动的86%，2025年为65%；在AI标签之下，机会已扩展至企业应用、消费应用、服务、半导体、电力与国防等领域。</p>
+<h3>七、后续关注方向</h3>
+<p>a16z团队介绍了后续关注的七个方向：一是消费级代理，由长时间运行的自主代理代办用户不愿处理的事务，其普及可能很快；二是机器人，团队认为其规模可能超过大语言模型，所处阶段大约早3至5年，未来5年将是投资的重要领域；三是自动驾驶，Uber与Lyft的行驶里程约占美国总行驶里程的1%，在自动驾驶车辆安全性为人类驾驶员14倍的条件下，团队预计这一比例未来数年至少扩大一个数量级，美国每年销售新车1700万辆，其认为未来10年这些新车都将具备自动驾驶能力；四是AI与生物的结合，新药发现有望在未来10年取得较多进展；五是个人健康，汇集个人信息并提供高度个性化的建议；六是编程以外的企业扩散，目前仍处于很早的阶段；七是a16z称为“美国活力”（American Dynamism）的领域，Anduril、Saronic、Castelion等新兴供应商目前在军方支出中的占比不足5%，团队预计这一比例将明显提高。</p>
+<p>总的看，a16z团队认为，本轮市场上涨有盈利支撑，算力需求在供应链各环节持续超过供给，企业与消费者对AI的采用仍处于早期，可用场景随成本下降继续扩展；建设规模十分庞大，团队对其给整体经济带来的影响持乐观态度，预计将明显提升美国的生产率。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
