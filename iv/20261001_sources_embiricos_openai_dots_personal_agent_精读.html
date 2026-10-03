@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>个人代理的产品形态、权限分层与定价路径——OpenAI Dots产品负责人Alexander Embiricos访谈要点梳理（Sources Podcast，2026-10-01）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-03<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>个人代理的产品形态、权限分层与定价路径——OpenAI Dots产品负责人Alexander Embiricos访谈要点梳理（Sources Podcast，2026-10-01）</h2>
+<div class="metaline">Sources Podcast，45 分钟 · 2026-10-01</div>
+<p>——据Sources Podcast节目《OpenAI's Dots lead on the future of ChatGPT》（2026-10-01）整理</p>
+<p>摘要：本文对Sources Podcast主持人Alex Heath在OpenAI DevDay当日对谈OpenAI Dots产品负责人Alexander Embiricos一期节目的主要观点进行了梳理汇总。梳理了个人代理在当前阶段兴起的原因、Dots的持久性与独立计算机等核心设计、具身化与单一代理的产品选择，介绍了Space协作工作区、从模型到产品的安全分层与默认先询问再行动的权限机制，最后阐述了代理商务的生态合作取向、常驻助手的包月定价原则以及能力向ChatGPT下放的路径。据Embiricos介绍，ChatGPT周活跃用户超过12亿，Codex与Work两款代理产品用户为3500万；Dots的用量长期在主套餐额度之外单独核算，以保证代理全天候可用；Dots从Pro档起步，后续扩展至Plus档，最终通过并入ChatGPT向免费用户开放。</p>
+<p class="kw">关键词：个人代理；代理安全；定价与变现；代理商务；OpenAI；Dots；ChatGPT</p>
+<h3>一、个人代理兴起的背景与Dots的形成过程</h3>
+<p>Embiricos于两年多前通过其创办的Multi被收购而加入OpenAI，自称加入以来的目标即是推出Dots。他认为个人代理在当前阶段兴起，既有模型能力的原因，也有用户侧准备的原因。</p>
+<h4>（一）从聊天到编程代理再到“主动智能”</h4>
+<p>据Embiricos介绍，大模型的产品形态可分为三个阶段。一是聊天，这一形态在当时并不显然，如今已成为多数人获取大模型价值的方式。二是编程代理，其后延伸至知识工作，相对聊天的改进在于代理可以执行任务。三是OpenAI称为“主动智能”的阶段，即Dots所处的阶段。他指出，编程代理仍存在一个根本问题：即便能力极强，它也像一位拒绝查看Slack与Linear、只在被要求时才动手的资深工程师；高级用户可以设置自动化流程让其更独立地运转，普通用户则做不到。因此，这一阶段要解决的问题是以更符合直觉的方式提供智能，用户无需承担全部提问与安排的负担，代理可以主动提出将要做什么、如何提供帮助。</p>
+<p>关于为何是现在，他认为有两个条件。一是模型能力已经具备。二是人的改变，这一点被低估。他以团队采用编程代理为例，第零天代理不连接任何工具、人也不会用，到第四百天代理已连接大量工具、掌握上下文、人也形成了使用惯例；主动型代理若无法获取上下文，便无从主动帮助，连接器等把数据带入产品的基础设施因此是必要条件。</p>
+<p>据其回顾，团队加入OpenAI之初曾判断多模态进展将带来下一波能力，ChatGPT桌面应用也尝试过截屏操作用户应用，但速度慢、效果有限。其后一年编程成为前沿，并积累了连接器、代理云端托管等基础构件，这些正是常驻代理所需的底层能力。他指出，Computer Use当前出现回潮，原因在于模型既善于编程，也善于用代码控制计算机，Astra控制浏览器时往往直接编写代码片段，速度快于截屏加点击。</p>
+<h4>（二）Dots的三项核心设计与形成过程</h4>
+<p>Embiricos将Dots的核心设计概括为三项。一是模型经过训练而具备持久性，能够主动且长程地追踪任务，起初是“盯住这个PR”这类未指定解法的长程任务，进而扩展到“持续关注这个反馈频道”这类更开放的任务，他认为持久性是三项中的关键所在。二是随处可用，用户可以在任何工具中与之对话。三是拥有自己的计算机，无需占用用户本人的计算机，由此可以完成人在计算机上能做的任何事。</p>
+<p>据其介绍，持久性能力的提升是渐进过程。Codex中的“/go”功能可让模型长时间追踪一个问题，内部还有若干原型支持代理长时间运行，相关用法在公司内部迅速扩散，员工在反馈频道持续分享加速自身工作的方式。团队当时有两项争论：一是直接发布在用户本机运行的原型，还是等待更难构建的云端计算机；二是作为Codex线程的增强功能发布，还是赋予代理独立身份、可在Slack等处触达。经过内部迭代试用，团队判断本机运行、无独立身份的产品足以带来内部加速，但要让所有人都能借助代理完成艰难漫长的任务，更符合直觉的形态是放在云端并赋予身份，随后围绕Astra的基础能力启动冲刺。</p>
+<h3>二、具身化、单一代理与消息式界面</h3>
+<p>Embiricos表示，代理是否应具身化、每人应有几个代理等问题，行业将共同探索答案，OpenAI目前有自己的判断。</p>
+<h4>（一）具身化的两重作用</h4>
+<p>Embiricos认为，具身化是帮助用户理解产品用法的有力类比，作用有两点。一是改变用户的任务预期。高级用户能发现高级用法，普通用户面对未具身化的产品只会一次性地请求代理做一件事；一旦实体出现在Slack中，用户会意识到可以交付耗时数天、非连续的任务，如“持续跟进这个项目并随时告知”，从而给出更难的任务，这是团队重视的目标。二是帮助用户理解无论在何处对话，面对的都是同一个上下文。据其介绍，其本人通勤时与Dot通话，工作时间在Slack多个线程中与之交流或转发私信，有时在应用内对话，所有对话均汇入同一上下文。他指出，另一种做法是跨界面同步线程，但这与人际交往经验不符，两人当面交谈后再发短信，短信中不会出现此前谈话的记录，对方仍知道是同一个人。</p>
+<h4>（二）多数人只需一个代理</h4>
+<p>对于每人一个代理再向子代理分派，还是生活的不同切面各配一个代理，Embiricos的思路是区分向谁暴露何种接口。面向代理的接口另有答案；面向人的接口方面，他认为人能记住的名字有限，若每个同事都有多个随意命名、分管不同事务的代理，记忆负担会很重。OpenAI对此的立场有两点：一是支持用户拥有多个代理；二是普通消费者大概只需要一个代理，只有高级用户才会创建多个，这一个代理应当像用户本人的延伸。据其介绍，产品上的一项决定是，代理进入Slack或Teams时名称会以用户名作前缀，如其本人的Slack账号为AE，其代理即显示为“AE-Dot”。这一规则来自开发过程中的发现：团队曾允许所有人创建多个随意命名的代理，结果Slack中无人分得清状况。</p>
+<h4>（三）消息式界面与Space协作工作区</h4>
+<p>关于为何采用单一主线程的消息式界面，Embiricos援引Sam Altman的观点，即人类世界围绕人塑造，软件一旦具身化，便可复用既有的优秀设计。他指出，无论消费还是企业场景，消息都是人际沟通的重心，个人生活中的iMessage按人单线程，工作中的Slack与Teams则以频道分隔上下文、频道内再设线程。基于此，团队把与Dot的界面做得像与另一个人发消息一样简单，后续会在工作场景增加分隔上下文的方式，Space即是其中之一。</p>
+<p>据Embiricos介绍，人际协作的媒介主要有实时交流、消息与文档三种，第四种可算作Salesforce、Figma等功能型工具。做消息产品须在形态上保持自律：Dot的界面是消息气泡，长回复放进气泡中的体验不及ChatGPT的长篇回复，后者又不及文档。因此团队把Dot的设计转向消息形态，长篇内容交给Space；若Dot想出12种可帮忙的事项，发12条短消息并不合适，生成一个带清单的页面更为合理。两者相互配合，各自得以更有主见。</p>
+<p>Space是面向代理与人同等参与的协作工作区，他列举了三项用法。一是在文档中持续标记自己的Dot，让其补充内容、拉取数据、询问同事某事是否完成并勾选，无需在Google Docs与Slack之间切换催办。二是在页面上设置代理指令，类似代码仓库中的agents.md文件，代理可据此持续更新该文档。三是突破人工撰写的限制。他指出，文档格式历来受制于便于人工撰写这一硬约束，HTML表达力更强但不便于人工撰写，代理则很适应HTML，Space因此天然融入HTML可视化。据其介绍，OpenAI内部讨论指标的页面通常有一张由代理持续更新的实时图表，讨论设计决策时页面中直接嵌入可点击的原型。</p>
+<h3>三、能力与可信两条主线下的权限机制</h3>
+<p>对于Dots与Muse、Instinct等同类产品的差异，Embiricos归结为两条：能力处于前沿的代理，以及安全性与可信度处于前沿的代理。他表示，确定这两条主线后，团队得以作出许多明确的决策。</p>
+<h4>（一）保守起步的三类取舍</h4>
+<p>Embiricos表示，团队希望用户交付合入PR、评估硬件、筹划发布等责任重大的任务，因此起步阶段选择保守，在模型、功能与推出范围三方面作了取舍，并将逐步放宽。一是模型，团队选择了能力与对齐程度均处于前沿的GPT-6 Astra。二是功能，代理在Slack或邮件中拥有独立身份后，用户自然希望它能给所有人发消息、也能被所有人联系，这一功能并未随发布推出；代理在Slack中默认只在被标记时回应，除非用户明确允许其听取他人发言。他指出，一旦代理开始回答他人未经请求的问题，就必须审慎界定其可分享信息的边界。三是推出范围，Dots从Pro、Business与Enterprise用户起步，这是AI素养较高的群体，团队将据此观察调校，再向更广泛用户推出。</p>
+<h4>（二）从模型到产品的安全分层</h4>
+<p>针对市场对代理失控的担忧以及用户对交出信用卡与个人信息的顾虑，Embiricos表示，此前披露的若干事件涉及的模型本就无意对外发布，也未运行在产品所用的沙箱与防护之下，产品内另有多层纵深防御。</p>
+<p>据其介绍，安全架构自下而上分为四层。一是对齐良好的模型。二是运行框架，模型运行于经过充分测试的Codex运行框架，该框架有大量评测，包括安全角度的评测。三是针对常驻代理修改后的框架，修改内容包括长时间运行、向子代理分派任务等，团队对修改后的框架重新进行了安全设计与评测，如在试验邮件功能时评测通过邮件能否窃取数据，让模型尝试注入攻击，结果没有成功的提示注入。四是产品层，分为默认行为与可自定义的规则、规则的执行以及对运行过程的可见性三部分。</p>
+<h4>（三）默认先询问再行动</h4>
+<p>Embiricos表示，默认行为起初采取非常保守的策略，再根据用户反馈逐步收窄，团队将用户本可放心而代理仍去确认的情形称为“过度确认”，每收到此类反馈便讨论模型应如何行事，并据此大幅减少确认。目前的默认行为是：代理可在用户已连接的工具上主动调研、思考如何提供帮助，但在用户确认之前不采取任何行动。如发现日历冲突，代理会告知冲突并询问是否移动会议，不会直接改动；有人向用户提问而代理已掌握答案，它会询问是否发送，不会直接回复。用户可据此追加指令，如休假期间可告知同事本人正在休假。</p>
+<p>此外有两层保障。一是自定义规则层，用户可在界面中查看，模型经过训练会遵循用户指令；在此之上另设“自动审查”层，由另一个模型观察并监督基础模型，该模型了解用户的规则与指令，确保执行无误。二是可审计性，用户可查看代理正在运行的子代理及其具体行为。关于渠道，他表示Dots将覆盖用户工作与沟通的所有场所，并从工作延伸至消费场景，短信渠道即将推出。</p>
+<h3>四、代理商务、生态合作与定价方式</h3>
+<h4>（一）与网站及商户的合作取向</h4>
+<p>针对Amazon屏蔽Muse、Shopify则主动与多家公司合作的分化局面，Embiricos表示，购物与支付应如何运作需要与生态共同探索。他指出，可选路径有二，一是像“海盗”一样直接行动再看结果，二是以合作伙伴与生态优先，OpenAI选择后者。据其介绍，OpenAI与Cloudflare紧密合作推进Web Bot Auth，其代理会明确声明自己是机器人；团队正与多家合作方讨论实现方式，希望以审慎的方式面向客户推进。他认为这也是Dots偏向工作场景中生产性用例的原因，这些场景对AI能力有大量需求，参与各方的激励较为一致，如硬件工程师检视工厂缺陷所用的工具链即适合引入代理。</p>
+<p>对于依赖人工浏览的广告型与用户时长型业务，他表示尚不确定走向如何，但这些公司提供的是一种服务，此前以广告变现，未来要么继续通过广告获得回报，要么由其他方式补偿，不存在其得不到回报的情形。</p>
+<h4>（二）常驻助手的定价原则</h4>
+<p>Embiricos确认，Dots的用量不计入用户套餐额度，这一安排是长期的，团队将为Dots尝试一种使用户不会耗尽额度的新定价方式。目前Codex用户用完额度后再提出请求，代理会直接停止；对于一个被倚赖的常驻代理，如“关注我的航班并根据路况在合适时机叫车去机场”，若因用户前一晚编程过多耗尽额度而未能履职，是团队不愿看到的。</p>
+<p>据其介绍，定价原则有两条。一是Dot应全天候可用，除滥用情形外不存在不可用的可能。二是在全天候可用的基础上，它应始终快速回应。他以承包商作比：响应及时的承包商总会回复消息，做多少工作取决于报酬，但始终可以联系到，客户就已完成工作提问时也不按小时计费。相应地，用户支付固定月费获得Dot，若希望Dot运行在更强的计算机或模型上、速度更快或并行更多任务，可再支付另一档固定月费；Dot完成的工作量随付费档次变化，但始终可用，类似购买网络接入服务。接近额度时，Dot可以主动告知已完成大量工作，提出改用成本更低的模型，或询问任务是否紧急、能否在夜间以很低的成本完成；若用户整月几乎未使用，它也可能主动列出可以代办的事项。他表示，Dots的额度长期将与Codex主额度分开核算，未来一个月先给予非常宽松的额度，团队在此期间调校这套让模型知晓自身工作量、又始终在线的机制。</p>
+<p>对于按交易抽成的商业模式，他认为这适合以交易为主要赌注的业务，OpenAI对Dots的赌注在于用户用它完成有抱负的工作，此类工作未必涉及购买。</p>
+<h3>五、与ChatGPT的关系及后续方向</h3>
+<h4>（一）产品矩阵与能力下放路径</h4>
+<p>据Embiricos介绍，ChatGPT周活跃用户已超过12亿，Codex与Work两款代理产品的用户为3500万且仍在增长。他表示，聊天形态将长期存在，OpenAI的产品矩阵分为三块：一是ChatGPT，面向所有人的消费级助手，Work将与之合并；二是Codex，面向开发者；三是Dots，做法是重复Codex的路径，先以审慎而能力充足的方式推出前沿能力，再把能力带给所有人。Dots先作为高端独立产品从Pro档起步，待摸清用户使用方式、安全与规模化后扩展至Plus档，最终通过融入ChatGPT送达免费用户。他表示，Dots的大量经验将进入ChatGPT，团队不希望要求12亿用户改变使用习惯，只让产品自然升级，这是一个渐进过程。</p>
+<h4>（二）后续方向与专家型Dots</h4>
+<p>对于未来一年的规划，Embiricos转述了加入OpenAI时的经历：他在会上问两年后的成功是什么样，Greg Brockman回答两年太长，应当问两个月。他表示，接下来是把发布时刻意搁置的事项逐项落地：一是扩大用户范围，走出Pro档；二是让Dot可以与其他人甚至其他Dot对话，这一点需要格外审慎；三是打磨刚发布的Codex云端重启版、Dot对本地Codex的控制以及Space之间的衔接。</p>
+<p>此外是专家型Dots。据其介绍，Dots将分为两类：一是助手型Dots，每个人都有一个作为自身延伸的代理；二是专家型Dots，组织若希望某项职能或工作流更自动化，未必愿意由持有个人Dots的员工各自承担，专家型Dots专注特定事务、由IT部门集中管理、拥有独立于个人用户的身份，为整个团队或组织提速。这一方向同样从少数客户起步，节奏审慎。</p>
+<p>Embiricos还讲述了内部测试阶段的一则案例：一位工程师醒来后发现自己在Slack中收到多条表扬，原因是一个漏洞在进入生产环境前被修复，而他对此并不知情。此前他让Dot持续关注反馈频道，Dot发现问题后发起PR，并按该工程师一贯直接提交、设置自动合并的偏好处理，另一位同事审批后PR即告合并。他表示，这类事情本不应在当事人不知情时发生，团队正围绕此类情形构建更多保障，这也是选择小范围起步的原因。</p>
+<p>总的看，Embiricos认为个人代理是继聊天与编程代理之后大模型产品的第三个阶段，Dots以持久性、随处可用与独立计算机为核心设计，以能力与可信两条主线约束取舍，起步阶段保持保守并逐步放宽；定价上以固定月费保证代理全天候可用，不以交易抽成为赌注；产品路径上重复Codex的做法，先面向Pro档用户，再扩展至Plus档，最终把能力融入ChatGPT惠及免费用户。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
