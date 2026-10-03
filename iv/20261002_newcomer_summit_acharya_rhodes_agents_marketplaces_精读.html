@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI应用层的三个创业方向、分发定价与代理时代交易平台的位置——a16z普通合伙人Anish Acharya、Faire首席执行官Max Rhodes对谈要点梳理（Newcomer Machine Earning AI Summit，2026-10-02）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-03<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI应用层的三个创业方向、分发定价与代理时代交易平台的位置——a16z普通合伙人Anish Acharya、Faire首席执行官Max Rhodes对谈要点梳理（Newcomer Machine Earning AI Summit，2026-10-02）</h2>
+<div class="metaline">Newcomer AI Summits 两场合读，18+17 分钟 · 2026-10-02</div>
+<p>——据Newcomer AI Summits节目《Anish Acharya (Andreessen Horowitz) at the Machine Earning AI Summit》与《Max Rhodes (Faire) at the Machine Earning AI Summit》（2026-10-02）整理</p>
+<p>摘要：本文对Andreessen Horowitz（简称a16z）普通合伙人Anish Acharya、Faire联合创始人兼首席执行官Max Rhodes在Newcomer Machine Earning AI Summit上两场对谈的主要观点进行了梳理汇总。梳理了Acharya对应用层三个创业方向、OpenAI DevDay发布内容以及消费级应用分发与定价的判断，介绍了其对聚合平台、金融科技与代理交易责任归属的看法，最后阐述了Rhodes关于交易平台在代理商务时代的位置、Faire经营数据与AI用法的判断。据Rhodes介绍，Faire今年商品交易总额（GMV）将超过40亿美元，收入为7.3亿美元、增速45%；用大模型解决新零售商冷启动个性化后，首次下单零售商的转化率提升约17%。</p>
+<p class="kw">关键词：个人代理；垂直应用；代理商务；分发渠道；编程代理；a16z；Faire；OpenAI</p>
+<h3>一、Acharya关于AI应用层投资方向的判断</h3>
+<p>Acharya在a16z负责应用方向的投资。据其介绍，a16z自15年前成立起有两条核心判断：一是创始人更适合长期领导自己的公司；二是科技市场的规模将远超预期。他认为，智能是一种基础要素，需要经过产品化、包装、定价并销售到各行业，这是应用层的职能，覆盖消费与企业两端。</p>
+<h4>（一）应用层的三个创业方向</h4>
+<p>Acharya将编程代理、个人代理与娱乐列为本轮模型浪潮以来应用层出现的三项“奇迹”，并认为下一批独角兽将出自这三个方向。</p>
+<p>一是面向小企业的编程代理。他认为编程代理的应用刚刚起步，借助编程代理构建小企业数字业务存在很大空间，这类业务年收入在100万美元左右，采用小体量软件，并需要与之配套的各类使能基础设施。他预期数字化小企业的数量将明显增加，并称之为“数字主街”。</p>
+<p>二是垂直方向的个人代理。他指出，横向个人代理是多数创业者的起点，竞争已十分激烈，建议创业者转向垂直代理。垂直代理的优势有三点：一是可以承担责任，如金融服务领域的垂直代理有可能为结果担责，对客户的承诺因此与横向代理不同；二是具备专门能力，如与受监管的网站交互、代用户申请贷款；三是可以拥有不同的个性。基于此，他判断两类代理之间将形成比较优势分工，横向代理会“雇用”垂直代理完成具体事务，目前在这一方向上创业的人还不够多。</p>
+<p>三是娱乐。他表示，Opus 5.5之于游戏与3D的意义，与Opus 4.5之于代码相当，未来12个月娱乐领域可能出现较大转折。</p>
+<h4>（二）对OpenAI DevDay的观察</h4>
+<p>Acharya在峰会当日参加了OpenAI DevDay。他的总体印象有两点：一是连贯，发布内容集中于企业与开发者，各产品之间相互衔接；二是气氛积极，其接触的OpenAI员工普遍感到势头强劲。他指出，两年前OpenAI的押注分散在多种模态及其产品形态上，今年这些布局已汇聚成形。</p>
+<p>他把发布内容分为“面向未来”与“平实”两类，认为平实的发布与创业公司更为相关，并列举了三项。一是Sign in with ChatGPT，用户以ChatGPT账号登录第三方应用并使用自己的token额度，开发者由此不必承担补贴token的成本。二是Marketplace，谷歌云与AWS已有类似做法，已采购OpenAI的企业可动用其中一部分预算购买基于OpenAI构建的SaaS工具，供应商无需再走企业采购流程。三是Plugins，第三方应用可以嵌入ChatGPT应用之内，他认为这有可能成为业界谈论已久的“AI应用商店”。</p>
+<h4>（三）消费级应用的机会、分发与定价</h4>
+<p>Acharya表示，过去两年应用层几乎全部是企业级业务，在Instinct等产品出现以及近一个月的若干进展之后，他对消费级应用持“谨慎的兴奋”。理由有三点。一是试用成本问题有望解决。消费者不愿为尝试新产品付费，提供免费试用的AI产品又可能很快耗尽公司资金；Sign in with ChatGPT让用户自带额度后，消费级创业回到传统的产品设计与分发问题。二是示范效应。Instinct这类产品出现后，创业者会意识到自己也可以做出类似的产品。三是生态带动。Instinct与Muse各自带来一个生态，Muse上周推出的连接器对垂直代理、金融科技与金融服务尤其有意义，将带来大量创业机会。</p>
+<p>关于分发，他比较了两个时代的模式。一是Web 2.0时代，市场上没有现成渠道，创业公司必须在做产品的同时自建分发。二是iOS时代，App Store提供了现成渠道。他认为AI时代的渠道尚未出现，Muse连接器或ChatGPT的Plugins可能成为渠道，但目前创业公司仍需自建分发。他同时表示，当前可以做出的产品能力很强，理应能够依靠口碑增长，a16z对所投团队的说法是“没有分发问题，只有产品问题”，若看不到增长，原因可能是产品的抱负不够。</p>
+<p>关于AI陪伴，他认为未来人们拥有AI朋友不会显得异常。一是需求存在，全美多数人并不像科技从业者那样社交资源充裕，为其提供建立联系的途径总体上是有益的。二是拟人化有助于使用，用户看到ChatGPT时联想到的是谷歌搜索，看到Muse这类产品时则意识到可以像给人发消息一样与之交流。</p>
+<h4>（四）个人代理对聚合平台的影响</h4>
+<p>针对代理时代交易平台的走向，Acharya认为，个人代理对供给聚合平台不算有利，对餐厅尤其是长尾餐厅则是利好。原因有两点。一是长尾餐厅除了做好菜品与体验，还要擅长营销并与聚合平台谈合作，个人助手有望为长尾商户带来更多被发现的机会。二是Carbone这类热门餐厅实际在求解一个优化问题，目标是客单价（AOV）、客户生命周期价值（LTV）与上座率同时达到高位，Resy这类订位平台只是实现这一目标的粗略替代。</p>
+<p>他指出，背后的核心概念是“零边际成本的数字劳动”。聚合平台的价值在于降低人的认知负担与劳动投入，代理不受这一约束，可以直接对接每一家餐厅、自行调研，再带回几个推荐，即个人代理可以直连商户。对于“用氛围编程自建一个DoorDash”的说法，他认为并不现实，这类业务具有网络效应并包含线下实体环节。</p>
+<p>另一项推论是需求聚合。他表示，以往只有供给聚合者，没有真正的需求聚合者。市场上既有供给受限的品类，如热门餐厅的餐位；也有需求受限的品类，如周五飞往卡波（Cabo）的机票。代理可以把一批“票价若为300美元便愿意出行”的消费者集合起来，向航空公司发起团购，需求由此得以聚合并对供给形成议价能力，这在以往无法实现。</p>
+<h4>（五）金融科技机会与代理交易的责任归属</h4>
+<p>Acharya曾任职于Credit Karma。他表示，a16z对金融科技仍有很高热情，但在这一领域创业的人不多；业界多年前提出的“自动驾驶式资金管理”愿景方向正确但远未完成，如今技术已经具备，却少有人投入。他认为，代理形态的Credit Karma将是一门比原有Credit Karma大得多的生意。</p>
+<p>他对金融科技方向的具体看法有三点。一是帮助消费者少花钱的定位行不通。他认为美国消费者并不想少花钱，这一定位带有家长式色彩，家长式做法在消费领域从不奏效；可行的做法是帮助消费者更有效地做其本来就在做的事，如找回贷款上多付的钱和政府欠付而未领取的钱，再帮助其创造更多收入。二是成本结构改善。金融服务创业过去面临获客与运营成本两个问题，获客至今仍是难题，运营成本则可借助Jev及各类模型降低，高利润率的消费金融科技业务由此成为可能。三是监管与责任问题有待解决，且投入其中的人不多。他表示需要把监管者当作客户对待；代理代表用户作出决策后的责任如何界定、代理可能表现出与人不同的偏好等，都是有待处理的产品设计问题。</p>
+<p>关于代理交易由哪一层负责，他认为应用层即交付代理的公司需要承担责任，即便交易经由第三方支付工具完成也是如此。否则将出现类似拒绝服务攻击的局面，目前已有代理代表消费者行事、消费者事后可以合理推诿的情形。他表示，平台终究要承担责任，同时应当获得相应的监管明确性。</p>
+<h4>（六）模型选用原则与代理使用规范</h4>
+<p>关于模型选用，Acharya区分了个人与公司两个层面。个人层面，他主张尝试所有模型，其本人力求用每一款新模型做出一件成品。公司层面，他按岗位的收益上限划分：一是产品、工程、销售等收益不封顶的职能应始终使用前沿模型，因为模型有时会顺着一处问题带出根本性的改进；二是财务、法务、行政等收益有上限的职能可以考虑使用开放权重模型，因为结账这类工作无法做到好上100倍，适用的是另一种性价比取舍。</p>
+<p>他对决策类模型Jev评价很高，称其在价格与速度上已超出现有的帕累托曲线。据其介绍，他让Jev根据全部日历邀约梳理其见过的每一个人，并排出应重新联系的前100人，任务耗时3分钟、花费1美元。他指出，大量代码所做的其实是决策，生成输出的成分有限，目前由模型以较慢速度、较高成本完成的工作中，可能有80%可由Jev这类模型替代；OpenAI发布的Decisions API据称思路相同。</p>
+<p>关于代理的使用规范，他表示凡是由代理代为发出的内容，他都会署上本人姓名加代理或模型型号；对方知情时这种做法可以被接受，刻意隐瞒则显得不得体。他认为AI的行文质量已进入平台期，甚至可能有所下降，其本人的文章与推文均不交由AI撰写。他指出，如何让在群聊或会议中引入代理成为一件体面的事，这一社交规范问题可能比代理是否带来生产力更难解决。</p>
+<h3>二、Rhodes关于交易平台在代理时代位置的判断</h3>
+<h4>（一）Faire的业务定位与经营数据</h4>
+<p>据Rhodes介绍，Faire是面向批发环节的技术平台，主要帮助独立零售商寻找可在店内销售的商品。他以纽约Strand书店为例：这家1927年创立的书店在2010年由家族后人接手时，进货方式与创立之初几乎相同，仍依靠展会、销售代表和纸质目录。他指出，这种方式给独立零售商带来三个问题：一是议价能力弱，单店采购分散，无法与亚马逊、巴诺书店（Barnes &amp; Noble）相比；二是流程繁琐耗时，需要在全国各地奔走联系供应商；三是没有数据，进货决策只能依靠猜测，他认为这一点尤为关键。</p>
+<p>Faire针对上述问题提供三方面价值。一是集合采购力，平台上有数十万家门店，今年商品交易总额（GMV）将超过40亿美元，可为门店争取到别处拿不到的价格、账期等条件。二是节省时间，搜索、挑选与下单在同一处完成。三是用数据帮助门店作出更好的进货决策。据其介绍，Faire目前收入为7.3亿美元，增速升至45%，较两年前明显提高；主要驱动因素是零售商复购的增长，复购的原因在于平台推荐的商品确实卖得动，背后是数据规模的增长以及运用AI改进推荐的能力。</p>
+<h4>（二）交易平台不易被代理绕过的两点理由</h4>
+<p>Rhodes认为，交易平台在代理商务时代仍处于有利的竞争位置，批发领域尤其如此；他同时说明，这一判断并不适用于所有平台。理由有两点。</p>
+<p>一是数据与客户关系可用于改进商品发现体验。多数交易平台拥有大量数据，亚马逊已推出Rufus，Faire与DoorDash也在投入。他预期交易平台将把大模型与生成式技术用于自身的推荐与发现体验，并与自有数据和客户关系相结合；大模型所擅长的多轮往复对话、根据用户表述进行个性化等能力，都可以被平台纳入自身的购物体验。</p>
+<p>二是交易环节的附加价值。Faire为零售商提供账期与免运费，批发交易本身也比消费者购物复杂，如需要凑足每个品牌的起订额，这类流程在平台可控、界面简洁的封闭环境中更容易完成。他认为，凡是在交易环节提供较多附加价值的平台，无论体现在数据、购买体验还是运费与配送速度上，都能够继续为客户提供价值并避免被去中介化。</p>
+<h4>（三）数据规模与两类AI技术的分工</h4>
+<p>据Rhodes介绍，对Faire而言价值突出的数据是“什么商品在哪里卖得动”，平台可以看到数十万家零售商买了什么，更重要的是看到其复购了什么。他指出，消费者买完即止，零售商则在寻找能够反复卖出的商品并对畅销品加码，平台要推荐的是零售商愿意买、买后卖得动、进而愿意再买的商品，这使问题更具挑战，也使数据规模更有价值。</p>
+<p>他回顾称，Faire创立之初即有“告诉零售商该买什么”的设想，但相当长时间内未能奏效，当时生成式AI尚未出现，更重要的是数据规模尚未达到足够水平。过去两年平台越过了数据规模的临界点，复购率逐月改善；平台也在使用生成式AI，但起决定作用的是销售数据的规模。</p>
+<p>在商品发现环节，他将两类技术的适用场景作了区分。一是数据充足的情形，即对商品与零售商均有大量数据时，传统机器学习与深度学习模型的转化效果仍然更好，成本更低、速度更快。二是数据稀疏的情形，即面对一无所知的客户或商品时，生成式AI的帮助更为明显。典型用例是新零售商的冷启动个性化：零售商注册Faire时，平台用大模型抓取其网站，形成对其定位与需求的理解，并据此定制推荐，首次下单零售商的转化率由此提升约17%。平台已开始在品牌侧采用同样做法。</p>
+<h4>（四）零售商对AI工具的采用与采购决策权</h4>
+<p>采用情况方面，Rhodes表示，Faire已推出供零售商查询商品信息的研究助手，使用率逐步上升；早期采用者中出现了一批重度用户，同时也有相当一部分零售商表示抵触，直言不喜欢AI。他预期用户的接受度将随时间推移逐步提高。</p>
+<p>对于小企业主何时会完全接受代理采购，他表示形势变化很快，未来六个月的走向难以看清，其本人只能给出假设：批发采购是一项经营决策，零售商不会轻率对待，并将其视为自身的“独门秘方”。他回顾称，Faire创立之初他曾致电零售商介绍一款“告诉你该买什么”的产品，结果一再被挂断电话，对方表示开店正是因为自己有好品位、喜欢选品。基于此，Faire把自身职责定位为向零售商提供可信赖、卖得动的选项，最后一步的决定权归零售商。他认为，补货复购等场景可以交由系统自动执行，但多数情况下零售商仍希望自己掌握进货决策。</p>
+<h4>（五）个人代理购物体验与独立零售的韧性</h4>
+<p>Rhodes表示，他近期大量使用Muse以观察代理购物的走向。体验方面，一是多轮细化与上下文记忆有价值；二是实际购买流程仍显笨拙，购买环节的用户体验与延迟问题有待解决。他举了两个例子：其Peloton的线缆损坏后，让Muse代购一条新线缆，过程顺利；为女儿选购高尔夫球杆时，代理给出三个选项，他无法确认其是否合适，于是转到亚马逊查看并下单，体验反而更好。他认同一种看法，即消费者在很多品类上乐于自己挑选，需要的是更好的选项浏览。</p>
+<p>对于独立零售商是否担心个人代理使消费流向大型连锁，他指出，独立零售在过去数十年接连经历沃尔玛、百思买、巴诺书店等大型连锁以及亚马逊、新冠疫情的冲击，始终依靠出色的体验、精选的商品组合和与顾客的关系保持竞争力；独立零售规模较2010年增长60%，并未成为衰退行业，他预期独立零售商仍会找到应对办法。</p>
+<p>总的看，Acharya认为应用层的机会集中在小企业编程代理、垂直个人代理与娱乐三个方向，横向代理将雇用垂直代理完成专门事务；AI时代的分发渠道尚未成形，创业公司仍需自建分发，增长不足的原因应从产品上找；个人代理可以直连商户，对供给聚合平台不算有利。Rhodes认为，能够把出色的用户体验与亚马逊已摸索出的各项价值主张结合起来的参与者将胜出，这是其看好交易平台的原因；他预期自己会继续使用DoorDash与亚马逊，并可能使用其中更具代理特征的体验，Faire的零售商也将继续使用Faire。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

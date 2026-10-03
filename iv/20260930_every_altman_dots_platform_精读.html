@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>常驻代理的使用实践、平台开放取向与速度成本——OpenAI首席执行官Sam Altman访谈要点梳理（Every，2026-09-30）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-03<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>常驻代理的使用实践、平台开放取向与速度成本——OpenAI首席执行官Sam Altman访谈要点梳理（Every，2026-09-30）</h2>
+<div class="metaline">Every，33 分钟 · 2026-09-30</div>
+<p>——据Every节目《How Sam Altman Uses Dots to Take Back His Time》（2026-09-30）整理</p>
+<p>摘要：本文对Every主持人Dan Shipper在OpenAI DevDay现场对谈OpenAI首席执行官Sam Altman一期节目的主要观点进行了梳理汇总。梳理了开发者未被编程模型取代的原因、OpenAI对小团队公司的平台押注以及bring-your-own-subscription对应用开发者的影响，介绍了Altman本人使用常驻代理Dot分诊信息、构建新功能与维护live documents的做法，最后阐述了Ultrafast的使用体验与速度成本的下降路径。据主持人统计，本届DevDay发布22项新内容，上届约为9项；Altman表示，其Dot可就一项新功能自行做出五到六个版本供其评审；OpenAI可在不远的将来以较好的价格提供8倍速度，其后还将有100倍速度。</p>
+<p class="kw">关键词：个人代理；分发渠道；定价与变现；推理成本；前沿实验室；OpenAI；Dots；Ultrafast</p>
+<h3>一、软件需求扩张与以人为中心的判断</h3>
+<h4>（一）开发者未被取代的原因</h4>
+<p>主持人指出，若在4年前得知编程模型将达到当前的能力水平，其会认为DevDay上不会有多少开发者，实际情况是开发者数量与待完成的工作均多于以往。Altman认为，原因在于人们想要的东西远多于以往、预期很高，开发者能完成的工作量前所未有，标准也随之抬升，这是社会的一项良好特性。他表示，自己在就业问题上从未像其他人那样悲观，但世界上潜在需求的规模以及人始终处于AI进展中心的程度，仍令其感到意外。</p>
+<p>对于这一情形能否推及其他工种，Altman的看法分为两点。一是部分工作不需要太多创造力，人们也不在意由谁完成，其中许多任务或岗位将由AI承担。二是人们在世界上还想要许多其他东西，新的事情不会短缺，这是近一段时期的一条经验。</p>
+<p>关于为何在大量讨论自动化的同时仍以人为中心，Altman指出，人们并不那么在意机器做了什么，某种意义上向来如此；人们关注的是其他人，想了解艺术、公司、想法或产品背后的人。他举例称，1万个代理在4天内完全协同地完成了一项难题的求解，公众的反应几乎不涉及问题被解决这件事本身，讨论集中在如何解读以及以不同方式参与其中的人。</p>
+<p>据主持人统计，OpenAI在本届DevDay发布了22项新内容，上届约为9项，再上一届为四到五项。Altman表示，因主题演讲须控制在50分钟内，团队还删去了若干原定发布的内容；既然OpenAI主张这些工具能让人更高产、构建更多，自身就应当构建更多。他同时指出，没有AI的帮助，团队无法完成本届的全部发布。</p>
+<h4>（二）“文艺复兴”与“工业革命”两种图景</h4>
+<p>Altman在主题演讲中以“文艺复兴”对照“工业革命”。据其解释，一种理解是文艺复兴以人为中心，工业革命以机器为中心。他认为，工业革命在许多方面给世界带来了极为积极的影响，但对不少人而言，个人层面的影响并不全是正面的，许多人成为机器中的齿轮，从事高度专门化的工作，与使生活美好的许多事物脱节。对于“AI将自动化一切、人类不再有角色、如同家猫一般由AI决定如何奖励”的说法，他表示OpenAI并不这样看。</p>
+<p>Altman的期望有三点。一是出现一轮新的科学发现、艺术创作与公司创立浪潮，凡是想开创新事物的人都能参与。二是人们切实获得经济增长与新事物带来的收益。三是人们重新掌握对自己生活的控制，按自己的意愿支配时间。他指出，文艺复兴时期既有与遥远过去的重新连接，也有对科学与工程的探索，以及人的潜能大幅扩展的感受，当前人们谈论AI时同时提到这两方面，这是其采用这一类比的缘由。</p>
+<h3>二、平台开放取向与应用层生态</h3>
+<h4>（一）对小团队公司的平台押注</h4>
+<p>关于“什么都能构建”之后的新瓶颈，Altman给出两个方向。一是转向持久智能或主动智能，即代理全天候在后台运行、连接用户的系统并主动代为办事，这是值得探索的方向。二是可构建的想法已经很多，缺少的是发现并构建它们的创造精神，OpenAI因此希望真正开放生态，具体包括三项安排：允许外部开发者以与OpenAI自身相同的方式在ChatGPT中构建应用；允许用户把订阅带到任何地方；设立marketplace，把用户与开发者构建的成果连接起来。</p>
+<p>主持人认为，这一系列平台功能与Bill Gates对Windows的表述相近，即平台创造的价值多于其自身获取的价值。Altman指出，构建AI模型公司的人大致有两派看法。一派相信或希望世界上将只有一家公司；另一派以OpenAI为代表，认为公司数量将迎来一轮“文艺复兴”，个人、一人公司与小团队创造新产品和服务的门槛将大幅降低。OpenAI希望在平台上尽力支持后一种情形。他承认，OpenAI尚未找到与应用商店对等的形态，但已经摸索出如何建设一个有大量参与者在其上创造价值的平台，以及如何帮助数百万人构建有意义的新产品与公司。</p>
+<h4>（二）bring-your-own-subscription对应用开发者的影响</h4>
+<p>主持人从应用开发者的角度指出，用户可以把ChatGPT订阅中的token带到第三方应用，这改变了开发者的测算方式。此前开发者须权衡让用户使用多少AI才不致亏损，继而考虑改用价格更低的模型，体验随之下降；用户自带订阅（bring-your-own-subscription）后，开发者可以让用户在其订阅范围内使用任意模型。主持人同时提到，其长期呼吁的Codex原生应用与插件扩展已在当日推出。</p>
+<p>Altman表示，推动这一安排有三方面考虑。一是他更期待那些OpenAI尚未想到的应用，举办DevDay的一个重要原因在于其深信公司之外的好想法远多于公司之内，他确信会出现自己今天无法想象、OpenAI内部也无人能有把握想象的ChatGPT原生应用或插件扩展。二是帮助构建者与认为该技术有用的人建立连接。三是OpenAI自身也有这一需求，新应用大量涌现，人人都想试用，但他不愿为此注册上百个订阅，试用时也希望能调用完整的AI能力；订阅属于用户，应当可以在任何地方使用。</p>
+<h4>（三）“OpenAI又杀死某创业公司”的说法与创业环境</h4>
+<p>主持人提到，每逢开发者大会，“OpenAI刚刚杀死了某创业公司”一类的推文总能传播。Altman表示，这类推文之所以有效，是因为人们喜欢末日论调，但这种情况实际上从未发生。他给出两方面原因。一是OpenAI确信赋能构建者是重要的，无意成为一家独大的巨型公司；当日推出的多项举措是把OpenAI自己使用的工具同样交给外部，其在模型开放方面也一直走在前面，他认为OpenAI在业内对此有独特的投入，这与其本人出身创业领域有关。二是可探索的空间很大，OpenAI自身只能看到其中很小的一部分；世界获得了一种全新的赋能手段，他将其比作火，OpenAI希望把它交给所有人使用。</p>
+<p>关于应用层现状，Altman指出，几年前人们担心AI模型公司会吞掉一切，实际情况是重要的新公司与优秀产品持续大量出现，他从未见过创业公司如此迅速地取得成功，并称当前是创业的“黄金时代”。对于创业经验是否需要重估，他认为有两类情形。一是不变的部分，如必须做出人们想要的东西。二是变化的部分，如一两个人能完成的工作量已完全不同，硅谷的创业流水线对此的重新审视尚不充分。作为投资人，他表示自己始终以创始人为核心，寻找从事有抱负项目的优秀创始人，并愿意与其共担较高风险。</p>
+<h3>三、常驻代理Dot的使用实践与live documents</h3>
+<h4>（一）信息分诊与上下文汇集</h4>
+<p>Dots是OpenAI在DevDay当日发布的常驻代理产品。Altman表示，Dot是第一个把清晨时段和清晨的心智空间交还给他的产品。据其介绍，清晨原是其创造力充沛、用于处理当天复杂项目的时段；执掌公司后，夜间常有事情出错，不立即查看手机有时会使问题在一小时内明显恶化，查看手机又会让各类事务占据头脑、失去深度工作时段。现在他信任Dot对哪些事项需要其本人关注有良好判断，只在事情非常紧急时提醒，其余由Dot代为处理，由此腾出的时间用于创造性工作或陪伴子女。</p>
+<p>Altman与主持人列举了Dot汇集上下文并主动提醒的几类情形。一是演示前预警。DevDay主题演讲期间生产环境出现较大问题，Altman的同事Thibault在演示前5分钟收到自己的Dot发来的消息，称其在Space中看到了演示文稿、了解演示内容，判断该问题可能导致演示失败，并询问是否尝试修复；Dot当时未能修复，Altman认为下一个版本或许可以在生产环境中直接修复。二是日程间隙提醒。访谈开始前，Altman的Dot提示其在两项安排之间有一小段空档，须关注一件事，否则其本人不会发现。三是跨来源核对。主持人提到，其改签航班时Dot提醒该航班时段有一场会议，该会议并不在日历上，是Dot从Slack中读到的；Altman认为，从用户全部生活中汇集上下文、以细心的人也难以做到的方式办事，是其认为十分有用的能力。四是长时间检索。Altman曾用Codex花10到20分钟搜索一条记得在Slack中见过的内容而未果，次日Dot告知其注意到这次失败、夜间继续处理并已找到；该内容是一张截图，Dot逐张识别了截图。</p>
+<p>据Altman介绍，Dot已成为其使用聊天的默认方式；产品尚处早期，此后会逐周改进，全部打磨到位仍需时间。在研究层面，使这一产品成为可能的因素很多，其中关键的一项或许是Astra，模型必须越过相应的智能门槛。他还表示，使用Dots的几周让其认识到，社交媒体、手机与通知对注意力的侵占比其原先以为的严重得多。</p>
+<h4>（二）借助Dot构建新功能</h4>
+<p>Altman介绍了以Dot构建新功能的过程。他有一项感兴趣的新功能，难以向他人足够详细地说明，实现方式又有多种，无从确定选哪一种。他的做法有三步。一是在想到或散步时随手把零散想法发给Dot。二是由Dot自行做出五到六个版本，他据此获得反馈并迭代。三是在有空档或有新想法时继续补充。他表示，入睡前留下一段较长的语音备忘，早晨醒来时东西已经做出，Dot还继续推进了后面七个步骤。他认为，许多因把握不足或对自己和他人而言工作量过大而搁置的想法，由此可以持续迭代。</p>
+<p>对于主持人称其领导一家庞大公司的说法，Altman表示OpenAI并不庞大，大型科技公司的员工数量或许约为其100倍。他认为，摩擦略有降低，人们构建的东西就会多得多，这一点他在使用Dots时感受明显；以往他用Codex做的只是个人小项目，现在他希望做出一款插件或扩展并对外发布，甚至可能是一款正式的OpenAI产品。他期望来年团队、其本人与更多人都参与构建，OpenAI向世界交付的效用总量继续上升。</p>
+<h4>（三）Space与live documents</h4>
+<p>主持人指出，Space一次推出三款办公套件类工具，是一项很大的押注。Altman表示，团队起初并无此计划，后来认识到软件总体上并非为与AI协作而设计：用户可以自己使用软件，也可以让AI代为使用，但在紧密协作、尤其是多人及其各自的AI共同工作时，现有的许多抽象不再适用。他认为这是一项有雄心的押注，人与AI协作的空间值得探索。</p>
+<p>关于本人的用法，Altman表示，遇到新想法时仍习惯以传统方式亲自写作，这有助于思考，后续跟进交给自己或他人的Dot。他认为Space中值得关注的是live documents（活文档），其特点有两项。一是文档随人的互动或外部变化自动更新。二是多人的Dot可以在其中协同工作，如7个人的Dot共同做出一件新东西，这件东西在各人头脑中已有雏形，经协作才得以成形。</p>
+<p>Altman举出的例子是公司仪表盘。他以往与许多人共用一份仪表盘，现在有一份只面向其本人的业务摘要，由Dot查看其全部Slack消息后生成并持续更新，内容随其关注点变化而调整。据其介绍，其近期关注较多的是未来在安全、对齐与安保方面的挑战，6个月前则更关注收入、增长等传统业务指标；他希望能逐日查看Dot所判断的其关注重点如何随时间变化，目前尚无合适的呈现方式。</p>
+<h3>四、Ultrafast与速度成本</h3>
+<h4>（一）Ultrafast的使用体验</h4>
+<p>Altman表示，其全部提示均在Ultrafast下完成。他对此有两点认识。一是担心OpenAI由此与使用其工具的人脱节，他清楚并非所有人都能在所有事情上始终使用Ultrafast，但自己已很难回到原来的速度。二是速度改变了工作方式。他援引Bret Victor约15到20年前的一场演讲，其中一条原则是创作者应当与其创作的东西保持即时连接，速度与反馈回路十分关键；他此前没有意识到，回应如此之快会给迭代式思考带来多大差别，在构建东西或思考问题时差别尤为明显。</p>
+<h4>（二）速度普及的投入方向</h4>
+<p>关于用户为更好的智能与更快的速度支付更高价格的问题，Altman表示，OpenAI历来的重点是降低智能的价格，模型能力大幅提高，价格每隔几个月或一年明显下降。速度是新出现的一个重要维度，OpenAI正在进行相应投入：一是自研芯片，这将为向所有人提供高速推理作出很大贡献；二是模型本身对研究与推理技术栈的改进。他指出，OpenAI已认识到需要像普及模型智能那样投资于速度的普及。</p>
+<p>对于何时能把Ultrafast用于所有问题，Altman表示，用户现在付费即可使用；OpenAI可在不远的将来以较好的价格提供8倍速度，其后还将有100倍速度，以及更新一代的模型。他认为，就其所见，智能、速度等方面始终会有价格更高的前沿档位，OpenAI将继续专注于提高每一美元所能换取的价值，其节奏明显快于摩尔定律。</p>
+<h4>（三）Decisions API与低成本快速模型</h4>
+<p>主持人认为，Decisions API是当日发布中受关注不多但分量较重的一项，并提到新型模型Jev改变了其团队内部构建产品的思路。据Altman介绍，TypeSafe AI首席执行官Diogo Almeida曾在OpenAI任职，长期谈论这一类想法，OpenAI此前也在研究如何实现。他指出，用户对Luna模型的头号诉求是更便宜、更快，OpenAI一直在考虑沿这一方向继续推进，市场对Jev的反应使其更有意愿提高此类工作的优先级，OpenAI将以多种方式推动常见用例下的技术做到极快且成本极低。</p>
+<p>关于新实验室与OpenAI的分工，Altman表示，Jev的方法与OpenAI差别较大，OpenAI或许能够从头做出类似的东西，但还有其他事情要做。OpenAI的目标是在成本、速度与模态构成的帕累托曲线的每个点上提供能力强、价格低、速度快的模型，主力通用模型将力求做到这一点；同时会有OpenAI无法全部覆盖的新方法、新架构与新技术。</p>
+<p>总的看，Altman认为AI时代更接近一场以人为中心的“文艺复兴”，公司数量将增加，个人与小团队的创业门槛明显降低，OpenAI以开放平台、订阅随用户迁移与marketplace支持这一趋势；常驻代理的价值体现在代为分诊信息、汇集上下文并持续推进任务；在智能与速度两个维度上，前沿能力将始终以较高价格存在，OpenAI会持续提高每一美元所能换取的价值。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
