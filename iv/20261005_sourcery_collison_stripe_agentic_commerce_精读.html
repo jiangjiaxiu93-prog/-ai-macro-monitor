@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>代理商务对商户格局的重构与Stripe面向AI的产品、收购及内部调整——Stripe联合创始人John Collison访谈要点梳理（Sourcery with Molly O'Shea，2026-10-05）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-06<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>代理商务对商户格局的重构与Stripe面向AI的产品、收购及内部调整——Stripe联合创始人John Collison访谈要点梳理（Sourcery with Molly O'Shea，2026-10-05）</h2>
+<div class="metaline">Sourcery with Molly O'Shea（Browserbase Navigate 2026 现场对谈），28 分钟 · 2026-10-05</div>
+<p>——据Sourcery with Molly O'Shea节目《John Collison Co-Founder of Stripe at Browserbase Navigate 2026》（2026-10-05）整理</p>
+<p>摘要：本文对Stripe联合创始人John Collison在Browserbase Navigate 2026大会现场对谈中的主要观点进行了梳理汇总。梳理了其对个人代理与计算机操作（Computer Use）、代理商务对商品发现与商户格局的影响以及网络安全形势的判断，介绍了Stripe面向代理重建API、收购Bridge、Privy、Metronome与OpenRouter的逻辑以及AI对公司内部工作流的改变，最后阐述了其17年创业经历的体会。据节目介绍，Stripe 2025年处理支付金额1.9万亿美元，同比增长34%。Collison表示，Stripe内部把2026年1月1日称为“奇点纪元”的起点；他预计未来五年发生的数据泄露事件将多于过去五年。</p>
+<p class="kw">关键词：代理商务；个人代理；按量计费；模型路由；并购；Stripe；OpenRouter；Browserbase</p>
+<h3>一、个人代理、Computer Use与代理商务</h3>
+<h4>（一）支付行业的变化与个人代理的普及</h4>
+<p>据节目介绍，Stripe 2025年处理支付金额1.9万亿美元，同比增长34%。Collison表示，今年是Stripe创办的第17年，支付行业在此前很多年里变化不大，当前正处于变化之中：一是稳定币等领域出现诸多进展；二是Instinct、Muse等个人代理产品已成为现实，现场听众中有相当比例正在使用。</p>
+<h4>（二）代理替代网页表单的逻辑</h4>
+<p>Collison认为，填写网页表单对任何人都算不上有价值的活动。个人代理的设想建立在两项能力之上：一是有状态的上下文，代理了解用户的基本信息，如收货地址与支付信息；二是能够操作计算机并在现实世界中办理事务。两者结合后，用户只需提出“请帮我续办驾照”这类要求，无需自行填表。</p>
+<p>他指出，个人代理开始可用有两个条件。一是为代理配备足够的算力，使其能够实际办事。二是Computer Use成为足够成熟的技术。他把Computer Use称为现实世界的“终极向后兼容层”，并以车辆管理局（DMV）为例：等待这类机构提供模型上下文协议（MCP）接口可能需要数年，Computer Use使代理可以直接操作现有网页，无需等待。</p>
+<p>据其回顾，AI的发展经历了若干次离散的跃迁，先有Transformer，再在其上出现大语言模型，之后又叠加强化学习。他认为，成熟的Computer Use将被视为其后的又一次跃迁，下一批AI应用将围绕这一新能力展开，这也是他看好Browserbase这类公司的原因。</p>
+<h4>（三）代理商务对商品发现与商户格局的影响</h4>
+<p>Collison把代理商务带来的变化分为两个层次。一是一阶变化，用户的代理将代其完成大量交易，购买变得更为便利，商家的销售方式随之发生明显改变。二是二阶变化，商品与商户格局将被重塑，有利于能够成功适应这一方式的参与者。</p>
+<p>关于二阶变化，他给出三点判断。一是利好长尾商户。据其个人体验，借助AI做商品调研时，结果中常出现此前未听说过的小众品牌；一款产品只要评价良好、受到网络用户认可，就会获得更多被发现的机会。二是现有聚合平台面临新的问题。他认为，AI发现在某种意义上成为商务的新聚合点。三是头部商户可能出现一轮更替，产品出色并易于被发现的商家，排名可以快速上升。</p>
+<p>他以社交平台广告作类比。Facebook与Instagram的广告定向能力成熟后，催生了一批围绕平台投放成长起来的原生公司，如Wish.com、Teespring，Temu与Shein也在相当程度上依靠这些平台完成大量获客。上一代大型连锁零售商理论上拥有同样的工具，但对这类获客技术的适应程度较低，这种适应需要一直传导到产品开发等环节。他认为AI电商的演进路径与此有相似之处。</p>
+<h3>二、网络安全形势与机器人识别</h3>
+<h4>（一）攻防两端的能力变化</h4>
+<p>Collison指出，AI是一项防守方与攻击方均可使用的新技术，攻防之间的追逐始终存在。他援引汽车出现时的情形：银行劫匪率先使用汽车作案，警方随后意识到自己也需要汽车。据其介绍，新模型具备相当先进的网络攻防能力；Stripe多年来在网络安全上一直保持高度警惕，当前对手一侧的能力提升很快，公司在原已高度重视的基础上进一步提高了关注。他预计未来五年发生的数据泄露事件将多于过去五年。</p>
+<p>他解释称，理论上攻防之间应当存在某种均衡，但这属于理想化假设，实践中有大量机构采用新能力的速度过慢。相比之下，创业公司处于相对有利的位置，原因有两点：一是更容易采用具备新安全能力的新模型；二是技术栈规模小、边界清晰、同质化程度高。与之对照的是历经50年、通过并购拼接而成的技术栈，其中部分系统仍运行在已停止支持的Windows版本上。</p>
+<h4>（二）好机器人与坏机器人的识别</h4>
+<p>在被问及当前有哪些问题尚未得到足够讨论时，Collison提到机器人识别。他表示，许多网站设有机器人检测与拦截机制，这种做法的由来可以理解，但网络流量正日益由机器人构成，其中既有好机器人，也有坏机器人，网站需要新的办法对两者加以甄别。他认为这一问题的声量将明显提高，新的均衡目前尚不清楚。他建议从业者亲自试用Instinct、Muse等AI助理工具，以直观感受AI产品的新形态。</p>
+<h3>三、“奇点纪元”的含义与面向代理的产品调整</h3>
+<h4>（一）以2026年1月1日为“奇点纪元”起点的含义</h4>
+<p>据Collison介绍，Stripe内部带有几分玩笑地把2026年1月1日称为“奇点第一天”，参照的是以1970年1月1日为起点的Unix纪元。选择这一日期的依据有三点。一是去年年底编程模型的能力提升令许多从业者感到震动。二是递归式自我改进已有体现，AI能力正在帮助提高AI自身的进步速度，各实验室正在运用AI加快模型研发。三是数学领域近两周接连有成果公布，他称之为“数学大战”。基于此，他认为2026年是切实感受到递归式自我改进效果的一年。</p>
+<p>他表示，Stripe对这一进程持乐观态度，“奇点”的提法不带悲观或担忧色彩。依据来自平台上的早期经济指标：随着可随时取用的智能大幅降价，新设企业数量明显上升，Stripe平台上的新设企业速度创下近年来的新高。他认为，在这些工具的帮助下，创办公司并使其成功都变得更为容易。</p>
+<p>对于企业应否感到担忧，他给出两点意见。一是应当保持关注，网络安全与代理商务带来的变化都是真实的，各行业的棋盘都被晃动，棋子位置已经改变。二是担忧应当落在具体事项上，如确保自身网络安全到位；企业无需陷入笼统的不安，身处快速起飞的阶段更值得感到兴奋。</p>
+<h4>（二）面向代理重建API</h4>
+<p>Collison以Stripe自身为例说明格局的变化。Stripe创办以来一直为开发者构建产品，以API和开发者体验作为卖点，并在内部投入大量精力，细到API文档以及开发者在不同API版本之间迁移的便利程度。他表示，如今几乎已没有人手工集成Stripe的API，开发者把这项工作交给编程代理完成。</p>
+<p>他指出，面向开发者的易用性与面向AI的易用性是两项相关但差别明显的能力。一是Stripe过去为改善开发者体验所下的许多功夫，对AI而言意义有限。二是对AI而言重要的是另一组问题，例如编程代理很容易集成到错误的API版本。Stripe因此需要整体调整自身所擅长的能力。</p>
+<h4>（三）AI在Stripe业务中的比重</h4>
+<p>Stripe把提高“互联网GDP”作为目标。对于其中有多少来自AI，Collison表示占比很高，但不披露具体比例，这一比例目前也很难度量。原因在于AI企业与非AI企业的边界趋于模糊：一是AI原生企业，如运行在Stripe上的Browserbase，其业务是让代理能够使用计算机，明确属于AI范畴；二是成长于AI出现之前、正在以AI改造业务的企业，如同样运行在Stripe上的Meta，正日益成为一家AI公司。他认为，目前已很难把企业划分为AI与非AI两类，业务中没有大量使用AI的企业很可能是对形势关注不足。</p>
+<h3>四、四项收购的逻辑与自建收购取舍</h3>
+<h4>（一）Bridge、Privy、Metronome与OpenRouter的收购逻辑</h4>
+<p>据Collison介绍，Stripe近期的收购分布在三个领域。</p>
+<p>一是加密领域的Bridge与Privy。他表示，加密行业有其原生的工作方式，与Stripe出身的领域不同；两家公司的团队具备这种原生能力，Stripe自身很难在短时间内达到，两个团队也把这种特质带入了Stripe的文化。</p>
+<p>二是按量计费领域的Metronome。他指出，AI使各家公司都产生推理成本，产品定价方式必须随之调整；目前已很少有产品完全没有按量计费或超额计费的成分，如用户订阅ChatGPT或Claude后可在一定额度内使用，额度用尽后需另行购买点数。受底层成本结构影响，AI产品普遍需要按量计费能力。</p>
+<p>三是多模型路由领域的OpenRouter。他观察到，企业支出中流向AI与推理的比例持续上升且已相当可观，既包括公司内部研发所用，也包括产品交付过程中包含的推理。他表示，认可OpenRouter的前提是相信同一家企业内部会同时使用多个模型，且所用模型会发生变化，具体有三种情形：一是按工作负载的不同把请求发往不同模型；二是更好的新模型推出后及时切换；三是按用户价值分层，把高价值用户导向前沿模型，把低价值用户导向较低档的模型，依据是用户的生命周期价值（LTV）。据Stripe的判断，在帮助企业使用多个模型的市场方面，OpenRouter进展领先。</p>
+<h4>（二）自建与收购的取舍</h4>
+<p>Collison表示，取舍的原则是收购优于自建时选择收购，判断力与分寸体现在具体权衡之中。Stripe的做法有两个考量维度。一是与核心业务的距离。属于Stripe核心范围的业务，公司自己做好的可能性更高，倾向于自建；token路由这类全新能力，Stripe可以学会，但所需时间要长得多。二是市场演进的速度。他指出，OpenRouter所处的市场与12个月前已完全不同，12个月后还将再次改变；在全新且快速演进的市场中，内部团队把产品做出来时往往已经有些过时。</p>
+<h3>五、AI对Stripe内部工作流的改变</h3>
+<h4>（一）接入内部数据的AI工具</h4>
+<p>Collison提到AI能力的“锯齿状前沿”，即模型在网上语料丰富的领域表现较好，在缺少训练数据、只能从基本原理推理的领域表现明显较弱。他认为组织层面存在对应的现象：通用的消费级AI应用缺少业务上下文，难以满足多数企业场景的需要。</p>
+<p>基于此，Stripe搭建了内部AI工具，使AI应用能够访问公司内部数据。据其介绍，这项工作相当复杂，难点有两个方面：一是隐私与访问控制，例如人力资源数据库只应向部分员工开放，权限体系因此十分复杂；二是结果的正确性。他表示，这一基础建成后，AI应用可以在内部数据集上工作，效用很高。</p>
+<h4>（二）一线员工自建应用</h4>
+<p>Collison表示，Stripe内部有大量一线员工在自行搭建应用，并举了两个例子。一是销售团队，其工作流已完全改变，所需材料均可自助获取；销售人员自行搭建AI应用，整理特定客户会关心的数据，形成个性化的方案。二是法务团队。Stripe在全球多地经营，各国新法规不断出台，他以印度、芬兰各有一部600页的新法出台为例；法务团队有人搭建了一个代理，用于摄取可能适用于Stripe的各项新法规。</p>
+<p>他认为，个性化软件是技术领域谈论了数十年的设想，当前门槛终于降到足够低的水平，个性化软件开始大量出现。</p>
+<h4>（三）跟进AI进展的方式</h4>
+<p>关于如何跟进AI进展，Collison介绍了两种做法。一是亲手使用，他用氛围编程为自己制作想用的应用，并认为这类应用已能带来实际效用。二是持续与Stripe的客户交流。Stripe历来按发展方向分配关注，重点跟踪平台上增长快的公司，这些公司几乎都处于AI领域或其周边；他表示，Browserbase正在成长为Stripe平台上的大型客户。</p>
+<p>总的看，Collison认为，当前处于AI快速起飞的阶段，用户的代理将代为完成大量交易，商品发现与商户格局随之重塑，企业应保持关注并把担忧落到网络安全等具体事项上。回顾17年的创业经历，他归纳了三点体会。一是没有捷径。Stripe从未有过一举成名的时刻，只是每一年的规模都超过上一年，逐年累积至1.9万亿美元；公司启动的新产品在当时很少被视为公司的未来，只是能为客户带来价值；Stripe没有放弃、没有被收购，这种坚持在科技行业常被低估，英伟达自上世纪90年代起持续制造并改进GPU，其间也有许多热度远不及今日的阶段。二是坚持长期博弈，认真对待做一个好的交易对手，声誉十分重要。三是用户优先，这是Stripe经营原则的第一条，产品开发从客户的实际需要出发倒推；他提醒，公司很容易偏向“应进入哪个市场”“哪里有新的收入池”这类以公司自身为中心的思考方式。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI基础设施的供给瓶颈、三层产品经济性与GPU折旧——Crusoe联合创始人兼首席执行官Chase Lochmiller访谈要点梳理（20VC with Harry Stebbings，2026-10-03）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-06<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>AI基础设施的供给瓶颈、三层产品经济性与GPU折旧——Crusoe联合创始人兼首席执行官Chase Lochmiller访谈要点梳理（20VC with Harry Stebbings，2026-10-03）</h2>
+<div class="metaline">20VC with Harry Stebbings，65 分钟 · 2026-10-03</div>
+<p>——据20VC with Harry Stebbings节目《Who REALLY makes money from AI &amp; the future of Data Centers | Crusoe CEO》（2026-10-03）整理</p>
+<p>摘要：本文对Crusoe联合创始人兼首席执行官Chase Lochmiller在20VC with Harry Stebbings节目中的主要观点进行了梳理汇总。梳理了Crusoe从比特币挖矿转向AI基础设施的路径，以及其对供给瓶颈、能源与劳动力约束、数据中心社区影响与政治阻力的判断，介绍了其对数据中心、GPU与token三层产品经济性、照付不议合同、GPU折旧与算力需求预测的看法，最后阐述了其关于推理服务竞争、开放与封闭模型分布以及托管推理形态的判断。据Lochmiller介绍，Crusoe在得克萨斯州阿比林（Abilene）用一年建成首批两栋合计200余兆瓦的数据中心，排名其后的报价工期为两年半；他认为规划中的数据中心约50%无法建成的说法大体合理；Crusoe对GPU按6年计提折旧，2023年起大规模采购的英伟达Hopper系列芯片目前的租用价格高于三年前全新时的水平。</p>
+<p class="kw">关键词：AI资本开支；算力采购；单位经济；推理成本；开放权重；Crusoe；Chase Lochmiller；英伟达</p>
+<h3>一、Crusoe的发展路径与融资情况</h3>
+<p>据节目介绍，Crusoe建设并运营用于训练和运行AI的数据中心，累计股权融资约64亿美元，新近完成的F轮融资为39亿美元，对应估值309亿美元，投资方包括英伟达、Founders Fund、Atreides Management、Mubadala Capital与Valor Equity Partners。</p>
+<h4>（一）从比特币挖矿到AI基础设施</h4>
+<p>Lochmiller表示，外界将Crusoe的发展看作一次转型，公司内部自创立起的目标即为建设AI平台。其逻辑有三层：一是深度学习将改造各个行业；二是达到一定规模后，算力与数据成为两项瓶颈；三是算力的瓶颈在能源。基于此，公司从寻找低成本、充裕的能源资源并以算力将其变现起步。创立初期，比特币挖矿是当时可得的较好变现方式，公司多数资源投向以挖矿消纳废弃能源，AI平台的建设同步推进。据其介绍，Crusoe先与麻省理工学院、斯坦福大学等机构的研究者合作了解其对基础设施平台的需求，并于2022年初推出Crusoe Cloud，迎来首批付费客户。</p>
+<p>关于资源何时转向新业务，他表示自己以贝叶斯方式看待世界，认为未来是概率性的，并据此调整资源配置。</p>
+<h4>（二）ChatGPT发布后的战略调整</h4>
+<p>Lochmiller指出，2022年11月30日ChatGPT发布是其判断发生明显变化的时点，他由此认为市场对AI算力基础设施的需求将远超此前预期，已上线云平台的Crusoe处于有利位置。此后公司的调整有两项：一是加大对面向AI的数据中心设计与开发的投入；二是加大对能源资源获取的投入。</p>
+<p>这一调整基于三点观察。一是比特币矿场的演变提供了参照。挖矿从个人电脑起步，后转向GPU、租用具备“五个九”可用性的传统托管机房，再到专用芯片（ASIC）；矿商随后发现挖矿并不需要高可用性，改用无冗余的简易机房后，数据中心成本下降约98%，投资回收期随之缩短。他认为AI领域将出现类似演变。二是芯片功率密度上升。据其介绍，多年前与英伟达讨论路线图时，单颗芯片功耗为150~200瓦，下一代约300瓦，再往后可能达到600瓦，功率密度上升将改变数据中心的形态。三是AI负载不必集中部署。互联网应用长期集中于北弗吉尼亚等枢纽，神经网络服务的耗时则主要发生在数据中心内部的计算环节，网络传输占比有限，AI基础设施因此将分布到能源成本低且充裕的地区。</p>
+<h3>二、AI基础设施的供给瓶颈与建设约束</h3>
+<h4>（一）当前瓶颈的表现与垂直整合的作用</h4>
+<p>Lochmiller认为，当前供给约束的直接表现是缺少可供GPU接入、通电并运行AI负载的场所。大型AI数据中心的供应链如同“打地鼠”，不同时点出现不同瓶颈，垂直整合有助于公司应对。</p>
+<p>他以阿比林项目为例。项目首批两栋建筑的算力容量合计200余兆瓦，另有34家数据中心开发商参与竞标，Crusoe承诺一年建成，排名其后的报价工期为两年半。关键瓶颈之一是中压配电中心，该设备接收约34.5千伏的中压电力并分配至低压变压器。市场供应商对这一部件给出的交期为100周，Crusoe此前已将电气制造纳入内部，团队自行采购元器件组织生产，用28周完成交付。</p>
+<p>据其介绍，垂直整合的作用体现在三方面。一是保障供应与按期交付，这是公司自建的主要考虑；电气制造本身利润率不算高，近期因供给短缺有所上升。二是掌握建设和运营AI工厂的端到端成本，看清各环节原材料成本与成品价格的差距。三是形成创新平台，可以从第一性原理出发设计设施。阿比林园区的设计目标是一台1吉瓦级的计算机，全部GPU运行在同一张远程直接内存访问（RDMA）网络上，可承载覆盖整个园区的单一负载。</p>
+<p>他同时指出，2026年的主题是AI基础设施利用率的提升，代理与token用量扩张带动推理需求增长。推理并不需要吉瓦级集群，较小的集群即可满足，关键指标转为从零到交付token所需的时间（time to token）。</p>
+<h4>（二）能源、劳动力与政策约束</h4>
+<p>Lochmiller表示，当前的主要约束因时而异，其中两项较为突出。一是能源，可用于算力的电力是关键瓶颈。二是劳动力，美国电工、焊工、管道工与建筑工人等熟练技工数量有限；在某一地点获得能源之后，能否把劳动力调集到当地同样是难题。他认为，美国的电价在全球范围内具备竞争力。</p>
+<p>关于政策与监管，他将其定性为需要妥善应对的事项。一是公司支持出台合理的政策，这类大额投资需要审慎推进。二是审批确实给建设提速带来摩擦，这也是公司倾向于以工厂制造方式生产更多基础设施、减少现场大型施工的原因之一。三是政策具有高度的地方性，居民关心的是就业、电价、用水、空气质量，以及数据中心能否成为负责任的社区成员并以税收等方式回馈当地。</p>
+<h4>（三）规划项目的落地比例</h4>
+<p>对于“规划中的数据中心约有50%无法建成投运”的说法，Lochmiller认为50%大体合理。规划过程中可能出问题的环节较多：一是许可与用地审批；二是土地获取，卖方可能在后期不愿出售；三是与当地电力公司签订大负荷并网协议；四是新建发电设施所需的空气排放许可。</p>
+<h3>三、数据中心的社区影响与政治阻力</h3>
+<h4>（一）用水与电价</h4>
+<p>Lochmiller认为，外界关于数据中心影响的说法中存在大量不实信息。</p>
+<p>一是用水。他表示，现代AI工厂的设计用水量接近于零。阿比林前八栋建筑每栋的电力预算约140兆瓦，单栋年用水量大致相当于10户独栋住宅，主要用途是员工盥洗与园区绿化。建筑内确实以水冷却GPU，但采用闭环架构，冷水进入机柜吸热后送至室外冷水机组散热，循环使用。</p>
+<p>二是电价。他表示，从数据看，在数据中心已大规模投资建设的市场，社区电价通常下降。原因有两点：一是数据中心带动了发电技术与装机容量的投资；二是更多的用电量分摊在同一套输配电设施上，单位成本下降。对于需要大量新增发电容量的大型项目，他支持由数据中心行业协助新电源投产，以满足自身用能需求。</p>
+<h4>（二）施工影响、就业与税收</h4>
+<p>关于合理的担忧，Lochmiller表示，大型施工项目确实带来交通拥堵、扬尘与噪音，这些影响将随施工结束而消退。与之对应的收益有三项。一是带动当地消费，阿比林餐馆、咖啡店、酒店等本地服务业的营业额处于历史高位。二是留下长期就业岗位。三是贡献税收，Crusoe的项目将占泰勒县与阿比林市税收的三分之一以上，当地学校系统获得的税收将增加一倍以上，警察、消防、道路等公共服务随之受益。</p>
+<h4>（三）政治阻力的来源</h4>
+<p>Lochmiller表示，数据中心已成为美国即将到来的中期选举中的焦点议题，并呈现两极分化。他认为原因有两点：一是公众对AI时代自身就业前景的担忧是真实存在的；二是数据中心是AI在物理世界的具体载体，容易成为情绪的指向。</p>
+<p>他指出，从就业创造、压低电价、用水中性和长期税收等方面看，事实支持数据中心。数据中心是规模可观的雇主，正在带动美国蓝领就业的繁荣与再工业化；AI迄今带来的是就业岗位与经济发展的增加。</p>
+<h3>四、算力业务的经济性</h3>
+<h4>（一）GPU租赁的合同组合</h4>
+<p>Lochmiller表示，GPU小时的价格类似一种可交易的大宗商品，Compute Exchange、Ornn等平台已在推出可交易的算力期货产品，价格存在商品式波动。在以GPU资产举债时，公司以业务组合的方式管理回收风险，组合由三类构成。</p>
+<p>一是长期合同，期限约5年，面向信用资质较好的客户，在合同期内完成回本并产生现金流。二是短期合同，利润率更高，但到期后能否续约、资产能否继续产生收入存在不确定性，风险相应更高。三是打包提供的服务，包括托管推理（managed inference）与无服务器微调。后者是开发者工具，供开发者针对特定领域任务微调前沿开源模型；前者在应用扩张时为其提供推理所需的token。这类合同期限通常短得多，利润率也更高。</p>
+<h4>（二）数据中心、GPU与token三层产品</h4>
+<p>Lochmiller表示，Crusoe向客户出售并获得利润的产品共三种：数据中心、GPU和token。他以油气行业作类比：价值链分为上游的钻井采油、中游的油气运输和下游的炼化与加油站等成品销售，埃克森美孚、雪佛龙等综合性石油巨头覆盖全链条。Crusoe的目标是成为AI领域的同类企业。</p>
+<p>他指出，垂直整合的意义在于内在对冲。埃克森美孚不对原油敞口做套期保值，油价下跌时井口环节利润收窄，汽油、塑料等下游成品的利润率则上升。他认为AI基础设施正在出现类似现象，利润将在电气设备、数据中心、芯片与服务各环节之间移动。</p>
+<p>关于当前利润率较高的环节，他表示托管GPU即托管算力集群眼下的利润率非常高，原因是供给严重短缺。</p>
+<h4>（三）照付不议合同</h4>
+<p>据Lochmiller介绍，照付不议（take-or-pay）指客户无论是否实际使用都须付款，能源行业常见这类安排，例如承诺100兆瓦容量的客户无论用量多少均按100兆瓦付费。Crusoe的GPU租赁协议通常为照付不议。</p>
+<p>针对消费端需求走弱是否会向下传导的问题，他表示并不这样看待风险。一是AI对经济的改造覆盖众多领域，受益方并不限于单一用途。二是模型能力仍在上升，近期模型的阶跃式进步已使此前无法实现的发现成为可能，当前模型与基础设施的效用是今后各时期中的低点。三是即便某一具体消费应用的需求走弱，AI在新材料、新药等科学发现上的前景仍使其保持乐观。</p>
+<h4>（四）GPU折旧与旧芯片残值</h4>
+<p>Lochmiller表示，Crusoe目前对GPU按6年计提折旧，这是行业通行做法。公司的理念是长期持有基础设施、数据中心、能源与芯片，把这些资产变现的途径越多，对股东越有利，这也是公司投入托管AI服务的原因。托管服务把底层芯片与客户获得的服务分离开来，开辟了可持续更长时间的变现渠道。他认为，市场对前沿芯片与前沿模型始终有需求，对低成本替代方案同样有需求，用速度较慢的旧一代芯片以更低成本提供智能仍有价值。公司相信，借助这类服务，芯片的折旧周期将延长至6年以上。</p>
+<p>对于外界在芯片采购与折旧上的误判，他以Hopper系列芯片为例：公司2023年开始大规模采购时，得到的反馈是无法确定第三年之后这些芯片是否还有价值，早期融资因此要求很快回本并保持较高的偿债覆盖倍数；三年后的今天，Hopper的租用价格高于三年前全新时的水平。他认为，外界低估了应用开发者把算力转化为有价值服务的创造力。</p>
+<h4>（五）算力需求预测</h4>
+<p>Lochmiller表示，Crusoe的需求预测以与客户的沟通为基础，自下而上汇总形成。</p>
+<p>当前的难点在于，AI基础设施的上线周期不断拉长，客户被要求预测越来越远的需求，早期创业公司甚至需要承诺2028年的算力用量，这对整个行业都是问题。Crusoe的应对是部署小型、模块化、工厂预制的AI数据中心，为较小规模的集群提供接近即时交付的基础设施。</p>
+<p>对于未来是否高度不确定，他表示并不这样认为。一是缩放定律持续得到验证，图灵测试已被越过。二是AI成为工作与生产率的关键底层引擎是确定的，不确定的是变化的具体形态。</p>
+<h3>五、推理服务的竞争与形态</h3>
+<h4>（一）低成本智能生产者的衡量口径</h4>
+<p>主持人援引Crusoe投资人Gavin Baker的观点，即智能的低成本生产者将胜出。Lochmiller认为，每token美元成本是较好的衡量指标，但各token的价值并不相同，存在token效率的差别。用户优化的目标还包括两项：一是吞吐量，即特定模型用例下每秒生成的token数；二是延迟，包括首个token与末个token的返回时间。</p>
+<p>他指出，上述指标取决于多项因素。一是成本，垂直整合并拥有基础设施可以叠加各环节利润，带来更大的灵活性。二是GPU利用率。GPU是数据中心内价值居首的设备，闲置即意味着资金损耗。三是内存管理，尤其是键值缓存（KV cache）的管理。同样的输入token此前若已计算过，可以直接查表取得结果，无须重新进行前向计算；键值缓存的体量可能远超芯片上高带宽内存（HBM）的容量，需要在多颗GPU的HBM、系统内存、固态硬盘与对象存储之间高效调度数据，才能使GPU保持繁忙并在延迟与吞吐量上表现突出。</p>
+<h4>（二）推理服务商的差异与竞合关系</h4>
+<p>Lochmiller认为，推理服务商之间并不等同。SGLang、vLLM等开源项目质量很高，属于通用方案。对于Fireworks这类推理服务商，他表示其在某些负载上表现出色，各推理平台在用户体验与工具功能上各有特点。</p>
+<p>关于竞争关系，他再次援引油气行业：埃克森美孚在上游与其他公司竞争钻井与运营效率，同时可能把中游管道的运力提供给这些竞争对手。他认为，在AI基础设施的各层级中，Crusoe与同业合作的途径远多于竞争的场合。</p>
+<h4>（三）开放与封闭模型的token量与收入分布</h4>
+<p>据Lochmiller观察，开放与封闭模型的分布呈现两个特点：一是从支出看，用户在封闭的前沿模型上花的钱多于开放模型；二是从用量看，用户在开放模型上生成的token多于封闭模型。</p>
+<p>他认为开放模型将十分重要，理由有两点：一是数据主权，企业希望拥有自己的模型与智能；二是尚未利用的私有数据规模很大，纳入后可带来明显的性能提升。对于企业自有模型是否会侵蚀前沿模型业务，他认为存在这种可能，但前沿模型的需求将始终存在。私有数据既可以与封闭的前沿模型结合，也可以用于企业自有的开放模型，未来将是多种方式并存，不会由单一路径主导。他举例称，Cognition用自有数据对模型做后训练，Harvey在法律领域可能采取类似做法，前沿实验室也在做同样的事情。</p>
+<h4>（四）托管推理五年后的形态</h4>
+<p>关于托管推理市场五年后的形态，Lochmiller认为核心是为企业提供获取智能的简便途径。一是所获取的可以是企业自己的智能，即托管针对特定用例、以企业私有数据做过后训练的定制模型。二是托管推理把基础设施的复杂性屏蔽在服务之后，包括跨大量GPU、数据存储库和多个模型的管理，以及查询如何路由、调用哪个模型。</p>
+<p>总的看，Lochmiller认为，能源成为智能层扩张的瓶颈印证了Crusoe创立时的能源优先思路；数据中心对所在社区是有益的资产，应当得到认可。他表示，过去12个月自己改变的一项看法是，多数护城河是幻象，在模型能力加速进步的阶段大多难以持久，竞争力更多取决于快速行动并高效适应不断变化的局面。关于上市，他表示无法确定能否在2028年底前完成，业务需要大量资本，公司长期看可能更适合处于公开市场，时点有待确定。据其介绍，Crusoe把“像登山者一样思考”列为核心价值观，强调多套预案、耐力与安全文化；公司员工已接近2000人。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
