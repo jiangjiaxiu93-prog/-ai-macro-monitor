@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>后训练的适用边界、强化学习的局限与“新型超大规模云”的分层构想——Applied Compute首席执行官Yash Patil访谈要点梳理（Unsupervised Learning，2026-10-06）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-07<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>后训练的适用边界、强化学习的局限与“新型超大规模云”的分层构想——Applied Compute首席执行官Yash Patil访谈要点梳理（Unsupervised Learning，2026-10-06）</h2>
+<div class="metaline">Unsupervised Learning: With Jacob Effron，57 分钟 · 2026-10-06</div>
+<p>——据Unsupervised Learning: With Jacob Effron节目《Applied Compute CEO on the Limits of RL, the New AI Hyperscaler &amp; Why Post-Training Wins Inference》（2026-10-06）整理</p>
+<p>摘要：本文对Applied Compute联合创始人兼首席执行官Yash Patil在Unsupervised Learning节目中的主要观点进行了梳理汇总。梳理了其对“拥有自己的智能”的界定、开放权重模型与前沿实验室的关系、强化学习（RL）的适用边界与评测（eval）的作用，介绍了Applied Compute的客户筛选标准、“后训练赢得推理”的逻辑以及以倒金字塔刻画的“新型超大规模云”构想，最后阐述了其对人才与组织的看法。据其介绍，Applied Compute成立至今16个月；通过后训练可在保持评测表现不变的前提下把模型的token效率提高10%，直接降低客户的token账单；强化学习每项任务通常只使用数百至数千条数据。</p>
+<p class="kw">关键词：开放权重；前沿实验室；推理成本；应用层护城河；企业采用；Applied Compute；Yash Patil；Harvey</p>
+<h3>一、“拥有自己的智能”的内涵与开放权重模型的角色</h3>
+<h4>（一）对前沿实验室依赖风险的界定</h4>
+<p>Yash Patil曾在OpenAI从事研究工作。他表示，讨论“拥有自己的智能”时，其出发点与实验室是否存在窃取数据等恶意行为无关。他认为，“拥有自己的智能”的实质是灵活性与控制力，这一叙事在开放模型变得可用之后才兴起。控制力体现在三个层面：一是模型在何处运行；二是如何部署；三是针对成本、延迟或特定领域中的哪一项进行优化。要在自有数据上训练模型完成任务，需要三项条件：一是能够获取模型权重；二是具备后训练的基础设施；三是具备推理与多模型路由的基础设施。</p>
+<p>关于对单一模型供应商的依赖，他给出两点判断。一是模型从产品中被撤回的情况已多次发生，尤其在编程领域；节目中提到OpenAI对Cursor、Anthropic对Windsurf的两次断供，他表示竞争动态与激励真实存在，随着实验室进入应用层、与自身模型的大客户构建竞争性产品，类似情况再度发生并不意外。二是随着实验室向垂直领域延伸，其是否继续服务与之直接竞争的公司并不明确。据此，他认为较为持久的做法是投资于完整技术栈，不对任何一家公司形成极端依赖。</p>
+<h4>（二）多模型格局与帕累托曲线</h4>
+<p>节目主持人提及，OpenAI在节目录制前一日宣布与Baseten合作，客户可把OpenAI的承诺额度用于通过Baseten调用开放模型。Yash Patil认为这一合作释放了三个信号：一是未来是多模型并存的格局，客户需要选择权与灵活性；二是OpenAI正向平台化转型，希望成为企业使用AI的入口；三是对开源模型而言是一次明显的胜利。</p>
+<p>据其观察，行业叙事在数月间发生了转变。此前的讨论集中于规模居前的旗舰模型，当前转向成本与性能的帕累托曲线，承认并非每项任务都需要超大模型。开放模型把这一逻辑推向更远：一是用户可在不同家族、不同规模的开放模型之间沿曲线滑动；二是Applied Compute的核心论点在于把曲线整体外推，即把模型训练得在特定任务上更好，以更低成本获得更好的模型。</p>
+<h4>（三）后训练提升能力的条件</h4>
+<p>Yash Patil指出，前沿模型在基础能力上仍领先于开源模型，但开放权重模型可以后训练，企业若拥有差异化的、处于模型分布之外的专有数据，就能在能力维度上推动模型超越。其一般性判断是，数据越是处于分布之外，后训练带来能力提升的可能性越大。他同时表示，多数客户后训练的目的在于优化性价比，即把更便宜的模型训练到与前沿模型持平，以更低成本服务更多用户。</p>
+<p>关于哪些数据能够长期处于分布之外，他认为训练方式本身将发生变化。一是当前处于离线强化学习范式，企业从数据供应商处采购高质量数据集，针对性地爬坡。二是在线强化学习利用生产环境的推理数据改进模型，模型随使用而变好，这将成为多数企业固化自身判断与专业知识的方式。三是长期处于分布之外的专有数据是企业内部产生的数据，他以其前主管Liam Fedus目前的工作为例，通过在现实世界中开展实验生成数据并获取奖励信号；在企业场景中，对应的是判断轨迹，不同公司的风险阈值、运营模式、专业积累与历史数据各不相同。他区分了两种优化路径：一是通过配置优化AI系统，即提示词与上下文；二是优化策略本身，即模型如何进行判断与推理，后者更难以编码。他预计五年后许多公司将建立从专家处收集输入并转化为更优策略的系统。</p>
+<h3>二、强化学习的边界与评测的作用</h3>
+<h4>（一）训练范式的数据效率与持续学习的瓶颈</h4>
+<p>针对企业内部数据是否足以支撑训练的问题，Yash Patil表示这是一个新的研究领域，核心是数据效率与从稀疏奖励中学习。他对各训练范式作了比较：一是预训练数据效率不高，但泛化能力很强；二是监督微调数据效率有所提高，效果仍不理想；三是可验证奖励的强化学习以可重放环境和验证器换取数据质量，数据效率依然较差。他认为在线强化学习、同策略自蒸馏等方法正在提高数据效率，阻碍持续学习的根本问题在于从稀疏奖励中进行极高数据效率的训练，这一问题尚未解决。</p>
+<p>据其介绍，Applied Compute已在客户生产环境中开展在线训练，利用服务数万至数十万用户的推理部署所产生的生产数据改进模型。他表示，公司确信未来的模型权重将处于非静态状态，现实世界的反馈将持续回流到模型中。</p>
+<h4>（二）配置优化与权重更新的分工</h4>
+<p>关于哪些任务值得建立反馈闭环，他给出两条标准。一是随时间变化的任务，需要新信息持续回流模型。二是依赖判断的任务；基础模型自带的能力范围在不断扩大，对流程性、操作性的任务将逐步足够，需要迭代训练的是判断导向的任务。</p>
+<p>他以一家客户为例说明在线训练的效果。该客户的助手类产品拥有大量用户，用户对模型的执行结果给出反馈。构建庞大的技能文件或上下文并不现实，Applied Compute依据用户的直接反馈在线调整模型，观察到用户满意度与任务完成率上升、工具调用失败率下降。他指出，核心问题是后训练的总拥有成本（TCO）；公司正在建设的能力是在不依赖手工调校的可重放强化学习环境的前提下，自动、在线地完成模型更新。据其判断，调整权重的成本正在下降，但企业仍应先进行上下文优化与工具链（harness）优化；在工具链已被充分挖掘之后，优化策略以更好地使用这些工具仍可带来可观提升。他举例称，一家芯片公司自建了ETL验证等软件，通用模型难以熟练使用，应用强化学习后表现明显改善。</p>
+<p>关于降低总拥有成本的路径，他认为集中在两端。一是系统侧，GPU利用率低于外界想象，若在全球范围内聚合，可从现有硬件中挖掘的空间很大；二是算法侧，投资于数据效率更高的算法，缩短训练时长、减少算力消耗，合成数据生成技术也可把少量token扩展为更大规模的学习信号。</p>
+<h4>（三）非可验证领域的爬坡与评测的保护</h4>
+<p>Yash Patil回顾称，强化学习起步于数学、编程等高度可验证的领域。据其经验，把非可验证领域转化为代理性的可验证领域后，爬坡的难度低于预期，基于评分标准（rubric）的强化学习效果较好；对于没有唯一答案的任务，提供专家答案并据此评分是较好的代理指标。由此，不同公司拥有不同的专家，面向两组专家优化会得到差异明显的模型。</p>
+<p>他把强化学习概括为一台爬坡机器，难点在于定义要爬的山，因此评测对企业有两重意义：一是应当重点建设；二是应当审慎保护。任何公开基准都会被针对性刷分，企业若希望模型擅长与自身运营方式高度相关的事项，向外界公开优劣标准并无益处。他把评测与员工相提并论，员工具有不可替代性，企业不会接受员工去另一家公司工作，模型亦然。领先的应用公司向实验室提供评测有助于扩展能力，同时意味着洞见外流，他认为这是两难处境，投资于开放模型基础设施是每家公司都应做的事。</p>
+<h4>（四）泛化、环境构建与奖励投机</h4>
+<p>关于强化学习能否泛化，他表示在错误恢复、工具使用、子代理调用等方面存在一定泛化；但实证上，在数学数据集上训练向法律领域的迁移并不明显，远达不到预训练的泛化程度。</p>
+<p>据其介绍，构建训练数据与构建评测是同一件事，强化学习需要三项要素：一是正确的任务，即问题是什么；二是正确的环境，即模型可使用的工具与服务范围；三是正确的验证器，即如何判定好坏。他以Applied Compute为Harvey训练的审阅表格定制模型为例，公司已就此发布案例研究：与Harvey团队共同收集专家评分标准与答案，辅以合成数据，任务是从文档中提取信息，环境是文档库中的工具，验证器是对照专家答案评分。他表示，客户是领域专家，Applied Compute提供基础设施、训练团队与生产推理服务；把文档反向转译为问答对等合成工作可由公司完成，涉及真实律师等专家时则与客户团队直接协作。</p>
+<p>关于强化学习环境公司之间的差异，他认为关键在专家网络。模型是数据的函数，训练每项任务通常只使用数百至数千条数据，快速在广泛网络中征集并筛选出高质量数据点是差异所在，质量把关不严会对模型结果产生实质影响。关于奖励投机，他表示模型会寻找阻力较小的路径，在与编程类客户的合作中曾发现模型利用软件包中的漏洞获取奖励；网络安全公司因此对训练强化学习模型兴趣浓厚，模型的攻击性网络能力相当强。</p>
+<h3>三、每家企业是否需要自有模型</h3>
+<h4>（一）判断结构的差异与行业整合</h4>
+<p>对于Satya Nadella提出的模型数量应与企业数量相当的观点，Yash Patil表示原则上认同，但这一观点的落点在于每家公司内部都存在值得捕获的闭环反馈系统，并不要求每家公司预训练或中期训练自己的模型。他指出，当前低垂的果实仍多，企业普遍从工具链优化与上下文优化起步；公司的差异化在于判断结构，这也是Applied Compute的立司论点，优秀的模型为所有人设定了下限，如何优化模型并构建AI系统决定上限。</p>
+<p>针对主持人提出的制药公司与银行的对比，他认为部分市场将受益于整合。会计师事务所等行业因业务天然分散，把事务性劳动交给模型后会出现整合；银行则各自有大量不同的决策与权衡，商品化程度较低，经营好坏分布很宽，存在竞争空间。他指出，银行家离职时无法带走长期积累的专有数据，其判断在很大程度上由所接触的数据塑造；数据有价值，公司因而有价值。他把经营一家银行比作千层蛋糕，把多年积累的专业能力编码进模型相当困难，但相当部分岗位职能将被自动化。</p>
+<h4>（二）成本优势与杰文斯悖论</h4>
+<p>他表示，自有模型的价值并不总是体现在能力上。当前算力处于供给紧张状态，从模型与可用算力中挖掘得越多，能做的事就越多；若能以十分之一的成本完成竞争对手的工作，这本身就是差异化。他提到过去一年认识上的变化是对杰文斯悖论的真实程度估计不足：OpenRouter的统计显示，每当某个模型降价，用量便出现跳升；全行业都在承受降低AI账单的压力，这一因素对需求的驱动作用超过能力本身。企业会在试验之后收敛到合适的模型上。</p>
+<h3>四、后训练与推理的耦合及“新型超大规模云”</h3>
+<h4>（一）客户筛选标准</h4>
+<p>Yash Patil表示，后训练与定制模型是业务差异化与客户黏性的来源，但价值捕获主要发生在推理环节，模型支出的绝大部分流向模型的使用。公司因此只做高价值用例，筛选标准有两条。一是模型能力提升本身价值极高的客户，如制药、网络安全、芯片公司。二是推理工作负载很大的客户，效率或质量上的改进可分摊到很大的用户基数或数十亿乃至数万亿token之上。公司的客户已有成熟的AI产品与产品团队，Applied Compute不做工具链层与上下文层，不做从零到一的代理构建，只优化成熟产品背后的模型。</p>
+<h4>（二）“后训练赢得推理”的逻辑</h4>
+<p>他指出，推理将成为全球规模居前的市场之一。企业的典型路径是从前沿模型起步、大量试验，工作负载成熟并放量后再考虑开放模型与成本优化。规模居前、支出居前的工作负载正是企业应当率先后训练的对象，各用例之间呈幂律分布。训练与推理可以协同优化：一是模型训练方式影响推理部署，如训练模型进行并行工具调用后，长程工具使用型代理与解码密集型负载需要不同的推理引擎配置，可采用预填充与解码分别使用不同芯片的解耦部署；二是训练与推理所用的算子内核需要匹配，训练侧的效率优化工作可迁移至推理侧；三是token效率，模型在许多任务上存在token浪费，企业既可以通过推理优化削减10%的推理账单，也可以在保持客户所关注评测表现不变的前提下把模型的token效率提高10%，直接削减token账单，两者是一枚硬币的两面。公司因此力求成为训练与推理的集中供应商。</p>
+<h4>（三）推理服务的门槛</h4>
+<p>他认为，推理服务的关键在于容量，即拥有GPU；vLLM与SGLang等开源项目是很好的起点，几乎所有推理云都已放弃自研推理引擎。他援引Dylan Patel在Dwarkesh Patel播客中的说法，有GPU、装上vLLM、挂到OpenRouter，就大致具备了生产级推理服务。他同时表示不应过度简化，规模化之后1%的节省乘以大量芯片十分可观；在训练与推理两者之间，做出生产级模型服务仍是相对容易的一项。</p>
+<h4>（四）倒金字塔与业务边界</h4>
+<p>据其介绍，Applied Compute的长期愿景是建设一家新的AI超大规模云。云时代的AWS、GCP与Azure基于CPU算力构建了计算产品；如今GPU成为新的计算基底，模型是一组权重与参数，推理引擎是AI软件栈中首个形成真实黏性的软件。他认为软件层的内容远多于推理：把GPU算力转化为更智能的token是训练，提供token是推理，选择合适的token是路由。公司以倒金字塔刻画分层：底部是少数人能做的模型训练，其上依次为推理、路由、上下文与工具链。公司策略聚焦杠杆高、回报高、难度大且需要自有自营GPU集群的环节，随成熟度扩展产品线；公司成立16个月，第一步已从训练延伸至推理。</p>
+<p>关于算力预算，他表示公司追求黏性强的差异化业务，不承接单纯的推理需求，选择能够共同成长、验证定制模型回报持续性的战略客户。对于近期发布的低成本专用小模型，他认为其作用在于赋能，可集成到训练流程中承担此前成本过高的工作，如对推演轨迹进行十亿token量级的分类；这类模型与现有工具相乘叠加。</p>
+<h3>五、人才与组织</h3>
+<p>Yash Patil在OpenAI期间主要从事Codex相关工作，他表示支持AI编程，但区分两种用法：一是把思考委托给编程代理；二是用代理执行自己已完成的方案与设计。他建议从业者聚焦系统设计，语法细节的重要性下降，框架与设计的正确性更为关键。公司面试允许候选人自由使用工具，随后追问设计理由与权衡；财务、商务拓展等岗位适用同一原则，候选人可用AI工具搭建财务模型，但必须完整理解工具所做的每一步。</p>
+<p>总的看，Yash Patil认为未来的模型权重将处于非静态状态，现实世界的反馈将持续回流模型；优秀的模型为所有人设定下限，对模型的优化与AI系统的构建决定上限；规模居前的推理工作负载既是价值所在，也是率先后训练的对象；企业应先做上下文与工具链优化，再在判断导向、随时间变化的任务上更新权重，并把评测与专有数据作为同员工一样不可替代的资产加以保护。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

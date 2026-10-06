@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI数据中心的专用化取舍、goodput考核与能源约束——谷歌AI基础设施负责人Amin Vahdat访谈要点梳理（Sequoia Capital Training Data，2026-10-06）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-07<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>AI数据中心的专用化取舍、goodput考核与能源约束——谷歌AI基础设施负责人Amin Vahdat访谈要点梳理（Sequoia Capital Training Data，2026-10-06）</h2>
+<div class="metaline">Sequoia Capital Training Data，64 分钟 · 2026-10-06</div>
+<p>——据Sequoia Capital Training Data节目《Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI》（2026-10-06）整理</p>
+<p>摘要：本文对谷歌AI基础设施负责人Amin Vahdat在Sequoia Capital Training Data节目中的主要观点进行了梳理汇总。梳理了AI数据中心的专用化特征、以goodput替代FLOPS的考核口径及token产能每半年翻倍的增益来源，介绍了TPU项目的演进、第八代分拆为8i与8t的决策逻辑、与DeepMind的协同设计机制、长程代理对数据中心形态的影响及光电路交换技术，最后阐述了其关于能源约束、电网合作模式、训练与推理集群布局、TPU使用寿命及远期机架形态的判断。据节目介绍，谷歌今年资本开支预计超过2000亿美元，多数投向数据中心建设；据Vahdat介绍，在10万颗加速器的规模下，系统每天乃至每小时都会发生多次故障；TPU的折旧期约为6年，7年前的TPU仍处于满负荷使用状态；一个TPU 8t pod可容纳9600颗芯片，对应140或152个机架。</p>
+<p class="kw">关键词：AI资本开支；token需求；推理成本；算力采购；谷歌；TPU；Amin Vahdat</p>
+<h3>一、AI数据中心的形态与考核口径</h3>
+<h4>（一）AI数据中心与传统数据中心的差异</h4>
+<p>Vahdat表示，AI数据中心与传统数据中心在很大程度上相同，同样由混凝土外壳、电气与机械平台、冷却系统、供配电、网络与存储设施组成，主要差异在于专用化程度。一是规划期限不同。传统数据中心是面向20至30年的建筑投资，设备寿命可能仅6年，因此须为多代设备预留通用空间；AI数据中心常常与安装其中的设备一并设计，用途更为专一。二是功率密度不同。据其介绍，一个存储机架耗电10至40千瓦，一个TPU或GPU机架目前轻易达到数百千瓦，未来几年可能达到兆瓦级，一排容纳30个存储机架与一排容纳一两个AI机架的建筑在尺寸与供配电上完全不同。三是网络需求不同。存储机架尤其是硬盘机架所需的网络资源很少，AI机架则需要大量网络资源。他指出，若按30年通用标准设计，建筑会过大且配置过剩，AI数据中心因此走向围绕硬件设计、从冷却到配电均做协同优化的专用化路线。</p>
+<h4>（二）以goodput替代FLOPS的考核口径</h4>
+<p>Vahdat认为，FLOPS及其他以芯片为中心的指标都是理论峰值，真正值得关注的是工作负载实际获得的性能，后者很少由单颗芯片决定，取决于两颗至一万颗以上的芯片如何互连，以及为其供数的CPU和连接全部部件的网络。谷歌内部使用的考核指标是goodput，即有效性能，其内涵有三层。一是算力利用率，即理论算力中实际使用的比例。二是负载自身的固有减速。三是可靠性。据其介绍，训练、服务与代理任务多为同步负载，1000至10万个部件须以微秒或毫秒级精度协同，任一部件失效都可能令整个系统停摆，随后需要定位故障、找到检查点并恢复重启，极端情况下须从头再来，这些重算与等待均无助于得到答案。他以分步解题作比，因出错而回到第一步仍算在做功，这是吞吐量，解题所用的总时间才是goodput。goodput为谷歌自创的术语，业内采用者正在增加。</p>
+<h4>（三）故障频率与成因</h4>
+<p>据Vahdat介绍，在10万颗加速器的规模下，故障肯定每天多次发生，视配置不同可能每小时多次发生。一是芯片本身处于制造能力的极限，封装内往往含有多颗chiplet，另有HBM、网络连接乃至光学器件，可出问题的环节很多。二是故障成因并无单一主因，否则早已找到并修复；每次推出新产品都会出现未曾预料的问题，可能与网络、硬件有关，也有很多与软件有关，编译器、运行时、模型或操作系统的缺陷同样会拉低整个系统的性能。三是应对方式是近实时检测与恢复，遥测的难度相当于在数秒直至数周的时间里持续大海捞针。关于参考架构，他表示英伟达与TPU均提供参考栈，多数客户采用并针对自身用例做专门优化。</p>
+<h3>二、算力产能的增长目标与来源</h3>
+<p>Vahdat表示，他要求团队把从服务角度衡量的有效可用产能，即生成token的能力，每6个月翻一倍。这一目标并不要求FLOPS每6个月翻倍，相当大一部分甚至更多的增益来自软件，包括模型优化与运行时优化，实际上是数十项乃至数百项单独优化反复叠加的结果。</p>
+<p>关于每瓦智能的增益分解，他表示没有精确拆分，但据其经验，多数增益来自模型改进，软件贡献相当显著，原因在于二者决定了既有设备能否被高效使用；硬件年度性能提升2倍以上是可能的，相当于一个每年抬升上层各方的乘数。</p>
+<h3>三、TPU的专用化取舍与协同设计</h3>
+<h4>（一）TPU项目的起源与演进</h4>
+<p>据Vahdat介绍，TPU项目始于2013年，当时属于非常规决策。按彼时的主流看法，摩尔定律使性能每18至24个月翻倍，通用处理器配合标准编程模型即可，不应为单一负载建造专用加速器，所谓“芯片的苦涩教训”即专用化从不获胜。谷歌当时的判断是，有一个或少数几个应用将从专用化中获益极大，若用通用处理器支撑则需要数量惊人的芯片，公司内部也有不少人对此并无把握。此后项目的演进体现为适用范围不断扩大：第一代芯片完全面向推理，主要用于机器翻译与语音识别；第二代把同一思路用于训练；第二代推出前后Transformer问世，彻底改变了TPU项目；随后推荐系统被证明在TPU上运行良好；生成式AI到来后又扩展至更大规模的系统。</p>
+<h4>（二）8i与8t分拆的决策逻辑</h4>
+<p>Vahdat表示，专用化程度的取舍每一代都要重新考虑，核心是芯片对特定负载的适用性。两年多以前面临的问题是2026年用一款芯片兼顾推理与训练，还是分成两款，分析的结果是今年推出两款芯片，8i面向推理，8t面向训练。其决策逻辑有三点。一是负载规模。到2026年推理与服务明显起量，一款服务速度显著更快、在生命周期内可能占到市场30%至60%的芯片值得单独立项；若推理仅占市场2%至5%，即便专用芯片快一倍也未必划算，此时应选择一款未完全优化但具备一致性的通用芯片。二是负载的持续性。专用化程度越高，硬件越不灵活但速度更快、能效更高，因此需要预测负载在3至4年后的规模及增长是否可持续，若负载在一至三个月内消失，专用化就没有时间窗口。三是固定成本。支撑一个新芯片项目的固定成本很高，须确认需求足以覆盖。他同时指出，8i与8t可以互相承担对方的负载，这一点至关重要：若两款芯片完全不能互换，谷歌就必须提前6年即整个设备寿命预测各需多少；两款芯片各在所长领域更优，有富余产能时又能互换，专用化若过度收窄则会失去这种互换性。</p>
+<p>对于是否应把Transformer架构直接做进芯片，他表示Transformer归结为向量与矩阵乘法、softmax等线性代数原语，这些已大体内置于硬件；下一层专用化是针对具体模型的层数、层间交互与矩阵形状做设计，已有若干公司在考虑这一方向。关于TPU与GPU的分工，他表示GPU通用性更强，谷歌云销售大量GPU、内部也使用GPU，客户根据各自负载评估两者，谷歌的做法是提供选择。</p>
+<h4>（三）协同设计的利弊与同DeepMind的协作机制</h4>
+<p>Vahdat指出，协同设计的对立面是抽象层方案：系统可运行于任何硬件、软件与网络拓扑，新产能一到即可连夜上线，代价是损失大量性能。追求完全通用会在各层之间留下不匹配，协同设计可在每一层取得10%、20%乃至翻倍的增益，逐层相乘后在每瓦智能或每瓦吞吐上形成端到端的显著优势。</p>
+<p>据其介绍，谷歌与DeepMind的协作有三个层面。一是对在产芯片，双方共同把每瓦智能或吞吐推到上限。二是对即将流片的芯片，双方可以介入并直接修改芯片架构。典型情形是DeepMind提出一项模型优化并希望获得硬件支持，工程师与研究员在同一房间讨论数天至两周，结论可能是硬件无法完全照办但可提供另一种支持，模型架构据此调整后可获得所求收益的90%，也可能是把流片推迟一到两周。三是对设计与概念阶段的芯片，双方共同评估多种架构，询问DeepMind对两三年后模型架构走向的判断，并借助模拟基础设施预测负载在不同硬件架构上的映射。他表示，谷歌在任一时点都有在产、返厂调试、即将流片、设计与概念五六个阶段的芯片处于流水线中，硬件规划提前2至5年，第九、第十代已处于概念到执行阶段；两个团队在同一栋楼、常在同一房间，他与DeepMind负责人每周沟通数次；谷歌已在用Gemini设计未来Gemini所用的硬件。研究人员知道硬件以多年周期运转，对于只能带来0.5%至1%增益的小改动不会提出，确有重大机会时双方必定合作。</p>
+<h4>（四）TPU架构的稳定性与开放标准</h4>
+<p>Vahdat表示，TPU架构在中等粒度上自第一代以来基本未变，类似处理器指令集。其基本原语有五六项，包括面向超大矩阵块乘法的数值计算、处理向量运算的稀疏核、scatter-gather操作，以及通过ICI网络读写远端内存的远程加载与存储，这些原语经扩展后支撑了多代模型与算法。</p>
+<p>关于开放标准，他表示谷歌支持垂直整合，同时不设限制、不建封闭生态。谷歌开发了JAX框架并在内部广泛使用，许多客户偏好PyTorch，谷歌因此提供torch TPU使未经修改的模型可以运行。他以互联网协议为例，IP胜出的原因是开放标准形成了沙漏式接口，任何软件可运行其上、任何硬件可接入其下，由此支撑了互联网的爆发式增长。他认为AI基础设施规模过大，不应成为某一方的封闭专有标准，谷歌因此同时支持TPU、GPU与其他加速器。</p>
+<h3>四、负载形态变化与网络架构</h3>
+<h4>（一）长程代理对数据中心形态的影响</h4>
+<p>Vahdat认为，长程代理的兴起带来两方面变化。一是查询节奏失去人为约束。人与模型交互时需要阅读与思考，每轮间隔数秒至数十秒；代理拿到回复后解析并决定下一步，间隔缩短至毫秒级。二是编排负担转移至CPU。代理在下一次调用模型前需从本地DRAM、其他处理器的DRAM或SSD、硬盘中收集上下文，由此对加速器算力的需求在上升，对CPU、网络与存储等传统数据中心资源的需求同样大幅上升。</p>
+<p>关于CPU的部署位置，他表示有两种选择。一是把CPU机架放在TPU或GPU机架旁边，代价是无法针对TPU机架更高的密度与网络需求做充分适配。二是按设备类型分楼部署，代价是楼宇间网络的复杂度、可靠性要求与成本上升，时延进入数百微秒区间并可能因排队进一步增加。</p>
+<h4>（二）光电路交换</h4>
+<p>据Vahdat介绍，谷歌在15至16年前较早在数据中心内部署波分复用，用单根光纤传输多路信号，并用于全部机架间通信；同期引入光电路交换。电分组交换需在电域读取包头并逐包查表转发；光电路交换不在电域触碰比特，只为每个输入端口指定输出端口，初期采用MEMS微镜，一个128或256端口的模块可通过程序设定映射并旋转微镜，使光直接反射至目标端口。该技术初期有两项用途，一是在相互通信密集的机架群之间建立纯光学的快速通路，二是无须移动光纤即可通过控制器扩展或收缩网络骨干。用于TPU时，TPU采用环面拓扑直接互连，谷歌始终保留一个备用机架，某一机架失效后可在毫秒级把光重定向至新机架。对于为何仍用光纤，他表示自由空间传输的衰减与带宽损失明显，在大型建筑尺度上难以实现三维布线。</p>
+<h3>五、能源约束、选址与资产生命周期</h3>
+<h4>（一）能源约束与电网合作模式</h4>
+<p>Vahdat表示，不存在单一的瓶颈约束，各项约束都很复杂且不断变化，但能源是根本性约束，其他问题都已知道如何解决、区别只在耗时长短；核能或许能提供可负担的清洁能源，何时实现工业规模尚无答案。</p>
+<p>据其介绍，谷歌的首选模式是始终接入公共电网，提前多年与电力公司共同规划，并承担输电线路与变电站等新建或改造成本，避免因谷歌扩容而推高其他用户的电价。若谷歌2028年需要1吉瓦而电力公司只能在2029年供给，或2028年只能提供700兆瓦，剩余300兆瓦的处理有三种方式：一是等待；二是自行发电，如光伏配储能或其他电源；三是保留部分现场发电并在电网接入后反向送电，例如在每年居民用电高峰的两周向电网供电。他指出，不选择垂直整合的原因在于统计复用。若自建1吉瓦并保证99.99%以上的可靠性，需要建设2吉瓦容量作1+1冗余，成本高昂，就近获得清洁电源同样困难；与电网协作则各方受益。极少数情况下谷歌会采用表后供电，即便如此也假定约一年后接入电网。</p>
+<h4>（二）数据中心规模与训练、推理集群布局</h4>
+<p>关于单体规模，Vahdat表示这属于艺术并存在争论。10至15年前谷歌曾讨论把全部算力放进一个1吉瓦的数据中心，在30年视角下单点故障是很大的问题；现代训练负载倾向于集中部署以缩短网络距离，受限于单点故障与能源可用性，目前全球没有任何一处能满足谷歌的全部需求。实际规模取决于条件，电网边缘或某些国家的需求以数十兆瓦计，训练集群接近1吉瓦，其他站点为数百兆瓦。</p>
+<p>关于训练集群转作推理的做法，他认为逻辑成立但不完整。一是推理需求之大使谷歌无法仅依赖旧训练集群。二是训练集群在特定年份集中于少数大型站点，往往位于同一大陆甚至同一区域，其他大陆的服务产能因此不足，须另建专门的推理基础设施。推理集群每兆瓦未必更便宜，原因是需要同址配置更多CPU、网络与存储；训练部署高密度且同质，推理部署则是存储、CPU与加速器的组合，且须分布于全球各地并考虑模型端点与模型变体的本地性，因此规模更小、垂直整合程度更低。</p>
+<h4>（三）TPU使用寿命与系统更替</h4>
+<p>Vahdat表示，他此前提及7年前的TPU仍处于满负荷使用状态，外界反响超出其预期。谷歌的旧TPU确实保持显著使用，但也会更换。一是折旧期约为6年，折旧完毕后考虑到新一代的能效，更换升级是合理的。二是更换以pod为单位进行，一个TPU 8t pod可有9600颗芯片，对应140或152个机架，退役后由未来第十二、十三或十四代的pod替换。三是新pod的尺寸未必与旧pod腾出的空间吻合，因无法预知未来TPU的形态而难以预先规划，尽快完成退役与更替是一项艰苦的工作。</p>
+<h3>六、AI对团队工作的改变与远期展望</h3>
+<h4>（一）AI在软硬件设计中的应用</h4>
+<p>据Vahdat介绍，AI对其团队的改变有三方面。一是软件开发、测试、上线与设计已广泛使用AI。二是硬件工程师使用AI的强度按token用量计与软件工程师相当，从设计启动到产品发布及调试上线的时间均在缩短。三是评估建设1吉瓦单体建筑还是100兆瓦或200兆瓦园区，此前是表格化的人工流程，如今AI参与规划优化，为决策者汇聚信息。</p>
+<h4>（二）轨道数据中心</h4>
+<p>关于轨道数据中心，Vahdat表示谷歌正认真投入。一是能源条件更优，太空中因无大气吸收可获得约1.4倍的太阳能，太阳同步轨道的光照覆盖率为98%至100%，地面为28%至35%，每日光照时长相当于地面的3至4倍，两项相乘后能源供给大幅增加，且可省去电池并实现零碳。二是挑战同样明显，太空冷却更难，故障修复更难，部件之间需以激光对准接收器并实时校准的自由空间光通信连接。他认为其中没有根本性障碍。</p>
+<h4>（三）2036年的机架形态</h4>
+<p>关于10年后的超级计算机，Vahdat表示不确定性很大，但从趋势看集成度将大幅提高。一是机架更紧凑，光纤用量减少，可能只有一小束光纤引出。二是机架集中制造，单机架容纳72、144、288乃至576或1152颗GPU或TPU。三是单机架功耗可能达到数兆瓦，部署时只需接入水、电与光纤。</p>
+<p>总的看，Vahdat认为当前资本建设的规模与变革的速度此前未曾出现，能源是其中的根本性约束，专用化与协同设计是在约束下提升每瓦智能的主要途径；谷歌的路线是围绕可预测且持久的负载做专用化、保持芯片的互换性、通过开放标准与多种加速器并存为客户提供选择，并以goodput作为考核指标。他表示，身处这一时期的人有机会定义这个时代。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
