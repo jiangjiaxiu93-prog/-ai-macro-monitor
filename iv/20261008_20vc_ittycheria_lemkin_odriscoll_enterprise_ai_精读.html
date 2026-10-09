@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>OpenAI与Anthropic的收入竞争、企业模型选择与代理时代的应用层格局——MongoDB首席执行官Dev Ittycheria、SaaStr创始人Jason Lemkin、Scale Venture Partners普通合伙人Rory O'Driscoll对谈要点梳理（20VC，2026-10-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-10<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>OpenAI与Anthropic的收入竞争、企业模型选择与代理时代的应用层格局——MongoDB首席执行官Dev Ittycheria、SaaStr创始人Jason Lemkin、Scale Venture Partners普通合伙人Rory O'Driscoll对谈要点梳理（20VC，2026-10-08）</h2>
+<div class="metaline">20VC with Harry Stebbings，75 分钟 · 2026-10-08</div>
+<p>——据20VC节目《Cognition vs Factory | Anthropic Under Threat | ElevenLabs Doubles Its Valuation to $22B》（2026-10-08）整理</p>
+<p>摘要：本文对20VC节目主持人Harry Stebbings与MongoDB首席执行官Dev Ittycheria、SaaStr创始人Jason Lemkin、Scale Venture Partners普通合伙人Rory O'Driscoll对谈的主要观点进行了梳理汇总。梳理了OpenAI收入重新加速及其与Anthropic的竞争态势，其中OpenAI年化收入接近700亿美元，并以1.4万亿美元估值融资300亿美元，介绍了企业选择模型的考量、美国开放权重模型的机会与企业AI的潜在需求，以及ElevenLabs估值翻倍至220亿美元、Salesforce以20亿美元收购Listen Labs引出的“功能还是平台型公司”之辨与早期退出抉择，最后阐述了Vercel年化收入达6亿美元、代理带来半数新业务所反映的代理推荐格局，以及人才流动、交易结构与上市环境等议题。</p>
+<p class="kw">关键词：前沿实验室；企业采用；开放权重；融资估值；分发渠道；OpenAI；Anthropic；Vercel</p>
+<h3>一、OpenAI与Anthropic的收入竞争与估值</h3>
+<p>据Stebbings介绍，OpenAI年化收入接近700亿美元，正以1.4万亿美元估值融资300亿美元，预计2027年才上市，Anthropic则预计于11月中旬上市。</p>
+<h4>（一）OpenAI收入重新加速</h4>
+<p>Lemkin认为，OpenAI已重回竞争前列，变化速度超出预期。一是年初许多企业级应用只能在Anthropic模型上跑通，编程场景同样如此。二是夏季OpenAI一度陷入被动，消费路线被认为方向有误。三是短短数月后OpenAI推出具有充分竞争力的模型，用户因其更好、更便宜而实际切换。</p>
+<p>O'Driscoll从季度数据作了梳理。一是第二季度增长明显放缓。据其介绍，OpenAI第一季度至第二季度GAAP收入环比增长18%，折合同比增速略低于100%，同期Anthropic仍保持约10倍增长；第二季度Anthropic的GAAP收入首次超过OpenAI，分别约为110亿美元和68亿美元。二是第三季度重新加速。若第三季度GAAP收入环比增长70%属实，即便只有60%，也意味着显著的再加速，将扭转此前的市场叙事。三是增长关乎履约能力。OpenAI已就算力、数据中心乃至弗吉尼亚州的土地作出大量远期采购承诺，若不能高速增长，诸多安排将难以为继。</p>
+<h4>（二）Anthropic第三季度数据与开发者忠诚度</h4>
+<p>Stebbings表示，其接触的团队几乎都已将相当部分用量由Anthropic转向Codex，并提出若Anthropic第三季度数据不及预期将如何。O'Driscoll认为下一步需观察两点。一是份额是否此消彼长，即OpenAI加速是否以Anthropic明显放缓为代价，抑或二者同步增长、整体市场空间扩大。二是Anthropic第三季度增速仍为10倍、降至5倍还是大幅放缓；按目前的时间安排，该数据在上市时将为市场所知。</p>
+<p>Ittycheria表示，根据MongoDB十余年面向开发者销售的经验，开发者忠诚度不高，一是乐于转向新工具，二是常同时使用多种工具，关键在于Anthropic下一步推出什么产品以及替代方案如何。</p>
+<h4>（三）万亿美元级私募融资与流动性取舍</h4>
+<p>O'Driscoll指出，这将是首轮估值超过1万亿美元的风险投资，与20世纪90年代中期首次出现估值超过10亿美元的融资相比，相差三个数量级。Stebbings设问，若在1.4万亿美元估值参与OpenAI本轮融资与在约2万亿美元估值参与Anthropic上市之间选择，应如何取舍。O'Driscoll表示边际上倾向流动性，理由有二。一是信息高度不确定时，持有流动性股票更为有利。二是投资私募股权须接受持有三至四年的风险，OpenAI上市时间难以确定。</p>
+<h3>二、企业模型选择、开放权重模型与AI实际用量</h3>
+<h4>（一）转换门槛与选模型的主要考量</h4>
+<p>Ittycheria认为，OpenAI证明了每周约10亿ChatGPT用户是重要的分发渠道，但护城河可能在企业业务，越深入企业越难切换。一是需要签订合同。二是需要培训数以千计的员工。三是需要搭建工作流程。讨论中指出，从这一角度看，OpenAI在企业端的快速增长更显可观。</p>
+<p>据Ittycheria介绍，其近期与MongoDB首席信息官讨论了token成本与token预算，企业选择模型与合作方主要有两方面考量。一是成本，没有企业拥有无限预算。二是知识产权，包括模型如何训练、数据归属以及数据的专有程度。讨论中还指出，企业对安全的重视程度高于成本，行业需要类似基准测试的机制衡量模型安全性，模型越安全，应用范围越广。</p>
+<h4>（二）美国开放权重模型的机会</h4>
+<p>围绕Reflection发布开放权重模型Beam，O'Driscoll认为，美国本土的开放权重模型处于颇具战略价值的位置，即便落后前沿6至12个月，只要质量接近前沿，市场前景良好。Ittycheria认为，企业可以兼得两方面好处。一是获得接近前沿水平的智能。二是成本效益约为前沿模型的3至4倍，对受监管行业与处理大量敏感信息的企业尤具吸引力。他指出，前沿智能并非每项工作负载所必需，若模型与前沿相差6个月以内、可覆盖九成用例，尤其是编程与代理等推理类用例，企业会立即接洽。</p>
+<p>Lemkin表示，其在今年Dreamforce大会上与大量企业高管交流，企业此前使用开放权重模型多出于成本压力，若Beam做得到位，需求可能大量涌现。他同时对公开评测持保留态度，认为关键在于真实工作流程尤其是关键任务流程中的表现。</p>
+<h4>（三）美国开放权重模型的token份额</h4>
+<p>Stebbings设问，随着Nemotron、Thinking Machines与Reflection等相继推出，12个月后开放权重模型的token中有多大比例流经美国模型。各方看法有所不同。一是Lemkin认为可能达到一半。他指出，更换模型比更换数据库容易，但仍需重新调校提示词、重做工作流程；主权属性与美国本土来源对企业较为重要，但他对能力是否真正对等存疑。二是讨论中指出，若企业绕开开放权重模型、直接转向前沿实验室，Fireworks、Baseten、Modal等推理服务商将受影响。三是O'Driscoll认为不会达到50%，但10%至20%已相当可观。据其介绍，OpenRouter上前沿基础模型约占20%至30%的token，却获得约90%的收入；使用美国开放权重模型的多为重视企业属性与安全的客户，这将是Reflection的重大成功，也将显著降低各推理服务商的风险。</p>
+<h4>（四）企业AI实际用量与潜在需求</h4>
+<p>O'Driscoll认为，此前企业未大规模转向低价模型，原因在于惰性以及账单尚不算高，多直接使用前沿模型或降级至OpenAI、Anthropic的低价档位。随着金额快速扩大，情况将发生变化。一是规模可观。若OpenAI与Anthropic年化收入各达700亿美元，合计1,400亿美元，超过微软长期以来从Windows与Office获取的收入，已是美国企业利润中不小的一块。二是成本压力传导。首席财务官将要求首席信息官削减数百万美元的token支出。三是模型分层使用。企业将前沿模型留给高难度任务，非前沿任务转用Reflection等模型。他认为，Anthropic能否在被逐步蚕食的情况下保持增速值得关注。</p>
+<p>Ittycheria认为，企业AI的能力与实际用量之间存在较大差距，市场空间巨大，并非零和博弈。一是企业内部缺乏有经验的专业人才。二是杰文斯悖论将发挥作用，随着成本下降，企业将更放心地把AI部署到更多用例。三是随着熟悉程度与规模提升，部署范围将持续扩大，MongoDB内部亦是如此。Lemkin表示，其在Dreamforce大会上接触的企业都面临远超预期的内部token需求，实际需求可能比已显现的需求高出一个数量级，这可能导致使用次优模型或出现浪费，但各方都必须加以管理。</p>
+<h3>三、应用层公司的估值、并购与退出抉择</h3>
+<h4>（一）ElevenLabs估值翻倍至220亿美元</h4>
+<p>在模拟投资委员会环节，Lemkin主张以220亿美元估值投资ElevenLabs，理由有四。一是在竞争激烈的情况下领先优势持续扩大。二是语音是代理类应用的十项关键基础之一。三是增速与利润率表现突出，收入有望接近10亿美元。四是团队出色，语音响应延迟极低。他倾向一轮投足、取得尽可能多的持股。</p>
+<p>Stebbings提及Lemkin此前曾称今年将是语音模型的“替代之年”、成本将驱动选择。Lemkin表示看法未变，ElevenLabs的情况有所不同。一是拥有多款模型，覆盖高低端市场。二是语音场景对质量要求更高，非关键流程可容忍推理能力上的些许不足，花店接听订单电话则必须准确无误。三是客户付费意愿强，规模不大的企业每年乐于支付数十万美元。他认为语音目前属于不可替代的用例，12个月后的情况难以预测。</p>
+<h4>（二）Salesforce收购Listen Labs与“功能还是平台型公司”</h4>
+<p>据Stebbings介绍，Salesforce以20亿美元收购成立仅3年的Listen Labs，此前其已获得15亿美元的收购要约；红杉资本领投种子轮与A轮，回报约25倍，Ribbit Capital领投B轮，8个月获得约4倍回报。</p>
+<p>O'Driscoll认为，这是一个清晰品类的良好结局。一是市场研究行业规模大、高度分散，技术化程度低，除咨询类公司外，上一代的Qualtrics、Medallia与SurveyMonkey市值均在百亿美元上下。二是这是一个已有大量支出的存量品类。三是大语言模型更胜任这项工作，市场研究本质是提问并汇总、归纳回答，语音交互已可解决，问题还可根据受访者回答动态调整，改变了上一代问卷的固定流程。他认为这在AI应用层用例中位居前列。</p>
+<p>Lemkin对这笔交易有所保留，认为Salesforce收入已接近500亿美元、目标为600亿美元，约2,000万美元收入的AI调研业务难以产生实质影响，收购要么是补强、要么须足够大，这笔交易可能数年后被淡忘。</p>
+<p>Ittycheria认为，此类交易将会增多，关键在于区分“伪装成公司的功能”与“平台型公司”。一是许多AI应用公司只是构建在他人平台上的巧妙产品，实质是功能，借助大公司的资金与分发渠道是合理选择。二是持久的公司会形成数据闭环，使用产生他人没有的数据，数据改进产品，产品吸引更多使用，竞争者可复制功能，却无法复制积累的交互。三是Listen Labs创始人判断该报价合理。</p>
+<h4>（三）早期退出的抉择</h4>
+<p>Stebbings提及，Intercom经过约15年才获得相近的估值。O'Driscoll认为，差异主要来自时机与周期，Intercom若在2018年至2019年SaaS繁荣期出售也能达到这一估值；他预计5年后或有一成AI应用公司以约30倍收入早早出售，其余则以约6倍收入的估值艰难经营，风险投资的结局具有随机性。讨论中还指出，创始人须冷静评估获得当前报价10倍以上回报的可能性以及个人因素。</p>
+<p>Lemkin从创业者角度提出三点看法。一是早期阶段尤为艰难，常面临资金耗尽与客户不足。二是创业以五年为一个周期，对团队消耗很大，若能在头5年以20亿美元出售，他会建议接受；据其介绍，今年其参与的一次相近价格的讨论中，所有风险投资人均反对出售。三是须诚实判断是否在打造具有代际意义的公司，若不是，合理报价的净现值很难被超越。</p>
+<p>Ittycheria认为，优秀公司总会收到收购要约，最终由创始人决定继续建设还是退出。据其介绍，BladeLogic在各阶段均有收购方接洽，其曾与思科首席执行官John Chambers面谈，EMC也曾参与；公司于2007年7月上市，一年后以约9亿美元出售给BMC，他对这一决定感到满意。</p>
+<h3>四、代理推荐与代理时代的赢家格局</h3>
+<h4>（一）Vercel代理带来的新业务占比由3%升至50%</h4>
+<p>据Stebbings介绍，Vercel年化收入达6亿美元，代理带来的新业务占比由年初的3%升至50%。Lemkin认为，一是AI与代理出现之前即具备合适基础设施与产品的公司受益明显，Vercel创始人Guillermo Rauch也未曾预料2026年多数业务将来自自行搭建应用的代理，Replit亦有类似特征。二是Vercel竞争者众多，但代理倾向选择Vercel；据其了解，Vercel在6亿美元规模上增速约170%，客户数增幅约20%，扩张收入十分可观。三是被代理选中将形成巨大推力。据其介绍，其每天以8至10小时使用21个代理进行开发，代理有自身偏好且难以说服。</p>
+<h4>（二）由搜索排名转向代理推荐</h4>
+<p>Ittycheria认为，过去25年企业营销围绕谷歌搜索首页排名展开、面向人类买家，如今须确保代理能够找到企业、理解其产品，并在代理读取的各类来源中获得及时准确的信息；在AI生成的答案中缺席，如同在谷歌搜索中隐形。他指出这一问题不限于科技行业，电商与零售企业若无法影响代理的购买决策，业务可能归零。他同时认为初创公司处境更为不利，代理掌握在位企业十余年积累的大量数据，容易选择在位者，初创公司须通过文档、API与基础设施等为代理提供一流体验。</p>
+<p>Lemkin以亲身经历说明代理推荐的作用。一是邮件服务。其首次由代理促成的采购是Resend，此前代理推荐的SendGrid因取消免费档等原因始终无法正常使用，改用Resend后问题解决；据其介绍，Resend的MCP调用次数由4月的10.6万次增至9月的300万次。二是托管服务。他在节目中现场询问一个应用的代理，后者将Render列为首选，其次为Railway与Fly.io，并认为Vercel不适合该场景。他指出，代理掌握用户的整个技术栈与应用情况，会给出具体推荐，有别于聊天机器人的通用回答。</p>
+<h4>（三）面向代理的营销工具</h4>
+<p>Stebbings提出，Profound、Peec等公司究竟是新一代Semrush式搜索引擎优化分析工具，还是更大的品类。各方看法有所不同。一是Ittycheria认为，若能帮助塑造和生成内容、形成闭环，将更具吸引力。二是Lemkin认为代理推荐与之有所不同，他建议投资组合公司找到10位有代理投入生产的可信人士，每两周询问其代理在某品类中的推荐，并认为这类产品尚不存在。三是O'Driscoll认为二者属同一市场，人类与代理都将借助大语言模型作出采购决策，相关公司会自然延伸至面向代理的可见度服务；HubSpot即由搜索引擎优化起步、逐步叠加相邻功能，这一市场的深度将超过后来趋于同质化的Semrush所在领域。</p>
+<h4>（四）Muse与Dots的市场反响</h4>
+<p>Stebbings认为Meta的Muse发布表现出色，OpenAI的Dots演示令人失望。O'Driscoll认同Meta全力推出并配置充足算力的做法。Lemkin认为，Dots的初衷是与Codex集成、作为24小时持续运行的编程代理，宜给予30至90天观察开发者的实际用法，即便偏向技术人群也有盈利空间。讨论中指出，同时兼顾开发者、企业与消费者难度很大，OpenAI长期面临这一挑战。</p>
+<h3>五、人才流动、交易结构与上市环境</h3>
+<h4>（一）编程代理赛道的人事争议</h4>
+<p>据Stebbings介绍，Snowflake前首席营收官Chris Degnan曾任编程代理公司Factory顾问，后出任竞争对手Cognition首席营收官，Factory创始人Matan Grinberg公开表示不满。各方看法有所不同。一是Ittycheria认为须区分顾问角色，掌握产品路线图、董事会与财务规划的顾问转投直接竞争对手性质不同，也会损害长期声誉。二是Lemkin认为AI时代忠诚度的定义已永久改变，前沿实验室人员频繁流动。三是O'Driscoll认为全职高管同样可能带着全部信息转投对手，双方对顾问角色的默契未经明确约定，顾问也不承担信义义务。讨论中还指出，以往离职高管至多带走两人的惯例已不复存在。</p>
+<p>据节目介绍，Khosla Ventures曾领投Factory最近一轮融资，其创始人Vinod Khosla却公开贬低Factory。讨论中指出，同时投资两家直接竞争公司的机构只能一视同仁、公开场合不作评论，此举为竞争机构提供了口实。</p>
+<h4>（二）授权加聘用式交易的法律风险</h4>
+<p>据节目介绍，Groq两名前工程师在特拉华州起诉，指控董事会通过约110亿美元授权费加约30亿美元股票，实质上将核心技术与约200名骨干员工出售给英伟达，留给普通股股东一家空壳公司。O'Driscoll认为，一是公司法要求同类股东同等对待，这类结构使收购方得以重新分配对价，案件可能以和解告终。二是这类结构源于并购审批耗时过长，属于规避监管的变通做法。Lemkin认为这类交易实质上就是并购，本已存在双重征税问题，若诉讼胜诉，这类交易可能消失。讨论中还指出，员工今后入职时须考虑技术与团队被收购而公司本体留存时自身股权的处置。</p>
+<h4>（三）Oura撤回上市</h4>
+<p>Lemkin认为，Oura收入约12亿美元、增速74%，撤回上市对风险投资是坏消息。Ittycheria推测原因可能在于价格未达承销商此前的预期，早期投资方Forerunner出售全部持股的观感也欠佳。O'Driscoll认为，承销商为争取业务往往给出乐观定价，实际询价低于预期时便形成不理想的结局。Stebbings认为应接受市场报价完成发行。</p>
+<p>总的看，三位嘉宾认为，OpenAI收入重新加速改变了此前Anthropic持续领先的叙事，Anthropic第三季度数据将是下一个关键观察点。Ittycheria认为，开发者忠诚度有限，合同、培训与工作流程构成企业转换门槛，企业AI能力与实际用量之间仍有较大空间，持久的应用层公司须形成数据闭环，代理推荐正成为企业被发现的关键。Lemkin认为，企业内部token需求远超预期，语音等对质量敏感的场景难以替代，被代理选中正成为增长的重要推力。O'Driscoll认为，随着token账单扩大，企业将分层使用模型，美国开放权重模型即便取得一至二成份额也意义重大，面向人类与代理的可见度服务将形成有深度的市场。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
