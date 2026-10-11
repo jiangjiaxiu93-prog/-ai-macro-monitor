@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI基础设施的建设规模、收入回收路径与英伟达对新云厂商的融资担保——SemiAnalysis创始人兼首席执行官Dylan Patel与技术团队成员Jordan Nanos访谈要点梳理（Big Technology Podcast，2026-10-09）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-11<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>AI基础设施的建设规模、收入回收路径与英伟达对新云厂商的融资担保——SemiAnalysis创始人兼首席执行官Dylan Patel与技术团队成员Jordan Nanos访谈要点梳理（Big Technology Podcast，2026-10-09）</h2>
+<div class="metaline">Big Technology Podcast，60 分钟 · 2026-10-09</div>
+<p>——据Big Technology Podcast节目《How SemiAnalysis Views AI's Growth Potential – With Dylan Patel and Jordan Nanos》（2026-10-09）整理</p>
+<p>摘要：本文对SemiAnalysis创始人兼首席执行官Dylan Patel与该机构技术团队成员Jordan Nanos在Big Technology Podcast节目中的主要观点进行了梳理汇总。梳理了其对AI基础设施建设规模与资本开支增速的测算，介绍了收入回收路径、资金来源以及Anthropic的估值情景与单位经济，梳理了英伟达对新云厂商的融资担保、新云厂商的安全与评级以及甲骨文、谷歌的处境，最后阐述了前沿实验室的模型发布节奏。据Patel介绍，明年美国资本开支约2万亿美元，占GDP的5%至6%；据Nanos介绍，SemiAnalysis跟踪的英伟达表外担保约5880亿美元，约相当于美国M2货币供应量的2.5%；SemiAnalysis目前跟踪的GPU云服务商共323家。</p>
+<p class="kw">关键词：AI资本开支；融资估值；算力采购；单位经济；前沿实验室；SemiAnalysis；Anthropic；英伟达</p>
+<h3>一、AI基础设施的建设规模与资本开支增速</h3>
+<h4>（一）占GDP比重的重新测算</h4>
+<p>主持人援引一张网络流传的图表指出，AI建设占GDP比重的中位数约为3.6%，铁路建设年均为2.2%，AI建设约为铁路的1.5倍。Patel认为这一数字偏低。据其测算，明年美国资本开支约2万亿美元，美国GDP为30万亿美元出头，占比约为5%至6%，高于图表所示的水平。</p>
+<p>Patel从三个方面解释差异。一是口径应覆盖整条供应链，不限于数据中心与芯片。二是训练集中在美国。三是美国的数据中心还为其他国家提供推理服务，例如欧洲使用的Anthropic推理多数位于美国，OpenAI在欧洲的推理也多数位于美国。Patel认为，其经济影响高于此前各轮实物基础设施投资周期。</p>
+<h4>（二）增速放缓的约束条件</h4>
+<p>主持人提到，超大规模云厂商（hyperscaler）2026年三季度资本开支同比增长116%，市场一致预期四季度降至100%以下，明年一季度约为70%，此后逐季回落。Nanos认为，限制将在明年年底前后显现。据其介绍，供应链正在扩张，涵盖工业设备、工程采购施工（EPC）、芯片与冷却系统等环节，增长仍将保持高位，但三位数增速难以继续加快。约束有两项：一是大型新云（Neocloud）厂商与超大规模云厂商在现有项目之上再组织1吉瓦建设所需资源的难度上升；二是融资，即便投资回报很高，要在万亿美元量级上筹集资金仍属难事。</p>
+<p>Patel补充了基数效应。据其介绍，Anthropic今年收入增长10倍，由不足100亿美元增至超过1000亿美元，不可能在明年年底前达到1万亿美元；英伟达收入同比仍增长2倍，但低于早期水平。他表示，在同一基数上再实现2倍或3倍增长难度更大，增速回落是必然的。</p>
+<h3>二、AI收入需求、回收路径与资金来源</h3>
+<h4>（一）外部测算的收入门槛与回收期</h4>
+<p>主持人列举了两项外部测算：一项认为超大规模云厂商到2031年每年需要6万亿美元收入才能实现收支平衡；一位哥伦比亚大学教授认为，美国到2032年每年需在AI服务上支出约3.5万亿美元，占GDP的8.8%，才能支撑当前的数据中心投资。Patel认为，这些门槛均低于其预期，2031年的AI收入将明显更高。</p>
+<p>Patel以会计折旧口径说明回收要求。一是GPU按6年计提折旧，数据中心按15年折旧，据其介绍，有不少证据表明GPU的实际使用年限更长。二是若投入1万亿美元，按直线回收需6年累计收入1.5万亿美元，即每年约2500亿美元；若收入呈前低后高的曲线，后期要求更高。三是对于Meta等公司，可随时停止新增采购，现金流足以支付已签署的承诺，偿付能力没有问题。</p>
+<p>他表示，若2031年AI收入仅为3万亿美元，将出现较大问题，但他判断仅OpenAI与Anthropic两家，到明年12月收入即可达到6000亿至7000亿美元。他指出，收入滞后于资本开支，当期AI收入对应的是前几年投入的基础设施；目前资本开支并未以每年10倍的速度增长，AI实验室的推理收入同比增速却达到10倍。</p>
+<h4>（二）已出现的盈利迹象</h4>
+<p>据Patel介绍，盈利迹象有三项。一是Anthropic按训练与推理合并口径，收入已高于算力成本。二是SemiAnalysis的token经济学（tokenomics）模型显示，OpenAI将在未来两到三个季度达到同一状态。三是亚马逊作为AI基础设施的主要建设方，其AI基础设施投资目前均已盈利，最近一个季度毛利率因Bedrock等AI收入而上升。他同时提示，客户一端的偿付能力是潜在风险点，目前相关业务的毛利率较高。</p>
+<h4>（三）收入口径的拓展</h4>
+<p>Nanos认为，需要拓宽对AI收入的理解。如果前沿实验室拥有可完成几乎全部知识工作的模型，其进入编程之外的行业后，可取得与编程领域类似的回报，涉及三类方向：一是机器人与自动驾驶；二是药物发现；三是健康与生命科学。他表示，外界对回报的想象局限于Claude Code订阅与按token计费的现行模式。</p>
+<h4>（四）需求方的资金来源与劳动力占比</h4>
+<p>对于需求方的资金来源，Patel表示有三项。一是企业加快自身产品与服务的建设，研发预算与销货成本中投向AI的比重上升。二是劳动力相关支出。劳动在GDP中的占比自20世纪70年代起持续下降，价值更多归于资本；AI token是以芯片和数据中心形式存在的资本，用于生产劳动，将加快这一趋势。他希望经济增速足以使劳动收入的绝对值不下降，甚至缓慢增长。三是企业以同样或更少的人员提供更多服务。</p>
+<p>他以芯片设计为例，美国芯片设计研发工程师人数20年来大体持平，该产业创造的价值却大幅扩张，设计方中包括英伟达、博通与谷歌等。AI辅助芯片设计将使手机、耳机、机器人与各类传感器中的芯片同步改善，形成人员不变、收入与利润率上升的格局。他认为编程、一般白领工作、制药与交易等行业均可复制这一路径。</p>
+<p>关于知识工作，Patel表示，在AI强大但尚未在多数方面超过人类的阶段，主观能动性高的人能够产生更大的影响；若AI全面超过人类，情形将发生剧烈变化。</p>
+<h3>三、新云厂商的合同结构与供需判断</h3>
+<h4>（一）合同期限与取消权</h4>
+<p>主持人提出，新云厂商依赖Meta等客户履约，合同的约束力可能弱于预期。Nanos从四个方面作了说明。一是与新云厂商签约的超大规模云厂商或前沿实验室通常没有按月任意取消的权利，合同期限一般为5至6年，客户承接全部容量，小时费率与合同总额固定，对新云厂商具有吸引力。二是新云厂商在签约前往往已取得土地与电力、建成站点，有的已采购芯片。三是项目暂停或取消的可能性主要出现在自建站点，例如Meta的大型园区，作为未来的基础负荷容量，既可选择购买芯片，也可将空壳闲置数年。四是建筑成本虽高，在新芯片项目的总成本中占比较小，高带宽内存（HBM）、光模块与GPU占比更高。</p>
+<h4>（二）供需缺口</h4>
+<p>Nanos指出，Meta、OpenAI与Anthropic面向消费者的应用均产生大量需求，服务这些需求有利润可得，因此须扩张GPU。据其介绍，ChatGPT月活用户接近10亿。</p>
+<p>在供给端，芯片产量、数据中心建设与上线速度均存在硬约束。据其建模，需求持续高于供给，缺口是10%、50%还是更大，目前无法回答，因为供给尚无法追上需求。只有知识工作与智能需求出现上限，才能判断谁需要在何时放缓；目前这一上限尚未被发现。</p>
+<h3>四、Anthropic的估值情景与单位经济</h3>
+<h4>（一）上市估值的情景区间</h4>
+<p>Patel在推文中提出，不宜以2万亿美元的估值投资Anthropic上市，因为其结果可能归零，也可能达到20万亿美元，而达到20万亿美元时社会将面临问题。他对此作了说明：自己对Anthropic持高度看多态度，认为其可能成为首家市值达10万亿美元的公司。</p>
+<p>据其测算，一是此前Anthropic融资对应约30倍收入，上市时按约1000亿美元收入、约20倍估算，对应约2万亿美元。二是达到10万亿美元，收入需接近1万亿美元，可能出现在2028年或2029年，股市也可能推高估值倍数。三是达到20万亿美元，收入倍数将不足10倍，可能在5倍以下，对应收入2万亿至4万亿美元，意味着AI能力极强，收益将高度集中于持有Anthropic股票及其供应链的人群，分配不均可能引发社会动荡。</p>
+<p>Nanos表示，自己不如Patel担忧，其乐观情景是收入不来自按token计量的Claude Code产品，而来自其他行业，例如把癌症药物推向市场；GLP-1药物为礼来带来了可观回报，可作类比。他认为通向更高估值的路径需要建设算力，并将智能扩散到经济各部分，施工、GPU安装与可靠运行等细节决定进度，新云厂商是这条路径的核心。</p>
+<h4>（二）单位经济</h4>
+<p>主持人提出，外界认为Anthropic的利润率低于软件企业。Patel从四个方面作了回应。一是毛利率，Salesforce约为75%，Anthropic推理业务的毛利率约为75%，在前沿模型上略高；Salesforce上市时未达到这一水平，Anthropic用时更短。二是获客成本，软件企业可高达30%，Anthropic近乎没有。三是研发，投入规模较大，增速低于收入增速，目前已实现盈利，预计这一趋势延续。四是客户粘性，收入曲线持续向上，几乎每个客户的支出只增不减；其他模型发布更好的版本时，存量客户的支出份额变化有限。据此，他认为AI实验室是比软件更好的业务。</p>
+<h3>五、英伟达的融资担保、新云厂商的安全与评级</h3>
+<h4>（一）英伟达的担保安排</h4>
+<p>SemiAnalysis在ClusterMax 3.0中指出，英伟达向新云厂商提供收入保底、房东担保以及拟转让给第三方的租约等支持，帮助新兴实验室与AI实验室在没有超大规模云厂商参与的情况下获得投资级融资。对于外界认为英伟达在为需求输血、撤去担保后新云厂商将难以为继的批评，Nanos介绍，据SemiAnalysis跟踪，英伟达支持的表外担保约5880亿美元，约相当于美国M2货币供应量的2.5%。</p>
+<p>Nanos认为英伟达的做法较为务实，原因有三。一是客户多元化，英伟达不愿收入依赖超大规模云厂商，也不愿客户仅能从三四家超大规模云厂商获得芯片。二是债权人需要投资级承购方来确保融资回报，英伟达可担任这一角色。三是运作方式上，英伟达签约成为承购方，到需要将GPU用于内部研究时，若有其他客户愿出更高价格，便转售给对方，自己继续滚动下一批。他指出，英伟达在Hugging Face上发布的模型数量高于其他机构，内部研究所用算力在其营收中占比很小。担保范围不限于芯片，还包括建设成本、存储器供应商、晶圆厂建设者与工业设备制造方，对应的是项目中交付周期较长的环节。</p>
+<h4>（二）新云厂商的网络安全</h4>
+<p>SemiAnalysis发布过一篇报告，指出多数新云厂商的安全能力不足。该报告发布后不久，Ilya Sutskever发推称，新云厂商网络安全能力有限，下次代理成功失控时，会尝试接管新云厂商以运行更多副本，新云厂商应大幅加强安全，拥有强网络安全模型的公司应予协助。</p>
+<p>Patel介绍了两点情况。一是开源模型即可入侵数十家新云厂商或获取其内部资源。二是SemiAnalysis在某家云上无意看到同一集群内其他客户的存储与作业调度（Slurm）内容，其中包括一个GDP位居全球前十的非美国国家的安全部门，已立即告知服务商。</p>
+<p>Nanos指出，新云厂商常与主权AI（sovereign AI）相联系，各国视算力为基础设施，如同电信建设，希望对其保有主权，成为token的净进口方还是净出口方取决于自身所建的基础设施，因此政府研究与情报机构出现在共享集群上并不意外。理想情形是配置气隙数据中心，但全国只有一处具备GB300 NVL72设施时，市场属于卖方市场。</p>
+<h4>（三）ClusterMax评级的口径与结果</h4>
+<p>Nanos撰写的ClusterMax 3.0从租用者角度评估GPU云集群的好用程度，涵盖可靠性、安全、存储、网络、生命周期与Kubernetes上的Slurm等维度。Patel表示，该评级不构成股票推荐，不衡量吉瓦交付量与数据中心工期；有人将评级用于债务定价或股票投资，并非其设计用途，只是一个数据点。</p>
+<p>评级结果方面，第一档为CoreWeave与Nebius，第二档包括甲骨文与谷歌云。Nanos介绍，SemiAnalysis在AI云总拥有成本（TCO）模型中跟踪的服务商共323家，规模足以入榜的只占一部分，达到推荐门槛的更少。他认为推荐门槛本身不高，失分集中在安全与可靠性两项，这些要求十分基础。据其分析，一是卖方市场下，企业的优先事项是融资、建设与上线，服务质量居次；二是领先者数量有限，其余厂商以模仿为主。ClusterMax首次发布距今将近两年，不少服务商在其所列问题上进展有限。</p>
+<h3>六、甲骨文与谷歌的处境</h3>
+<h4>（一）甲骨文的服务质量与执行风险</h4>
+<p>Patel表示，甲骨文在集群质量上属于领先的新云厂商之列，其执行与资产负债表问题需要另行区分。据其介绍，SemiAnalysis在4月向客户提示，甲骨文位于新墨西哥州的数据中心将因配套管线无法按期建成而延期，OpenAI在该项目上签约了大规模容量；5月与6月再度提示。甲骨文近期就此宣布不可抗力，股价随之下跌。</p>
+<p>他从三个方面概括甲骨文的风险。一是与OpenAI的合同于一年前签署，利润率固定，GPU价格上涨后无法分享更高的毛利。二是举债后市场对企业负债规模的担忧上升，尽管其偿付能力无虞。三是执行层面，新墨西哥项目可能延迟数年，威斯康星等地的其他数据中心也有延期。Patel认为公司本身仍然稳健。</p>
+<p>在合同期限上，Patel指出，Nebius在ClusterMax位居前列的云厂商中平均合同期限较短，因而可以大幅上调价格；CoreWeave与甲骨文主要锁定了长期合同，未能同等受益。</p>
+<h4>（二）谷歌的算力分配与竞争位置</h4>
+<p>针对有人呼吁谷歌像新云厂商那样出租TPU，Patel表示，过去6个月，谷歌分配给模型训练与部署的算力少于两三年前，占比逐步下降；谷歌的算力同比大幅增长，流向DeepMind的增速较慢，到今年年底DeepMind的算力将低于Anthropic与OpenAI。谷歌向Anthropic出售芯片，希望在各层获利，但此类支持会对DeepMind自身业务形成损耗。</p>
+<p>据Patel介绍，明年OpenAI与Anthropic各自将新增5至10吉瓦算力，谷歌仅新增数吉瓦，其原先的算力领先优势将随之收窄。他认为谷歌拥有人才，若重组并聚焦，有可能追赶，同时人才不断被Anthropic、OpenAI与Meta挖走。Nanos认为，Gemini需要找到细分定位以带动token销售，才能支撑DeepMind继续在前沿竞争；在编程上，其新模型与前两三名仍有差距。</p>
+<h3>七、前沿实验室的模型发布节奏</h3>
+<h4>（一）最新模型的内部保留</h4>
+<p>主持人询问，前沿实验室是否会长期将前沿模型留在内部，用于自身产品，并借此提高基础设施的利润率。Patel表示，这一现象已经出现，表现有三项。一是Anthropic的Mythos模型在2月已经完成，至今公开发布的仅为能力受限的版本。二是OpenAI的Astra完成后数月才发布，另有一款新模型已在博客中展示数学能力，尚未发布。三是据其判断，公开版本与开源模型之间仍保持约6个月差距，内部则已保留数月的进展，原因是模型一经对外开放即可被蒸馏。</p>
+<p>他预计，Anthropic将在未来数周为配合上市发布新模型，OpenAI在竞争压力下也将发布新模型，同时仍有大量内容仅供内部使用。</p>
+<h4>（二）发布激励与竞争约束</h4>
+<p>Nanos从两个方向说明发布激励。一是按token收取API费用，毛利率很高，激励模型向外发布。二是留在内部、用于终端用户应用，价值高于出售模型调用权，激励内部保留；在后一种情形下，资本逻辑会倾向于为自己放缓前沿。他指出，Anthropic已公开表示通过自我限制来控制前沿推进节奏，其他实验室并未放缓。他判断，OpenAI与Anthropic将继续发布维持对开源生态领先所需的版本。</p>
+<p>Patel表示，若相信技术可能带来自毁风险，控制节奏是负责任的做法，但在当前竞争格局下可操作的空间很小，OpenAI与Anthropic任何一方都难以明显放缓，仅在发生重大安全事件时会略作放缓。</p>
+<p>总的看，两位嘉宾认为，AI基础设施的实际规模高于外界常见测算，资本开支增速将因基数抬升与组织、融资约束而回落，收入增长与收入口径的拓展则决定回收路径；在供给仍追不上需求的阶段，新云厂商的长期合同、英伟达的担保安排与算力获取能力支撑着建设节奏，服务质量与安全水平仍有改进空间；前沿实验室为保持领先，已将部分最新模型留在内部，对外发布以维持领先所需的版本为主。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
