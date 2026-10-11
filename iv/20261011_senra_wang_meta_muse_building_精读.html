@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>个人代理Muse的路线选择、七个月研发过程与Meta AI实验室的组织重建——Meta首席AI官Alexandr Wang访谈要点梳理（David Senra，2026-10-11）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-12<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>个人代理Muse的路线选择、七个月研发过程与Meta AI实验室的组织重建——Meta首席AI官Alexandr Wang访谈要点梳理（David Senra，2026-10-11）</h2>
+<div class="metaline">David Senra，72 分钟 · 2026-10-11</div>
+<p>——据David Senra节目《Building Muse, Working with Mark Zuckerberg &amp; The Future of AI | Alexandr Wang, Meta》（2026-10-11）整理</p>
+<p>摘要：本文对David Senra节目与Meta首席AI官、Scale AI联合创始人Alexandr Wang一期对谈的主要观点进行了梳理汇总。梳理了Meta选择个人代理路线的判断依据及其与编程代理路线的取舍，介绍了Muse由原型到发布历时七个月的研发过程、以能力清单为准的发布标准，以及传播、留存与信任建立的做法，最后阐述了Mark Zuckerberg的招募过程、Meta持有Scale AI 49%股权的交易安排与Meta AI实验室的组织重建。据Wang介绍，参与Muse的模型与产品人员合计不足200人，模型须在100余项行为与能力指标上全部达标方可发布；其本人的直接下属超过200人。</p>
+<p class="kw">关键词：个人代理；消费级AI；用户增长；研发效率；组织变革；Muse；Meta；Alexandr Wang</p>
+<h3>一、个人代理的路线判断</h3>
+<h4>（一）由愿景到立项</h4>
+<p>据Wang介绍，Meta超级智能实验室（Meta Superintelligence Labs，简称MSL）成立之初，Mark Zuckerberg发布了由Wang、Nat Friedman等人共同参与撰写的备忘录《个人超级智能》，核心问题是如何构建能普遍改善人们生活的强大AI。该备忘录发布于2025年6月，当时代理尚未真正成形，文中已指向Muse后来的方向。此后团队转入模型研发。Wang指出，前沿模型的端到端开发需要许多个月，须依次完成技术栈搭建、数据集制作、预训练与后训练。</p>
+<p>Wang表示，立项的直接推动来自今年年初的两件事。一是Opus 4.5使包括Meta在内的许多人看到代理的前景。二是OpenClaw在年初兴起。据其介绍，Friedman是MSL内部第一个试用OpenClaw的人，其体验“介于惊恐与兴奋之间”，并判断“这里确实有东西”；Friedman曾是Stripe的早期客户，较早参与开源开发者工具，并参与创建GitHub Copilot，其作为早期采用者的判断被视为明确信号。此后数周，两人把空余时间都用于与各自的OpenClaw对话。Wang首次使用时运行了Friedman编写的心理分析提示词，代理结合其邮件与照片等信息作多轮追问，其感受相当于把三年的心理咨询压缩到一次对话中。</p>
+<p>2月，两人各自撰写备忘录并提交董事会。Wang在备忘录中提出，超级代理在许多方面可视为“终极消费产品”，是消费级产品的一个明确终点。Friedman撰写了两份，其中一份题为“Trust is a Must”（信任是必需），这些备忘录在很大程度上确定了产品构建的核心思路。团队用一至两周做出原型并向董事会演示，卡通形象Jolly等许多后来进入正式产品的设计在首个原型中即已存在。据其介绍，Zuckerberg同期也在使用，场景包括家庭事务、与子女一起使用，以及让代理观看其综合格斗训练视频并给出改进建议；管理层例会一度专门交流各自使用代理的经历。</p>
+<h4>（二）与编程代理路线的取舍</h4>
+<p>Wang回顾称，今年2月Anthropic的Opus与Claude在编程领域大幅领先并快速增长，此后又有Mythos，领先地位清晰。当时行业的普遍看法是，编程代理是先进AI唯一要紧的产品形态与能力，各方有很强的冲动涌入这一用例，与Anthropic在编程代理上竞争。Meta选择把模型路线图对准个人超级智能与个人代理，主要基于两点。一是团队在亲身使用中形成的信念。二是对Meta自身禀赋的判断，即个人超级智能是Meta有独特条件去做的事情。</p>
+<h4>（三）Meta做消费级AI的禀赋</h4>
+<p>据Wang介绍，其在与Scale AI的交易发生之前就向Zuckerberg表示，在AGI到来的情形下Meta是一家很特别的公司。其逻辑是，每个人的时间由“想做的事”与“不得不做的事”构成，AGI的前景是由AI承担后者，人们把时间用于前者；Instagram、WhatsApp与Facebook承载的正是兴趣、爱好、朋友与所关心的人，属于“想做的事”的范畴，从长周期看Meta将是这一变化中的赢家。他从两个角度作了归纳。一是公司传承。Meta的传统是把人与亲友连接起来、帮助人们发现兴趣。二是业务条件。Meta的应用每天有35亿人使用，其取得成功的自然领域是消费级AI。因此，个人代理、个人AI与消费级AI一直是团队认为Meta能够有所作为的方向。</p>
+<h3>二、Muse的研发过程与发布标准</h3>
+<h4>（一）由原型到可靠产品</h4>
+<p>据Wang介绍，Muse由2月的原型到正式发布历时七个月。原型阶段的产品偶尔表现惊艳，多数时候不能正常工作并频繁出错；团队的目标是把它做成高度可靠、可以逐步交到数十亿人手中的消费级产品，这一过程漫长而艰难。他指出，OpenClaw热潮在达到高点后消退，多数用户的体验是有惊艳时刻但整体不够好用；年初其他代理产品的用户几乎全部流失，原因同样是不可靠。Wang表示团队十分尊重OpenClaw的开发者Peter Steinberger及其他贡献者，Muse的差别来自并不起眼的环节，即逐一打磨细节，使模型与产品的组合体验达到要求，其间对模型本身作了许多轮迭代。</p>
+<p>Wang认为，个人代理这一品类处在“刀刃”上：若能稳定交付惊艳体验，它有潜力成为消费级产品中的标志性产品；模型具有非确定性，代理可能出错，用户一旦遇到不可靠的体验就会否定整个产品。</p>
+<h4>（二）以能力清单牵引模型研发</h4>
+<p>据其介绍，模型路线图的首要重点之一是个人代理，具体做法有三步。一是列清单。团队用长表格列出理想个人代理所需的100余项具体行为与能力。二是建评测。逐项建立评测并摸索相应的训练方法。三是定期复盘。对照表格找出薄弱项并确保持续改进。</p>
+<p>Wang指出，这与Meta的文化一脉相承，即一旦明确度量对象，团队就能把每个细节优化到位。在AI之前的消费产品时代，优化对象是转化率、推荐率与新用户引导流程的每个环节；在AI时代，就Muse而言，优化对象是模型本身的每个细节。</p>
+<p>团队还做了多轮用户测试，观察新用户从下载开始的完整体验。Wang表示，Muse是能替用户办事的代理，与多数人此前接触的聊天机器人属于不同的产品形态；开发者对此早已熟悉，普通用户则需要经过细致的讲解与引导。据其介绍，不同模型版本的A/B测试显示，产品体验对模型质量十分敏感，具体体现在三个方面。一是执行任务的可靠程度。二是向用户沟通任务情况的可靠程度。三是在需要指示时回头征询用户的可靠程度。</p>
+<h4>（三）发布判断标准</h4>
+<p>Wang表示，发布判断由两部分构成。一是量化标准。团队为表格中的每一项设定“阻止发布”与“良好”两条阈值，多个模型检查点曾出现80项达标、20项未达标的情况，团队判断尚不足以发布；首个全部达标的检查点是经专门训练的Muse Spark 1.3版本。二是体验判断。团队试用后能够明确感到该版本明显好于此前迭代过的任何版本。</p>
+<p>他同时指出，这一过程需要很大的耐心与克制，并把主要功劳归于Zuckerberg。据其介绍，2月至9月的历次财报电话会上Zuckerberg都提到公司在做个人代理，团队并未刻意隐瞒；同期市场对公司质疑较多，华尔街的主流叙事之一是Meta大量投入资金、能否在AI上做出成果存疑。</p>
+<h4>（四）小团队与单一视角</h4>
+<p>据Wang介绍，模型与产品两方面参与Muse的人员合计不足200人。管理层均预期这是Meta当年的重点产品之一，但在组织上保持克制，没有让团队膨胀到公司的大片部门。他认为，大型组织的产品常被诟病为不同人的观点与愿景的拼合，每位产品经理都设法把自己的功能加入产品，用户能够感受到这种拼凑感，这一问题也开始困扰不少AI实验室。Muse的做法相反，只保留一个清晰的视角与一套连贯的体验，他把Muse称为“单一的艺术作品”。据其介绍，Friedman的品味与判断在很大程度上塑造了这款产品。</p>
+<h3>三、传播、留存与信任建立</h3>
+<h4>（一）信息洪流中的传播做法</h4>
+<p>关于用户规模，Wang表示公司的公开口径是“数百万”，其本人转发过他人制作的增长曲线，这些图表显示Muse的增速在消费级AI应用中居前。</p>
+<p>据其介绍，团队曾专门开会讨论如何让Muse突围。背景是AI产品、模型与功能的发布连续不断，普通人处于被信息轰炸的状态；Meta拥有分发渠道，可以确保人人知晓，但仅此尚不足以在文化层面引起关注。其在X平台上的发帖风格由此而来，有三方面考虑。一是让Muse突破信息洪流。二是让Meta重新变“酷”，Meta拥有Instagram与Facebook这类文化属性很强的产品，但公司形象在一段时间里不够有趣。三是顺应互联网的传播规律。其起初主要转发用户的有趣用例，后来发现一些随手发出的帖子反响很好，由此意识到互联网奖励冒险与出人意料。Wang表示全部帖子均由本人撰写；虽然缺乏追踪数据、难以量化，但他认为这确实带动了增长。</p>
+<h4>（二）以用户利益为中心的传播抓手</h4>
+<p>Wang指出，团队在做Muse乃至在Meta做其他产品时反复回到一个问题，即用户为什么要在意。其判断是，多数人关心的是产品能为自己做什么，对各家实验室及其研究兴趣有限。围绕这一点，传播上有三个抓手。一是让用户尽早到达“惊叹时刻”，对从未用过代理的人而言，产品天然具备这一条件。二是汇集并放大用户的惊叹故事，初期主要靠其本人大量转发，公司也投放了少量广告。三是卡通形象。Jolly可以被放进各种情境，制造出有别于常见产品营销的意外感。</p>
+<p>Wang还指出，当下消费产品的传播高度依赖截图，产品必须经得起截图传播，才能经由群聊、口碑与网络扩散；截图中带有卡通形象，可以让人立即认出这是Muse，这一效果事先并未刻意设计。</p>
+<h4>（三）信任的逐级建立</h4>
+<p>关于留存，Wang描述了一个循环：用户先交给代理一件小事，完成后再交给稍大的事，如此逐级加码，类似“信任背摔”。起初用户并不信任代理，只是有些好奇；据其观察，一些大学生已完全信任AI，直接录下语音倾倒想法，交由AI整理并给出清晰计划。他认为，Muse成功用户的共同路径就是进入这一逐级放大的过程，并且每一次都得到可靠的结果。Wang本人主要用Muse搭建工作流，将其当作“第二大脑”。</p>
+<h4>（四）个人代理的长期定位</h4>
+<p>Wang表示，其相信个人代理是一种长期存在的产品形态。人有愿望与梦想是天性，AI与个人代理将成为帮助人们实现并不断放大这些愿望的桥梁。他同时指出，AI与人的关系还有其他形态，AI将承担越来越多的科学发现工作，并进入经济的各个部分。据其表述，Muse可以让每个人拥有儿时所憧憬的成年生活；多数人在完成学业、进入职场后逐渐失去能动性，AI有望使人的能动性在一生中持续上升。</p>
+<h3>四、Mark Zuckerberg的招募过程与离开Scale AI的决定</h3>
+<h4>（一）接触过程</h4>
+<p>据Wang介绍，其在2021年或2022年前后经Meta资深高管Alex Schultz引荐认识Zuckerberg，从引荐到首次会面用了约一年；此后其作为创始人不时向Zuckerberg请教，Meta也是Scale AI的重要客户，双方大约每半年交流一次。Llama 4发布后，Zuckerberg发来消息询问是否有时间通话。Wang表示，Llama 4没有走在Meta期望的轨道上，内部视之为一次失望，同期AI对Meta未来的重要性不断上升。起初几次通话中，Zuckerberg主要征询Meta应当做什么、聚焦什么，Wang提出了许多想法，是否有合作方式的讨论与之并行展开。从首次联系到交易宣布约五至六周。</p>
+<h4>（二）交易结构与产业逻辑</h4>
+<p>Wang表示，其起初认为合作在逻辑上未必成立。Meta标志性的收购是Instagram与WhatsApp，均由清晰的产品逻辑驱动；Scale AI以企业与政府销售为主，与Meta的业务类型完全不同。据其判断，Zuckerberg的主要着眼点是Llama项目与公司整体AI项目，核心诉求是人才。双方商定的安排是Meta投资并持有Scale AI 49%的股权，Scale AI继续运营，Wang与少数几人加入Meta。他认为这一结构对各方均有利：Scale AI全体股东获得了很好的条件，公司继续经营，其相信Scale AI更好的日子还在后面。</p>
+<h4>（三）决策考量</h4>
+<p>Wang表示，其从创立起在Scale AI工作了九年，始终把它当作毕生事业，放手的过程在情感上很艰难，前后考虑了数周，并与公司同事和投资人作了多轮沟通。促成其决定的有两点。一是交易对各方都是好的安排。二是看到了Meta的潜力。他指出，当时Meta在AI上的形象受损，对AI人才的吸引力有限，这触动了其创业者的一面：待做的事情很多，为从零搭建、确立原则与文化留出了空间。</p>
+<h3>五、Meta AI实验室的组织重建</h3>
+<h4>（一）小规模、扁平与高人才密度</h4>
+<p>Wang表示，其坚信一支规模小、能力很强、高度技术化且十分扁平的团队可以在很短时间内完成大量工作，Elon Musk在职业生涯中多次证明过这一点；在必须快速推进的情况下，这是做AI的合适方式。这一想法在早期与Zuckerberg的交流中得到认同，后来成为整体策略的支柱之一，即小规模、很扁平、高度技术化、人才密度很高。据其观察，Zuckerberg深信失败本身无关紧要，要紧的是赢的时候赢多大，因而能够坦然承担较大风险，使公司保持活力。</p>
+<h4>（二）人才招募与资源条件</h4>
+<p>Wang认为，MSL创立时对人才的吸引力来自三个方面。一是从零建设实验室的机会，团队规模很小，个人可以留下自己的印记并施加较大影响。二是清晰的方向。个人超级智能的定位能引起共鸣，从事AI的人都希望自己的工作对母亲、祖父母乃至每一个人有意义。三是Meta的资源。团队不会受制于算力、基础设施与分发，这些恰是初创公司常见的瓶颈。</p>
+<p>关于薪酬，Wang指出一个较少被注意的事实：OpenAI与Anthropic的股价上涨了很多，这些人才若留在原公司同样收入可观，对其中许多人而言，转到Meta在薪酬上大体持平。</p>
+<h4>（三）由创始人到“教练”的角色转变</h4>
+<p>据Wang介绍，其在Scale AI奉行的理念是好的创始人要能做每一份工作，其对公司每件事该如何运转都有很强的主张，公司由此成为其个人视角的产物，其本人也在很大程度上成为瓶颈；他认为首次创业者仍应采取这种方式，成功的可能性更高。在Meta，任务是在很短时间内完成大量工作，其本人既不是AI研究员，也不是产品设计师，因而把招募各学科一流人才列为第一要务，自身更像“教练”。职责有三项。一是确立方向，即个人超级智能、赢得消费级AI、做对每个人都有意义的AI。二是在团队中识别特殊人才。三是提供环境与资源，使其才能得到充分发挥。他指出，多数大公司都有出色的人，常见的失误是没有赋予其做出好工作的条件，这些人因而转投小公司或创业。</p>
+<h4>（四）“挖钻石”与“盖摩天楼”</h4>
+<p>Wang用两类问题区分管理方式，依据是回报的分布。一是“挖钻石”。回报呈幂律分布，多数尝试没有结果，少数成果的价值可达其他成果的百万倍，风险投资即属此类；管理上是鼓励各人尝试大胆想法，再培育其中有希望的部分。二是“盖摩天楼”。回报大体线性，数据标注等数据业务与亚马逊Prime配送属于此类，要靠运营从流程中逐次挤出2%、1%、0.5%的效率。他表示，其在Scale AI做的总体上是后者，在Meta做的是前者。据其介绍，AI研究是在探索人类尚不清楚边界的技术，需要大量试错，研究人员需要空间、时间与资源；多数研究想法不会成功，少数会取得很好的结果，成功的部分足以覆盖全部投入。</p>
+<h4>（五）直接下属超过200人的安排</h4>
+<p>据Wang介绍，其直接下属超过200人，被招入TBD小组的研究人员基本都直接向其汇报，用意是表明“反官僚”的立场：这些人此前已证明能够做出出色的工作，无需逐一管理。配套机制有两项。一是技术领导结构。团队按小组（pod）划分，各小组的技术负责人在技术决策出现分歧时作出裁决。二是集体讨论。团队对重要问题展开辩论，力求形成共同认可的路径。Wang表示，这是一种不合常规的管理方式，自己称不上200多人的理想管理者。</p>
+<p>总的看，Wang认为，个人代理是长期存在的产品形态，Meta凭借面向“想做的事”的产品传承与每天35亿人使用的应用，在消费级AI上具备独特条件；Muse的成形有赖于七个月里对模型逐项打磨、以量化清单把关发布以及小团队的单一视角；对于聚集了大量出色研究人员的实验室，管理者的职责是营造良好环境，为其留出充分发挥的空间。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
