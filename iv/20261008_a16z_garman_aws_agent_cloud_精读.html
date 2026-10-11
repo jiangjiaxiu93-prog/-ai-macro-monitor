@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>代理云的基础设施需求、算力供给与企业采用——AWS首席执行官Matt Garman访谈要点梳理（a16z，2026-10-08）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-11<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>代理云的基础设施需求、算力供给与企业采用——AWS首席执行官Matt Garman访谈要点梳理（a16z，2026-10-08）</h2>
+<div class="metaline">a16z，56 分钟 · 2026-10-08</div>
+<p>——据a16z节目《Building the Cloud for AI Agents | AWS CEO Matt Garman》（2026-10-08）整理</p>
+<p>摘要：本文对AWS首席执行官Matt Garman与a16z的Raghu Raghuram对谈中的主要观点进行了梳理汇总。梳理了代理工作负载对云基础设施的要求、算力需求与供应链约束，介绍了AWS自研芯片、模型服务与代理安全的产品安排，最后阐述了企业采用AI所面临的流程和组织问题。Garman表示，Amazon 2026年资本投资规模为2200亿美元，未来几年将采购200万块英伟达GPU；AWS面向企业的前沿部署工程师项目以约45天的共同开发周期帮助客户建立自身能力。</p>
+<p class="kw">关键词：企业代理；算力采购；AI资本开支；企业采用；代理安全；AWS；Bedrock；Trainium</p>
+<h3>一、代理工作负载与云产品的调整</h3>
+<h4>（一）初创企业需求与云服务演进</h4>
+<p>Garman认为，初创企业是观察未来企业技术需求的重要窗口。一是初创企业较早尝试新的技术架构，今天规模较小的客户可能成长为未来的企业客户。二是成熟企业随后也会采用相近的工具与工作方式，服务初创企业有助于提前建设能力。三是AWS自身已有类似经验，据其粗略估计，约30%至40%的收入来自曾经是初创企业的公司。</p>
+<p>他表示，AWS需要持续降低开发者开始使用云服务的门槛。一是简化账户开通流程，逐步推出不到30秒即可完成的注册体验。二是围绕代理的使用方式改善接口，使代理能够直接配置、调用和管理服务。三是保持产品反馈与底层基础设施建设的联动，早期需求可以帮助AWS识别后续企业级负载的方向。</p>
+<h4>（二）低尾延迟与跨服务上下文</h4>
+<p>Garman指出，代理反复调用工具，基础设施性能会在连续执行中累积影响。一是关注尾延迟，尤其是P999等指标；一次异常缓慢的调用可能延长整个任务。二是提供快速的数据访问能力，代理的任务涉及多次数据库查询与状态读写，单次请求的平均速度不足以反映完整体验。三是贯通业务上下文，代理需要从S3、Aurora等不同服务中取得信息，云平台应降低跨服务协调的复杂度。</p>
+<p>据其介绍，AWS通过Bedrock提供模型访问与相关能力，通过AgentCore提供代理运行所需的基础设施。产品建设的重点包括运行环境、工具调用、记忆、身份与权限等环节。Garman认为，客户需要能够把这些组件组合成生产系统，基础设施应支持代理从短时响应走向连续执行。</p>
+<h4>（三）任务级身份与隔离环境</h4>
+<p>Garman认为，代理权限应根据具体任务设计。一是设置代理自己的身份，使系统可以识别某项动作由哪个代理发起。二是限定权限范围与有效时间，代理处理某项任务时获得必要的访问能力，任务完成后不继续保留无关权限。三是避免直接复制用户的全部权限，用户能访问的全部资源与代理完成当前工作的必要资源存在差别。</p>
+<p>运行环境方面，AWS利用Firecracker微型虚拟机等技术提供隔离。Garman指出，代理可以生成并执行代码，安全边界因此需要同时覆盖代码运行、数据访问和外部工具调用。隔离、身份与访问控制需要共同发挥作用，才能支持企业逐步提高代理的自主程度。</p>
+<h3>二、算力需求、资本投资与供应链约束</h3>
+<h4>（一）资本投资与需求来源</h4>
+<p>Garman表示，Amazon 2026年资本投资规模为2200亿美元，未来几年将采购200万块英伟达GPU。前者是Amazon整体资本投资口径，后者是后续数年的采购安排。</p>
+<p>对于需求的持续性，他给出三点判断。一是需求覆盖训练、推理以及生产系统所需的存储与计算，客户结构较为分散。二是AWS单一客户的收入占比处于个位数水平，不能仅根据某一家实验室的变化判断全部需求。三是初创企业之间会出现经营分化，但失败公司的应用尝试可能由其他参与者继续推进，个别公司的退出不必然意味着技术需求消失。这是其对需求延续性的判断。</p>
+<h4>（二）初创企业容量与配置调整</h4>
+<p>据Garman介绍，AWS为初创企业保留一定的GPU容量，以避免资源完全流向已有大型客户。一是满足新团队的早期研发需求。二是允许客户调整区域、硬件配置或交付时间。三是把短期容量安排与长期采购规划结合，尽量寻找可用的替代方案。</p>
+<p>他表示，约60%的相关需求可以通过上述调整得到满足，其中包含延期、变更区域或更换配置等情况。该比例涵盖经过协商的供给安排，并不表示客户都能立即获得最初提出的资源配置。</p>
+<h4>（三）动态瓶颈与多年建设周期</h4>
+<p>Garman指出，基础设施扩张的约束会随着建设进程变化。一是芯片与配套部件，包括高带宽内存、晶圆产能、网络设备与固态硬盘。二是数据中心建设，需要协调建筑、设备安装与交付。三是电力供给，发电、输电与配电的建设周期较长，部分约束无法仅靠增加采购金额快速解决。</p>
+<p>据其介绍，AWS提前数年开展供应链规划，并持续与供应商协调。Garman认为，某个环节获得缓解后，另一个环节可能成为限制因素，基础设施供给需要按完整系统管理。单独观察GPU数量难以反映最终可交付的算力。</p>
+<h3>三、自研芯片与模型服务的经济性</h3>
+<h4>（一）Nitro与Graviton的系统优化</h4>
+<p>Garman介绍了AWS自研硬件的两个方向。一是Nitro，把网络、存储、安全与虚拟化等功能从通用处理器卸载到专用硬件，减少基础设施功能对客户计算资源的占用。二是Graviton，通过自研处理器改善通用计算的性能与价格关系。</p>
+<p>据其介绍，Graviton在相关比较中可提供约20%的性能提升与约20%的价格下降；AWS前100家客户中，超过90%在某种工作负载中使用Graviton。这些数字反映其介绍的产品表现与采用范围，具体负载仍需要依据应用需求进行选择。</p>
+<h4>（二）Trainium与推理成本控制</h4>
+<p>Garman表示，Trainium3已经进入市场，Trainium4已经宣布、尚未发布；Bedrock相当部分流量运行在Trainium上。AWS同时提供英伟达GPU与自研芯片，让客户根据模型、软件兼容性、成本和供给情况作选择。</p>
+<p>他认为，企业可以从三个方面控制模型使用成本。一是选择适合任务的模型，避免全部请求都依赖同一档前沿能力。二是利用开放模型，通过微调、蒸馏等方式适配自身场景。三是结合芯片与服务层优化，提高实际工作负载的执行效率。数据保护是这类部署的前提，客户需要对自身数据的使用范围保持控制。</p>
+<h3>四、企业代理的生产部署与组织变化</h3>
+<h4>（一）流程重构与生产评估</h4>
+<p>Garman认为，企业采用代理的阻力同时来自工作流程与信任。一是重新设计流程，仅在原有流程外部添加聊天入口，未必能释放代理的作用。二是建立可靠性评估，企业需要回测任务表现，并观察模型和业务条件变化后的漂移。三是逐步确定自主执行范围，使代理能力与组织愿意承担的风险相匹配。</p>
+<p>据其介绍，AWS前沿部署工程师与客户共同开发，以约45天为一个目标周期。项目既要交付可用成果，也要让客户团队学会继续建设与维护，减少长期依赖外部实施人员的情况。</p>
+<h4>（二）员工工具与小团队试验</h4>
+<p>Garman表示，Amazon正在推广Quick等AI工具，并尝试调整团队工作方式。一是让员工更方便地获取内部信息、分析资料与完成业务动作。二是探索由较小团队承担完整项目，在部分试验中把约10人的团队调整为3至4人。三是观察代理工具如何改变开发、协调与交付环节，组织设计仍处于试验之中。</p>
+<p>总的看，Garman认为，代理带来的需求需要云服务同时改善计算、数据访问、身份权限与运行环境。AWS的建设方向是扩大可交付算力、提供多样化芯片与模型选择，并帮助企业在可信的边界内重构工作流程；企业能否持续使用代理，与基础设施能力及组织自身的部署能力共同相关。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

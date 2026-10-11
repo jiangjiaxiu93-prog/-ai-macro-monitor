@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>消费AI的付费分布、变现路径与个人代理采用——a16z的Olivia Moore、Josh Elman对谈要点梳理（a16z，2026-10-05）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-11<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>消费AI的付费分布、变现路径与个人代理采用——a16z的Olivia Moore、Josh Elman对谈要点梳理（a16z，2026-10-05）</h2>
+<div class="metaline">a16z，50 分钟 · 2026-10-05</div>
+<p>——据a16z节目《Top 100 Consumer AI Apps, Explained》（2026-10-05）整理</p>
+<p>摘要：本文对a16z的Olivia Moore、Josh Elman围绕第七版消费AI应用榜单展开的主要观点进行了梳理汇总。梳理了流量与个人银行卡支出所反映的需求差异，介绍了订阅、按量计费和广告的变现路径，最后阐述了个人代理的采用障碍、专业工具的产品壁垒及尚未充分开发的应用领域。本期消费支出前50名中有29个产品未进入流量榜；美国个人银行卡付费样本中，支出最高的10%付费者贡献超过一半支出，付费者月支出中位数为25美元。</p>
+<p class="kw">关键词：消费级AI；定价与变现；个人代理；用户增长；应用层护城河；a16z；ChatGPT；Claude</p>
+<h3>一、流量榜单与消费支出的差异</h3>
+<h4>（一）榜单观察范围的扩展</h4>
+<p>Moore介绍，a16z消费AI榜单最初依靠网站流量，随后增加移动应用，本期进一步纳入美国消费者个人银行卡支出样本。一是流量反映访问与使用规模。二是移动应用数据补充手机上的消费行为。三是支出样本观察哪些产品能够让用户实际付费。</p>
+<p>该支出样本排除企业及中小企业银行卡交易，主要覆盖个人卡上的消费。两位嘉宾同时指出，个人支付可能用于工作和赚钱，因此“个人卡支出”与纯娱乐消费之间存在差别，不能把其中全部需求都视为休闲用途。</p>
+<h4>（二）流量与收入排名的分化</h4>
+<p>据本期榜单，合并流量榜出现11个新产品，消费支出前50名中有29个产品没有进入流量榜。Moore认为，一些专业工具拥有较小但愿意付费的用户群，访问量难以完整反映其商业价值。</p>
+<p>这一分化有三个表现。一是开发、生产率与创意工具具有较高的付费意愿。二是专业用户可能持续使用熟悉的界面、素材和工作流程。三是产品即使退出流量榜，也可能继续获得支出。Midjourney是嘉宾讨论的例子，其专业审美需求与大众流量变化可以同时存在。</p>
+<h3>二、付费渗透与支出集中</h3>
+<h4>（一）付费者的比例与支出分布</h4>
+<p>Moore援引Yipit样本称，约4.5%的美国消费者为相关AI产品付费，比例较一年前约翻倍。该数字来自特定样本，反映其覆盖范围内的观察。</p>
+<p>付费者内部的支出存在明显分化。一是支出最高的10%贡献超过一半支出。二是最高的1%贡献约20%，该组月均支出约903美元。三是支出较低的50%贡献约16%，全部付费者的月支出中位数约25美元。上述分组均按AI付费支出划分，并非按个人财富排序，也不覆盖全部免费用户。</p>
+<p>两位嘉宾认为，支出集中与工作相关场景的价值有关。编程、自动化和专业创作可能直接支持收入或提高产出，用户因此愿意购买高档计划和额外额度；这类早期用户的使用强度不宜外推到每个普通消费者。</p>
+<h4>（二）通用助手与高档订阅</h4>
+<p>据榜单观察，ChatGPT在使用和消费收入上保持领先，网站使用规模约为Claude的6倍、Gemini的2倍。Moore表示，在美国个人卡付费样本中，Claude的付费订阅数量超过Gemini。</p>
+<p>高档订阅也存在差别。一是Claude约7.5%的订阅者每月支付超过100美元。二是ChatGPT和Gemini对应比例约为1%。三是比例的分母为各产品付费订阅者，不能视为全部访问用户。嘉宾认为，Claude的早期付费群体与编程、工作等高价值需求关系较为密切。</p>
+<h3>三、订阅、按量计费与广告</h3>
+<h4>（一）多种收费方式的并存</h4>
+<p>Moore介绍，网站榜单中约85%的产品提供订阅，约62%提供点数或token计费，约13%采用广告或其他模式。这些类别可以重叠，不能相加为市场份额。订阅提供一定额度，超出后购买点数，就是两种方式同时存在的情形。</p>
+<p>两位嘉宾认为，消费AI面向更大人群时需要多样化变现。一是订阅适合高频和高价值使用者。二是按量计费能够反映额外推理成本。三是广告与交易费用可能覆盖不愿持续订阅的用户。Elman指出，推理成本下降有助于扩大可支持的商业模式，但在成本仍高时，产品不能无限依靠免费使用增长。</p>
+<h4>（二）广告收入与信任边界</h4>
+<p>Moore援引OpenAI在8月的口径称，广告年化收入速率已达到10亿美元。该数字表示当时收入速度的年化值，并非全年已实现收入。</p>
+<p>关于广告，两位嘉宾提出三个条件。一是清楚标识广告，使用户能够区分付费推荐与自然回答。二是结合商业意图，在购物或服务选择等场景提供有用信息。三是维护健康等敏感场景的信任，避免让商业推荐混入用户依赖的核心判断。</p>
+<p>他们认为，广告也可能适合具有高价值受众的垂直产品，不必只由拥有大量用户的通用助手采用。实际可行性取决于用户意图、推理成本和推荐质量。</p>
+<h3>四、个人代理的采用障碍</h3>
+<h4>（一）权限、隐私与使用意愿</h4>
+<p>Moore和Elman认为，个人代理正在出现，但仍处于早期采用阶段。技术用户较多用它编程和自动化，并不意味着普通人已经形成相同习惯。</p>
+<p>采用障碍主要有三个方面。一是权限，用户需要决定是否开放邮件、支付和其他账户。二是隐私，代理知道越多可能越有用，但个人、工作和多人分享的信息有不同边界。三是信任，用户需要相信代理能够正确执行，并在发生问题时保留控制。技术整合可以较快完成，用户愿意授权的速度可能更慢。</p>
+<h4>（二）用途发现与网络效应</h4>
+<p>两位嘉宾认为，空白聊天框给普通用户提出了用途发现的问题。一是用户不知道哪些任务适合交给AI。二是单纯文字对话难以向他人展示完成的成果。三是可分享的作品、流程和使用案例不足，限制了产品的自然传播。</p>
+<p>他们表示，个人代理尚未充分释放网络效应。让用户看到具体成果、理解产品的实际价值，并愿意把体验分享给他人，是后续产品建设的重要方向。更多模型能力本身不能自动解决发现和传播问题。</p>
+<h3>五、专业工具的壁垒与应用空白</h3>
+<h4>（一）工作流程、资产与社区</h4>
+<p>Moore以Suno、ElevenLabs等音频产品及专业创作工具为例，说明产品价值可以来自模型之外。一是围绕专业任务设计的界面。二是用户累积的素材、项目和历史记录。三是社区、工作流程与团队协作能力。</p>
+<p>Elman认为，部分产品可以先由个人采用，再进入企业。要完成这一过程，需要补充隐私、安全和团队计划。专业工作流程中的上下文与个人积累，有助于形成持续使用关系，不能只按底层模型是否相似判断产品的壁垒。</p>
+<h4>（二）尚未充分覆盖的消费领域</h4>
+<p>两位嘉宾讨论了约会、招聘、社交、购物、房产、零售、游戏和娱乐等领域。这些领域尚未在当前榜单中充分体现，并不意味着缺少潜在需求。</p>
+<p>他们认为，未来应用可能出现多种交互形态。一是代理调用不同的AI市场或服务完成任务。二是视觉选择、定制和故事创作。三是围绕内容与社群形成体验。部分消费任务仍需要可浏览、可比较和可分享的界面，产品不必全部收敛到聊天框。</p>
+<p>总的看，Moore与Elman认为，消费AI已出现持续付费与专业需求，但支出集中在较小的高价值群体。扩大采用需要同时改善用途发现、信任与权限体验，并探索订阅以外的变现路径；专业工作流程、用户资产和社区仍是产品建设的重要内容。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
