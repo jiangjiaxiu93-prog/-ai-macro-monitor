@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>中小企业驱动增长、AI产品的递归效应与本地化算力编排——Perplexity首席执行官Aravind Srinivas访谈要点梳理（Sourcery with Molly O'Shea，2026-10-12）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>中小企业驱动增长、AI产品的递归效应与本地化算力编排——Perplexity首席执行官Aravind Srinivas访谈要点梳理（Sourcery with Molly O'Shea，2026-10-12）</h2>
+<div class="metaline">Sourcery with Molly O'Shea · 2026-10-12</div>
+<p>——据Sourcery with Molly O'Shea节目《Perplexity CEO: SMBs Could Drive the Next Economic Boom》（2026-10-12）整理</p>
+<p>摘要：本文对Perplexity联合创始人兼首席执行官Aravind Srinivas在Sourcery with Molly O'Shea节目中的主要观点进行了梳理汇总。梳理了其对品牌理念、提问文化与产品哲学的阐述，介绍了其关于中小企业将成为未来美国经济增长主要来源、AI产品呈现“递归效应”的判断，分析了其在混合算力编排、本地化部署、代理安全与长周期研究等方向上的布局，最后归纳了其对AI产品形态的收束判断。据其介绍，该公司收入同比增长至上年同期的约5倍；一名独立创业者年支出超过100万美元，其年收入约为300万美元；以聊天类任务为例，本地硬件的推理成本约为数据中心的30倍。</p>
+<p class="kw">关键词：个人代理；企业采用；模型路由；推理成本；代理安全；Perplexity；Nvidia</p>
+<h3>一、品牌理念、提问文化与产品哲学</h3>
+<h4>（一）以“庆祝好奇心”为内核的品牌定位</h4>
+<p>Srinivas表示，Perplexity的品牌内核是“庆祝好奇心”，其出发点是AI越强，好奇心越可能成为人类独有的价值来源。一是他认为AI是人类好奇心的重要加速器，加速人类的好奇心本身即是AI的目的之一。二是他援引牛津大学物理学家多伊奇（David Deutsch）的观点指出，人类是能够对已然熟悉之物保持好奇的物种，其他动物通常不会如此。三是他认为，在AI能够回答各类问题之后，人的角色转向提出下一组问题，“万事通”不再是值得追求的形象。据其介绍，这一判断也决定了品牌的表达方式：优秀的公司往往围绕与人性相关、与技术无关的理念来构建品牌。他举例说，苹果的品牌围绕“把美好的事物带给世界”，英伟达的使命是“实现只有超级计算机才能做到的事”，均未与某一具体技术绑定。</p>
+<h4>（二）会议室命名与提问文化的养成</h4>
+<p>据其介绍，Perplexity办公场所的每间会议室均以学者命名，这一做法源自他在DeepMind的经历。一是他在DeepMind实习期间看到，Demis Hassabis以科学家为会议室命名，与常见的以影视作品命名不同，并特意不设电视、只留白板，意在促成面对面的讨论。二是他在其他公司实习时，会议室多以电影或科幻作品命名，相比之下以学者命名的方式令他印象更深。三是他希望借此传递“提问”的价值。他并以晶体管的发明为例：当年电话工程师的数量大致相当于今天的软件工程师，但只有三个人在追问“能否做出比热真空管更好的器件”，由此催生结型晶体管，从根本上改变了现代计算。在被问及最欣赏哪位学者时，他表示格外欣赏数学家拉马努金，认为其代表了人类直觉的力量，并指出在算力与上下文愈发充裕之后，人们容易过度依赖推理，反而忽视人类自身的直觉与好奇心。</p>
+<h4>（三）产品哲学与团队组建方式</h4>
+<p>Srinivas指出，其产品哲学的来源之一是谷歌联合创始人佩奇（Larry Page），尤其是“用户永远是对的”这一理念。一是当产品对用户不奏效时，工程师的本能往往是要求用户改变操作，而他认为应当修改产品本身，让用户无需思考。二是随着AI能力提升，不能要求用户理解这些能力的边界，不应指望用户学会编写提示词或配置文件，也不应让用户去分辨不同模型各自擅长什么。三是他把当下的AI产品比作早期计算机，认为产品应足够直觉易用，用户无需依赖专职人员引导上手；他把“需要靠外部人力弥补产品体验”视为产品问题，并认为用户难以驾驭AI主要源于产品本身。在团队组建方面，他介绍，他早年并不懂招聘，曾要求最初10至20名候选人先进行为期一周的试用，合适的人通常两天内即可看出，七天仍难以判断的往往并不合适。</p>
+<h3>二、中小企业与未来经济增长</h3>
+<h4>（一）仅凭美国市场构建万亿美元公司的条件</h4>
+<p>Srinivas认为，仅服务美国市场即可成长出万亿美元规模的公司。一是据其介绍，伯克希尔哈撒韦（Berkshire Hathaway）市值约1万亿美元，摩根大通（JPMorgan）市值约9400亿美元，两者的客户基础大多位于美国。二是他认为美国是“递归型”国家，用户一旦认可某产品就会持续投入，客户终身价值与消费潜力均较高。三是他指出，美国的GDP增长与创业活力较强，人们愿意尝试新事物、创办此前不存在的生意。据其介绍，Perplexity Computer正是面向这一需求而构建，目标是让新成立的公司尽可能多地把有用的工作交给代理完成，公司则希望成为可信的、中立于模型的代理平台，统一编排前沿模型与开放权重模型。</p>
+<h4>（二）增长来源由大型企业向中小企业转移</h4>
+<p>Srinivas指出，未来美国GDP增长的来源可能更多来自中小企业与中型公司。一是他认为，这些公司更接近“AI原生”，组织层级更少，资本效率与人均效率更高，创造价值的速度更快。二是他表示，许多人以能否把产品销售给财富500强企业来衡量成功，这在一定程度上是迎合成长阶段投资人对收入稳定性的偏好。三是他认为，苹果可以被视为规模居前的面向中小企业与企业的公司，但苹果是通过持续打造产品逐步扩大使用规模，并未以此类公司身份为目标。他并把这一判断与自身经历相联系，称Perplexity是为“像自己这样的人”而构建，相信未来会出现更多此类公司，而它们无需自行构建底层工具。</p>
+<h4>（三）美国梦、外来者机会与野心</h4>
+<p>Srinivas认为，美国对外来者提供了在其他国家难以获得的机会。一是他表示，外来者在此不仅可以尝试改善现状，还会获得资本支持并分享成功的收益，这种承担风险、鼓励他人承担风险的精神颇为独特。二是他把硅谷视为美国梦在科技创业领域的体现，认为美国梦的核心在于不论出身都可以尝试解决难题并获得回报。三是他指出，周围人的雄心具有感染力，会促使自己把目标定得更大。据其介绍，他本人来自印度中产家庭，初到美国时的预期只是一份工作，随着接触更多有雄心的人，他的目标不断扩大。</p>
+<h3>三、产品演进与递归效应的商业逻辑</h3>
+<h4>（一）从答案引擎到代理平台的演进</h4>
+<p>据其介绍，Perplexity的产品形态经历了若干阶段：2022年以答案引擎（answer engine）起步，2023年底演进为多步搜索代理（multi-step search agent），此后陆续推出深度研究、浏览器代理，并向云端沙箱与多模型编排延伸。Srinivas表示，代理若要完成人们在电脑上所做的各类工作，必须同时具备几项条件：一是联网与访问浏览器的能力；二是对个人上下文的综合能力；三是多模型编排，因为不同模型各有所长；四是云端沙箱、较低的推理服务成本与足够直观的界面。他把这一整套能力视为公司在代理时代获益的原因，并介绍公司收入同比增长至上年同期的约5倍，企业业务的增速高于个人业务。</p>
+<h4>（二）递归效应对网络效应的替代</h4>
+<p>Srinivas认为，AI产品的增长逻辑不同于上一代消费产品。一是他提出，AI产品是“递归型”产品，其价值主要取决于用户的使用深度，用户数量居于次要位置。二是他表示，产品固然需要数百万量级用户与真实的分发渠道，但更重要的是用户在使用中能够借产品赚到钱，从而形成对产品的依赖。三是他认为，把“没有十亿用户就算失败”的观点套用于AI产品并不成立。据其介绍，Perplexity把模型层的前沿进展视为对自身的增益：每当出现新的前沿模型，公司即可向用户提供新的能力，而模型之间的竞争会压低价格、降低服务成本，进而服务更多用户，这一循环同样具有递归特征。</p>
+<h4>（三）企业采用与独立创业者用例</h4>
+<p>据其介绍，公司通过自助方式获得企业客户，企业业务的增长快于个人业务，因为产品开始切入实际的业务流程。他特别提到一个用例：一名独立创业者（一人公司）年支出超过100万美元使用其产品，其年收入约为300万美元，业务是为他人自动化制作通讯邮件，而这些邮件的使用者又借此获取客户。他认为，这一链条具有递归特征，即客户的收入增长反过来支撑其为产品持续付费。</p>
+<h3>四、混合算力编排与本地化取向</h3>
+<h4>（一）云端推理与本地推理的成本权衡</h4>
+<p>Srinivas表示，公司主张在AI的各个环节进行编排，并把AI称为“五层蛋糕”（借黄仁勋的说法）。一是他介绍，当前多数AI推理在云端完成，原因是批处理推理吞吐高、适合上下文较短且可重复的任务。二是他指出，随着上下文扩展、个人上下文增多，上下文窗口对性能的影响可能超过模型权重，此时本地硬件的价值上升。三是他给出成本对比：以聊天类任务为例，本地硬件的成本约为数据中心的30倍；当上下文扩展到约10万token量级时，数据中心的成本优势收窄至约3倍甚至接近1倍。他同时指出，制约AI扩散的一个瓶颈是数据中心的建设：数据中心面临接入排队、审批、居民反对、吉瓦级电力需求以及自建变电站与燃气轮机等问题，推进较慢。他认为，已存在的数亿台设备未来可以运行至多约1000亿参数的模型，且可直接使用家庭既有电力；若以每颗苹果芯片50瓦计算，1亿颗芯片的功耗即已达吉瓦级。他以“数据中心像公交、本地硬件像私家车”作比，认为两者会并存，并指出本地运行在安全与隐私方面同样重要。</p>
+<h4>（二）与芯片厂商的双向编排合作</h4>
+<p>据其介绍，公司在本地化方向与多家芯片厂商合作，并推出两种方向的编排。一是与英伟达合作推出可完全本地运行的版本，其编排框架、模型与子代理均在本地运行，同时保留升级到云端前沿模型的选项。二是与苹果合作推出另一方向的版本，从云端起步，当涉及本地敏感文件时，由用户选择在苹果芯片上本地运行。三是他表示，两种方向都会保留，以把选择权交给用户，金融、法律与医疗行业对此兴趣较高。</p>
+<h4>（三）主权部署与不自建数据中心的取舍</h4>
+<p>Srinivas表示，数据主权正受到更多关注，公司计划开展本地化（on-prem）部署。一是他介绍，一些主权基金希望部署完全运行在其自有硬件上的版本，相关数据连Perplexity也无法看到。二是他认为，这种模式的不利之处在于公司无法通过反馈回路改进产品，只能依靠软件更新，而有利之处在于用户可确信数据不会被滥用。三是他表示，公司还看到为整个企业提供在自有硬件上运行的版本的可行性。在被问及是否自建数据中心时，他表示公司没有相关计划：公司更愿意设法利用家庭与办公场所已有的算力与电力，并不看空云端与数据中心，反而认为自身产品的成功会增加对数据中心的需求，但相关建设已有足够多的参与者且面临供给瓶颈。他并提到，微软的业务与股票在很大程度上与云端运行模型的表现相关，因此在这一方向上的动力可能不及Perplexity。</p>
+<h3>五、竞争定位、代理安全与研究前沿</h3>
+<h4>（一）聚焦研究与分析的差异化定位</h4>
+<p>Srinivas表示，公司刻意不把编程作为主攻方向。一是他观察到，新建云服务（neocloud）的涌现说明市场对token与代理的需求确实存在，但若所有公司都转向同一领域，则难有差异化。二是他认为，编程代理的瓶颈更多在问题界定与求解，许多优秀工程师更感稀缺的是思考与求解的时间，代码生成本身已接近解决。三是他表示，公司更希望把研究与分析做深，包括厘清问题、明确约束、评估安全与市场风险等。据其介绍，公司的另一项定位是“中立于模型”：多模型既是一项产品特性，也是一种信任信号，用户据此可以把业务构建在Perplexity之上。</p>
+<h4>（二）本地化运行与代理安全威胁</h4>
+<p>Srinivas认为，应对网络安全威胁的一个办法是让用户能够本地运行产品。一是他表示，让用户在自己拥有、运行于本地设备与网络、他人无法访问的环境中运行，是较为可靠的方式，甚至可以完全离线运行。二是他认为，网络安全公司有动机引导用户把运算放在其网关上，而用户未必能够完全信任外部网关。三是他表示，公司正与英伟达合作推进本地运行版本，并为整个企业提供在自有硬件上运行的方案。关于代理安全的威胁，他提到近期一起涉及前沿模型的事件，并认为新模型的发布周期将会拉长，因为现有测试多在单代理环境下进行，难以发现多代理场景下的问题。他把多代理区分为两类：一类是主代理内含子代理，已广泛部署，风险相对可控；另一类是多个父代理相互协作并各自带有子代理，投入的算力更多，风险更高。他表示，公司正以开源方式发布用于设备端与服务端的检测工具（Bumblebee与Numbat），用于审计代理运行记录、识别敏感信息外泄，并基于审计日志训练威胁检测分类器；代理安全的处理可分为检测与处置两步，前者依靠收集审计日志与训练分类器，后者需要在检测到威胁后进行修复，同样需要相应的代理与编排框架。</p>
+<h4>（三）长周期研究任务与收束判断</h4>
+<p>Srinivas表示，他尤为感兴趣的是把产品从加速好奇心与研究推进到更长周期的研究任务。一是他希望产品不仅利用网络信息发现问题答案，还能帮助回答目前尚无答案的问题，包括构建预测模型、在真实世界开展实验、实时检验并修正假设。二是他提出，若能帮助用户在真实世界中检验想法，就有望“让每个人成为科学家”。三是他介绍，公司内部正尝试把“团队中新增十名全天候研究实习生”这一设想落到实处，先从自身研究团队开始试用。在被问及当前面临的主要挑战时，他指出现有模型的能力仍有不足：模型尚未做到真正长周期、持续与并行，还没有前沿模型能够完全自主地端到端开展研究；在数学、代码等可验证正确性的领域，模型可以借助反馈不断改进，但人们关心的大多数问题并没有明确的验证方式，需要真实部署与运行才能得到答案，面向这类产品的界面形态也尚不清晰。总的看，Srinivas认为，AI产品属于递归型产品，其增长主要依托用户的使用深度与质量，产品设计的长期方向是让AI足够直觉易用，并把研究能力推向更长周期，使更多用户能够借助AI提出并检验想法。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
