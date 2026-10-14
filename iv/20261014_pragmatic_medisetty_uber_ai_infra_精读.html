@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>开发者平台积累、统一网关与后台代理驱动的研发流程重构——Uber杰出工程师Uday Kiran Medisetty访谈要点梳理（The Pragmatic Engineer，2026-10-14）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>开发者平台积累、统一网关与后台代理驱动的研发流程重构——Uber杰出工程师Uday Kiran Medisetty访谈要点梳理（The Pragmatic Engineer，2026-10-14）</h2>
+<div class="metaline">The Pragmatic Engineer，94 分钟 · 2026-10-14</div>
+<p>——据The Pragmatic Engineer节目《Uber’s AI infra, from the inside》（2026-10-14）整理</p>
+<p>摘要：本文对Uber杰出工程师Uday Kiran Medisetty在The Pragmatic Engineer节目中的主要观点进行了梳理汇总。梳理了Uber在生成式AI之前建成的开发者基础设施及其向代理时代的延伸，介绍了模型网关、MCP网关、技能库与上下文图谱等基础组件，以及token预算管理、代理自我验证与代码评审方面的做法，最后归纳了其对生产率衡量口径与工程师角色变化的看法。据其介绍，目前约15%的生产环境代码合并请求（PR）由后台编码代理Minion完成；近几周技能日均执行约3万次；持续集成（CI）任务数量同比翻倍以上。</p>
+<p class="kw">关键词：编程代理；企业采用；研发效率；推理成本；代理安全；Uber；Claude Code；Codex</p>
+<h3>一、预AI时代的平台化积累</h3>
+<h4>（一）工程组织与技术栈的演进</h4>
+<p>Medisetty于2015年5月加入Uber，先后参与实时API、履约、Uber for Business、司机入驻与市场定价等业务平台工作，近一年转向面向工程师、公司其他部门以及用户和客服的代理式AI工作。据其介绍，一是他加入时是公司前600名左右的工程师之一，市场（marketplace）团队仅五六十人，此后工程团队扩张至数千人，2019至2020年起向多地扩展，目前在全球拥有12个技术中心。二是2015年公司仅有两个服务，分别为Node.js编写的调度服务和Python编写的API服务，此后在高速扩张期增至数千个服务。三是2018至2019年公司将Go与Java确定为主要语言并推进平台化，目前业务规模扩大约10倍，服务数量仍大体持平，所有运营国家共用一套全球技术栈。</p>
+<h4>（二）自建基础系统的沿革</h4>
+<p>Medisetty指出，早期缺乏能够满足其规模与变化速度的现成软件，公司因而自建了一批基础系统。一是资产归属系统uOwn，用于识别各项资产的负责团队。二是指标系统M3DB，2015至2016年公司每秒产生约5亿条指标，该系统此后开源。三是机器学习平台Michelangelo，覆盖数百个模型从特征、训练到监控、服务的全生命周期，数月前公司开源了其中的深度学习相关部分。四是持久化工作流引擎Cadence，用于司机入驻、客户关系营销等跨越数日的流程，此后亦已开源。五是配置、功能开关与实验平台，由于公司属于双边乃至三边市场，实验除常规A/B测试外还需采用切换实验（switchback），并自动生成统计分析。此外，城市在其基础设施中属于一等公民，部分关键服务按城市分片，可随时将某一城市切换至其他区域。</p>
+<h4>（三）DevPod云端开发环境向代理工作区的延伸</h4>
+<p>据其介绍，2017至2018年公司由各服务独立仓库转向按语言划分的单体仓库（monorepo），随后推出云端开发机DevPod，每个单体仓库对应一种DevPod，内置构建缓存，并对构建与测试时长提供服务水平保障。Medisetty表示，进入AI时代后，一是代理同样需要云端工作区，公司据此推出包含全部仓库的大型DevPod，供代理跨仓库提交PR。二是由于构建与测试已经标准化，在仓库顶层设置AGENTS.md、CLAUDE.md等文件即可让多数团队直接受益。三是DevPod默认预装Claude Code、Codex、OpenCode等工具，非工程人员也可直接上手。四是DevPod运行于多个云上预热的Kubernetes集群，基于预构建镜像数秒内即可创建，所有仓库统一使用Bazel构建，人与代理使用同一套命令。</p>
+<h3>二、面向代理的基础组件</h3>
+<h4>（一）模型网关与AI Guard</h4>
+<p>Medisetty表示，由于模型与代理框架（harness）更替较快，公司优先投资与具体模型、框架解耦的基础组件。一是2023年底公司在Michelangelo之上建成模型网关，各团队凭项目标识和调用令牌，即可通过兼容OpenAI或Anthropic的统一接口调用各供应商的开放权重与闭源模型。二是网关加入的首个中间件为AI Guard，由安全团队维护约五套微调模型，在严格的延迟约束下对每一次请求与响应进行内容、安全政策与对外沟通政策等方面的审查，防止向用户返回敏感内容。三是公司每一次模型调用均经过该网关，可按用户、调用方归集费用，今年以来进一步设置项目与用户两级支出档位，并具备审计日志、会话追踪、计费与缓存命中率统计等能力。他认为，这一网关也可作为后续模型路由的切入点。</p>
+<h4>（二）AIFX统一封装与token预算管理</h4>
+<p>据其介绍，公司以AIFX（AI Foundations）封装各类编程代理框架。一是引入“角色”（persona）概念，默认预装插件与技能。二是集中管理并跨环境同步配置，工程师切换框架时无需重新配置。三是在状态栏提供使用提示，以及本会话和跨框架的支出跟踪。在被问及工程师是否需要关注成本时，Medisetty表示，公司希望工程师可以使用全部工具，同时保证负责任的使用。一是每位工程师默认获得一个支出档位，接近上限时提出申请并经直属经理简单审批即可升档，审批环节主要用于围绕投入产出展开讨论，手续尽量从简。二是交互式框架与后台编码代理分设独立档位。三是公司推出CostCheck插件，基于各会话的使用情况给出个性化降本建议，并在上下文健康度、模型规格选择等方面提供实时指导。他认为，只要用于正确的项目，工程师应能按需支出，以充分获取收益。</p>
+<h4>（三）MCP网关与技能库</h4>
+<p>Medisetty介绍，2025年初公司启用Cursor，并于同年4月开始建设MCP网关，作为所有工具的统一入口。一是依托已有的Thrift与Protobuf接口定义注册中心，为各服务自动生成MCP规格，并生成面向大模型优化的接口描述，部分工具的原描述长达三四千token。二是服务方只需修改一项配置与安全策略即可开放，无需改动代码；自定义MCP也可经网关代理；Google Workspace、Slack、Jira、Linear等外部工具同样接入。三是近几个月所有MCP均可作为命令行工具（CLI）调用。他指出，该网关由负责API网关的同一团队建设，因而推进较快。在技能方面，今年初公司建立技能单体仓库，汇集平台团队的核心技能与各团队的专属技能，可跨框架自动安装，并统一配置质量门禁。据其介绍，近几周技能日均执行约3万次；几名工程师借助AI将全部技能改为CLI调用方式，减少常驻上下文的MCP数量，提升了token效率；公司正在开发根据框架运行轨迹自动生成技能改进补丁的功能。</p>
+<h4>（四）上下文图谱与内部助手</h4>
+<p>据其介绍，去年12月一名工程师开发了内部AI助手Cortana，覆盖网页、Slack与命令行，可跨全部代码库回答问题。Medisetty表示，分析运行轨迹后，团队发现代理在多个孤立系统之间获取依据需要较多轮次，因而构建了Uber上下文图谱。一是该图谱包含100余种节点类型与130余种边类型，接入实时数据，涵盖人员、资产、设计文档、功能、值班事件、配置变更、事故与工单等。二是助手以图谱作为默认依据，先定位问题所属领域，再深入读取文档，在多类问题上实现质量上升、成本与延迟下降。三是图谱由管理数十亿节点生产图谱的团队协助建设，规模压力不大。四是助手沿用用户既有权限，用户只能访问其原本有权访问的数据。</p>
+<h3>三、研发全流程的代理化改造</h3>
+<h4>（一）规划与后台编码代理</h4>
+<p>Medisetty表示，公司正按功能生命周期逐环节改造工具。一是产品与工程需求文档（PRD、ERD）、上线评审、实验评审与生产就绪评审集中管理并关联工单，作为人与代理共用的需求依据；由于业务横跨多国且涉及物理世界，规划阶段需充分考虑各类边界情形。二是后台编码代理Minion目前承担约15%的生产环境PR，现为第二版，可从网页或Slack发起，支持先规划后执行，并依托大型DevPod跨仓库生成一个或多个PR。三是Minion初期主要承担维护类任务，随着自我验证工具的增加，公司目标是逐步扩大其适用任务的比例。据其介绍，在支持频道中，值班工程师可直接让Minion定位缺陷根因并当场修复，无需进入待办队列。</p>
+<h4>（二）代理自我验证：Slate与Capri</h4>
+<p>Medisetty指出，若没有Slate一类系统，代理很难完成自我验证。一是Slate可为工程师的分支部署独立实例，并将测试账号的请求路由至该实例，其余上下游仍走预发布环境，支持多服务端到端测试。二是这一路由依托2017至2018年建设的分布式追踪系统Jaeger，通过在调用链上携带附加信息、由服务网格完成转发，改造全部存量服务耗时数年。三是代理已可通过Slate的MCP工具自行创建环境、部署服务，并以浏览器代理对主干与分支进行对比测试，生成前后对比报告，覆盖iOS、Android、网页与后端接口。在此基础上，公司为复杂平台建设了捕获回放系统Capri。一是只需一个中间件即可捕获服务入站、出站及下游调用的请求与响应。二是可按规则为请求标注业务维度，生成平台当前实际支持的全部维度组合，在部署前于CI/CD中逐一校验，例如识别仅影响巴西现金行程的回归。三是代理可调用Capri循环复现、修复与验证缺陷。此外，统一入口Edge Gateway基于追踪数据区分必需与可选依赖，帮助工程师和代理更快诊断告警。</p>
+<h4>（三）大规模变更、持续维护与缺陷诊断</h4>
+<p>据其介绍，一是Shepherd用于跨模块大规模变更，既可执行OpenRewrite等确定性规则，也可由代理按提示词与技能逐模块修改，每项迁移作为一个“战役”（campaign）跟踪，例如由JUnit 4升级至JUnit 5。二是Fox面向持续维护，各服务可自愿选用死代码清理、性能分析、日志降噪等技能，系统在每周日CI负载较低时自动生成PR，公司计划在部分技能完善后改为默认启用；团队还会分析维护类PR，判断是否需要新增或改进技能。三是Wisdom用于处理员工内测反馈的缺陷，自动分派至负责团队，并汇集页面路径、网络请求、功能开关等日志；托管代理Debug Assist据此结合代码库定位根因，确认后可交由Minion生成PR并关联工单；测试设备还可回放报告者当时收到的网络响应，以复现问题。</p>
+<h3>四、代码评审与持续集成的变化</h3>
+<h4>（一）PR增长带来的评审与CI压力</h4>
+<p>Medisetty表示，公司PR数量逐年上升，评审已与其他公司一样成为瓶颈。一是公司关注PR从本地到合并的P50与P90周期时长，并逐环节优化。二是CI任务数量同比翻倍以上，公司为此在内部针对CI系统启动了专项攻坚（code red）。三是公司将一批简单CI检查前移至本地内循环，以一条统一命令完成代码规范、覆盖率、构建与模板规则校验，并支持拉起模拟器、网页或预发布环境进行可视化验证；PR创建后还可启用自愈CI，自动请求评审、自动修复与自动合并。</p>
+<h4>（二）Code Inbox与人工评审的保留</h4>
+<p>据其介绍，Code Inbox集中展示待本人评审及本人提交、等待他人评审的PR，并附AI代码评审结果、检查项、手动测试截图与视频以及构建状态，公司正在加入风险评分与影响范围（blast radius）。在被问及人工代码评审的前景时，Medisetty表示，一是由于事故对Uber的代价较高，目前仍要求每个PR经工程师评审；二是随着风险评分可借多年历史数据回测、AI评审的可信度提升，未来或可对部分低风险PR开设自动合并的“绿色通道”；三是当前优先事项是让工程师获得加快评审所需的全部信号。</p>
+<h3>五、生产率衡量与工程师角色</h3>
+<h4>（一）由代码吞吐转向功能交付速度</h4>
+<p>Medisetty介绍，AI之前公司主要衡量代码吞吐量，并每隔数月开展开发者体验调查，跟踪净推荐值（NPS）、每次代码变更对应的事故数与代码覆盖率等指标。他表示，目前内部讨论的重点由代码变更速度转向功能交付速度。一是公司将全部PR按复杂度以及功能、缺陷修复、维护、测试、文档五类标注，观察结构的逐年变化，目前功能类PR占比上升、维护类占比下降。二是公司借助AI自动聚类，补齐从产品文档、工程文档到具体任务的链路，以测算过去两三年各半年度不同复杂度功能的P50交付周期。三是据此判断瓶颈位于需求、上线还是灰度发布阶段，从而确定投入方向。</p>
+<h4>（二）工程师工作方式的变化</h4>
+<p>Medisetty表示，在其工程生涯中，工作方式从未经历如此幅度的变化；Uber的杰出工程师仍须亲自写代码，他本人今年提交的PR明显多于去年，可以探索的想法也更多。他认为，一是上下文工程成为核心能力，工程师需要为代理搭建具备正确上下文的环境；二是需要给出准确的规格与约束；三是需要在多个会话之间并行界定、跟踪并快速验证工作，避免将回归引入生产环境。他以客服为例：公司正让AI代理执行部分客服政策，过去需将人工操作手册逐步转化为代理可执行的政策，并完成接口配置、上线前人工评测与上线后持续评测；目前由代理生成初版政策并自动完成配置与测试，单项政策耗时由数周缩短至数天，并以历史数据生成合成评测，同时保留护栏与人工核验环节。他并指出，业内对“能力过剩”（capability overhang）讨论较多，即模型已具备的能力因编排工具与框架不足尚未得到充分利用。</p>
+<p>总的看，Medisetty认为，Uber多年平台化投入使代理得以复用既有的开发环境、测试与发布体系，代理时代的工程工作在于持续识别并消除研发全流程中的下一个瓶颈，以提升可交付的功能数量；他同时表示，公司在这一进程中仍处于早期，后续仍有大量工作有待推进。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
