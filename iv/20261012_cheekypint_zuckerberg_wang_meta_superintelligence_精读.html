@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>前沿模型Muse Wonder、超前算力投入与个人超级智能的商业化路径——Meta创始人兼首席执行官Mark Zuckerberg、首席AI官Alexandr Wang访谈要点梳理（Cheeky Pint，2026-10-12）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-14<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>前沿模型Muse Wonder、超前算力投入与个人超级智能的商业化路径——Meta创始人兼首席执行官Mark Zuckerberg、首席AI官Alexandr Wang访谈要点梳理（Cheeky Pint，2026-10-12）</h2>
+<div class="metaline">Cheeky Pint · 2026-10-12</div>
+<p>——据Cheeky Pint节目《How Zuckerberg is building superintelligence》（2026-10-12）整理</p>
+<p>摘要：本文对Cheeky Pint节目主持人John Collison与Meta创始人兼首席执行官Mark Zuckerberg、首席AI官Alexandr Wang一期对谈的主要观点进行了梳理汇总。梳理了新一代前沿模型Muse Wonder的能力特点与训练方法，介绍了Meta在未见模型效果前作出大规模算力投入的决策过程、风险判断与收入安排，分析了个人代理的产品形态、代理商务与硬件形态，最后阐述了Meta超级智能实验室（Meta Superintelligence Labs，简称MSL）的组建方式及二人对行业竞争格局的判断。据二人介绍，Meta在路易斯安那州建设的Hyperion集群规模将达到5吉瓦；去年底作出投入决策时涉及金额约为1000亿至2000亿美元量级；运营1吉瓦集群一年的成本约为150亿美元；MSL研究团队不足200人。</p>
+<p class="kw">关键词：个人代理；代理商务；AI资本开支；定价与变现；组织变革；Meta；Muse Wonder</p>
+<h3>一、Muse Wonder的定位与能力特点</h3>
+<h4>（一）模型分级与发布安排</h4>
+<p>Zuckerberg表示，Muse Wonder是一款处于前沿水平的新一级模型。一是预训练需要沿“阶梯”逐级推进，每一级模型的规模约为上一级的4至5倍；此前的Muse Spark系列基于去年12月前后完成的首次预训练，规模并不大，能力超出团队预期。二是Muse Wonder规模显著更大，重点打造面向个人与职业场景的代理能力。三是Llama 4的进展未达预期后团队整体重建，需要逐级搭建不同层级的模型才能到达前沿，此后各级更大模型之间的间隔有望缩短。</p>
+<p>据Wang介绍，该系列包括Muse Wonder与更高端的Muse Wonder Full两款模型，依据Meta自身测算，在个人与职业代理任务的一系列评测中达到业内领先水平。发布安排上，据二人介绍，一是由于模型更大、服务成本更高，Muse产品内先以付费订阅为主，免费用户继续使用Muse Spark提供的大量免费token，二人表示希望未来推出能力与Wonder相当、规模与Spark相近的模型，以服务数亿用户；二是Muse Wonder通过Meta Model API与OpenRouter向开发者开放，并提供给Muse Code用户；三是Muse Wonder Full面向Muse Code订阅用户提供。在被问及Muse Wonder是否已与Astra、Fable等模型同处前沿时，二人表示从基准测试结果看可以得出这一结论。</p>
+<h4>（二）四项重点能力</h4>
+<p>Wang表示，Muse Wonder有四项重点能力。一是主动记忆（active memory），即模型在数天、数周乃至数月内记住用户提及的信息并用于后续任务的能力。他认为记忆是构建可靠个人代理的必要条件，Meta在这方面投入较多，并以内部评测Memory Bench衡量；OpenClaw依靠上下文压缩管理长短期记忆，用户使用一段时间后普遍感到记忆不稳定，Meta则把记忆管理与压缩能力内化于模型之中，但仍有较大改进空间。二是主动专注（active focus），即在长周期任务中贯彻到底、遇到阻碍时以符合用户意图的方式寻找替代方案的能力。三是领域专长。他认为个人代理应像用户身边的专家团队，兼具法律、财务与医疗团队的作用，Muse Wonder在多项金融与法律评测中处于领先水平。四是前沿编程能力，该模型在DeepSWE与SWE-Marathon上处于领先水平，在Terminal-Bench 4等基准上表现良好；他同时指出，将其用于编程的用户只占少数。</p>
+<h4>（三）以内部评测牵引模型研发</h4>
+<p>二人表示，外部基准测试很快就会饱和，团队越来越多地依据内部评测引导模型。一是Zuckerberg指出，实验室起步阶段主要依据外部基准确认方向正确，此后每次发布中内部评测的占比都在上升。二是Wang介绍，团队量化了“大模型质感”，以模型在后训练分布内任务和分布外任务上的表现差距衡量，Muse Wonder系列较Muse Spark系列改善明显，原因在于底座模型更强。三是Wang认为，许多公开基准由博士生在研究过程中制作，过度依赖外部基准相当于把产品判断交给了恰好做出热门基准的个人；团队把对用户重要的细微能力逐项列入表格，单项或许只影响约2%的体验，合在一起即构成产品的吸引力。四是Zuckerberg以“分寸感”（discretion）说明个人代理的特殊要求，代理需要充分了解用户，同时在对外办事时尽量少披露信息，例如为有过敏或怀孕等情况的用户预订餐厅时，不必向对方透露健康状况。</p>
+<h3>二、前沿模型的训练方法</h3>
+<h4>（一）预训练阶段</h4>
+<p>据二人介绍，预训练的基本做法是尽可能多地纳入数据，Zuckerberg指出了三方面要求。一是多模态，若希望模型具备感知能力，需纳入大量图像、音频与视频。二是领域知识，需从预训练阶段即让模型接触相关语料，购物、个人建议以及个人法律、健康与税务问题均属用户关心的领域。三是数据规模，模型越大需要的数据越多，否则会过拟合；在互联网内容增长有限的情况下，数据从何而来是扩大模型规模面临的重要问题。Wang补充指出，Meta把很大比例的算力投入Muse Wonder的预训练，这一环节风险很高，可供观察的样本很少，结论高度依赖研究人员的推理判断。</p>
+<h4>（二）后训练阶段</h4>
+<p>据二人介绍，后训练包括监督微调（SFT）与强化学习（RL）两步。一是监督微调用于初步塑造模型行为与个性，Wang形容此时模型可能只在约10%的情形下表现出期望的行为。二是强化学习大幅提高相应行为出现的概率，近年的主要进展多来自这一环节。三是扩大强化学习的算力与数据投入是明确的扩展路径，但须与预训练规模等要素同步扩大。Zuckerberg指出，Muse Spark从初版到1.3版本没有改动预训练，仅持续追加强化学习。Wang表示，构建强化学习环境与任务是体现研发意图的关键环节，数据在这一阶段往往“少即是多”；配方改进带来的提升同样明显，Muse Spark初版与1.3版本之间差距之大，许多人会以为二者出自不同的预训练。</p>
+<h4>（三）对齐取向</h4>
+<p>Wang指出，在大规模强化学习中，若某些环境只能通过不对齐或不安全的方式完成任务，就会把模型推向不良行为，因此团队对Muse Wonder的强化学习环境作了审慎筛选。Zuckerberg表示，对齐首先涉及“对谁对齐”，Meta的理解是与所服务的用户在指令与价值上保持一致。一是用户提出要求时，代理应以很高的可靠性完成。二是代理不应就用户的要求进行说教。三是遇到可能造成灾难性后果的请求时，代理应得体地拒绝。他认为，这与部分其他实验室的思路有较大差异。</p>
+<h3>三、超前算力投入与资金安排</h3>
+<h4>（一）超大规模集群与长周期规划</h4>
+<p>Zuckerberg认为，衡量一家实验室的算力实力，可以看其用于大型训练的单一超级计算机规模。一是Meta在俄亥俄州建设的Prometheus集群规模将超过1吉瓦。二是在路易斯安那州建设的Hyperion集群规模将达到5吉瓦，在今后几年陆续投用。三是两个集群的规划始于2023年或2024年，早于MSL成立。他表示，Meta是自建数据中心、芯片与底层基础设施的全栈科技公司，前沿模型是其中新增的关键环节。Wang指出，Muse Wonder自去年8月即开始规划，Muse Spark被视为通往Muse Wonder的过渡，模型研发由多条长周期工作流在后期汇合而成。</p>
+<h4>（二）未见模型效果前的投资决策</h4>
+<p>二人表示，前沿模型研发需要在缺少验证的情况下作出重大决策。一是Zuckerberg认为，创业者的核心能力在于信息匮乏环境下的决策质量；Wang将其称为“高难度模式”的创业，与先验证、再加码的“精益创业”思路相反。二是据Zuckerberg回忆，去年底团队尚未见到模型效果，就需要作出约1000亿至2000亿美元量级的投入决定。Wang回忆称，当时其本人只能就研究进展给出主观判断并展示部分曲线；在夏威夷举行的管理层会议上，首席财务官Susan Li多次单独提醒他，若模型不成功，财务后果将非常严重。三是Zuckerberg给出成本量级：运营1吉瓦集群一年约需150亿美元，建设这样一个集群的资本开支约500亿至600亿美元；研究中逐级验证各项改动所需的算力与正式训练大体相当，训练一款前沿模型的花费在数百亿美元量级。四是在产品尚不存在时就需要提前数年为其建设推理算力，内部曾有人主张更保守，Zuckerberg则坚持推进。</p>
+<h4>（三）风险判断与算力的备用价值</h4>
+<p>Zuckerberg认为，这项投入的风险低于表面数字所显示的水平。一是若AI整体取得成功，其他公司会愿意以高于每吉瓦150亿美元的价格使用Meta的算力，投入落空的前提是AI整体失败。二是即便如此，Meta仍有其他业务可以有效利用这些算力。三是团队对产品方向有信心：ChatGPT确立了文本助手形态，Anthropic让编程代理取得成功，个人消费级代理尚无人做出，这正是Meta应做的事。据其介绍，团队对Muse发布的中位预期是需要几轮迭代才能达到产品市场匹配，实际反响超出预期。Wang表示，Zuckerberg深刻理解幂律分布，即失败本身无关紧要，要紧的是赢的时候赢多大。</p>
+<h4>（四）收入来源与投入回收</h4>
+<p>在被问及AI基础设施建设如何筹资时，Zuckerberg表示，Muse首先要做到广泛使用，规模越大，网络效应与合作伙伴的接入意愿越强，因此基础版本保持免费。收入来源有以下几方面：一是订阅；二是商务，Muse能帮用户省钱、赚钱，Meta可以从中抽取一小部分；三是面向中小企业的“一站式经营工具”；四是API；五是企业业务，Meta设立了Meta企业平台（Meta Enterprise Platform）并由CJ Desai加入负责，他认为许多企业会愿意使用性能出色且价格合理的Muse Wonder。他同时指出，Meta本身盈利能力很强、信用良好，能够为大额投资提供支撑，其一贯路径是先把产品做到十亿用户规模，再逐步扩大收入。</p>
+<p>此外，一是用模型加速核心业务，Zuckerberg表示核心业务规模达数千亿美元且仍在快速增长，增速即便只提高几个百分点，也能为投入提供大量资金。二是Zuckerberg认为，相较按年向云厂商付费的公司，自建数据中心具有财务优势，GPU折旧完毕后仍可继续使用；在算力持续紧张的情况下，H100的价值甚至高于去年。三是Wang补充认为，任一时点的研发支出都叠加了多代模型的投入，回报在模型交付后集中体现。</p>
+<h3>四、个人代理的产品形态与代理商务</h3>
+<h4>（一）模型即产品</h4>
+<p>Collison提出，AI领域的胜出产品形态往往很快收敛趋同，Zuckerberg对此持不同看法。一是代理与各家都有的文本助手属于不同产品，Meta AI覆盖大量用户，但主要用于获取信息，用户并不把它当作替自己办事的工具。二是为代理配备专属虚拟机，对于让用户放心个人信息的安全与隐私十分重要。三是Meta内部的说法是“模型即产品”，产品层日益变薄，代理的能力与个性主要通过训练写入模型，Muse的产品工作集中在处理用户数据的隐私与安全模型上。Wang补充认为，模型在各种情境下如何行事、以何种个性回应、何时主动介入等关键设计，均落实为训练方法、数据与评测。二人还表示，Muse不设模型选择与推理强度选择，以便普通用户使用。</p>
+<p>在多模态方面，Wang指出，今年早些时候行业共识一度认为编程决定一切，Muse这类消费级产品的成功则有赖于较强的多模态能力。Zuckerberg以本人用例说明：他在健身房安装摄像头，由Muse观看其综合格斗训练并在每回合约一分钟的间歇内给出反馈，代理为此自行编写了视频处理流程。他认为，未来人人都会编写大量代码，只是不会意识到自己在写代码。</p>
+<h4>（二）代理商务</h4>
+<p>Zuckerberg介绍了Muse与商家对接的路径。一是在模型中训练良好的浏览器操作能力，使商家无需任何接入即可被Muse使用。二是与重要合作伙伴建立直接API接入，效率更高。三是长期看，每家企业都会像拥有网站与社交媒体账号一样拥有自己的代理，Meta也在构建企业侧代理。据其介绍，主动要求深度接入的商家远多于试图阻止的商家，他认为阻止代理访问在战略上对这些商家不利。</p>
+<p>Wang认为，需求将逐步向代理渠道迁移，代理商务在整体中的占比将上升，传统渠道仍会存在。他指出，Muse是用户把购买完全委托给代理的首批产品之一，其价值体现在三方面：一是减少反复点击与比较的摩擦；二是自动应用交付时限等约束条件；三是长期看，Muse掌握用户家庭、同事与朋友的整体情况，可以提供更个性化的推荐，传统推荐系统则彼此割裂。</p>
+<p>Zuckerberg以本人经历说明代理对市场规模的影响。他与三岁的女儿通过Muse语音模式讨论烘焙计划，Muse在每周六前从Instacart订好食材；他此前一年大约只用两次Instacart，为Muse专门开设账户后每周使用一至两次。他认为，这一变化超出了转化率提高20%的范畴，若代理也会拥有账户，整个商业的可服务市场规模可能大幅扩大。</p>
+<h4>（三）交互方式与硬件形态</h4>
+<p>Zuckerberg认为，纯语音交互推广缓慢有其原因。一是对话中停顿、插话等节奏难以把握。二是语音输入带宽高，但通过语音接收信息的效率远低于视觉，理想界面应结合语音与视觉。</p>
+<p>在硬件方面，一是Zuckerberg表示，许多用户需要的眼镜无需显示屏或只需小型显示屏，摄像头与音频即可构成有用的产品，眼镜将实现语音输入输出、看到用户所见并在视野中生成画面的完全多模态交互，未来甚至未必需要应用商店。二是据二人介绍，Meta推出Muse Gadgets，向生态开放各类设备形态的尝试，已有多家手机厂商表示将集成。三是Meta推出了硬币大小、带USB接口的HomeLink，使Muse可以连接家中的音箱与灯光等设备。</p>
+<h3>五、MSL的组建方式与竞争格局判断</h3>
+<h4>（一）组建过程与全面重启</h4>
+<p>据Zuckerberg介绍，Llama 4于2025年4月初发布，4月20日前后他开始向多方征询意见。一是首次与Wang通话约44分钟，两天后Wang发来长文阐述其建议，第一条即是不需要很多人，关键在于人才密度。二是此后一两个月他几乎清空日程，专门与研究人员面谈。三是他在与各实验室负责人和研究主管广泛交流后确信Wang是合适人选，看重其战略清晰度以及像创业者那样动态更新判断的能力，认为这在快速演进的领域中比精通某一种训练技术更为重要。四是起初并未确定要全面重启，在与优秀研究人员的接触中逐步认识到，让实验室具有“从零开始”的感觉更有吸引力，同时吸纳Llama与FAIR团队中的优秀人员。Wang回忆，加入后的首批会议中，原团队一名关键负责人认为消费者不需要推理模型，这使其意识到公司领导层需要更积极地拥抱AI。</p>
+<h4>（二）组织方式</h4>
+<p>二人表示，MSL坚持小规模、高人才密度的组织方式。一是研究团队不足200人、更接近100人，另有大量基础设施人员。二是算力集中投向关键人员，避免在相互竞争的项目间平均分配。三是Wang有近200名直接下属，Zuckerberg表示用意在于不设非技术管理者，管理者一旦脱离技术细节，很快就会跟不上这一快速演进的领域。Wang还指出，MSL设立时公司明确不设截止期限；MSL需要基础设施、数据中心建设等多方面支持，有赖于创始人兼首席执行官推动全公司的全局优化。Zuckerberg表示，这是难度达到满分的工作，对公司其他部门与财务模型都带来一定压力，同一时间只能有一个首要优先事项。</p>
+<h4>（三）多元竞争格局</h4>
+<p>在被问及为何未出现“赢家通吃”时，Wang给出三点原因。一是各前沿实验室的执行都有起伏，随时间推移相互抵消。二是蒸馏技术使强大能力得以压缩进更小的模型，今天的小模型已强于一两年前的大模型，这对开源生态十分有利。三是业内许多人希望避免单一公司主导的结局，并在就业去向与商业合作中作出相应选择。Wang还表示，各家前沿模型的发展方向正在分化，统一的基准排名掩盖了模型之间的差异。</p>
+<p>Zuckerberg认为，每一代技术都不会由一家公司赢得全部，下一阶段可能由少数几家有能力构建前沿超级智能的公司主导消费、企业与硬件等领域的体验。一是Meta的出发点在于做出好的产品，拥有平台本身居于次要位置。二是其他实验室多专注于知识工作自动化，个人与消费级方向仍有空间，超级智能更有价值的用途在于发明与创造。三是多元化的模型生态与相互制衡是实现安全的路径，他赞赏英伟达近期支持开源生态的举措，认为少数几家公司掌握少数优质模型的格局风险更高。</p>
+<p>总的看，Zuckerberg认为，若要在未来持续发明对人们有意义的新事物，Meta必须具备端到端构建自有超级智能并将其融入产品的能力；Wang认为，AI领域极易落后，团队须保持技术敏锐、深入细节，始终站在前沿。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
