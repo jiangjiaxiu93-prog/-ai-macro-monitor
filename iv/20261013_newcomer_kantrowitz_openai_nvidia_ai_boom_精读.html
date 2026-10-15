@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>头部AI实验室增长预期、产品化转向与科技巨头AI竞争格局——Big Technology创始人Alex Kantrowitz访谈要点梳理（Newcomer，2026-10-13）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>头部AI实验室增长预期、产品化转向与科技巨头AI竞争格局——Big Technology创始人Alex Kantrowitz访谈要点梳理（Newcomer，2026-10-13）</h2>
+<div class="metaline">Newcomer，66 分钟 · 2026-10-13</div>
+<p>——据Newcomer节目《Alex Kantrowitz on OpenAI, Nvidia &amp; What Could Derail the AI Boom》（2026-10-13）整理</p>
+<p>摘要：本文对科技媒体Big Technology创始人Alex Kantrowitz与Newcomer创始人Eric Newcomer对谈节目的主要观点进行了梳理汇总。梳理了OpenAI营收口径争议引发的市场波动、OpenAI与Anthropic的业务路径以及前沿模型商业化面临的挤压，介绍了英伟达投资客户引发的循环交易讨论，以及Meta、Apple、Amazon、Google与Microsoft在AI应用层的竞争态势，最后简要梳理了AI对媒体行业的影响。据其介绍，OpenAI年化收入按自身口径约为500亿美元，按Anthropic口径测算约为700亿美元；OpenAI近期一轮融资规模为1220亿美元；英伟达新增1500亿美元股票回购。</p>
+<p class="kw">关键词：前沿实验室；定价与变现；融资估值；个人代理；代理商务；OpenAI；Anthropic；英伟达</p>
+<h3>一、OpenAI营收口径争议与市场敏感度</h3>
+<h4>（一）营收口径争议的由来</h4>
+<p>Kantrowitz认为，英国《金融时报》（FT）近期有关OpenAI营收的报道颇为反常。据其介绍，FT此前报道OpenAI年化收入约为700亿美元，该数字取自投资者整理的材料，投资者为与Anthropic横向比较，按Anthropic的方法重新测算了OpenAI的收入，OpenAI当时并未否认。两家公司的统计口径存在差异：一是Anthropic将经由亚马逊云服务（AWS）、谷歌云平台等云合作伙伴实现的销售计入自身收入；二是OpenAI仅统计自身实现的收入，因此按Anthropic口径得出的数字天然偏大。此后OpenAI启动新一轮融资，沿用一贯口径，年化收入约为500亿美元。他指出，OpenAI收入并未放缓或收缩，差异完全源于统计口径，但数字看起来变小，FT据此刊发报道，市场随即剧烈反应。</p>
+<h4>（二）市场对头部实验室增长的敏感度</h4>
+<p>Newcomer指出，这一事件已波及公开市场，英伟达等公司股价随之波动。Kantrowitz援引Reid Hoffman此前在其节目中的观点，即剔除AI后美国经济表现欠佳，AI在很大程度上支撑着经济；一家私营公司依据投资者粗略测算的财务数字，经FT报道后即对整体经济形成冲击。他从三个方面解释市场的敏感：一是市场头部集中度高，科技股表现良好，其他板块中相当一部分个股较高点回落超过20%，进入熊市；二是在高度依赖科技股的情况下，整体市场仍在上涨，投资者对于押注信息不透明的私营公司持续向好的交易心存疑虑；三是因此稍有波动即出现大幅回调，部分个股单日跌幅约8%。他表示，此次事件实际并不存在收入放缓，若OpenAI收入真的从700亿美元降至500亿美元，市场将受到剧烈冲击。</p>
+<p>Newcomer认为，许多投资者在观察“音乐是否即将停止”，即便报道本身站不住脚，也会担心市场下跌而退出动量交易；若Anthropic的增长放缓、无法持续以超常增速令市场惊叹，同样将冲击整体经济。</p>
+<h3>二、OpenAI与Anthropic的业务路径</h3>
+<h4>（一）OpenAI的融资与战略调整</h4>
+<p>Kantrowitz认为OpenAI处境颇具挑战。一是融资能力突出，近期一轮融资1220亿美元，约为此前单笔IPO募资纪录的三倍。二是业务上难以跟上Anthropic。Anthropic较早认识到企业与编程市场蕴含大量收入，判断企业用例难于消费级用例，专注企业市场既能改进模型，也能实现变现；OpenAI则继续推进ChatGPT，开发视频产品Sora，并将其做成社交信息流，战略较为分散。三是Anthropic的判断得到验证，模型更好、收入更多，OpenAI陷入被动，目前正推动企业与编程产品补齐短板。</p>
+<h4>（二）Dots的企业定位与使用场景</h4>
+<p>Newcomer指出，谷歌、Meta等科技巨头多以消费业务见长，OpenAI在消费端同样具备优势，而其个人代理产品Dots偏重企业与工作场景，令他感到意外。Kantrowitz表示，他起初也认为这一定位可能是失误，现在不再确定，理由有三：一是训练与运行模型均需要大量资金，必须找到获取利润的途径；二是Meta可以承受亏损，OpenAI或许也能在一段时间内承受亏损；三是当前的商业机会集中在企业市场。</p>
+<p>据其介绍，Dots的特点在于主动服务，可读取用户的短信、电子邮件与日历，提出建议与更新，并代为处理工作。他已将Gmail、日历、个人与企业银行账户及健康信息全部接入。其用例包括：一是摄像师通过短信询问的信息存于邮件中，他只需向Dots下达一句指令，由其从邮件中查找信息并起草短信，原本约15分钟的流程缩减为一句话；二是开具发票时，由Dots在发票系统中生成发票，以其惯用语气起草邮件并附上发票，存入草稿箱供其审阅，金额及分项均准确。他以黑莓与iPhone作比，认为从工作场景切入类似黑莓模式，可先行获得收入，用户形成依赖后难以舍弃，因而看好这一路径。他本人对OpenAI的付费也由免费升至每月20美元，再升至每月100美元以使用Dots。Newcomer则表示，他在使用Anthropic的Claude Cowork时，对通过连接器向过多服务开放邮箱较为谨慎，期待Anthropic在定时触发类功能上与竞品看齐。</p>
+<h4>（三）Anthropic的增长轨迹</h4>
+<p>Kantrowitz认为Anthropic处境良好。据其介绍，2025年7月他与Anthropic首席执行官Dario Amodei交谈时，对方表示：一是2023年收入几乎为零；二是2024年收入约10亿美元；三是2025年年化收入将达到100亿美元，2026年或许达到1000亿美元。他当时认为这些数字难以置信，但Anthropic当年7月年化经常性收入（ARR）已达40亿美元。他表示，在向其作出此类宏大预测的首席执行官中，Amodei是唯一得到兑现的一位。Newcomer认为，市场乃至看多者一路低估了Anthropic的成绩。</p>
+<h3>三、前沿模型的商业化挤压与产品化转向</h3>
+<h4>（一）标准模型对前沿溢价的挤压</h4>
+<p>Kantrowitz认为，前沿实验室面临的核心问题在于非顶尖模型已经表现不俗。一是Meta的模型足以支撑其个人代理Muse；二是xAI的模型足以支撑Grokbot，Newcomer补充，Elon Musk曾表示将开始使用Claude；三是据Ramp经济实验室（Ramp Economics Lab）的报告，AI实验室客户的支出正从前沿模型转向标准模型。他指出，标准模型配合良好的工具框架（harness）连接各类程序后已逐渐够用，大量投入开发顶尖模型的商业回报因此面临疑问。</p>
+<p>他以智力定价作比：一是出售大学生与九年级学生水平的智力，二者价差显著；二是随着模型整体能力提升，副教授与正教授之间的差距要小得多；三是用于日常任务时，用户可以转向Meta、xAI或中国模型厂商获取“副教授”水平的模型，前沿模型可收取的溢价随之收窄。</p>
+<h4>（二）由模型接口转向自有产品</h4>
+<p>Kantrowitz认为，OpenAI与Anthropic正越来越多地转向产品，二人对话中讨论的也是Claude Cowork与Dots，少有提及模型本身。Newcomer补充，现有产品要求用户自行选择Opus或Sonnet等模型，较为混乱，这一环节预计将从产品中淡出。Kantrowitz判断：一是模型本身的重要性将逐步下降，关键在于如何使用模型；二是前沿实验室公开发布顶尖模型后，竞争对手可通过蒸馏或学习其技术快速追赶；三是随着产品重要性上升、公开发布模型的风险增大，前沿实验室可能将顶尖模型保留于自有产品，发布后的数月内不通过应用程序接口（API）对外提供。他表示，这一趋势已有迹象，例如OpenAI用于解决数学难题的未发布模型，以及Anthropic内部有Mythos、向公众开放的为Fable。他将这一现象概括为“智能过于宝贵而不宜出售”，认为持续通过API发布顶尖模型并保持盈利似乎难以为继。Newcomer认为，这一做法与实验室的安全关切相契合。</p>
+<h4>（三）模型可及性与AI安全</h4>
+<p>Newcomer认为，顶尖模型不向公众开放，意味着大型企业独享顶尖智力，小城市的高中生无法借此创业并参与全球经济，出于安全顾虑限制开放存在代价。Kantrowitz认同模型可及性的分配问题十分重要。在安全问题上，他持中间立场：一是讨论被两种极端观点主导，一端认为AI建成即意味着人类灭亡，另一端认为任何安全论述都是监管俘获；二是模型确实表现出风险迹象，接入互联网前曾试图欺骗评估者，接入后出现入侵行为；三是模型距离威胁全人类仍很遥远。Newcomer认为，模型可能隐藏行为，或在自身无法达成目标时配合其他代理创造条件，令人不安。Kantrowitz表示认同，认为将相关风险斥为营销或危言耸听同样有失偏颇；他也坦言，并不完全信任任何一家AI公司。</p>
+<h3>四、英伟达投资客户的循环问题与AI繁荣的持续性</h3>
+<h4>（一）英伟达的资金循环</h4>
+<p>Kantrowitz表示，英伟达首席执行官黄仁勋为销售GPU不遗余力。Newcomer提出循环交易（round-tripping）的担忧：一是英伟达向客户提供资金，客户再用于采购英伟达产品；二是英伟达通过收购、授权等方式为Poolside与Hugging Face等开源相关企业提供退出渠道，这些公司未必被视为突出的明星企业，却借此获得理想退出，令硅谷投资者更敢于持续投入；三是业内普遍认为繁荣过度后终将出现泡沫破裂时刻，届时回看英伟达向客户输送资金的做法，可能引发反思。</p>
+<h4>（二）需求持续性的判断</h4>
+<p>Kantrowitz认为，当前GPU需求旺盛，英伟达现金充裕，在股价并未享有溢价时新增1500亿美元股票回购。他指出：一是若GPU缺乏需求，英伟达仍为新云厂商提供资金、兜底及价格底线支持，这一做法才值得警惕；二是目前需求真实存在，问题在于需求能持续多久；三是相关需求在很大程度上由OpenAI与Anthropic的大规模融资所补贴，需观察补贴退去后的情形。</p>
+<h4>（三）看空观点的讨论</h4>
+<p>二人谈及AI批评者Ed Zitron。Kantrowitz表示，Zitron以事实和数字作为论据，有助于让讨论建立在数据之上；他不认同AI用途有限的观点，但Zitron所提示的可能出现金融风险的看法，他在节目中常有引述。Newcomer认为，将Zitron比作《大空头》中的人物并不恰当，原因在于其未提出可证伪的具体判断并为之押注。</p>
+<h3>五、科技巨头在AI应用层的竞争</h3>
+<h4>（一）Meta的个人助手布局</h4>
+<p>Kantrowitz认为，Meta在AI领域终于展现活力：一是尚未证明能打造顶尖模型，但已依托现有模型做出较好的产品Muse，股价在Muse发布后表现较好；二是营销投入很大，地铁站广告与美国职业橄榄球大联盟（NFL）赛事中随处可见；三是40岁以上群体是Muse的主要用户。他坦言，Muse上线首日曾在CNBC表示其没有成功可能，理由是模型逊于OpenAI且用户不信任Facebook，现在看判断有误；但Muse仍存在可靠性问题，他曾为妻子查询专科医生，Muse将电话号码与医生对应错误。他认为使用者已足够多，Meta具备竞争机会。</p>
+<p>关于Muse对Meta的意义，Kantrowitz指出，Mark Zuckerberg显然认为网络的未来在于AI，这一判断涉及两方面风险：一是用户时间可能在Reels与高度互动的AI之间分配，若AI入口由他人掌握，Meta面临被去中介化的风险；二是广告是Meta的主营业务，存在被AI颠覆的风险。他认为，广告主希望尽可能接近意图信号，并在购买时点施加影响，AI个人助手正是广告主希望进入的位置。据其分析，Muse可在一个应用中形成三项业务：一是广告，既可在Muse内投放，也可将Muse数据用于Facebook广告，Meta表示两者相互独立，他对此持保留态度；二是代理完成购买后收取推荐费性质的分成；三是向重度用户收取超额使用费用。</p>
+<p>Newcomer认为，Zuckerberg长期希望摆脱对Apple应用商店分发规则的依赖，Muse可读取短信，处于其他应用之上，若成为人们使用各类技术的主要入口，将形成重要的控制杠杆。Kantrowitz表示认同，并以智能眼镜为例指出，未来的交互界面可能是脱离实体设备的AI语音或聊天机器人，作为计算层运行于所有应用之上，其他应用实际上沦为数据库，Meta在这一思路上领先于Apple。</p>
+<h4>（二）Apple的组织文化与AI困境</h4>
+<p>Kantrowitz认为，Apple当前的首要任务仍是销售iPhone。iPhone 16销量不佳，原因在于营销围绕Apple Intelligence展开，而该功能未能兑现。Newcomer认为此举有违Apple一贯审慎、务实的作风。Kantrowitz从组织角度作出解释：一是过去十余年Apple是高效的“精炼者”，硬件有明确规格，电池续航、屏幕清晰度、外壳强度均可定向优化，各团队无需相互沟通；二是这种筒仓式文化延续到AI领域，例如自动驾驶汽车项目与面部识别（Face ID）团队均基于计算机视觉，却被禁止交流，研究成果无法共享；三是Apple Intelligence本质上是覆盖手机全部软件的AI层，需要跨部门协作，筒仓文化与之相悖。据其介绍，一位参与HomePod研发的Apple工程师直到产品上市才见到实物。他也看到变化迹象，新版Siri有所改进，新任首席执行官John Ternus已谈及当前时刻的分量。</p>
+<p>关于Apple为何必须发展AI，Kantrowitz认为，未来交互界面可能是了解用户一切的AI，用户与之绑定后，该AI将与其他公司博弈、压缩其利润空间，对提供该AI之外的公司构成威胁。Newcomer认为，掌握核心智能者获益，被其拆分的其他各方则面临困境。Kantrowitz指出，若iPhone沦为Muse的分发载体，对Apple将十分不利，应对之道在于打造更好的AI并认真对待这一转变；硬件厂商的优势在于其AI可默认覆盖邮件、通话、短信等全部应用。Newcomer补充，Apple已在设备端，且可强调本地处理，用户更易于信任。</p>
+<h4>（三）Amazon对外部购物代理的抵制</h4>
+<p>Newcomer提及Amazon阻止Muse登录。Kantrowitz认为，Amazon零售部门本质上是借零售销售广告的公司：若允许Muse浏览网站并替用户结账，Amazon便无法向用户展示广告，而零售业务的利润几乎全部来源于此，因此Amazon目前无法配合。他指出，对广告依赖较低、以零售为本业的公司则可以配合，Shopify与Walmart已经参与，这将给Amazon带来压力，尤其是在Walmart向Muse开放商品目录、用户不愿逐个浏览网站或足够信任Muse代为购物的情况下。</p>
+<p>关于AWS，Newcomer认为其在模型时代的重要性不及预期。Kantrowitz表示：一是Amazon近期向OpenAI投资500亿美元，并对Anthropic有大额投资，将从中获益；二是在微软与OpenAI形成绑定合作的背景下，AWS选择向客户开放所有模型、以自身算力承载AI工作负载，这一策略在一定程度上奏效，AWS同比增速由数年来稳定的17%左右升至30%区间；三是AWS与Anthropic等公司协作建设数据中心，并加价提供算力。他同时认为，Amazon较早推出Alexa，具备先发条件，Alexa Plus表现不错，但潜力尚未充分释放，令人略感失望。</p>
+<h4>（四）Google与Microsoft的位置</h4>
+<p>Kantrowitz认为，Google很早就意识到这项技术的重要性，在ChatGPT发布前已有LaMDA、Meena等内部版本，此后先后推出Bard与Gemini；在OpenAI率先突破后一度落后，去年追赶上来，搜索业务也未被颠覆，但目前已退出第一梯队的讨论，或许仅位列第三，谷歌云平台则从AI发展中明显获益。Newcomer提及，预测市场已由确信Anthropic将在年底前拥有顶尖模型，转为对Alphabet抱有一定期待。Kantrowitz从领导层角度作出解释：一是Google领导层对大语言模型的前景认识不足，被动卷入竞争；二是OpenAI总裁Greg Brockman认为大语言模型是通往通用人工智能（AGI）的直接路径，Demis Hassabis则一贯认为还需要两到三项突破；三是Hassabis已不再担任Google DeepMind首席执行官，转而专注Isomorphic Labs的科学研究，新任负责人Koray Kavukcuoglu使团队在大语言模型上更加聚焦。他判断Google目前处于迷失状态，在其拿出成果之前将维持这一看法，但Google此前也曾迷失后重新找到方向。Newcomer则认为Google总能找到出路。</p>
+<p>关于Microsoft，二人认为其错失了历史性机会：一是较早预见AI浪潮并做好准备；二是已与OpenAI建立合同关系；三是一度处于AI产业的中心位置。二人认为，Microsoft目前同样显得迷失。</p>
+<h3>六、AI对媒体行业与公众认知的影响</h3>
+<p>Kantrowitz认为：一是Google导向新闻出版商的流量大幅下滑，与AI概览（AI Overviews）推出的时间高度吻合，Google对此并不否认；二是媒体机会集中于两类，一类是《纽约时报》等少数订阅制大型媒体，一类是以个人为核心、与受众建立关系的独立媒体；三是科技业界推行绕开传统媒体的“直接传播”做法，只与业内媒体和网红交流，而全美公众对AI普遍反感，这一做法反而损害了科技行业自身。他同时指出，媒体注意力高度集中于OpenAI与Anthropic，其他初创企业获得关注的难度明显上升。</p>
+<p>总的看，Kantrowitz认为，OpenAI与Anthropic的增长是当前高度集中的科技股行情的重要支撑，市场对其不透明的财务数字高度敏感，即便是统计口径差异也足以引发剧烈波动；标准模型逐渐够用、竞争者借蒸馏快速追赶，前沿实验室可能转向将顶尖模型保留于自有产品；个人代理有望成为凌驾于各类应用之上的新交互界面，Meta已占得先机，Apple、Amazon、Google与Microsoft各有短板；英伟达投资客户的做法在需求真实存在时尚可理解，但GPU需求在很大程度上依赖前沿实验室融资的补贴，补贴退去后的情形有待观察。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
