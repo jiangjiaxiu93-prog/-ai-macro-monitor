@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Workday企业代理应用与收费模式转型——Workday联合创始人兼首席执行官Aneel Bhusri访谈要点梳理（Fortune Titans and Disruptors，2026-10-14）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Workday企业代理应用与收费模式转型——Workday联合创始人兼首席执行官Aneel Bhusri访谈要点梳理（Fortune Titans and Disruptors，2026-10-14）</h2>
+<div class="metaline">Fortune Titans and Disruptors · 2026-10-14</div>
+<p>——据Fortune Titans and Disruptors节目《Workday CEO On How AI Is Reshaping Payroll, Hiring And Employee Management | Titans and Disruptors》（2026-10-14）整理</p>
+<p>摘要：本文对Fortune Titans and Disruptors节目中Workday联合创始人兼首席执行官Aneel Bhusri的主要观点进行了梳理汇总。梳理了Workday将开发中的代理项目从50个收缩至20个的产品调整，介绍了招聘、合同分析、人力资源自助服务及财务自动化的应用进展，其中人力资源工单当前分流比例据其估计为25%～30%，最后总结了席位费与代理用量收费并行的商业模式，以及员工与代理共同参与工作的组织安排。</p>
+<p class="kw">关键词：企业代理；企业采用；席位制定价；按量计费；组织变革；Workday；Sana</p>
+<h3>一、AI原生转型与产品资源配置</h3>
+<h4>（一）技术变化与企业转型</h4>
+<p>Bhusri将重返首席执行官岗位视为Workday的“重新创业”阶段。他表示，AI带来了应用开发方法和企业组织方式的变化，Workday需要重新审视产品与经营模式。</p>
+<p>一是技术基础发生变化。传统企业应用依赖确定性的业务流程，AI则提供基于概率的推理能力，产品设计需要适应新的技术特点。二是迭代节奏加快。模型能力持续变化，应用也随之频繁调整，企业需要提高研发和决策速度。三是商业模式设计需要前移。据其观察，初创企业围绕AI设计业务，大企业则在既有业务中寻找AI的应用位置；大企业可以借鉴初创企业的做法，思考从头建立公司时会如何配置人员、技术和产品。</p>
+<p>Bhusri认为，既有品牌和产品仍有价值，企业也需要回应采用新模式的竞争者。他希望Workday能够跨越技术代际，在云计算业务基础上形成AI原生产品能力。</p>
+<h4>（二）代理项目精简与责任划分</h4>
+<p>据Bhusri介绍，其回归时Workday有50个开发中的代理项目，随后收缩至20个。筛选标准是客户价值与实际回报。</p>
+<p>一是终止影响有限的项目。部分代理难以解决重要客户问题，另有一些项目偏离公司未来方向，相关开发被停止。二是整合功能重复的项目。部分原先单列的代理属于功能组件，被并入其他代理，产品资源随之集中。三是明确责任主体。此前代理、应用程序接口和平台等领域存在多头负责的情况，调整后，代理开发、AI平台和工具建设分别由明确的负责人承担责任。</p>
+<p>在管理方式上，Bhusri借鉴了Steve Jobs回归苹果后强调的责任、速度与产品聚焦。他将公司工作归纳为三项：一是与客户共同建设AI产品；二是重新加强客户联系；三是坚持公司价值观。与此同时，他鼓励产品创新中的试验与调整，并强调客户数据保护的边界。</p>
+<h3>二、业务代理的应用场景与实际回报</h3>
+<h4>（一）招聘、合同与人力资源服务</h4>
+<p>Bhusri表示，代理产品应具有具体、可感知的投资回报，客户采用主要围绕招聘、一线员工管理和合同处理等业务问题展开。</p>
+<p>一是招聘流程。代理可参与面试、面试安排及招聘流程协调，帮助加快招聘进度。Bhusri认为，招聘代理的投资回报率（ROI）超过50%。这一数字是其对招聘代理效果的判断。二是合同分析。代理可快速审阅大量采购合同，寻找支出过高的环节。据其介绍，已有应用案例借此节省数百万美元；其认为，部分人工需要较长时间完成的合同检查，可以通过AI显著提速。三是人力资源自助服务。代理回答员工问题，减少转交人工服务团队的工单。据其估计，当前工单分流比例为25%～30%，随着能力改进，目标是提高至80%～90%。</p>
+<p>对于人力资源负责人，Bhusri建议从既有业务中的痛点出发，一是寻找学习培训环节的改进空间；二是优化招聘流程；三是改善薪酬处理等重复性工作。具体代理的选择应与需要改善的流程和回报相对应。</p>
+<h4>（二）Sana前端与实施开发工具</h4>
+<p>Bhusri将自助服务代理视为Workday的重要产品方向，其基础来自被收购的Sana。该产品以提示词驱动的AI界面承接员工问题和工作安排，并成为Workday产品的统一前端。</p>
+<p>一是统一员工服务入口。员工通过自然语言提出问题，由自助服务代理提供类似员工服务台的支持。据其介绍，公司正在向大型客户推广这一能力。二是减少软件实施负担。部署代理旨在降低Workday人力资源和财务软件的实施时间与成本。Bhusri指出，传统实施通常涉及约一年的项目周期及大量顾问投入，他预期代理能够改变这种交付方式。三是支持客户自行开发。开发者代理使客户可以在Workday平台上较快构建定制应用，满足企业自身的业务需求。</p>
+<p>Bhusri认为，Sana收购同时带来了技术与人才。其后续并购关注点仍是创新能力和新市场机会，倾向于吸纳由优秀创始人带领的小型创新公司，并以此补充产品路线。</p>
+<h4>（三）财务自动化与产品成熟过程</h4>
+<p>Bhusri认为，财务领域的代理应用有较大空间，长期讨论的财务自动化正在获得新的实现方式。</p>
+<p>一是审计自动化。财务审计代理可承担部分繁重的检查工作，逐步减少企业的审计支出。二是控制测试与持续结账。财务测试代理可执行结账相关控制工作，使部分任务持续开展，减少期末集中处理的负担。三是第三方工作的内部承接。部分当前由外部服务机构承担的任务，可以转由企业内部人员管理代理完成。Bhusri仍然预期财务部门和负责管理代理的人员会继续存在。</p>
+<p>在产品成熟度方面，据其介绍，目前表现较好的代理已有一年至一年半的应用积累；新代理仍需要在客户使用中改进，完善时间可能是6个月、9个月或12个月。他希望经历组织调整与产品转型后，公司能够在下一年向客户提供经过实际使用检验的产品。</p>
+<h3>三、业务系统基础与代理管理机制</h3>
+<h4>（一）确定性流程与AI推理能力</h4>
+<p>面对AI编程工具对软件行业的影响，Bhusri认为，企业软件需要结合自身业务性质加以区分。</p>
+<p>一是开发工具为不同参与者共同使用。新进入者可以借助工具开发竞争产品，Workday也在使用相同工具提高开发能力。据其估计，公司约一半的开发工作已由这类工具驱动。二是核心业务系统具有严格的准确性要求。工资发放、财务管理和审计需要完整、可靠地执行流程，AI推理能力需要与确定性的业务系统结合。三是不同软件的替代压力存在差异。他认为，以内容生成或工作流编排为主要功能的软件可能面临较多竞争，深度嵌入企业业务的记录系统则具有不同的客户基础。</p>
+<p>Bhusri表示，在其回归后的客户接触中，尚未遇到考虑用模型生成应用替换Workday的客户。其判断同时包含持续创新的前提：Workday需要主动使用新工具并发展AI产品，保持业务系统与新技术之间的结合。</p>
+<h4>（二）代理身份、权限与数据管理</h4>
+<p>据Bhusri介绍，Workday将员工管理系统与代理记录系统整合，希望以类似管理员工的方式管理代理。</p>
+<p>一是明确工作范围。企业需要确定代理承担的任务及可以参与的业务流程。二是建立身份和权限安排。代理需要经过身份验证，具备相应的安全凭证，并能被加入或移出企业的工作体系。三是保留人工管理。在其介绍的现有代理应用中，代理由人负责管理，并受安全模型及可访问数据范围约束，以减少越权执行任务的问题。</p>
+<p>在客户数据使用方面，Bhusri表示，数据属于客户，公司会通过汇总数据支持模型训练及职业发展、薪酬比较等应用，同时保护客户知识产权。据其介绍，相关使用会与客户沟通，数据保留在Workday内部，并采用其所称的“零拷贝”方式，与模型公司合作满足安全和隐私要求。</p>
+<h3>四、席位费与代理用量收费的混合模式</h3>
+<h4>（一）人员规模与代理工作负载</h4>
+<p>Bhusri明确表示，Workday正在采用混合收费模式。</p>
+<p>一是保留面向员工的收费基础。人力资源产品继续按照客户的员工人数收费，真人员工对应的席位费仍将存在。二是对代理采用用量收费。随着更多工作由代理承担，相应部分转向基于消耗量的收费方式。三是两种模式并行。代理收费叠加在既有席位收费模式之上，分别对应人员使用与代理工作负载。</p>
+<p>Bhusri以云计算服务的用量计费作为参照，认为这一模式已有长期商业实践。其所描述的转型路径，是在人类员工与代理共同参与工作的条件下，分别配置相应的收费机制。</p>
+<h4>（二）商业化与客户使用反馈</h4>
+<p>Bhusri表示，代理产品需要通过客户持续使用积累经验，改善表现并形成真实价值。</p>
+<p>一是将产品交付客户，在具体业务中使用；二是根据使用结果继续改进代理；三是将资源集中于能够解决问题、形成明确回报的产品。他将组织重整、产品聚焦和AI原生能力建设视为当年的转型任务，希望下一阶段能够依靠更加成熟的产品推进业务发展。</p>
+<h3>五、人机协作组织与员工技能转型</h3>
+<h4>（一）组织层级与岗位变化</h4>
+<p>Bhusri预计，未来五年内AI将带来岗位替代，重复性强、较少依赖人工判断的任务会较早受到影响。</p>
+<p>一是基层专业工作受到影响。其列举的场景包括初级审计工作、部分法律合同工作，以及按步骤执行的薪酬流程。二是管理层级趋于减少。据其介绍，Workday正在推动组织扁平化，代理能够承担部分基层管理工作，产品开发、销售及客户支持人员的决策路径有望简化。三是员工与代理共同参与工作。组织仍然需要管理和任务分派，但部分工作可由系统承担，人员需要提高使用与管理代理的能力。</p>
+<p>Bhusri对长期的人机协作持乐观态度，同时担忧技术进步快于人员再就业安排。他认为，转型期间可能出现岗位已经被替代、相应培训和支持尚未就绪的情况，企业需要正视这一问题。</p>
+<h4>（二）再培训安排与员工能力建设</h4>
+<p>据Bhusri介绍，Workday参与Raise U.S.，并通过自身学习教育项目及基金会开展相关工作。他认为，受益于技术进步的企业应当参与解决就业转型问题。</p>
+<p>一是识别受影响的岗位，了解工作替代发生的领域；二是针对受影响人员制定再培训安排；三是帮助员工将工具融入具体职业活动。财务人员可以学习在规划和审计中使用AI，人力资源人员可以学习将其用于招聘及薪酬管理。Bhusri也强调，AI能够支持个人学习新知识，员工应主动利用这一能力提升技能。</p>
+<p>总的看，Bhusri希望Workday在照顾客户、保持创新的基础上完成向AI公司的转型。他表示，自己回归是为了带领公司走过这一技术与组织变化阶段，使其能够在下一阶段继续发展；对员工而言，主动学习和熟练使用AI工具，是其应对工作变化的主要建议。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

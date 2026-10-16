@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>企业AI从试点到生产的阶段划分、部署条件与软件行业格局——Databricks联合创始人Arsalan Tavakoli访谈要点梳理（TechCrunch Disrupt，2026-10-16）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>企业AI从试点到生产的阶段划分、部署条件与软件行业格局——Databricks联合创始人Arsalan Tavakoli访谈要点梳理（TechCrunch Disrupt，2026-10-16）</h2>
+<div class="metaline">TechCrunch Disrupt · 2026-10-16</div>
+<p>——据TechCrunch Disrupt节目《Databricks on Why Enterprise AI Deals Die After the Pilot (And How to Fix It) | Disrupt 2026》（2026-10-16）整理</p>
+<p>摘要：本文对TechCrunch Disrupt 2026现场对谈中Databricks联合创始人兼现场工程高级副总裁Arsalan Tavakoli的主要观点进行了梳理汇总。梳理了企业AI采用的五阶段划分与当前进度，介绍了企业部署代理所需的上下文、选择、成本与控制四项条件，以及企业采购流程与市场进入路径，最后汇总了其对自建与外购边界、遗留系统改造和软件企业毛利率的判断。Tavakoli表示，其接触的企业中99%处于第一、二阶段；补充企业上下文后，编程代理的准确率可由不超过50%提高至90%以上；其预计五年后使用的软件中约95%目前尚不存在。</p>
+<p class="kw">关键词：企业采用；企业代理；前沿实验室；应用层护城河；分发渠道；Databricks；Azure Databricks</p>
+<h3>一、企业AI采用的阶段与进度</h3>
+<h4>（一）五阶段划分与企业所处位置</h4>
+<p>主持人介绍，Databricks成立于2013年，目前估值1900亿美元，是企业AI领域的主要厂商之一。</p>
+<p>Tavakoli认为，硅谷以外企业的AI采用总体仍处于早期。据其介绍，他将企业AI采用划分为五个阶段：第一阶段为尚未实质使用AI，仅向ChatGPT提问不计入使用；第五阶段为已经借助AI形成并推出新的业务能力。他在与企业交流时常请对方自评所处阶段，企业多自评为第三阶段、接近第四阶段；据其观察，其接触的企业中99%实际处于第一、二阶段。</p>
+<p>其认为，进度偏慢主要源于技术之外的因素。一是人员和流程仍需学习如何使用AI。二是企业需要摸索如何从AI中获得价值，其中存在大量难点。三是组织转变难以一蹴而就，短期内不会出现企业普遍由代理运行的局面，企业以有意义的方式部署AI仍需要多年时间。主持人将硅谷以外企业的进度类比为2025年初的水平，Tavakoli表示大体认同。</p>
+<h4>（二）编程工具的使用与回报衡量</h4>
+<p>Tavakoli表示，不同组织的进度差异较大。一是硅谷习惯假定企业拥有大型工程团队，多数企业并不具备这一条件。二是相较其他职能，企业在工程部门使用编程工具方面进展更快。三是即便已经使用编程工具，企业对投资回报、实际收益以及成本是否受控等问题，往往难以给出明确回答。</p>
+<p>他指出，企业正在借助这些工具构建更多内容，至于能否加快产品交付或提供更好的功能，对许多企业而言仍远未确定。</p>
+<h3>二、企业部署代理的四项条件</h3>
+<p>Tavakoli表示，随着接触的企业规模扩大，其将企业部署代理时关注的问题归纳为“四个C”，即上下文（context）、选择（choice）、成本（cost）与控制（control）。</p>
+<h4>（一）上下文建设</h4>
+<p>Tavakoli认为，引入代理与招聘新员工相似，需要向其解释企业内部的概念与规则。一是业务口径，例如日历季度与财务季度的区别。二是组织术语，例如欧洲、中东和非洲区（EMEA）在企业内部的含义。三是业务重点，例如哪些产品属于战略产品。上述内容通常被称为上下文、语义或本体，建立在企业原始数据之上。</p>
+<p>据其介绍，即便采用表现较好的编程代理，在缺少上下文时准确率不超过50%；补充上下文后，准确率可以提高至90%以上。他同时强调，上下文建设需要独立于某一特定模型。</p>
+<h4>（二）模型选择、成本与控制</h4>
+<p>一是保留模型选择权。Tavakoli以市场判断的快速变化说明这一需求：一年前普遍认为OpenAI领先；六个月前认为谷歌Gemini取得突破；三个月前又有观点认为Anthropic将占据主导；目前则出现Grok与SpaceX、OpenAI重新领先或开放权重模型等多种看法。其认为，企业没有理由过早押注某一家模型厂商。</p>
+<p>二是控制支出。据其介绍，企业AI支出增长很快，需要通过预算等方式加以管控。</p>
+<p>三是控制代理行为。企业普遍关注各类安全事件，以银行为例，没有机构愿意因放任代理运行而泄露客户社会保障号码或信用卡号码。</p>
+<h4>（三）平台与应用企业的分工</h4>
+<p>Tavakoli认为，要求一家创业企业同时提供上述四项能力难度较大，这也是Databricks与创业企业合作的基础。一是Databricks不开发自有基础模型，也不具备特定行业的领域专长。二是其优势集中在数据与AI平台、成本控制和上下文管理等方面。三是企业客户表示，若上述基础能力得到解决，即可更快部署全部代理并投入运行。</p>
+<h3>三、企业采购流程与市场进入路径</h3>
+<h4>（一）人员与流程因素</h4>
+<p>Tavakoli认为，创业企业向大型企业销售时的常见误区，是将成败主要归结于技术。他回顾，Databricks早期认为自身的Spark发行版性能更好，技术领先即可赢得客户，随后很快认识到人员和流程的作用更为关键。</p>
+<p>一是存在既有利益关系。会议中的决策者可能在两年前签下竞争对手的合同，并以个人职业声誉为该选择背书，因而缺乏了解新技术的意愿。二是审批链条较长。推动一项采购往往需要另外三人批准，还需经过法务与安全审查；其估计，沿途约有15人可能否决采购，分别涉及预算、法务和安全等环节。三是大量时间用于识别相关人员、理解其动机并推动采用，这也是企业软件公司需要组建具有企业销售经验的大型销售团队的原因。</p>
+<h4>（二）内部支持者与早期客户</h4>
+<p>Tavakoli认为，突破审批链条的关键在于找到愿意推动变革、为供应商争取支持的内部人员。他以就医作比：自行预约专科医生可能需要8个月，若有资深医生出面联系，一周左右即可就诊。</p>
+<p>一是为内部支持者解决难题。Spark当时较难使用，Databricks提供全托管环境，使其能够直观看到生产率提升，对方随后会在企业内部推动采购。二是从开源社区寻找用户。Spark原为开源项目，公司直接联系已采用开源版本的用户，向其提供托管版本。三是寻找相邻需求。Spark当时被视为Hadoop的继任者，Hadoop应用较广但问题较多，公司通过行业会议寻找Hadoop用户，提出可以迁移其代码并提升效果，并围绕这一用户群体持续聚焦。</p>
+<p>据其介绍，Databricks成立时押注三项长期趋势：一是公有云，当时多数企业尚未将实际工作负载放到公有云上；二是数据与AI融合，当时表现为数据与机器学习、高级分析的结合；三是开源，当时企业级开源软件的成功案例较少。这些选择也增加了早期进入大型企业的难度。</p>
+<p>早期案例中，一是Databricks在迪士尼接受安全合规评估时，随行运维人员面对其首席信息安全官关于能否防止违法内容进入账户并外泄的询问，直接回答无法保证，交易随即搁浅，此后隔了较长时间才重新接触。二是Capital One已在使用云服务，但要求掌控全部环境，公司的解决方案架构师将源代码构建后完整部署在客户自有环境中，相当于提供本地部署版本，满足了安全要求，与公司公有云路线并不一致。三是Tavakoli本人在公司缺少律师时参与合同谈判，曾同意为客户承担无限责任和全面赔偿，公司其后花费四年时间清理相关条款。</p>
+<p>他表示，这些经历帮助公司长期打磨产品，并找到更愿意共同尝试的企业。Capital One以技术前沿著称，媒体企业维亚康姆（Viacom）也较早愿意部署；此类客户帮助公司了解合规与监管要求，并提供了信誉背书，公司由此以维亚康姆案例接触NBC，以Capital One案例接触摩根大通，逐步扩大客户基础。</p>
+<h4>（三）借助大型平台的分销渠道</h4>
+<p>据其介绍，Databricks成立后约三年内，约90%的销售来自数字原生的中小企业，进入大型企业的转折点来自与微软的合作。一是产品成为Azure Databricks，即微软第一方服务，使用微软的合同条款，已有微软协议的客户无需另签合同即可使用。二是获得高层接触渠道。以瑞银为例，其有13位首席信息官，原本难以进入；合作后，微软销售代表一周内即安排与其全球首席信息官会面。三是借助合作方的接触面和分销能力，Databricks开始被拉入各地项目，也一度出现合作方需要常驻新加坡、会讲泰语的解决方案架构师，公司当时尚无相关人员的情况。</p>
+<h4>（四）Databricks与创业企业的市场合作</h4>
+<p>Tavakoli表示，Databricks目前设有风险投资部门，并与创业企业开展联合市场推广。其认为，该领域的创新多来自创业企业和数字原生企业。</p>
+<p>一是架构从一体化转向可组合。过去软件厂商需要打包数据、平台和安全等完整技术栈，目前企业更倾向于在开放的数据与AI架构上构建可组合应用。二是合作形式包括底层支撑与一键部署。Databricks可以作为创业企业产品的底层平台；客户也可以在Databricks内一键部署创业企业产品，并运行在客户的安全边界之内，从而绕过数据查找、数据连接、安全审查和寻找采购方等难点。三是提供市场开发基金（MDF）支持，开展联合活动、引荐客户，客户还可以使用其对Databricks的承诺消费额度采购相关创业企业产品。</p>
+<p>据其介绍，合作对象包括客户数据平台Hightouch、机器学习领域的Tecton和数据建模领域的dbt等。其认为，这一安排为创业企业带来分销渠道，也帮助Databricks向客户展示平台能够持续引入新的创新。</p>
+<h3>四、自建与外购的边界</h3>
+<h4>（一）内部自建热潮回落</h4>
+<p>主持人提到，今年一度出现企业将通过氛围编程（vibe coding）自建软件、弃用SaaS的担忧。Tavakoli认为，这一阶段已经过去。</p>
+<p>一是自建热潮被高估。人们乐于通过动手构建体现技术能力，获得工具后倾向于为各种需求开发应用。他举例称，Databricks首席执行官曾希望就一个问题向一线团队发起调查，有员工为此开发了需要登录的应用，首席执行官认为使用在线表单或电子邮件即可。二是维护负担较重。应用一旦被广泛使用，就会产生支持与故障处理需求，企业并不希望承担这些工作。</p>
+<h4>（二）企业自建的适用范围</h4>
+<p>Tavakoli认为，企业自建主要集中在末端定制，从头构建完整应用的情况较少。一是仪表盘类工作流。许多企业工作流实质上是一个仪表盘，或带有少量按钮的仪表盘，例如查看团队token支出，或规定销售团队执行八个步骤的流程，这类工具容易自行构建。二是代理末端环节的定制。企业采购提供数据与看板功能的平台，再对代理的末端环节进行调整。三是用户界面层面的定制，企业在这一层面大量使用氛围编程。</p>
+<p>他同时指出，涉及合规要求的主要应用仍会外购。以医疗领域的联合健康集团（UnitedHealth Group）和制药领域的强生为例，合规要求清单较长，企业不会通过氛围编程从头构建并自行应对这些要求。</p>
+<h4>（三）应用企业的竞争壁垒</h4>
+<p>对于企业和创业企业应保留哪些能力、哪些可以交给模型厂商，Tavakoli认为，当前对模型的关注类似于早年装配个人电脑时对奔腾处理器型号的关注，模型性能并非主要瓶颈。</p>
+<p>一是现有模型已能满足许多任务需求。起草邮件无需使用能力更强的模型，价值更多来自如何连接数据并加以利用。二是领域专长构成应用企业的护城河。对于担心成为“薄封装”、被下一代模型侵蚀的创业企业，其认为关键在于是否掌握特定领域的知识，包括数据集、数据模型、工作流程以及组织内部的业务语言。他以一家大型油气企业为例，部署代理的难点在于梳理从上游到下游的完整流程，包括找油、目标确定、信息传递和运输等环节，理解这些流程可以显著加快方案部署。三是产品形态持续演进，已经从聊天机器人发展到半主动式工具，目前企业普遍希望使用长时间运行的代理。</p>
+<p>他认为，理解工作流、将上下文编码化，以及掌握推动组织转型和采用的方法，属于模型之外的能力，模型难以随着自身进步获得。</p>
+<h3>五、SaaS格局、遗留系统与软件毛利率</h3>
+<h4>（一）数据架构与系统记录的变化</h4>
+<p>Tavakoli认为，各类应用以专有格式分别存储数据、彼此割裂的时代正在结束。一是企业希望将数据汇集到开放数据之上。二是围绕数据建立治理体系，以及包括本体在内的上下文。三是在此基础上允许各方构建应用。他表示，这一变化已经开始出现。</p>
+<p>对于依靠垄断地位、客户不得不使用的SaaS厂商，其判断，12个月后，在企业有实质性支出的领域，此类垄断将不复存在。一是软件构建成本下降，创业企业可以将在位者的利润空间视为自身机会。二是迁移成本大幅下降，企业可以更容易地在不同供应商之间切换。</p>
+<h4>（二）遗留系统的改造路径</h4>
+<p>Tavakoli认为，金融服务等行业的遗留系统将逐步现代化，路径与通常设想有所不同。</p>
+<p>一是代理帮助理解旧代码。许多银行仍在运行AS/400和大型机，原始代码的编写者早已几经更替，过去无人愿意改动这些系统；代理可以解析复杂代码的功能和运行方式，已有企业借此理解COBOL代码以及SAP系统中的ABAP代码，并迁移至现代系统。二是代理降低旧界面的使用障碍。随着系统连接越来越多由代理完成，只要旧系统提供接口、代理能够获取数据，界面陈旧的问题会减弱。三是先改造界面、再转移系统记录。新的代理会形成新的工作流，企业会将新增数据放入新的系统记录，逐步完成转移。</p>
+<p>他表示，相信五年后使用的软件中约95%目前尚不存在；现有供应商仍有存续空间，现代化进程将先从界面开始，随后逐步转移系统记录，迁移成本下降也将推动这一进程。对于代理能否“拯救”COBOL，其认为“拯救”一词偏重，方向上表示认同。</p>
+<h4>（三）软件企业毛利率承压</h4>
+<p>Tavakoli认为，软件企业毛利率将面临压力。</p>
+<p>一是原有护城河受到冲击。部分企业依靠垄断地位、对工作流的理解和较强的议价能力获得较高收费，新进入者将以现代化产品参与竞争。二是迁移成本下降，客户转换供应商更加容易。三是在位者被动降价。他举例称，一笔原本以100美元成交、毛利率较高的业务面临竞争时，供应商为留住客户会下调价格，毛利率随之下降。</p>
+<p>据其分析，软件企业将面临两类应对选择：一是压缩运营费用等其他开支，以弥补毛利率下降；二是借助构建成本下降，进入10到20个新领域寻找收入来源。</p>
+<p>总的看，Tavakoli认为，AI时代软件构建成本与客户转换成本同步走低，软件行业将经历一段起伏，面对除科技行业外各行业均经历过的利润率压力；科技行业此前在很大程度上免于此类压力，这一状况正在改变。在企业端，AI的规模化部署仍取决于人员、流程与上下文的准备，这一过程需要多年时间。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

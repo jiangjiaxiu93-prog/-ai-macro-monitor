@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>企业AI预算管理与实时上下文建设——Atlassian联合创始人兼首席执行官Mike Cannon-Brookes访谈要点梳理（20VC with Harry Stebbings，2026-10-12）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>企业AI预算管理与实时上下文建设——Atlassian联合创始人兼首席执行官Mike Cannon-Brookes访谈要点梳理（20VC with Harry Stebbings，2026-10-12）</h2>
+<div class="metaline">20VC with Harry Stebbings · 2026-10-12</div>
+<p>——据20VC with Harry Stebbings节目《Atlassian CEO: Why Agents Won't Replace Interfaces | Why The Jury’s Still Out on Specialised Models》（2026-10-12）整理</p>
+<p>摘要：本文对20VC with Harry Stebbings节目中Atlassian联合创始人兼首席执行官Mike Cannon-Brookes的主要观点进行了梳理汇总。梳理了企业token预算扩大、模型使用监测和内部AI网关建设，介绍了Teamwork Graph实时上下文与代理交互设计，并结合其所述Confluence年化经常性收入超过15亿美元、年增长率显著高于25%的业务情况，总结了应用体验与工作流整合的作用，最后讨论了推理成本下降与企业技术消化能力之间的关系。</p>
+<p class="kw">关键词：企业采用；token需求；模型路由；推理成本；应用层护城河；Atlassian；Teamwork Graph；Confluence</p>
+<h3>一、企业AI预算与使用监测</h3>
+<h4>（一）token支出的管理需求</h4>
+<p>Cannon-Brookes表示，企业客户正越来越重视AI的价格与性能，token支出已经成为持续扩大的预算项目。企业需要了解模型在哪里被使用、产生了什么价值，以及哪些支出可以调整。</p>
+<p>一是观察使用分布。Atlassian通过相关产品帮助客户了解不同人员和工程组织的token消耗，DX也用于观察工程组织中的使用情况。二是关联具体功能。客户需要知道哪些功能调用了哪些模型，从而把费用与具体工作联系起来。三是识别调整空间。根据使用价值和功能需求，改变模型选择及使用方式，优化预算配置。</p>
+<p>他认为，成本管理同时适用于企业直接采购基础模型服务，以及采购已经嵌入AI能力的软件产品。后者的模型成本会进入产品的成本结构，客户同样关注最终价格与使用效果。</p>
+<h4>（二）成本纪律与技术能力</h4>
+<p>Cannon-Brookes认为，持续管理技术成本是软件企业需要形成的能力。充足融资可以支持短期投入，长期经营仍需要成本纪律。</p>
+<p>一是积累低成本应用经验。使用昂贵模型可以较快取得较好的结果，善于运用较便宜或较旧的模型解决具体问题，同样能够形成技术优势。二是持续优化高频功能。随着功能被广泛采用，供应商需要反复改进其成本结构。三是把节省传递到客户侧。在满足质量和速度要求的同时，降低客户获得相关功能的价格，扩大AI可以服务的业务范围。</p>
+<p>据其介绍，较低成本的模型已经使一些原先费用过高的细小任务具备应用条件。随着选择增加，企业可以把具有概率推理能力的技术嵌入更多功能。</p>
+<h3>二、内部AI网关与模型选择</h3>
+<h4>（一）模型路由的组织安排</h4>
+<p>据Cannon-Brookes介绍，Atlassian拥有专门的AI网关团队，负责内部模型路由。客户使用Rovo及其他AI功能时，平台会在后台完成相关选择。</p>
+<p>一是结合任务匹配模型。模型路由、模型组合以及代理运行框架共同决定使用哪种模型，并可随任务执行进行调整。二是平衡答案质量、价格和速度。不同功能有不同要求，平台需要针对具体使用场景处理这些取舍。三是支持大规模运行。Atlassian需要在较大调用规模下持续降低合理可降的成本，因此将这一能力作为内部建设重点。</p>
+<p>他认为，大型技术公司通常需要掌握相应能力；规模较小或技术并非主要专长的企业，可以采用外部路由和网关工具。同时，通用调用很难仅凭自动路由获得合适结果，任务意图和执行框架仍需要提供足够指引。</p>
+<h4>（二）功能采用与成本优化的先后顺序</h4>
+<p>Cannon-Brookes对产品团队的要求，是先建设客户认可的功能，再随着使用规模扩大推进降本。</p>
+<p>一是产品初期关注使用价值。团队应验证自己认为有吸引力的能力是否也得到客户认可，避免过早围绕成本进行过度优化。二是提前考虑优化可能性。在开发时判断未来是否存在降本空间，为后续规模化留下条件。三是在采用扩大后集中优化。少量用户试用与大规模客户使用，对成本管理的要求不同，产品成长过程为持续改进提供了时间。</p>
+<p>这一安排同时包含产品探索和经营约束。Cannon-Brookes强调，广泛采用的功能需要持续降低成本，早期探索则需要保留验证新体验的空间。</p>
+<h4>（三）专用模型的持续性条件</h4>
+<p>对于构建专用模型，Cannon-Brookes持审慎态度。他认为，存在大量专有数据、应用高度专业化的领域可以受益，但需要持续证明相对通用模型的价格性能优势。</p>
+<p>一是考察数据条件。专用方案需要能够持续获得有价值的专业数据。二是考察任务边界。随着通用模型进步，一些原先依赖专门方案的任务会被纳入其能力范围。三是考察持续表现。发布时具有优势，还需要在后续模型迭代中保持效果、响应时间与成本上的竞争力。</p>
+<p>据其介绍，Atlassian会针对特定用途微调开放权重模型。他同时强调，代理运行框架的设计可以通过提示、配置和多轮执行提高模型价值，应用系统的改进也值得持续投入。</p>
+<h3>三、Teamwork Graph的实时上下文</h3>
+<h4>（一）企业知识与组织关系的整合</h4>
+<p>Cannon-Brookes认为，企业上下文包含分散在多种载体中的知识。Teamwork Graph的任务，是将这些信息连接起来，为客户及其代理提供可检索、可使用的组织背景。</p>
+<p>一是连接业务知识。项目、文档、会议、决策和演示材料中都包含事实与判断，部分重要信息长期保存在演示文稿中。二是连接人员关系。将知识与组织中的人员、协作关系及所负责的工作联系起来，帮助理解信息产生的背景。三是连接技术与行业数据。代码、技术服务和客户自行添加的行业数据也需要进入同一套体系，以适应不同行业的业务对象。</p>
+<p>据其介绍，平台在图谱上构建词汇检索和语义检索能力，并通过适合代理使用的查询方式及模型上下文协议（MCP）、命令行接口（CLI）提供访问。目标是帮助代理理解企业已经积累的知识、工作及沟通内容。</p>
+<h4>（二）预先推理与持续更新</h4>
+<p>Cannon-Brookes以搜索引擎预先建立索引的方式解释Teamwork Graph：在代理提出问题之前，就通过索引和推理做好准备，以较低成本、大规模地回答问题。</p>
+<p>一是预先处理组织信息。提前连接知识、建立索引和形成可用的推理结果，减少每次提问时重新处理的负担。二是保持当前事实的新鲜度。人员入离职、项目分工及协作关系持续变化，图谱也需要相应更新。三是保留历史经验。历史事实的直接用途会随时间变化，其中形成的经验和组织记忆仍可能帮助当前决策。</p>
+<p>他强调，客户上下文具有鲜明的企业差异。平台帮助客户把自身知识连接起来，并持续更新事实、提炼经验。企业当前的关系网络和历史学习积累，需要在同一体系中分别发挥作用。</p>
+<h3>四、代理协作与应用界面</h3>
+<h4>（一）多种代理与专业界面的并存</h4>
+<p>Cannon-Brookes认为，代理将承担部分功能明确的任务，涉及判断、协作和体验的工作仍需要合适的界面。横向代理、深入特定任务的垂直代理，以及专业应用可以共同存在。</p>
+<p>一是允许外部代理读写平台。代理可以从Teamwork Graph获取上下文，也可以将结果写回平台，支持不同工具之间的协作。二是在当前工作环境中调用其他工具。用户阅读Confluence页面时，可以请求核查某个数字，通过连接的数据平台获得答案或图表。三是保留专业工作环境。深入的数据分析和设计工作仍需要相应应用的功能与交互方式，跨工具调用则满足当前任务中的局部需求。</p>
+<p>他认为，软件生成成本下降、技术供给增加后，设计和体验的重要性会提高。应用需要持续改善客户完成任务的方式，界面的长期演进需要研发投入和细致的产品工作。</p>
+<h4>（二）任务授权、内容来源与异常处理</h4>
+<p>Cannon-Brookes指出，企业代理仍面临基础性的交互设计问题。一个空白输入框难以充分展现模型能力，用户也未必知道在当前工作中如何使用这些能力。</p>
+<p>一是展示适当的操作选项。系统需要在合适时机提供可用能力，帮助用户理解任务可以如何推进。二是说明行动和内容的来源。代理代人发起操作、人机共同编辑、完全由AI生成等情况需要得到适当区分，才能支持责任判断和信息筛选。三是安排人工介入。正常运行时减少不必要提醒，异常发生时及时通知，同时允许用户在需要时查看细节并处理例外。</p>
+<p>他认为，人员仍需发起工作、处理异常、调整方向和共同创作。界面需要帮助用户了解何时应当介入，以及如何在大量代理活动中保持必要的理解和信心。</p>
+<h3>五、应用产品的业务基础与竞争</h3>
+<h4>（一）Confluence的收入与产品价值</h4>
+<p>Cannon-Brookes介绍，Confluence在数个季度前披露的年化经常性收入（ARR）已超过15亿美元，目前年增长率仍显著高于25%。他以这一业务说明，文本创建工具的数量增加，并未消除专业协作产品的价值。</p>
+<p>一是明确的产品用途。企业需要围绕团队知识、文档和协作组织内容。二是持续改善的设计体验。界面需要适应用户标准的变化，长期维持便利性和使用质量。三是与其他工作流整合。内容要进入实际业务活动，与项目、人员及相关系统形成联系。</p>
+<p>对于基础模型公司拓展应用业务，Cannon-Brookes表示，Atlassian与相关公司保持合作，同时各方的业务边界仍在变化。他认为，未来竞争取决于多方面能力，产品用途、体验及工作流联系将继续发挥作用。</p>
+<h4>（二）持续投入与产品演进</h4>
+<p>Cannon-Brookes强调，应用竞争是一项长期工作。一是持续提高软件体验标准；二是改善速度、性能和客户完成任务的效果；三是根据新的协作方式调整产品设计。他认为，既有产品需要不断更新，才能适应代理时代的使用需求。</p>
+<h3>六、推理成本下降与企业消化能力</h3>
+<h4>（一）技术供给与实际采用</h4>
+<p>Cannon-Brookes表示，自己近来进一步下调了对未来推理价格的预期，认为降幅可能大于此前判断。</p>
+<p>一是技术投入覆盖多个环节。芯片、数据中心设计、模型蒸馏等领域持续吸收资本和人才，部分改进需要较长时间才能体现。二是价格下降扩大应用空间。更便宜的推理有助于在编程、设计和业务流程中使用更多能力。三是企业消化能力构成现实约束。他认为，目前技术和功能的生产速度已经超过客户将其真正融入业务、改变经营方式的速度，实际使用仍受组织实施和需求条件影响。</p>
+<h4>（二）应用创造力与管理者时间</h4>
+<p>Cannon-Brookes认为，随着知识和技术能力更易获得，企业需要提高将AI用于具体问题的创造力。一是重新审视业务流程，寻找不同的解决方法；二是将技术进步转化为可使用的产品与服务；三是为长期思考保留时间，避免被持续增加的代理活动和信息提醒占据注意力。</p>
+<p>总的看，Cannon-Brookes认为，推理成本下降将为应用带来更好的技术条件，企业仍需通过上下文、体验和流程设计实现具体价值。他在访谈结尾强调，面对越来越快的技术变化，管理者需要学习放慢节奏、保留深入思考的空间，以便理解变化并作出长期安排。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

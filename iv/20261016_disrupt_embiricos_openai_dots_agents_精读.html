@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>常驻型个人代理Dots的产品形态、权限控制与推广路径——OpenAI企业产品负责人Alexander Embiricos访谈要点梳理（TechCrunch Disrupt，2026-10-16）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>常驻型个人代理Dots的产品形态、权限控制与推广路径——OpenAI企业产品负责人Alexander Embiricos访谈要点梳理（TechCrunch Disrupt，2026-10-16）</h2>
+<div class="metaline">TechCrunch Disrupt · 2026-10-16</div>
+<p>——据TechCrunch Disrupt节目《What Comes After the Chatbot? OpenAI’s Alexander Embiricos on Dots and AI Agents | Disrupt 2026》（2026-10-16）整理</p>
+<p>摘要：本文对TechCrunch Disrupt节目中OpenAI企业产品负责人Alexander Embiricos与TechCrunch记者Tim Fernholz对谈的主要观点进行了梳理汇总。梳理了OpenAI由聊天机器人转向常驻代理的产品演进及Dots的差异化定位，介绍了主动研究、上下文管理、隐私保护与权限控制等功能设计，最后汇总了Dots的使用入口、推广路径及其对代理演进阶段的判断。据其介绍，Dots于数周前在OpenAI开发者大会发布，基于GPT-6 Astra模型构建，目前面向Pro、Business和Enterprise等用户开放，后续计划推广至逾10亿ChatGPT用户。</p>
+<p class="kw">关键词：个人代理；企业代理；代理安全；代理商务；分发渠道；OpenAI；Dots；Codex</p>
+<h3>一、从聊天机器人到常驻代理的产品演进</h3>
+<h4>（一）代为行动与主动服务两项基础</h4>
+<p>Embiricos表示，其两年多前加入OpenAI时，ChatGPT已经让公众普遍接触到AI。他认为，AI要真正发挥作用，既要回答问题，也要替用户办成事务，同时应降低使用门槛，使用户无需琢磨如何编写提示。</p>
+<p>据其介绍，OpenAI过去几年围绕两项能力推进产品建设。一是将聊天机器人转变为能够执行任务的代理。二是将代理发展为常驻在线的助手，持续理解用户情况，主动提出可以代办的事项。他认为，Dots使上述两项能力集中于一款简单易用的产品之中。</p>
+<p>主持人将个人AI助手视为2026年的新形态，类比2025年编程代理的地位，并提及Meta的Muse等同类产品。Embiricos认为，行业内多家公司在相近时间提出相似构想，属于趋同演化，反映各方看到了相近的机会。</p>
+<h4>（二）以“实体”框定产品形态</h4>
+<p>Embiricos认为，大语言模型能力强大，产品团队的工作重点在于让这些能力直观易用，其中相当部分来自产品的框定方式和使用体验，较少依赖新增技术。</p>
+<p>他以Codex为例说明这一过程。一是今年2月Codex应用上线时同步推出了自动化功能，用户只要正确配置电脑并保持整夜开机，即可设定其持续读取邮件、处理重要事项，相当于自行搭建主动式常驻助手。二是这种做法需要用户自行设计配置、维护跨任务上下文，实际只有少数深度用户使用。三是团队随后发现，若将代理呈现为一个“实体”，并将交互组织为单一的持续对话，用户就能直观理解其能力：向上翻阅即可看到此前讨论过的内容；代理拥有自己的电脑；接到“持续跟进本次演讲准备工作”这类请求后，既能当下处理，也能在后续持续推进。</p>
+<h4>（三）能力与可信度两项差异化目标</h4>
+<p>Embiricos表示，Dots的差异化目标有两项，一是能力，二是可信度，团队希望在这两方面区别于并优于同类产品。</p>
+<p>能力方面，一是Dots基于GPT-6 Astra模型构建，据其介绍，该模型能力很强，也是OpenAI对齐程度领先的模型。二是每个dot拥有自己的电脑，并可连接用户的电脑。三是更看重拓展能力边界的工作。他举例称，一家无人机配送创业公司的工程师在察觉系统故障时，其dot已先行发现故障、完成分析，并提供了可用于排除故障的信息。相比之下，他对代办用户本可自行完成的简单事务兴趣较低。</p>
+<p>对于其他前沿实验室推出更强模型后用户转换产品的可能，Embiricos表示乐于看到用户尝试各类工具，并在出现更有用的产品时转换。他指出，产品设计并未以锁定用户为明确目标，团队的目标是把Dots做成有用、可信的产品，以此吸引用户使用。</p>
+<h3>二、主动研究与上下文管理</h3>
+<h4>（一）主动研究功能</h4>
+<p>主持人提及，部分常驻代理会为用户生活中的重要人物建立档案。Embiricos介绍，Dots内置“主动研究”（proactive research）功能。一是按一定周期梳理已掌握的信息，包括历史对话以及用户授权访问的内容。二是据此研究可以为用户提供哪些帮助。三是向用户提出建议，在使用初期主要表现为提示事项。</p>
+<p>他列举了若干用例。一是前述无人机配送企业的故障发现与分析。二是有用户改签航班后，dot提示新航班与其他日程冲突，当时仍处于可取消期限内。三是Dots发布前，其本人的dot发现产品计划调整后部分同事尚未获知，相关博客文章内容也已过时。</p>
+<p>Embiricos强调，dot提出建议后并不直接执行，会先征询用户是否需要办理；用户可以在使用过程中逐步告知其哪些事项可以更主动地处理。他也表示，产品仍处于早期阶段；开发初期其dot曾在事项开始前3分钟才发出提醒，他随即要求其下次提前告知。</p>
+<h4>（二）长期使用中的上下文维护</h4>
+<p>主持人提及，使用此类代理六七个月的用户反映存在“上下文腐化”问题，即代理积累的技能、上下文与文件逐渐失效或未能及时更新。</p>
+<p>Embiricos认为，由用户自行搭建主动式代理转向专门开发的常驻代理，有助于提高系统的耐久性。一是用户自行搭建时往往编写大量规则和技能，随着模型改进，其中部分已无必要，却仍保留在用户配置中。二是Dots在设计上由模型代为管理大部分上下文。三是随着模型能力提升，系统可以相应调整上下文内容，使其更加稳健。他同时表示，这是一款很新的产品，预计在重大模型发布和后续升级中仍需不断学习，难以一开始就做到完善。</p>
+<h3>三、隐私保护、权限控制与安全设计</h3>
+<h4>（一）信任的两个维度</h4>
+<p>主持人提及，有竞争对手以不出售广告、不收集用户数据作为卖点，并询问在接入邮箱等敏感数据后如何建立信任。Embiricos认为，信任包括两个维度：一是隐私；二是确保代理替用户做正确的事。后者是个人代理带来的新课题，代理若无所作为便无法提供帮助，用户又希望对其行为保持细粒度控制。</p>
+<p>隐私方面，据其介绍，一是Dots沿用与ChatGPT相同的隐私控制。二是用户可以逐项决定向代理开放哪些连接器，以及代理可以利用这些连接器做什么。三是产品提供较为完备的活动日志，记录代理的具体操作。</p>
+<h4>（二）多层安全控制</h4>
+<p>在代理行为安全方面，Embiricos介绍，Dots设置了多层控制。一是模型层，使用对齐程度较高的模型。二是代理运行框架（harness）层，即运行模型的代码，团队已结合Dots的使用场景配合该模型完成评估，例如有人通过邮件要求代理泄露信息时，代理不会照做。三是产品层，采用非常保守的默认设置。</p>
+<p>他表示，Dots上线时曾因默认设置保守、频繁请求授权而受到一些批评。团队事先预料到这类反馈，认为相关设置可以随时间调整，起步阶段应先让用户确信代理不会做出其不希望的行为。</p>
+<h4>（三）权限粒度与指令层级</h4>
+<p>对于权限粒度，Embiricos认为应尽可能提供细粒度控制，这是一项持续推进的长期规划。他将控制手段分为两类。</p>
+<p>一是确定性控制。据其介绍，用户目前可在设置中按连接器决定代理可以执行哪些操作、可以读取哪些内容；对于仅开放单个文件、不开放整个文件夹等需求，仍需继续开发。他认为，后续应建设更细的控制项，同时避免用户逐项手动配置，可以通过与代理对话，由代理代为完成设置。</p>
+<p>二是指令遵循。OpenAI投入较多精力训练模型准确遵循用户指令，模型按分层的指令体系运行：第一层是任何情况下都不会执行的事项，例如为制造危险物品开展研究；第二层是OpenAI设定的默认策略；第三层是用户的具体指令，可在默认策略基础上调整。例如，dot默认不会在用户未明确要求时发送邮件；用户若指示在对方询问到达时间时代为回复，以防日程变动，dot便获得发送该类更新的许可。</p>
+<p>Embiricos认为，这种方式灵活有效，用户直接说明需求即可，减少了大量配置界面的开发；提高模型理解和遵循用户意图的能力，仍是OpenAI的研发重点。</p>
+<h3>四、使用入口、目标用户与外部协作</h3>
+<h4>（一）融入既有工作方式</h4>
+<p>Embiricos表示，Dots的一项核心原则是帮助用户完成工作，尽量沿用人们已经习惯的协作方式。一是同事之间通常通过会议、消息和文档协作。二是与dot对话的形式接近消息往来。三是dot在连接文档后可以直接处理文档。</p>
+<p>据其介绍，令其意外的是Slack渠道的使用情况。一是OpenAI内部大量使用Slack，dot以独立身份接入Slack后，他将大量使用转移至Slack，其dot与本人Slack账号同名为“AE”。二是他在不同频道、私信和讨论串中与dot交流，使用频率高于Dots自有应用。三是许多用户呈现相同特点。</p>
+<p>Embiricos据此认为，在用户已有的工作场所与其对接的代理具有很强的实用价值。尽管团队在界面上投入了大量精力，产品价值更多来自运行在云端、拥有自己电脑的代理实体，以及让该实体在用户工作的各个场所与其沟通。</p>
+<h4>（二）演示场景与推广路径</h4>
+<p>主持人指出，航班预订是此类产品常见的演示场景，而仅约11%的美国人每年乘机超过五次。Embiricos表示认同，并称自己在公司内部也对餐厅预订类演示持保留意见，希望展示更具拓展性的用例。他解释，发布时的航班演示由Dots团队一名产品经理临场发起，她次日需前往洛杉矶参加媒体活动，因此现场预订了航班。</p>
+<p>关于推广路径，Embiricos表示，OpenAI的使命是让全人类受益于AI。一是先为深度用户打造能力强的产品，再推广至所有用户。二是Dots目前向Pro、Business和Enterprise等用户开放，重点服务需要完成工作的职业人士。三是在工作场景中降低使用门槛，用户无需思考如何更好地使用AI；他坦言自己身处AI公司，此前也常觉得本可以运行更多任务循环。四是后续将相关技术推广至逾10亿ChatGPT用户。</p>
+<h4>（三）代理与外部世界的交互</h4>
+<p>主持人提出，在餐厅预订、汽车维修预约等现实服务场景中，商家未必愿意与代理打交道。Embiricos表示，其本人无意与他人的代理开会，更希望会议由双方本人参加、各自的代理随同，后续工作交由代理完成。他强调，所有产品建设的出发点是人。</p>
+<p>他认为，生态目前处于技术已经具备、需要明确代理如何与外部世界交互的阶段，各方正在尝试不同做法。OpenAI在推出代理与外部世界交互的新能力时未必每次都抢先，但会与生态伙伴密切合作推进；据其介绍，OpenAI正与银行和支付处理机构深入讨论相关机制应如何运作。</p>
+<h4>（四）产品命名与多代理设想</h4>
+<p>Embiricos介绍，Dots的命名取自OpenAI标志：标志形似字母O，O内部的留白即为一个点。一是“dot”一词简短易读。二是名称采用小写首字母，体现产品日后能够普及的设想。三是规划从每人拥有一个dot出发，逐步发展为多个dot协助个人、团队和组织提速，并在后续将相关技术带入ChatGPT。</p>
+<h3>五、工作负荷与代理演进阶段</h3>
+<h4>（一）减负与拓展的选择</h4>
+<p>主持人提及，Codex推出移动端后，有OpenAI员工表示可以在车上、飞机上继续工作，深度用户似乎因代理工具承担了更多工作。Embiricos认为，用户现在已经可以减少工作量，代理工具带来的是更多选择：既可以将更多事务委派出去、减轻自身负担，也可以扩大工作目标。他表示，许多AI从业者将当前视为难得的发展时期，因此主动投入更多工作，其本人也是如此。</p>
+<h4>（二）常驻代理的演进阶段</h4>
+<p>Embiricos认为，个人代理并非与模型交互方式的终点。他将常驻代理视为重要的下一步，并将产品演进概括为三个阶段：第一阶段为聊天；第二阶段为编程代理等代理产品；第三阶段为常驻在线代理。</p>
+<p>总的看，Embiricos认为，常驻代理是继聊天机器人和编程代理之后的第三个阶段，Dots以能力和可信度为差异化目标，通过主动研究、保守默认设置、细粒度权限与分层指令体系，在代为行动与用户控制之间取得平衡。他预计，这类代理不会只服务个人，也将更广泛地帮助团队提速，并沿着先服务深度用户、再推广至广大ChatGPT用户的路径扩大覆盖。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

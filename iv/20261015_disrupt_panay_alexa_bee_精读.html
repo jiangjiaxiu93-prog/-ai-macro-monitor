@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Alexa的使用增长与环境式AI设备布局——亚马逊设备与服务负责人Panos Panay访谈要点梳理（TechCrunch Disrupt，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Alexa的使用增长与环境式AI设备布局——亚马逊设备与服务负责人Panos Panay访谈要点梳理（TechCrunch Disrupt，2026-10-15）</h2>
+<div class="metaline">TechCrunch Disrupt · 2026-10-15</div>
+<p>——据TechCrunch Disrupt节目《What Comes After the Smartphone? Amazon’s Panos Panay on AI and Ambient Computing | Disrupt 2026》（2026-10-15）整理</p>
+<p>摘要：本文对TechCrunch Disrupt节目的主要观点进行了梳理汇总。梳理了Alexa的设备覆盖、Alexa+采用与家庭交互变化，介绍了Bee新设备的日常辅助功能及隐私承诺，最后汇总了Panay对产品迭代和多设备协同的判断。据其介绍，Alexa联网端点超过5亿个，数亿用户正在使用Alexa+，用户与Alexa的交互频次达到过去的2—3倍。他认为，新设备的持续使用取决于能否减少日常操作负担，环境式AI的发展需要同时满足实际效用和用户对隐私控制的要求。</p>
+<p class="kw">关键词：消费级AI；个人代理；用户增长；分发渠道；组织变革；Amazon；Alexa+；Bee</p>
+<h3>一、Alexa的覆盖规模与使用变化</h3>
+<h4>（一）设备覆盖与服务采用</h4>
+<p>Panay介绍了Alexa的覆盖和使用情况。一是联网端点已超过5亿个，形成家庭设备等多种接入位置。二是Alexa+已有数亿用户使用，购物和家庭设备是其提到的使用场景。三是交互频次提高，用户与Alexa交流的次数达到过去的2—3倍。据其观察，对话方式更加自然、可完成的事务增加，使用户愿意继续使用并扩大交互范围。</p>
+<p>Panay将这一变化与生成式AI带来的连续对话能力联系起来。用户可以围绕同一问题继续追问，在交流中补充条件，逐步完成理解问题和处理事务的过程。</p>
+<h4>（二）家庭场景的功能扩展</h4>
+<p>据Panay介绍，Alexa+的家庭使用主要体现在三个方面。</p>
+<p>一是智能家居控制。用户能够通过自然语言设置日常流程，以条件式表达组织设备行为，减少逐项操作的负担。二是日常问题处理。家庭成员会在用餐等场景中询问如何完成某项工作，并围绕回答继续交流。三是个性化回应。Alexa对家庭情况、看过的电影和购物活动具有一定了解，可以据此提供与具体成员相关的回答。</p>
+<p>他以家庭用餐为例说明交互变化：过去，遇到无人知道答案的问题时，往往有人拿出手机查询，随后查看邮件、通知或社交信息；使用Alexa后，家庭成员可以直接提问，并继续共同讨论。Panay认为，这类使用方式减少了查询信息对现场交流的打断，也改变了用户与设备互动的频率。</p>
+<h3>二、消费产品的使用价值与迭代方法</h3>
+<h4>（一）日常活动与操作负担</h4>
+<p>Panay认为，学习、教学、写作和阅读等活动具有长期延续性，产品设计需要理解用户已经在做的事情，并让这些活动更容易完成。</p>
+<p>一是减少额外步骤。新产品如果要求用户增加操作，或大幅改变原有行为，会提高持续使用的难度。二是区分初次体验和长期使用。有些产品初次使用时令人感到新颖，使用一两次后，用户仍会回到更方便的旧方法。三是关注真实留存原因。能够持续被使用的产品，往往让用户明确感受到日常事务更容易处理。</p>
+<p>在Panay看来，产品团队需要反复检查实际效用。功能清单和设计设想能够描述目标，用户是否愿意每天使用则提供另一类直接反馈。</p>
+<h4>（二）产品自用与体验比较</h4>
+<p>据Panay介绍，他在日常生活中使用多类亚马逊设备，并同时体验正式版本和测试版本，以比较当前客户体验与拟推出的新体验。</p>
+<p>一是保持对现有产品的了解。团队需要知道客户正在面对什么情况，避免只关注开发中的功能。二是持续体验产品变化。通过实际使用，观察软件更新、配件变化和新硬件能否改善体验。三是识别使用频率的差异。如果某些设备越来越常用，另一些设备逐渐被闲置，这些变化可以帮助判断产品的实际作用。</p>
+<p>Panay强调，团队需要愿意面对“不够好用”的反馈。即使规格符合计划、产品说明与初衷一致，实际使用仍可能暴露问题。负责人应及时识别这些问题，并与团队共同调整。</p>
+<h3>三、Bee新设备的个人辅助功能</h3>
+<h4>（一）持续感知与日常事务整理</h4>
+<p>Panay介绍，Bee在访谈当天推出新设备，产品可以全天佩戴，也可以附着于手机，持续感知日常对话，并在后台提供辅助。</p>
+<p>一是回顾交流内容。用户可以在一天结束后查看自己参与过的谈话，减少遗漏。二是整理待办事项。设备能够识别对他人的承诺、需要采取的行动以及相关日期，并提供提醒。三是减少主动输入。用户无需在每次形成待办时立即打开应用、记下内容或向工具发出单独指令。</p>
+<p>Panay认为，这类产品的价值在于帮助用户更专注于当下的活动。在设备能够承担部分记录和提醒工作的情况下，用户可以把注意力留给交流对象和正在进行的事务。</p>
+<h4>（二）跨时段观察与个人反馈</h4>
+<p>Panay还介绍了Bee对日常状态的观察功能。一是识别一天内的变化，例如声音状态发生变化、表现出疲惫。二是形成跨周比较，例如提示某一周显得比此前更紧张。三是围绕日常互动提供反馈，帮助使用者回顾自己在家庭和工作中的表现。</p>
+<p>这些功能体现了Panay对环境式AI的设想：设备持续获得必要情境信息，在后台形成辅助结果，并在合适时机提供帮助。用户能够在较少主动操作的情况下获得对谈话、任务和自身状态的回顾。</p>
+<h3>四、隐私承诺与用户控制</h3>
+<h4>（一）数据使用范围与授权机制</h4>
+<p>对于持续感知带来的隐私顾虑，Panay将隐私设计作为产品采用的重要前提，并围绕Bee作出具体承诺。</p>
+<p>一是数据归用户掌握。他表示，Bee和亚马逊均不会查看用户数据，相关信息只用于服务用户本人。二是用户保有控制权。对于希望分享更多信息、接入连接器或让设备代为执行更多事务的用户，功能扩展需要建立在许可基础上。三是产品不包含广告。Panay在回应科技企业的数据使用问题时明确表示，Bee没有广告，并强调个人数据与隐私保护的关系。</p>
+<p>Panay同时指出，不同产品的功能和使用环境有所不同，需要据此设计相应的隐私控制。对于Bee这样的环境式设备，隐私要求应在产品设计时一并纳入。</p>
+<h4>（二）信任积累与实际效用</h4>
+<p>Panay认为，用户信任需要通过长期表现逐步建立。</p>
+<p>一是以时间和实际证明建立信任。企业作出承诺之后，还需要持续兑现，用户才会形成稳定预期。二是尊重用户对隐私和安全的要求。产品设计需要满足这些要求，并给予用户明确的选择与控制。三是提供足够的使用价值。在安全和隐私得到保障的基础上，产品还需帮助用户减少麻烦、完成事务，才有可能形成持续使用。</p>
+<p>他对环境式AI品类的普及保持条件性判断：产品如果兼顾隐私和实际需求，用户就可能愿意采用；具体产品能否成功，取决于设计和体验能否满足这些条件。</p>
+<h3>五、产品调整与多设备协同</h3>
+<h4>（一）失败经验与组织学习</h4>
+<p>Panay以过往设备业务经历说明产品调整的方法。一是接受失败并识别原因。产品受挫之前，软件完成度、库存安排和零售渠道配置等环节可能已出现问题，需要追溯决策过程。二是吸收经验并调整路径。团队可以保留长期目标，同时根据新增认识修改具体方案。三是保持迭代速度。较快推进和及时反馈有助于持续学习，前提是团队愿意承认问题并落实改变。</p>
+<p>对于坚持过久的问题，Panay认为，部分团队未能吸收已经出现的经验，也未充分接受失败事实。持续投入需要伴随认识更新和行动调整。</p>
+<h4>（二）设备分工与共同智能层</h4>
+<p>对于智能手机之后的设备形态，Panay预计，多类终端将继续共存，并按任务重新形成分工。</p>
+<p>一是已有设备继续承担适合自身的任务。台式机、笔记本、平板和手机各自保留用途，工作会逐步转移到更合适的设备上。二是新的环境式设备扩展感知和交互位置。通过更多传感器，智能能力可以进入家庭、工作和日常活动。三是共同智能层连接不同终端。在亚马逊的布局中，Alexa+承担这一角色，帮助设备结合情境理解用户需要。</p>
+<p>总的看，Panay认为，智能手机仍会延续，并随任务分工变化继续发展；新的环境式设备将带来更多交互方式。连接设备的智能层需要持续体现实际用途，帮助用户减少操作、完成事务，使日常生活更加便利。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>人形机器人的商业部署与安全体系——Agility Robotics联合创始人兼首席机器人官Jonathan Hurst访谈要点梳理（TechCrunch Disrupt，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>人形机器人的商业部署与安全体系——Agility Robotics联合创始人兼首席机器人官Jonathan Hurst访谈要点梳理（TechCrunch Disrupt，2026-10-15）</h2>
+<div class="metaline">TechCrunch Disrupt · 2026-10-15</div>
+<p>——据TechCrunch Disrupt节目《Humanoid Robots Have Arrived: Agility Robotics’ Digit Live on Stage | Disrupt 2026》（2026-10-15）整理</p>
+<p>摘要：本文对TechCrunch Disrupt节目的主要观点进行了梳理汇总。梳理了Digit 4通过仓储搬运实现收入的应用场景，介绍了50磅周转箱搬运、经过三四年概念验证和随后约两年实际部署形成的产品要求，最后汇总了Digit 5面向非围栏环境的安全架构、标准建设与组织能力。Hurst认为，人形机器人的商业化需要围绕客户的5—10项具体工作流持续积累经验，并将可靠性、安全性和服务能力纳入完整产品体系。</p>
+<p class="kw">关键词：垂直应用；企业采用；应用层护城河；组织变革；Agility Robotics；Digit</p>
+<h3>一、仓储搬运的商业应用</h3>
+<h4>（一）现有收入与任务范围</h4>
+<p>Hurst表示，Digit 4已经在客户环境中部署并产生收入，主要工作是将周转箱从一个位置搬运到另一个位置。围绕这一任务，客户存在多种具体需求。</p>
+<p>一是连接仓储设备。自主移动机器人（AMR）负责将周转箱从仓库各处运抵交接位置，输送带负责将箱体运往包装或拣选区域，两类设备之间仍需完成取放。不同供应商的设备接口、仓库布局和作业位置有所差异，使这一环节包含较多变化。</p>
+<p>二是覆盖相邻搬运流程。据其介绍，Digit承担的工作包括周转箱码垛和拆垛、空箱堆放、从移动机器人向输送带转运，以及将箱体放置到货架上。共同需求是在有限空间内搬运较大物体，并在不同高度完成取放。</p>
+<p>三是适应持续存在的用工需求。Hurst指出，等待移动机器人到位、提起周转箱并将其放到下一台设备上的工作较为重复，相关岗位人员流动较多。由自动化设备承担这些环节，有助于让员工投入其他更适合人的工作。</p>
+<h4>（二）负载要求与能力扩展</h4>
+<p>Hurst以50磅周转箱说明机械设计的实际约束。一是箱体重量要求。机器人需要稳定抓持较重物体，箱内物品还可能移动，抓取结构须承受由此产生的负载变化。二是使用环境要求。箱体所在位置、周边设备和搬运路径共同决定机器人需要具备的动作能力。三是能力扩展顺序。他主张先将少数任务可靠完成，再通过这些任务的实践积累，逐步进入更多工作流。</p>
+<p>据其介绍，公司的长期方向是多用途、以人为中心的机器人；当前产品开发则需要明确任务范围，使早期场景中的经验能够支持后续应用。单项任务的稳定执行、相邻流程的扩展与通用能力的积累，构成连续的产品发展过程。</p>
+<h3>二、概念验证与客户需求积累</h3>
+<h4>（一）现场经验的产品化</h4>
+<p>Hurst指出，从研发部门参与的概念验证（PoC）转向商业产品，工作内容和组织要求会明显增加。公司经过三四年的概念验证，以及随后约两年的实际部署，才逐步形成对具体用途的深入认识。</p>
+<p>一是限定客户工作流。团队需要与具体客户确定5—10项工作流，理解每项任务的操作过程与使用条件。二是收集细部要求。纸箱产生的粉尘会影响混凝土地面与机器人脚部之间的摩擦，照明和温度存在差异，输送带、移动机器人和货架的位置也会变化。三是形成产品要求。机器人可能需要伸入特定高度的货架间隙，并以特定姿态完成取放，这些细节需要进入包含数百项客户需求的文档，再转化为产品设计要求。</p>
+<h4>（二）部署经验与新场地适配</h4>
+<p>Hurst认为，不同场地既有共性，也会带来新增要求。一是重复部署有助于减少意外。随着团队经历更多场地，既有经验能够覆盖更多相似情况，对未知问题的暴露逐步减少。二是现场差异仍需处理。空间布局、物体位置和设备组合各有特点，产品仍要保留适配能力。三是组织流程需要同步建立。客户需求收集、设计转化、制造交付和后续服务应由具备相关经验的团队衔接。</p>
+<p>他表示，工程团队能够设想通用机器人的能力，也能够完成技术演示；建设一家商业产品公司，还需要系统掌握客户对可靠性、服务与运行细节的要求。</p>
+<h3>三、双足结构与物理作业能力</h3>
+<h4>（一）空间约束下的形态选择</h4>
+<p>Hurst表示，公司的设计起点是理解物理交互与应用要求。机器人需要进入为人建造的空间，在狭窄通道和门口通行，并将较重物体抬到较高货架，这些条件推动产品形成接近人形的结构。</p>
+<p>一是占地范围需要受控。在狭窄空间完成高位取放，要求机器人在较小支撑范围内调节全身姿态。二是腿部参与操作。即使在平坦地面，腿部仍承担全身定位和动态平衡功能，使手臂与身体能够配合搬运。三是机械形态服从材料和执行器特性。金属、马达与人体肌肉具有不同优势，机械设计需要利用自身条件完成任务。</p>
+<h4>（二）动态平衡与双臂操作</h4>
+<p>Hurst从平衡恢复、抓取能力和关节活动三方面解释设计取舍。一是双足可通过重新落脚调整支撑位置，无需每次都推动整个系统的重心移动。二是双臂能够共同搬运较大物体，满足周转箱作业对抓持力量与动作灵活性的要求。三是关节活动方式可按机器特性设计，使其在指定空间内具备适合任务的活动范围。</p>
+<p>他同时指出，人手的抓持方式、手掌运用和柔性仍有许多能力难以由机器复制。因此，产品需要围绕能够可靠实现的功能形成客户价值，再逐步扩大能力范围。</p>
+<h3>四、非围栏部署的安全架构</h3>
+<h4>（一）独立安全控制与风险约束</h4>
+<p>据Hurst介绍，Digit 5面向可在人员所在作业区域运行的部署方式，安全要求覆盖硬件、控制系统、产品结构和操作流程。</p>
+<p>一是建立独立控制链路。Digit 4在围栏内工作时，已经需要具备安全等级的数据总线、电力电子系统，以及直接连接硬件的独立监督计算机，以便在主控制计算机出现不同状态时仍可实施安全停机。</p>
+<p>二是处理动态稳定机器人的特有风险。机器人可能跌倒，运动状态和搬运负载均会影响潜在后果。三是区分可接触对象。移动设备可以将周边物体普遍视为障碍物，Digit的工作则包含主动接触和搬运，需要识别可以接触的物品与应保持安全距离的人员。</p>
+<h4>（二）人员接近时的分级响应</h4>
+<p>Hurst介绍了Digit 5的安全策略。一是可靠识别人，并随人员接近调整行为。二是降低运动速度，缩小可能跌倒时的影响范围；必要时将重物放到地面，降低跌倒可能释放的能量。三是利用机身结构坐到地面，在人员能够接触机器人之前关闭电机动力；人员离开后，机器人再站起继续工作。</p>
+<p>他强调，这些能力要求产品从设计阶段就统筹考虑。坐下和起身的便利性、负载处置、人员检测与控制系统相互关联，安全策略会影响机器人的各个子系统。</p>
+<h4>（三）标准、保险与人员信任</h4>
+<p>Hurst表示，公司正在参与编写动态稳定机器人相关的ISO安全标准，推动形成能够被监管和外部机构理解的安全体系。</p>
+<p>一是明确技术和流程要求，使安全措施能够被清晰解释。二是与保险机构、国家认可的检测实验室及其他第三方形成可理解的评估依据，为部署中的风险评估和保险安排提供基础。三是提高现场行为的可预期性。Digit的外观保持简洁，通过眼睛等设计提示注意方向和移动意图，帮助周围人员在较少培训的情况下理解其下一步动作。</p>
+<p>Hurst认为，人员信任同时依赖技术安全和行为可预期性。机器人需要持续表现出符合人员预期的行为，降低意外和误解。</p>
+<h3>五、商业组织与持续迭代</h3>
+<h4>（一）专业分工与上市进程</h4>
+<p>Hurst表示，公司成立已超过十年，技术、组织、产品和客户基础均需要逐步建设。面对上市进程，他将其视为继续扩大业务的起点。</p>
+<p>一是补足商业能力。物理机器的服务、部署与可靠性管理，需要长期从事这些工作的专业人员。二是建立组织协作。随着业务扩大，部门、团队和职责之间的衔接会成为独立的重要工作。三是落实授权。创始人需要找到能够胜任具体工作的负责人，并给予相应责任和信任。</p>
+<p>他认为，实际部署硬件和移动自动化系统具有较高难度，持续完成这些工作形成的经验，也会构成公司的竞争基础。</p>
+<h4>（二）假设检验与经验吸收</h4>
+<p>对于创业过程中的坚持与调整，Hurst提出两方面要求。一是判断自身信念是否建立在专业知识之上，对熟悉领域形成的判断保持投入。二是持续检验假设，认真吸收外部批评中的新事实，并将其纳入对产品和市场的理解。</p>
+<p>总的看，Hurst认为，人形机器人的价值需要通过可靠、持续的客户部署逐步实现。团队应在具体任务中积累经验，在专业分工中完善组织，并依据实际反馈不断修正判断，推动产品从有限工作流走向更广泛的应用。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

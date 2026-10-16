@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>物理AI的数据积累、错误恢复与商业回报——NVIDIA Inception物理AI全球负责人Les Karpas访谈要点梳理（TechCrunch Disrupt，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>物理AI的数据积累、错误恢复与商业回报——NVIDIA Inception物理AI全球负责人Les Karpas访谈要点梳理（TechCrunch Disrupt，2026-10-15）</h2>
+<div class="metaline">TechCrunch Disrupt · 2026-10-15</div>
+<p>——据TechCrunch Disrupt节目《How Close Are We to a ChatGPT Moment for Robots? Nvidia Weighs In | Disrupt 2026》（2026-10-15）整理</p>
+<p>摘要：本文对TechCrunch Disrupt采访NVIDIA Inception物理AI全球负责人Les Karpas节目的主要观点进行了梳理汇总。梳理了物理AI的数据瓶颈及真实数据与合成数据的分工，介绍了错误自恢复、仿真迭代与软硬件协同的要求，最后讨论了不同机器人形态的商业回报和企业竞争优势。Karpas判断，相当一部分人形机器人应用的投资回报仍需3至5年才会显现；通用模型在具体任务上达到专用模型水平的转折点，可能出现在未来1至3年。这些时间判断均取决于能力进展和部署条件。</p>
+<p class="kw">关键词：垂直应用；企业采用；单位经济；应用层护城河；研发效率；NVIDIA；Les Karpas</p>
+<h3>一、物理AI的共同问题与商业要求</h3>
+<h4>（一）真实环境中的持续学习</h4>
+<p>Karpas认为，自动驾驶汽车、人形机器人、工厂机器人及智能建筑具有共同的技术问题。一是需要实时处理真实世界的信息。二是需要应对事先未充分覆盖的环境和突发情况。三是需要把部署中获得的反馈持续用于仿真和模型改进。</p>
+<p>据其介绍，这一循环包括现实部署、反馈采集、仿真学习、仿真扩展和新模型训练。不同应用的商业环境有所差异，感知、适应和持续学习方面的要求具有相通之处。物理AI的发展需要把这些环节连接起来，使现场遇到的问题能够进入后续训练过程。</p>
+<h4>（二）客户需求与技术执行能力</h4>
+<p>对于初创企业，Karpas关注两方面能力。一是对客户问题的理解程度，团队需要理解客户的作业流程、实际困难以及投资回报要求。二是对自身技术体系的掌握程度，包括能否整合开放模型、软件库和开发工具，并独立推进部署。</p>
+<p>他表示，技术团队与客户需求之间的联系会影响产品与市场的匹配程度。能够充分理解业务、掌握技术细节并自主解决问题的团队，更有条件把技术进步转化为客户回报。对于从自动驾驶转向其他物理场景的团队，他也关注既有经验能否适应新任务，而这些能力需要通过持续接触和实际部署加以观察。</p>
+<h3>二、数据瓶颈与训练资源的分工</h3>
+<h4>（一）真实数据、合成数据与硬件检查</h4>
+<p>Karpas主张根据部署中的具体失败原因配置资源。一是机器人遇到未知情况、难以适应环境时，需要补充真实世界数据。二是已经知道将面对哪些情况、现有系统仍无法有效处理时，需要通过合成数据增加相应训练。三是数据已经较好、模型仍未学会任务时，需要检查训练和模型本身。</p>
+<p>他同时强调硬件集成的重要性。抓手等机械部件存在问题时，模型能力提升的效果也会受到限制。因此，团队既需要观察模型是否理解任务，也需要检查机器是否具备完成动作的基本条件。不同故障对应不同投入方向，数据、模型和硬件需要结合实际表现逐项处理。</p>
+<h4>（二）数据复用与任务适配</h4>
+<p>Karpas认为，长期来看，能够直接用于三维仿真的高质量合成数据具有较强复用价值。随着训练任务和模型不断调整，这类数据可以重复使用。他同时指出，标准化采集数据与面向具体任务的合成数据需要共同发挥作用。</p>
+<p>具体而言，一是标准化采集能够提供真实场景和丰富的元数据。二是合成数据可以围绕特定任务、环境和边缘情形进行扩展。三是任务后训练仍需要针对目标行为不断调整。单纯获得一批通用数据，难以直接覆盖每项商业任务的要求。</p>
+<p>在数据内容上，他强调多模态信息的价值，包括视觉、声音、旋转编码信息和物理状态等。不同信息共同描述环境与动作过程，有助于形成更丰富的模型能力。</p>
+<h4>（三）第一视角数据的采集质量</h4>
+<p>对于由人佩戴设备采集的第一视角数据，Karpas认为，价值取决于采集方法。一是带力反馈的手套能够提供操作信息。二是双目视觉和深度感知可以补充空间信息。三是立体声音等其他模态可以增加对现场情况的描述。</p>
+<p>他同时指出，设备型号不统一、任务缺少结构、缺乏元数据的采集方式，能够形成的训练价值较为有限。结构化的数据采集需要兼顾传感器配置、任务安排与信息记录。对于人形机器人，人类活动视频提供了较丰富的数据来源，如何把这些资料转化为适用于机器人行为的训练数据，仍是重要工作。</p>
+<h3>三、世界模型与错误自恢复能力</h3>
+<h4>（一）场景扩展与行为预测</h4>
+<p>Karpas介绍了世界模型及世界动作模型的若干用途。一是理解所见场景，形成文字描述并在此基础上进行推理。二是对场景进行风格和条件转换，例如改变昼夜、季节等因素，扩展已有视频的数据价值。三是根据前几秒的信息预测后续可能发生的情况，增加可用于训练的情景。</p>
+<p>这些功能可以共同支持机器人策略学习，使系统建立动作、环境变化和后续反应之间的联系。他同时认为，当前世界模型对物理规律的理解仍有不足，相关能力正在改进。空间理解、未来场景生成和真实物理过程之间的联系，需要继续通过训练与验证完善。</p>
+<h4>（二）错误恢复与现场适应</h4>
+<p>Karpas将错误发生后的恢复能力视为机器人可靠性的重要表现。他讲述了一次现场观察：机器人在把较重的金属凸轮轴放入运输箱固定装置时，零件意外滑落到箱底；机器人随后重新抓取零件，绕过固定装置并将其摆回正确位置。</p>
+<p>这一案例体现的能力包括：一是识别动作执行后的异常结果。二是根据异常状态调整后续操作。三是重新完成原定任务。他认为，面对复杂现实环境，机器人需要能够处理运行中出现的挑战，持续纠正行为。</p>
+<p>对于机器人领域的“ChatGPT时刻”，Karpas给出的判断条件是：机器人进入新环境后，能够在较少外部工程师指导下学习任务；即使出现错误，也能够自行尝试、恢复并逐步改善。他关注的是系统在变化环境中持续完成任务的能力。</p>
+<h4>（三）并行仿真与策略迭代</h4>
+<p>在实现路径上，Karpas提出三方面要求。一是上下文容量需要足以容纳场景中的相关变量。二是通过并行仿真形成不同策略，并比较各策略的表现。三是持续开展策略优化、仿真测试和真实环境测试，将不同环节的结果结合起来。</p>
+<p>他认为，策略训练需要保持反复迭代，现场反馈也需要迅速回流。对于企业能力的观察，数据流程是否顺畅、能否高效处理部署反馈以及迭代速度如何，都是其重视的因素。</p>
+<h3>四、部署形态与商业回报的差异</h3>
+<h4>（一）专用任务与通用模型的演进</h4>
+<p>Karpas判断，短期内聚焦较窄问题范围的企业，更容易在具体任务上较快形成投资回报。对于通用模型，他预计未来1至3年可能出现一个转折点：通用能力逐渐覆盖具体任务，并达到专用方案相近的表现。这属于其对技术演进时间的判断。</p>
+<p>对于已经部署机器人并获得收入的企业，他强调继续积累现实作业形成的模型能力。一是围绕已有市场建立客户关系与品牌价值。二是利用部署反馈形成竞争优势。三是从已掌握的任务向邻近应用扩展，使现场数据和模型权重继续产生价值。</p>
+<h4>（二）人形与轮式方案的适用条件</h4>
+<p>对于人形机器人，Karpas预计，相当一部分应用的投资回报仍需3至5年才会显现，同时指出物料搬运等领域已经存在能够创造价值的案例。其关注的部署约束包括：一是机器人与工人近距离协作所涉及的监管要求。二是进入住宅等环境后的责任问题。三是机械形态本身对安全和部署难度的影响。</p>
+<p>他以轮式双臂操作机器人为例说明形态选择。使用轮式底盘后，停机时的倾倒问题较易控制，部分场景的部署也更方便。对于施工现场、楼梯和不平整地面，足式结构则有适应复杂地形的作用。机器人形态需要结合环境条件和作业要求选择。</p>
+<h4>（三）错峰作业与存量流程改造</h4>
+<p>Karpas对机器人应用持续扩展持积极态度，依据是现有工厂和施工现场仍有较多可自动化任务。一是利用人员离场时段执行生产辅助工作。二是在工人到岗前完成材料搬运。三是通过改造既有作业流程，减少人员工作时需要承担的重复任务。</p>
+<p>他举例，施工机器人可以在人不在现场时搬运物料，使工人在白天集中完成其他工作。即使人机并肩作业的条件尚未充分具备，错峰安排也可以提供生产率改善空间。不同商业场景可以根据自身限制逐步开展应用。</p>
+<h3>五、企业能力积累与后续发展方向</h3>
+<h4>（一）核心模型与多物理过程</h4>
+<p>Karpas认为，初创企业可以使用先进模型和代理工具辅助研发，长期价值仍需要建立在自身掌握的核心模型与后训练能力之上。他关注企业是否能够把工具用于解决具体问题，并形成可持续改进的产品能力。</p>
+<p>在物理建模方面，他指出，多种过程相互作用仍构成挑战。例如，执行器发热会带来金属膨胀和摩擦系数变化，进而影响运动表现；土壤作业也会受到温度、湿度及材料性质共同影响。一是模型需要容纳更多变量。二是仿真需要更好处理变量之间的相互作用。三是现有模型为适应计算和上下文条件所作的简化，需要随着能力提升逐步改善。</p>
+<h4>（二）异构协作与跨形态学习</h4>
+<p>Karpas关注不同类型机器人协同作业的能力。一是系统能否支持异构机器人之间的合作。二是能否保障运行技术系统的安全。三是不同机器人能否共享经验、共同改进模型。他认为，这些能力连同高效的数据回流机制，构成值得持续观察的企业特征。</p>
+<p>总的看，Karpas将进一步发展寄托于现场适应能力、商业部署积累和跨形态策略学习。他预计，随着同一策略在不同机器人结构中接受测试，迭代过程可能发现新的机械形态及任务组合。未来机器人能够形成哪些具体结构，仍有待实际探索；持续试验和学习将为发现这些用途提供路径。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

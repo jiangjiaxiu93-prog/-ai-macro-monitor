@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI技术扩散节奏、应用层价值归属与循环资金杠杆——红杉资本合伙人Alfred Lin访谈要点梳理（Stanford AI Club，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI技术扩散节奏、应用层价值归属与循环资金杠杆——红杉资本合伙人Alfred Lin访谈要点梳理（Stanford AI Club，2026-10-15）</h2>
+<div class="metaline">Stanford AI Club · 2026-10-15</div>
+<p>——据Stanford AI Club节目《Stanford AI Club: Alfred Lin on Building in the AI Era》（2026-10-15）整理</p>
+<p>摘要：本文对Stanford AI Club 2026—2027演讲系列首场对谈中红杉资本合伙人Alfred Lin的主要观点进行了梳理汇总。梳理了其对AI大趋势性质与技术扩散节奏的判断，介绍了应用层价值归属、企业拥有自身智能以及由提供工具向提供服务延伸等观点，分析了其对AI领域循环资金与债务杠杆的看法，最后汇总了功能与持久企业的区分、单笔投资规模与退出规模变化、AI原生对冲基金及受监管市场的切入方式。Lin以亚马逊在1997年之后约30年才首次在收入上超过沃尔玛说明技术扩散的时滞，以20%准备金要求下100美元存款贷出80美元的例子说明货币流通，并指出其加入红杉时全球市值居首的公司约为4000亿美元，目前英伟达市值已在5万亿美元以上，约15年间扩大约15倍。</p>
+<p class="kw">关键词：垂直应用；应用层护城河；开放权重；AI资本开支；融资估值；Harvey；OpenEvidence；英伟达</p>
+<h3>一、AI大趋势的性质与技术扩散节奏</h3>
+<h4>（一）计算型大趋势的定位</h4>
+<p>Lin认为，每一轮大趋势在其所处时代都是规模突出的一轮。他从个人电脑起步，先后经历互联网、宽带、云计算和移动互联网，AI是当前这一轮。每一代人都要面对加速变化，也都获得新的工具，并被期望完成多于上一代的工作，这是进步的代价。</p>
+<p>Lin认为，AI这一轮的量级更为突出，可以从三方面理解。一是机器具备了推理和思考能力。工业革命将人力和畜力转移到机器上，此后的互联网、移动互联网等主要属于通信型大趋势，AI则属于计算型大趋势。二是计算型大趋势建立在通信型大趋势之上。前几轮已将全球人口连接起来，AI具备触达约80亿人的条件。三是扩散速度相应加快。过去的技术浪潮出现时，大部分人尚未接入网络，这一轮的推进速度明显快于此前。</p>
+<h4>（二）技术能力与实际使用之间的扩散差距</h4>
+<p>对于AI是否构成泡沫，Lin的回应集中于技术扩散速度。他认为，对技术的一个常见误解是，既然属于大趋势，推进就会非常迅速；这一轮虽然快于以往，实际渗透仍需较长时间。</p>
+<p>一是亚马逊与沃尔玛的先例。Lin表示，自己当年因互联网兴起而从斯坦福博士项目退学，并曾判断亚马逊将击垮沃尔玛。30年后，沃尔玛规模较1997年成倍扩大，亚马逊直到去年才首次在收入上超过沃尔玛。当时人们普遍能够看到互联网将会到来，但其完全展开耗时很长。二是人的适应速度构成主要约束。他认为，技术体系中移动较慢的环节是使用技术的人，人类自身变化缓慢，模型能力与人们实际用途之间的差距将长期处于较大水平。三是扩散依赖不断提高的抽象层次。从大型机时代以机器码编程至今，技术持续在机器之上构建更高层次的抽象，以便在社会中扩散。他认为，技术人员为推动技术在人群中扩散需要完成的工作，是常被低估的一项内容。</p>
+<h3>二、应用层的价值归属与业务边界</h3>
+<h4>（一）扩散层的价值空间</h4>
+<p>Lin认为，当前模型能力明显强于实际使用水平，生物、法律等多个领域都可以通过应用模型取得经济成果。他援引红杉合伙人Pat Grady的观点，认为应用层存在价值，“软件已死”的说法并不成立。</p>
+<p>其理由有三点。一是应用层的称谓不影响其功能。无论称为软件、应用还是扩散层，其承担的都是弥合模型能力与人类使用之间差距的工作。二是终端专业人员不会深入模型底层。律师、医生、营销和金融从业者需要直接可用的能力，不会为使用模型而自行理解其运行机制并进行编程。三是扩散差距仍在扩大。Lin认为，这一差距只会越来越大，填补差距的工作空间相应增加。据其介绍，红杉投资了法律领域的Harvey、医疗领域的OpenEvidence和营销领域的Profound等企业。</p>
+<h4>（二）企业拥有自身智能的需求</h4>
+<p>Lin提出，行业用户和应用公司希望“拥有自己的智能”。他以制药企业为例，认为其将采用开放权重模型，并在自有数据上进行训练。</p>
+<p>这一判断基于三方面考虑。一是经济运行不会只容纳两三家模型企业胜出。他认为，市场欢迎前沿企业持续推进技术边界，同时不希望其掌握过多权力，对权力集中保持警惕。二是数据集中存在顾虑。用户不愿将全部数据交给少数模型企业，会将部分数据取出、自行训练。三是相关工具链存在建设需求。如Chai Discovery、Isomorphic Labs构建药物发现模型，LangChain为开发者提供工具，Reflection开发开放权重模型。</p>
+<p>Lin同时认为，模型能力提升会带来新的问题。例如在要求模型识别网络安全风险之后，又需要防范其脱离沙箱环境。他据此表示自己并不持末日论观点，认为改进工作将持续存在。</p>
+<h4>（三）由提供工具向提供服务延伸</h4>
+<p>主持人提出，应用公司是否可能由向律师出售工具，进一步发展为直接提供法律服务。Lin认为上述方向都有可能。</p>
+<p>一是模型自有化。据其介绍，Harvey起步时基于前沿模型开发，目前已在训练自有模型，以拥有自身的智能。二是客户范围扩展。Harvey此前主要服务排名前100的大型律师事务所，目前开始与企业客户合作。三是商业设想应更具雄心。Lin认为，模型能力增强之后，创业者应以更大的格局思考业务边界；他以儿童可以直接编写并试玩游戏为例，说明工具门槛下降会带来更多创造活动。</p>
+<h3>三、AI领域循环资金与杠杆风险</h3>
+<h4>（一）资金循环与货币流通速度</h4>
+<p>主持人提出，市场担忧AI领域资金循环流动，例如英伟达投资某家企业，后者再用这笔资金采购英伟达GPU。Lin认为，如果资金只是单纯循环，确实构成问题，但资金本来就具有循环属性。</p>
+<p>他以银行体系作说明。一是存款与放贷。100美元存入银行后，在20%准备金要求下，银行将80美元贷给他人，这部分资金经投资后又进入另一家银行账户，再按同样比例留存准备金。二是货币流通速度。资金在这一过程中形成流通速度，循环本身无需过度担忧。三是准备金缺失的情形值得警惕。Lin表示，若流入的资金全部原样流出、不留任何准备，他会有所担忧，但当前并非如此。</p>
+<p>对于英伟达的投资动机，Lin表示，英伟达希望被投企业使用其GPU，其他公司也在采取相同做法；黄仁勋这样做是为了赋能产业生态，他认为这是积极的。他同时认为，指出这一现象、保持审慎是有益的。</p>
+<h4>（二）债务扩张与系统杠杆</h4>
+<p>Lin认为，更值得关注的是企业承担的债务规模。一是现金流状况转变。部分过去始终保持正现金流的公司，目前已转为负现金流。二是融资方式转变。这些公司正通过举债建设更多数据中心。三是杠杆具有双向作用。杠杆威力很大，既可以成就企业，也可能使其陷入困境。他据此认为，系统中的杠杆规模是需要关注的问题，资金循环现象本身居于其次。</p>
+<h3>四、创业企业的持久性与风险投资环境</h3>
+<h4>（一）功能与持久企业的区分</h4>
+<p>对于如何判断一项AI演示会被下一代前沿模型覆盖，还是能够发展为持久企业，Lin认为，判断首先取决于创始人能否说明其产品为何不会停留在功能层面。</p>
+<p>一是早期防御性有限。两个人加一个想法本身没有可防御性，大型公司若决意竞争，创业企业难以抵御。二是大型公司注意力受限。据其观察，大公司面临更重要的问题，正将尽可能多的自由现金流投入数据中心建设，并未着手开发创业企业所做的功能。三是需要由单一功能扩展为产品套件。在第一个功能获得用户兴趣后，创始人需要回答下一个功能是什么、如何形成产品组合。</p>
+<p>Lin指出，技术型创始人往往擅长讲述技术，较难说明愿景，愿景则是吸引人员长期加入的条件。他以Airbnb为例：其早期只是房源信息服务，不完成交易，房东约48小时后才回复是否出租，模式十分脆弱，起步时也遭到许多人否定。他认为，一些人眼中的缺陷可能正是另一些人看重的特性；在AI使大量事物商品化的背景下，人与人的连接不会消失。成功企业很少一夜成名，打造具有标志性的企业往往需要10年甚至更长时间。</p>
+<h4>（二）创始人特质与经营纪律</h4>
+<p>Lin对创始人特质和企业经营的看法可以归纳为三点。一是信念来自对问题的深入研究。他表示，红杉倾向支持不符合既有模式的异类创始人，看重其对想法的信念；信念体现为创始人对问题的实际调研和深入理解，由此才能提出新颖且有说服力的想法。他以DoorDash创始人Tony Xu为例，其在餐馆协助母亲洗碗的经历，使其注意到厨房产能通常高于前厅接待能力。二是早期投资与成长期投资侧重不同。早期投资主要看创始人质量，成长期投资主要看业务质量；投行与私募股权背景有助于判断业务质量，经营背景有助于理解创始人。三是激情与纪律需要并存。Lin以“火与冰”概括这一关系：企业起步依靠愿景与创造力，执行需要管理纪律，纪律又为承接更多想法创造条件。Zappos由鞋类扩展到手袋和服装；亚马逊从图书起步，在图书实现盈利后进入音乐，再逐步扩展品类，成为“万物商店”。</p>
+<h4>（三）单笔投资规模与退出规模</h4>
+<p>Lin提醒，对流行框架需要了解其适用边界。一是精益创业框架的适用性存疑。他表示，自其加入红杉以来，种子期企业的融资额逐年上升，他对精益创业是否真正奏效存有疑问。二是需警惕简单叙事。简单叙事具有说服力，在一定范围内有效，其细节和失效条件容易被忽视。三是单笔投资规模上升与回报并不矛盾。据其介绍，在红杉的16年间，单笔投资金额逐年提高，按直觉应意味着以更高估值投入更多资金、回报趋于下降，实际回报并未变差，原因在于成功企业的退出规模扩大。</p>
+<p>他以市值对比说明这一变化：其加入红杉时，全球市值居首的公司约为4000亿美元；目前英伟达市值在5万亿美元以上并接近6万亿美元，约15年间扩大约15倍。Lin据此提出两点推论：一是在当前环境中参与竞争需要更多资本；二是创业者若要打造具有标志性的企业，需要跨越的距离扩大了约15倍，可用时间并未相应延长，需要在同样的时间内完成更多工作。</p>
+<h3>五、细分市场切入与组织形态变化</h3>
+<h4>（一）AI原生对冲基金的切入点</h4>
+<p>对于如何建立AI原生对冲基金，Lin认为，已有大量对冲基金使用机器学习为资产定价，新进入者的优势须建立在定价能力超过对方模型的基础上，难度较高。一是选择现有机构关注不足的品种定价，如加密资产、永续合约等。二是优先考虑市场选择，他认为有时市场本身比技术更有价值。三是聚焦竞争对手尚未覆盖的方向，以此作为初始优势。</p>
+<h4>（二）受监管市场与寡头格局</h4>
+<p>对于受监管市场，Lin认为，早期创业企业不宜试图打破长期存在的寡头格局，应设法绕开。一是寡头实力强大。他认为，回避寡头的原因在于其实力，这与市场是否受监管无直接关系。二是围绕用户需求建设产品。OpenEvidence专注于开发医生认可的产品；医生重视以证据为基础的交流，即便ChatGPT能给出相同答案，医生仍倾向于使用基于已发表文献训练的工具。三是与既有机构合作或错位经营。OpenEvidence通过合作获得已发表文献的语料；DoorDash在相当长时间内主要服务中小餐馆，具备一定体量后才与麦当劳、星巴克等大型连锁企业合作。Lin认为，创业企业的机会在于大型公司不关注的领域，这也是风险投资得以存在的原因。</p>
+<h4>（三）组织形态与技术人才价值</h4>
+<p>Lin认为，上一代企业的组织方式建立在需要大量人员编写软件的基础上，未来可能出现明显变化。一是岗位转移。每一代技术进步后，完成特定工作所需人数减少，企业并未因此变小，岗位发生了转移。二是管理体系调整。汽车等传统行业强调命令与控制，黄仁勋的管理方式中命令与控制成分较少；他认为AI时代的组织将更加分散，一个人可以独立完成产品从开发、发布到产生收入的全过程，具有较大业务范围的企业应如何组织仍是待解问题。三是技术理解的价值上升。数学和编程能力正在商品化，对模型运行机制的理解则更具价值，市场愿意为能够充分发挥模型能力的人才支付高额报酬，这类人才已不再以编写代码为主。他同时强调，技术人员也需要理解人文，因为企业服务的是全球约80亿人。</p>
+<p>总的看，Lin认为，AI作为计算型大趋势推进速度快于以往，技术向大众扩散仍需较长时间，模型能力与实际使用之间的差距将为应用层持续提供工作空间；对于资金循环，其关注重点在于系统杠杆。他以“每个问题都有解决办法，每个解决办法又会带来新的问题”概括技术与经济演进的过程，认为这一循环将持续推动经济向前。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
