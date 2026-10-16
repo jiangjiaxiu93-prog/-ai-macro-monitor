@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI收入对资本开支的支撑、算力供给瓶颈与英伟达商业模式——英伟达创始人兼首席执行官黄仁勋访谈要点梳理（BG2 Pod，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-16<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI收入对资本开支的支撑、算力供给瓶颈与英伟达商业模式——英伟达创始人兼首席执行官黄仁勋访谈要点梳理（BG2 Pod，2026-10-15）</h2>
+<div class="metaline">BG2 Pod，99 分 53 秒 · 2026-10-15</div>
+<p>——据BG2 Pod节目《Jensen Huang | Does AI Revenue Justify Capex, '27 AI Bottlenecks, Singularity, Open vs Closed &amp; more》（2026-10-15）整理</p>
+<p>摘要：本文对黄仁勋与Brad Gerstner、Clark Tang对谈的主要观点进行了梳理汇总。梳理了AI收入支撑资本开支的需求结构，介绍了代理、物理AI和开放模型的应用扩展，最后汇总了2027年供给瓶颈、英伟达的软件授权与收入分成模式及安全部署要求。黄仁勋将一般计算、前沿实验室和创业企业等应用需求划为三类，认为全行业建设应结合各类需求考察；其预计本十年末全球基础设施年建设规模约为3万亿至4万亿美元，并表示英伟达今年上半年物理AI业务收入达到100亿美元。上述产业展望与业务判断均为其访谈中的表述。</p>
+<p class="kw">关键词：AI资本开支；token需求；开放权重；定价与变现；代理安全；英伟达；Vera Rubin；OpenShell</p>
+<h3>一、收入增长与资本开支的对应关系</h3>
+<h4>（一）前沿实验室收入的外推约束</h4>
+<p>Gerstner首先提出投资回收问题。他粗估当年前沿实验室和部分推理企业收入合计约2000亿美元，并以未来两年分别增至4000亿美元、8000亿美元的路径，询问模型企业能否持续实现足以支撑数万亿美元建设的增长。这组数字对应其讨论投资回收时提出的情景。</p>
+<p>黄仁勋回应，英伟达服务的计算需求可以粗分为三类。一是一般计算，包括数据处理、图形、物理模拟、分子动力学、传统机器学习、推荐和反欺诈等；按其估计，约占业务三分之一，年增长约30%至40%。二是前沿实验室，覆盖多家公司；其将这一部分粗估为约四分之一至三成。三是创业企业及各行业应用的云计算需求，涉及消费、物理世界、生物和材料科学等领域，约占业务三分之一。</p>
+<p>黄仁勋认为，基础设施需求分布在上述不同客户与工作负载中。OpenAI和Anthropic可以取得较大商业成功，产业建设也有其他需求来源；评估全行业规模，无需先假定这两家公司分别达到万亿美元收入。</p>
+<h4>（二）建设规模、终端需求与更新周期</h4>
+<p>黄仁勋重申，预计本十年末全球基础设施年建设规模达到3万亿至4万亿美元，并认为更接近4万亿美元，其中纯计算部分可以达到约1.5万亿美元。</p>
+<p>其理由有三点。一是全球数字活动和一般计算需求继续扩大。二是按其判断，摩尔定律所带来的同价性能提升已经减弱，新增计算能力需要更多实际投入。三是新平台催生新的企业与应用，同时存量设备仍存在更新需求。</p>
+<p>Gerstner进一步指出，不能仅依据已宣布的算力规模乘以单位收入假设推导终端收入，仍需考虑需求曲线与技术扩散速度。黄仁勋则强调应拆分各类需求，并将长期建设理解为新增容量与旧设备更新的共同结果。</p>
+<h3>二、代理能力、成本下降与应用需求扩展</h3>
+<h4>（一）推理与工作负载增长</h4>
+<p>黄仁勋认为，算力需求增长同时来自单个任务的计算强度和任务数量增加。</p>
+<p>一是推理过程需要反复探索。复杂任务涉及规划、生成备选路径、试验、反思和剪枝，消耗的计算量高于直接生成已学习的信息。二是任务效果改善扩大了使用范围，企业愿意将更多工作交给AI。三是两种变化相互叠加，形成其对计算需求持续增长的判断。</p>
+<p>他预计，算力供给增加和模型效率改善将推动智能成本下降。其认为，成本下降会打开新的使用空间，调用量增长有机会超过单价下降的影响。</p>
+<h4>（二）记忆、工具与企业工作流</h4>
+<p>黄仁勋将代理运行框架视为模型能力进入企业工作的关键条件。</p>
+<p>一是管理记忆与知识，包括工作记忆、长短期记忆和知识整理。二是使用已有工具，例如芯片设计、仿真、图像处理和计算机辅助设计软件。三是将模型连接到企业自身信息与工具，使其能够完成具体任务。</p>
+<p>据其介绍，编程率先取得进展，与开发者能够适应早期工具的使用门槛有关。后续应用正向设计、创意、营销和科研扩展。他举例称，团队已经尝试将图片交给模型生成CAD初稿，再由人员进行调整。</p>
+<h4>（三）开放模型与垂直应用</h4>
+<p>黄仁勋估计，其所讨论的创业企业中约80%使用开放模型。其认为，这些企业主要围绕特定行业开发产品。</p>
+<p>一是开放模型提供可以使用和改造的基础能力。二是企业加入专有数据和领域知识，解决制造、医疗等具体问题。三是通用模型与专业化应用并行发展，后者也会租用算力、形成基础设施需求。其将Nemotron等开放模型视为支持此类应用的组成部分。</p>
+<h3>三、物理AI的收入进展与三类计算系统</h3>
+<h4>（一）物理AI的业务范围</h4>
+<p>黄仁勋表示，英伟达今年上半年物理AI业务收入达到100亿美元，上年全年为100亿美元，再前一年为50亿美元。</p>
+<p>其定义覆盖与物理世界交互的AI。一是感知，包括医疗影像、雷达、通信信号和地理空间信息。二是理解与推理，将感知信息用于判断。三是规划与执行，包括自动驾驶、仓储运输、机械臂以及医疗机器人等。</p>
+<p>黄仁勋认为，物流、零售、通信和制造等企业有机会通过AI改造经营活动。物理AI的业务空间由多个行业共同构成，机器人的消费端应用只是其中一部分。</p>
+<h4>（二）训练、仿真与部署的分工</h4>
+<p>据其介绍，物理AI平台需要三类计算系统。一是训练系统，用于形成模型能力。二是仿真系统，在数字孪生环境中学习和验证行为；他以Omniverse对仓库、建筑和城市的模拟为例。三是部署系统，将模型运行在汽车、机器人或医疗设备中。</p>
+<p>英伟达分别为这些环节提供软硬件。客户可以根据自身能力选择其中一个、两个或全部环节。黄仁勋同时预计，数字代理也需要相应的模拟环境，以支持其在正式接入外部系统前学习和测试工具使用。</p>
+<h3>四、2027年算力建设的供给瓶颈</h3>
+<h4>（一）土地、电力、机房与建设资源</h4>
+<p>主持人援引行业测算，讨论下一年新增约43GW算力，以及芯片供应规模可能高于同期土地、电力与机房交付能力的情景。黄仁勋认为需求充足，实际交付仍受到物理建设条件约束。</p>
+<p>一是土地许可、供电和机房建设。二是建设人员与专业技能，大型项目对施工、配套和安装提出具体要求。三是地区性限制，包括审批、社区反对和建设暂停等因素。其将这些条件视为下一年扩张的重要障碍。</p>
+<p>黄仁勋表示，英伟达服务不同云厂商、企业和地区，若某个项目受阻，可以调整供应安排；全球其他地区的建设需求也为其业务提供了调配空间。</p>
+<h4>（二）封装材料与硅光等上游约束</h4>
+<p>黄仁勋表示，公司通常提前至少一年与客户讨论需求，大型客户的预测期可以达到两年。公开介绍供给情况，与其当时需要向客户分配有限交付量有关。此后新增订单仍持续进入，公司也在增加供应。</p>
+<p>他列举了两项上游约束。一是封装基板，芯片数量增加、封装尺寸扩大，使材料需求和精度要求同时提高，翘曲及制造缺陷控制更加困难。二是硅光供应，仍需要继续扩产。其判断是，供应增加与订单增长同时发生，供需缺口可能需要数年才能收窄。</p>
+<h4>（三）电力约束下的产品选择</h4>
+<p>黄仁勋认为，当可用电力受限、客户仍希望实现收入目标时，每瓦token产出会影响设备选择。其据此判断，较高的计算效率、较广的工作负载适配能力和长期可用性，有助于英伟达获得订单。</p>
+<p>按其介绍，英伟达每GW建设所提供的产品价值，从约180亿美元、200多亿美元提高到400多亿美元，原因包括网络、CPU、存储相关计算和安全软件等产品扩展。这一口径对应英伟达的供货组合。</p>
+<h3>五、平台适配、长期交付与资本开支份额</h3>
+<h4>（一）大规模采购中的信任与通用性</h4>
+<p>黄仁勋认为，基础设施采购规模扩大，使客户更加重视供应商的长期交付记录。</p>
+<p>一是下一代系统往往需要提前预订。他以Vera Rubin Ultra为例，说明客户接近下单时未必能先对完整系统进行实测，需要依靠既有产品表现判断。二是大系统涉及多种工艺和组件，需要供应商协调产能与技术路线。三是模型与工作负载持续演进，CUDA及软件更新使设备可以承接训练、后训练、推理和不同模型架构。</p>
+<p>他以与台积电的合作说明长期规划的重要性，并强调供应链需要适应客户业务规模和需求预测的变化。</p>
+<h4>（二）可出租性与全球覆盖</h4>
+<p>黄仁勋认为，同一套基础设施能服务不同模型、任务和客户，可以降低大额投资对单一用途的依赖；需要转租部分容量时，较广的潜在客户范围也有助于设备利用。</p>
+<p>其将这种适配能力与长期软件支持联系起来，认为两者影响可出租性、生产效率和融资条件。全球已部署的架构还可以帮助客户在不同地区提供服务。</p>
+<p>按其粗估，英伟达获得的资本开支金额份额，在云服务商领域约为40%，在企业本地部署、新型算力云等非云服务商领域约为80%；其认为产品组合扩展和客户选择共同推动了这一份额变化。</p>
+<h4>（三）太空计算的探索</h4>
+<p>黄仁勋表示，英伟达与SpaceX的工程团队正在合作探索适用于太空及地面的新型服务器和架构。他关注的条件包括能效、设备价值相对发射成本的比例、可租用该算力的客户范围，以及持续软件升级。</p>
+<p>对于主持人提出的具体年份和太空部署容量，黄仁勋将进度说明留给对方；其主要阐述了这一方向的技术和经济逻辑。</p>
+<h3>六、软件授权、云服务分成与资本回报</h3>
+<h4>（一）企业软件授权</h4>
+<p>黄仁勋认为，AI由训练转向生产部署后，企业需要持续维护完整的软件栈。</p>
+<p>一是大型云厂商具备自行修改和集成软件的能力。二是许多企业缺少相应的软件及IT团队，需要英伟达承担维护、安全和服务水平协议责任。三是已有GPU部署规模，为按年收费的软件服务提供了基础。</p>
+<p>他以每GPU每年约数千美元、每年出货约2000万颗GPU且其中一半进入企业领域作简化举例，说明软件授权可能形成的业务空间。这些数值用于其收入规模演示。</p>
+<h4>（二）与新型算力云的收入分成</h4>
+<p>黄仁勋表示，部分区域云厂商能够获得土地、电力和机房，同时需要英伟达提供完整技术栈、算力采购及客户生态，并支持其融资。在此类合作中，未来可能采用收入分成模式。</p>
+<p>一是英伟达参与投资，并在初始设备销售中取得收入。二是随后继续提供软件和需求支持，服务期可能延续四年、五年乃至十年。三是通过持续分成取得与长期投入相对应的回报。其将软件授权和收入分成视为依托已部署平台的新增长方向。</p>
+<h4>（三）回购与生态投资</h4>
+<p>在主持人讨论回购占自由现金流的比例后，黄仁勋表示将继续增加回购。他认为，公司在产业生态中的经验和合作能力有助于选择、支持被投企业；随着现金创造能力增长，对外投资占总现金创造的比例预计会较快下降。</p>
+<h3>七、安全部署、治理协作与长期展望</h3>
+<h4>（一）隔离、权限与独立监测</h4>
+<p>黄仁勋认为，对齐是一个需要持续解决的问题，部署安全需要同时建立工程约束。</p>
+<p>一是从零信任和较小权限范围开始，根据任务限定工具、信息、资金及其他资源的访问权，测试后逐步扩展。二是开展独立于代理运行过程的监测，识别与政策或任务要求不一致的行为。三是保留升级处置和关闭系统的能力。他将OpenShell等技术作为相关工程实践的例子。</p>
+<p>其认为，功能、能力、安全和防护需要共同推进，安全能力的完善也是企业扩大采用的前提。</p>
+<h4>（二）治理机制与乐观判断</h4>
+<p>Gerstner将当时的治理安排概括为前沿模型审查、企业内外部审计与董事会监督，以及跨行业协调等部分。黄仁勋支持先采取可执行行动，并随着技术变化改进机制，主张参与方具体了解问题及已有解决办法。</p>
+<p>谈及更长期建设，黄仁勋认为新增容量和旧设备更新会持续创造需求，并对更远期年建设与更新总额达到10万亿美元的情景表示不意外。他同时将全球经济衰退作为讨论长期需求时需要考虑的条件。</p>
+<p>总的看，黄仁勋对AI发展的信心来自更广的应用需求、持续扩大的计算用途以及工程团队解决问题的能力。他以99.99%形容自己的主观信心，强调应表达担忧、承担责任，并通过安全部署和产业协作争取积极结果。</p>
+<p>资料来源：[BG2原视频](https://www.youtube.com/watch?v=eS7qQ3WJSrw)；[完整逐字稿](https://ceointerviews.ai/interview/3063262/)。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
