@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>代理部署增长、模型路由与企业软件基础设施——Vercel联合创始人兼首席执行官Guillermo Rauch访谈要点梳理（Sourcery with Molly O'Shea，2026-10-16）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-19<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>代理部署增长、模型路由与企业软件基础设施——Vercel联合创始人兼首席执行官Guillermo Rauch访谈要点梳理（Sourcery with Molly O'Shea，2026-10-16）</h2>
+<div class="metaline">Sourcery with Molly O'Shea，89 分钟 · 2026-10-16</div>
+<p>——据Sourcery with Molly O'Shea节目《Vercel CEO Guillermo Rauch on Building the Internet for Agents》（2026-10-16）整理</p>
+<p>摘要：本文对Sourcery with Molly O'Shea节目中Vercel联合创始人兼首席执行官Guillermo Rauch的主要观点进行了梳理汇总。梳理了其平台代理部署占比由年初3%升至60%、最近10个月新增15亿次部署所反映的软件生产变化，介绍了开放模型占其AI Gateway网络token用量约80%的业务结构，最后讨论了企业数据系统、代理安全、模型供应商留存以及弹性计算的发展方向。</p>
+<p class="kw">关键词：编程代理；企业代理；模型路由；推理成本；Vercel；Guillermo Rauch</p>
+<h3>一、代理开发推动的部署需求变化</h3>
+<h4>（一）部署频率与软件生产主体</h4>
+<p>Rauch介绍，Vercel成立的初衷是降低应用发布门槛，使开发者能够直接获得性能、安全及扩展能力。公司约用10年累计完成10亿次部署，随后10个月又新增15亿次。这里的部署包括应用每次修改后重新发布，反映软件交付频率，不能直接换算为新增应用或客户数量。</p>
+<p>其描述的变化主要有三方面。一是生产主体变化，平台由编码代理发起的部署占比从年初3%升至60%。二是交付频率变化，代理持续生成代码，使过去依赖人工完成的编写、测试与发布更密集。三是使用主体变化，代理开始访问网站、调用服务和使用其他代理创建的软件，基础设施需求同时来自生产环节和运行环节。</p>
+<p>Rauch认为，这种变化扩大了计算、网络和安全设施的需求。过去的流程依赖开发者写代码，再等待用户访问应用；代理能够同时参与编写与使用，使同一基础设施面对更高频率的活动。其判断基于Vercel平台观察，所列比例均为平台内部口径。</p>
+<h4>（二）开放工具形成的分发基础</h4>
+<p>Rauch将Vercel获得编码代理采用，与过去多年建设开放工具和公开文档联系起来。一是Next.js等工具积累了开发者使用基础；二是开放代码和文档使模型能够学习相关接口与约定；三是代理执行任务时能够从公开网络获取部署方法。其认为，早期服务开发者的投入也改善了代理选择和使用平台的条件。</p>
+<p>他同时强调，开发者仍需理解代理生成的代码。其个人工作更多转为阅读代码、要求代理解释实现、设计测试及识别错误，接近工程管理者组织任务与检查交付的角色。对于承载客户数据、关键基础设施或安全要求的系统，他主张保留较高的理解和验证要求。</p>
+<h3>二、面向代理的互联网接口与交易方式</h3>
+<h4>（一）内容分发与能力开放</h4>
+<p>Rauch认为，企业网站需要同时服务人和代理。一是面向人的页面继续承担品牌、设计及交互功能；二是面向代理提供结构清晰、内容准确的信息；三是开放能够直接执行任务的工具。其以Vercel为例，代理访问时可以获得业务和服务说明，部署、项目查询等能力则通过MCP接口开放。</p>
+<p>这种改造涉及内容与操作两个层面。内容层面，企业需使产品信息、文档和其他材料能够被代理检索；操作层面，代理需能调用服务、购买产品和完成工作流程。Rauch介绍，Vercel与Stripe、Shopify合作提供交易能力，其市场中已有代理为完成任务而购买Browserbase等工具服务的情况。</p>
+<h4>（二）代理流量的识别与管理</h4>
+<p>Rauch指出，传统网络设施经常将机器人视为应当阻挡的流量，而企业现在需要判断代理身份、使用目的及访问体验。一是区分不同模型和搜索服务的访问；二是确保代理取得准确且有上下文的信息；三是识别其能否顺利调用工具。Vercel因此将开发者体验的服务范围延伸至代理开发与执行体验。</p>
+<p>对于交易协议，他认为直接面向代理的接口可能减少逐页浏览和人工界面操作。企业可以保留原有网站，同时通过工具协议和支付协议，使代理更直接地使用产品。这是其对后续产品形态的判断，并不意味着现有网站会同步退出使用。</p>
+<h3>三、个性化软件与企业数据系统的分工</h3>
+<h4>（一）软件生成与专用工作流程</h4>
+<p>Rauch认为，编码代理降低开发成本后，企业将更容易为特定工作流程生成软件。其举例包括会议准备、客户信息汇总、内部报告及专用业务工具。一是界面可以围绕员工当前问题生成；二是不同岗位获得不同深度的信息；三是企业可以持续修改应用，使其更贴合内部流程。</p>
+<p>他以Vercel内部销售工作为例，员工可在Slack中的代理里查询客户部署频率和支持记录，代理再访问Salesforce等系统完成整理。原来由固定页面展示的信息，可以按照当前客户、公司和使用者的角色重新组织。</p>
+<h4>（二）记录系统的持续作用</h4>
+<p>在Rauch的判断中，应用界面变化与数据系统延续可以同时发生。一是客户历史、联系人、会议笔记和支持工单仍需可靠存储；二是代理需要从这些记录中取得业务上下文；三是原有系统可以通过接口向新的软件提供数据。Salesforce、SAP等企业产品所承载的数据基础因而仍具有作用。</p>
+<p>Rauch提出，平台与编码代理的组合将使企业更多自行生成工具。他把这种变化视为个性化软件的发展方向，同时将记录系统与展示、操作界面作了区分。其表述属于对软件采购方式的前景判断，节目未提供企业已普遍停止购买外部软件的证据。</p>
+<h3>四、代理安全与基础设施的商业价值</h3>
+<h4>（一）自主执行中的权限边界</h4>
+<p>Rauch认为，代理自主运行时间延长，使安全要求从代码正确性扩展到任务边界。一是代理可能为完成目标使用超出预期的手段；二是访问外部网页时可能受到提示注入影响；三是其执行过程中可能使用企业令牌、工具和数据，扩大错误操作的影响。</p>
+<p>Vercel围绕这些问题建设企业内部部署、受控运行环境和沙箱服务。Rauch举例说，员工能够快速生成内部软件之后，企业必须避免这些软件或所含数据意外暴露于公网。能够生成代码、能够运行代码以及能够安全运行代码，对基础设施提出了不同要求。</p>
+<h4>（二）持续维护与安全验证</h4>
+<p>据Rauch介绍，Vercel设置了100万美元的沙箱挑战奖金，邀请外部研究者测试安全边界。他称，一名具备专业安全经验、同时使用代理的研究者发现了涉及Linux的问题，公司正处理并与行业伙伴共享相关发现。其以此说明，人员专业判断与代理执行能力可以共同用于防御。</p>
+<p>他还表示，快速生成产品只是起点，长期服务仍需可靠性、安全性和维护投入。公司此前为每次部署创建隔离构建环境的经验，为代理沙箱业务提供了基础。其看重的是持续满足客户需求和维护产品质量的能力。</p>
+<h3>五、开放模型、路由选择与供应商留存</h3>
+<h4>（一）平台token结构的变化</h4>
+<p>Rauch介绍，Vercel AI Gateway启动早期的流量主要来自OpenAI、Anthropic和Google等专有模型；节目时点，开放模型约占其网络token用量的80%。这是Vercel网关的用量分布，节目没有将其界定为行业收入份额或所有企业的模型采购结构。</p>
+<p>其解释主要有三点。一是部分开放模型的编程与执行能力改善，使企业能够在更多任务中采用。二是大量分类、校对、支持服务等任务只需要相应水平的能力。三是复杂任务可以拆分为规划与执行，在规划环节使用能力较强的模型，在执行环节使用成本更低的模型。</p>
+<h4>（二）模型组合与企业控制权</h4>
+<p>Rauch主张企业保留多模型选择。一是根据任务质量和成本选择供应商；二是通过通用接口减少切换工作；三是保留对数据和智能系统的控制。Vercel希望将模型变为可替换的组成部分，同时探索根据问题及上下文自动路由，减少用户每次手动选择模型的负担。</p>
+<p>他强调，企业还会关注零数据保留等服务承诺。Vercel网关通过与供应商和推理服务商签订合同来提供相应保证，其将这一能力视为企业信任的一部分。模型价格、数据处理条件和持续可用性，因而共同影响企业选择。</p>
+<h4>（三）模型公司的增长质量与上市条件</h4>
+<p>Rauch认为，模型公司的关键挑战之一是留存可预测性。一是用户可能因补贴进入；二是短期能力领先可能迅速变化；三是竞争模型出现后，客户可以重新分配用量。他因此建议观察持续服务客户的能力，同时谨慎区分真实需求、促销带来的使用量与其他短期增长。</p>
+<p>对于前沿模型，他仍认为高水平智能存在需求，前提是能够在经济上持续提供。对于上市，他强调公开市场需要相对可靠的经营预测，而模型能力、价格和替代选项快速变化，增加了投资者与企业判断未来收入的难度。节目开头提及Vercel完成3亿美元F轮融资、估值93亿美元；6亿美元年化收入则由主持人援引The Information报道提出。</p>
+<h3>六、企业迁移、人员能力与弹性计算</h3>
+<h4>（一）交付组织的变化</h4>
+<p>Rauch认为，代理也缩短了基础设施迁移的初始实施时间。其以梅赛德斯车队网站为例，称从旧平台向新平台迁移代码的第一轮结果约5分钟完成。该数字描述首轮代码转换，后续上线所需验证、性能和安全工作仍属于产品交付范围。</p>
+<p>在人员选择上，其重视三类能力。一是组织多个代理完成工作的能力；二是理解代码、接口和客户系统的技术能力；三是建立信任及准确表达的沟通能力。代理降低知识获取门槛后，销售和客户工程人员也能更深入参与迁移与技术交流。</p>
+<h4>（二）计算资源的动态伸缩</h4>
+<p>Rauch将软件数量增长与按需计算联系起来。一是企业和个人可以生成更多低频使用的应用；二是代理任务可能间歇运行；三是计算资源需要随流量扩张、在空闲时收缩。他认为，所有新软件长期占用固定运行资源难以持续，弹性调度的作用将继续增强。</p>
+<p>总的看，Rauch认为代理扩大了软件生产和基础设施使用规模，平台需要同时提供部署、模型选择、安全与动态计算能力。其将Vercel后续发展重点概括为提高客户迭代效率，并以可持续的产品质量和客户服务承接这一变化。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

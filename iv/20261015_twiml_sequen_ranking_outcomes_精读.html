@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>实时行为排序、经营结果评测与低延迟系统——Sequen联合创始人兼首席执行官Zoe Weil访谈要点梳理（The TWIML AI Podcast，2026-10-15）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-19<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>实时行为排序、经营结果评测与低延迟系统——Sequen联合创始人兼首席执行官Zoe Weil访谈要点梳理（The TWIML AI Podcast，2026-10-15）</h2>
+<div class="metaline">The TWIML AI Podcast with Sam Charrington，52 分钟 · 2026-10-15</div>
+<p>——据The TWIML AI Podcast with Sam Charrington节目《Sequen Founder Zoe Weil: Stop Confusing Relevance with Results》（2026-10-15）整理</p>
+<p>摘要：本文对The TWIML AI Podcast with Sam Charrington节目中Sequen联合创始人兼首席执行官Zoe Weil的主要观点进行了梳理汇总。梳理了企业以成交和客单价检验排序效果的思路，介绍了处理每秒数千次请求、在约50毫秒内返回动态排序所需的数据与模型架构，最后讨论了广告与自然交易收入、评测体系及持续学习的建设方向。</p>
+<p class="kw">关键词：垂直应用；企业采用；单位经济；研发效率；Sequen；Zoe Weil</p>
+<h3>一、商业排序的目标与数据条件</h3>
+<h4>（一）相关性指标与经营结果</h4>
+<p>Weil介绍，Sequen为零售、旅游、内容及广告等消费业务提供排序能力。商品列表、酒店搜索、内容推荐和广告展示虽然场景不同，都需要决定哪些项目优先呈现。其业务目标集中于提升购买、购物篮规模和参与程度，并根据具体场景确定衡量方式。</p>
+<p>Weil认为，仅优化查询与结果的语义相关性，未必带来相同幅度的经营改善。一是用户点击与最终购买属于不同结果；二是客户能够表达的查询通常很短，无法包含全部偏好；三是用户浏览过程中的选择变化，对后续排序同样有用。她因而主张将排序模型与实际交易结果联系起来。</p>
+<p>对于成熟平台，她强调单笔交易的变化可以较小，但持续作用于较大交易规模仍具有商业价值。Sequen并不假定每位消费者都能大幅提高购买金额，其关注在真实购买意图已经存在时，是否能够更有效地组织商品与推荐内容。</p>
+<h4>（二）社交平台方法的迁移限制</h4>
+<p>Weil指出，社交平台用户访问频繁，能够积累大量持续反馈；即使零售与旅游企业交易规模较大，也未必具有相同的数据密度。一是用户访问频率不同；二是单次消费旅程更短；三是历史记录对当前任务的解释力存在差异。因此，复现社交平台公开论文中的方法，并不保证获得同样的经营效果。</p>
+<p>其提出的补充方向是提高单次访问内的信息利用率。浏览停留、滚动速度、商品间往返比较及加入购物车之前的行为，均可成为实时信号。在这一框架下，系统将用户视为当前会话中的事件集合，围绕其正在发生的操作调整排序。</p>
+<h3>二、会话内行为信号与个性化边界</h3>
+<h4>（一）显性反馈与隐性反馈</h4>
+<p>据Weil介绍，系统同时使用点击、转化等传统数据，以及悬停时长、滚动节奏和比较次数等隐性反馈。一是显性反馈体现已经完成的动作；二是隐性反馈提供选择过程的信息；三是行为顺序和页面位置帮助识别用户处于何种决策阶段。</p>
+<p>她以球拍购买为例说明情境差异。用户仍在商品详情页浏览时，系统需要考虑不同商品和配套选项；用户已把球拍加入购物车后，则可更多考虑球、吸汗带等互补商品。同样是推荐模块，放在不同页面、面对不同决策阶段，排序目标会发生变化。</p>
+<h4>（二）数据使用范围</h4>
+<p>对于主持人提出的行为监测疑虑，Weil表示，Sequen不在客户之间共享客户数据，也不以跨站追踪和个人身份信息作为核心。其描述的系统主要围绕已发生的访问和交易意图进行实时判断，不需要用户姓名等身份字段。</p>
+<p>她将相关边界概括为三点。一是利用当前会话中的交互；二是改善已有购买意图下的商品组织；三是避免将形成持续成瘾体验作为目标。上述内容为Weil对公司产品与数据使用方式的介绍。</p>
+<h3>三、多模型架构与低延迟基础设施</h3>
+<h4>（一）大事件模型与专业化组合</h4>
+<p>Weil介绍，公司最初以大事件模型为基础，学习行为事件流的表示，再由排序模型使用这些表示。此后扩展至同时处理多个事件流及其关系的模型，并形成面向不同商业场景的专业化模型组合。</p>
+<p>其架构具有三个特点。一是使用自注意力机制，其中部分模型采用Transformer结构；二是通过路由把不同场景送往相应模型；三是允许多个模型共享中间信息，为最终排序提供特征。其所描述的核心业务依靠排序模型和事件建模，不以生成式大语言模型作为主要执行系统。</p>
+<p>Weil认为，专业化表示有助于处理短查询与具体场景。旅游、媒体和零售中的相同词语可能具有不同含义；一两个词的查询，还需要结合用户会话和所在页面理解。将场景信息组织为下游模型能够使用的特征，是其强调的重要工作。</p>
+<h4>（二）实时处理与工程实现</h4>
+<p>据其介绍，系统需要在每秒数千次请求条件下完成动态排序，部分场景要求约50毫秒内返回结果。这一过程包含原始事件接入、数据清洗、特征转换、多模型运算及最终排序，因而对整个处理链路都有要求。</p>
+<p>Weil将建设难点分为三类。一是高保真且避免数据泄漏的数据管线；二是能够针对当前用户会话持续更新的模型；三是足够快的在线服务，使排序真正响应即时反馈。单独提高模型能力，无法覆盖数据处理和交付时延的问题。</p>
+<p>公司核心后端采用Rust，研究工作则仍使用Python。Weil表示，低延迟特征处理和在线推理是选择Rust的重要原因；开放源代码框架对Rust的支持改善，也降低了团队建设相关系统的难度。其基础设施同时使用分布式数据库等组件。</p>
+<h3>四、评测体系与广告交易协同</h3>
+<h4>（一）面向经营结果的评测</h4>
+<p>Weil将评测工具、知识库及排序模型共同构成的系统称为递归排序体系。评测的目标是识别哪些改动能够改善商业结果，并将领域知识转化为持续可用的方法。一是针对不同消费场景设计评测；二是比较新方案与已有排序的效果；三是把实施中获得的经验纳入后续模型开发。</p>
+<p>其举例说，旅游与家具消费都涉及金额较高、决策较长的购买，评测方法可能存在共同部分；广告点击则具有不同的收入实现方式，不能直接照搬。评测因此需要兼顾任务结构、收入机制及用户行为。</p>
+<p>据其介绍，Sequen安排工程人员进入客户实施过程，以积累哪些方案有效、哪些方案无效的业务经验。她将这种持续学习的组织方式，与单纯复制公开研究作了区分，认为领域知识的沉淀同样构成产品能力。</p>
+<h4>（二）广告收入与自然交易收入</h4>
+<p>Weil指出，平台上的广告商品与自然排序商品共同使用有限展示位置，单独提高广告点击可能影响其他商品成交。Sequen试图通过更细致的反馈和排序，同时提高广告收入与自然交易收入。</p>
+<p>其强调三项关系。一是广告点击应与后续购买共同观察；二是用户在页面中的即时偏好可用于改进展示；三是推荐结果需要适应当前购买阶段。她表示，公司已在客户中实现两类收入共同改善，但节目没有给出可统一适用于不同客户的提升幅度。</p>
+<h3>五、持续学习与研发投入方向</h3>
+<h4>（一）模型改进的计算方式</h4>
+<p>Weil回顾，公司早期按日、甚至按小时重新训练排序模型。此后团队探索在保留原有能力的基础上连续学习，通过局部调整累积改进，以减少每次完整重建模型的工作。其将这一机制称为递归，强调的是持续更新与计算效率。</p>
+<p>据其介绍，公司允许客户拥有交付的排序模型，而自身持续积累用于生成和改进模型的体系。其认为，长期能力来自新模型的持续产出、评测工具及领域经验的结合。</p>
+<h4>（二）专业排序与通用表示的分工</h4>
+<p>Weil表示，团队内部持续比较两类研发方向：一类是图像、文本等通用表示，另一类是排序模型本身及其评测。当前更侧重后者，因为通用多模态能力可从前沿实验室与开放研究中获得，企业自身需要持续改善决定经营结果的环节。</p>
+<p>总的看，Weil认为，商业排序的进步依赖会话内信号、专业模型、低延迟系统和业务评测共同推进。其下一阶段重点仍是提高核心排序效果，并利用外部研究改进辅助能力，使模型迭代持续对应客户的实际经营需求。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
