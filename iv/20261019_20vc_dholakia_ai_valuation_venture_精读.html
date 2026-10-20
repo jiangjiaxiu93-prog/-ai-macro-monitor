@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI增长估值、收入质量与成长投资组合——Bessemer合伙人Sameer Dholakia访谈要点梳理（20VC，2026-10-19）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-20<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>AI增长估值、收入质量与成长投资组合——Bessemer合伙人Sameer Dholakia访谈要点梳理（20VC，2026-10-19）</h2>
+<div class="metaline">20VC with Harry Stebbings，79 分钟 · 2026-10-19 · <a href="https://www.youtube.com/watch?v=-r2_5LboWL8" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div>
+<p>——据20VC with Harry Stebbings节目《The Untold Truths of Venture | Who Wins &amp; Loses in the Next Decade of VC | Sameer Dholakia》（2026-10-19）整理</p>
+<p>摘要：本文对20VC节目中Bessemer合伙人Sameer Dholakia的主要观点进行了梳理汇总。梳理了其参与Anthropic早期投资、评估AI应用估值和收入质量的方法，介绍了Bessemer新募57.5亿美元、其中17.5亿美元用于种子与早期投资及40亿美元用于成长投资的安排，最后讨论了资本竞争、基金集中度和上市退出条件。</p>
+<p class="kw">关键词：融资估值；开放权重；应用层护城河；定价与变现；Bessemer；Anthropic；Fireworks</p>
+<h3>一、前沿模型投资与开放模型市场</h3>
+<h4>（一）Anthropic投资的判断基础</h4>
+<p>Dholakia回顾，Bessemer参与Anthropic D轮时的估值约为投前150亿美元、投后180亿美元。其把前沿模型与云计算作类比，认为算力和资本需求会使底层供给集中于少数参与者，而其上仍可形成大量专用应用。</p>
+<p>其当时关注三方面。一是能够持续支持模型训练的资本和计算资源。二是与大型云平台的合作。三是应用生态发展的空间。他认为AWS合作对Anthropic早期训练和分发具有重要作用，也承认该投资在公司内部存在较大争议。</p>
+<h4>（二）开放与闭源能力的并存</h4>
+<p>Dholakia认为，智能需求覆盖消费者、专业用户、中小企业、大企业和政府，不同任务对价格、能力及控制权的要求不同。因此，开放模型与闭源前沿模型可能同时形成较大市场，Bessemer通过Anthropic和Fireworks等投资分别参与。</p>
+<p>他不认同精确假定绝大部分token流向开放模型、而几乎全部收入归于闭源模型的固定比例。其更看重整体需求空间，并认为企业通常仍需要专业服务商提供部署、维护和支持，开放源代码产品也可以形成商业收入。</p>
+<p>其对前沿模型需求保持乐观，认为尚有大量复杂问题可以通过更强智能解决。这是其对市场规模与发展方向的投资判断，不能等同于单一公司的收入预测。</p>
+<h3>二、估值期限、收入质量与利润率</h3>
+<h4>（一）未来十二个月的估值参照</h4>
+<p>Dholakia强调进入价格仍然重要，但评估快速增长企业时，更多关注未来十二个月能够形成的业务规模。其认为，在部分高增长企业中，约10至15倍未来十二个月收入的估值可能合理；这一判断取决于增长持续性及具体业务。</p>
+<p>他以Legora为例，称投资时ARR约2000万美元、估值约18亿美元，之后ARR增至约2亿美元。该案例用于说明当前收入倍数与预期增长之间的关系，ARR仍为年化经常性收入口径。</p>
+<p>其同时限定预测跨度：倾向观察接下来十二个月，不愿仅凭十八至二十四个月后的预期为当前估值辩护。其解释，快速扩张企业对较远期经营结果的预测难度较高。</p>
+<h4>（二）留存与客户结构</h4>
+<p>Dholakia表示，收入质量会明显影响可接受估值。一是关注总收入留存和净收入留存。二是关注产品是否成为客户的重要业务系统。三是判断客户能否持续扩大使用。其偏好具有较强客户黏性的企业软件业务，对流失率较高的消费者或专业个人业务会采用更低倍数。</p>
+<p>主持人提出年化收入、企业收入及其他计算方式的差异，Dholakia回应应重视收入质量。其框架将增长规模与客户延续性放在一起，而非仅观察某一时点的收入速度。</p>
+<h4>（三）毛利率改善的依据</h4>
+<p>Dholakia介绍，成长投资的持有期通常为五至七年，因此不会只根据未来十二个月的毛利率下结论。但如果投资方案假设数年后毛利率升至60%或70%，就需要具体解释改善机制。</p>
+<p>他认为，规模经济、市场地位和业务结构可能推动利润率改善，也观察到部分已投AI企业在十二至二十四个月内取得进展。其强调，应能够解释预期变化，不能单靠财务模型中逐年上升的数字。</p>
+<h3>三、应用市场空间与资本竞争</h3>
+<h4>（一）垂直应用的收入边界</h4>
+<p>Dholakia以法律AI说明应用市场的测算方式。他关注全球约1万亿美元法律服务支出，认为产品可以参与原本用于专业服务的预算；成本下降也可能使此前未被满足的需求进入市场。</p>
+<p>主持人提出垂直市场与通用智能基础设施的规模差异，Dholakia认可两者空间可能不同，但认为较小的终局规模仍可因进入价格而形成可观投资回报。其讨论还涉及医生、律师和审计师等专业领域，强调具体任务和客户价值。</p>
+<h4>（二）资本的作用与边界</h4>
+<p>Dholakia认为，当前竞争变化突出体现在资本投入强度。一是资金支持更快扩张和算力采购。二是市场认知可能帮助企业获得人才与客户。三是既有规模进一步改善后续融资条件。</p>
+<p>他同时强调，资本不足以单独决定结果。企业仍需交付高质量产品、建立有效领导团队，并让客户愿意持续使用和推荐。其把资金能力与产品执行能力共同视为竞争条件。</p>
+<h4>（三）增长速度与进入价格</h4>
+<p>对于传统软件的增长路径，Dholakia认为仍有投资机会，但估值需要反映增长差异。当投资者同时面对高速扩张和增长较温和的企业时，资金会比较两者的回报潜力。较慢增长的企业如果进入价格较低，仍可能产生良好回报。</p>
+<h3>四、基金规模、集中度与阶段分工</h3>
+<h4>（一）新基金结构与后续投资</h4>
+<p>Dholakia介绍，Bessemer新募资金合计57.5亿美元，其中种子与早期基金17.5亿美元、成长基金40亿美元。早期基金本身保留追加投资资金，成长基金则可对表现较好的企业进一步扩大投入。</p>
+<p>对于资本需求，他认为需要结合所处层级判断。机器人、硬件或需要训练模型的企业可能更依赖资金，部分应用公司则可能具有不同的投入结构。基金规模应与目标业务和投资策略相匹配。</p>
+<h4>（二）集中持仓与回报目标</h4>
+<p>据其介绍，后期成长投资可对单一企业分数轮投入约2亿至4亿美元，常见占比约为基金的5%至10%。上一只成长基金对Anthropic的投入曾达到约20%，体现了对个别高确信度公司的例外配置。</p>
+<p>Dholakia称，成长投资希望寻找至少五倍、部分可达到十倍或二十倍的回报机会；早期投资则需要更高倍数的成功案例，弥补其他项目失败。上述为投资目标与情景判断，不代表已实现收益。</p>
+<p>他也区分早期成长与后期成长：收入规模、经营可见度、风险和支票金额均有差异，即使由同一团队投资，评估依据也需要变化。</p>
+<h4>（三）机构规模与专业化</h4>
+<p>Dholakia认为，风险投资行业扩展至更多地域、行业和阶段后，机构可以通过大型平台能力，或在地域、阶段及领域上的高度专门化形成差异。他对缺乏规模、同时缺少明显专长的中间型机构持审慎态度。</p>
+<h3>五、流动性、上市条件与后续方向</h3>
+<h4>（一）部分退出与持续持有</h4>
+<p>Dholakia强调，向有限合伙人返还现金仍是基金管理的重要要求。即使看好企业继续增长，也可以在后期融资等机会中适度出售持股，兑现部分收益并控制集中风险。其认为，创始人和投资者都可在长期投入与适度流动性之间安排平衡。</p>
+<h4>（二）私人市场与公开市场</h4>
+<p>他认为，私人资本扩大使企业能够更长时间保持非上市状态，同时预计公开市场对AI业务的需求可能推动2027年较晚时期和2028年的上市活动。这属于其对市场窗口的预测。</p>
+<p>关于上市的作用，他强调按季度稳定兑现承诺有助于形成经营纪律，公开股票也可用于并购；主持人则指出私人公司在长期投入和阶段性亏损方面具有更大空间。Dholakia认可两种状态各有条件和取舍。</p>
+<h4>（三）开放智能、具身应用与药物研发</h4>
+<p>Dholakia表示，过去一年对开放token市场规模的认识明显提高，Fireworks和生成媒体基础设施因此成为关注方向。其认为企业既会采购外部智能，也会希望掌握部分自身智能能力。</p>
+<p>对更长期方向，他关注自动驾驶、建筑、采矿和农业中的自主系统，以及AI与实验室自动化结合后的药物研发。其对技术扩散保持乐观，同时将这些方向视为仍在形成中的投资机会。</p>
+<p>总的看，Dholakia的框架将市场扩张、客户留存、进入价格和资金配置结合起来。其主张在持续增长的企业中保留长期敞口，同时通过具体经营依据检验估值，并在适当阶段将部分账面收益转化为基金现金回报。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
