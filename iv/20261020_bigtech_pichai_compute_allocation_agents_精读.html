@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>前沿模型研发的算力分配、云收入取舍与常驻代理——谷歌及Alphabet首席执行官Sundar Pichai访谈要点梳理（Big Technology，2026-10-20）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-21<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>前沿模型研发的算力分配、云收入取舍与常驻代理——谷歌及Alphabet首席执行官Sundar Pichai访谈要点梳理（Big Technology，2026-10-20）</h2>
+<div class="metaline">Big Technology · 2026-10-20 · <a href="https://www.youtube.com/watch?v=F3ItSTZNtT0" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div>
+<p>——据Big Technology节目《Google CEO Sundar Pichai: AI’s Infinite Possibilities, Compute Scarcity Dilemmas, Future AI Products》（2026-10-20）整理</p>
+<p>摘要：本文对Sundar Pichai在Big Technology节目的主要观点进行了梳理汇总。梳理了谷歌前沿模型研发优先于部分短期云收入的算力分配原则，介绍了Gemini 4 Argon推出后72小时接近25万亿token的使用量、提前两至三年的基础设施规划及2027年新增算力交付压力，最后讨论了常驻代理、消费者商业化与模型安全的推进方向。</p>
+<p class="kw">关键词：AI资本开支；算力采购；前沿实验室；个人代理；企业代理；Google；Gemini</p>
+<h3>一、前沿模型能力与研发投入的优先次序</h3>
+<h4>（一）前沿研究的产品与组织价值</h4>
+<p>Pichai表示，谷歌持续把前沿模型研发作为公司共同能力建设的起点。一是较早掌握新能力，有助于判断下一阶段产品和技术路径。二是云客户中存在明确要求使用前沿模型的群体。三是更强的模型能够帮助研究人员开发后续模型，也能承担内部开发团队过去难以完成的任务。</p>
+<p>据其介绍，Gemini 4 Argon上线后的前72小时使用量接近25万亿token，约为Gemini 3.0同期的三倍，服务供给仍受到容量限制。其认为模型竞争变化很快，即便整体能力提高，编码等具体领域仍需依据用户反馈继续改进。谷歌同时保留不同尺寸和成本的模型，以适应产品对速度、价格和能力的不同要求。</p>
+<h4>（二）云收入与研究算力的配置关系</h4>
+<p>Pichai表示，确保Google DeepMind研究和前沿模型开发获得所需算力，是公司分配资源的基础原则。在此基础上，各业务根据长期经营规划、需求信号及已签合同提出算力需求。云业务在部分时点确实放弃了短期收入，以支持前沿AI研发。</p>
+<p>他同时强调资源约束的作用。一是研究投入需要保持足够规模。二是一定的算力和内存约束能够推动算法效率创新。三是向外部客户提供自有计算能力，可以扩大规模，并在更广泛的实际应用中检验各层技术。其表述并未把研发算力扩大解释为不受约束的投入。</p>
+<h3>二、基础设施交付周期与投资风险</h3>
+<h4>（一）提前两至三年的供给规划</h4>
+<p>Pichai指出，当前可用算力很大程度上由2024年的建设决策决定，而一年前仍未充分出现后来的代理与编码需求跃升。基础设施存在较长建设周期，公司通常需要预测两至三年后的需求。</p>
+<p>据其介绍，若客户现在提出2027年新增算力要求，满足需求已相当困难。谷歌此前曾租入短期算力，以帮助部分客户获得资源。他认可行业共同面临较长供给约束，但没有在访谈中给出谷歌所有算力已售罄至2028年的承诺或统一时间表。</p>
+<h4>（二）实际使用需求与局部过度建设</h4>
+<p>Pichai对较长时期的计算需求保持信心，依据包括现有资源正在被使用、日常容量受限，以及应用和底层技术继续进步。公司制定建设规划时综合观察三方面信息：一是客户需求与已签约收入机会；二是内部评测和实际使用情况；三是模型能力的演进路径。</p>
+<p>他同时承认过度建设风险。一是算力交付依赖芯片、内存、电力、施工及其他配套，单个环节短缺就可能使其他投入无法同步使用。二是不同企业承担风险的程度不一。三是外部经济冲击可能改变建设和需求条件。因此，他将长期用途判断与阶段性供需失衡分别讨论，强调采取积极但有纪律的规划方式。</p>
+<h3>三、常驻代理与跨产品体验</h3>
+<h4>（一）从对话请求向持续执行任务延伸</h4>
+<p>Pichai认为，消费者和企业将逐步获得能够持续工作的多代理系统。谷歌已宣布的企业统一Gemini代理，涉及运行时、执行框架和模型等组成部分，目标是让代理在云端持续运行，并把上下文带到不同产品入口。</p>
+<p>一是用户可以从Workspace、搜索或Gemini调用相关能力。二是产品需要减少用户在聊天和任务执行之间的手工切换。三是代理应能够安全地在后台持续完成工作。据其观察，Gemini请求中可被归类为代理任务的比例正持续上升；个人代理能力还将向消费者扩展。</p>
+<h4>（二）自然交互与界面的适应性</h4>
+<p>Pichai认为，AI将使技术更加适应人的日常活动。一是语音交互需要理解个人上下文，减少纠错负担。二是常驻运行需要保持任务连续性。三是观看视频、消费生成内容等活动仍然需要界面。其产品方向侧重于减少操作复杂度，让交互方式随具体任务变化。</p>
+<p>在消费者商业化方面，他表示，能够提高生产率、提供持续价值的产品会形成付费基础，开发者对编码模型的付费已提供例子。代理代办商业需求时，供给方也能获得价值，后续可能形成相应分配机制。访谈没有确定消费者代理的具体收费标准或交易抽成比例。</p>
+<h3>四、模型研发与安全部署</h3>
+<h4>（一）研究辅助与多路径模型能力</h4>
+<p>Pichai将当前递归自我改进描述为研究人员与AI代理共同参与的若干自动化循环，距离完全自主的终态仍有距离。公司同时推进语言模型、世界模型和具身推理，希望这些研究在未来架构中形成互补。</p>
+<p>一是世界模型有助于理解物理规律并进行模拟。二是机器人等应用需要把语言之外的环境信息纳入推理。三是持续学习、合成数据和高效架构仍属于并行研究方向，公司为这些探索保留一定比例的算力投入。</p>
+<h4>（二）多层防护与独立评估</h4>
+<p>Pichai表示，模型对齐仍存在研究缺口，安全部署需要多层措施共同发挥作用。一是继续改进模型对齐。二是加强实时监测和运行遥测，使团队能在出现意外行为时介入。三是通过沙箱、隔离和数据访问控制限制执行范围。四是向企业提供部署选择和监测能力，并为安全验证配置相应算力。</p>
+<p>他还提出行业标准与独立评估的重要性，认为可借鉴财务控制中的会计标准和独立审计机制。监管也将参与这一过程。</p>
+<h3>五、合作关系与长期供给探索</h3>
+<p>Pichai表示，谷歌较早识别出Anthropic创始团队的能力，并围绕TPU等资源形成合作；与苹果的模型合作则侧重改善用户体验，当前合作进展良好，访谈未披露新的具体协议。</p>
+<p>在数据中心建设方面，一是提前与社区沟通，识别邻里影响；二是增加配套电力，并承担项目自身电力需求的全部成本；三是继续探索长期技术路径。对于太空数据中心，他认为太阳同步轨道的能源条件具有吸引力，但项目仍需按阶段完成技术验证。其将这类研究置于十年至二十年的技术发展视野中，未给出近期替代地面设施的经营目标。</p>
+<p>总的看，Pichai认为谷歌需要同时推进前沿研究、产品交付与基础设施建设，以已签需求和技术进步安排投入，通过常驻代理改善使用体验，并持续解决安全、能源和社区约束。他对技术带来的长期进步保持乐观，同时强调把技术建设与社会实际需求结合。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
