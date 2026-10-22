@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Pichai：Gemini算力约束、自由现金流与常驻代理（Sources）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Pichai：Gemini算力约束、自由现金流与常驻代理（Sources）</h2>
+<div class="metaline">Sources Podcast，Alex Heath访谈Sundar Pichai · 2026-10-21 · <a href="https://www.youtube.com/watch?v=fJBSNEFdm8c" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：前沿实验室；算力采购；AI资本开支；个人代理；企业采用；Google；Gemini</p>
+<h2>Pichai：Gemini算力约束、自由现金流与常驻代理（Sources）</h2>
+<p><strong>Source</strong>: Sources Podcast，Alex Heath访谈Sundar Pichai <strong>Tag</strong>: 应用层探讨 <strong>Pin</strong>: 94 <strong>Published</strong>: 2026-10-21 <strong>URL</strong>: https://www.youtube.com/watch?v=fJBSNEFdm8c <strong>Keywords</strong>: 前沿实验室；算力采购；AI资本开支；个人代理；企业采用；Google；Gemini <strong>Format</strong>: 精翻</p>
+<h3>要点</h3>
+<ul><li>Pichai称，Argon发布前72小时处理约25万亿token，约为Gemini 3.0同期的三倍，算力仍受约束。模型能力、安全监控与服务效率共同决定开放节奏。</li><li>面对自由现金流转负和行业融资担忧，他把Google自身的消费、企业与内部需求信号，模型评测进展，以及有收入承诺的长期合同，作为继续投资的依据，同时承认行业可能超调。</li><li>Google计划让消费者和企业代理共用模型、运行框架与运行时，通过持续运行的代理连接搜索、Gmail和Gemini；算力配置仍由包括他本人在内的人类负责。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 Argon的早期反馈与仍需改进之处</a></li><li><a href="#chapter-2">01:49 为什么连Google也要限制模型访问</a></li><li><a href="#chapter-3">06:20 如何看待前沿模型的排名竞赛</a></li><li><a href="#chapter-4">08:35 长任务、Chromium与2027年的生产率</a></li><li><a href="#chapter-5">11:34 递归式改进与没有发布的3.5 Pro</a></li><li><a href="#chapter-6">15:41 DeepMind的领导层变化</a></li><li><a href="#chapter-7">19:52 算力的分配与提前两年的决策</a></li><li><a href="#chapter-8">22:00 自由现金流转负后，继续投资的依据</a></li><li><a href="#chapter-9">25:20 行业融资风险与投资超调</a></li><li><a href="#chapter-10">33:18 Pichai本人如何使用代理</a></li><li><a href="#chapter-11">35:35 消费者与企业代理共用运行体系</a></li><li><a href="#chapter-12">38:37 浏览器操作、协议与商业利益</a></li><li><a href="#chapter-13">42:20 由代理连接搜索与Gemini</a></li><li><a href="#chapter-14">43:52 太空数据中心与长期研发</a></li><li><a href="#chapter-15">47:38 Waymo的扩张与合作方式</a></li><li><a href="#chapter-16">50:26 Wing的无人机配送</a></li><li><a href="#chapter-17">51:36 安全评测、监管与竞争</a></li><li><a href="#chapter-18">55:58 量子计算何时成为业务</a></li></ul></details>
+<h4 id="chapter-1">00:00 Argon的早期反馈与仍需改进之处</h4>
+<p><strong>Alex Heath：</strong> Sundar，我们现在交谈的时间，距离Gemini 4 Argon扩大开放大约过了一周。我想先听听，新模型的早期反馈怎么样？</p>
+<p><strong>Sundar Pichai：</strong> 我很兴奋。我们在内部已经使用它一段时间了，它确实是世界级的前沿模型。今天再看前沿智能，它覆盖的广度和深度已经相当全面。如果我在脑海里画一张热力图，列出代理任务、知识工作、编程等不同领域，我会说它在许多维度上都很强，也很有竞争力。</p>
+<p>Argon上线后的前72小时，我们处理了将近25万亿token，大约是3.0发布后前72小时的三倍。推出这些模型时，我们仍然受到容量限制。反馈很好，尤其是客户的反馈。当然，也有明显可以做得更好的地方。前沿就是这样：发布、得到反馈，然后继续下一件事。这是我所经历过最富变化的时期之一。</p>
+<p><strong>Heath：</strong> 你仍然希望在哪些方面做得更好？</p>
+<p><strong>Pichai：</strong> 编程是我们想持续推进的方向。它是很好的模型，我们的工程师在内部很喜欢使用它，但我们也看得到可以改进的地方。无论何时发布一个版本，内部都已经在继续往前走。我们还会根据用户使用时提供的反馈，调整模型的行为表现。这些都是我们会继续改善的部分。</p>
+<h4 id="chapter-2">01:49 为什么连Google也要限制模型访问</h4>
+<p><strong>Heath：</strong> 你提到算力约束。连Google这样一家公司推出新模型，也会遇到这种限制，很有意思。Argon是个很大的模型，提供服务的成本显然也很高。你们现在怎样决定访问门槛？目前应该主要通过API，以及AI Pro和Ultra订阅向用户提供，还没有覆盖最广泛的用户群。面对这样规模的模型，你怎样考虑开放与发布？</p>
+<p><strong>Pichai：</strong> 我们一直很擅长的一件事是蒸馏。如果回看3.0系列，我们可以把这些模型蒸馏成能力相当接近、效率却高得多的版本。现在我们也在做这些模型，以便让尽可能多的人使用，相关工作正在推进。</p>
+<p>此外，走到现在这个前沿位置，我们确实需要认真考虑模型安全。因此我们投入了更多精力，包括外部测试、与美国政府合作的测试项目、向网络安全研究人员提前开放，以及内部广泛测试，之后再推向外部。</p>
+<p>你说得对，这是一个很大的模型。考虑到它的规模，我们提供服务的速度已经相当快，这让我很兴奋。接下来会持续扩大访问。发布时，我们向所有Ultra档用户开放，也在Gemini应用中向Pro档开放；随后又向Antigravity应用的Pro档用户提供。与此同时，我们在开发4.0系列的蒸馏版本，让更多人能够使用。</p>
+<p><strong>Heath：</strong> 这是传闻中的Carbon模型吗？</p>
+<p><strong>Pichai：</strong> 任何时候，我们都会有前沿模型的内部版本。其中一些名字，是这些版本的代号。这和把更高效的Argon版本向更广泛人群开放，是两件不同的事。</p>
+<p><strong>Heath：</strong> 所以更高效的版本会来。我也想听听安全测试过程。OpenAI、Anthropic这些独立前沿实验室谈论新模型的安全和隐私时，与Google、Meta这样的大型公司似乎有所不同。听起来你们这次测试很系统，花的时间也比之前更长，这样说准确吗？</p>
+<p><strong>Pichai：</strong> 是的。考虑到代理能力，以及模型已经能很好地编写代码，部署时必须格外认真。我们在大规模服务许多企业客户。</p>
+<p>除了把模型本身对齐好，更重要的是建立它运行期间的监控系统。这既需要相应的算力，也需要相应的系统，而监控本身也可能相当耗费算力。但模型部署后的实时监控至关重要：一旦它的行为不符合预期，你要尽早获得信号并介入。</p>
+<p>所以我们花时间建设沙箱、实时监控以及其他必要系统，也向客户提供保护措施，让他们确切知道模型在哪里运行、拥有何种访问权限，并获得所需的全部遥测信息。</p>
+<h4 id="chapter-3">06:20 如何看待前沿模型的排名竞赛</h4>
+<p><strong>Heath：</strong> 你有多关注模型之间的竞赛？我想你肯定会看X上谁领先、谁落后。去年Gemini 3发布时，大家觉得Google回到前沿了。现在从评测看，Argon当然也在那里，但市场的注意力似乎不断转向当下跑在最前面的公司。你自己有多关注，也会鼓励团队关注到什么程度？</p>
+<p><strong>Pichai：</strong> 这是个好问题。这是非常动态的时期，外部的信息和噪声都很多。我当然会关注，也会看X。了解外界的反应很重要，它让你知道哪些地方做得好，哪些地方不够好。</p>
+<p>但更重要的是，我们内部已经建立了相当扎实的评测体系，可以评估模型，看到它们所处的能力曲线。因此，我们也有质量很高的内部信号。</p>
+<p>我对团队强调的是，我们承诺长期站在AI前沿。我们不是最近才登上这列火车，而是已经关注这个方向很久了。十年以后，以及更远的未来，我们仍想处在智能前沿。为此，就要做好所有必要的事情，包括安全。我认为，安全会成为发展前沿智能的关键。</p>
+<p>今年我们需要改变的一点，是加快发布节奏。行业变化很快，前沿模型进步也很快。我们必须在代理式编程上取得更深入的进展，再利用这些进展来改善发布周期。我们从3.5到3.6、3.7，再到3.8 Flash，大约三个月走完了这个序列。进入4.0后，我们同样期待更好的发布节奏。</p>
+<h4 id="chapter-4">08:35 长任务、Chromium与2027年的生产率</h4>
+<p><strong>Heath：</strong> Argon有些表现让我很感兴趣。我看到它只用了一天多，就自己通关了Minecraft，算力开销好像还不到2000美元。游戏是一回事，但可以把这种能力推到很多其他任务上。那是复杂决策，也是长时间跨度的任务。看到这些，你会想到什么？它怎样影响你对未来的规划？</p>
+<p><strong>Pichai：</strong> 从Argon的某个内部版本开始，我们已经看到内部生产率出现阶跃式改善。比如，我们会让它处理很大的代码库，解决我们一直知道需要解决的问题，涉及数百万行代码。</p>
+<p>举个Chromium的例子：如果你想把一个标签页拖出来，移到别的地方，再放进一个AI体验里，同时让它保持运行、不必重新加载，应该怎么做？在脑海里，这是一项令人兴奋的功能；但过去对于团队来说，它会贯穿Chromium的许多层。现在，你可以让Argon着手处理，它会持续工作，直到把事情做出来。</p>
+<p>我们到处都在看到这样的例子。所以，某种程度上，我把2027年看作我们的生产率前沿的黄金时期：一方面是这一代新模型，另一方面是我们把它们与内部环境整合得越来越好。</p>
+<p>你还可以把这些模型用于大幅改善模型开发本身，也就是行业说的递归式自我改进。实际来看，这些方向都在继续进步，令我兴奋。</p>
+<p>Minecraft展示的是：能力已经到了某个位置，只要具备算力和资源，就能有针对性地在许多领域推进得比过去更深入。</p>
+<p><strong>Heath：</strong> 基本上，只要是可以验证结果的领域，对吧？</p>
+<p><strong>Pichai：</strong> 对。而在其他领域，也可以让人类参与反馈，继续推进。这是一个你会觉得可能性无穷的时刻：只要能想到一个问题，就可以尝试把模型应用上去并取得进展。最近的数学就是例子。有些原以为需要很长时间的问题，投入工作后可以有很明显的突破，正如OpenAI最近的模型在数学上所做的。我认为2027年会看到更多这样的事情。</p>
+<h4 id="chapter-5">11:34 递归式改进与没有发布的3.5 Pro</h4>
+<p><strong>Heath：</strong> 我最近也听Sergey谈递归式自我改进，并推动团队做这件事。Google内部处于什么位置？现在的研发大概大部分已经得到模型辅助，但距离模型自己真正推动研究进展，还有多远？</p>
+<p><strong>Pichai：</strong> 这些工作仍有大量人类参与，也因为存在安全方面的考虑。但我们确实到了研究人员与模型深入协作的阶段。模型可能建议训练方案、自动评估下一个检查点，诸如此类。研究人员和模型之间已经有相当充分的共同工作。</p>
+<p>流程中的某些环节，更接近这个连续谱上递归式自我改进的一端；另一些没那么接近。但整个连续谱都在移动。这也是为什么我们必须认真思考，应该怎样发展前沿能力。我预计，未来12个月会因为递归式改进而继续加速。</p>
+<p><strong>Heath：</strong> 再问一个模型问题。上次I/O，你们提到了Gemini 3.5 Pro。外界至今还在问：那个模型后来怎样了？它变成Argon了吗？</p>
+<p><strong>Pichai：</strong> 训练3.5系列时，我们同时在做Flash和Pro。今年中段，我们逐渐认识到，在代理能力，尤其是编程能力上，仍有一些缺口；两者相互关联，对整体进展又非常关键。因此，我们决定优先在这些方向持续优化。</p>
+<p>团队认为，最快的办法是使用Flash。它更小、更高效，能进行更多轮迭代。所以才有3.5、3.6、3.7、3.8 Flash这一串版本。</p>
+<p>做完这轮工作后，我们本来可以把收获应用到Pro，但这时Argon的预训练已经完成了。我们意识到，3.5 Pro即使发布，生命周期也会很短，因此决定把这些经验用于Argon的后训练。</p>
+<p>在算力、时间等资源不受约束的情况下，当然可以全部都做。但这次取舍让我们能直接奔向下一步需要抵达的位置。4.0也会有不同模型版本。Argon是目前最大、已经对外提供的那个，我们还会发布更多模型；与此同时，也已经向Pro用户开放Argon。</p>
+<p><strong>Heath：</strong> 编程上仍然难在哪里？你们还在优化什么？</p>
+<p><strong>Pichai：</strong> 与其说某个障碍难以突破，不如说前沿一直在变化。如果把时间拨回两个月前，Argon在编程的各个方面都可以算处在前沿。</p>
+<p>我们不断交给它更复杂的、端到端的代理任务，希望它能像世界级的编程团队一样完成：有好的判断力，代码便于审查，也足够安全。这是一条动态的前沿。</p>
+<p>拿幻觉来说，降低幻觉是永远需要继续推进的方向。它是现阶段先进技术的内在特征之一，但你会持续减少它。所以，这既是机会，也是困难。</p>
+<h4 id="chapter-6">15:41 DeepMind的领导层变化</h4>
+<p><strong>Heath：</strong> 我们上次交谈后，Google DeepMind出现了一些领导层变化。Demis Hassabis从CEO岗位退下来，成为首席科学家，也更加投入Isomorphic；Koray升任领导DeepMind；Jeff Dean这位Google传奇人物离开，创办Discovery Loop。当时有很多报道和猜测，但之后我还没有听到你或他们公开说明。这背后的考虑是什么？</p>
+<p><strong>Pichai：</strong> 一个人做某些事情很久后，自然会出现这样的演变。</p>
+<p><strong>Heath：</strong> Jeff在这里应该待了27年。</p>
+<p><strong>Pichai：</strong> 27年。我和Jeff共事很久，很为他感到骄傲。他在这里的贡献具有开创性，我们也很期待他在Discovery Loop做什么。首先，他确实看到了一个机会，想和一群人一起做令他兴奋的事情。</p>
+<p>就内部变化来说，行业已经到了这样一个时刻：开发前沿模型是一项需要全身心投入的工作。过去我们有广泛的AI研究、AGI研究等等，但现在前沿模型开发本身就需要全部精力，而且速度还在加快。</p>
+<p>这是一项规模很大的运营工作，从数据、算力、算法，到管理团队，以及管理协助工作的模型代理。因此，它本身就已经是一项完整且重要的职责。</p>
+<p>Demis思考这个时刻很久了。他尤其关心两件事：怎样安全地穿越这个前沿阶段，以及怎样用它解决其他问题。AlphaFold是一个例子，Isomorphic正在做的工作也是一个例子。</p>
+<p><strong>Heath：</strong> 医药和药物发现。</p>
+<p><strong>Pichai：</strong> 对，还有机器人等等，最终会涉及所有领域。他想在这些事情上花更多时间，也确实非常投入。了解Demis就知道，这一直是他热爱的方向，而且他很早就在做了。</p>
+<p>现在，模型开发已经成为一个相对成熟的过程，Koray在DeepMind也已经工作超过十年。我们看到机会，让Koray接过这项工作。Demis仍以DeepMind主席的身份参与，但会更多投入AI安全，以及怎样更实际地把AI应用于科学、医疗和其他领域。</p>
+<p><strong>Heath：</strong> 这是否意味着DeepMind与Google其他部门的关系发生变化，进一步融合？后续会怎样？</p>
+<p><strong>Pichai：</strong> 这是一个已经持续多年的自然过程，Demis领导时就已经开始了。比如，Gemini应用本来就在DeepMind内部开发。Koray大约18个月前搬到了湾区，双方已经紧密整合。无论是为了算力，还是为了让DeepMind影响Google其他业务，深度合作都已经进行了很久。</p>
+<p>外界可能把某次人事变化看作一个转折点，但对我们而言，这种紧密结合早已在持续推进。</p>
+<h4 id="chapter-7">19:52 算力的分配与提前两年的决策</h4>
+<p><strong>Heath：</strong> 你如何在长期研究投入和短期需求之间配置算力？过去DeepMind以长期研究见长；现在又有前沿模型、Gemini应用、商业化与各类产品。近一两年，这种分配有没有变化？</p>
+<p><strong>Pichai：</strong> 这一直是一项非常重要的决策。我们很幸运，同时拥有几种非凡的机会：站在智能前沿，拥有覆盖许多产品和服务的成功消费业务，同时也是全球主要云计算公司之一，能够向企业提供这项技术。</p>
+<p>机会空间很大，所以我们必须提前规划，而我们的规划方式相当严格。各团队会独立制订计划。所有计划的基础，是我们长期以来一直是一家以AI为先的公司；这意味着，必须投资在研究和开发前沿模型所需的算力上。这是规划未来的起点。</p>
+<p>在此之外，各业务也有自己的计划。例如，Thomas和云团队有长期收入预测与业务机会评估，我们据此配置他们需要的算力。</p>
+<p>但回头看时，总会遇到一些当初无法完全预见的变化。想想技术前沿有多快：一年前的这个时候，代理式编程还没有出现现在这种跃升。而我们自己的算力基础设施又需要很长的准备周期。</p>
+<p><strong>Heath：</strong> 是的。</p>
+<p><strong>Pichai：</strong> 所以，任何一个时点，你实际使用的都是两年前做决策时规划的算力；别人评估你时，却拿着今天完整的信息。</p>
+<p><strong>Heath：</strong> 你两年前就必须做决定了。</p>
+<p><strong>Pichai：</strong> 两年前。你根据当时的信号判断，对长期保持信心和乐观，并积极投资。我不认为今天世界上有哪家公司会说，它两年前的算力决策完全正确。你只能不断应对这些变化，这就是这个行业的一部分。</p>
+<p>我们计划持续保持先进的算力投资水平，既支持研究，也支持前沿模型开发。除此之外，还能把它应用于很多业务，我们会尽最大努力规划。</p>
+<p><strong>Heath：</strong> 也就是说，现在已经在规划2028、2029年了？</p>
+<p><strong>Pichai：</strong> 对，视具体环节而定。如果考虑的是土地、电力这些条件，规划期可能还要更远。</p>
+<h4 id="chapter-8">22:00 自由现金流转负后，继续投资的依据</h4>
+<p><strong>Heath：</strong> 今年夏天有个重要时刻：Google上市后第一次出现现金流为负。</p>
+<p><strong>Pichai：</strong> 自由现金流。</p>
+<p><strong>Heath：</strong> 对，自由现金流。华尔街看到后会想，Google仍在更积极地投资。你们提高了2027年的资本支出指引，也在思考2028、2029年。究竟看到了什么，让你有决心继续投入？自由现金流转负应该不是一个小决定。</p>
+<p><strong>Pichai：</strong> 我们看到的需求信号的强度与持久性。要作出这种决定，你需要在多个层面都有信心。</p>
+<p>首先，我们非常幸运，能从一个很多元的机会组合中得到早期信号，从消费者到企业客户。因此，我们能看到扎实的需求。</p>
+<p><strong>Heath：</strong> 你们可能比世界上任何公司拥有更多信号。</p>
+<p><strong>Pichai：</strong> 我没这样想过，但确实可以这样论证。除了外部需求，我们自己也是一家处在技术前沿的企业，Google内部怎样采用AI，也是一组需求信号。</p>
+<p>同时，我们能独立于需求，较客观地评估能力前沿，看它怎样发展：扩展规律、新模型相对于旧模型的表现、能够解决的任务复杂度，以及内部评测，都能让我们直接看到能力曲线。</p>
+<p>研究突破又提供了另一组信号：Gemini 5.0会不会比现在的Argon明显更好？我们看到的答案是会。因此，整个技术体系的不同层都在提供信心。</p>
+<p>此外，我们正在签订有收入承诺、持续时间很长的合同。这不只是希望，而是在根据已经存在的业务规划。</p>
+<p>把这些因素放在一起，我们就会以负责任、有纪律的方式积极投入。这就是我们在做的事。</p>
+<h4 id="chapter-9">25:20 行业融资风险与投资超调</h4>
+<p><strong>Heath：</strong> 听到你这样描述很有意思。但外界也正在消化另一类事情，例如最近的CoreWeave。人们担心新云厂商，担心融资方式和结构的脆弱性。放眼Google之外，整个市场有没有什么让你担心的地方？是不是跑得太快了？</p>
+<p><strong>Pichai：</strong> 刚才我是从Google自身的角度回答的。对于更广泛的市场，任何时候，只要机会足够巨大、潜在回报足够高、参与者又很多，就一定会伴随变化与波动。这是这种时期的内在组成部分。</p>
+<p>因此，我会非常努力地关注那些自己能够控制、能够看见的信号：需求、明确的商业机会、合同、订单积压等等，再据此规划。</p>
+<p>你也必须把公司建设成这样的组织：即使期间存在偏离，长期的发展方向仍然对公司有利。能够看长一点，是一种帮助。</p>
+<p>回顾过去五年，疫情让经济更快转向数字化，后来其中一部分又出现调整。但对大多数推动数字化转型的公司而言，当时投资仍然是有意义的，它们也因此变得更好。</p>
+<p>你需要理解长期趋势，并投资把握转型。那几年我们增加的人员中，很大一部分投向Google Cloud，如今正在从规模扩大中受益。我们进入云市场相对较晚，但连续六到八年采取了积极的投资姿态。这帮助我们穿越那段时期。我也这样看待今天的AI。</p>
+<p><strong>Heath：</strong> 你现在能看到未来某个时点，Google不再受到算力限制吗？</p>
+<p><strong>Pichai：</strong> 我不太愿意这样回答。</p>
+<p><strong>Heath：</strong> 是要小心，不然大家听到以后可能会很惊讶。</p>
+<p><strong>Pichai：</strong> 我的意思是，今天的全球经济以极复杂的方式彼此交织。一个事件就可能产生蝴蝶效应，波及其他地方。我想把两件事分开：我没有说，从现在开始一切都会平顺。生活不是这样，经济会增长，也会遇到波折和周期，这些都不可避免。</p>
+<p><strong>Heath：</strong> 而且这也不像过去那种光纤泡沫，因为这些算力正在被使用。</p>
+<p><strong>Pichai：</strong> 我们确实在使用，而且非常紧张。更重要的是，今天就在以实际创造价值的方式使用。我们也能看到，未来这些东西会怎样变得更好。</p>
+<p>但这并不意味着，整个行业或经济不会投资过头，也不意味着不会遭遇无法控制的外部冲击。这是两件不同的事情。</p>
+<p>因此，我会把注意力放在可控的方面：采取长期视角，运用多年经验，更好地预测、建模和投资，再有纪律地应用到广泛的业务机会中。我把精力、时间和注意力放在那里，而不是不断琢磨市场究竟是否过度兴奋。</p>
+<h4 id="chapter-10">33:18 Pichai本人如何使用代理</h4>
+<p><strong>Heath：</strong> 我听你说过，希望AI更多帮助Google分配算力。最近几个月它有没有参与？你是否能因此作出更好的决策，甚至愿意把某些很大的决策交给模型？</p>
+<p><strong>Pichai：</strong> 可以分两方面回答。首先，这些事情非常重要，决策明确由人类作出，包括我本人直接参与。</p>
+<p>但我自己已经让一些代理在内部持续运行。一个用途并不花哨：帮助我理解模型开发的进展。以我们的规模，有预训练群、中训练群、后训练数据群等各种讨论。我每天可能要花一个小时，才能了解过去24小时发生了什么。现在，代理会把这些信息归纳后带给我。当然，我仍然可以深入查看，而且经常这样做。</p>
+<p>类似地，一些代理能够读取算力使用的遥测，查看不同产品领域的效率和利用率，并为我提供信息和见解。我们就是这样把AI融入各项工作。我们还有非常出色的同事，AI让我们每个人都更擅长自己的工作。</p>
+<p><strong>Heath：</strong> 所以短期内不会让AI直接决定算力配置？</p>
+<p><strong>Pichai：</strong> 其实五年前，我们就已经用AI提高数据中心的用电效率。现在作算力配置决策时，AI提供的信息已经是重要输入。</p>
+<p><strong>Heath：</strong> 我是在试着让你脱身：以后可以说，这不是我的决定，是模型说的。</p>
+<p><strong>Pichai：</strong> 这是一条连续谱。等模型能够做某件事时，你会转去解决下一个问题。我就是这样理解的。</p>
+<h4 id="chapter-11">35:35 消费者与企业代理共用运行体系</h4>
+<p><strong>Heath：</strong> 你怎么看现在的个人代理竞赛？Muse是个很好的产品，还有Instinct。上次I/O，你们展示了Gemini Spark；最近又在Workspace中给代理邮箱和工作身份。消费者这边仍然很早，但我想你希望Google占据更重要的位置。</p>
+<p><strong>Pichai：</strong> 这是我们高度关注的方向。我们给Gemini设定的目标，一直是成为个人化、主动、有能力的助手，这本来就是核心使命。</p>
+<p>I/O上Spark所展示的，就是我们要去的方向。最近的企业活动中，我们又谈了Gemini代理。需要特别说清楚的是，企业版和消费者版使用同样的模型、同样的运行框架、同样的运行时，区别在于上下文：一个是企业上下文，一个是个人上下文。</p>
+<p>因为我们首先为企业构建，所以这些系统具备高水平的安全和治理能力。基本上，每项任务都会获得一个微型虚拟机，在安全环境中完成工作，能够全天候运行，有实时监控，并向企业提供治理、控制和审计能力。这些东西也会带给消费者。</p>
+<p>现在你已经能在Gemini中看到聊天和任务。近期的愿景是把它们放在同一个输入框里。聊天和任务并不是截然分开的：哪些需要持续执行，哪些需要排期，完成后怎样返回结果，这些都应该成为自然的体验。</p>
+<p>如果回头分析用户在Gemini中的行为，已经能看到趋势：更具有代理性质的请求，其占比一直在增加。未来几个月，我们会把这些能力向更多人开放。最初主要向Ultra和Pro用户发布，现在会逐步扩大。</p>
+<p>新的Argon模型带来了明显的能力跃升。作为消费者，你不仅可以在Gemini应用中对话，也可能在Gmail里发起任务，或者通过通话等方式访问，也能从搜索进入。我们正在很深入地推进这些方向。</p>
+<h4 id="chapter-12">38:37 浏览器操作、协议与商业利益</h4>
+<p><strong>Heath：</strong> 你过去负责过Chrome，所以有件事我特别想问。现在代理像人一样使用浏览器来完成任务，使用Muse时甚至能直接看到。这样做是为了完成工作，我能理解，但又感觉像把三角形塞进方孔。网络是不是需要为代理从根本上改变？你们做了一些协议，别人也在做。我觉得Google处于可以推动更大变化的位置。</p>
+<p><strong>Pichai：</strong> 我们确实在深入思考。这是一个复杂的时刻。代理大规模运行，意味着经济中许多不同部分需要相互协作，而且这种协作方式必须对参与者都有意义。技术前沿的发展速度，会领先于整个生态形成协作方式的速度。</p>
+<p>这也是MCP、代理协议、支付协议，以及我们与其他公司共同推进的UCP，获得那么多关注的原因。接下来的演化会有些混乱，但希望最终走向更互通的标准。这是一种很好的做法。</p>
+<p>通过浏览器或计算机操作也很合理，因为用户自己本来就会这样做，而且这让我们能够有效地建立控制机制，把用户保留在流程之中。两条路线都会发展。</p>
+<p>当然，某些问题如果通过更好的协议解决，扩展性会强得多，也能迅速在不同地方运行。但建立这些协议需要更长时间。</p>
+<p><strong>Heath：</strong> 那么，代理世界里的界面该怎么保护？未来可以出现新的代理式Google搜索。Amazon已经封锁了Muse；你们有庞大的广告业务，也需要用户参与。代理会怎样改变这些界面，你会保护它们吗？</p>
+<p><strong>Pichai：</strong> 从长期看，正确的起点是用户：他们想要什么，我们就努力朝那个方向调整和创新。</p>
+<p>但最终，这套体系也必须让提供价值的企业能够运转。在任何时点，都会形成某种平衡，而这个平衡又会变化。新参与者会把这些变化当作以不同方式开展业务的机会。</p>
+<p>互联网刚出现时，人们会想，房地产交易的方式难道不该一夜之间改变吗？但实际并没有完全按那种想象发展。我甚至会说，今天相当一部分买卖房产的方式，与20年前仍然相似。</p>
+<p>现实世界存在约束。AI和代理可能带来更大的改变，但也会形成许多局部平衡。对我们而言，应该拥抱创新，站在用户的位置思考，并朝那个方向开发产品。这也是用户最终会要求的。</p>
+<h4 id="chapter-13">42:20 由代理连接搜索与Gemini</h4>
+<p><strong>Heath：</strong> 过去一年，我问过Liz和你的其他同事：Google搜索中的AI Overviews与Gemini究竟什么时候会融合？现在是两个规模都很大的AI产品，Gemini有十亿用户，搜索有数十亿用户，但体验既不同又有重叠。你能看到它们彻底合在一起吗？</p>
+<p><strong>Pichai：</strong> 举个例子，发布个人智能时，你既可以在Gemini中打开它，也可以在搜索中打开。它拥有你的上下文，所以已经能以某种统一方式工作。</p>
+<p>我预计，代理会跨越这些产品，提供统一体验。与其试图先把不同产品合并，再想它们如何结合，不如让代理这一层自然完成这件事。</p>
+<p>因为你的代理在云中全天候运行，拥有你的上下文，所以可以从上次停下的地方接着做。你在一个地方开始任务，转到另一个地方时，代理仍然知道来龙去脉。我认为，代理层给了我们前所未有的机会，把产品体验连贯地连接起来。</p>
+<h4 id="chapter-14">43:52 太空数据中心与长期研发</h4>
+<p><strong>Heath：</strong> 你们也开始把数据中心送上太空了。Project Suncatcher还很早，第一项试验与Planet Labs、SpaceX合作。进展如何？已经发射上去的设备还在那里吗？有没有烧掉？</p>
+<p><strong>Pichai：</strong> 进展很好，还在那里，运转也不错。我很期待有机会向那些TPU打个招呼。发射时，我在这里观看了过程。</p>
+<p>对我来说，这类项目与当年开始做Waymo并没有本质区别。我仍然记得飞到沙漠里，观看DARPA挑战赛上的Stanley赛车。站在那时，如果试图想象今天的Waymo，会觉得那是很未来、很科幻的事情。</p>
+<p>但十到二十年很长，尤其是处在技术拐点时。我们现在迈出了早期步骤，对这段旅程也有很深的承诺。团队非常优秀，在十到二十年的时间里，我相信他们会达到令人惊叹的里程碑。</p>
+<p><strong>Heath：</strong> 地球上的沙漠、海洋等地方，也都可以放数据中心。为什么现在投资太空？</p>
+<p><strong>Pichai：</strong> 从能源供应的基本原理看，处于太阳同步轨道，能够持续获得太阳能，本身就是很好的理由。还会有其他理由。</p>
+<p>地球的物理空间有限，而且有很多其他用途。今天的数据中心看起来很大，但相对于十年前，我们还没有真正体会到未来规模可能怎样变化。把算力需求向二十年后作指数式外推，是很难直观想象的。如果全都按照今天的方式铺在地球上，地球可能不会很好看，也会碰到其他约束。</p>
+<p>思考这些技术，还有点像20世纪60年代登月、进入太空。你会推动许多技术曲线，驱动研发和未来。所谓宏大探索，最根本的一点就是：当你集中精力解决非常雄心勃勃的问题时，会沿途发明许多最终都有用的东西。</p>
+<p><strong>Heath：</strong> 就像Waymo。</p>
+<p><strong>Pichai：</strong> Waymo、TPU都是例子。正因为我们很早就在做AI，却发现算力不足，才开始自己做TPU。提前思考技术曲线，并推动它，确实会产生这些机会。</p>
+<p><strong>Heath：</strong> 你说了几次“宏大探索”。Suncatcher会像Waymo一样，成为Alphabet旗下另一家独立公司吗？</p>
+<p><strong>Pichai：</strong> 算力与我们做AI的方式非常紧密。我们还没有把组织形式想清楚。我把它看作未来从根本上扩大算力的一种方式。它确实是一项宏大探索，而我们承诺把它做好。</p>
+<h4 id="chapter-15">47:38 Waymo的扩张与合作方式</h4>
+<p><strong>Heath：</strong> Waymo的战略似乎可以朝很多方向走。你希望继续与Uber合作，还是建立完全垂直整合的车队？另一个问题是，未来消费者能否直接购买Waymo车辆，再把车租出去？Waymo与Uber能否共存？</p>
+<p><strong>Pichai：</strong> 我们离零和竞争还很远。现在非常早，机会空间极大。自动驾驶技术有很多种应用方式，我预计Waymo会以许多不同方式开展业务，包括与其他伙伴合作。我也预计这些伙伴自身能够发展得很好。</p>
+<p>我对Waymo非常乐观。团队当前特别专注于扩大规模，我们刚刚跨过每周50万次付费乘车的门槛，接下来会全力把这个规模继续做大。</p>
+<p><strong>Heath：</strong> 多伦多也快要推出了，今年会新增十个城市，对吧？</p>
+<p><strong>Pichai：</strong> 是的。接下来是运营与后勤上的扩张：增加车辆，进入更多环境，扩大客户服务和运营能力，而安全始终排在第一位。未来12个月会更多地做这些工作，包括国际市场、不同天气、高速公路等等，都要守住很高的安全标准。</p>
+<p>目前，与普通驾驶相比，严重事故减少约95%。在这个过程中，我们建立的底层技术具有很强的通用性，也就包含了你提到的那些未来选择。</p>
+<p><strong>Heath：</strong> 大家都在想，你们会怎样使用这些选择。有些人要保护自己的业务，会感到害怕；另一些人则在想，还能扩张到哪里。</p>
+<p><strong>Pichai：</strong> 从历史上看，我们建设Android和移动生态时，与各种公司合作；今天的AI生态也是如此。我认为我们始终会与生态共同工作，也会有足够多的增长机会，让大家都做得好。</p>
+<p><strong>Heath：</strong> 但我将来能买一辆Waymo车吗？</p>
+<p><strong>Pichai：</strong> 那不是我们目前在做的事，但永远别说永远不会。</p>
+<h4 id="chapter-16">50:26 Wing的无人机配送</h4>
+<p><strong>Heath：</strong> Wing也是你们逐渐成熟的业务。我听你说，在不太遥远的未来，可能有4000万美国家庭能够使用它的无人机配送。你觉得这会带来什么？</p>
+<p><strong>Pichai：</strong> 上周五傍晚，我刚和Wing团队见面，是我当天最后一场会议。我很兴奋，他们的产品非常好。</p>
+<p>早期他们选择做一种轻量化、容易制造、容易部署的产品，因此可以扩大规模。这些基本设计方向都选对了。</p>
+<p>团队也有雄心勃勃的扩张计划。我预计，2027年配送规模会明显增加，也会进入今天尚未覆盖的新类别。这些都是增长机会。</p>
+<p><strong>Heath：</strong> 类似Waymo，主要通过合作伙伴来推进？</p>
+<p><strong>Pichai：</strong> 是的，这就是我们2027年会采用的方式。</p>
+<h4 id="chapter-17">51:36 安全评测、监管与竞争</h4>
+<p><strong>Heath：</strong> 最近你在华盛顿花了不少时间。Demis提出过类似FINRA的机构，受到很多关注。你也签署了白宫与科技CEO共同推动的文件。你希望政策制定接下来发生什么？大家似乎都在试图建立支持监管的框架。</p>
+<p><strong>Pichai：</strong> 这项技术影响非常深远，也包含改善社会与经济的非凡机会。现在，人们越来越意识到它有多强大，也意识到处于前沿的公司需要建立正确的保障与方法，尽可能安全地部署。这就是我对当前阶段的概括。</p>
+<p>对Google而言，这一直是思考和运营方式的核心，Argon的发布也是如此。下一步，如果我们能通过更好的评测标准，把测试方法进一步标准化，就能更有效地评估前沿。</p>
+<p>想想金融业和财务报表：有清楚的会计标准，也有专业审计机构等独立评估者。AI朝这些方向发展是有益的。未来会到需要采取更多措施的时候，但重要的是把事情做对。</p>
+<p>技术变化如此快，今天制定的东西，12个月后可能已经明显不足，甚至完全不对。因此，建设专业能力、成立行业标准组织，都是推进工作的好办法。</p>
+<p>我现在花很多精力思考的是：Google是否在实质提高安全开发和部署模型的投入，以及我们所坚持的标准。我认为，把这些事情做好，会成为未来的竞争优势。</p>
+<p><strong>Heath：</strong> 开始时，你说你们主动放慢Argon的发布，做了范围更广的内部测试，也交给政府审查。另一方面，又有人希望政府强制放慢开发。听起来，市场激励已经在某种程度上发挥作用了。我担心监管俘获，也担心初创公司还有没有成长空间。你怎样平衡？</p>
+<p><strong>Pichai：</strong> 在各种情境下，我首先会主张更统一的监管，而不是各州分别制定一套规则。碎片化的监管可能拖慢整个行业，也会因为环境更复杂，反而降低安全性。</p>
+<p>我对我们适应这一领域持续变化的能力很有信心。可以这样看：现在，开发前沿模型的公司，即便是自愿的，也在把模型交给美国政府测试。</p>
+<p><strong>Heath：</strong> 这和一年前不同了。</p>
+<p><strong>Pichai：</strong> 对。无论它有没有写成正式法规，变化已经发生了。我们会继续根据观察到的情况演化。要提前准备，也要确保这种具有巨大潜力的技术能够继续向前发展，无论对我们公司还是对国家都是如此。</p>
+<h4 id="chapter-18">55:58 量子计算何时成为业务</h4>
+<p><strong>Heath：</strong> 老实说，我不懂量子计算。我知道你们长期投入这个领域，但感觉它处在另一个层面，又可能影响我们刚才谈的一切。你认为它实际的机会是什么？我看到你们不断宣布进展，它真正到来时会怎样？</p>
+<p><strong>Pichai：</strong> 首先，欢迎加入。当你说自己不懂量子时，你就和我们所有人站在一起了。</p>
+<p><strong>Heath：</strong> 那就好。</p>
+<p><strong>Pichai：</strong> 这是一种接触越多，有时反而越觉得不懂的技术。</p>
+<p><strong>Heath：</strong> 像AI。</p>
+<p><strong>Pichai：</strong> 可能更甚。但我们在内部设定了明确里程碑，团队在将近十年的时间里，一直达到或者超过这些目标。他们正在可靠地扩大量子系统规模，并且始终以商业应用为方向。</p>
+<p>量子的未来可能性很广，也有很多不确定性，但我确实能看到，在五年左右的时间里，出现让我们兴奋的实际商业应用。</p>
+<p>今天我们向客户提供TPU。如果五年后我仍坐在这里，Google Cloud团队很可能已经在洽谈一定规模的量子计算部署合同。这让我非常兴奋。</p>
+<p>这是另一项我们长期投入的技术，你会继续看到我们坚持投入，并保持在前沿。</p>
+<p><strong>Heath：</strong> Sundar，谢谢。</p>
+<p><strong>Pichai：</strong> Alex，很高兴和你交谈，谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

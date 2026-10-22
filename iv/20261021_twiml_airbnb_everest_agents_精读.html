@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Airbnb：企业知识、客服调解与代理体验（Ahmad Al-Dahle，TWIML）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Airbnb：企业知识、客服调解与代理体验（Ahmad Al-Dahle，TWIML）</h2>
+<div class="metaline">The TWIML AI Podcast，Sam Charrington访谈Airbnb首席技术官Ahmad Al-Dahle · 2026-10-21 · <a href="https://www.youtube.com/watch?v=Dqn4sK4DWTI" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业代理；企业采用；代理商务；单位经济；研发效率；Airbnb；Everest</p>
+<h2>Airbnb：企业知识、客服调解与代理体验（Ahmad Al-Dahle，TWIML）</h2>
+<p><strong>Source</strong>: The TWIML AI Podcast，Sam Charrington访谈Airbnb首席技术官Ahmad Al-Dahle <strong>Tag</strong>: 应用层探讨 <strong>Pin</strong>: 93 <strong>Published</strong>: 2026-10-21 <strong>URL</strong>: https://www.youtube.com/watch?v=Dqn4sK4DWTI <strong>Keywords</strong>: 企业代理；企业采用；代理商务；单位经济；研发效率；Airbnb；Everest <strong>Format</strong>: 精翻</p>
+<h3>要点</h3>
+<ul><li>Airbnb用Everest收集员工工作中的隐性知识，帮助代理理解定价、支付等复杂领域；它仍在试验架构、评测与上下文检索，尚未解决规模扩大后的知识过时与污染问题。</li><li>Al-Dahle称，约50%的客服聊天工单已由AI直接与用户交互并解决；多方利益冲突、证据难核实的复杂调解仍依赖人工判断，用户可以主动要求转接人工。</li><li>公司用交付、缺陷和路线图等结果判断AI价值，避免以token用量排名替代生产率；消费者搜索也强调探索、图片和用户控制，不把所有体验变成聊天窗口。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">01:35 Airbnb采用AI的三个方向</a></li><li><a href="#chapter-2">03:19 工程生产率需要同时考虑速度与质量</a></li><li><a href="#chapter-3">06:20 Everest怎样收集知识，又怎样避免污染</a></li><li><a href="#chapter-4">10:30 数据库、文件与逐步提供上下文</a></li><li><a href="#chapter-5">13:14 AirChat与多模型工具环境</a></li><li><a href="#chapter-6">14:38 评测必须能拉开模型差距</a></li><li><a href="#chapter-7">17:37 成本管理不能只看token排行榜</a></li><li><a href="#chapter-8">20:12 怎样判断工程价值</a></li><li><a href="#chapter-9">24:12 用户看不见的市场代理</a></li><li><a href="#chapter-10">26:36 双边市场里的调解为何困难</a></li><li><a href="#chapter-11">30:33 已部署的客服代理与50%的口径</a></li><li><a href="#chapter-12">33:05 不强迫用户使用AI</a></li><li><a href="#chapter-13">36:05 自然语言搜索不等于聊天优先</a></li><li><a href="#chapter-14">39:41 外部代理、MCP与旅行信任</a></li><li><a href="#chapter-15">44:09 自建框架与采用开源</a></li><li><a href="#chapter-16">45:55 小模型的专用后训练</a></li><li><a href="#chapter-17">48:25 仍未解决的知识与交互问题</a></li></ul></details>
+<h4 id="chapter-1">01:35 Airbnb采用AI的三个方向</h4>
+<p><strong>Sam Charrington：</strong> 你刚到Airbnb时，遇到的AI环境是什么样？加入后又怎样发展？</p>
+<p><strong>Ahmad Al-Dahle：</strong> 好消息是，公司原本就有很强的势头，基础相当不错。这既与我加入的时点有关——代理式编程刚刚成为真正能用起来的工具——也与Airbnb的文化有关。公司长期在AI、机器学习运维等领域投入，基础设施很扎实。</p>
+<p>我能够帮助公司的，是加速三个方向的采用。</p>
+<p>第一是生产率：普通工程师怎样用AI更快地工作？这要求你重新设计平台，让代理能够容易地进入基础设施。</p>
+<p>第二是把代理用于平台市场本身。用户未必看得到，但它们可以提高信任、可靠性和质量，其中一些工作可以在后台离线完成。</p>
+<p>第三是直接改善房客与房东的体验。这三个方向，都在较短时间里取得了很大进展。</p>
+<h4 id="chapter-2">03:19 工程生产率需要同时考虑速度与质量</h4>
+<p><strong>Charrington：</strong> 关于第一点，市场上有许多不同的AI编程理念，似乎还没有一种公认的做法。Airbnb有统一方式吗？还是各团队自行决定？</p>
+<p><strong>Al-Dahle：</strong> 每家公司都有自己的文化和原则。有些公司强调快速行动，部署AI时自然会特别关注速度。Airbnb很重视精细打磨，这也符合我的想法。</p>
+<p>因此，生产率不只是快慢问题，也包括质量。我们不只看代码变更请求的吞吐量或token速率，还看缺陷比例、可靠性等指标。要用质量意识和判断力为速度建立边界。否则，AI使用量指数式增加时，系统质量可能受到损害。</p>
+<p>但有一些共同问题，对每家公司都成立。怎样通过MCP让代理访问完成一般任务所需的企业信息？怎样在代码库和文档中组织上下文，让代理能适应特定业务？</p>
+<p>例如，一个产品工程师要向支付系统提交修改。支付系统复杂、受监管，细节很多。文档是否足够，使代理写出的变更，至少能让支付团队合理地审查？这些基础工作，决定了最后能否既提高速度，又保持质量。</p>
+<p>还有一个问题，是怎样把没有写进正式资料的组织知识提取出来，编码成代理能够学习的内容。这方面研究还不充分，但我们已经在做。</p>
+<p>我们把它叫作Project Everest，相当于一个“公司大脑”。员工使用AI和Everest时，系统会收集他们的工作知识，形成共享上下文池，记录那些不一定已经存在于文档中的做事方法。</p>
+<h4 id="chapter-3">06:20 Everest怎样收集知识，又怎样避免污染</h4>
+<p><strong>Charrington：</strong> 它以什么为组织原则？主要服务工程师，还是围绕工作流，或者比较自由？</p>
+<p><strong>Al-Dahle：</strong> 最初面向产品工程师，现在开始向整个公司扩散。产品经理——我们在Airbnb把这个角色称为产品营销人员——也开始使用。以后设计人员也会加入，逐渐形成一个围绕所有人工作流、并从中学习的公司上下文图谱。</p>
+<p><strong>Charrington：</strong> 我很多年前做过知识管理。大型企业一直面临这个问题：文件很多，但大量隐性知识没有写下来。代理可以从工作发生的地方收集知识，而不必专门叫人去整理。</p>
+<p>但代理也能制造大量文档。如果文档太多，或者记录了错误的东西，价值反而下降。Everest怎样处理筛选和优先级？</p>
+<p><strong>Al-Dahle：</strong> 最重要的办法，是建立强有力的评测。我们持续观察一组任务：使用Everest后，是否能以更少的步骤、更快的速度、更高的准确性完成？</p>
+<p><strong>Charrington：</strong> 能举一个任务例子吗？</p>
+<p><strong>Al-Dahle：</strong> 比如，产品工程师要修改定价领域的一项规则。定价工程师已经使用Everest，向它提供上下文并在其中工作。现在，另一个工程师给出提示，要求应用新的定价规则，能否更快、更准确地产生合格的代码变更？</p>
+<p>定价是我们最复杂的领域之一，有许多政策和特定的工作方式。我们希望Everest能够把这些组织经验编码进去，让其他人也能在这个领域工作。</p>
+<p><strong>Charrington：</strong> 也就是说，代码本身展示了一部分定价逻辑，但还有监管、政策等代码之外的信息，需要让代理同样能够获得。</p>
+<p><strong>Al-Dahle：</strong> 对，我们希望走到那里。但要说清楚，现在还很早，Everest没有替我们解决一切。它更像一个起点，未来可能帮助并非每个领域专家的工程师更快地工作。</p>
+<h4 id="chapter-4">10:30 数据库、文件与逐步提供上下文</h4>
+<p><strong>Charrington：</strong> 你把它看作数据库、Markdown文件集合，还是其他东西？</p>
+<p><strong>Al-Dahle：</strong> 某种意义上是数据库，但怎样组织还没有定论。Markdown文件很好，因为前沿模型经过训练，擅长在文件系统中导航，单靠这种方式已经可以走得很远。</p>
+<p>但我们仍在试验记忆的最佳结构。是数据库更好，还是让运行框架决定目录结构、使用Markdown更好？我还不确信已经找到正确架构。</p>
+<p><strong>Charrington：</strong> 你主要是在收集上下文，让代理自己决定怎么用，还是会提前提取结构？比如向量嵌入、图谱导航，或者只是提供文件，让越来越强的代理自己找出需要的内容？</p>
+<p><strong>Al-Dahle：</strong> 简单说，我们会尝试所有这些方式，看看哪种更好。我不太相信，单纯向量搜索能够扩展到全公司使用的规模。</p>
+<p>Markdown如果处理不好，也会带来刚才说的问题：难以查找，而且出现上下文污染。某个人使用系统，我们提取一条知识，放进文件；然后模型偏偏特别擅长找到那条已经过时或错误的信息。</p>
+<p>我想最终会是一种混合方式，中间有智能机制，判断怎样搜索，以及怎样逐步披露上下文。</p>
+<p>最大的错误，是太快把太多上下文塞给模型。更好的方式是，先给它足够迈出下一步的信息，随后再让它请求更多。</p>
+<p><strong>Charrington：</strong> 相当于渐进式披露。</p>
+<p><strong>Al-Dahle：</strong> 对。这个问题仍然开放。</p>
+<h4 id="chapter-5">13:14 AirChat与多模型工具环境</h4>
+<p><strong>Charrington：</strong> 编程代理方面，你们固定使用某一家工具，还是允许工程师各自选择？</p>
+<p><strong>Al-Dahle：</strong> 最初曾经主要使用一家，但很快发现，以行业现在的变化速度，锁定一家不太合理。我很明确地认为，应该采用多模型方式。</p>
+<p>内部生产率工具叫AirChat，它把我们的MCP工具与其他运行框架结合起来，让我们可以选择使用哪一种。Codex也开源了，有开源工具是件好事。</p>
+<p>总体上，我们对工程师偏好保持开放，他们可以选择代理式开发工具。产品侧也有我们自己的运行框架，同时使用很多开源组件，再作适合内部系统的修改。</p>
+<h4 id="chapter-6">14:38 评测必须能拉开模型差距</h4>
+<p><strong>Charrington：</strong> 很多公司很难把评测建立起来，形成从交互到能力改善的循环。Airbnb在这方面怎样演进？</p>
+<p><strong>Al-Dahle：</strong> 我们与工程师合作，有一个资深工程师小组，整理人们希望完成的任务与提示。</p>
+<p>难点在于，有些结果看似二元：做出来，或者没做出来。但方案的正确性和质量，还有很多细微差别。</p>
+<p>因此，我们建立了针对Airbnb真实工程任务的代理评测，由不同团队共同设计，再拿开放和封闭模型都跑一遍，观察成本、质量和性能之间的权衡。</p>
+<p>最困难的是避免评测失去区分度。比如，一个模型裁判给所有结果都打92%、93%左右，那就很难判断。我们会校准裁判，让它根据任务和执行过程评估质量，再把成本与准确性画在一起，比较各种模型。</p>
+<p><strong>Charrington：</strong> 也就是说，如果不仔细处理，模型就会对所有结果说：“大概九成不错。”</p>
+<p><strong>Al-Dahle：</strong> 对。把它们拉开差距，有时很费力。这可能意味着两件事：评测不够好，或者模型对许多工作确实都已经足够好，那就主要变成成本、效率和速度之间的取舍。</p>
+<p>但大多数时候，如果前沿与非前沿模型之间完全没有差距，我会先怀疑评测：任务够难吗？裁判是否真正关注实现或完成质量中的信号？</p>
+<h4 id="chapter-7">17:37 成本管理不能只看token排行榜</h4>
+<p><strong>Charrington：</strong> 再深入谈谈成本与能力。比如Uber曾让工程师放开使用代理编程，过一阵子又发现成本很高。你怎样看成本、价值和模型路由？</p>
+<p><strong>Al-Dahle：</strong> 我认为工程师本质上是解决问题的人。你应该让他们理解目标，而不是先限制执行方式。</p>
+<p>我们没有重点做token使用排行榜。token用量对我提供的信息其实有限：一个人完全不用，可能需要帮助；一个人用得特别多，就应该了解他在做什么。</p>
+<p>我们发现过两种情况：有些人需要学习怎样让工作流更高效；另一些人其实在做很有价值的大规模迁移，应该继续鼓励。</p>
+<p>所以，我们没有给所有人设置严苛的统一上限，也没有把最大化token用量当成目标，而是具体理解采用方式。</p>
+<p>完全不用的人，需要支持；用得特别多的人，需要了解。还要观察其他信号：如果一个人固定使用最强前沿模型、开启最高推理强度，进行一万次工具调用，所有子代理也都使用相同的大模型，那不仅昂贵，还可能很慢。你应该问，他真的需要这么做吗？</p>
+<p>我们会识别这些异常情况，帮助他们调整到更合理的工作方式。</p>
+<h4 id="chapter-8">20:12 怎样判断工程价值</h4>
+<p><strong>Al-Dahle：</strong> 真正的影响是什么，整个行业都在探索，我们也没有完全解决。用了这么多token，究竟有没有产生增量？有没有带来更多成果、更快交付？</p>
+<p>我们尽量不把注意力固定在使用量，而是看下游结果。</p>
+<p>比如，工程师提交的代码变更多了，这是产出增加的一个好信号，但并不代表增加的都是有价值的内容。</p>
+<p>然后要看实际路线图：是否能把计划提前、压缩交付时间？这是我们会跟踪的东西。</p>
+<p><strong>Charrington：</strong> 但你提到的每一个指标，都有很多混杂因素。</p>
+<p><strong>Al-Dahle：</strong> 完全正确。</p>
+<p><strong>Charrington：</strong> 例如任务粒度、路线图原本安排多远。</p>
+<p><strong>Al-Dahle：</strong> 是的。不过，重要的是我们是否能在更短时间里做更多事情。我认为这确实发生了。但你说得对，没有一个完美指标，能够证明AI使用究竟带来了多少业务影响。</p>
+<p>可以观察趋势，也要意识到工作方式本身在改变。不只是用了更多token。过去，机器学习工程师与产品工程师合作，再交给设计、产品经理、法务、政策团队，每个人产生一种材料，再逐层传递。</p>
+<p>现在可以直接跳到原型。设计师、产品经理，甚至政策和法务人员都能参与写代码，更直接理解实际实现，而不是先围绕一个想象中的终点谈判，再慢慢走完流程。</p>
+<p><strong>Charrington：</strong> 每次听你说把路线图提前，我都会想：既然能力提高了，路线图不是也应该扩大，做更大胆的东西吗？</p>
+<p><strong>Al-Dahle：</strong> 那适用于工作量没有明显超过人力的公司。我们的路线图已经很深，我能做的就是把它提前，尽量完成。</p>
+<p>Airbnb想重新塑造自己。从以住宿为核心的市场，走向现实世界中更多可以做的事情，同时重建支持这些业务的技术体系，让公司更原生地使用AI。还有一些希望很快推出的东西，会改变公司能够成为什么样。</p>
+<p>我很难想象还能怎样更有雄心。对我们而言，主要问题是：已经有这么多事情，能不能做得更快？但确实，有些公司应该反问自己，在AI时代，目标是否足够大胆。</p>
+<h4 id="chapter-9">24:12 用户看不见的市场代理</h4>
+<p><strong>Charrington：</strong> 除了工程效率，你还提到了市场平台和房客体验。哪些具体成果已经实现？</p>
+<p><strong>Al-Dahle：</strong> 大多数人看到的Airbnb，像冰山露出水面的部分：预订引擎与房客使用的界面。水面之下，是一个极其复杂的双边市场。最核心的东西是信任，还包括支付、质量、客服、保险，以及各种供需运营。</p>
+<p>我们还要支持数百万房东，他们是整个生态的重要部分。因此，用户可见界面之下，有一套很复杂的体系。</p>
+<p>很多AI部署，可以在后台帮助维护可信赖市场的核心。例如识别支付纠纷和欺诈，支持更好的房客与房东互动，发现质量问题、不好的旅途体验。这些工作可以在离线状态大规模进行，不需要把一个AI界面放到用户面前。</p>
+<p>客服则是巨大的运营挑战：招人、培训、让服务保持一致。外界很容易说，这是适合AI替代的事情，但我们首先把它看成提高服务质量的机会。</p>
+<p>如果我只是想问能不能调整预订，我不想排队45分钟，只想得到答案。这类问题，AI有很大的作用。</p>
+<h4 id="chapter-10">26:36 双边市场里的调解为何困难</h4>
+<p><strong>Al-Dahle：</strong> 但双边市场的客服，也可能是最难的前沿问题之一。我们并不拥有产品。用户不满意时，通常需要的是调解，而不只是与一家公司的客服交流。</p>
+<p>实际上，是一个人通过公司，与另一个人处理问题。中间有调解者，两边可能都很不高兴，而你想达成一个双方满意的结果。这非常复杂。</p>
+<p><strong>Charrington：</strong> 除了缺少对实物的控制，还有什么困难？是体验和界面问题，还是博弈论问题？</p>
+<p><strong>Al-Dahle：</strong> 都有。它具有很强的对抗性，双方都在争取自己想要的结果。而证据也很难处理。</p>
+<p>你可以要求双方提供材料，但无法充分核实准确性。我可以拍一张桌子的照片，再用AI修改，说我到房源后发现桌子少了一条腿。可它究竟真的少了腿吗？我没办法到现场检查。</p>
+<p><strong>Charrington：</strong> 会不会是你自己把桌腿锯掉了？</p>
+<p><strong>Al-Dahle：</strong> 对。除此之外，还有平台政策。如果用户预订的住宿或体验明确不可退款，却在寻找退款理由，我们也必须遵守所有参与者共同接受的规则。</p>
+<p>平台不能随意偏向某一方，必须谨慎、一致地运用政策，同时面对两方相互冲突的诉求。</p>
+<p>今天的模型还不太擅长这种多方调解。大家正在把代理放进群聊，效果本身就还勉强。再想象你我之间有一笔财务纠纷，把一个AI代理放在聊天中间，它真的能解决吗？</p>
+<p><strong>Charrington：</strong> 而且，它涉及模型无法直接观察的实体互动。</p>
+<p><strong>Al-Dahle：</strong> 没错。</p>
+<h4 id="chapter-11">30:33 已部署的客服代理与50%的口径</h4>
+<p><strong>Charrington：</strong> 你不是说完全不用代理，而是说这里很难。实际怎样推进？</p>
+<p><strong>Al-Dahle：</strong> 对于刚才那些最难的场景，我们仍在研发，也依赖大量人工判断。训练过的人可以提供人与人之间的互动和理解，帮助我们维持尽可能高的服务质量。</p>
+<p>我们还不认为AI已经适合最难的情况，但有很大一部分场景，它已经非常有用。</p>
+<p>客服代理已经进入生产环境，我们现在大约有50%的聊天由AI解决。</p>
+<p><strong>Charrington：</strong> 指客服聊天，对吧？</p>
+<p><strong>Al-Dahle：</strong> 对，工单。</p>
+<p><strong>Charrington：</strong> 房客或房东是在直接与代理互动，还是看起来像在与人交流，但背后由AI辅助？</p>
+<p><strong>Al-Dahle：</strong> 我们非常重视透明度。不会把AI放到用户面前，却说它是人；会明确告诉用户，它是AI。</p>
+<p>这里的50%，指纯粹由AI与用户直接互动并解决的工单，不是人类客服在AI辅助下完成。</p>
+<p>我们会逐步提高覆盖能力。纯信息查询比较容易，但已经覆盖的内容并不只有信息查询。我们也会给用户操作卡片，让他们直接完成动作。</p>
+<p>如果我只是想查询信息，就告诉我答案，让我继续做自己的事，不要让我排队等待人工。操作卡片又能覆盖更多场景。但仍有一部分特别困难，需要继续创新。</p>
+<h4 id="chapter-12">33:05 不强迫用户使用AI</h4>
+<p><strong>Charrington：</strong> 我既是房客，也做过房东。个人感觉，这两三年的客服流程变化并不明显：进入支持页面，选择哪个行程、房客问题还是房东问题，再一步步走。我倒是看到过聊天里的操作卡片，比如提示我正在尝试修改预订，然后给一个按钮。</p>
+<p>这也许反而是件好事，因为很多公司强迫我用AI客服时，体验都不太好。</p>
+<p><strong>Al-Dahle：</strong> 我会把你没有明显感觉被塞进AI流程，看作一个成功指标。目标不是强行把AI推到用户面前，而是适应他们原有的需要。</p>
+<p>我们确实有可以直接发起的聊天客服代理。你刚才描述的，更像帮助中心。使用帮助中心的人，本来就在寻找某种特定体验；这些流程仍然保留，也还有很多可以改善的地方。</p>
+<p>大量工单实际通过聊天进入。如果你进入客服聊天后说“给我人工”，AI会升级并转给人工。我们不会把用户困在系统里，让他反复按零，或者一定得提高嗓门才能找到人。</p>
+<p><strong>Charrington：</strong> 我最近还和人讨论过，以前对客服电话说“agent”，意思是找人工，现在连这个词都不清楚了。</p>
+<p><strong>Al-Dahle：</strong> 对，系统可能回答：“你想要代理？我再介绍一个新代理给你。”</p>
+<p><strong>Charrington：</strong> 所以得说“人类、人类”。</p>
+<p><strong>Al-Dahle：</strong> 是的。从来电情况看，相当一部分人完全不想和AI交流，达到数成的比例。即使只是信息查询，也只想找一个人。</p>
+<p>随着系统更自然、更有能力，偏好可能变化，但目前这不是单纯的技术能力问题，还有心理因素。这些用户也会是最难通过AI解决的一部分。</p>
+<h4 id="chapter-13">36:05 自然语言搜索不等于聊天优先</h4>
+<p><strong>Charrington：</strong> 我最期待的另一个方向是搜索。平台知道很多偏好，也有许多没有通过设施标签和筛选器展示的信息。我常常仍需自己重复做一遍筛选。</p>
+<p><strong>Al-Dahle：</strong> 很多信息藏在图片、评论和其他上下文里。人们敢于预订某个房源，正是因为这些额外信号带来了信心。它们既能帮助人，也能帮助AI作匹配。</p>
+<p>但搜索是平台体验中非常重要的一环，我们很谨慎，已经试验了很多做法。除了你个人的偏好，整体用户行为其实并不一致。</p>
+<p>许多人不想面对一个闪烁的聊天框。他们知道去哪、几个人，只想看选项，不想写一篇四五十句话的请求。</p>
+<p><strong>Charrington：</strong> 我也不想。</p>
+<p><strong>Al-Dahle：</strong> 我们正在试验的一种方式，是一个自然语言输入框。你可以说明去哪、和谁去、为什么去，或者寻找什么，系统返回结果。</p>
+<p>但它仍然是多模态体验，仍有许多选项，用户保持控制。不是AI只挑一个房源，再告诉你“就这个了”；我们希望你仍能从不同角度比较。</p>
+<p>从使用行为看，预订通常不是一条直线。有些人需要几周：先得到灵感，上来搜索、浏览，收藏一些房源，过三天才回来，可能中间要和伴侣讨论。</p>
+<p>旅行往往是多人参与的决定，还要安排时间、交通和其他事情。回来后，他们可能删除一些收藏，再添加新的，最后才决定为一次旅行花上1万美元。</p>
+<p>AI不应该拿走用户的探索过程和自主权，而应该增强它。代理式搜索要适应用户真正作决定的旅程。</p>
+<h4 id="chapter-14">39:41 外部代理、MCP与旅行信任</h4>
+<p><strong>Charrington：</strong> 不同旅行也不一样。有时我只想填一个城市，找到第一个符合条件的地方；有时是与伴侣来回讨论收藏清单。</p>
+<p>还有些时候，我甚至不想直接使用Airbnb界面，而希望它成为一个MCP服务，让我的代理替我筛选。过去，是否开放房源API，主要是商业问题：要不要失去对客户关系的控制，要不要允许抓取。但代理已经能用电脑操作，即使不开放也能做，只是更慢、更麻烦。为什么不直接开放MCP？</p>
+<p><strong>Al-Dahle：</strong> 我会回到消费公司的根本：什么是体验我们平台的最佳方式？这些问题应该逐案判断，看看什么合理、什么不合理。这是我们作决定的视角。</p>
+<p>旅行相对于许多其他事情有特殊性。最关键的不只是方便，还有信任。一笔预订，也不只是点一下“预订”。</p>
+<p>首先是获得灵感。AI拥有知识，也能搜索与汇总互联网信息，当然有用。但人们还从Instagram视频、朋友、活动等许多地方获得灵感。</p>
+<p><strong>Charrington：</strong> 也包括代理。</p>
+<p><strong>Al-Dahle：</strong> 当然，AI已经是很重要的来源。我记得美国大约有四成人使用AI获得这类灵感。但随后还有预订、出行，以及中间发生的一切。</p>
+<p>这是价值较高、需要判断的消费，用户需要信任预订的内容，也需要信任交易对象。我们有保险、支付体系、客服，会处理出问题的情况。这与通过一个不明来源的MCP服务预订1万美元旅行，是不一样的体验。</p>
+<p><strong>Charrington：</strong> 我也不一定希望代理自己把房间订掉，而是像自然语言输入框一样帮我筛选。但代理能记住我的偏好，因此可能更快。</p>
+<p><strong>Al-Dahle：</strong> 对，这就是我说的逐案判断。我们对用户看到产品时应该获得的体验，有明确标准。</p>
+<p>房源对用户很个人化，所以偏好非常重要。但找到真正合适的房源，也是深度多模态的过程。我不希望产品退化成一串文字供用户选择。当我们认为能提供正确体验时，就愿意与相关方合作。</p>
+<h4 id="chapter-15">44:09 自建框架与采用开源</h4>
+<p><strong>Charrington：</strong> 面向市场、房客和房东部署代理时，你们使用什么平台？主要用开源、商业产品，还是自己从头开发？</p>
+<p><strong>Al-Dahle：</strong> 是混合方式。我们同时使用开放和封闭模型，也使用开源框架；在必须自己做、能够创新且有价值的地方，就自己建设。</p>
+<p>例如客服，我们开始建设某些代理框架时，行业里还没有多少合适的开源方案。因为没有现成工具，只能自己开发。</p>
+<p>但我们会持续评估：如果开源社区已经做出了比内部方案更先进的东西，我们完全愿意迁移过去，再向开源项目贡献。我一直支持在条件允许时开放建设。</p>
+<h4 id="chapter-16">45:55 小模型的专用后训练</h4>
+<p><strong>Al-Dahle：</strong> 模型侧还有一个非常重要的取舍：交互速度。我们是一家重视体验的公司，延迟要求非常严格。</p>
+<p>以我们的规模，某些非常专门的任务使用大模型并不合理。因此，我们建设了自己的后训练基础设施和强化学习环境，把更小、更快、更高效的模型，训练到在特定任务上优于通用前沿模型。</p>
+<p>比如客服中遵循一项具体政策的任务，我们不需要同时担心数学或其他无关领域的能力是否退步，可以集中把它训练好。</p>
+<p>这也是我为什么说，现有模型对很多消费者体验已经足够。行业常常关注能力参差不齐的最前沿，例如能否解决极难数学问题；但在旅行网站上可靠地操作，并不一定需要十万亿参数模型。</p>
+<p>搜索就是一个例子：请求吞吐量非常高，所以我们会选择尽可能小的模型，进行后训练、专门化和蒸馏，让它特别擅长所需的工作。</p>
+<p>现在也能看到其他人训练非常专门的模型。Jev针对决策的模型就是一个例子：模型相对简单，却聚焦于对许多场景都很有价值的能力。这也是我们投资开放模型后训练的原因。</p>
+<p><strong>Charrington：</strong> 有特别偏好的小模型吗？</p>
+<p><strong>Al-Dahle：</strong> 好的模型很多，比如英伟达的Nemotron。我们保持开放，都会评估。</p>
+<p><strong>Charrington：</strong> 大型开放权重模型也是这样？持续比较，再选择当时最合适的？</p>
+<p><strong>Al-Dahle：</strong> 对。</p>
+<h4 id="chapter-17">48:25 仍未解决的知识与交互问题</h4>
+<p><strong>Charrington：</strong> 接下来Airbnb有哪些大挑战，AI又会怎样帮助？</p>
+<p><strong>Al-Dahle：</strong> 在前面说的三个方向里，我们在把公司重塑为AI原生组织这件事上做得不错。从Brian开始，大家都在用AI。</p>
+<p>Brian最近在一次会议上分享，他建立了一个辅助管理公司的“第二大脑”。它有本地上下文图谱，包含送到他面前的文件，以及他写过的愿景、理念、邮件和其他沟通内容。他会用这些信息帮助自己思考每天的事情。</p>
+<p>当创始人和CEO都这样做时，可以想象公司里的热情。但AI大量使用后，也产生很多复杂性。</p>
+<p>Everest会一直有用，还是最终变成问题？扩大规模时，我们会不会把它污染？现在的架构到底对不对，是否需要重写？这些都还不知道。</p>
+<p>不过，这更像是持续改进的工作。最初从零到一很难，而现在是在已有基础上不断向前。</p>
+<p>市场平台方面，我也有信心，但如何用AI改善用户体验、同时保持Airbnb自身特点，仍有很多可以探索的空间。这是交互方式的前沿。</p>
+<p>旅行非常复杂。任何人都可以尝试用自然语言快速写一个旅行应用，初看很漂亮；但用几天后就发现不够用：需要行程表，需要分享给别人，又不断加入其他东西，最后容易变得臃肿混乱。因此，交互模型与设计本身很难。</p>
+<p>客服和多方互动也是如此。怎样让代理建设性地解决问题？怎样从今天的覆盖程度继续推进到100%？这是仍需认真解决的问题。</p>
+<p><strong>Charrington：</strong> 这是一个很扎实、也很难的挑战。谢谢你来分享。</p>
+<p><strong>Al-Dahle：</strong> 谢谢邀请，Sam，很高兴与你交流。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

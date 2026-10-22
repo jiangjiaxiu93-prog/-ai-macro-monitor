@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Vanguard的AI账本迁移：七天研究如何缩短到十五分钟（Gareth Yoder）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Vanguard的AI账本迁移：七天研究如何缩短到十五分钟（Gareth Yoder）</h2>
+<div class="metaline">AI Engineer，Vanguard现金业务技术负责人Gareth Yoder演讲 · 2026-10-21 · <a href="https://www.youtube.com/watch?v=uA4ah-dVHvU" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业采用；编程代理；研发效率；组织变革；Vanguard；MCP</p>
+<h2>Vanguard的AI账本迁移：七天研究如何缩短到十五分钟（Gareth Yoder）</h2>
+<p><strong>Source</strong>: AI Engineer，Vanguard现金业务技术负责人Gareth Yoder演讲 <strong>Tag</strong>: 应用层探讨 <strong>Pin</strong>: 91 <strong>Published</strong>: 2026-10-21 <strong>URL</strong>: https://www.youtube.com/watch?v=uA4ah-dVHvU <strong>Keywords</strong>: 企业采用；编程代理；研发效率；组织变革；Vanguard；MCP <strong>Format</strong>: 精翻</p>
+<h3>要点</h3>
+<ul><li>Vanguard把旧代码通过MCP开放给AI工具后，一类原本等待大型机工程师约七天完成的研究反馈，缩短到约十五分钟；这一口径指研究与答复流程，并非整个账本迁移耗时。</li><li>迁移同时覆盖数据、35个生产方和50个消费方。数据一致性、幂等处理、最小数据访问及故障可观测性，仍需由团队设计和核验。</li><li>演讲者称现金业务约90%的工程师每天使用AI工具，并通过共享知识库支持协作；迁移文档也经MCP提供给其他团队，减少反复问答。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 现金账本现代化的起点</a></li><li><a href="#chapter-2">01:52 三条迁移线同时推进</a></li><li><a href="#chapter-3">03:20 数据迁移与逐项核验</a></li><li><a href="#chapter-4">04:12 生产方迁移：重新设计，避免原样搬迁</a></li><li><a href="#chapter-5">06:38 消费方的实时、批量与流式访问</a></li><li><a href="#chapter-6">08:58 用业务用途组织50个消费方</a></li><li><a href="#chapter-7">11:11 AI采用、团队知识与双系统维护</a></li><li><a href="#chapter-8">13:12 给管理者的五条经验</a></li></ul></details>
+<h4 id="chapter-1">00:00 现金账本现代化的起点</h4>
+<p>我叫Gareth Yoder，是Vanguard现金业务的技术负责人，帮助管理这个项目中的四至六个团队。今天的主题是“不遗漏任何一笔现金”：Vanguard的现代化之旅。</p>
+<p>这段旅程开始于我们向Vanguard经纪账户客户推出Cash Plus产品之后。产品在2022年上线，随后我们开始听到，现代化改造将成为下一项重要工作。</p>
+<p>在座有多少人需要维护旧代码库？看来很多。又有多少人希望，那些代码能自己完成现代化？我想，很多人的愿望都是一样的。</p>
+<p>今天我会沿着时间线介绍整个过程。但首先要说明，现金账本究竟是什么。</p>
+<p>它覆盖外部资金进入Vanguard经纪账户的各种交易，也覆盖账户之间的资金移动。支付渠道包括ACH、银行电汇等。我们支持网页、移动端以及批处理渠道。</p>
+<p>系统运行在多区域、双活、具备容错能力的环境中，每天接收的服务调用最高可达3000万次，客户每天还会产生大约50万条账本记录。</p>
+<h4 id="chapter-2">01:52 三条迁移线同时推进</h4>
+<p>我们把现代化改造分成三部分：数据迁移、数据生产方迁移，以及数据消费方迁移。但因为它是企业层面的优先任务，三条线必须并行推进。</p>
+<p>在时间线最初的研究分析阶段，今天这些AI工具还不存在。我们经常需要与大型机工程师和架构师一起研究，新的数据模型应该是什么样。</p>
+<p>后来出现了一个转折点：旧代码库可以通过MCP服务器供AI工具访问。反馈循环因此变快了。</p>
+<p>过去，大型机工程师进入代码、完成分析，再回来回答我们的问题，可能需要七天。现在，通过向AI工具提问就能完成这类工作。我们观察到，反馈循环从七天缩短到十五分钟。</p>
+<p>这对产品负责人、技术负责人和开发人员都是很大的帮助。他们都认为，这个工具对现代化改造的成功发挥了作用。</p>
+<h4 id="chapter-3">03:20 数据迁移与逐项核验</h4>
+<p>数据迁移采用行业里常见的CDC，也就是变更数据捕获。我们需要扫描两个数据库，由团队每天审计。</p>
+<p>首先检查行级记录数量，确保一致；然后检查具体列，保证数据完整性。例如，旧系统与新系统的金额必须一致，账户信息、州税预扣、联邦税预扣也必须一致。旧数据库中的各项属性，都要与云端对应起来。</p>
+<p>这里一个重要建议是，不要把迁移方案设计得过于复杂。现代化完成后，这部分迁移代码本身就会被淘汰。</p>
+<h4 id="chapter-4">04:12 生产方迁移：重新设计，避免原样搬迁</h4>
+<p>在旧系统里，数据生产方通过三种方式使用我们的基础设施。第一种是服务请求，第二种是包装了服务请求的API，第三种，也是最棘手的一种，是直接向表里插入数据。</p>
+<p>有时我们会看到数据库出现新数据，却不知道它是怎样来的，也不知道是谁写入的。</p>
+<p>我们把统一的数据模型放到一个网关上，由网关包装负责向云端写入的API。现代化改造也应该是重新思考数据体系的机会。</p>
+<p>我们借鉴金融科技的一些做法，例如幂等性；也确保多个写入方之间有足够强的一致性，采用了类似Snowflake ID的机制。我们做的是重新设计，而不是把旧系统原样搬走。</p>
+<p>新的生产方接口准备好后，下一步是让35个数据生产方迁移过来。</p>
+<p>最初，我们需要人工编写文档，帮助他们完成转换。AI工具出现后，我们把这些文档放进公司知识库，并通过MCP服务器开放。</p>
+<p>过去，许多团队会同时找我们聊天、提问，我们得努力管理所有对话。现在，生产方可以直接通过提示词获得答案，沟通和来回确认就在他们自己那一侧完成。MCP开放后，我们团队处理的聊天与支持请求明显减少。</p>
+<p>AI工具在把旧系统的状态映射到云端时，也做得很好。我们在新系统里使用人类可读的账本枚举值，替代旧系统里只有编码的状态。AI能够帮助理解这些状态背后的意图，把两边连接起来。</p>
+<h4 id="chapter-5">06:38 消费方的实时、批量与流式访问</h4>
+<p>消费方也有三类使用方式：实时、批处理和流式处理。共同点是，无论通过哪种渠道读取，都有一个统一的数据模式注册机制。</p>
+<p>例如，可用资金查询是我们访问量最大的实时API之一，用来决定客户账户上显示的余额。消费方通过GraphQL调用，只订阅自己业务所需的属性。</p>
+<p>批处理场景包括对账和数据分析。数据仓库会为不同消费方提供数据共享视图。他们说明自己的业务场景，我们就提供适合其数据需求的视图。</p>
+<p>数据治理团队非常支持这种方式：某个消费方需要哪些属性，就只应该看到这些属性。</p>
+<p>最后是流式处理。我们通过Kafka事件主题，把数据库的新增和更新持续发送出去。反欺诈团队利用它，把实时数据接入反欺诈工具。</p>
+<p>这里提供“至少一次”交付。因此，我们也把生产方侧的幂等性要求延续到事件流，确保消费方的操作能够安全重复。</p>
+<p>比如，一个批处理任务执行到一半失败了，团队可以重试，而不必担心创建重复账本。同时，“至少一次”交付，又能确保他们获得所有已经创建的账本事件。</p>
+<h4 id="chapter-6">08:58 用业务用途组织50个消费方</h4>
+<p>全公司有50个不同的消费方需要这些数据。在Vanguard，一个应用接入时，需要注册一个三字符的应用代码，用来说明它是什么、执行什么功能。</p>
+<p>我们又往前走了一步，要求消费方提供描述，以及需要这些数据的业务理由。</p>
+<p>例如，一笔交易订单需要现金账本，以满足交易的现金结算义务；退休账户需要完成规定的最低提取；529教育储蓄账户需要支付学费。这些都是具体的业务用途。</p>
+<p>把这些描述汇总起来，AI就可以准确说明，我们的数据体系里有哪些业务场景已经完成现代化，以及最主要支持哪些业务功能。</p>
+<p>还可以进一步提问：如果服务水平承诺没有达到，会产生什么影响？</p>
+<p>这一点在重大故障时很重要。如果某个应用的可用性开始低于99.999%，我们需要知道它对应什么业务。一个批处理应用，也许留给我们数小时处理；如果是客户正在使用、并且不断报错的实时API，我们只有几分钟，必须尽快恢复。</p>
+<p>我们还在持续研究，怎样把业务用途说明与可观测性、日志和调用追踪结合起来，进一步缩短响应时间。</p>
+<h4 id="chapter-7">11:11 AI采用、团队知识与双系统维护</h4>
+<p>我们学到的一点是，即使项目开始时AI工具尚未出现，也可以在过程中适应并采用新技术。它们大幅帮助了研究、开发和测试。</p>
+<p>如今，现金业务约90%的工程师每天使用这些AI工具。团队采用多代理工作流，并维护共享知识库。我们还在不断演进这些工具的运行框架，让它们适合现代化改造的需要。</p>
+<p>我们有一个“团队大脑”的概念：工程师开发产品功能时形成的知识，会进入公共存储，所有团队成员都能访问。新加入的工程师也可以利用它，在提示词中获得类似于一位已经工作五年的同事所拥有的上下文。</p>
+<p>现代化过程中，同时维护两套代码很难。一个建议是持续向前修复，避免不停回头修补旧系统。</p>
+<p>遇到可能存在几十年的缺陷时，修正新系统，让新系统的改进成为生产方和消费方迁移到云端的动力。但这样做会让新旧数据的审计比较出现差异，因此需要建立明确的例外清单，这一点很关键。</p>
+<p>最后，要确保具备正确的指标、告警和可追溯能力。随着产品持续发展，你会经常依靠它们。</p>
+<h4 id="chapter-8">13:12 给管理者的五条经验</h4>
+<p>因为这是管理主题的演讲，我想强调五点。</p>
+<p>第一，让旧代码能够被AI查询。通过MCP服务器开放代码，缩短了研究周期，也让反馈更快。七天变成十五分钟，是一次很大的改善。</p>
+<p>第二，把迁移文档当成产品的一部分。它和业务功能一样重要，因为所有生产方都要依靠它接入。最终这些文档可能会被淘汰，但在过渡阶段，它们非常关键。</p>
+<p>第三，重新设计，而不是原样搬迁。接入最困难的生产方和消费方，往往是那些坚持把旧状态直接搬到新系统的团队。相反，愿意退一步思考如何利用新账本能力改善产品的团队，迁移更顺利。</p>
+<p>第四，逐步采用AI。新的工具出现，就继续增强产品。在今天这样的技术环境里，不会存在一个完美的开始时点。重要的是先开始，再随着技术变化持续改进和适应。</p>
+<p>第五，可观测性不能妥协。你需要知道是谁生产数据，又是谁在消费数据。当现代化完成、产品转为日常运营时，这件事只会更加重要，因为团队接下来每天都要支持它。</p>
+<p>谢谢大家。如果还有时间，我可以回答问题；否则我会在会场外，也欢迎之后交流。再次感谢这个机会。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
