@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Eugenia Kuyda：Wabi为何把个人代理、群聊与小应用放在一起（Equity）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-23<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Eugenia Kuyda：Wabi为何把个人代理、群聊与小应用放在一起（Equity）</h2>
+<div class="metaline">TechCrunch Equity，Rebecca Bellan访谈Wabi创始人Eugenia Kuyda · 2026-10-22 · <a href="https://www.youtube.com/watch?v=PjQQk2212eM" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：个人代理；消费级AI；分发渠道；定价与变现；推理成本；Wabi；Replika</p>
+<h2>Eugenia Kuyda：Wabi为何把个人代理、群聊与小应用放在一起（Equity）</h2>
+<p><strong>Source</strong>: TechCrunch Equity，Rebecca Bellan访谈Wabi创始人Eugenia Kuyda <strong>Tag</strong>: 应用层探讨 <strong>Pin</strong>: 90 <strong>Published</strong>: 2026-10-22 <strong>URL</strong>: https://www.youtube.com/watch?v=PjQQk2212eM <strong>Keywords</strong>: 个人代理；消费级AI；分发渠道；定价与变现；推理成本；Wabi；Replika <strong>Format</strong>: 精翻</p>
+<h3>要点</h3>
+<ul><li>Wabi从“用户生成小应用”转向主动代理：按生活主题拆分对话，允许邀请家人朋友，并在聊天中生成工具。创始人将多人协调和长期目标视为与单线聊天助手的差异。</li><li>产品目前免费，尚未确定收费方式。Kuyda认为，人与人聊天及生成后的小应用使用未必持续消耗大量推理，因此使用频次不能直接等同高额算力成本。</li><li>访谈保留了主持人对交易抽成激励、邮箱接入和隐私的追问。文中的产品表现与数据处理方式是创始人陈述，未披露Wabi用户量、留存或单位成本。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">从个人代理到多人协作</a></li><li><a href="#chapter-2">为什么从应用生成转向主动助手</a></li><li><a href="#chapter-3">多条对话、上下文与共享权限</a></li><li><a href="#chapter-4">手机与AI界面</a></li><li><a href="#chapter-5">融资、免费模式与推理成本</a></li><li><a href="#chapter-6">邮箱接入与用户信任</a></li></ul></details>
+<h4 id="chapter-1">从个人代理到多人协作</h4>
+<p><strong>Rebecca Bellan：</strong> 欢迎回到Equity，TechCrunch讨论创业生意的旗舰播客。我是Rebecca Bellan。这一期我们请来业内人士，深入探讨一个科技趋势。</p>
+<p>经常收听的朋友应该注意到了，几乎每家大型AI公司都在推出个人代理。Meta有Muse，OpenAI有Dots，一家叫Instinct的创业公司刚以100亿美元估值融资10亿美元，而且每天都有新产品出现。</p>
+<p>今天的嘉宾Eugenia Kuyda认为，这些个人代理还缺少一些重要部分，比如多条对话、共享聊天和应用构建工具。她创办了早期AI陪伴应用Replika，现在经营Wabi。Wabi本周早些时候推出了一种个人代理，可以随时构建你需要的界面。Eugenia，欢迎。</p>
+<p><strong>Eugenia Kuyda：</strong> 非常感谢邀请。</p>
+<p><strong>Rebecca Bellan：</strong> 你们去年已经推出过Wabi，现在正式发布了下一阶段，我私下把它叫作Wabi 2.0。这次进入的是个人AI代理和助手领域。能介绍一下本周推出的东西吗？</p>
+<p><strong>Eugenia Kuyda：</strong> 我们推出的是一款应用，你可以与代理对话，让它帮你处理很多事情：订机票、安排孩子参观小学，以及家庭或个人生活中的各种协调事务。</p>
+<p>与近期一些代理不同的是，你很容易把生活中的其他人也带进来。Wabi看起来基本就是一款聊天应用。你给它发消息，连接Gmail账户后，它会主动开始帮你做事，并按不同主题组织成多条对话。每条对话里，你都可以邀请相关的人。</p>
+<p>举个例子，我有孩子，所以有一个孩子主题的群聊，里面有我、丈夫、保姆和母亲。Wabi帮助我们安排与孩子有关的一切，还制作小应用，把信息集中到一个地方。比如，有一个应用推荐南湾地区适合三岁和五岁孩子参加的活动，另一个每天提取幼儿园菜单，让我们知道他们吃什么，还有其他几个工具。</p>
+<p><strong>Rebecca Bellan：</strong> 我想进一步聊这些用法。大家做个人代理的方式各有不同，但还没见到谁像Wabi这样，把多人使用和应用功能结合起来。</p>
+<p>不过在这之前，录制时我们刚结束Disrupt大会，今年也很成功。你以前多次上过我们的舞台，去年来谈过Replika和AI陪伴。十二年前你就展示过AI礼宾服务，希望帮助人们做一些今天代理正在做的事情。从那时到现在的Wabi，是怎样走过来的？</p>
+<p><strong>Eugenia Kuyda：</strong> 没错，恰好是十二年前，2014年10月19日，巧得很，正好是同一天。我当时站在TechCrunch Disrupt Battlefield舞台上，展示一个后来转型为Replika的产品。当时的愿景与现在Wabi所做的事情很接近。</p>
+<p>那也是一款聊天应用，你可以给代理发消息，让它帮你处理生活中的各种事情。最早的演示是餐厅预订与推荐，但我们也展示了更完整的愿景。我前不久在Twitter上分享过那段视频，基本上就是现在的Wabi：聊天应用里既有代理，也有朋友。你可以和任何人交谈，随时叫上代理，帮忙找演出、订餐厅或安排旅行。</p>
+<p>当时没有语言模型，这一点很有意思。把深度学习用于这样生成对话的第一篇论文是在2015年出现的。我们只能自己构建基于规则的对话引擎、分类器，也用了一些机器学习，但没有端到端语言模型。</p>
+<p>出乎意料的是，它运作得还不错。当然不如今天，但看到我们最终实现了十二年前在Disrupt上展示的愿景，确实很有意思。</p>
+<h4 id="chapter-2">为什么从应用生成转向主动助手</h4>
+<p><strong>Rebecca Bellan：</strong> 像是一段首尾相接的故事，技术终于追上了愿景。去年Wabi推出时，我记得TechCrunch独家报道过你们的2000万美元种子前融资，天使投资人包括Garry Tan、Sarah Guo和Replit首席执行官Amjad Masad，他几天前也刚上过Disrupt舞台。</p>
+<p>那时的产品有些不同，更像“应用版YouTube”或社交平台。任何人都能用提示词生成小应用，再分享或改编。是什么让你们转型，或者演变成更像个人助手的产品？</p>
+<p><strong>Eugenia Kuyda：</strong> 创办这家公司时，我们想为AI构建更好、更丰富的界面，把个人软件带给人们，让它帮助处理日常生活的各个方面。</p>
+<p>第一个版本让用户可以制作各种应用。我们发现，虽然人们喜欢个人软件，却不一定总想亲自构建，也很难让他们发现别人制作的软件。</p>
+<p>因此，Wabi的演变就是一个仍然为你制作个人软件、同时还能做更多事情的代理。最重要的是，你不需要考虑该构建什么应用。代理深入了解你，知道你想完成什么，就会制作你需要的工具。你仍然可以修改、继续提要求或另做一个，但不必先做这些。这种主动性，是新版本的主要变化。</p>
+<p><strong>Rebecca Bellan：</strong> 发布那天，你们还与几家公司撞期。Tolan为它帮助用户处理生活的AI伙伴融资了3000万美元，另一款助手Town上线才四个月，也达到独角兽估值。你们的应用功能带来了不同。</p>
+<p>你给我演示过你和伴侣的聊天，聊天顶部有各种与你们生活有关的小应用，可能对应你们想讨论的事或者长期目标。能讲讲这个设计吗？</p>
+<p><strong>Eugenia Kuyda：</strong> 有意思的是，我们想做的代理不只关注生产率。完成任务当然很重要，我们也做得很好；注册后，Wabi甚至不需要你先输入很多要求，就开始工作。</p>
+<p>但长期以来，特别是做过Replika之后，我们有一个很深的认识：大多数人其实没有那么在意节省时间。省时间很好，但很多人更想知道怎样度过时间、怎样让生活有质量，最好还能和其他人一起做些事情。</p>
+<p><strong>Rebecca Bellan：</strong> 把已有的时间过好。</p>
+<p><strong>Eugenia Kuyda：</strong> 对，把时间过好。看看最受欢迎的应用，TikTok和Instagram都不是为了替人节约时间。所以对我们来说，AI也应该帮助人们把时间用在喜欢的事情和喜欢的人身上。我们相信，代理应该让人们走到一起，而不是给大家更多独自与AI相处的理由。</p>
+<p>我反复看到，很多AI产品专注于单人体验。宣传常常是：“现在有了代理，你不需要再和其他人交谈，我的代理会跟你的代理交流。”我们觉得有些不对，为什么AI要让人更疏离？</p>
+<p>这是构建Wabi的重要原因。它不只关乎生产率，也关乎长期目标，比如减重、学习，帮助你获得灵感，发现想看的演出或有趣的旅行，还能帮助你更好地联系其他人。</p>
+<p>比如，我的Wabi会提醒我，已经有一段时间没联系某位朋友了，并建议说些什么。我今天演示过与男朋友的聊天，里面有几个Wabi为我们做的应用：一个收集想看的演出，另一个是共享书架，放我们正在读、想读的书。我们经常一起阅读，Wabi也会推荐其他可能喜欢的书。</p>
+<p><strong>Rebecca Bellan：</strong> 这些应用是你们自己想出来的吗？是你们决定要什么，还是代理决定，或者你们只是觉得有趣？</p>
+<p><strong>Eugenia Kuyda：</strong> 大多数时候，我们只是说想实现什么目标，而不是指定某个应用。或者Wabi查看共享账户后说：“看起来你们要去旅行，我做了一个小组件，把信息放在一起。”也可能发现日历里有很多双方会感兴趣的事情，就制作一个共享日历。</p>
+<h4 id="chapter-3">多条对话、上下文与共享权限</h4>
+<p><strong>Rebecca Bellan：</strong> 可以有群聊，也可以按主题建立个人对话。你给我看过健康对话，其中有记录锻炼、饮食等健康应用。多条对话是个很有意思的设计选择。我试用Muse时，所有事情都在同一条聊天里，无论日常任务还是长期目标。</p>
+<p>其他公司为什么会这样设计？这是有意的选择，还是多条对话在成本或技术上比较困难？</p>
+<p><strong>Eugenia Kuyda：</strong> 我认为是设计选择。Instinct显然想把所有事情都放在iMessage里。在那里，一个联系人无法主动创建不同的对话，所以单线聊天有它的道理。</p>
+<p><strong>Rebecca Bellan：</strong> 缺点是什么？</p>
+<p><strong>Eugenia Kuyda：</strong> 缺点其实很明显。单线聊天的体验会随着时间推移变差。刚开始很简单，不需要多想，直接使用即可。但当我用了一段时间后，体验开始变差。所有东西挤在一起，可能已经启动十五项不同任务。想知道进行到哪里，就得不停滚动、阅读，在一条聊天历史里把信息捞出来。</p>
+<p>它也限制了主动性。只有一个对话入口，你必须非常谨慎地决定向里面发什么。Wabi可能有很多事情值得提醒：一场好演出、新开的餐馆、朋友生日及礼物建议。如果全发在同一条对话里，体验不会好。</p>
+<p>我们为生活的重要部分创建不同对话，消息进入各自主题，就会更有条理、更容易管理。</p>
+<p><strong>Rebecca Bellan：</strong> 我还想知道，你是否担心上下文越来越长的问题。我和很多研究人员谈过，通常对话越长，防护规则越可能失效，幻觉机会也更多。我不知道Instinct或Muse现在有没有人报告过，但如果以后发生，我不会意外。</p>
+<p><strong>Eugenia Kuyda：</strong> 这确实也是问题。把事情组织得更清楚，我们在后端也更容易理解：这一部分与孩子有关，那一部分与健康有关。事情不会混在一起，更容易跟踪上下文。</p>
+<p>各条对话也可以共享背景；需要时，我们能从另一条对话中取出相关上下文。但无论从用户还是技术角度看，这样组织都更清晰。</p>
+<p><strong>Rebecca Bellan：</strong> 关于与他人共享的对话，还有一点。你可以授权访问日历、邮箱、银行账户等；这不只是你自己使用，其他人也可能通过聊天访问，但访问范围限于那条对话。为什么这很重要？</p>
+<p><strong>Eugenia Kuyda：</strong> 我们做的一个产品决定，就是让用户在特定聊天里共享权限。比如与伴侣聊天，你可能愿意共享很多东西。对我来说，我在那条聊天里给予代理较全面的访问权限。</p>
+<p>例如，他可以在这条共同聊天里问：“Eugenia下周什么时候有空？”或者“我们说好的那趟旅行，她买票了吗？”</p>
+<p>在另一些聊天里，我只开放部分连接，例如记忆和日历，具体取决于场景。你不是向所有人开放权限，而是向不同的聊天开放。自己也在其中，所以如果有人问你的信息，你会看到具体问了什么、代理怎样回答。这是解决共享上下文、同时维护用户信任的一种方式。</p>
+<h4 id="chapter-4">手机与AI界面</h4>
+<p><strong>Rebecca Bellan：</strong> 这个市场越来越拥挤。我想问问硬件。Meta本月早些时候推出Muse Gadgets，让开发者制造连接Muse的硬件。你认为硬件会成为AI界面的重要部分吗？还是在可预见的未来，手机就够了？</p>
+<p><strong>Eugenia Kuyda：</strong> 手机非常强大，很难替代。不过手机需要变得更加以AI为中心。眼下的操作系统并不匹配这个AI时代。</p>
+<p>看看我的iPhone主屏幕，还是从应用商店下载的三百个应用，其中90%我都忘了是什么、干什么用，也根本不使用。我觉得这个范式有问题。</p>
+<p>手机仍会是主要入口，但需要更原生地围绕AI设计。在我看来，操作系统应该更像Wabi：一个了解你的代理，随时生成你需要的应用；整体体验更社交化，允许多人参与。</p>
+<p>从应用商店下载应用，未来可能不再是获取软件的主要方式。但我并不相信大家都必须购买新的设备来接触代理。手机已经是很好的载体。</p>
+<h4 id="chapter-5">融资、免费模式与推理成本</h4>
+<p><strong>Rebecca Bellan：</strong> 很多人确实已经在手机上用这些东西。据估算，截至9月下旬，Muse安装量达到280万，美国日活接近70万。我们还没有Instinct的数据，也希望你们很快能分享Wabi的数据。</p>
+<p>竞争显然激烈。Instinct最近C轮融资10亿美元，估值100亿美元。Wabi去年融资2000万美元，你说你们正在讨论再次融资。现在也不只限邀请制，所有人都能下载。维持它运行会需要很多算力，成本应该不低。你们距离新融资有多近，又怎样控制成本？</p>
+<p><strong>Eugenia Kuyda：</strong> 我们确实收到了很多主动接洽。现在的重点，是在完全不降低质量的情况下，显著压低成本。我们有一支十五人的团队，其中有非常优秀的工程师在处理这个问题。我认为这是目前消费级AI领域非常出色的团队。希望我们能提供更好的体验，同时成本也比某些其他公司低。</p>
+<p><strong>Rebecca Bellan：</strong> 变现方面，你们还没有确定策略？</p>
+<p><strong>Eugenia Kuyda：</strong> 目前免费，我们也想保持免费一段时间。</p>
+<p><strong>Rebecca Bellan：</strong> 免费通常意味着广告、数据或者其他东西，对吗？</p>
+<p><strong>Eugenia Kuyda：</strong> 现在保持免费，以后可能转成有付费功能的模式，但不一定是广告。比如Instinct说，它们希望免费提供服务，再从每笔交易中收取费用。代理的商业模式还没有定型，我们都在考虑几种选择，会尝试不同方式。</p>
+<p><strong>Rebecca Bellan：</strong> 前几周节目里聊过Tab、Underdog、Hark，我不记得哪家说想从每笔交易抽成。我们的记者Sean提出，这可能改变公司的激励：会不会为了促成更多交易，开始建议用户买更多东西？</p>
+<p>而且如果用户根本不想拿它做交易呢？你刚才描述的事情，一半都与交易无关。</p>
+<p><strong>Eugenia Kuyda：</strong> 我同意。Wabi有意思的地方是，不是每次互动都需要大量推理和算力。跟你提到的大型代理交谈时，你总是在消耗算力、让它替你做事情。</p>
+<p>但在Wabi里，人们也会彼此聊天，因为里面有群聊；他们还会使用小应用。使用一个已经生成的小应用，通常不需要太多算力。比如在健康对话里记录体重、力量训练，并不需要把Wabi派出去完成复杂的代理任务。</p>
+<p>因此，并不是每次互动都是需要大量推理的多步骤任务。</p>
+<p><strong>Rebecca Bellan：</strong> 不必每次都进行复杂推理。</p>
+<p><strong>Eugenia Kuyda：</strong> 没错。我会在Wabi里与很多用户、家人交谈，这些互动中很多对我们来说没有那种推理成本。我非常相信这些用法会越来越多，特别是更多人加入后，你可以联系的熟人网络也更完整。</p>
+<p><strong>Rebecca Bellan：</strong> 这让我想到Amjad Masad上周在台上说的话。其他人也提过，很多软件开发，尤其是临时或个人软件，是用大语言模型去制作确定性软件。模型负责创建应用，但应用本身未必由模型持续驱动，它就是一个普通的、基于规则的应用，所以不必一直消耗很多算力。</p>
+<p><strong>Eugenia Kuyda：</strong> 完全正确。而且我认为应用非常关键。现在手机上的应用、代理或AI——无论ChatGPT还是Claude——以及你与他人协调事务的聊天软件，彼此分离。我认为这些应该在同一个应用里，就像Wabi：群聊里有其他人，代理也在场，它制作的应用也在。</p>
+<p>不是所有事情都能通过文字完成，即使可以，也不一定方便。我们一直说，现在处于AI界面的MS-DOS时代，未来会出现面向所有人的Mac OS或Windows。到那时，所有事情都在单条聊天里发生，会显得非常古老。现在已经有这种感觉了。</p>
+<p><strong>Rebecca Bellan：</strong> 完全同意。很多东西很难在聊天里完成。</p>
+<p><strong>Eugenia Kuyda：</strong> 对，发现功能很受限制，很多反复发生的用例也不好处理。比如我每天记录体重和热量摄入，怎样在Instinct里做？当然可以不停发消息，告诉它今天体重多少、吃了什么。</p>
+<p>但想知道上周体重，或者今天累计摄入多少热量，就得每次都问一遍。难道每记一次，就问一次总数吗？这些还是最简单的用法。技术上或许能找到纯文字方案，但实在不方便，像通过终端使用计算机一样。</p>
+<p>这让许多用法几乎无法被大多数用户接触。早期采用者知道怎样建立复杂AI工作流，普通消费者则仍把ChatGPT当搜索和问答服务，不知道怎样让AI处理生活的其他部分，两者之间的差距很大。</p>
+<p>我们想通过Wabi展示，这种有魔力的代理体验怎样面向每个人。它不仅清理积压的琐事，还覆盖生活各方面，例如帮助你成为更好的伴侣，与朋友、熟人网络建立更好的联系。</p>
+<h4 id="chapter-6">邮箱接入与用户信任</h4>
+<p><strong>Rebecca Bellan：</strong> 上周晚些时候，你给我发了试用链接。第一件事就是连接邮箱，我犹豫了一下。很多人想充分体验个人代理，但仍不愿意交出个人信息，让一家公司读取全部邮件。你怎样让他们感到安全？</p>
+<p><strong>Eugenia Kuyda：</strong> 我们一开始在注册流程中要求连接Gmail，让我们阅读邮件，主要是为了提供好的初次体验。根据了解到的信息，我们可以预先创建一组适合你的对话主题，这个体验非常神奇。</p>
+<p><strong>Rebecca Bellan：</strong> 那我二十年的Gmail邮件，都会存到你们付费租用的某个云端吗？实际发生的是这样吗？</p>
+<p><strong>Eugenia Kuyda：</strong> 不会，我们只是查看内容来生成主题，不把邮件另行储存在某个地方。</p>
+<p>不过我们正在做新版本。下一次更新时，你可以跳过这一步，不授权邮箱也能加入Wabi。代价是，在我看来体验略逊一些，因为你必须告诉我们希望Wabi做什么。</p>
+<p>归根结底，连接的数据越多，Wabi就越能成为好的助手。我们很重视主动性，而要真正主动，就需要一些背景信息。</p>
+<p><strong>Rebecca Bellan：</strong> 所以连接器使用的是各家公司自己的接口？金融账户通过Plaid，邮箱通过Gmail。用户是在信任这些较大公司提供的安全连接，对吗？</p>
+<p><strong>Eugenia Kuyda：</strong> 是的。我们与这些大公司合作，通过它们的接口提供体验。</p>
+<p><strong>Rebecca Bellan：</strong> 但数据存储和收集涉及极其私人的信息，可能包括医疗、孩子的信息。假设你没有在做Wabi，面对另一家公司，什么会让你警惕，不放心进行这些连接？</p>
+<p><strong>Eugenia Kuyda：</strong> 有很多事情值得注意。你可能需要确认它是一家正规的创业公司，而不是某个人随手用AI写出来的产品；也许已经融资，有较大的投资者支持。</p>
+<p>对我们来说，我之前创办过Replika，人们在那里分享了非常私密的信息。他们与Replika谈过的很多事情，即使今天的AI代理也未必能知道。</p>
+<p>我们有过超过4000万用户，谢天谢地，没有发生过这些数据流向别处的实际安全事件。从最开始，我们就向用户承诺，不出售数据，不通过用户数据变现，也不把数据分享给第三方。我们兑现了这些承诺，在安全方面也有良好的记录。</p>
+<p>现在Wabi同样作出这些承诺。用户把这些信息托付给你，信任至关重要。我认为，我们正在构建值得人们信赖的产品。</p>
+<p><strong>Rebecca Bellan：</strong> 今天差不多到这里。感谢你来谈Wabi的定位，以及你对AI代理的看法。听众可以在哪里联系你？</p>
+<p><strong>Eugenia Kuyda：</strong> 可以在X上找到我，账号是E Kuy Da，欢迎私信。我很愿意带大家体验。当然最好直接下载Wabi，在里面找到Eugenia，随时给我发消息。</p>
+<p><strong>Rebecca Bellan：</strong> 再次感谢。听众也可以在X和LinkedIn找到我，在X和Threads上关注EquityPod。下次再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
