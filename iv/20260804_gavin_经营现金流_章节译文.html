@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>2万亿美元经营现金流如何减少7000亿美元借债——Gavin Baker测算相关章节译文</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl on" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../capex_returns.html">← 返回AI资本开支收入回报测算</a>
+<div class="card"><article>
+<h2>2万亿美元经营现金流如何减少7000亿美元借债——Gavin Baker测算相关章节译文</h2>
+<div class="metaline">Invest Like The Best；嘉宾：Atreides Management创始人Gavin Baker；主持：Patrick O'Shaughnessy · 2026-08-04 · <a href="https://www.youtube.com/watch?v=NGsi2PC4y68" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 测算相关章节译文</div>
+<p class="kw">关键词：AI资本开支；经营现金流；信贷需求；算力重定价；终端需求；收入情景</p>
+<p>依据原英文字幕，翻译融资测算、反证条件和终端付费来源的连续讨论段落，按原顺序排列。11:27—12:33为广告，未译；其他未收录的间隔明确以时间范围区分。数字保留原口径，文末单独评估可复算性。</p>
+<h3>00:10:10 信用利差是真的风险，关键在于有多少建设需要借债</h3>
+<p><strong>Gavin：</strong> 在很多方面，我认为真正的担忧是实际收益率上升。这很合理，我们正在进行大量投资。为这些投资融资时，信贷的占比肯定在增加，尽管绝大部分资金仍然来自经营现金流。</p>
+<p>于是，实际收益率上升，信用利差扩大。Meta上周发行了一笔债券，定价并不在你认为Meta债券应该处于的位置。这说明了信用市场的情况。</p>
+<p><strong>Patrick：</strong> 还有信用违约掉期，也许也在大幅上升。</p>
+<p><strong>Gavin：</strong> 所有这些公司的CDS都在上升。一些很聪明的私人资本投资者会说，这完全符合预期，是银行在对冲自己的承诺。但无论如何，看起来并不好。这些都是无法否认的事实：CDS上升，利差扩大，实际收益率上升。</p>
+<p>如果建设这些基础设施必须依赖债务融资，那就非常、非常可怕。这也正是现有算力的现货价格与合同价格之间的差异如此重要的原因。</p>
+<h3>00:12:33 从1.3万亿—1.4万亿到2万亿美元：算力变现率的差别</h3>
+<p><strong>Patrick：</strong> 因此，理解未来六个月左右的融资会是什么样，很重要。</p>
+<p><strong>Gavin：</strong> 要理解的是，这一轮建设究竟有多大程度需要信贷。</p>
+<p><strong>Patrick：</strong> 对。那就是典型的资本周期：开始过度依赖债务，接着事情就会变得……</p>
+<p><strong>Gavin：</strong> 完全正确。由债务推动的建设必须及时偿还资金。</p>
+<p><strong>Patrick：</strong> 如果供需稍微失衡，局面可能很快瓦解。这就是互联网泡沫时发生的事情。</p>
+<p><strong>Gavin：</strong> 是的。我相信自己的观点，但不论对错，经过这个月，我非常愿意接受反证。我一直在对所有判断进行压力检验，也深入研究了信贷，因为这是真实且无可否认的问题。如果这一轮建设必须靠信贷来支撑，那么当前信用环境就是明显的负面因素。</p>
+<p>如果你把模型搭出来，看计划上线多少GW，再看市场对超大规模厂商的一致预期，就会发现：这些即将上线的是Blackwell和Rubin算力——Rubin是英伟达下一代芯片，Blackwell是当前一代——但市场基本上按Ampere的变现水平来估算它们。是落后两代的Ampere，甚至不是Hopper。</p>
+<p>据此，超大规模厂商的经营现金流大约是1.3万亿到1.4万亿美元。我认为它们按Ampere的水平变现，可能性很低。可以详细讨论为什么，其中一部分依据来自我们在这里看到的实际需求和量化指标。</p>
+<p>但就先假设：它们的变现水平比今天的Blackwell打一个折扣。</p>
+<p><strong>Patrick：</strong> 那么经营现金流就更接近2万亿美元。</p>
+<p><strong>Gavin：</strong> 对。这样就能减少大约7000亿美元的信贷需求。</p>
+<p>而且，当现有算力逐步重新定价、增长继续加速时，信用指标都会改善。一致预期假设增长放缓，我认为这不太可能。信用指标改善后，突然之间，借债也变得更容易了。至于它们会不会选择借债，还要看。</p>
+<p>我们两个月前谈过，或者再前一次谈过Blackwell“空档期”的风险：花几千亿美元买Blackwell，最开始主要用于训练，而训练本身不立即产生回报。所以，这可能成为风险。今年第一季度我们确实在一定程度上看到了。</p>
+<p>两个月前那次播客时，我开始能接受这个风险，一个原因是Anthropic展现的东西实在很强，所以我觉得市场会跨过眼前的空档。市场在4月、5月、6月确实如此，但到了7月，因为多种因素凑在一起，市场停止向前看，恰好就在经营现金流真正开始加速的时候。</p>
+<p>而且这是事实：现金流正在很大的基数上加速。例如，微软6月上线了大量产能，那些产能甚至还没有反映在第二季度。</p>
+<p>所以，归根结底，你是否相信硅谷私营企业身上这些量化需求信号会持续，让现有算力在合同到期后以更高价格重新定价？</p>
+<p><strong>Patrick：</strong> 经营现金流随之上升。</p>
+<p><strong>Gavin：</strong> 经营现金流上升，就能用它为大部分建设、甚至全部建设提供资金。如果按当前价格重新定价，未来几年大概可以把整个建设都覆盖掉。因此，这是市场上很不寻常的一段经历。</p>
+<p>从某些方面看，2022年时市场担忧衰退、加息和通胀，原因非常清楚；DeepSeek事件和“解放日”也一样，你知道市场在担忧什么。奇怪的是，原因明确反而令人安心。</p>
+<p><strong>Patrick：</strong> 这里我们也讨论了不少具体问题，但除了信贷以外，其他问题看起来都……</p>
+<p><strong>Gavin：</strong> 都有点荒唐。所以，当市场仍然下跌时，技术派会说：“这有点吓人。”真正击中你的，往往是你没看到的子弹。我觉得我们以前谈过，投资里最重要的三个英文词，不是“margin of safety”（安全边际），而是“I don&#x27;t know”（我不知道）。</p>
+<h3>00:28:41 哪些观察会推翻这套乐观判断？</h3>
+<p><strong>Patrick：</strong> 如果必须列出一组情况，真正让你转变看法、开始害怕，会是什么？是不是经营现金流的逻辑没有兑现，因而只能用债务融资？</p>
+<p><strong>Gavin：</strong> 如果经营现金流没有继续加速，那是负面信号。这在一定程度上取决于Anthropic、OpenAI、Grok、Cursor以及开源生态的表现。</p>
+<p>如果GPU价格明显下降，而且持续下去，市场会立即作出反应；那会让我担忧。如果GPU开始变得很容易买到，也一样。你听说过有人说自己的GPU太多了吗？</p>
+<p><strong>Patrick：</strong> 一个人都没有。恰好相反，听起来简直像某种毒品市场。</p>
+<p><strong>Gavin：</strong> 是的，非常疯狂。明显的反证条件有很长一张清单。如果Anthropic、OpenAI等实验室加起来的业务停滞或者开始下降，那就非常负面；除非只是开源token在扩大整个市场的同时，拿走了它们的份额。</p>
+<h3>00:33:41 追问现金从哪里来：25万亿美元知识工作支出的20%？</h3>
+<p><strong>Gavin：</strong> 我觉得在X上发观点、看看别人如何反驳很有帮助。很多人会说：“我们接受你的论点，超大规模厂商目前的收益没有完全体现算力的价值；随着算力重新定价，经营现金流会加速，也许足以支付建设费用。但这些现金流究竟从哪里来？客户在哪里？”</p>
+<p>从定义上说，它要么来自生产率提高带来的更快经济增长——类似Satya说的，经济要么开始增长10%，要么不会——要么来自对劳动的替代。</p>
+<p>在很多AI原生企业里，确实已经能看到劳动替代，但原因不是它们在裁员，而是它们雇的人远比原来可能需要的人数少。每名全职员工创造的毛利正在陡升，尤其相对于上一代初创公司。a16z、ICONIQ等机构都做过这方面研究。</p>
+<p>你们会调查被投公司的token支出与人力支出的比例吗？</p>
+<p><strong>Patrick：</strong> 会。它们总会报告token支出占总薪酬支出的百分比之类的指标。你看到的范围是什么？在非常相信AI的公司里，这个比例会很高，比如20%、25%。</p>
+<p><strong>Gavin：</strong> 我们的朋友Dylan Patel，他那家公司到了30%。</p>
+<p><strong>Patrick：</strong> 对。那大概是我听过最高的一个。</p>
+<p><strong>Gavin：</strong> 我实际上还听过50%。全球知识工作支出有25万亿美元。就用你说的20%，那就是5万亿美元。这部分要么来自劳动替代，要么来自更快的经济增长。作为人，我们当然非常希望它来自更快的经济增长。</p>
+<p>今天早上，我听一位创办过多家公司的顶尖科技CEO说了一件有意思的事：如果看由创始人控制的公司，并把疫情期间过度招聘等因素调整掉，其实大家并没有真的在大规模裁员。这些人本来应该是最快采用AI、提高效率的人，但他们并没有进行大规模裁员。也许这说明，他们认为未来仍然有大量“员工加上十万美元token支出”的机会。</p>
+<p><strong>Patrick：</strong> 完全同意。在乐观情景下……</p>
+<p><strong>Gavin：</strong> 在乐观情景下，是增长带来的需求。你也看过Cognition、Ramp和Stripe的图表。</p>
+<p><strong>Patrick：</strong> 在AI上花钱最多的公司，增长明显更快。</p>
+<p><strong>Gavin：</strong> 对，我很喜欢Cognition那个指数。</p>
+<p><strong>Patrick：</strong> 那个指数确实很惊人。当然，怀疑者有道理地指出，它没有真正控制行业差异。但进一步往下看，我记得其中一个例子不知道是水管工还是暖通承包商，总之，蓝领工人也因为AI而做得很好。</p>
+<h3>译者复算与使用边界</h3>
+<p>这篇提供了两条不同的测算。第一条是供给方的<strong>经营现金流与借债需求</strong>；第二条是需求方的<strong>潜在token支出</strong>。两者不能直接相加。</p>
+<div style="overflow:auto" tabindex="0"><table style="border-collapse:collapse;width:100%;font-size:13px"><thead><tr><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">结果</th><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">原始推演</th><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">口径与可复算程度</th></tr></thead><tbody><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">经营现金流约2万亿美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">将拟上线Blackwell/Rubin的变现率，由一致预期隐含的Ampere水平提高至低于当时Blackwell的水平</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">未公开容量表、变现率、成本、营运资本或明确预测年份，不能从节目独立复算2万亿美元</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">少借约7000亿美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">2万亿−1.3万亿≈0.7万亿美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">若采用基线1.4万亿，差额是6000亿美元；7000亿是区间低端基准下的近似值</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">潜在token支出5万亿美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">25万亿美元知识工作支出×20%＝5万亿美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">算术可复算，但20%来自少数积极采用AI的企业，不能自动推广到全球；属于需求情景，不是确定收入预测</td></tr></tbody></table></div>
+<p><strong>2万亿美元是超大规模厂商的经营现金流情景，不是全行业终端年收入门槛。</strong> 节目没有明确这一预测的年度与公司范围，也没有拆出非AI业务贡献，因此不能把它写成“AI每年需要2万亿收入”，更不能与论文3.55万亿美元成熟期年收入直接比较。</p>
+<p>要把这条逻辑做严谨，应列出不同代际GPU的装机容量、旧合同到期比例、续约价、现货价、利用率、现金运营成本及营运资本，再逐年计算经营现金流。需要债务融资的金额，还要扣除股息、回购和其他投资等现金用途，并考虑手头现金。现金流增长和偿债能力的改善取决于这些细节。</p>
+<p>本篇也保留了嘉宾给出的反证：GPU租金持续下降、供应转为宽松、实验室总需求停滞，以及经营现金流加速没有出现。需求侧的企业样本存在行业与采用程度偏差，原访谈自己也承认相关图表没有控制行业差异。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

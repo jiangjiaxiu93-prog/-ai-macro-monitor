@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>H100每小时总成本、五年折旧与旧卡重定价——Dylan Patel测算相关章节译文</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl on" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../capex_returns.html">← 返回AI资本开支收入回报测算</a>
+<div class="card"><article>
+<h2>H100每小时总成本、五年折旧与旧卡重定价——Dylan Patel测算相关章节译文</h2>
+<div class="metaline">Dwarkesh Podcast；嘉宾：SemiAnalysis创始人Dylan Patel；主持：Dwarkesh Patel · 2026-03-13 · <a href="https://www.youtube.com/watch?v=mDG_Hx3BSUE" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 测算相关章节译文</div>
+<p class="kw">关键词：AI资本开支；总拥有成本；GPU经济寿命；折旧；毛利率；合同租金；现货价格</p>
+<p>本译文依据博客关联播客库的英文字幕，按原顺序保留这一段完整问答；清理口头重复。不是整期节目全译。数字是受访者当时的测算或判断，文末单独列出算术复核与模型缺项。</p>
+<h3>00:10:03 主持人追问：GPU究竟应折旧两年，还是五年以上？</h3>
+<p><strong>Dwarkesh：</strong> 这很有意思。否则，你可能觉得拥有最好的模型是一项贬值极快的资产，因为三个月以后，你就不再拥有最好的模型了。但它之所以重要，是因为你可以签订这些合同，提前锁定算力，拿到更好的价格。</p>
+<p>也许这一点很明显。不过，至少直到最近，大家还在大谈GPU的折旧周期。Michael Burry等看空者说：“大家说这些GPU应该按四年或五年折旧，可是技术进步这么快，实际按两年的周期折旧才合理。”这样一来，每年报表上摊销的资本开支就会上升，建设这些云设施在财务上也就没有那么有吸引力了。</p>
+<p>但你实际上指出，折旧周期也许会超过五年。如果我们还在使用Hopper，尤其假如AI真正腾飞，到2030年我们会说：“必须把7纳米晶圆厂重新开起来，必须重新启用A100。”那么，这个折旧周期其实会很长。我觉得这就是你刚才那番话一个很有意思的财务含义。</p>
+<p><strong>Dylan：</strong> 这里有几条线索可以展开。一条是GPU折旧究竟会怎样。先补答你上一个问题：我觉得Anthropic到今年年底能达到大约5 GW，也许稍高一点；这包括它自己的部署，以及通过Bedrock、Vertex或Foundry提供产品的算力。我认为它能到5—6 GW，远高于最初计划。按我们的数字，OpenAI大致也会到这个水平，实际上还要略高一点。</p>
+<p>回到GPU折旧。Michael Burry的观点大体是三年或者更短。这个问题可以从两个角度来看。</p>
+<h3>00:12:09 总拥有成本模型：成本、长期合同和经济贬值</h3>
+<p><strong>Dylan：</strong> 从机械的计算角度，有一个GPU总拥有成本模型，也就是TCO模型。我们预测GPU的价格，把整个集群的总成本逐项搭起来。</p>
+<p>里面有很多成本：数据中心、网络、现场技术人员，以及在机房里更换设备的人；还有备件、芯片本身和服务器。这些成本都会合在一起，并分别计入一定的折旧周期和一定的信贷成本。最后你得到这样一个结果：“如果按五年折旧，大规模部署一张H100、摊在五年里，每小时成本是1.40美元。”</p>
+<p>如果你签下一份五年、每小时2美元的合同，毛利率大约是35%，稍微高一点。如果签在1.90美元左右，毛利率大致是35%。然后你假定到了第五年，这张GPU从车上摔下来，彻底报废了。</p>
+<p>某些人提出的论点是：如果你没有签长期合同，英伟达每两年就把性能提高到三倍或四倍，价格却只翻一倍或者上涨50%，那H100的价格怎么办？也许2024年的市场价格还是每小时2美元、毛利率35%；但到了2026年，Blackwell大批量上市，每年部署数百万颗，你实际上就只值每小时1美元了。</p>
+<p>到了2027年，Rubin也进入超大批量部署——虽然今年就开始出货，但明年才是真正的大规模，每年有数百万颗芯片进入云端——性能再提高三倍，价格再上涨50%或翻倍，那么Hopper就只值每小时0.70美元了。GPU的价格会这样不断下跌。这是看问题的一种角度。</p>
+<h3>00:13:49 反方机制：新卡供给受限、同一张旧卡能提供更有价值的服务</h3>
+<p><strong>Dylan：</strong> 另一种角度是：你从这张芯片上究竟能得到什么效用？</p>
+<p>如果你能无限量生产Rubin或最新的芯片，那么，是的，前面说的情况确实会发生。新芯片上市，性能价格比提高，Hopper的现货或短期合同价格就会下降。</p>
+<p>但半导体供应和部署时间都严重受限。所以，真正决定这些芯片价格的，并不是今天还有什么可以相互比较、拿来购买的产品，而是今天从这张芯片上能够创造多少价值。</p>
+<p>就拿GPT-5.4来说。它的运行成本比GPT-4低得多，激活参数也更少；从激活参数来看，它小得多，因为它使用更稀疏的混合专家架构，而GPT-4使用的是更粗粒度的混合专家架构。同时，训练、强化学习、模型架构和数据质量已经有很多其他进展，使GPT-5.4比GPT-4强得多，而且服务成本更低。</p>
+<p>你看一张H100：用它运行GPT-5.4，单卡能够生成的token比运行GPT-4时更多。也就是说，它生成了更多token，而这些token来自一个质量更高的模型。</p>
+<p>GPT-4 token的最大可服务市场是多少？也许是几十亿美元，也许是几百亿美元。采用需要时间。GPT-5.4的这个数字很可能超过1000亿美元。不过，存在采用滞后、竞争，以及其他人不断取得进步这些因素。</p>
+<p>假如进步就停在这里，那么H100的价值现在取决于GPT-5.4能从它身上创造的价值，而不是GPT-4能创造的价值。实验室也处在竞争环境中，它们的利润率不可能无限上升。</p>
+<p>因此，出现了一个相当有意思的动态：今天一张H100的价值，比三年前还高。</p>
+<h3>译者复算与使用边界</h3>
+<div style="overflow:auto" tabindex="0"><table style="border-collapse:collapse;width:100%;font-size:13px"><thead><tr><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">项目</th><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">原访谈给出的输入或判断</th><th scope="col" style="padding:9px;border-bottom:1px solid var(--line);text-align:left">核对结果与含义</th></tr></thead><tbody><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">五年H100 TCO</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">1.40美元/GPU小时</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">嘉宾称包含集群成本、折旧和信贷成本；没有披露每一项底表、利用率和融资利率，无法独立重建1.40美元</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">合同价格2美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">嘉宾口算约35%毛利率</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">按通常毛利率定义，(2−1.40)/2＝30%；原话与给定输入不一致，不能直接引用35%作为复算结果</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">合同价格1.90美元</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">嘉宾再次口算约35%</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">(1.90−1.40)/1.90≈26.3%；不能静默修正原话，也不能把它当作精确模型输出</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">经济贬值情景</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">2→1→0.70美元/小时</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">是“未锁长期合同、新卡大规模供给”的条件情景，不能直接写成已实现的价格路径</td></tr><tr><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">反向重定价情景</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">更强模型提升同一张旧卡的产出价值</td><td style="padding:9px;border-bottom:1px solid var(--line);vertical-align:top">依赖供给约束、模型改进、采用速度和竞争；不是仅靠延长会计折旧就能创造现金流</td></tr></tbody></table></div>
+<p>另一个口径问题是，嘉宾明确把信贷成本计入TCO后，又使用“毛利率”一词。因此，即使修正算术，也不能自动将这个全成本差额率视为财务报表中的会计毛利率。</p>
+<p>这段比“资本开支÷利润率”更有用之处，在于它明确要求把机房、网络、人员、备件、服务器、融资和不同折旧周期一起计入，再分别考虑长期合同与现货价格风险。但它仍然不是公开了逐年现金流的DCF或IRR模型。</p>
+<p>若要转为可复算模型，需要至少补充：GPU及服务器采购成本、每GPU分摊的网络及机房资本成本、各资产寿命和残值、上架与计费利用率、停机率、电费及PUE、运维费用、融资利率与还本节奏、税率，以及逐年的租金路径。再用每期现金流计算项目IRR，不能用毛利率替代资本回报率。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
