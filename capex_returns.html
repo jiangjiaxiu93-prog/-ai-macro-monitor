@@ -205,63 +205,63 @@ box-shadow:0 1px 2px rgba(20,40,80,.10)}
 <p class="cr-lead">“公开参数可复算”表示可以检查计算过程，不代表预测必然兑现；“部分参数公开”保留作者结论，并列出无法独立复现的部分。</p>
 <div class="cr-tools"><label for="cr-search">查找模型</label><input id="cr-search" type="search" placeholder="例如：折旧、利用率、债务" autocomplete="off">
 <div class="cr-filter" role="group" aria-label="模型公开程度"><button type="button" data-tier="all" class="on" aria-pressed="true">全部</button><button type="button" data-tier="reproducible" class="" aria-pressed="false">公开参数可复算</button><button type="button" data-tier="partial" class="" aria-pressed="false">部分参数公开</button><button type="button" data-tier="rough" class="" aria-pressed="false">粗算对照</button></div></div><p id="cr-count" class="cr-count" role="status" aria-live="polite"></p><div class="cr-grid"><article class="card cr-method" id="model-nber"
- data-tier="reproducible" data-search="原论文：分资产资本回收模型 同时计入建设期资金占用、IT与设施的不同寿命、要求回报率和经营现金流率，可复现表6、表7。 美国新增188.3 GW · 成熟期收入要求 公开参数可复算">
+ data-tier="reproducible" data-search="原论文：分资产资本回收模型 同时计入建设期资金占用、IT与设施的不同寿命、要求回报率和经营现金流率，可复现表6、表7。 美国新增188.3 GW · 成熟期收入要求 收入＝资本化投资 × 加权资本回收系数 ÷ 经营现金流率 成熟期等额年金，未逐年展开价格下降、税收与杠杆后的股权现金流。 初始成本8.7622万亿美元；建设期资本化后9.1589万亿 IT占68%、经济寿命6年；其他资产20年 要求回报率10%；经营现金流率50% 公开参数可复算">
 <div class="cr-meta"><span class="cr-badge reproducible">公开参数可复算</span><span>2026-10-02</span></div>
 <h3>原论文：分资产资本回收模型</h3><p class="cr-number">3.55万亿美元/年</p>
 <p class="cr-basis">美国新增188.3 GW · 成熟期收入要求</p><p>同时计入建设期资金占用、IT与设施的不同寿命、要求回报率和经营现金流率，可复现表6、表7。</p>
 <div class="cr-formula">收入＝资本化投资 × 加权资本回收系数 ÷ 经营现金流率</div>
 <details><summary>关键假设与复核边界</summary><ul><li>初始成本8.7622万亿美元；建设期资本化后9.1589万亿</li><li>IT占68%、经济寿命6年；其他资产20年</li><li>要求回报率10%；经营现金流率50%</li></ul><p>成熟期等额年金，未逐年展开价格下降、税收与杠杆后的股权现金流。</p></details>
 <div class="cr-links"><a href="iv/20261002_nber_buildout_收入门槛复算.html">阅读中文模型解读 →</a><a href="https://www.nber.org/papers/w35865" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-epoch"
- data-tier="reproducible" data-search="Epoch AI：公开TCO电子表格 逐项列出服务器、网络、设施、电力、维护和税费，公开表格已独立复算；适合作为精密计算的成本底表。 1 GW IT铭牌容量 · 年化总拥有成本 公开参数可复算">
+ data-tier="reproducible" data-search="Epoch AI：公开TCO电子表格 逐项列出服务器、网络、设施、电力、维护和税费，公开表格已独立复算；适合作为精密计算的成本底表。 1 GW IT铭牌容量 · 年化总拥有成本 年度TCO＝各类资产投入 × 对应CRF ＋ 土地资金成本 ＋ 年度OpEx 这是成本而非终端收入；3年IT寿命下124.25亿美元/年为本栏目独立重算。电力利用率不自动等于付费利用率。 前期资本开支378.83亿美元；年度OpEx约9.02亿美元 WACC 7.83%；IT寿命5.3208年；设施13.75年 电力利用率71.25%；PUE 1.14；电价83.42美元/MWh 公开参数可复算">
 <div class="cr-meta"><span class="cr-badge reproducible">公开参数可复算</span><span>2026-05-14</span></div>
 <h3>Epoch AI：公开TCO电子表格</h3><p class="cr-number">85.11亿美元/GW/年</p>
 <p class="cr-basis">1 GW IT铭牌容量 · 年化总拥有成本</p><p>逐项列出服务器、网络、设施、电力、维护和税费，公开表格已独立复算；适合作为精密计算的成本底表。</p>
 <div class="cr-formula">年度TCO＝各类资产投入 × 对应CRF ＋ 土地资金成本 ＋ 年度OpEx</div>
 <details><summary>关键假设与复核边界</summary><ul><li>前期资本开支378.83亿美元；年度OpEx约9.02亿美元</li><li>WACC 7.83%；IT寿命5.3208年；设施13.75年</li><li>电力利用率71.25%；PUE 1.14；电价83.42美元/MWh</li></ul><p>这是成本而非终端收入；3年IT寿命下124.25亿美元/年为本栏目独立重算。电力利用率不自动等于付费利用率。</p></details>
 <div class="cr-links"><a href="iv/20260514_epoch_ai_公开TCO模型复算.html">阅读中文模型解读 →</a><a href="https://epoch.ai/data-insights/ai-datacenter-cost-breakdown" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-carnegie"
- data-tier="partial" data-search="Carnegie：逐期现金流与建设延误 纳入投产爬坡、租金、换代、税收与终值。公开方法较完整，但本次未获取工作簿，不能声称逐项复现估值。 100 MW美国项目 · 生命周期现值变化 部分参数公开">
+ data-tier="partial" data-search="Carnegie：逐期现金流与建设延误 纳入投产爬坡、租金、换代、税收与终值。公开方法较完整，但本次未获取工作簿，不能声称逐项复现估值。 100 MW美国项目 · 生命周期现值变化 项目价值＝折现经营现金流 − 折现建设及换代支出 ＋ 折现终值 终值、价格路径和延迟时付款安排影响很大；内部现金流融资假设不能代表新云的股权IRR。 12年运营期；真实WACC 6%；2025年实际美元 初始租价10美元/GPU小时；利用率70% 12个月爬坡；每4年换代；终值为平均EBITDA的8倍 部分参数公开">
 <div class="cr-meta"><span class="cr-badge partial">部分参数公开</span><span>2026-06-08</span></div>
 <h3>Carnegie：逐期现金流与建设延误</h3><p class="cr-number">延误1年，价值减少5.43亿美元</p>
 <p class="cr-basis">100 MW美国项目 · 生命周期现值变化</p><p>纳入投产爬坡、租金、换代、税收与终值。公开方法较完整，但本次未获取工作簿，不能声称逐项复现估值。</p>
 <div class="cr-formula">项目价值＝折现经营现金流 − 折现建设及换代支出 ＋ 折现终值</div>
 <details><summary>关键假设与复核边界</summary><ul><li>12年运营期；真实WACC 6%；2025年实际美元</li><li>初始租价10美元/GPU小时；利用率70%</li><li>12个月爬坡；每4年换代；终值为平均EBITDA的8倍</li></ul><p>终值、价格路径和延迟时付款安排影响很大；内部现金流融资假设不能代表新云的股权IRR。</p></details>
 <div class="cr-links"><a href="iv/20260608_carnegie_数据中心生命周期DCF.html">阅读中文模型解读 →</a><a href="https://carnegieendowment.org/research/2026/06/the-compute-coalition-how-to-build-the-future-of-ai-in-the-free-world" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-semianalysis"
- data-tier="partial" data-search="SemiAnalysis：有效算力与故障损失 把停机、作业重启、检查点、调试与支持服务纳入总成本。免费计算器可作运营效率参数模块。 代表性大型训练任务 · 客户侧成本 部分参数公开">
+ data-tier="partial" data-search="SemiAnalysis：有效算力与故障损失 把停机、作业重启、检查点、调试与支持服务纳入总成本。免费计算器可作运营效率参数模块。 代表性大型训练任务 · 客户侧成本 TCO＝租金＋配套服务＋设置调试＋有效计算损失 免费采购成本计算器与机构三表/IRR模型是不同产品；未获取机构工作簿，不能据此报出项目IRR。 分别处理冷备、热备和容错工作负载 把故障次数、损失时长、受影响GPU规模与小时租价相乘 比较相同任务目标和交付质量 部分参数公开">
 <div class="cr-meta"><span class="cr-badge partial">部分参数公开</span><span>2026-04-20</span></div>
 <h3>SemiAnalysis：有效算力与故障损失</h3><p class="cr-number">同价示例中，TCO差异约5%—15%</p>
 <p class="cr-basis">代表性大型训练任务 · 客户侧成本</p><p>把停机、作业重启、检查点、调试与支持服务纳入总成本。免费计算器可作运营效率参数模块。</p>
 <div class="cr-formula">TCO＝租金＋配套服务＋设置调试＋有效计算损失</div>
 <details><summary>关键假设与复核边界</summary><ul><li>分别处理冷备、热备和容错工作负载</li><li>把故障次数、损失时长、受影响GPU规模与小时租价相乘</li><li>比较相同任务目标和交付质量</li></ul><p>免费采购成本计算器与机构三表/IRR模型是不同产品；未获取机构工作簿，不能据此报出项目IRR。</p></details>
 <div class="cr-links"><a href="iv/20260420_semianalysis_有效算力TCO.html">阅读中文模型解读 →</a><a href="https://newsletter.semianalysis.com/p/how-much-do-gpu-clusters-really-cost" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-csis"
- data-tier="partial" data-search="CSIS：建设规模与资本持有成本 先把资本开支映射为GPU与电力需求，再估算存量资本每年的持有成本；可作为历史宏观情景。 2030年情景 · 折旧及资金成本 部分参数公开">
+ data-tier="partial" data-search="CSIS：建设规模与资本持有成本 先把资本开支映射为GPU与电力需求，再估算存量资本每年的持有成本；可作为历史宏观情景。 2030年情景 · 折旧及资金成本 资本持有成本＝投资批次的直线折旧＋融资成本 不是营业收入或完整DCF；2025年历史假设需要用新投产和融资数据更新。 较强情景累计资本开支约2.35万亿美元 5年直线折旧 融资成本采用10年美债收益率加300基点 部分参数公开">
 <div class="cr-meta"><span class="cr-badge partial">部分参数公开</span><span>2025-03-03</span></div>
 <h3>CSIS：建设规模与资本持有成本</h3><p class="cr-number">4300亿美元/年</p>
 <p class="cr-basis">2030年情景 · 折旧及资金成本</p><p>先把资本开支映射为GPU与电力需求，再估算存量资本每年的持有成本；可作为历史宏观情景。</p>
 <div class="cr-formula">资本持有成本＝投资批次的直线折旧＋融资成本</div>
 <details><summary>关键假设与复核边界</summary><ul><li>较强情景累计资本开支约2.35万亿美元</li><li>5年直线折旧</li><li>融资成本采用10年美债收益率加300基点</li></ul><p>不是营业收入或完整DCF；2025年历史假设需要用新投产和融资数据更新。</p></details>
 <div class="cr-links"><a href="iv/20250303_csis_资本持有成本.html">阅读中文模型解读 →</a><a href="https://www.csis.org/analysis/ai-power-surge-growth-scenarios-genai-datacenters-through-2030" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-apollo"
- data-tier="partial" data-search="Apollo：终端收入的数量级核对 公开播客将5—6万亿美元累计基建投入与约2万亿美元终端年收入相连，适合作外部量级参照。 2030年 · 最终用户AI服务收入 部分参数公开">
+ data-tier="partial" data-search="Apollo：终端收入的数量级核对 公开播客将5—6万亿美元累计基建投入与约2万亿美元终端年收入相连，适合作外部量级参照。 2030年 · 最终用户AI服务收入 累计投入 → 可接受回报所需年度终端收入（完整公式未披露） 没有同时披露寿命、WACC、利用率及完整现金流表，不能包装为精密模型。 2026年9月访谈：累计投资约5—6万亿美元 2026年3月报告较早范围为4—5万亿投入、1.5—2万亿年收入 两版日期与投资范围分别保留 部分参数公开">
 <div class="cr-meta"><span class="cr-badge partial">部分参数公开</span><span>2026-09-10</span></div>
 <h3>Apollo：终端收入的数量级核对</h3><p class="cr-number">约2万亿美元/年</p>
 <p class="cr-basis">2030年 · 最终用户AI服务收入</p><p>公开播客将5—6万亿美元累计基建投入与约2万亿美元终端年收入相连，适合作外部量级参照。</p>
 <div class="cr-formula">累计投入 → 可接受回报所需年度终端收入（完整公式未披露）</div>
 <details><summary>关键假设与复核边界</summary><ul><li>2026年9月访谈：累计投资约5—6万亿美元</li><li>2026年3月报告较早范围为4—5万亿投入、1.5—2万亿年收入</li><li>两版日期与投资范围分别保留</li></ul><p>没有同时披露寿命、WACC、利用率及完整现金流表，不能包装为精密模型。</p></details>
 <div class="cr-links"><a href="iv/20260910_apollo_两万亿收入门槛解读.html">阅读中文模型解读 →</a><a href="https://www.apollo.com/wealth/insights-news/insights/podcast/the-allocation/2026/09/2-trillion-ai-test-reshaping-markets-and-portfolios" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-bain"
- data-tier="rough" data-search="贝恩：资本开支强度与收入缺口 以可持续资本开支强度反推收入，再与企业预算转移及AI成本节省情景比较。 2030年需求情景 · 年度收入 粗算对照">
+ data-tier="rough" data-search="贝恩：资本开支强度与收入缺口 以可持续资本开支强度反推收入，再与企业预算转移及AI成本节省情景比较。 2030年需求情景 · 年度收入 约5000亿美元年度CapEx ÷ 隐含25%强度＝2万亿美元年收入 未给出分资产DCF；地区范围、预算情景与收入层级需分别核对。 25%为本栏目从公开数字反推的比率 容量背景为全球约200 GW新增AI需求，美国约占一半 8000亿美元是预算转换情景缺口 粗算对照">
 <div class="cr-meta"><span class="cr-badge rough">粗算对照</span><span>2025-09-23</span></div>
 <h3>贝恩：资本开支强度与收入缺口</h3><p class="cr-number">2万亿美元/年；缺口约8000亿美元/年</p>
 <p class="cr-basis">2030年需求情景 · 年度收入</p><p>以可持续资本开支强度反推收入，再与企业预算转移及AI成本节省情景比较。</p>
 <div class="cr-formula">约5000亿美元年度CapEx ÷ 隐含25%强度＝2万亿美元年收入</div>
 <details><summary>关键假设与复核边界</summary><ul><li>25%为本栏目从公开数字反推的比率</li><li>容量背景为全球约200 GW新增AI需求，美国约占一半</li><li>8000亿美元是预算转换情景缺口</li></ul><p>未给出分资产DCF；地区范围、预算情景与收入层级需分别核对。</p></details>
 <div class="cr-links"><a href="iv/20250923_bain_年度收入门槛对照.html">阅读中文模型解读 →</a><a href="https://www.prnewswire.com/news-releases/2-trillion-in-new-revenue-needed-to-fund-ais-scaling-trend---bain--companys-6th-annual-global-technology-report-302563362.html" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-cahn"
- data-tier="rough" data-search="David Cahn：生命周期收入粗算 保留原访谈和原文对照。它展示变现压力，但没有把收入发生时间和资本成本放进模型。 2026年一批投资 / 历年投资 · 生命周期收入 粗算对照">
+ data-tier="rough" data-search="David Cahn：生命周期收入粗算 保留原访谈和原文对照。它展示变现压力，但没有把收入发生时间和资本成本放进模型。 2026年一批投资 / 历年投资 · 生命周期收入 约7500亿美元单年CapEx ÷ 50%利润率＝1.5万亿美元生命周期收入 不是每年1.5万亿美元；利润率不是已验证的自由现金流率，不能直接与3.55万亿年收入比较。 历年数字约为2000亿、6000亿、8400亿及1.5万亿美元 访谈将2025年口述为8500亿，原文列8400亿 年末运行率相加只是累计量级近似 粗算对照">
 <div class="cr-meta"><span class="cr-badge rough">粗算对照</span><span>2026-07-08</span></div>
 <h3>David Cahn：生命周期收入粗算</h3><p class="cr-number">1.5万亿美元；历年累计约3万亿美元</p>
 <p class="cr-basis">2026年一批投资 / 历年投资 · 生命周期收入</p><p>保留原访谈和原文对照。它展示变现压力，但没有把收入发生时间和资本成本放进模型。</p>
 <div class="cr-formula">约7500亿美元单年CapEx ÷ 50%利润率＝1.5万亿美元生命周期收入</div>
 <details><summary>关键假设与复核边界</summary><ul><li>历年数字约为2000亿、6000亿、8400亿及1.5万亿美元</li><li>访谈将2025年口述为8500亿，原文列8400亿</li><li>年末运行率相加只是累计量级近似</li></ul><p>不是每年1.5万亿美元；利润率不是已验证的自由现金流率，不能直接与3.55万亿年收入比较。</p></details>
 <div class="cr-links"><a href="iv/20260805_cahn_累计收入测算章节译文.html">阅读中文模型解读 →</a><a href="https://dcahn.substack.com/p/ais-15t-question" target="_blank" rel="noopener noreferrer">原始来源 ↗</a></div></article><article class="card cr-method" id="model-dylan-credit"
- data-tier="partial" data-search="Dylan Patel：内部现金与外部融资 把供给建设与融资能力相连：约6万亿美元来自内部现金，其余约5万亿需要信用市场。 2024—2029年累计 · 建设资金来源 部分参数公开">
+ data-tier="partial" data-search="Dylan Patel：内部现金与外部融资 把供给建设与融资能力相连：约6万亿美元来自内部现金，其余约5万亿需要信用市场。 2024—2029年累计 · 建设资金来源 累计资本开支11万亿 − 内部现金6万亿＝外部债务5万亿 这是融资需求，不是收入门槛；债务期限、利息和还本路径未充分披露。 嘉宾披露总量，没有逐年底表 建设提前期、信用供给和利率互相影响 另有100 GW/年×500亿美元/GW的条件情景 部分参数公开">
 <div class="cr-meta"><span class="cr-badge partial">部分参数公开</span><span>2026-08-25</span></div>
 <h3>Dylan Patel：内部现金与外部融资</h3><p class="cr-number">11万亿美元投资；约5万亿美元债务</p>
 <p class="cr-basis">2024—2029年累计 · 建设资金来源</p><p>把供给建设与融资能力相连：约6万亿美元来自内部现金，其余约5万亿需要信用市场。</p>
