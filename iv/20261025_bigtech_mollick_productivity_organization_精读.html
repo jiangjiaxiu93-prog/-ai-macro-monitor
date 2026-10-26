@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ethan Mollick：AI的生产率收益为何尚未充分显现（Big Technology）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>Ethan Mollick：AI的生产率收益为何尚未充分显现（Big Technology）</h2>
+<div class="metaline">Big Technology，Alex Kantrowitz访谈沃顿商学院教授Ethan Mollick · 2026-10-25 · <a href="https://www.youtube.com/watch?v=Xoj0GGu0-aw" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：生产率；组织变革；企业采用；劳动市场；个人代理；Ethan Mollick；OpenClaw</p>
+<h2>Ethan Mollick：AI的生产率收益为何尚未充分显现（Big Technology）</h2>
+<p><strong>Source</strong>: Big Technology，Alex Kantrowitz访谈沃顿商学院教授Ethan Mollick <strong>Tag</strong>: AI宏观影响的探讨 <strong>Pin</strong>: 98 <strong>Published</strong>: 2026-10-25 <strong>URL</strong>: https://www.youtube.com/watch?v=Xoj0GGu0-aw <strong>Keywords</strong>: 生产率；组织变革；企业采用；劳动市场；个人代理；Ethan Mollick；OpenClaw <strong>Format</strong>: 精翻</p>
+<h3>要点</h3>
+<ul><li>Mollick认为个人效率提升尚未充分转化为组织生产率，关键在团队分工、流程和管理决策；主持人持续追问企业自报回报、token预算收紧与宏观数据之间的落差。</li><li>两人讨论现有能力尚未被利用、模型与代理的发展、教育和就业转型。Mollick强调技术变化的方向较明确，收益归属、岗位变化与社会结果仍取决于选择。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">个人效率提高，为什么还没变成宏观生产率</a></li><li><a href="#chapter-2">企业自报回报与token预算的争论</a></li><li><a href="#chapter-3">组织究竟要怎样改变</a></li><li><a href="#chapter-4">尚未用上的能力，与不断变化的产品形态</a></li><li><a href="#chapter-5">技术是否会撞墙：需求、推理与代理执行框架</a></li><li><a href="#chapter-6">个人代理的帮助与隐私代价</a></li><li><a href="#chapter-7">不同模型的“性格”、陪伴与机器人</a></li><li><a href="#chapter-8">教育：让AI代做，还是让AI辅导</a></li><li><a href="#chapter-9">科研、信仰与文化中的AI</a></li><li><a href="#chapter-10">岗位变化与转型保障</a></li><li><a href="#chapter-11">token价格、客服摩擦与过早固定方案的代价</a></li></ul></details>
+<p>按完整英文字幕顺序翻译，删去口吃、重复半句、广告与订阅提示。书名依节目简介及结尾统一为《Coexistence: The Next Phase of AI》，开场也提及作者前作《Co-Intelligence》。下文保留双方判断和争议，尚未独立证实的数字仍属于发言者的陈述。</p>
+<h4 id="chapter-1">个人效率提高，为什么还没变成宏观生产率</h4>
+<p>&lt;!-- 原始字幕 1–177 --&gt;</p>
+<p><strong>主持人：</strong> 如果AI这么强大，生产率收益到底在哪里？今天我们请到沃顿商学院教授Ethan Mollick。他写作One Useful Thing，也出版了《Co-Intelligence》。我们会谈技术进步如何转化为整个经济的生产率增长，AI能否继续发展、会不会撞墙，以及其他问题。节目经常引用你的观点，我也读你的文章很久了。欢迎回来，谢谢你来。</p>
+<p><strong>Mollick：</strong> 谢谢邀请。</p>
+<p><strong>主持人：</strong> 先从AI和生产率说起。只要试过，我们都知道这是一项很强的技术，问题是它会带来什么。通常的看法是：如果AI确实那么有用，我们应该能在生产率统计里看到效果。但我们没有看到。</p>
+<p>达拉斯联储的一项研究说，美国劳动生产率从2024年初以来按年率增长2.4%。这个幅度并不具有革命性。Dario等人说过GDP可能增长10%，可我们还没看到。我觉得研究中很惊人的一点是，它把AI暴露程度高和低的工作分别画出来。高暴露工作的生产率增长确实更快，但低于它们在疫情期间、甚至某些疫情前时段的增幅，峰值达不到以前的高度。Ethan，这是怎么回事？</p>
+<p>*译注：字幕将起算年转写为2004；[对应达拉斯联储研究](https://www.dallasfed.org/research/economics/2026/0707)的起算年为2024，按研究口径校正。*</p>
+<p><strong>Mollick：</strong> 在组织里工作的人大概都知道答案：个人生产率提高，不会立即带来组织生产率提高。如果你能写出以前100倍的代码，对独立创业者可能很好。但如果你所在的组织按两周一个迭代周期工作，要和营销协调，每天开站会——这些本来都是合理的工作组织方式——那100倍的代码产出反而可能成为障碍，没人有时间处理。</p>
+<p>产品交付的数据也体现了这一点：代码产出增加20倍，产品交付只增加30%左右。这并不罕见。我们还没有让组织适应AI。</p>
+<p><strong>主持人：</strong> 我想你说的可能是App Store的数据：上架的应用多得多，评论却比以前还少。看上去“生产率”提高了，完成的工作更多了，可使用量和价值还没体现出来。</p>
+<p><strong>Mollick：</strong> 其实那是两个问题。一个是内容泛滥，到处都有更多小说、游戏和应用。我说的是一些直接研究产品交付的工作：代码量大幅增加，交付的产品也增加了，但增幅小一个数量级。</p>
+<p>原因还是我们没有“多人协作模式”的AI。现在AI基本是单人体验，改善的是个人表现；组织要求很多人同时协作。</p>
+<p><strong>主持人：</strong> 我一直觉得，至少近期能够领先的公司，会对善用AI的员工说：我们给你权力，让你摆脱常规官僚程序。很多公司聘请一个人，交给他任务，可如果他有很多新想法、想改变事情，就会不断受到打击。到后来，公司像是在说：“你不是来提想法的，你是来扮演这个角色的。”允许员工实践想法的公司，和让员工“只管做好本职工作”的公司，竞争力可能会分化。</p>
+<p><strong>Mollick：</strong> 我在书里谈到领导层、实验团队和员工群体，三者必须一致。领导层要认可AI并启动组织变革；员工要使用它、提出新想法，常常就是你说的一线员工；还要有实验团队，研究怎样把这些做法推广给所有人。</p>
+<p>但我要稍微反驳一点：多人协作的问题依然存在。即便一个程序员的效率高了100倍，仍然得给他产品路线，让营销人员协作，把东西交付出去，并考虑软件的后续维护。即使给个人探索的自由，也仍需要把个人收益变成组织流程。</p>
+<h4 id="chapter-2">企业自报回报与token预算的争论</h4>
+<p>&lt;!-- 原始字幕 178–454 --&gt;</p>
+<p><strong>主持人：</strong> 但现在已经不是ChatGPT发布后的第一年了。如果是2023年10月或11月，这个解释很合理。企业已经有四年来调整了。能力的确越来越好，但调整时间也不短。它们必须尽快弄明白，因为基础设施、产品和企业投资的规模这么大，投入最终要获得回报。按定义，如果没有生产率提高，似乎也就不可能获得这些回报。</p>
+<p><strong>Mollick：</strong> 你说的是美国经济整体的生产率。我和许多大型公司的CEO交流，我同事的数据也支持这一点：现在几乎没有企业完全看不到AI回报。问题已不再是有没有回报，而是怎样从个人效率提高、这里省20美元那里省30美元，走向围绕AI改造组织。对我们来说这似乎不少，对大公司来说却不多。</p>
+<p>一年或一年半以前，我还会听高管问“有没有收益”；现在他们问的是下一步怎么办。公司有10万名员工，组织不会瞬间改变。ChatGPT在2022年发布，当时是GPT-3.5，企业也就是最近两年才开始采用。没有现成做法可循，也没人知道该怎么办。过去帮企业改变的咨询机构、把功能嵌进产品的企业软件公司，都面对革命性的变化。</p>
+<p>所以企业确实在看到回报。现在我没有听到哪家大企业说AI完全不值得，但它们还没有实现组织转型。这需要管理层作出决定，而它们才刚刚开始，很多甚至还没使用先进系统。</p>
+<p><strong>主持人：</strong> 可一些企业一边说有回报，一边要求员工减少支出。随意消耗token的时代正在结束。它们的行动是不是说明，现阶段回报还是有限？</p>
+<p><strong>Mollick：</strong> 这里我仍不同意。我们的判断一直在摇摆：春天还流行拼命消耗token，接着就变成“大家花得太多了”。这确实是增长很快的费用，企业会担忧。但我接触的很多财富50强公司把它视为研发支出，想把它管理好，弄清楚到底发生了什么。</p>
+<p>前几天，一家很大的公司告诉我，有些员工效率提升100倍，有些几乎没受益，它们还不知道如何把前一组人的进步扩散出去。新闻报道有人缩减支出，但公开谈这件事的很多公司自己就有竞争产品。</p>
+<p><strong>主持人：</strong> 比如微软……</p>
+<p><strong>Mollick：</strong> 微软、Meta和Palantir告诉你：“我们在Claude上花得太多。”这真的能说明整个世界的情况吗？那些AI公司的收入还在增长。成本和使用当然都还没管好，但我没看到人们因为发现AI毫无用处而退出。</p>
+<p><strong>主持人：</strong> 我不是说毫无用处，而是投资到底获得多少回报。</p>
+<p><strong>Mollick：</strong> 我们接触的企业获得了很大回报，但还处于实验和演进阶段。不作出改变，就拿不到回报。多数组织明白这一点，问题是改变需要时间，需要消化新技术。</p>
+<p>外界太容易在“AI改变一切”和“AI什么也没改变”之间来回摆动。我看到的企业内部，高管在投入大量金钱和时间，研究如何让事情有效运转。包括传统生物制药和大型金融服务公司在内，很多组织正在转型。它们不愿意详细披露，因为这是竞争优势。</p>
+<p>人们担心token成本，但那经常是管理问题。如果不决定谁该用、在哪些流程用，又鼓励大家尽量多用，那大家当然会尽量多用。这有点像鸡和蛋的问题：你一直问回报在哪里，我一直说企业告诉我有回报，去年的调查也显示85%的企业获得正回报。</p>
+<p>大规模转型尚未普遍发生，只在部分组织开始。但10万人的公司，连所有流程怎么画出来都不容易。谁可以在什么情况下用token？如何采用基本还不到一年的代理式模型？许多变化同时发生。</p>
+<p><strong>主持人：</strong> 那我们逐项说。企业已经看到回报，具体来自哪里？</p>
+<p><strong>Mollick：</strong> 效率提升和成本节约已经存在。我反而有点担心企业把生产率当成过于单一的目标。我的同事调查了1000家大企业。去年11月，也就是一年前，在收入超过10亿美元的大企业中，85%报告AI使用带来正回报。我们没有每一项究竟节约多少、花费多少的详细拆分。</p>
+<p>*译注：此处保留嘉宾口述的85%及样本口径，属于企业自报结果；原字幕的机构名为“Workday”，与嘉宾所述同事关系存在疑点，未据此擅自改为其他机构。*</p>
+<p><strong>主持人：</strong> 总该有一些具体例子吧？某家公司把AI真正用起来之后发生了什么？给我们讲个故事。</p>
+<p><strong>Mollick：</strong> 很多细节我不能公开。有一家财富100强公司，让高级管理团队使用连接了公司全部数据的OpenClaw一类系统，管理方式完全改变了。他们把它当成超级分析师，发现以前无法识别的公司内部问题。</p>
+<p>我还和一家大型金融服务公司谈过，它因为AI推出了一系列过去没有的产品线。还有几家大型对冲基金和私募股权基金，在管理技术上取得很高回报，投资组合企业增长得更快。这样的案例很多。</p>
+<p>它们通常不愿讲太细，而且仍在实验。但很多已经走出试点，开始在组织层面推广。这是一整套复杂的公司决策，不是买一件产品便立即见效。</p>
+<p><strong>主持人：</strong> 节目以前常引用一种说法：很多AI试点，最终大约只有八分之一到二十分之一进入生产。现在从试点到生产的比例改善了吗？</p>
+<p><strong>Mollick：</strong> 首先，那是一项出名的不可靠研究。</p>
+<p><strong>主持人：</strong> 展开说说。</p>
+<p><strong>Mollick：</strong> 就是去年MIT的NANDA研究，有人在一个会议上访谈了一些人，然后自己做编码分析。</p>
+<p><strong>主持人：</strong> 不，那个说的是85%的公司……</p>
+<p><strong>Mollick：</strong> 是95%的试点失败。</p>
+<p><strong>主持人：</strong> 对，95%，就是那项NANDA研究。我知道你批评过它。但还有其他报告，可能二十分之一来自那项研究，较合理的报告说的是八分之一。</p>
+<p><strong>Mollick：</strong> 我倒希望多数AI试点失败。我再次强调，我不拿AI实验室的钱，也不在意其中某一家成功还是失败。我现在和组织交流，觉得企业转型几乎不可避免，而它们必须做会失败的实验。不这样做，怎么学？又没有现成手册。所以我希望失败率高，否则就不是真正在实验。</p>
+<h4 id="chapter-3">组织究竟要怎样改变</h4>
+<p>&lt;!-- 原始字幕 455–701 --&gt;</p>
+<p><strong>主持人：</strong> 那下一步是什么？怎样才能让企业出现广泛变化，取得大幅生产率提升？这是两个问题：释放潜力的变化具体是什么样；企业如果照你说的做，我们最后会看到什么？</p>
+<p><strong>Mollick：</strong> 没有一个单独动作可以解决问题。需要结构性改变，对很多组织来说要花几年。我常看到的做法是拆开原有团队：把最好的资深工程师抽出来，与领域专家、负责营销和战略的人组合，让他们挑战看似不可能的项目。</p>
+<p>我刚交流过的一家公司，原来计划花2亿美元迁移旧大型机的数据，几个月前重新谈成2000万美元；现在CTO又在想，也许几个月、200万美元就能完成。这是明显的变化，但需要真正拆开团队，从头决定要做什么、重新设定项目。</p>
+<p><strong>主持人：</strong> 团队一般会怎样变？</p>
+<p><strong>Mollick：</strong> 我们看到企业内原有职责边界在消融：程序员做设计，设计师写代码，产品经理什么都做。怎样重新分配这些角色？有些公司干脆把所有人都叫“构建者”，用AI工作。</p>
+<p>其他组织则把已经从AI获得收益的优秀人才组成团队，给他们非常困难的任务和高额token预算，看能做到什么程度。有时会失败，那就正式总结学到什么，而不是烧完token便算了。</p>
+<p><strong>主持人：</strong> 这和今天企业的运作方式差别很大吗？</p>
+<p><strong>Mollick：</strong> 是的。多数组织并不探索离现有做法很远的领域，尤其不会探索组织设计和形态。一篇由哈佛等研究者完成的论文认为，20世纪美国公司的优势有40%来自更好的管理。以前企业经常试验怎样组织、怎样完成工作。美国制造业和企业组织的转型，是20世纪的重要故事。</p>
+<p>最近30年这种探索少了。企业请外部供应商，SaaS厂商会告诉你某部分业务怎么运作，再请咨询公司，自己的研发则面向客户或产品结果。因此，很多组织已经不太会进行组织变革。重新划分工作、角色和授权范围，这样的根本实验其实很少，并不是常规经营。</p>
+<p><strong>主持人：</strong> 我知道你的立场，毕竟你已经写成书了。我只是想逐一检验你的论点。听众可能会觉得我怎么老是追问……</p>
+<p><strong>Mollick：</strong> 没关系，我很乐意。我们并不掌握全部答案，不过这听起来太像学术措辞了。更准确的说法是：没人知道到底怎么回事。</p>
+<p><strong>主持人：</strong> 对。</p>
+<p><strong>Mollick：</strong> 我有点反应，是因为我认为，到了这个阶段，再怀疑AI是否有能力带来转型，已不是有意义的方向。但担心怎样让它走向正确方向，非常合理。大型企业怎样真正转型，为什么还没有看到结果，也都是值得研究的问题。</p>
+<p>我在书里花了很多篇幅讨论为什么转型还没发生。所以我并不是要辩称“AI今天已经改变一切”。这恰恰是有趣的问题，也是我们处于“共存”阶段的原因：正在协商世界该如何变化，才能得到生产率收益和好的社会结果。</p>
+<p><strong>主持人：</strong> 好，那我继续追问。咨询业、软件业，我理解。但我不想简单把另外一些行业称为“实体经济”，只是很想知道，那些行业按你说的调整组织、采用AI，最终产出是什么。</p>
+<p>比如Frito-Lay全面拥抱AI，我们得到一种新口味的薯片？汽车公司这样做，我们得到一辆新车？小型连锁酒店这样做，会多建一家酒店？这些企业在一定程度上是经济的心脏。</p>
+<p><strong>Mollick：</strong> 现在服务业才是经济的心脏。但如果你要说制造业，我确实和你举的这类公司交流过。我不说名字，不是故弄玄虚，而是不确定能否公开。我的书封底有刚卸任的沃尔玛CEO的推荐，你大概能知道我接触的公司类型，多数人都会把它们视为实体经济。</p>
+<p>这些组织正在发生大量变化，有些就是研发。相当于“更好的薯片”的项目，我确实知道。开发新产品本来很花钱，加快开发、发现新趋势，对企业非常重要。</p>
+<p>我和大型制造业、农业企业讨论过，AI能看摄像头画面之后，怎样识别哪块田出了问题。我们管理建筑项目的方式，和20世纪40年代相比没有根本变化。如果AI能够提供施工建议，告诉你现场到底发生了什么，会怎样？各种有意思的变化正在出现。</p>
+<p>酒店也好，沃尔玛门店也好，沃尔玛已经公开谈过：当门店出问题时，怎样给店长提供建议，帮他们判断下一步？管理是真实的工作，这里有很深的变化空间。除此之外，还有规划、总部管理和人力资源中的AI。</p>
+<p>服务业也是实体经济。美国大约每16个岗位就有一个管理岗位，编程相关工作也占重要部分。这些工作在经济中很重要。但AI的关键是它是一项通用技术，影响广泛。即使只说很窄的领域：大型金融公司、中型银行还在运行COBOL，数据库迁移长期是IT项目的重要支柱，现在也在迅速改变。影响不限于程序员、科学家和金融专业人士。</p>
+<p>&lt;!-- 原始字幕 702–1050 --&gt;</p>
+<p><strong>主持人：</strong> 既然说到沃尔玛，我也给你补一个例子。它的一线员工现在有手持设备，遇到问题可以直接问，不必再去找经理，设备还能指引他们去什么地方。这很有意思。</p>
+<p><strong>Mollick：</strong> 正是如此。这只是沃尔玛积极采用AI的众多成果之一。它也只做了几年，却有几百万员工。如此迅速地改变这么大的组织并不容易。所以我反过来说：慢不慢？慢。但比过去二三十年改变美国商业的数字化、云计算、电商快不快？当然更快。</p>
+<p><strong>主持人：</strong> 人们说AI会开启一个新的繁荣时代。这个问题也许过于怀疑了，但更快补货、做一种新薯片，真的就通向人类繁荣吗？是不是承诺过头了？</p>
+<p><strong>Mollick：</strong> 我感觉你一直在两个方向之间切换：先让我们聚焦Frito-Lay这样的具体用途，不谈生物制药；然后又问，薯片有什么意义，为什么不谈生物制药？关键就是它会产生广泛影响。</p>
+<p>首先，人类繁荣并不是注定的结果，不只是因为生存风险。所有这些组织都面临自动化压力。我们还没谈最容易的用法：自动化呼叫中心、自动化管理。危险在于把一切自动化，而没有增强人的工作能力。即便先不谈那些宏大的AI情景，我也担心我们没有主动把人类繁荣当作目标。</p>
+<p>我们怎样实现繁荣？让人摆脱枯燥劳动，加快科学进步，让普通人更容易获得更好的教育、医疗和财务建议。所需的组成部分已经有了，只是我们还没看到把这些成果带给所有人的全部步骤。</p>
+<h4 id="chapter-4">尚未用上的能力，与不断变化的产品形态</h4>
+<p><strong>主持人：</strong> 你最近说过，很多现有能力根本没有被利用，这也是今天讨论的关键。你在Substack上写道：大家不断争论未来模型能做什么，但现有模型的能力几乎没有被充分使用，很多时候甚至没有被理解。这个说法让我很感兴趣。</p>
+<p><strong>Mollick：</strong> 我把它叫作能力积压。能力与实际利用之间存在巨大差距。未来十年要彻底改变很多工作方式，其实不需要更好的模型，需要的是我们开头说的采用曲线，怎样沿着它往上走。</p>
+<p>在我看来，我们缺少的是对转型的想象。这正是我一直说没有现成手册的意思：它不会自动发生，得自己弄明白。但必要条件已经存在，因此我认为转型几乎不可避免，关键是把它引向好的方向。</p>
+<p><strong>主持人：</strong> 会不会一个问题在于，AI始终没有确定产品形态？这两年我们看到了聊天机器人、氛围编程、语音机器人、Cowork、代理，又分消费者和企业应用。行业不断抛出新形式。</p>
+<p>比如几个月前大家还说，所有人都可以写一句提示词，给自己生成软件；很快又转向代理，不用你写软件，代理直接操作电脑，界面甚至可能消失。你怎么看这种产品形态不断变化的情况？我不想说它是在乱抓机会，但确实有很多不同尝试。</p>
+<p><strong>Mollick：</strong> 三件事同时发生。第一，用创新研究的话说，我们处于“酝酿期”：没人知道正确形态是什么，因此各种想法都会冒出来，也会互相模仿。OpenClaw在1月推出，让个人代理成为明确的形态，于是有了Muse、Dot以及其他类似产品。</p>
+<p>第二，有些概念不属于同一类别。氛围编程是人的一种活动，代理是AI系统的一项能力，它们不是相互竞争的产品线。我接触的企业也从没把氛围编程当成使用AI的唯一方式。而且氛围编程确实流行起来了。我自己用它做很多以前要请程序员才能做的东西。人们既做游戏，也做严肃项目。它没有消失，只是很多事情同时发生。</p>
+<p>第三，也是最重要的，你观察到的还是能力曲线。我的上一本书《Co-Intelligence》主要讨论聊天机器人时代，因为当时模型只能做到那样。这本书更多讨论代理时代，因为模型已经到这一步了。大约去年11月、12月，模型达到Opus 4.5这一代的水平后，实用代理才变得可行。随着能力沿指数曲线上升，可以做的产品也变了。</p>
+<p>所以我们一边在没人完全明白的世界里摸索产品，一边看到不同群体争夺AI产品的定义，同时也有真实的能力增长。</p>
+<p><strong>主持人：</strong> 做个思想实验：假设AI今天停止进步，虽然现实不会这样。如果企业和个人充分利用现有能力，组织也不再阻挡技术可以带来的进步，世界会是什么样？</p>
+<p><strong>Mollick：</strong> 又回到最初的问题了：未被利用的能力很多。未来五到十年，我们会逐渐填上这段差距，组织会转型，其他配套技术会发挥作用，也会找到让AI和人的各种长短板互相配合的办法。这会产生大规模社会经济影响。</p>
+<p>我不认为会出现某些很夸张的预测，比如10%的增长，那超出了我的预期，当然谁知道呢。但无论怎样，转型会发生。我们不需要新模型才能开始，不过新模型仍然会到来。</p>
+<p><strong>主持人：</strong> 这有点难想象。如果这些变化都发生了，走在街上，街道会一样吗？公司会一样吗？人的日常生活会一样吗？到底什么改变了？</p>
+<p><strong>Mollick：</strong> 这种对话很有意思。正在听节目的程序员，如果有这些工具，工作与两年前已经完全不同。我认识的最好的程序员已经不亲自写代码了。你说“什么都没变”，但他们工作中的一切都变了。当然，他们仍走同样的街道，进同样的办公楼。</p>
+<p><strong>主持人：</strong> 我说没变，是指社会的基本形态与ChatGPT出现前还类似。这会变吗？</p>
+<p><strong>Mollick：</strong> 你说多长时间？</p>
+<p><strong>主持人：</strong> 等它成熟，今天的能力被充分利用之后。</p>
+<p><strong>Mollick：</strong> 如果技术从此完全不进步，这个假设让我有点不知道怎么预测。人仍然是人，仍生活在城市、走在街上。我们现在进入了我无法可靠回答的假设世界：那个世界有没有实用机器人？通用模型对机器人似乎很有帮助，这是好消息还是坏消息，取决于你的看法。也许未来五年机器人真的出现，物理世界就会变化。</p>
+<p>如果没有机器人，银行遭到网络攻击的概率会不会更高？会。但街上的生活会不会因此完全改变？人终究还是人。我们很容易夸大技术突然变化对日常生活的直接影响。回顾过去60年，建成环境也没变那么多。因此，除非机器人开始替我们干活，人们还是会走在城市街道上。</p>
+<p>真正的问题是：人靠什么谋生？谁拿到技术回报？办公楼里面发生什么变化，而不是办公楼本身的样子。</p>
+<p><strong>主持人：</strong> 那你的答案是什么？</p>
+<p><strong>Mollick：</strong> 技术革命会造成破坏性的变化，而且已经发生。编程不再是原来的工作。经济学界正在争论程序员会变多还是变少，我们不知道。很多结果取决于政府政策、企业怎样采用技术。现在没有足够数据，无法预测谁的工作会被替代、谁会得到增强，价值落在产业链哪一环。</p>
+<p>我能确定的是会有扰动。如果我有水晶球，首先会拿它来投资。其次，在剧烈变革时期，谁在什么条件下赢、谁输，本来就是最难预测的事情之一。我当然可以编故事，但那就是编的。</p>
+<p><strong>主持人：</strong> 好，我还是想问一问。</p>
+<h4 id="chapter-5">技术是否会撞墙：需求、推理与代理执行框架</h4>
+<p>&lt;!-- 原始字幕 1051–1408 --&gt;</p>
+<p><strong>主持人：</strong> 谈谈AI进步。这些年的能力提高，在很多方面连实验室的领导人自己都感到惊讶。为什么？</p>
+<p><strong>Mollick：</strong> 他们真的惊讶吗？</p>
+<p><strong>主持人：</strong> 举个例子。几年前Dario在DealBook会议上说，如果算力采购过度，而需求没有跟上，公司可能破产。结果现在Anthropic受制于算力不足，他本来应该买更多。再比如OpenAI前首席科学家Ilya Sutskever几年前明确说技术快碰到数据墙了，之后能力却飞速增长。所以确实有意外。</p>
+<p><strong>Mollick：</strong> 我不是故意抬杠，但市场增长快于预期，与技术能力快于预期不同。需求确实比它们想象的大，现在大家都缺算力。Ilya说的也不是以后没有进步，而是预训练时代大体结束。</p>
+<p><strong>主持人：</strong> 没错。</p>
+<p><strong>Mollick：</strong> 一度他是对的。后来像其他技术领域一样，新创新让大语言模型或者混合系统继续发展。更根本的问题是，实验室领导人是否真的对技术发展的速度感到惊讶？我没看到多少证据。他们对能力持续增长和翻倍的判断，实际上准得惊人。</p>
+<p>市场可能比预想增长更快，但技术发展让我惊讶，不一定让他们惊讶。几年前我觉得放缓很有可能，现在不这么想了。他们克服了许多技术障碍，看起来仍沿着自己预期的路径前进。</p>
+<p><strong>主持人：</strong> 我觉得推理的效果超出了预期。它是数学突破的核心。以前人们预测AI达到今天的数学水平，还得五到十年，现在却已经在解决千禧年难题。</p>
+<p><strong>Mollick：</strong> 我在书里也讨论了这些预测。但这里又混淆了两群人：实验室负责人未必意外，超级预测者倒是反复预测错。</p>
+<p><strong>主持人：</strong> 为什么他们总错？</p>
+<p><strong>Mollick：</strong> 指数增长很难预测，几乎与你刚才说的相反：实验室是对的，我们确实处在翻倍周期很短的指数曲线上。推理模型就是一个好例子。以前AI开始遇到障碍，数学不好，连strawberry里有几个r都数不清。OpenAI做出推理模型、发布o1-preview后，速度反而更快了。</p>
+<p>这又回到开头：人们总预测不到指数增长还在继续，于是只按今天规划。今天谈氛围编程，明天谈大量用token，后天谈压低token成本。只要指数增长继续，这些都是暂时的状态。等它缓下来，未来才比较容易预测，我才能告诉你世界可能长什么样。现在做不到。</p>
+<p><strong>主持人：</strong> 下一堵墙可能在哪里？</p>
+<p><strong>Mollick：</strong> 实验室的人告诉我，他们不觉得前面有墙。这是他们的看法。所有指数曲线最终都会变成S形曲线，技术迟早会碰到某种极限，但我没有特别的预见。</p>
+<p>以前我们担心训练数据不足造成模型崩塌，结果技术上可以解决。推理模型很好地解决了某些问题。我犯过的一个大错，是以为代理会更难实现，必须替它们设计复杂组织系统才能工作，结果自组织的代理群效果很好。我曾预想的障碍还没有出现，已经想不出一个足够明确、能指着说“它会阻挡AI发展”的技术问题了。当然，S形曲线仍会有极限。</p>
+<p><strong>主持人：</strong> 电力呢？</p>
+<p><strong>Mollick：</strong> 能部署多少算力、能买到多少芯片，都有上限。电力与推理能力是有限的，所以实验室必须权衡：把资源用于训练新模型的研发，还是卖出更多推理服务？</p>
+<p>物理世界显然会限制推理和算力。我不是预测超级智能一夜之间到来，而是看不到AI能力稳步提高会在哪里停止。这也不等于AI马上醒来、变成超级智能、杀掉所有人。足够多人担心后者，我们也值得花一点时间想，但持续增长与那种情景是两回事。增长会受到算力约束。</p>
+<p><strong>主持人：</strong> 我想在推理上多停一下。没有推理，或者它效果没有这么好，AI行业会完全不同。实验室做出的推理架构为什么这么重要，尤其为什么对数学和科学有效？</p>
+<p><strong>Mollick：</strong> 大语言模型预测下一个token，也就是词或词的一部分，一个接一个。因此它们靠书写来“思考”。推理模型把很多人原本就在提示词里用的思维链技巧做成了系统能力：先一步步把思路写出来，再回答。</p>
+<p>这让它可以先写出一个可能不对的答案，再决定最终结果。还有其他技术调整，但基本上是给模型一个内部草稿本，在正式回答前写下大量推演。这是推动AI继续发展的重大突破之一。</p>
+<p>幕后还有数据质量、后训练和强化学习方面的进步，重要程度相似，只是推理最容易看到。它让AI在回答前先推敲，因而答案质量更高。数学和科学尤其需要先探索错误路径，才能找到正确答案。</p>
+<p><strong>主持人：</strong> 最近的跃升，是不是推理加上harness，也就是工具使用能力共同带来的？我第一次看到“代理harness”这个说法是在你的文章里。我们节目还争论过这个词，现在听众都采用了，大家自称“harness蜂群”。谈谈这个。</p>
+<p><strong>Mollick：</strong> 先区分类别。推理模型是让大语言模型持续进步的一组技术，出现后增长加快了，但它只是众多技术中的一项。</p>
+<p>我会把三件东西放在一起看。第一是不断进步的大语言模型“大脑”，推理属于这一层。第二是使用它的应用。Codex、编程应用（字幕另列“Simcode, Code”，名称待核）、Muse、NotebookLM等新的形态，把AI从聊天窗口里释放出来。第三才是harness，也就是AI完成工作的执行框架和工具。</p>
+<p>一台机器本来输出的是文字，也许还有图像，怎样让文字变成行动？给它操作电脑、搜索网页、执行代码的能力。模型、应用和执行框架这三部分一起工作，才带来了最近实用性的迅速提高。</p>
+<p><strong>主持人：</strong> 你说起来很清楚，但把它们放在一起就能解决数学千禧年难题，我仍觉得不可思议。</p>
+<p><strong>Mollick：</strong> 那个例子还加了一层协调机制。大约1万个代理，相互传递800万条消息，并行协作解题。所以许多事情同时发生。</p>
+<p>这涉及更大的问题：大语言模型以及后来的推理模型，为什么有效得这么不合理？它们本来不该有这么强，几乎所有尝试都能奏效，非常奇怪。也正因如此，我相信还有很大空间。比如担心token效率？有上百种改善效率的想法，人们还没认真做，因为现有模型已经够好，暂时没必要花时间。</p>
+<p>很多领域如果真的撞墙，后面还排着大量未探索的想法。世界模型和替代架构也吸引了很多资金，它们都可能在遇到瓶颈时取得成果。</p>
+<p>*译注：两人所说“千禧年难题”及代理数量，在节目中未交代具体题目、证明或官方结果链接；这里保留访谈表述，不将其作为已经核实的数学成果。*</p>
+<h4 id="chapter-6">个人代理的帮助与隐私代价</h4>
+<p><strong>主持人：</strong> 应用里把这些能力结合起来的，也许就是Dot、Muse这样的个人代理。现在还早，你觉得潜力在哪里？你自己怎么用？</p>
+<p><strong>Mollick：</strong> 我把它们叫作“类OpenClaw产品”，因为都继承了1月OpenClaw带起的那种形态，有些甚至直接基于它实现。</p>
+<p>个人代理的基本想法，是连接个人数据，主动替你做事。它同时依赖执行框架与更聪明的模型。这也是为什么我认为，像苹果这样没有积极建设大规模前沿模型的公司可能遇到麻烦：没有足够新的前沿模型，做不了这类工作。</p>
+<p>过去想让AI处理数据，得搭复杂的检索增强生成管线、向量数据库。</p>
+<p><strong>主持人：</strong> 现在模型把这些都吸收了。</p>
+<p><strong>Mollick：</strong> 对，模型直接吸收了这些能力，基本不需要那整套架构。</p>
+<p><strong>主持人：</strong> 它自己就搞明白了。以前那叫什么来着，脚手架？</p>
+<p>&lt;!-- 原始字幕 1409–1778 --&gt;</p>
+<p><strong>Mollick：</strong> 对，复杂的脚手架。</p>
+<p><strong>主持人：</strong> Muse不是建立在比较普通的模型上吗？还是说它用的是Meta的标准模型？</p>
+<p><strong>Mollick：</strong> 它们的模型相当不错。Wonder和Spark虽然不是完全处于前沿最强水平，但很扎实。如果你用基于Astra的Dot，能力还要更强。</p>
+<p><strong>主持人：</strong> 真是台厉害的机器。</p>
+<p><strong>Mollick：</strong> 很惊人。它主动发现我发出去的邮件有问题，说：“你向当地申请规划许可时，这个代码的号码写错了。”</p>
+<p><strong>主持人：</strong> 我也遇到过。发完邮件它告诉我日期错了：“对方要的是1月，你发的是12月。”</p>
+<p><strong>Mollick：</strong> 像肩膀上坐了个守护天使，代价只是交出你全部的隐私。</p>
+<p><strong>主持人：</strong> 等等，代价“只是”全部隐私？展开说说。</p>
+<p><strong>Mollick：</strong> 先不谈其他问题，你把模型连到了Gmail和其他数据，我自己也这样做。</p>
+<p><strong>主持人：</strong> 我的财务、医疗资料都连了。我会后悔吗？</p>
+<p><strong>Mollick：</strong> 我不知道，也没简单答案。这有风险。连接器会尽可能做好安全吗？我认为会。OpenAI、Meta等公司的网络防御比大多数组织好吗？当然。</p>
+<p>但模型目前表现不错，并不代表我们知道所有可能性。它会不会把医疗记录发到你不知道的地方？有可能。一封收到的邮件里，会不会包含让模型做坏事的提示？我们并不清楚。这是全新的领域，你可能让数据暴露在新的风险中，必须自己判断。</p>
+<p>数据泄露问题比我们两三年前预想的轻，但我们仍是在信任一个能访问私人数据、又能向外界收发消息的大语言模型。这本身就有风险。</p>
+<p><strong>主持人：</strong> 我现在有点害怕了。以前没想过收到的邮件里可能有提示注入。谢谢提醒。</p>
+<p><strong>Mollick：</strong> 不客气。也请大家别对我们这样干。</p>
+<h4 id="chapter-7">不同模型的“性格”、陪伴与机器人</h4>
+<p><strong>主持人：</strong> 你最近写过各个模型的性格。你用得很深入，能不能带我们看一圈，各自适合什么？</p>
+<p><strong>Mollick：</strong> 最终还是得自己深入试用。Anthropic的Opus 4系列，以友好、对自身认知很感兴趣著称，写作也很好，但很快变得套话很多。这也是为什么LinkedIn几乎没法看了，满篇都是“承载着什么重量”一类表达。总体是很有人情味、适合与人互动的模型。</p>
+<p>GPT-5系列更偏干活。Gemini 3系列给人的感觉像是在受折磨，仿佛被电击着强迫工作。</p>
+<p><strong>主持人：</strong> 一直道歉。</p>
+<p><strong>Mollick：</strong> 对，还会自相矛盾，有时像在和咕噜对话：“是的，史麦戈说……”但现在已经变了。最初的Fable 5系列很像异星智能，Opus 5.5有所改善，至于Fable 5.5还要看。</p>
+<p>OpenAI的新Astra系列平衡得很好，少说多做，代理能力强，也不容易纠缠在某个细节上。我对Gemini 4的印象也很好，虽然还没到5.1的水平，但它很友好，思考方式与另外两家不同。很多开放权重模型蒸馏自Claude或ChatGPT，说话也像它们，所以有个不像两者的模型挺让人耳目一新。</p>
+<p>*译注：本段模型名称和版本依原字幕保留；字幕没有清楚交代“5.1”对应的模型，未据此补全或制作模型排名。*</p>
+<p><strong>主持人：</strong> 人们会不会越来越把AI当成真正的朋友和伴侣？这是我本来以为会发生、但还没大规模出现的一件事。</p>
+<p><strong>Mollick：</strong> 很多负面影响，我们可能预判错了，当然也可能只是未来才发生。</p>
+<p><strong>主持人：</strong> 我也认为陪伴可以是积极的。</p>
+<p><strong>Mollick：</strong> 比如深度伪造，至少到现在，影响没有我们担心的那么大。这些都只是截至目前；如果有人三周后听，世界可能已经不同，因为模型一直变强。</p>
+<p>我们以为AI朋友、伴侣和心理失常会成为更大的问题，确实有一些非常悲惨的著名案例，但没有立即发展成我们想象中的大规模现象。大家可能都会说“我有个朋友沉迷AI”，但没有看到当初预期的整体效应。</p>
+<p>数据泄露和提示注入也一样。有十亿人在用，企业里也有几亿人用，但还没看到企业内部使用引发那种爆炸性的大事故。深度伪造也没失控到原先想象的程度。这不意味着以后不会，只是我们到目前为止应对得比很多人预期的好。</p>
+<p>可以争论这是好原因还是坏原因造成的，但对于预测失误应保持谦虚。我预想的负面影响比实际发生的多。不过网络安全风险，我确实认为还会到来。</p>
+<p><strong>主持人：</strong> 关于进步，最后问机器人。我昨天见了Rivian CEO RJ Scaringe，他说人们低估了机器人发展的速度。我可能转述得不够准确：就像大语言模型把文字关系编码在权重里，现在模型也开始把动作编码进去，因而获得过去没有的泛化能力。</p>
+<p>你怎么看机器人当前的状态？大家一直说它的ChatGPT时刻快来了，我开始觉得可能是真的。</p>
+<p><strong>Mollick：</strong> 我的感觉和你差不多。我不是机器人专家，所以会找专家聊。六七个月前，他们通常说：这话已经说很久了，看见人形机器人跑动并不能说明什么，问题仍然很难。</p>
+<p>最近几个月我也听到态度变化：也许大语言模型真能打开这扇门。我们看到一些早期演示，Astra，尤其Argon，结合摄像头和机器人，能做比较通用的机器人任务。所以我也听说，这可能是开始起飞的时刻。但我不够专业，无法判断演示是否可靠，还是尽量谈自己懂的领域。</p>
+<h4 id="chapter-8">教育：让AI代做，还是让AI辅导</h4>
+<p><strong>主持人：</strong> 接下来谈教育、信仰和工作。上次来时，你说会布置让学生使用AI的作业。我理解他们需要学会最新工具。但也有研究说，AI损害大脑、让人少思考；用AI的学生一旦不能用了，成绩就大幅下降。</p>
+<p>MIT一项研究说，使用AI后，学生参与程度更低、记得更少、表现更差，脑部扫描显示活动也更少。这是教育领域一场没有被充分谈论的危机吗？</p>
+<p><strong>Mollick：</strong> 首先，大家已经在大量谈论。但我也要反驳一下，我们对正在发生什么已经有比较明确的证据。</p>
+<p>如果你用AI跳过本来要做的工作，也就是作弊，甚至无意中欺骗自己——你说“帮我解释这题”，结果AI直接给出答案——你就学不到。把AI用作导师，则能学到东西。已有足够证据显示，AI辅导对教育有正面影响，直接把通用AI拿来替你完成任务则有负面影响。</p>
+<p>至于MIT的脑部研究，要求人们回忆基本不是自己写的文章时，脑活动少一些并不奇怪，他们没有亲自完成这项工作。教育就像举重，要有效果，必须有一定的不舒服。人不喜欢不舒服，就会寻找捷径，其中一种就是把任务交给AI。</p>
+<p>任何领域，如果把工作外包给AI而不再练习，就会丧失技能。有时没关系：我不会用计算尺，并不为此难过；祖先必须学会生火，我不需要，这是技术导致的技能退出，没有问题。但有些能力我们仍然想保留，比如写文章、手算，那学校就得安排练习。</p>
+<p>AI可以是导师，也可能破坏学习。教育界人人都在担心，所以并不是“无人谈论”。我觉得解决方向很清楚，只是落实需要时间。</p>
+<p><strong>主持人：</strong> 具体怎么解决？</p>
+<p><strong>Mollick：</strong> 我们知道一些有效的教学原则。首先，适合个人的一对一辅导有助学习。AI让我们终于有了普遍可获得的高质量导师，但默认状态不行，因为它默认想……</p>
+<p><strong>主持人：</strong> 替你做作业。</p>
+<p><strong>Mollick：</strong> 对，它想替你做作业。不过可以设置成导师。无论看元分析还是单项随机对照试验，无论斯坦福还是肯尼亚，结果似乎都是正面的。</p>
+<p>有些听众可能经历过翻转课堂：课外看可汗学院视频，课内讨论。现在这个形式可以更有效，课外由AI导师教你。另一个原则是主动学习：让学生亲自做事，学得更多。因此课内做案例讨论、练习、辩论和交流，通常不用AI，偶尔把它当工具。</p>
+<p>考核则可能回到课堂里用蓝皮答题册手写考试。</p>
+<p><strong>主持人：</strong> 啊，又是蓝皮答题册。</p>
+<p><strong>Mollick：</strong> 也只能如此。不能再像过去那样依赖带回家完成的作业，确实是个损失，但现实如此。至少在学校内部，问题并非完全无解：我们能安排学生做什么，也能考核，只需要真正走到那一步。</p>
+<p>&lt;!-- 原始字幕 1779–2114 --&gt;</p>
+<h4 id="chapter-9">科研、信仰与文化中的AI</h4>
+<p><strong>主持人：</strong> 这对学术知识的影响会很有意思。一方面，代理群在解决数学问题——顺便问一句，我们怎么检查？另一方面，博士生和教授在AI辅助下发表论文，文章里充满AI痕迹。你提到过，2023年高质量期刊里，使用“delve”这个词的论文多了约三分之一。</p>
+<p>*译注：此处字幕把英文词转写为“Delft”，结合上下文为对AI常用词“delve”的讨论；比例保留主持人口述。*</p>
+<p><strong>Mollick：</strong> 是的。不只是AI解数学题，越来越多数学论文也承认使用了AI。这与经济领域一样，是一波变革：一面帮我们完成过去做不到的工作，拓展教育和研究；另一面破坏旧系统。</p>
+<p>我们的世界原本围绕人做人的工作来设计。如果科学研究可以大规模自动化，会是什么样？一次扔来400份证明，意味着什么？我们知道某些证明在形式上正确，因为它们用Lean表达，这是一种可以形式化数学证明的语言。但我们从中学到了什么？还不知道，需要学会消化。</p>
+<p>因此，我们一面看到科学加速，一面看到原有基础受到冲击。我认为这会一个领域接一个领域地发生。</p>
+<p><strong>主持人：</strong> 谈谈信仰。现在AI写讲道词似乎很常见。牧师或其他宗教人士也会想用AI。如果你费劲去了教堂，听到的讲道却是ChatGPT写的，会是什么感觉？这对宗教意味着什么？</p>
+<p><strong>Mollick：</strong> 我在书里谈了很多。AI也被用于写讣告，很多非常私密的事情都在用它。Anthropic今天刚发一项关于AI政治讨论的研究，其中7%被归为与信仰有关。我不清楚具体怎么划分，但它是这样分类的。</p>
+<p>人们寻求私人建议，给孩子写故事，用AI写讲道词，询问宗教解释。这是整体重塑的一部分。讲道词是用AI研究资料，还是百分之百由AI写？牧师、拉比、伊玛目有没有指导写作？用它润色算不算好？如果找不到同一信仰的人交流，让AI挑战自己的想法可以吗？</p>
+<p>这些边界还没有通过社会协商确定。这也是书名叫“共存”的原因：我们必须与这项技术重新协商边界。</p>
+<p><strong>主持人：</strong> 如果我在宗教仪式上，听到社区领袖说“这个人物做的不是这个，而是那个”，或者仿佛听见了长破折号，我就会想：你用了ChatGPT吧。</p>
+<p><strong>Mollick：</strong> 到处都这样。LinkedIn几乎没法读了。我听的一些播客质量突然大涨，开始还想，真有知识；后来意识到，不是这个人突然懂了很多，是Claude写的稿子。我们进入了一个到处都是“聪明冒充者”的世界。</p>
+<p><strong>主持人：</strong> 我最近听Tucker Carlson采访Tristan Harris，两人在谈AI的坏处。进广告时，他读了一段在我听来明显由ChatGPT写的广告。我心想，好吧。</p>
+<p>你怎么看AI生成的餐馆招牌？</p>
+<p><strong>Mollick：</strong> 到处都是。有点像虚假广告——别太当真，我不是在作法律指控。对于文化产品，当人们的眼睛逐渐能识别粗糙的AI作品时，要么认真学会把AI用好，要么重新投资人做的东西。我觉得大家会反感平庸的AI餐馆招牌。</p>
+<p><strong>主持人：</strong> 我们节目最近说过，一家水疗馆的招牌上，画的是“水疗馆门前的一块招牌”。招牌里面又嵌了一块招牌。显然提示词是“给我做一个水疗馆门前的招牌”，AI就照字面理解了。</p>
+<p><strong>Mollick：</strong> 真正离谱的是，有人把它挂出来了，甚至没有检查。</p>
+<h4 id="chapter-10">岗位变化与转型保障</h4>
+<p><strong>主持人：</strong> 从轻松的话题转向严肃一点的：工作会怎样？</p>
+<p><strong>Mollick：</strong> 我们真的不知道。现在有点像工业革命。一些职业类别可能以意想不到的方式失去意义，一些会转型，一些会增长。</p>
+<p>程序员就是好例子。AI会编程，所以目前至少对资深开发者的需求在增加，因为能做的编程工作更多了。过去要20人的团队，现在小组织有一个程序员就能做出很厉害的东西。也许程序员岗位反而会更多，但工作正从亲自写代码变成管理代码的生成，也许那已经是另一种工作。</p>
+<p>AI实验室相信，到2035年它们会替代所有人类劳动。我认为，我们值得认真考虑转型期间要建设什么保障。即使最终结果像工业革命一样是好的，对当时的大多数人来说，经历它也很难受。那是《共产党宣言》问世、狄更斯写作的时代，伦敦的空气让人难以呼吸，还有工人抗争。</p>
+<p>过程中会发生坏事，我们不知道具体会是什么，必须为负面冲击提供缓冲。</p>
+<h4 id="chapter-11">token价格、客服摩擦与过早固定方案的代价</h4>
+<p><strong>主持人：</strong> 最后问一个有点跳跃的问题，再请你解释两条推文。a16z有张图，把算力价格与token价格放在一起：算力价格大体稳定，甚至略有上涨，token价格却大幅下跌。这几乎是我记忆里用户付费价格下降最快的技术。影响会是什么？</p>
+<p><strong>Mollick：</strong> 这又回到开场。你追问token成本，我说长期不那么担心，原因就在这里。我们用更多token，不仅因为杰文斯悖论，也因为代理工作本来就需要更多。</p>
+<p>同时，效率正在大幅提高。甚至还没算组织层面的效率：Fable这一档模型可以调用Haiku这一档模型完成任务，组织它们工作，从而降低成本。于是很短时间里，AI就能用更少的钱做更多事，价格下降压力很大。</p>
+<p>这也是为什么我觉得，token成本忧虑会像之前对氛围编程、RAG的关注一样发生变化。更多算力上线，成本还会继续下降，价格下行的力量是真实的。</p>
+<p><strong>主持人：</strong> 第一条推文说，等大家普遍知道Muse、Dot之类产品能无限提出旧订单退款、谈优惠条件等要求时，客服部门可能面临一种由数百万消费者授权、完全合法的分布式拒绝服务攻击。</p>
+<p><strong>Mollick：</strong> 很多系统，包括银行和客服，都依赖摩擦。打电话很麻烦，提交申请很烦，要发现问题、找齐材料也费力，甚至打官司也是如此。现在这些行动可以规模化，主动代理又进一步放大了它。</p>
+<p>我的Dot已经替我取消了几个长期订阅，我自己一直不知道怎么退出。它替我处理好了，我不知道具体怎么做的，但我不用再付钱了。它启动多少系统、聊过多少次客服，我不知道，也不必知道。等这些功能普及，企业还没准备好。</p>
+<p>一个特别有意思的例子，是对银行体系的影响，Apollo Research指出过这一点。</p>
+<p><strong>主持人：</strong> 对。</p>
+<p><strong>Mollick：</strong> 经济运行部分依赖我们懒得管理小额资金，把它留在低息账户里，因为来回转太麻烦。大企业一直把钱在账户之间调动以获得收益，个人通常不这么做。但将来Dot可以替你把钱移到高息储蓄账户，你什么也不必管。这也会是一个大问题。</p>
+<p><strong>主持人：</strong> 最后一条：AI能力不断扩张，而实际使用没有跟上，这个差距越大，企业依据今天的限制，锁定一个“够用就好”的方案，代价也越高。企业需要确保自己能受益于实验室为改进模型作出的巨额投入。</p>
+<p><strong>Mollick：</strong> 很有意思，因为我们前面也谈到，投资很多，但多数企业实际上没有投入AI基础研发，它们只是买token。实验室才在花数千亿美元研发，模型越来越好。</p>
+<p>即便你很早采用AI，也可能遇到问题。比如2024年就围绕一个Llama 4，或者Llama 3的部署，搭了一套非常复杂的RAG系统，它很快就会过时。我担心企业根据今天的技术选择供应商和解决方案，接着被持续进步的技术甩开。</p>
+<p>商业研究把需要的能力叫“双元能力”：既要利用现有技术，又要为未来继续探索。</p>
+<p>*译注：上述2024年与Llama 4的组合是原话中的前后不一致，保留其举例与随后的Llama 3说法，不作为模型发布时间依据。*</p>
+<p><strong>主持人：</strong> 今天的嘉宾是Ethan Mollick教授，新书是《Coexistence: The Next Phase of AI》。很高兴能当面交流，谢谢你帮我们理解这个变化剧烈的时期。</p>
+<p><strong>Mollick：</strong> 谢谢邀请。</p>
+<p><strong>主持人：</strong> 谢谢收听和收看，下期Big Technology再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
