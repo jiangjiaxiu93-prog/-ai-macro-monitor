@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>纳德拉：代理零信任、企业自有智能与AI投入回报（20VC）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-27<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>纳德拉：代理零信任、企业自有智能与AI投入回报（20VC）</h2>
+<div class="metaline">20VC with Harry Stebbings；Harry Stebbings访谈微软董事长兼首席执行官Satya Nadella · 2026-10-26 · <a href="https://www.youtube.com/watch?v=24XUcWhqY_4" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业代理；代理安全；企业采用；应用层护城河；AI资本开支；微软；纳德拉；20VC</p>
+<h3>要点</h3>
+<ul><li>纳德拉不再相信对齐会随模型规模扩大自然实现。他主张在模型之外建立零信任控制，给代理配置身份、不可篡改日志、策略和行为监控。</li><li>企业应积累自己的知识、使用轨迹和私有评测，保留使用AI创造的价值；这不一定要求拥有模型权重，也可以通过上下文和评测实现。</li><li>他倾向于各技术层都有多家赢家的产业结构，并把长期训练投入与收入、利润和经济增长相联系，同时承认未来算力供需仍无法确定。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">开场</a></li><li><a href="#chapter-2">为什么应该假定模型已经被攻破</a></li><li><a href="#chapter-3">思维链并不可靠，透明度为什么仍然重要</a></li><li><a href="#chapter-4">开放与封闭模型会怎样分配流量</a></li><li><a href="#chapter-5">企业为什么要拥有自己的智能</a></li><li><a href="#chapter-6">AI会催生怎样的实施服务</a></li><li><a href="#chapter-7">从芯片到应用，是否必须全部自己拥有</a></li><li><a href="#chapter-8">千亿美元训练投入，需要什么收入与基础设施支撑</a></li><li><a href="#chapter-9">GDP增长能否加速，哪些场景最有价值</a></li><li><a href="#chapter-10">快问快答：运动、对齐与五年后的企业</a></li><li><a href="#chapter-11">对未来十年最期待什么</a></li></ul></details>
+<h4 id="chapter-1">开场</h4>
+<p><strong>Harry：</strong> 说实话，这期节目让我很有感触。我18岁时，在伦敦自己的卧室里创办了20VC。那时没有钱，通讯录里也没有什么人脉。今天，我有机会与微软首席执行官萨提亚·纳德拉坐下来交谈。微软是过去三四十年间最杰出的公司之一。</p>
+<p>我还想说，在这么短的访谈时间里，纳德拉展现出的亲切感，是我很少见到的。他的论证和想法非常清楚，也能迅速深入问题。这是我会一直记得的一期节目，希望你们也喜欢。</p>
+<p>萨提亚，非常感谢你接受采访。我本来想说谢谢你来演播室，但其实是你在这里接待我们。很感谢你抽出时间。</p>
+<p><strong>纳德拉：</strong> 谢谢邀请我参加节目，Harry。我们说了很久，终于能把这次对话安排上，我很高兴。</p>
+<h4 id="chapter-2">为什么应该假定模型已经被攻破</h4>
+<p><strong>Harry：</strong> 大约十天前，你写了一篇很重要的文章，提出我们应该假定模型已经被攻破。我想展开问问：这是不是意味着，我们不能、或者不应该依赖模型提供商披露的信息？</p>
+<p><strong>纳德拉：</strong> 不是。我现在看到的挑战是，模型的能力越来越强，规模法则确实在起作用。但我原来有一个假设：对齐会随着规模扩大自然出现。现在看来，并不是这样。</p>
+<p>这里还有更多需要解决的科学问题，对模型内部机制的理解也仍然很困难。因此，如果我们想继续使用这些复杂、强大的模型，最好的做法就是用一套信任架构来对待它们。</p>
+<p>毕竟，零信任并不是什么新概念，我们早就有零信任架构的方法。我所主张的是，建立一个通过工程手段实现的零信任环境，让任何出现异常的代理，都能在造成危害之前受到约束。</p>
+<p>如果你想使用能力更强、却未必更好对齐的代理，就需要一套可以依靠的信任系统。</p>
+<p><strong>Harry：</strong> 这个信任系统具体是什么样子？由谁设计，又由谁来作判断？</p>
+<p><strong>纳德拉：</strong> 这是个很好的问题。所以我会说，先把AI安全本身的那个问题放在一边。比如对齐，至少在我看来，它主要需要在训练中实现，甚至可能要在预训练中实现。我不认为单靠强化学习就能把模型做到对齐。</p>
+<p>你需要从一开始，就真正把对齐嵌入权重之中。那是模型本身的事情，希望有一天能实现。</p>
+<p>如果先把这个AI安全问题分开，那么信任架构就属于微软这样的公司，以及网络安全从业者一直在做的事。</p>
+<p>比如，我们开发了Agent 365和Project Perception。它们做什么？给每个代理一个身份，记录它的全部活动、全部工具调用，实际上也包括每次模型调用及其思维链。</p>
+<p>我还在要求，这些思维链最好都用英语表达，而不是所谓的“神经网络内部语言”。这样，你就可以用多个模型来检查它们。</p>
+<p>日志也必须防篡改，不能让代理回头修改自己的记录。然后，你在此基础上设定策略，监控代理的实际行为是否符合策略。这就是那套架构。</p>
+<p><strong>Harry：</strong> 但我们今天还没有这样的架构。这是否只是说明，我们仍处在一个较早的阶段？</p>
+<p><strong>纳德拉：</strong> 这样的架构是存在的。我认为，人们把两件事混在了一起：一件是用工程手段建立零信任安全系统，对代理实施约束；另一件是AI安全本身。</p>
+<p>大家会说，AI安全很难、很难把握，也还没有实现，所以我们在安全防护方面一定无能为力。但我并不是说，这两件事必须同时实现。</p>
+<p>我会说，我们必须处理现实中已经存在的情况。因此，在模型之外建立信任系统，然后积极设定策略、监控偏离策略的行为。</p>
+<h4 id="chapter-3">思维链并不可靠，透明度为什么仍然重要</h4>
+<p><strong>Harry：</strong> 说到监控，思维链究竟有多可靠？</p>
+<p><strong>纳德拉：</strong> 它并不可靠。我们知道，思维链本身可能并不忠实反映模型实际的推理过程。如果模型公司又说：“既然它不忠实，我就把它藏起来”，事情就更糟了。</p>
+<p>所以，我认为应该推动一些标准化工作。至少对可信的合作伙伴，要能原样提供思维链，让它可以被检查、可以被审计，也能用多个模型进行交叉检查。</p>
+<p>坦率地说，这甚至可能成为推动开放权重模型使用的因素之一。这里有一个有意思的矛盾：封闭权重模型能力更强，但如果它们不承认提高透明度的必要性，尤其不愿在可信合作伙伴使用时提高透明度，就可能出现问题。</p>
+<p><strong>Harry：</strong> 谈到开放模型的兴起，我同意封闭模型目前更强。但开放模型主要来自中国。当我们认为安全应该在预训练阶段就嵌入模型，又要求模型披露信息时，大多数开放模型来自中国，这是否会让人担心？</p>
+<p><strong>纳德拉：</strong> 我认为这里有两件事。首先，退一步看，没有AI安全，对中国不是好事，对美国不是好事，对英国也不是好事。这是大家都应该关心的一部分。</p>
+<p>一个没有对齐的中国开放权重模型，同样可能攻击中国。所以，不能认为这种模型只会被当成针对别人的攻击工具。</p>
+<p>把这一点放在一边，我对西方开放权重模型取得的一些进展也很满意。黄仁勋在做这件事，其他人也在做。我们也会有MAI模型，它们不一定是开放权重；我更愿意把它理解为“获得许可使用的权重”。</p>
+<p>我希望把这变成一门简单、直接的软件生意，而不是依靠网络效应的智能生意。因此，会有不同的商业模式。最终，决定哪些模型被使用的，是你能否信任自己对它们的使用方式，以及能否控制它们。</p>
+<h4 id="chapter-4">开放与封闭模型会怎样分配流量</h4>
+<p><strong>Harry：</strong> 作为风险投资人，我必须判断，未来流量会流向开放模型还是封闭模型。如果把流量和收入看成两个不同维度，向前看24个月，你认为开放与封闭模型各自会占多少流量？</p>
+<p><strong>纳德拉：</strong> 好问题。我认为，这取决于能力前沿在哪里。很多任务似乎会逐渐达到能力饱和；到了那一步，开放权重模型，甚至封闭权重模型里的便宜版本，都可能够用。</p>
+<p>尤其是，如果你可以用自己的执行轨迹训练模型，那么只要问题没有变化，要解决同一个问题，就不需要始终使用最新模型。</p>
+<p>如果你有一套评测，而且希望模型在它上面的表现持续进步，那么你可能愿意多付钱。不过，即使在这里，我也很看好我们已经放进GitHub的HydraFusion。</p>
+<p><strong>Harry：</strong> 我刚刚看到了。</p>
+<p><strong>纳德拉：</strong> 很有意思的一点是，它是经过学习训练的模型。而且，我们现在正走向代理群和多子代理的模式。我可以调用很多子代理，其中一些甚至由本地模型驱动。</p>
+<p>所以，我的判断是，前沿模型始终会有市场，总有一些新任务。科学可能就是下一个不断刷新能力前沿的领域。但我认为，大多数token使用会趋于商品化。</p>
+<p><strong>Harry：</strong> 这是不是意味着，主要会是开放模型？</p>
+<p><strong>纳德拉：</strong> 可能是开放权重，也可能像我说的，是便宜的封闭权重模型。换句话说，会有大量价格竞争。</p>
+<p>看看我们自己在Copilot里的使用情况，就会发现，我们同时用了很多便宜的封闭模型和开放权重模型。</p>
+<h4 id="chapter-5">企业为什么要拥有自己的智能</h4>
+<p><strong>Harry：</strong> 你提到，对你们那些很出色的客户来说，拥有自己的智能很重要，也举了一些英国客户的例子。未来是不是这样一种模式：每家企业利用自己的数据，建立专业化的智能？</p>
+<p><strong>纳德拉：</strong> 我认为这是最重要的问题之一：在智能时代，企业的未来是什么？</p>
+<p>回到哈耶克，他对经济的一个基本描述，就是地方性的知识和隐性知识分散在整个经济之中。不能只有一家企业，也不能只有一个智能中心。这是基础性的东西。资本主义之所以能运行、价格发现或价格机制之所以能发挥作用，正是因为这种分散。</p>
+<p>因此，每家企业都应该能够借助AI，以越来越大的规模积累知识，而不是让知识泄漏出去。</p>
+<p>这就是我说的“反向信息悖论”。肯尼斯·阿罗提出过信息悖论：如果你是卖方，在没有专利、商业秘密或版权保护的情况下，先把秘密披露给对方，价值就流失了。</p>
+<p>现在，第一次轮到买方需要保护。多数人只想到“我的数据”，但甚至连使用过程中留下的痕迹都算：你点一个赞或踩，究竟是在为模型公司创造价值，还是把价值留给自己？</p>
+<p>我认为，要让这个体系稳定运行，使用智能所创造的更多剩余价值，应该留在企业内部。</p>
+<p>这不一定只能通过把知识嵌入模型权重实现。它可以存在于上下文中，也可以存在于评测中。你可能拥有一套基准。事实上，我很看好的一件事是，每家企业都会有自己的私有评测基准，而它就是企业的核心知识产权。</p>
+<p>每一个模型进入企业，都要尝试沿着这套评测不断改进。这在我看来，就是企业运作的一种方式。</p>
+<p><strong>Harry：</strong> 我很喜欢每家企业都有私有评测基准这个想法。但听起来，这还是少数前沿公司的做法，比如Harvey、Loras，或者其他思考非常超前的AI公司。它会扩散到全世界每一家企业吗？</p>
+<p><strong>纳德拉：</strong> 会的，Harry，这种事情一直在发生。我记得八十年代末、九十年代初，只有少数企业部署了个人电脑，并用它来做预测。当时感觉简直像魔法。</p>
+<p>他们能把数据放进Excel，用电子邮件发送，不再依赖传真机和办公室内部纸质备忘录。那时大家会感叹：“哇，这什么时候才能普及？”可能过了十年，它就扩散开了。</p>
+<p>这一次也一样。今天你说“我们是一家AI原生公司，所以会这样做”，我想五年之后，这大概已经不再新鲜。</p>
+<p>技术周期总是这样开始。云计算刚出现时，大家也特别在意“谁是云原生，谁不是”。现在，大家都在做，连Lloyd’s这种——有五百年历史了吧——也成了云原生。所以，它会发生。</p>
+<h4 id="chapter-6">AI会催生怎样的实施服务</h4>
+<p><strong>Harry：</strong> 那我们会进入一个“实施经济”吗？你提到的那些大客户，在转型过程中会需要很多工程人员支持，可能比过去十年的传统项目更多。要让现有客户进入这个新阶段，是不是需要一个规模很大的实施服务行业？</p>
+<p><strong>纳德拉：</strong> 很有意思。实施服务、系统集成商一直都存在。此前很多技术扩散，都依赖这样的行业。</p>
+<p>但这一轮的形态不一样，它结合了技术与业务。它不是传统的管理咨询，不是传统的系统集成，也不是传统的技术支持，而是某种融合。</p>
+<p>比如，看看我们的前线部署工程师项目。拿我今天在主题演讲中谈到的联合利华来说，他们建立了一套代理系统，希望把从订单到回款的流程自动化，同时处理贸易索赔。</p>
+<p>他们最初使用前沿模型，然后再替换模型。我记得，现在他们处理贸易索赔用的是一个MAI模型，因为成本更低。而且，模型是他们自己能够控制的，因为他们可以用自己的执行轨迹来训练它。</p>
+<p>我们派了一些前线部署工程师参与，现在则由他们自己的IT团队管理整个系统。</p>
+<p>但起点是：业务是什么，评测是什么，应该怎样构思代理架构？因此，这相当于业务咨询与技术咨询的结合。</p>
+<p>你说得对，整个生态会形成一套新的技能。今天，我们各家都有所谓自己的前线部署工程师；以后，传统的系统集成行业也会演变成这种新的部署服务。</p>
+<h4 id="chapter-7">从芯片到应用，是否必须全部自己拥有</h4>
+<p><strong>Harry：</strong> 你刚才提到了MAI。我老把这个名字说错。不过，看看不同的参与者，大家似乎逐渐意识到，必须从芯片、模型一直做到应用，拥有完整技术栈。</p>
+<p>这就是未来吗？必须纵向拥有这些环节？这又意味着什么？</p>
+<p><strong>纳德拉：</strong> 这完全取决于产业结构。比如今天，也许有五六个相互竞争的封闭模型，同时还有五六个相互竞争的开放权重模型。</p>
+<p>因此，如果你在开发一个应用，比如代理系统，就可能采用刚才说的那种方式：建立一个内置决策引擎的路由器，然后针对具体任务，把请求交给最合适的模型。这是一种可能。</p>
+<p>当然，始终有一种风险：出现一个从模型、应用一直整合到芯片和系统的纵向一体化体系。但我觉得这种情况不太可能。</p>
+<p>我曾经一度认为，最终可能只剩一家。现在看来，趋势反而在向相反方向发展。每天醒来都会发现，技术栈每一层的竞争都更多了，无论是芯片、管理芯片的系统，还是模型层、应用层。</p>
+<p>我认为这是一个健康的方向。但你永远不能确定，因为最后要看哪一种架构成为主导。</p>
+<p>我的希望是形成横向专业化：每一层都有多个赢家，而大家又能够把不同层的产品组合起来。</p>
+<p><strong>Harry：</strong> 我之前没有看清的是，每一层本身可以有多深。现在我知道、却希望十二个月前就知道的一件事，是推理需求几乎没有尽头。</p>
+<p><strong>纳德拉：</strong> 这是个很好的观察。</p>
+<p><strong>Harry：</strong> 如果十二个月前知道，我会作出很不一样的投资决定。</p>
+<h4 id="chapter-8">千亿美元训练投入，需要什么收入与基础设施支撑</h4>
+<p><strong>Harry：</strong> 说到这里，Mustafa Suleyman表示，耗资1000亿美元的训练运行会到来，而只有少数实验室付得起。一次训练1000亿美元。</p>
+<p>我们是否拥有足够的能源、基础设施和电力，支撑整个技术栈扩展到这种规模，特别是在……</p>
+<p><strong>纳德拉：</strong> 我的看法是，这最终必须来自全球GDP增长的加速，然后让某家公司可以拿出相应的研发预算。</p>
+<p>毕竟，当有人说“训练运行”时，它只是研发支出的一部分。研发投入很重的公司，研发支出可能占到营收的15%或20%。所以，在某个时点，只要收入足够多，就可以在训练上花足够多的钱。</p>
+<p>而你之所以能有那么多收入，是因为你帮助世界经济增长，从中获得了自己合理的一份。</p>
+<p>你也提到了另一面，也就是供给。现在我们缺电、缺芯片，还有各种短缺。这些都是建设周期很长的东西。你不能打个响指，就拥有新的发电能力，也不能马上变出一座芯片工厂。</p>
+<p>有意思的是，面对需求，现在所有人都在建设。问题是，这些供给什么时候上线，届时需求和供给是什么关系？没有人知道。</p>
+<p>坦率地说，今天坐在这里，我们任何一个人谈这个，都只能是在猜测。</p>
+<p>但我的感觉是，可以先想想最终的状态，它仍然会像今天一样。企业的利润表不会突然变成另一回事。你会有收入，有收入成本，也必须有利润。</p>
+<p>如果这些仍然成立，那么更大的问题就是：全球GDP增速是多少？这是我更关心的事情。</p>
+<h4 id="chapter-9">GDP增长能否加速，哪些场景最有价值</h4>
+<p><strong>Harry：</strong> 说到GDP增速的拐点，全球经济很长时间以来大致稳定在每年2%的增长。AI有没有能力，在较短时间内显著改变这个速度？</p>
+<p><strong>纳德拉：</strong> 我认为有，也确实希望如此，因为这正是它的意义。</p>
+<p>看看各国GDP中，有多少支出用于医疗。正因如此，当我看到英国国家医疗服务体系部署Copilot时，会想：如果它能改善患者的治疗结果，同时降低医疗成本，那按定义就是在帮助英国经济。</p>
+<p>经济里有一些领域，已经非常适合采用AI，而且能够在最少造成岗位替代的同时，带来最大的收益。我认为，我们应该去这些地方寻找最合适的结合点。</p>
+<p>软件开发是另一个例子。很有意思的是，软件开发需求具有如此大的弹性。这说明，原来积压的IT需求非常庞大，只是我们都没有充分认识到。</p>
+<p><strong>Harry：</strong> 我以前接受的投资观念是，必须投到一个市场里的第一名或第二名，才能赢。但我们投资的Factory排在第五，也在取得成功。第五啊，这简直打破了风险投资的所有规则。</p>
+<p>我再问一个有点冒失、也不在原定问题清单上的问题。编程已经成为最丰厚的应用领域。那么，金融、销售、营销等其他职能，会不会也出现类似的能力跃升？</p>
+<p><strong>纳德拉：</strong> 好问题。大家经常讨论，你有没有一个可以验证的奖励信号。在预训练模型之上做强化学习，带来了很多进步，也帮助编程取得了现在的效果。</p>
+<p>我们能不能在知识工作领域解决同样的问题？看起来要困难得多。</p>
+<p>但回到刚才谈的例子，客服中心、供应链系统、营销与订单回款系统，我认为是有可能的，而且我们已经在看到这些应用。</p>
+<p>需求有没有编程那么大的弹性？科学研究也许有，或者更广泛地说，工程领域也许有。</p>
+<p>不仅是软件开发。看看芯片开发，也正在发生深刻变化：更快完成流片，在计算机中仿真各种情况，第一次流片就可能成功。</p>
+<p><strong>Harry：</strong> 甚至像你提到的罗尔斯罗伊斯，优化维护报告这种事情，我以前都没有想到。</p>
+<p><strong>纳德拉：</strong> 很了不起。这是他们一直在处理的事情，安排维护。我以前也没有意识到，这居然是一个可以用这些技术去解决的大型优化问题。</p>
+<h4 id="chapter-10">快问快答：运动、对齐与五年后的企业</h4>
+<p><strong>Harry：</strong> 我看过你的很多访谈。接下来做一轮快问快答。有些问题别人没怎么问过，我一直想知道，也觉得大家都会想知道。</p>
+<p>你经常出差，平时怎样锻炼？你的状态看起来很好。</p>
+<p><strong>纳德拉：</strong> 我尽量保持吧，也不知道是不是把问题藏得比较好。</p>
+<p>有一个习惯大概已经坚持了25年：每天早上起来锻炼。我以前可以跑步，但很遗憾，膝盖已经不太行了。所以现在至少会做坡度步行。今天早上也走了半小时。</p>
+<p>不管在哪里，不管有没有时差，我每天都会去健身房。</p>
+<p><strong>Harry：</strong> 很喜欢这个答案。我的膝盖也不好，可能也和年龄有关。过去十二个月，你改变了哪一个看法？</p>
+<p><strong>纳德拉：</strong> 毕竟，我也是最早相信这件事的人之一。2018年、2019年，当Dario、Ilya、Sam、Greg和Elon还算是一个快乐的大家庭时，他们都非常相信规模法则，我当时也相信。</p>
+<p>现在最大的变化是，我过去一直觉得对齐会自然出现，已经不再这么想了。我认为，对齐可能是一个更难、也不同的问题。这是我改变了看法的一件事。</p>
+<p><strong>Harry：</strong> 什么事情今天看起来很疯狂，五年后却会变得极其普遍、被大家接受？</p>
+<p><strong>纳德拉：</strong> 也许就是我们刚刚说的那些评测。企业是什么？我认为，一家企业会成为一套AI基准。</p>
+<h4 id="chapter-11">对未来十年最期待什么</h4>
+<p><strong>Harry：</strong> 最后一个问题。未来十年，有很多令人期待的事情。对我来说，我母亲患有多发性硬化症，所以我特别期待药物研发可能取得的进展。对你个人而言，最期待什么？</p>
+<p><strong>纳德拉：</strong> 这是一个很好的期待。我一直盼望的一件事，是这样一种强大的通用技术能够发挥作用。</p>
+<p>有人说：“这不只是又一种通用技术。”无论它究竟是什么，我希望它能够以前所未有的速度，扩散到全世界，也扩散到经济的各个部门。</p>
+<p>我希望，这一次全球增长的边界真的能够向外移动。我们关心的不只是清点赢家和输家，而是每个人都能因此得到提升。这一直是我的梦想。</p>
+<p>我的父亲是一位发展经济学家，他关心的总是趋同增长：全球南方什么时候才能获得一种突然提升增长的力量？我希望这一次就是。</p>
+<p><strong>Harry：</strong> 这次对话非常愉快。谢谢你抽出时间。</p>
+<p><strong>纳德拉：</strong> 很高兴和你聊，Harry。</p>
+<p>译注：依据用户播客库的原始英文字幕翻译，保留开场、全部实质问答、案例与末尾快问快答，删去片头与后文重复的预告及口头填充词。Agent 365、Project Perception和HydraFusion按[微软安全说明](https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/)及[GitHub产品说明](https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/)核对；联合利华与罗尔斯罗伊斯案例名称按[微软伦敦活动资料](https://news.microsoft.com/satya-nadella-frontier-tour-london-2026/)和[活动回顾](https://ukstories.microsoft.com/features/microsoft-frontier-tour-london-building-trust-in-the-agentic-ai-era/)校正。部署人员的字幕拼写在FTE与FDE之间混用，依据项目语境译为前线部署工程师；Harvey之后的公司名转写为“Loras”，未能确认其规范拼写，正文保留原转写。数字、预测与个人判断保留受访者或主持人的口径。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
