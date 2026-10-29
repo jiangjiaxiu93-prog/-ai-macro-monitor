@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Modal 的算力、推理与代理基础设施：Erik Bernhardsson 访谈（Unsupervised Learning）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Modal 的算力、推理与代理基础设施：Erik Bernhardsson 访谈（Unsupervised Learning）</h2>
+<div class="metaline">Unsupervised Learning · Erik Bernhardsson；主持人 Patrick Chase、Jacob Effron · 2026-10-28 · <a href="https://www.youtube.com/watch?v=HJDekXH-h5c" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：算力采购；推理成本；企业代理；按量计费；融资估值；Modal；Erik Bernhardsson</p>
+<h3>要点</h3>
+<ul><li>Modal 聚合约 25 家云商的算力；嘉宾称沙箱业务年化收入运行率约 3 亿美元，沙箱与大模型推理各占公司收入约三分之一。</li><li>自建存储、调度和运行时支持快速启动与弹性伸缩。访谈继续讨论芯片、模型规模、代理需求，以及新云商和模型实验室的竞争与融资。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 开场</a></li><li><a href="#chapter-2">01:26 今天的算力市场</a></li><li><a href="#chapter-3">05:16 Modal 为什么进入大模型推理</a></li><li><a href="#chapter-4">10:02 自建底层基础设施的价值</a></li><li><a href="#chapter-5">12:32 推理还有哪些未解决的问题</a></li><li><a href="#chapter-6">16:07 芯片选择与模型规模</a></li><li><a href="#chapter-7">21:21 推理市场最终靠什么取胜</a></li><li><a href="#chapter-8">24:56 多产品公司的优先级与开发方式</a></li><li><a href="#chapter-9">30:20 当 Modal 的用户变成代理</a></li><li><a href="#chapter-10">33:19 沙箱之后的下一项下注</a></li><li><a href="#chapter-11">38:58 机器人与多模态推理</a></li><li><a href="#chapter-12">41:04 从 200 万到 10 亿美元运行率</a></li><li><a href="#chapter-13">42:51 新云商与新模型实验室</a></li><li><a href="#chapter-14">48:15 强化学习即服务，以及基础设施公司的边界</a></li><li><a href="#chapter-15">51:40 快问快答</a></li></ul></details>
+<h4 id="chapter-1">00:00 开场</h4>
+<p><strong>主持人：</strong> 今天的算力市场有多少已经形成有组织的交易市场，又有多少仍像蛮荒地带？</p>
+<p><strong>Erik：</strong> 我去年去 GTC，那里简直像个露天毒品市场，只不过交易的是 GPU。大家到处找人谈 GPU，在酒店大堂见面，交换号码。这个市场离高效还远着呢。确实有人在努力改善，但算力有太多不同的形态。从结构上看，它恐怕还会混乱很长时间。你无法简单地把它放到交易所买卖，因为这不是标准化、可以互换的合约。</p>
+<p><strong>Patrick：</strong> 欢迎收听 Unsupervised Learning。听声音你大概也知道，我不是 Jacob，而是 Redpoint 的普通合伙人 Patrick Chase。很高兴第二次请到 Modal 创始人兼 CEO Erik。在过去三年合作中，我从他身上学到了很多。他是我最喜欢一起讨论 AI 的人之一：既能深入开发者编写和发布代码的细节，也能切换到整个市场的走向，思考缺失的东西应该怎样建起来。今天我们会聊 Modal 三年来的发展、让产品运转的复杂技术、推理、沙箱，以及接下来会发生什么。</p>
+<h4 id="chapter-2">01:26 今天的算力市场</h4>
+<p><strong>主持人：</strong> AI 算力需求显然很旺盛，很多人都在预订 GPU 和 CPU。你们现在寻找算力是什么感受？</p>
+<p><strong>Erik：</strong> 挺不容易。不过，不是说完全找不到算力。大家有一点误解：某些方面确实短缺，但容量还是能找到的，只是你要扩大寻找范围，接受更高价格、更长合同等条件。我们一直在做这些事。现在大概每周要达成两笔算力交易，有时三笔，不断把更多算力加进来。</p>
+<p>这正是 Modal 的优势：我们把所有需求汇集起来，统一管理容量，效率高得多。我们的价值主张一直是，用户不必考虑容量问题，我们负责那些烦人的事，负责每天为了拿到容量而进行的近身搏斗。目前我们合作的云商有 25 家，还在不断增加。</p>
+<p><strong>主持人：</strong> 这个市场到底有多规范？还是说，某个不知从哪里冒出来的人恰好有容量，大家深夜发消息找资源？</p>
+<p><strong>Erik：</strong> 深夜的 WhatsApp 群非常多，市场很不规范。我去过英伟达在圣何塞举办的 GTC，是去年还是今年早些时候来着，现场像露天毒品市场，只不过卖的是 GPU。你四处走动，找人谈 GPU，在酒店大堂会面，交换号码。</p>
+<p>有一次，我们好像是因为销售副总裁的表亲和某个人一起打高尔夫，才辗转联系上了一家有 GPU 的供应商。这样的情况很多，离高效市场非常远。有人在努力改善，我想它会逐渐更有效率，但不同算力之间的差异太大，形态各不相同。所以从结构上说，这个市场恐怕还会难以规范很久；它不是可以拿到交易所直接交易的同质化合约。</p>
+<p><strong>主持人：</strong> 主要差异是已经通电的机房、集群规模和芯片本身吗？不少人在尝试把算力当成统一、可互换的资产，围绕它建立交易市场。你看到的关键区别是什么？</p>
+<p><strong>Erik：</strong> 很多差异最终落在可靠性上。首先，磁盘、网络、CPU、内存都不一样，地域也不一样。我们的 GPU 遍布美国，也在印度尼西亚和欧洲各地。因此地点是很重要的因素。</p>
+<p>其次是可靠性。我们特别擅长的另一件事，就是汇集容量之后，在新云商出问题或发生故障时，将那部分容量移出调度池。他们经常会出故障，有些原本是加密货币矿商，没有真正考虑过如何运营全天候服务。如果 GPU 掉线之类的问题发生，很多情况下我们的系统会自动提交工单，由对方派人查看。</p>
+<p><strong>主持人：</strong> 提供 GPU 价格等数据的公司，对你们有帮助吗？</p>
+<p><strong>Erik：</strong> 有一定帮助。与价格数据相比，他们帮我们联系供应商的能力更有用。我现在还不完全相信公开价格。部分数据商非常了解各家新云商，我们有时借助他们建立联系。</p>
+<p>价格应该会逐渐更准确。目前我们实际采购时的内部价格，与外界看到的并不一致。希望以后能出现更有效的外部价格指数，那会很有用。</p>
+<h4 id="chapter-3">05:16 Modal 为什么进入大模型推理</h4>
+<p><strong>主持人：</strong> 这几年你们的发展像坐火箭一样，有很多业务问题值得深入。Modal 的历史里有一个有意思的地方：你第一次来这个节目时似乎说过，对那种通过简单 API 调用模型的大语言模型推理业务，没有那么关注。最近你们却推出了这方面的产品。最初为什么有所保留，又为什么觉得现在该加大投入？</p>
+<p><strong>Erik：</strong> 我们大约在 2021 年底、2022 年初开始做 Modal。最初的产品是无服务器函数，觉得它能广泛用于数据、AI 和机器学习相关任务。我们研究了很多不同场景，然后 2022 年底 ChatGPT 出现，Stable Diffusion 也差不多在那个时候问世。</p>
+<p>事实证明，我们非常适合承载各种 Stable Diffusion 应用。第一年的增长几乎全来自那里，随后扩展到音频、视频等相邻场景。那些早期团队要部署生成式 AI 推理，不愿处理底层基础设施，希望快速推进。于是我们开始把不同云上的各种 GPU 汇集起来。</p>
+<p>从那时起，我们就知道自己最终要做多产品，但先从无服务器计算这个基础构件入手，因为它非常通用。我们主要面向愿意写代码的机器学习工程师和研究人员，服务需要大量编码的场景，把重心放在技术栈较底层的位置。很早就做了存储层，也就是保存数据、特别是容器镜像的文件系统。</p>
+<p>2023 年我们推出了沙箱产品。当时开始有人尝试用大语言模型生成代码，我们发现此前在基础设施上做的很多东西，很适合运行这些代码，而用户需要一个可以隔离执行代码的地方。</p>
+<p>沙箱没有一夜走红，基本到 2025 年才开始爆发，因为那时模型真正变得擅长写代码了，大约是一年前。从大概 12 个月前开始，沙箱一路高速增长，差不多增长了上千倍吧。这使我们真正迈向多产品公司。现在沙箱约占收入的三分之一，单独来看，已经是年化收入运行率 3 亿美元的业务。这个增长非常惊人。</p>
+<p>我们刚刚又推出了训练产品。我们在思考，新的 AI 应用世界需要哪些基础构件，完整工具箱是什么样；我们希望提供这些构件。</p>
+<p>大模型推理这件事，我们确实旁观了一段时间，直到 DeepSeek 时刻。那是大约一年半前，2025 年初，DeepSeek 推出了第一批真正出色的中国开源模型。我当时想：“管他呢，我们得进场。”于是开始组建团队，做大量推理优化。</p>
+<p>Modal 一直很擅长承载大模型推理，只是没有专门的产品。事实上直到最近，我们才有正式的推理产品。此前我们很擅长托管各类推理，包括大模型推理，但主要是定制方式。一两年前，团队如果想跑大模型，要自己部署，或者由我们和他们一起完成。</p>
+<p>DeepSeek 出现后，我们看到大量需求。过去 18 个月，大模型推理也增长很快，现在同样约占收入的三分之一。几个月前，我们发布了一批专为大模型设计的功能。存储、计算、无服务器函数和文件系统这些底层基础已经打好，向技术栈上层拓展的空间很大。</p>
+<p>现在我们推出了专用推理产品：你可以获得单租户模型实例，无论是先进的中国模型，还是一些美国模型，都能通过一次点击或者一条命令行指令部署到 Modal。我们也提供共享端点，用户不用部署模型，直接调用现成模型即可，完全按 token 计价。这只是接下来一系列更上层产品中的第一批机会，因为我们已经有了非常扎实的计算和存储基础。</p>
+<h4 id="chapter-4">10:02 自建底层基础设施的价值</h4>
+<p><strong>主持人：</strong> 我们从技术栈底部往上聊。早期你们投入过非常硬核的技术，自己做文件系统、容器运行时等。这些投入今天怎样体现在产品和开发者体验中？</p>
+<p><strong>Erik：</strong> 我觉得这个市场里很大的超额收益，来自不害怕做难事。创业很早的时候，我们意识到，要提供自己理想中的开发者体验，让容器镜像加载得足够快，就必须自建文件系统，于是全力投入。</p>
+<p>接下来几年，这一直是重要优势，到今天也是。当然，这条路更长：我们自己做文件系统、容器运行时和调度器，不使用 Kubernetes 和 Docker，采用的现成软件很少。隔离方面用了 Google 很棒的 gVisor，最近某些任务也开始用 KVM。但我们很早就决定，很多东西必须自己造。</p>
+<p>这带来一些很有意思的能力。最好的例子之一，是极快的冷启动。最初我们只是希望开发者将程序启动到云端时，能得到非常快速的反馈。后来发现，这种能力也特别适合需要迅速扩缩容的应用。</p>
+<p>先是快速加载容器，后来又做了 CPU 快照和 GPU 快照，可以把磁盘或网络上的数据非常快地直接送进 GPU，让大型模型也在几秒内启动。过去六个月，我们还构建了一套极其复杂的系统，通过节点之间的点对点 RDMA 高速复制数据。</p>
+<p>这些能力不断积累，现在开始产生回报。我们做过一些相当疯狂的技术投入，如今终于收获了多年投资的红利。这条路虽然更长，但现在我们有了非常独特、很难复制的技术。</p>
+<h4 id="chapter-5">12:32 推理还有哪些未解决的问题</h4>
+<p><strong>主持人：</strong> 再往上看推理，你们也做了很多投入和优化。你认为推理领域或者推理技术栈，还有哪些问题没有解决？</p>
+<p><strong>Erik：</strong> 我们还处在很早的阶段。很多事情像实验科学：大家尝试不同办法，看哪些有效。人们逐渐摸索出了不少东西，比如把预填充和解码拆开，这就不是一个显而易见的主意。在一组节点上做预填充，通过 RDMA 复制数据，然后在另一组节点上解码，再做切换。我们在这些不直观的技术上投入了很多。</p>
+<p>KV 缓存也非常复杂，运行更高效的计算内核同样是大家大量投入的方向。我们现在大概有二三十个人，专门做大模型性能优化。你得跟踪研究、读论文、查看不断发布的软件，反复尝试哪些有用、哪些没用。这仍然很依赖实验，随着时间推移才会形成一些规律。</p>
+<p>模型本身也在快速改变。现在有混合专家架构，还有更复杂的东西。谁知道以后会不会用别的架构替换 Transformer？那就会改变 KV 缓存的方式。有人一旦发现完全不同的范式，很多事情可能一夜之间就变了。会不会发生，我不知道。量化等方面也还有大量工作。这个领域非常活跃，我们在探索所有这些方向。</p>
+<p><strong>主持人：</strong> 很多人都在优化推理的不同环节。过去两三年有一点很有意思：很多优化成果是开源的，或者通过研究向整个社区公开。作为 CEO，你怎样决定哪些问题让自己的团队解决，哪些可以等待整个社区推动，再从中受益？</p>
+<p><strong>Erik：</strong> 我们其实非常喜欢开源，因为我们的很多独特优势在自有基础设施层，比如自动扩缩容。与其他推理服务商相比，我们特别积极地拥抱开源。</p>
+<p>我们与 vLLM 和 SGLang 团队都合作得很紧密，积极向两个代码库贡献，也共同开展大量优化。这可能和其他推理服务商的路线不太一样。确实有一些东西会保留在内部，但绝大多数成果都会推向开源。</p>
+<p>既然基础设施已经提供了这么多优势，为什么不与那些优秀的开源引擎合作？几年前它们也许还不是最先进的，现在已经是了。能利用这些成果，我觉得很棒。</p>
+<h4 id="chapter-6">16:07 芯片选择与模型规模</h4>
+<p><strong>主持人：</strong> 你提到算力来源很异构，推理技术栈也在变化。对于供应和未来的服务架构，英伟达以外的各种芯片有多重要？</p>
+<p><strong>Erik：</strong> 英伟达仍然是王者，它的芯片最好，需求也远高于其他芯片。我们对其他芯片一直有兴趣，也做过一些尝试。AMD、Trainium、TPU 等已经开始相当不错，所以我们持续关注，但英伟达目前仍然领先。</p>
+<p>此外还有很多旧芯片。大模型面临的一个挑战是，大家不断尝试塞进更多参数，因此最新最好的模型通常会占满一整个节点。未来说不定需要多个节点。比如八张 B300，模型会需要最新芯片，而且要八张，因为一个节点能装这么多。</p>
+<p>但并非所有模型都这样。旧一些的大模型、经过性能优化、参数更少的小模型，需求就不同。语言之外，语音、转录、语音合成，以及制药和生物研究的很多任务，都不需要最新 GPU。在 Hopper、甚至 Ampere，或者 L40S、RTX Pro 6000 这类芯片上运行，可能成本效率更高。</p>
+<p>我们正在非常积极地增加 Blackwell，主要是 GB 系列，同时也看到旧芯片仍有大量需求，这很令人兴奋。大家容易忘记 Hopper，但在 Modal，H100 目前仍是最常见的型号。我们有一些规模很大的生产业务，就是跑在 Hopper 上。</p>
+<p><strong>主持人：</strong> 目前整个行业的模型和芯片匹配有多高效？多数人已经按价格选择最适合自己任务的芯片了吗，还是还有很大改进空间？</p>
+<p><strong>Erik：</strong> 还有一些空间。我们未来想帮用户自动完成匹配。不过，实际问题可能没有想象中那么大，因为很多时候瓶颈是显存。知道模型需要多少显存之后，挑能装下模型的最便宜 GPU，通常就足够了，这个经验规则适用于大多数情况。</p>
+<p>如果模型需要 80GB，可以用 Hopper，也可以用旧一些的 80GB A100，这时还要考虑一点浮点算力。但多数情况下，就是找能放下模型的最小 GPU。</p>
+<p>我们一直在想，能不能让用户只负责部署模型，底下用什么芯片由我们管理，还能自动给用户折扣。可用芯片类型越多，我们汇集和调配容量就越灵活，利用率也越高；某类 GPU 空闲时，就可以把工作切过去。</p>
+<p>未来六个月，我们很想提供这样的选项：部署方式不变，底层自动切换 GPU 类型，同时保持用户每次请求、每个 token 等计费口径的一致性。这其中有很多很有意思的可能性。</p>
+<p><strong>主持人：</strong> 你的角色还有一个有意思的地方，是要预测未来的算力组合。你看到今天的工作负载，也知道哪些模型在哪些芯片上跑得好，但还得判断一两年后会是什么情况。未来多数 token 会来自很大的模型，还是因为大多数任务已经能被满足，模型会越来越小？规划未来一两年的硬件时，你怎么看哪些负载会增加、哪些会减少？</p>
+<p><strong>Erik：</strong> 过去三四年的基本趋势，是模型越来越大。我倾向于认为，这个趋势会继续。如果 B300 有更多显存，我相信 Kimi K3 也会更大。[笑] 大家训练模型时，会按照芯片能容纳的容量来设计。</p>
+<p>至少在大语言模型方面，可以把它看成一种粗糙的世界模型：你试图把尽可能多的信息编码进去。在某种意义上，需要非常大的事实查找表，这是我理解它的一种方式，也因此不断推高显存需求。</p>
+<p>也许某一天这个趋势会放缓，谁知道呢？但至少现在，大家会用尽能得到的每一份显存。显存更多，他们肯定就会训练更多参数。</p>
+<h4 id="chapter-7">21:21 推理市场最终靠什么取胜</h4>
+<p><strong>主持人：</strong> 你处在一个令人兴奋、规模庞大、竞争激烈的市场中心。最终什么能使参与者形成区别并胜出？很多人相信推理市场会非常大，但也都在问，真正能赢的是什么？你有一套很清楚的判断，可以分享吗？</p>
+<p><strong>Erik：</strong> 推理市场的很多部分会很艰难。最直接的、只是提供 token 的业务，已经能看到 OpenRouter 在把底层供应商商品化。</p>
+<p>更高效地提供推理，当然仍能形成差异，但这有点像不断向下的价格竞争。领先别人会有很多机会，同时也需要投入大量精力。我认为，更持久的差异化在于提供一个包含很多能力的完整平台，而我们的位置比较好：有沙箱，有强化学习，很多客户也做普通微调，还有其他类型的模型部署和批处理。</p>
+<p>总体上，客户不想只买一个只会一招的工具，而是想买一整套产品。怎样提供完整工具集，怎样提供通用能力，让工程师快速迭代并交付价值，可能才是最大的差异化来源。</p>
+<p>当然，日常的近身竞争仍然存在：性能领先、采用最新内核、提高 KV 缓存效率，这些事情会持续很久，因为背后有大量收入。但它们作为优势，持久性较弱。技巧最终会传播，别人会学会复制。</p>
+<p>更持久的优势，是围绕推理提供一整套东西，而不只是推理本身：支持各种模型，提供强化学习以及其他相邻能力。</p>
+<p><strong>主持人：</strong> Modal 最大的客户都在用多种产品。能举几个有意思的例子吗？</p>
+<p><strong>Erik：</strong> Cognition 大规模使用我们的推理和沙箱，在 Modal 上做很多强化学习，用沙箱运行所有 rollout，也就是模型与环境交互的任务轨迹。</p>
+<p>Ramp 用我们运行后台代理，包括内部编程代理；他们今天还把那个代理作为独立产品推出，开始对外销售。Suno、Runway 用我们做生成式音频和视频。Decagon 在语音和文本客服上大量使用我们。DoorDash 的许多内部应用也跑在我们这里，主要是大模型，但还有其他任务。</p>
+<p>计算生物技术客户也很多，做药物发现、分子模拟、序列比对等。机器人领域有 1X 和其他公司，既训练机器人模型，也做视频批处理。还有很多数据生成公司，构建环境并在 Modal 上运行基准评测，这些工作经常用到沙箱。</p>
+<h4 id="chapter-8">24:56 多产品公司的优先级与开发方式</h4>
+<p><strong>主持人：</strong> 产品组合是你们业务最有意思的部分之一，难点恐怕也是决定先做什么。可以为开发者构建的新工具太多了。沙箱已经在编程代理和强化学习上有很强的产品；竞争对手似乎优先做微调或强化学习即服务。你怎样在整个组合里决定投入顺序？</p>
+<p><strong>Erik：</strong> 对多数创业公司来说这都很难，对多产品公司尤其如此。什么时候进入多产品、把赌注下在哪里，都需要权衡。我们现在大概有 150 名工程师，我每天都为此纠结：这个也想做，那个也想做。</p>
+<p>但我也知道，就算有一千名、一万名工程师，问题也不会消失，你还是会想造火箭去月球。所以必须非常坚决地排序，想清楚什么投资回报最高，边界画在哪里。</p>
+<p>有时也要果断对团队说：“我知道这个项目已经启动，你们也很兴奋，但现在出现了另一件更重要的事。我们得先暂停，之后再回来做。”这种情况发生过很多次，确实不好受。不过，资源配置几乎是 CEO 最需要毫不含糊去做的事。把合适的资源投向合适的工作，可以创造巨大的价值。</p>
+<p><strong>主持人：</strong> 每次董事会上的 Modal 路线图都很长，看着相当吓人。我一直很佩服团队既保持系统运行，又能交付这么多硬核软件。你们在 ChatGPT 之前就开始创业，前后变化对产品方向，以及编写和交付软件的速度，分别有什么影响？</p>
+<p><strong>Erik：</strong> AI 爆发时，我们恰好处在很好的位置，受益很大。今天 Modal 支撑的许多应用，是四五年前创业时我根本想不到会存在的。这很不可思议。</p>
+<p>构建软件的方法也变了。我估计现在 Modal 合并进代码库的代码行，可能有 95% 在某种程度上是代理写的。不过基础设施仍然很依赖人。代理做得不错，我过去几个月、尤其最近几天，也一直用代理写数量惊人的代码，它们能做出的东西很了不起。</p>
+<p>但人类还需要大量监督。基础设施存在可靠性方面的尾部风险，还得确保系统能扩展等。因此至少目前，软件工程师的工作相当稳固，优秀工程师监督代理仍然很有价值，我想未来几年都是如此。</p>
+<p>另外，采用模式与我的预期几乎相反。我原以为初级工程师会用得最多，结果是非常资深的人用得特别多。对他们来说，就像突然有了十个实习生。他们脑子里有无数想法，过去长期受制于打字速度，现在可以更快地把想法做出来。</p>
+<p>他们也很擅长构建测试集：给代理一整套覆盖 POSIX 文件系统标准的测试，然后说“现在去写一个新的文件系统”，代理真的就去写，花三天左右完成。有些资深工程师已经把代理用到极致。这种开发速度确实令人惊叹。</p>
+<p>最终看来，未来几年人类软件工程师仍然有自己的位置。究竟怎样，我们再看。</p>
+<p><strong>主持人：</strong> 交付速度变快之后，你们在代码审查、持续集成和持续交付，或者部署上，有什么改变吗？</p>
+<p><strong>Erik：</strong> 有一些。我们开始碰到某些约束，需要在 CI/CD 上投入更多时间。不过早在代理出现之前，我做 CTO 的很多年里，就一直对 CI/CD 非常重视。因此基本观点没变：自动部署、自动测试等能力都必须有。</p>
+<p>顺便说，现在代理已经很擅长写测试了，一年前还不是这样。我们目前似乎还没碰到根本性的极限，但 Anthropic 前几天宣布，好像要离开 Git，或者至少是 GitHub。等我们每天的提交量变成现在的十倍，可能也会碰到那些限制。</p>
+<h4 id="chapter-9">30:20 当 Modal 的用户变成代理</h4>
+<p><strong>主持人：</strong> 强大的编程代理让世界变得很不一样。你的联合创始人谈过，Modal 的使用者正在从开发者转向代理本身。当越来越多人通过代理与 Modal 交互，甚至全程由代理操作，这对业务和你们的决策有什么影响？</p>
+<p><strong>Erik：</strong> 实际变化比我预想的小得多。早期我们做 Modal，是为了让工程师拥有更好的开发体验、推进得更快。结果代理想要的东西也差不多：快速反馈、清楚的错误信息、好的文档。这些也正是工程师想要的。</p>
+<p>不过某些事情变得更难。比如废弃旧功能，因为代理经常是用网上大量旧代码训练的。过去我们可以从文档中删除一个功能，等三个月后再移除；现在不行，因为训练数据里还有它。用户让大模型生成 Modal 代码，可能仍会调用废弃功能，这很难改变。因此我们不得不大幅调整废弃功能的过渡窗口。</p>
+<p>我们还开始大量建立自动化流水线，让大模型持续编写 Modal 代码，检查它们能否构建、运行，借此发现代理容易卡住的地方。</p>
+<p>另一个投入方向是代理优化，有点像搜索引擎优化。你可以问 Claude Code：“我想做推理，部署这个模型。”完全不提 Modal，看它推荐什么工具。我们当然希望它尽可能推荐 Modal，所以内部会持续跟踪。</p>
+<p>我觉得这可能会改变软件工程，甚至带来一些不太好的变化。由于训练数据和训练循环，既有产品的优势更强，软件的惯性更大了。如果进入训练数据，让模型学会推荐某个框架，就会产生持续影响。</p>
+<p>我听人说：“以后我什么都用 React，因为代理很擅长它；那些新潮的前端框架我就不尝试了。”很多框架都有类似情况，这种持续存在的优势现在变得非常值钱。所以我们希望代理尽可能推荐 Modal，由此形成一点循环促进的效果。</p>
+<h4 id="chapter-10">33:19 沙箱之后的下一项下注</h4>
+<p><strong>主持人：</strong> 你们 2023 年对沙箱的判断很有先见之明：觉得编程代理会需要它，几年后它真的成了重要基础构件。今天有没有一些同样让你兴奋、但可能还做早了的东西？你们的产品组合里，有多少属于这种提前下注，又有多少是在解决眼下火烧眉毛的问题？</p>
+<p><strong>Erik：</strong> Jacob，你这是在打听下一项该投什么吗？</p>
+<p><strong>主持人：</strong> 百分之百。我从不掩饰这一点。</p>
+<p><strong>Erik：</strong> 沙箱确实把大家对我们的期待抬高了。所有人都问，下一件是什么，秘密武器是什么，实验室里在做什么。我希望能有个简单答案，说“百分之百就是这个”，但没有。</p>
+<p><strong>主持人：</strong> 如果在 2023 年问，你会回答沙箱吗？还是它只是你们同时在做的很多事之一？</p>
+<p><strong>Erik：</strong> 不会。当时沙箱更像一笔不对称下注：对我们来说并不难做，原型只花了几天。我又花一点时间改善 SDK，其他人也参与进来，慢慢有了客户，然后我们重写了一次。</p>
+<p>到了 2025 年业务爆发，系统又重写了大概五次，为了支持更大的规模、更高速度和更好的可靠性。但最初投入其实很小，下行风险有限，上行空间很大。</p>
+<p>我不知道今天有没有完全相似的项目。不过可以说几个我看好的方向，它们可能都需要大得多的投入，下注规模更大、风险也更高。</p>
+<p>第一个是低延迟。未来会有大量语音到语音和实时视频应用，要求我们重新思考全球算力管理：怎样减少网络跳数，怎样在不同区域快速扩缩容，几乎像为推理构建一个内容分发网络。我很期待这个方向。</p>
+<p>第二个是训练，我觉得它被低估了。中等规模模型的训练和强化学习有很多机会。过去几年我们一直在大力投入，让 RDMA、InfiniBand 等能力真正运转起来。</p>
+<p>还有虚拟机相关能力。支持完整操作系统，比如 Mac、Windows、Android 和 iPhone 环境，可能非常有意思，空间很大。我脑子里有很多这类想法，我们也在做不少。但有没有哪一项具有沙箱那样的爆发潜力，我不知道。也许三年后再做一次节目，回头看就会知道了。</p>
+<p><strong>主持人：</strong> 看来要把你变成固定嘉宾了，我们期待到时再聊。沙箱已经成为编程代理的基础能力，进入这个领域后，你大概也会觉得还有许多工具可以让代理更好用。你怎样考虑继续往这个方向深入？</p>
+<p><strong>Erik：</strong> 我们会考虑，但主要从基础设施的角度考虑。人很容易迷失在眼下最新最热的东西里。看代理框架的架构和构建代理的方式，我仍觉得这个领域非常早期，架构变化太快。</p>
+<p>我们的工作，在某种程度上是识别那些今天就可以提供、未来五年仍会有人需要的核心构件。但答案并不明显。我们对代理编排很感兴趣，也对评测网关、从代理运行中学习并迭代的整个生命周期很感兴趣。</p>
+<p>不过最终架构具体长什么样，还不清楚。我的判断是，它会更以云为中心，更依赖类似持久对象和工作流引擎的机制。我们有一些产品想法，但很难准确描述五年后的代理开发。</p>
+<p>部分原因是，我觉得某种程度上所有软件都会变成代理型软件。我有时不太喜欢“代理型”这个词：它的意思是用 AI 做决策，那难道不应该所有软件都这样吗？如果看五年后，所有软件都具有这种能力，那软件本身会是什么样？我不知道，但希望我们能提供支持软件使用 AI 的各种基础构件。</p>
+<p><strong>主持人：</strong> 这似乎是 AI 基础设施公司最难的地方之一：什么会长期存在，什么只是某个阶段的模式，比如两年前的 RAG。</p>
+<p><strong>Erik：</strong> RAG 就是很好的例子。如果两年前我们重押 RAG，可能不是个好决定。所以判断很难。但做基础设施有一个好处，就是可以看得更长远，不必跟随所有噪声。你当然得听，但也要忽略其中很大一部分，努力识别背后的规律。</p>
+<h4 id="chapter-11">38:58 机器人与多模态推理</h4>
+<p><strong>主持人：</strong> 你提到语音到语音、实时视频等低延迟负载。现在大家也在讨论多模态推理、机器人推理。它们与以前推理市场面对的问题有多相似，又有哪些是全新的？</p>
+<p><strong>Erik：</strong> 总体相似，但又像雪花，每一种都有自己的特点。机器人很多计算当然会发生在设备上，这就是重要区别。因此我并不认为我们能支撑机器人领域的大多数计算，因为很多任务必须在机器人本体上完成。</p>
+<p>但我们可以支持大量测试、开发、训练和仿真环境，这让我很兴奋。</p>
+<p>多模态方面，音频、音乐、图像等讨论得少一些，但增长也非常快。过去几年，大语言模型几乎占据了所有注意力，我却对各种不同应用都很期待。</p>
+<p>比如，为什么到了 2026 年，语音助手还这么差？我真的不理解。我家有 Google Home，几乎每次提问都搞砸，它听不懂我想说什么，于是我只能去问 ChatGPT。为什么不能把整套系统端到端连接起来，训练一个能直接语音对语音交流的系统？这个领域一定会出现非常有意思的应用。</p>
+<p>回头看三四年前，你能预见今天这些应用吗，比如其中一些新应用、Suno、Cognition？很难提前猜中。〔译注：此处字幕中的第一个应用名转写不清，保留不确定性。〕</p>
+<p>因此再看未来三年，大多数人恐怕也不知道世界会变成什么样。根据过去三年的经历，我确定会有一些非常棒的应用，只是不知道具体是什么。希望它们会用 Modal。</p>
+<h4 id="chapter-12">41:04 从 200 万到 10 亿美元运行率</h4>
+<p><strong>主持人：</strong> 我翻到你当时发给我的 A 轮融资演示材料邮件。那时我们已经签了投资条款清单，你写道：“顺便说，我们从来没有真正一起看过 Modal 的演示材料。这里有一份以前做的，我刚更新了数字，有空可以看看。”</p>
+<p>发邮件时，你们的年化收入运行率大约是 200 万美元；三年后已经超过 10 亿美元，非常惊人。在短短几年里支持这种规模，最大的变化是什么？</p>
+<p><strong>Erik：</strong> 首先，我前几天在另一个播客里说，我从来没做过融资演示材料。后来想了想，可能 A 轮之后确实做过，因为进来了一些天使投资人，他们想看，我就说：“好吧，那我做一份。”所以我意识到自己说错了，我确实做过，只是在融资之后。</p>
+<p><strong>主持人：</strong> 你从来没拿给我们看过，所以可能也不算。</p>
+<p><strong>Erik：</strong> 对，不知道算不算。我从来没有把演示材料发给机构投资人，倒是发过给几个天使投资人。那也是我唯一做过的一份。</p>
+<p>至于规模，过去三年收入大概增长了 500 倍，确实很快。不过，我的职业经历主要都在高速扩张的创业公司，比如在 Spotify 待过七年，也在其他类似公司工作过。对我来说，快速增长几乎就是我一直以来见到的状态：每六个月就要重写系统，重新思考做法，改变流程，始终觉得自己跟不上。</p>
+<p>我不知道，我好像还挺喜欢这种混乱的。</p>
+<h4 id="chapter-13">42:51 新云商与新模型实验室</h4>
+<p><strong>主持人：</strong> 趁你在这里，我们把视角拉远，聊聊整个基础设施市场和最近的新闻。过去几周关于新云商的讨论很多，包括债券的交易情况、股价下跌后又略有回升。你认为这个市场以后会怎样？</p>
+<p><strong>Erik：</strong> 新云商的商业模式本身没问题，但大家有点混淆了。看到需求旺盛、收入增长很快，就带着类似风险投资的思维，用收入倍数去看它们。</p>
+<p>问题在于，新云商的增长非常昂贵，必须融资，借很多债。因此增长快不一定就意味着那么好的结果，它们的资本效率并不高。核心上，这些公司是融资工具，在做实物资产租赁。这类生意天然更难扩大资本规模。</p>
+<p>现在市场开始说：“我们已经向新云商投了很多资本，先等等，没有那么多钱继续借了。”于是利率开始上升。而且这些公司的杠杆非常高，波动自然会更大。GPU 价格变化时，股市上剩余股权价值的涨跌也会更剧烈。</p>
+<p>不过商业模式本身可以成立：先锁定客户合同，再以此融资，然后逐步偿债。很多情况下，GPU 的残值比人们预想的高，使用寿命也更长。还清债务后，它们能以比预想更高的价格转售 GPU，从中赚不少钱，只是需要几年才能走到那一步。</p>
+<p>从这个角度看，新云商会做得不错。但它们没有特别强的差异化。</p>
+<p><strong>主持人：</strong> 你跟很多新云商合作，能看到什么区别吗？</p>
+<p><strong>Erik：</strong> 有一点，但本质上这个市场的差异化程度较低。Elon 前几天发推说，新云商都会死。我觉得他隐含表达的一点有道理：SpaceX 的资本成本低得多。</p>
+<p>看看三家成功的超大规模云商，AWS、Azure 和 Google Cloud，背后都是现金流非常强劲、资本成本非常低的上市公司，这绝不是巧合。要做资本密集型业务，低资本成本让事情容易得多。</p>
+<p>新云商会在这方面遇到困难：资本成本更高，也就更难快速增长。市场最终会怎样，还要再看。但它们是可以成立的生意，也许下跌后会出现买入机会，我不知道。</p>
+<p><strong>主持人：</strong> 你之前有一条很有意思的推文：如果一些新模型实验室的模型业务没做成，但已经锁定了算力合同，它们可能会转型成新云商。如果需求持续旺盛，算力继续升值，确实可能发生。</p>
+<p><strong>Erik：</strong> Mistral 某种程度上已经这么做了，看起来也还不错。很多人在作出巨额采购决定时，会这样合理化：“如果自己用不到 GPU，就转卖好了。”这几乎成了一种保险。</p>
+<p>新模型实验室太多了，每家都融了 10 亿美元。不知道为什么，它们总是恰好融 10 亿，可能喜欢这个数字，然后去买 GPU。</p>
+<p><strong>主持人：</strong> 一定是非常精确的财务模型算出来的最优融资额。</p>
+<p><strong>Erik：</strong> 对。[笑] 其中有些会非常成功，但肯定也会有些失败。失败后，它们手里还坐拥大量 GPU，那就转卖，尤其是在风险投资收缩的情况下。</p>
+<p>这些采购承诺有一个让我有些担忧的地方：今天签 GPU 合同时，通常只要预付约 30%，有时稍多，有时稍少。也就是说，你融到 10 亿美元，可以签下约 30 亿美元的 GPU 采购，只先付 10 亿。这里的算术不一定完全精确，但问题是，一年后你又得付几亿美元，之后每个月都要继续付款。</p>
+<p>这在很多公司里形成了隐含杠杆，也让它们依赖后续融资。只要还能拿风投资金支付 GPU 账单，就能继续运转。但某一天可能融不到了。</p>
+<p>那时我们可能会看到更活跃的二级市场。一些新模型实验室会转向新云商式业务：“我们有一批 GPU，可以出租。”或者转卖回云商，具体怎么做我也不知道。</p>
+<p>我整体上非常看好 AI，但会一直留意这类结构性风险。会有非常好的应用和庞大的需求，但所有新模型实验室都会成功、都会成为万亿美元公司吗？大概不会。</p>
+<h4 id="chapter-14">48:15 强化学习即服务，以及基础设施公司的边界</h4>
+<p><strong>主持人：</strong> AI 基础设施领域，强化学习即服务最近很受关注。很多团队采取深入客户现场的方式，帮助企业构建自己的模型。Satya 等人说过，每家公司都会有自己的模型。你同意吗？怎样看这个市场？</p>
+<p><strong>Erik：</strong> 不完全同意。我认为部分公司会有自己的模型。如果按收入金额加权看，大多数模型使用可能会来自经过后训练的模型；但如果按公司数量看，大多数公司并不需要自己做后训练。</p>
+<p>大型公司则不同。Cognition 在训练自己的编程模型，Cursor 也做了，其他一些公司同样如此，而这些公司恰恰提供了大量 token。</p>
+<p>因此强化学习和后训练的某些部分非常有吸引力。你能和客户合作，提供更好的模型、更低成本、更高吞吐量。但另一些业务看起来基本就是服务生意。</p>
+<p>未来几年最大的张力之一，是能否把它变成产品，真正把产品卖给这些公司。我们也经常想，怎样打造一个足够好的、可以直接销售的产品，而不把自己变成服务公司。</p>
+<p><strong>主持人：</strong> 进入快问快答之前再问一个。AI 世界里，多少工具会被纳入同一家基础设施供应商，多少会保持独立品类？每次和你聊，都能感到你想做非常多基础构件。有没有一些你看好、却认为会与你们的业务分开，仍能成为大型独立机会的基础设施方向？</p>
+<p><strong>Erik：</strong> 我们不会自己去训练基础模型。我觉得像 TypeSafe 的 Jev 这样的产品会有机会，未来可能会有很多这类定制模型。其他垂直领域、音频、视频、音乐等模态，也会有很多公司。应用层更会出现大量出色的公司。</p>
+<p>还会有一些企业更专注于软件开发等方向。我的总体观点是，市场版图中的格子总比你预想的多。不过，最后成功的公司，在某种程度上也都需要成为多产品公司。</p>
+<p>这两件事有没有矛盾，我也不确定。我们想找到一组彼此非常相邻的业务，把它们一起做好，最大限度创造收入和股东价值，但绝不意味着要扩展到所有领域。</p>
+<p>人们看 Anthropic、OpenAI 时也常作出类似的错误假设：“它们为什么不往上走，自己开律所，自己做各种应用？”可是，它们已经非常擅长大规模提供模型服务，正是这样获得规模的。每家公司都包办一切，并不合理。</p>
+<p>我们也是一样：不会什么都做，而是把一大组相邻能力做得非常好。市场仍然会留下很大空间，产生许多千亿美元甚至万亿美元级别的机会。</p>
+<h4 id="chapter-15">51:40 快问快答</h4>
+<p><strong>主持人：</strong> 最后是快问快答，和三年前问你的问题可能有一些相似，也有变化。过去一年，你对 AI 的哪件事改变了看法？</p>
+<p><strong>Erik：</strong> 沙箱的机会规模实在太惊人了。我完全没想到它能达到现在的程度。</p>
+<p><strong>主持人：</strong> 我还以为你 2023 年就知道，所以才下那么大的赌注。</p>
+<p><strong>Erik：</strong> [笑] 所以它的发展确实很不可思议。</p>
+<p><strong>主持人：</strong> 编程代理改变了工程师的工作。它改变了你对招聘的看法吗？</p>
+<p><strong>Erik：</strong> 没有太大变化。我认为很长时间里我们仍然需要人。人的生产率越高，需求反而越大。过去三四十年、甚至五十年的软件工程都如此：编译器、高级语言、CI/CD，每一次提高工程师生产率，需求都会上升。</p>
+<p>所以我们会需要更多工程师。不过短期内，应届毕业生可能会更难，最顶尖的那部分除外。长期我仍非常看好计算机科学。有点讽刺的是，我自己并不是学计算机科学的，但如果我的孩子想学，我一定会鼓励。</p>
+<p><strong>主持人：</strong> 创办 Modal 至今，你犯过最大的错误是什么？</p>
+<p><strong>Erik：</strong> 我不知道最大的是什么，但过去有一种错误：总想按顺序做事情。觉得“先解决这个阻碍，另一件事以后再做，因为它依赖前者”。</p>
+<p>可在一切都变化很快的世界，有时必须同时做两件事。既然已经在解决阻碍，就可以假设它会被解决，同时推进另一项工作，以换取速度。</p>
+<p>我的天性并不是特别激进，虽然过去 12 个月公司增长了 15 倍，听起来有些讽刺。我得重新训练自己，更积极地想：这是一个巨大的市场机会，我们需要在招聘、资本投入等方面更加积极，尽可能让所有能同时推进的事情并行。</p>
+<p><strong>主持人：</strong> 瑞典出了很多有意思的创业公司。你觉得为什么？Swedish House Mafia 已经被“瑞典科技帮”取代了吗？</p>
+<p><strong>Erik：</strong> 你知道 Swedish House Mafia 的一位成员是我的同学吗？一个有趣的小知识。</p>
+<p><strong>主持人：</strong> 真的吗？我不知道。</p>
+<p><strong>Erik：</strong> 是的，九十年代初，我在瑞典长大，八岁时他嫌我的自行车丑，我非常生气。</p>
+<p>瑞典一直有不少科技公司，Spotify、Klarna，还有很多游戏工作室。最近当然还有 Lovable、Legora 等。我觉得成功会继续带来成功。很多人进入科技行业，是因为听说某位表亲的朋友靠科技赚了很多钱，由此形成循环。</p>
+<p>此外，作为欧洲国家，瑞典一直比较有创业和商业精神。也许从维京时代就有那种“去征服世界”的心态。过去通过音乐、家具等，现在越来越多通过科技。</p>
+<p>斯德哥尔摩很有意思，每个人都觉得它是超级国际化的大都市，觉得全世界都很在意它，实际可能并没有。不过这种自我认知也有好处：他们从第一天就说，“我们要做一家了不起的公司，要走向全世界”。我喜欢这种有些夸张的雄心。</p>
+<p><strong>主持人：</strong> 我已经能想象你们小学同学会有多精彩了。班级大概不大，人物却很丰富。</p>
+<p><strong>Erik：</strong> 是啊，一个很偶然的小故事。</p>
+<p><strong>主持人：</strong> 再厚着脸皮问一句：12 个月后，GPU 租赁价格会更高还是更低？</p>
+<p><strong>Erik：</strong> 我认为更高。有意思的是，我过去 48 小时才改变看法。</p>
+<p>我读了 Anthropic 的 S-1 文件，也让代理帮我总结。它的盈利能力令我吃惊，程度超过我的预期。48 小时前，我的逻辑是：Anthropic 的应用毛利率不错，但训练开支太大，一旦上市，就必须放慢训练和后训练开支的增长，也许推理还能保持增长，但其他部分得收敛。</p>
+<p>读完后我意识到，它基本已经是一家盈利的公司，因此几乎没有动力放慢算力采购。我猜 OpenAI 也有类似情况。OpenAI 和 Anthropic 显然是市场上最大的两家算力买家。</p>
+<p>既然财务表现很好，我不认为它们会放缓采购。这意味着需求会继续增加，因此未来 12 个月价格大概会上升。</p>
+<p><strong>主持人：</strong> 你一直说 Modal 是一个要做二十年的项目，现在已经五年了。第十年到第二十年会是什么样？</p>
+<p><strong>Erik：</strong> 希望那时能招到很多人，接手我现在陷得太深的具体工作。我真的很喜欢这些事，希望一直做下去。</p>
+<p>到第十年至第十五年，我们可能会更像一个拥有很多产品的集团，甚至做一些疯狂的尝试，比如去月球、火星之类。但我仍希望参与高层面的资源配置，决定哪些方向值得下注。</p>
+<p>我可能会少管一些日常事务，比如去某家 GPU 供应商那里谈合同。对我来说，高层面的资源分配是最有趣的部分，希望还能继续做二十年，甚至更久。</p>
+<p><strong>主持人：</strong> 按照现在的节奏，那至少还会有五期 Unsupervised Learning。</p>
+<p><strong>Erik：</strong> 没错。</p>
+<p><strong>主持人：</strong> Erik，谢谢你。最后，听众可以去哪里了解 Modal？</p>
+<p><strong>Erik：</strong> 可以去 modal.com，也可以在终端运行 `pip install modal`，亲自试试。听节目的人里可能有人正在创业，或者考虑创业，我很想看看大家会做出什么，也希望 Modal 能帮上忙。欢迎联系，我一直很喜欢与客户交流，也期待看到大家的作品。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
