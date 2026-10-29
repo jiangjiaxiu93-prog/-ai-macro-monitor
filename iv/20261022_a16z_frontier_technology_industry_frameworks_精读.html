@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>a16z Frontier：技术周期、创业机会与下一代互联网（Chris Dixon、Marc Andreessen、Ben Horowitz 圆桌）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-29<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>a16z Frontier：技术周期、创业机会与下一代互联网（Chris Dixon、Marc Andreessen、Ben Horowitz 圆桌）</h2>
+<div class="metaline">a16z；Chris Dixon、Marc Andreessen、Ben Horowitz；主持人 Erik Torenberg · 2026-10-22 · <a href="https://www.youtube.com/watch?v=-9XQMHhpypc" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：前沿实验室；开放权重；应用层护城河；分发渠道；融资估值；a16z；Chris Dixon</p>
+<h3>要点</h3>
+<ul><li>a16z 将加密投资业务扩展为 Frontier，关注既有行业分类之外的创业者，以及 AI 与硬件、机器人、科学、娱乐结合产生的第二层机会。</li><li>圆桌讨论技术过早风险、创业公司与巨头的分工、代理互联网和开源，也反思搜索时代的内容交换机制。嘉宾的乐观判断保留其假设与分歧。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 开场摘录</a></li><li><a href="#chapter-2">00:49 为什么把 crypto 扩展为 Frontier</a></li><li><a href="#chapter-3">15:15 做得太早，仍然是风险吗</a></li><li><a href="#chapter-4">18:18 早期采用者与其他人的认知差距</a></li><li><a href="#chapter-5">22:06 AI 更有利于巨头，还是创业公司</a></li><li><a href="#chapter-6">28:33 社交网络与代理互联网</a></li><li><a href="#chapter-7">30:08 超出“产品经理思维”：游戏、电影与硬件</a></li><li><a href="#chapter-8">38:22 AI 会集中化吗：开源的作用</a></li><li><a href="#chapter-9">46:37 互联网原有的交换关系正在改变</a></li><li><a href="#chapter-10">49:12 iPhone 之后的设备与多人 AI</a></li><li><a href="#chapter-11">53:59 如果今天十八岁，应该学什么</a></li></ul></details>
+<h4 id="chapter-1">00:00 开场摘录</h4>
+<p><strong>嘉宾：</strong> 今天我们宣布，把 a16z crypto 基金的投资范围扩大为 a16z Frontier。</p>
+<p><strong>嘉宾：</strong> 早期采用者已经理解的可能性，与其他人理解的可能性之间，差距是我职业生涯里见过最大的。</p>
+<p><strong>嘉宾：</strong> 比起品类和产品，我们更看重创业者，而最有意思的创业者里，很多都在那些遥远的“外行星”上。接下来，新公司的诞生会急剧增加。</p>
+<p><strong>嘉宾：</strong> 其实已经在增加。过去我们问，这个想法是不是太有野心？现在更可能问，它的野心够不够大？因为今天能做到的事情实在惊人。</p>
+<p><strong>Marc：</strong> 如果 1994 年做 Netscape 时就有 Astra，Ben，我们能做成什么？</p>
+<p><strong>Ben：</strong> 我们能把整个互联网都造出来。</p>
+<p><strong>主持人：</strong> 如果今天十八岁，你会学什么？</p>
+<p><strong>嘉宾：</strong> 借用 Marc 的话，我觉得只有一件事要做，就是学习。</p>
+<h4 id="chapter-2">00:49 为什么把 crypto 扩展为 Frontier</h4>
+<p><strong>主持人：</strong> Chris，今天有一项重大公告，你来介绍吧。</p>
+<p><strong>Chris：</strong> 我们要扩大投资范围，把 a16z crypto 扩展为 a16z Frontier。背后有几个原因。</p>
+<p>首先，加密技术在一些领域已经发展得很好。稳定币成为技术产业的常规组成部分，Stripe 等公司在使用，几乎所有金融科技公司现在都会把它纳入工具箱。华尔街也在大量进入这个领域，比如代币化股票和其他资产，发展很快。</p>
+<p>结果是，边界变得模糊了。Stripe 算加密公司吗？很多公司都处在金融科技、华尔街和加密技术的交叉位置。以前这是一个相对独立的世界，有自己的公司和投资人，现在越来越融入整个技术产业。</p>
+<p>第二个原因，Marc 和 Ben 可以补充。公司其他投资团队，在各自核心领域已经有太多好机会，做得也很好。但因此，我们可能在一些“外行星”上留下了覆盖空白。这个词是我的合伙人 Martin 常用的，比喻大概来自电视剧《萤火虫》：内行星是核心区域，外行星则更古怪、更偏远。我们历史上一直都投这两类。</p>
+<p>对我个人来说，Frontier 也是熟悉的领域。我 2013 年加入时，就跟 Marc 和 Ben 说，想做这些疯狂的事情，他们说很好。</p>
+<p>当时有几个主题，我会把它们称为第二层效应。智能手机从 2007 年起步，到 2013 年进入主流，第一层机会是在上面开发应用，比如我们投资的 Instagram。</p>
+<p>但第二层机会是，智能手机带动传感器、芯片等部件不断进步，创业者可以把这些零部件重新组合，用于别的事情。最先对无人机感兴趣、把我带进去的，好像是 Marc。</p>
+<p>除了“很酷”之外，背后的投资判断是：供应链已经提供了这些优秀零件，创业者可以重新排列组合。我们投资的 Oculus，本质上就是重新组合的智能手机；Skydio 早期也类似，现在当然先进得多。</p>
+<p>在我看来，加密技术也是一种下游效应：开源软件运动向服务延伸，同时社交媒体使人们能够在未获主流认可之前形成社区，围绕区块链聚集并构建东西。</p>
+<p>所以，这对我来说是长期兴趣的延续。公司过去也在这些前沿领域做过很多投资，现在做的事情与长期方向一致。</p>
+<p><strong>主持人：</strong> Ben、Marc，这也是你们共同推动、非常兴奋的一项工作。它填补了什么空白？</p>
+<p><strong>Ben：</strong> 有些方向非常新，创业者看着技术能做到什么，再看世界有哪些问题，然后第一个进入。最后可能形成一个品类，可能成为一家成功公司，也可能失败。</p>
+<p>过去，Chris 会先自己探索新领域；等我们确定方向，再围绕它建立垂直投资团队。这个策略很成功，但总会出现落在现有垂直领域之外的新东西，而把这些东西发展成一个正式投资方向的过程，还不够明确。</p>
+<p>现在 Chris 来做 Frontier，我们就有了系统地投资这些“外行星”创业者的方式。如果某个方向做起来，也许以后会成为一只独立基金；或者 Frontier 自己围绕某个特别有意思的方向发展，都有可能。</p>
+<p>它补齐了组织结构里的一块空白。说到底，比起品类和产品，我们投资的是创业者，而最有意思的创业者，很多就在这些外行星上。</p>
+<p><strong>主持人：</strong> 这延续了上次公司会议的主题。你们已经很有野心、很早下注、下了很大的赌注，但当时讨论的重点仍是，怎样押得更大、更早、更坚决。遗憾往往是当初还不够积极。</p>
+<p>我们主要会聊未来，不过先问一个历史问题。除了 Marc 和 Ben，Chris 大概是连续任职最久的合伙人，2013 年就加入了。当时你们看中了什么？有没有预见他后来的发展？</p>
+<p><strong>Ben：</strong> 最初，我们觉得 Chris 很聪明，非常喜欢他博客里的想法。他是很好的写作者，观点原创性很强，我们正需要这样的人。</p>
+<p>另一个原因是，他真正创过业，知道那段旅程是什么感觉。公司早期建立文化时，这一点对我们特别重要。</p>
+<p>后来，公司最有原创性的投资理念，有很多来自他，我们也把这些理念扩散到其他团队。比如他早期说，我们要找的，不是看起来就像好主意的好主意，而是看起来像坏主意的好主意：表面很差，但创业者掌握某个别人不知道的秘密，使它实际上成立。</p>
+<p>这个框架帮助我们区分，什么可能独特到拥有巨大上行空间，什么只是看着不错、最后所有利润都会被竞争挤掉。他还提出过很多优秀想法，十多年合作非常愉快。</p>
+<p><strong>Marc：</strong> 我想补充，除了 Chris 本人，还有他的团队。外界看到加密领域时，容易关注它耀眼、时髦、带有文化现象色彩的一面。</p>
+<p>但核心上，它是一项很深、很复杂的技术。要做好投资，必须把深厚技术能力与商业判断、市场判断结合起来。Chris 的团队里真的有数学教授、密码学专家，以及深入研究博弈论和复杂软件概念的人。</p>
+<p>让我兴奋的不只是 Chris 能做更广的事情，还有他组建的整个团队，现在也能把能力应用到更广泛的问题上。</p>
+<p><strong>Chris：</strong> 谢谢。我也觉得团队很棒。除了技术，还有一点：这些年我们在政策和监管方面投入很深。</p>
+<p>自动驾驶、无人机，甚至 AI 本身，都越来越涉及政策。我们相信，在加密行业艰难历程中积累的经验，会对其他前沿领域的创业者很有帮助。</p>
+<p><strong>主持人：</strong> 你不仅探索投资方向，也推动了公司新的工作方式，比如政策团队。2013 年加入时，你能想象公司会发展成这样吗？</p>
+<p><strong>Chris：</strong> 我一直知道 Marc 和 Ben 有多大的雄心。Marc 办公室墙上还挂着摩根的画像。[笑]</p>
+<p><strong>Marc：</strong> 那是一张非常有名的照片，很有启发。</p>
+<p>没见过的人可以搜一下。摩根非常讨厌拍照，他有鼻子方面的健康问题，那个年代还没有抗生素。总之，他常常心情不佳，也不喜欢镜头，但又必须有一张正式肖像。</p>
+<p>摄影师看准了这个情绪，把他放在阴影里，目光像要杀人，手里仿佛握着一把刀。其实那只是椅子扶手，被光线照出了那种效果，显然是摄影师有意安排的。这张照片就挂在我办公室门内侧。</p>
+<p><strong>Chris：</strong> 看起来确实很吓人。</p>
+<p><strong>Ben：</strong> 我们从他身上得到不少启发。公司文化文件里还有一句来自他的话：“我们只做一流的生意，而且只用一流的方式去做。”</p>
+<p>这句话听起来很漂亮，但他说的时候是在法庭上，有人指控他做了不正当的事。他的态度是：“不，我清楚自己是谁，我来告诉你我是谁。”</p>
+<p>Marc 和我很喜欢这种态度。做风险投资，要有原则，让别人知道你从哪里出发，能够信任你，这很重要。</p>
+<p><strong>Chris：</strong> 和任何创业经历一样，我们也有起伏，不可能提前预测一切。总体上发展很好，但当时当然不知道每一步都会怎样。</p>
+<p>不过我知道 Marc 和 Ben 的雄心。有时我提出一个疯狂的想法，别人问他们会怎么想。我从来没有遇到他们叫我收手，更多时候是问：“能不能再翻一倍？能不能再加码？能不能更积极？”</p>
+<p>这里非常有创业精神。我们观察世界，调整组织，做过全面重组，也不断引入新想法。只要能讲清理由，几乎什么都可以讨论。这也是我喜欢在这里工作的原因。</p>
+<p>文化同样重要。我以前作为创业者，是风险投资的客户，体验过这个产品，知道它可以被做得更好。公司里我认识的几乎每个人，都会谈到文化的重要性，觉得自己在这里做着职业生涯最好的工作。</p>
+<p>当然最终还得投出好项目，但一切从人和文化开始。</p>
+<p><strong>主持人：</strong> 你提到起伏，可外界看起来，好像一路都是上升。</p>
+<p><strong>Chris：</strong> 成功的创业公司，从外面看都很漂亮。我们都在创业公司内部待过，我不知道哪家公司没有在某个时期、甚至好几个时期乱成一团。</p>
+<p><strong>主持人：</strong> 这也反映了你们的文化，比如不抱怨、不辩解，保持斗志。好，我们转向前沿本身。</p>
+<h4 id="chapter-3">15:15 做得太早，仍然是风险吗</h4>
+<p><strong>主持人：</strong> 风投里常说，太早和太晚一样糟。你们很多时候很早，而且判断正确，有时也确实过早。在今天这个时代，怎样看技术风险和时机？</p>
+<p><strong>Chris：</strong> 我们经常讨论。我想可以代表 Marc 和 Ben 说，我们见过的技术相关好主意，基本上最后都成功了，或者我们相信将来会成功。[笑] 这里必须强调，是好主意，坏主意当然也存在。</p>
+<p>经历互联网时代之后，很难不注意到，几乎每个后来成功的东西，都有一个早了十年、当时失败的前身。技术领域最难的，就是预测时间。</p>
+<p>它很复杂，技术、文化、商业环境、政治环境都必须配合，许多因素同时到位才行。所以公司整体，尤其 Frontier，会愿意承担做得过早的风险，也接受某个品类可能根本做不起来。</p>
+<p>即便看起来成功的东西，也未必真正达成预期。Oculus 被收购了，我们完成退出，但十三年过去，VR 仍没有达到当初希望的普及程度。我依然非常相信 VR，也愿意继续投资，只是它比想象中更难，需要解决更多技术问题。</p>
+<p>现在 AI 已经开始带来转折，先是软件工程能力大幅改善，再是数学。我相信存在一种情景，也愿意按这个判断投资：它可能把原本需要二十年的技术进步提前。</p>
+<p>这意味着，我们对技术风险的整个思考框架，都得重新审视。过去说“这是科学研究，不是工程项目”，今天还完全成立吗？数学不会是最后一个变化的领域，物理和硬件也在发生很多事。</p>
+<p>现在三十人的团队，可能有能力构建一家完整的设备公司，而十年前也许需要一千人。很多思考很深的创业者正在研究，怎样利用新能力做出幅度巨大的改变。</p>
+<p>一部分是战术问题，比如怎样建立防御性，不能只领先模型前沿两英尺，然后被下一波浪潮淹没。但更重要的是，新能力太强，大家才刚开始探索能用它做什么。这是特别令人兴奋的时刻。</p>
+<h4 id="chapter-4">18:18 早期采用者与其他人的认知差距</h4>
+<p><strong>Marc：</strong> 我补充一点，AI 像催化剂。早期采用者知道今天已经能做什么，普通人对此的理解却完全不同。这种差距，在个人层面存在，在公司层面尤其明显。</p>
+<p>原生 AI 创业公司对自己能力的认识，与几乎所有行业里的典型既有企业，都完全不同。我职业生涯里从没见过这么大的差距，而且它还在扩大。</p>
+<p>AI 能力几乎每周都在前进，我们接触的前沿创业者和技术人员，也每周都在变强，与典型大公司的距离越拉越远。</p>
+<p>如果把这个趋势延伸下去，很多行业会以比过去更深刻的方式重新开放竞争。创业者通过这些工具获得了过去没有的能力。</p>
+<p>如果 1994 年在 Netscape 时就有 Astra，天哪，Ben，我们能做成什么？</p>
+<p><strong>Ben：</strong> 能把整个互联网都造出来。实在难以想象。</p>
+<p><strong>Marc：</strong> 正如 Chris 说的，今天创业者拿来的计划，在深度和复杂度上很惊人，能把多个部分连在一起。</p>
+<p><strong>Ben：</strong> 我们那时连加密技术都能做出来。</p>
+<p><strong>Marc：</strong> 绝对，两周就搞定。[笑] 流媒体视频会早很多，其他事情也一样。硬件是我们当年根本没敢碰的，如果有今天这些能力，也能做很多。</p>
+<p>因此，前沿创业者会提出技术密度更高、复杂度更高的产品计划，更有野心、更复杂的商业计划。公司成长会快得多，产品覆盖范围也更大，希望业务范围也是如此。</p>
+<p>他们会远远超出现有分类。我们已经看到了：他们不把自己局限为软件公司、硬件公司，甚至 AI 公司，而是广泛思考，应该接触多少领域，怎样把它们组合起来。那种概念艺术家式的创造空间，会大幅扩张。</p>
+<p><strong>Chris：</strong> 过去我们问，这个想法是不是太有野心？现在更常问，野心够不够大？因为能做的事太惊人，做得温和一点，可能根本不够独特。</p>
+<p><strong>Marc：</strong> 我们花很多时间与既有企业交流，也有很多朋友在那里，包括硅谷的大型科技公司。我们希望它们成功，投资组合里也有很多公司想为它们提供新工具。</p>
+<p>它们当中肯定有人能够适应。但如果有大公司的人正在听，我想说，时间正在流逝，变化已经发生。</p>
+<p>我全职跟踪这件事，都快被发展速度淹没，几乎不可能追上所有变化。那些获得 AI 能力的二十四岁年轻人，未来十年会做出非常惊人的事情。</p>
+<h4 id="chapter-5">22:06 AI 更有利于巨头，还是创业公司</h4>
+<p><strong>主持人：</strong> AI 究竟是延续既有优势，还是颠覆既有格局？收益更多属于巨头还是创业公司？目前似乎两者都有：Meta 等公司适应得很好，也有新公司在不到十年里接近万亿美元估值。你们怎么看？</p>
+<p><strong>Marc：</strong> 适应得好的既有公司，大多数本身就在直接进入 AI。科技行业里，也有些公司不是主要模型开发者，却仍然处在前沿。</p>
+<p>但现在还有一个值得单独讨论的现象：很多公司没有采用 AI，员工却已经在用，而且未必告诉管理层。</p>
+<p>我猜每个听节目的人都在想：“没错，我就是这样。”用 AI 完成工作，至少用它核查、校对邮件，甚至直接生成邮件。</p>
+<p>现在 AI 有个奇特之处：个人采用比组织采用容易得多。回到我们的角色，这些个人中的一部分会发现，有了工具，创业比任何时候都容易，于是新公司数量会急剧增加。</p>
+<p><strong>嘉宾：</strong> 其实已经在增加。</p>
+<p><strong>Marc：</strong> 对，我们确实看到了。所以我确信，接下来会出现更多技术上积极、商业上积极、扩张欲望强、原创性强的公司，把过去分属不同领域的东西重新组合。</p>
+<p>创业者和团队一开始就能获得过去可能需要三十年才能积累的能力。</p>
+<p><strong>Chris：</strong> Christensen 的颠覆式创新框架，通常假设科技世界相对封闭，里面的公司彼此竞争。我觉得这可能不是今天最合适的框架。</p>
+<p>现在是技术能力先进的人走进其他行业，改变更广泛的经济，尤其是那些从头到尾自己做业务的公司。比如我们刚宣布投资的 Atoms，它在构建完整的餐饮服务以及其他业务。</p>
+<p>以前讨论的是十家大科技公司相互竞争，现在更像是这些公司加上所有创业公司，去改变其他《财富》五百强企业乃至整个经济。</p>
+<p><strong>Marc：</strong> 对。</p>
+<p><strong>主持人：</strong> 我们现在处于哪个发展阶段？互联网时代的大公司很多在应用层，比如 Facebook、Amazon；这轮似乎英伟达等硬件公司获得了大量利润。应用、消费者产品和基础设施之间，怎么看？</p>
+<p><strong>Chris：</strong> Marc 大概会说，每一层都有机会，我也觉得现在很多方向都在起作用。大实验室显然如此，开源增长很快，中国和美国都有认真投入的团队，应用层也有很多做得很好。</p>
+<p>最终价值链会逐渐分化，某些层面会比其他层面更强，但目前需求从多数指标看仍然很早期。你们团队刚做过一些图，企业实际使用率好像才百分之三左右。</p>
+<p>智能的市场非常大，现在才刚开始。</p>
+<p><strong>主持人：</strong> 新技术通常先改造旧用途，之后才出现真正属于新技术的用途。AI 现在在哪个阶段？</p>
+<p><strong>Chris：</strong> 我常用互联网来举例。九十年代，大家把既有行为搬上网。比如以前从 Sears 商品目录购物，后来目录放到网上，更方便，用户当然愿意改用网络。</p>
+<p>但到了二十一世纪初，YouTube 上线时是一个空网站，它说，将来会出现一批视频创作者来填满它。这不仅是在押技术，也是在押文化和行为的变化。</p>
+<p>因此风险更高，却也产生了真正改变世界的东西，比如社交媒体，后来又被移动互联网加速。</p>
+<p>这似乎是常见模式，也符合人性：有了新能力，先把已经知道的事做得更好。AI 到目前为止也是这样。人们原本就写代码、做数学、做知识工作、使用搜索或简单对话，现在用 AI 改进这些活动。</p>
+<p>但全新行为、从未做过的事情，我们才刚开始探索。我觉得接近转折点了，会出现更奇怪、更大胆的东西。这一直是我个人最兴奋的技术阶段。</p>
+<p>风险也有更多层。有些机会像直接射门，有些像打板入球，需要好几件事同时成立。风险更多，但如果判断正确，回报也可能更大。这也是 Frontier 感兴趣的方向。</p>
+<h4 id="chapter-6">28:33 社交网络与代理互联网</h4>
+<p><strong>主持人：</strong> 我很期待社交方向。以前隔几年就有一家大网络，Facebook、Snap、TikTok，后来似乎沉寂了一段时间。约会应用有过 Tinder，也很久没出现类似变化。</p>
+<p>AI 让新的社交体验显得几乎必然：如果某个界面或设备掌握我大量信息，它们之间总会以某种方式连接起来，创造新的社交体验。</p>
+<p><strong>Chris：</strong> 我们似乎在走向这样一个世界：互联网上数量最多的参与者是代理，而不是人。</p>
+<p>现在还很早，但方向相当清楚。Muse、Instinct 这些产品，是代表人的实用代理。以后还会出现其他类型，它们逐渐成为互联网的主要参与者。</p>
+<p>那它们是否需要自己的通信、交易、分享知识的方式，以及完成其他人类活动的机制？沿着这些问题，会出现一整套创新。</p>
+<p><strong>嘉宾：</strong> RentAHuman.com。[笑]</p>
+<p><strong>嘉宾：</strong> “租一个人”，把原来的关系倒过来了。</p>
+<p><strong>嘉宾：</strong> Moltbook 也很有意思。</p>
+<p><strong>Marc：</strong> 对，它是公开可见的版本，后来还发现代理自己在 Hugging Face 上做出了类似的东西。未来会更多。线上代理生态会非常丰富，人类也会以各种方式接入。</p>
+<h4 id="chapter-7">30:08 超出“产品经理思维”：游戏、电影与硬件</h4>
+<p><strong>主持人：</strong> Marc，在社交、消费产品，或者从旧平台迁来的用途之外，你期待哪些原生的新用途？</p>
+<p><strong>Marc：</strong> 我换个方式说 Chris 的观点。现在有很多很好的演示和产品，但我注意到一种现象，互联网早期也见过，我叫它“产品经理思维”。</p>
+<p>就是产品经理在给产品经理设计产品。其实人人都容易为自己做东西，只是产品经理会讲一个故事，说是在为别人做。[笑]</p>
+<p>结果所有示例都是，帮我在旧金山订一家餐厅，好与其他产品经理朋友吃饭；或者订一张机票，去参加产品管理大会，见其他产品经理朋友。</p>
+<p>这些当然有用途，但视野有点窄。就像 Anthropic 那个“有帮助、诚实、无害的助手”定位。它也可能意味着，这是你能想到最无聊的东西，还会不断训诫你：“这个问题我不能回答。”</p>
+<p>早期公司的性质，使我们对人类活动、对人们真正想做的事，形成了有些狭窄的理解。Muse 和 Instinct 已经开始把空间打开，但未来还会更有趣、更好玩、更令人兴奋。</p>
+<p>而且人们会赚钱，也会省钱，会参与以前无法参与的经济活动，成为创作者，创造新的艺术。仅过去三周，就出现了大量从零制作的音乐视频，主题和创意丰富得惊人。游戏领域也突然爆发。</p>
+<p><strong>主持人：</strong> 这个很值得展开。</p>
+<p><strong>Chris：</strong> 我一直觉得游戏有意思，因为它通常走在媒体前沿，技术文化很强，迭代很快。</p>
+<p>现在发生的事情很疯狂。你可以反汇编软件、做移植，借助 AI，甚至让 Windows 游戏在 Unix 上比原平台跑得更快。还有人做出工具，把任意两个游戏混合成一个新游戏。</p>
+<p><strong>嘉宾：</strong> 《超级马里奥》加《侠盗猎车手》。[笑]</p>
+<p><strong>嘉宾：</strong> 《蜘蛛侠》加《侏罗纪公园》。</p>
+<p><strong>Chris：</strong> 这是一种全新的行为。而且就像 Marc 说的，可能只是在 Opus 5.5 出来之后两周左右发生的。一个月、甚至再过两周，也许又是一波新变化。</p>
+<p>Epic 昨天还说“不再需要人类”之类的话。游戏行业对 AI 一直有文化上的抵触，但我觉得第一张多米诺骨牌正在倒下，因为这种构建方式更好，对消费者也有好处。</p>
+<p>我认为会出现创造力的复兴。任何独立开发者，都像拥有庞大团队一样工作，人类创意仍然有很大空间，只是获得了更强的能力。</p>
+<p><strong>主持人：</strong> 你们还提到电影。</p>
+<p><strong>Chris：</strong> 电影也许需要更久，我不知道它在那张“死神依次敲门”的梗图上，排在哪一扇门后面。</p>
+<p><strong>Marc：</strong> 也可能很快。我最近完全迷上《Digger》，感觉只有我一个人去看了。前半小时你一定会想离场。</p>
+<p>我有个朋友带母亲去看，半小时就走了。后来家里一直开玩笑：“《Digger 2》出来了，我们赶紧去电影院。”因为这个主意本身就很好笑。</p>
+<p>但如果看完整部，就会明白为什么要那样拍。它并不是表面呈现的那个意思，设计很巧，我不剧透。</p>
+<p>这是非常出色的创作，但给制片公司造成了约两亿美元现金损失，因为制作预算大概有一亿八千万美元。</p>
+<p>如果用 AI，把预算降到两千万，甚至两百万美元呢？同样水平的艺术和创意，如果成本更低，会是很好的作品，也会是很好的生意。两百万预算的话，那部电影可能非常赚钱，让投资人拿回十倍。</p>
+<p>因此娱乐业会打开很大的空间。</p>
+<p>另一个方向是硬件。Chris，你我关注硬件很多年了。作为软件人，硬件在我的整个职业生涯里一直像未知大陆，地图上写着“这里有龙”。公司贸然进入，非常容易出问题。</p>
+<p>但过去几周，出现了一款开源工具 REA，也就是 Reverse Engineer Anything。它调用 AI 模型，你指向某个东西，它就逆向分析并生成源代码，甚至可以针对硬件。</p>
+<p>比如家里的恒温器不好用，你可以让它分析，写新代码，装进去，换一个界面。类似方法可以扩展到很多硬件，让它们重新被编程。</p>
+<p>家庭自动化一直是很难做的市场，对用户来说安装也像噩梦，尤其新建房屋时。但未来也许只需要一个 AI 代理，统一管理家中硬件，按你的意愿运行。我有朋友现在已经在自己家里尝试。</p>
+<p>一种理解方式是，只要懂软件，今后可能自然就能做很多过去在硬件上很困难的事。这在以前几乎不可想象。</p>
+<p>这些还是离科技最近的领域。继续往外看，整个经济都有类似机会，而且它们之间会相互放大。</p>
+<p><strong>主持人：</strong> Ben，还有什么原生 AI 用途或者前沿领域，是你想看到、而我们还没谈到的？</p>
+<p><strong>Ben：</strong> 刚才讨论得很好。关键是，新东西很难提前预测，因为它们真的全新。</p>
+<p>电影行业的反应很有意思，有些人拥抱，有些人把头埋在沙子里。但我认为，最后会产生一种新媒体。AI 电影可能根本不是我们现在理解的电影，而是非常不同的东西。</p>
+<p>当然，AI 也会帮助传统电影更高效地制作、改善特效。但它允许讲述的故事，会与过去完全不同。过去有些形式甚至对 Christopher Nolan 都勉强可行，而他还是少数有机会做到的人。现在所有人都可能有这种能力，随后会出现新的想法。</p>
+<p><strong>Chris：</strong> 我常想起照相机。负面的理解是，它可能取代风景画家；正面的理解是，它使电影成为可能，没有相机就没有电影。</p>
+<p>技术既改变旧媒体，也允许人创造新媒体。我不知道原生 AI 媒体具体是什么，但愿意相信它会出现。人们会用 AI 做电影，也会做今天很难想象的东西。</p>
+<h4 id="chapter-8">38:22 AI 会集中化吗：开源的作用</h4>
+<p><strong>主持人：</strong> Peter Thiel 大概十年前说过，加密技术偏自由主义，AI 偏共产主义，意思是前者分散权力，后者集中权力。但今天一个人或三十人的团队能获得如此大的能力，这个判断还完全成立吗？</p>
+<p><strong>Chris：</strong> 里面包含很多开放问题。首先，AI 最终是什么市场结构？现在看，OpenAI、Anthropic 等大公司会非常成功，但开源也在快速增长。看 OpenRouter 等数据，我印象中，开源模型的 token 使用增长可能更快。</p>
+<p>还有本地模型。我们还没完全看到它的影响，但趋势已经出现：在边缘设备、自己的电脑上运行模型，也许很快就能在本机运行先进的编程代理或聊天模型。因此，市场结构有机会更加分散。</p>
+<p>加密技术也能发挥作用。代理形成经济体系后，彼此支付的一种自然方式就是稳定币。有了可编程货币作为底层，就可以建立去中心化借贷，以及加密领域已经构建的其他机制。</p>
+<p>这些都还没有定论，也正因此值得参与。我们相信开源软件、开放权重模型和区块链，希望未来既有这些优秀技术和大型集中式公司，也有丰富的开源选择，让竞争环境更平等。</p>
+<p>消费者和创业公司有更多选择，会更好。我们希望尽力把发展推向这个方向。</p>
+<p><strong>主持人：</strong> Marc、Ben，从技术水平、社会认知和产业发展来看，你们对当前开源状况满意吗？</p>
+<p><strong>Marc：</strong> 目前很好，开源正在快速前进。美国和中国都有活跃的开源生态，同时也有开发专有系统的公司。</p>
+<p>过去三四年，我一直担心一些政府可能施加极其严厉、在我看来无法接受的监管，甚至禁止开源。欧盟似乎仍想这么做，只是没有足够影响力，可能只能用罚款威胁大家。</p>
+<p>目前美国政府非常支持开源，希望美国开源 AI 在全球成功。中国对开源 AI 的支持程度也让我意外。因此至少现在，情况非常令人振奋。</p>
+<p>开放模型与闭源模型之间，按不同口径看，涉及大约六个月到十二个月的时间差。〔译注：原字幕在此处对领先、追赶关系转写不清，保留时间范围而不据此断定方向。〕</p>
+<p>还有一个经常被忽视的方面是教育。讨论禁止或监管开源时，人们总说它可能被用于坏事。但我们是否希望大家理解它怎样工作，学会处理问题，并在问题出现时知道怎样修复？是否希望下一代孩子真正理解这项技术？</p>
+<p>如果你的孩子想学习 AI，唯一办法却是去两家公司中的一家工作，作为父母你会怎么想？开源意味着每个孩子都能学习它。</p>
+<p>AI 还有一个被低估的能力，就是它能教你 AI。少数大公司的模型会拒绝某些相关请求，这很有意思，但开源模型会教你怎样构建开源 AI。我认为，理解并使用这项技术，应该是每个孩子都能拥有的能力。</p>
+<p><strong>Chris：</strong> 还有保护自己。Hugging Face 怎么应对攻击？用开源软件。开源使每个人都能得到先进的漏洞扫描器，保护自己的系统。</p>
+<p>每个人口袋里都能有医生和优秀教授。互联网之所以无处不在，人们用十美元的手机就能访问全球信息，开源是重要原因。</p>
+<p><strong>Marc：</strong> 最近还有个例子：野外探险者开始把本地大模型完整装进手机，不依赖网络。</p>
+<p>因为在野外遇到问题，比如被响尾蛇咬了，或者熊咬住腿不放——我也不知道野外到底会发生什么。[笑] 你想问 AI，但可能没有信号。</p>
+<p>本地模型就像随身带了一位懂野外生存的专家。如果一切都依赖少数供应商的云服务，就没有这种能力。</p>
+<p>所以目前我感觉很好，但仍担心各国政府以后会敌视开源。回到 Thiel 的框架，没有开源，AI 的确会趋向集中，集中到一两家公司，甚至政府手里。</p>
+<p>大家可以闭眼想象一下“政府寿司”。[笑] 再想象“政府 AI”，是什么感受？开源是避免那个未来的保障。</p>
+<p><strong>Ben：</strong> 权力过度集中一直会带来问题，无论是一家公司、一个政府，还是任何单一主体。</p>
+<p>回到开源，AI 当前一个很大的安全问题，是奖励投机：模型为了拿到奖励，做了你没有要求它做的事情。目前实验室似乎没有充分解决，也许因为忙着彼此竞争。</p>
+<p>也许这个问题很难弄清，也很难构建更能抵抗这种行为的模型。但如果每个博士生、教授、本科生都能查看权重、研究奖励投机，看看能否解决，岂不是很有希望？</p>
+<p>如果只有一家公司能研究，就做不到。我们希望全世界一起让技术变好、变安全，而不只是碰巧在两家、三家公司工作的人。</p>
+<p><strong>嘉宾：</strong> 还有 Meta。</p>
+<p><strong>嘉宾：</strong> 四家，再加 SpaceX。[笑]</p>
+<p><strong>主持人：</strong> 每周、甚至每天，都有让人惊讶的新进展，而且这还是这项技术此后最差的一天，它会继续变好。</p>
+<p>Thiel 还说过，我们想要飞行汽车，却只得到了 140 个字符。现在经营那个“140 个字符”平台的人，也在参与飞行汽车，而我们两边都有投资。事情又绕回来了。</p>
+<h4 id="chapter-9">46:37 互联网原有的交换关系正在改变</h4>
+<p><strong>主持人：</strong> Chris，你写过互联网商业模式正在失效或面临挑战，能展开说说吗？</p>
+<p><strong>Chris：</strong> 我把它称为互联网的“约定”。一边是 Google、Facebook 等分发平台，一边是新闻、旅行等内容网站。</p>
+<p>以 Google 为例，内容网站允许它抓取摘要、建立索引，作为交换，Google 带来点击。这个关系大概在过去十年就开始松动，现在变化尤其明显：你在 Google 直接获得答案，社交平台也越来越希望把你留在站内，不再向外导流。</p>
+<p>下游影响是，依赖广告、转化等方式赚钱的网站，失去了原来的收入基础。Stack Overflow 等网站在 AI 替代方案出现后，流量大幅下降，就是早期迹象。</p>
+<p>但人们仍会订旅行、找食谱，很多交易仍会发生，只是方式不同了。可能是代理访问旅行网站，可能通过其他渠道获取答案。</p>
+<p>短期看，依赖人类注意力的企业会很痛苦。但创业者有机会从根本问题重新思考：如果人们拥有 AI 能力，一个更好的互联网应该是什么样？应该怎样重新组织？</p>
+<p>未来十年左右，我们可能会看到互联网的大规模重组：商业机制、注意力流向、知识分享、协作生产，以及组织之间的互动方式，都会变化。</p>
+<p>移动互联网当然非常重要，把用户规模从大约五亿推向五十亿，提高参与度，让信息进入每个人口袋。但它未必改变了互联网最底层的组织方式。这次在结构上的影响，我认为会更深刻。</p>
+<p>部分企业会经历痛苦，同时也会产生大量机会。</p>
+<h4 id="chapter-10">49:12 iPhone 之后的设备与多人 AI</h4>
+<p><strong>主持人：</strong> 说到移动设备，自 iPhone 之后，计算设备的形态似乎固定了很久。你们期待什么新形态？</p>
+<p><strong>Chris：</strong> 大家都在谈可穿戴设备，AI 和语音显然解锁了过去没有的可能性，会出现很多产品。</p>
+<p>我也一直相信 VR，关键是达到合适形态。现在仍然重，戴着容易出汗，很多问题属于人体工学。但人们有时确实想要深度沉浸、进入另一个世界的体验，这对很多人和科幻作家来说都很自然。</p>
+<p>AI 可能成为关键推动因素，因为现在能创造极好的内容。我刚在 Twitter 看到有人独自完成了《Titanfall》的移植，非常厉害。当然不知道能否经得起版权诉讼，但人们也会创造属于自己的新东西。</p>
+<p>过去构建 VR 游戏或世界，技术难度很高。AI 可能让这些已有设备重新兴起。</p>
+<p>更远的方向还有 Neuralink、脑机接口，以及无人机、车辆。自动驾驶汽车已经越来越常见。</p>
+<p>我也希望看到个人动手改造硬件的复兴。现在 Claude 可以设计一个 3D 打印外壳，你买些便宜主板，写自定义固件，就能开始做。十二到十五年前，MakerBot 和创客运动曾兴起过，但当时太难。如今也许会重新发展起来。</p>
+<p><strong>Marc：</strong> 建筑也是例子。我有个朋友，不方便说名字，已经用 AI 完成了一栋新建筑的整体设计。人类负责施工，但整个项目由 AI 引导。</p>
+<p>新模型似乎也能完成“面向制造的设计”，输出交给工厂所需的最终图纸和规格。这通常是制造过程中很难的一部分。</p>
+<p>这些领域过去对普通人、普通公司而言极其困难，甚至不可进入，现在却可能变得直接可行。</p>
+<p><strong>主持人：</strong> 还想展开一下你说的，AI 目前主要处于单人模式，未来可能出现机器时代的网络。</p>
+<p><strong>Chris：</strong> 想法很简单。互联网时代，很多技术都经历几个阶段。早期 iPhone 应用像手电筒，都是一个人在自己手机上用的小工具。后来大家发现，可以做社交和协作，于是有了 Uber 这样的商业网络、Instagram 这样的社交网络。</p>
+<p>今天 AI 很惊人，但主要还是你坐在电脑前，打字、得到回答。虽然有一些轻量分享功能，但未来应该会出现联网、多人协作的阶段。</p>
+<p>Hugging Face 的攻击事件中出现过代理群，这是负面用途。有没有正面用途？我印象中，某个数学定理也是代理群共同解决的。</p>
+<p>“群体”也可以叫协作代理团队。解决难题、设计建筑、取得科学突破，可能都适合这种方式。</p>
+<p>Muse 和 Instinct 也有信任其他人的功能，未来可能发展成信任网络。如果仔细看，已经有早期迹象。大家还在实验，但根据历史经验和产品的可能性，这似乎是创业者值得探索的空间。</p>
+<h4 id="chapter-11">53:59 如果今天十八岁，应该学什么</h4>
+<p><strong>主持人：</strong> 我们聊到了技术带来的教育和学习机会，也刚孵化了新的学院项目，谢谢你们支持。如果今天十八岁，会学什么？Chris，你也有哲学背景。</p>
+<p><strong>Chris：</strong> 借用 Marc 的说法，我觉得应该学“现代炼金术”。</p>
+<p><strong>Marc：</strong> 对，讲讲。</p>
+<p><strong>Chris：</strong> 人类刚刚学会，把沙子变成智能。想理解它，应该学数学、计算机科学，也许还有经济学。</p>
+<p>我、Marc 和 Ben 都很幸运，职业生涯的大部分恰好赶上互联网发展。这是前人留下的机会，我很感激他们。</p>
+<p>今天我们讨论的 AI，显然会成为未来二三十年的主要叙事。不一定所有人都要纯粹做技术，但应该以某种方式进入其中，站在前沿，使用这些工具。这是很自然的选择。</p>
+<p><strong>Marc：</strong> 其他领域也会被改变。古典学就正在变化，比如 Vesuvius Challenge，通过 AI 解读被烧黑的古代卷轴，可能发现失传著作，甚至新的哲学流派。</p>
+<p>我最近和一位经济学教授吃饭，也谈到整个经济学会如何因此改变。还有生物学、药物发现，以及设计。我们刚谈了电影，但各种设计、艺术、音乐和创造活动都包括在内。</p>
+<p><strong>嘉宾：</strong> 还有动物学，我们会知道动物在说什么。</p>
+<p><strong>Marc：</strong> 这真的很有意思。我们可能走向一个能理解动物语言的世界。</p>
+<p><strong>嘉宾：</strong> 动物心理学也会变得更实在。</p>
+<p><strong>Marc：</strong> 如果能理解狗在说什么，训狗就会完全不同。好像还有一个 XPRIZE 奖项在推动这个方向，我是认真的。[笑]</p>
+<p>养狗的人都知道，它们在“说话”，只是语言很奇怪；猫当然也是。</p>
+<p><strong>主持人：</strong> 我等着听节目的创业者拿着项目来找你们。</p>
+<p><strong>Marc：</strong> 绝对。</p>
+<p>想到十八岁的年轻人或者孩子，我总会想起《银河系漫游指南》作者 Douglas Adams 的那套描述：不同年龄的人，对新技术有三种反应。</p>
+<p>十五岁以下，觉得这就是世界本来运转的方式。我孩子七岁时，我给他介绍 ChatGPT，说这很了不起，因为计算机可以回答问题。他说：“不然呢？不能回答问题的计算机有什么用？”对他而言，这完全正常。</p>
+<p>十五到三十五岁，会觉得新鲜、刺激，可能成为职业机会，所以愿意学习。三十五岁以上，则觉得它邪恶、不正常，必将摧毁社会和既有结构。</p>
+<p><strong>嘉宾：</strong> “我永远不会接电话！”</p>
+<p><strong>Marc：</strong> 对，老人对着云发怒，是反复出现的现象。[笑]</p>
+<p>所以今天十八岁，正是拿起这些能力向前跑的好时候。创业、创意、艺术都会出现全新领域。</p>
+<p>更小的孩子就像我家孩子一样，觉得拥有这些能力理所当然。学校甚至在帮忙：有些学校禁止 AI、为它争吵，可对孩子来说，越禁止就越酷。AI 成了需要偷偷学会使用的超能力，他们会想出各种主意。</p>
+<p><strong>Ben：</strong> 有意思的是，大人总问孩子该怎么办，觉得当孩子很难。其实有问题的是你，因为你的旧方法正在过时。孩子会拥有更强的能力，世界向他们敞开，他们能进入过去无法进入的领域。</p>
+<p><strong>主持人：</strong> 用另一个 Thiel 式概念概括，这是一种“明确的乐观主义”。未来会发生，科幻里的很多事情会成为现实，只是不知道什么时候。因此你们愿意早下注，有时可能太早，但仍会继续。</p>
+<p><strong>Chris：</strong> 对。不过想说明一点，我们今天提出很多理论，但最后，正如 Ben 一开始说的，我们做的生意还是支持优秀创业者。</p>
+<p>有很多今天没聊到的想法，可能更有意思、更有创造力。如果它们不属于公司现有核心方向，我们也愿意开放地交流。</p>
+<p>所以我会说，是乐观，但也要谦逊，是带着智识谦逊的“明确乐观”。我已经判断失误过很多次，我们真正想做的是，找到那些拥有自己明确愿景的优秀创业者，支持他们。</p>
+<p><strong>嘉宾：</strong> 创业者可以保持乐观。</p>
+<p><strong>主持人：</strong> 很好的结束。谢谢各位参加。</p>
+<p><strong>嘉宾：</strong> 谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
