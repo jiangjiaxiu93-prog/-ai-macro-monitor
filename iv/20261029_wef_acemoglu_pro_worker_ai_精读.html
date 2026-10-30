@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Acemoglu：怎样让AI扩大劳动者能力、重建共同繁荣（Radio Davos）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl on" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-30<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../ai_macro.html">← 返回AI宏观影响的探讨</a>
+<div class="card"><article>
+<h2>Acemoglu：怎样让AI扩大劳动者能力、重建共同繁荣（Radio Davos）</h2>
+<div class="metaline">World Economic Forum / Radio Davos；Linda Lacina访谈Daron Acemoglu · 2026-10-29 · <a href="https://www.youtube.com/watch?v=DxCkbNvzm0g" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：生产率；劳动市场；收入分配；财税政策；公共收益；组织变革；Daron Acemoglu</p>
+<h3>要点</h3>
+<ul><li>Acemoglu把AI的经济影响放在技术方向、就业和制度选择中讨论：企业增长能否带动劳动需求，取决于AI用于替代任务，还是帮助劳动者扩大专业能力、创造新任务。</li><li>他建议观察劳动收入份额，并比较美国和德国引入机器人的不同做法；没有提出一个统一的就业毁损临界点，也不认为四天工作制本身就能解决分配问题。</li><li>税收、数据制度、企业激励和社会规范都可能影响技术方向。他对“能够实现什么”保持乐观，对社会是否真正投入所需努力则明显更谨慎。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:29—共同繁荣为什么进入危机</a></li><li><a href="#chapter-2">05:08—从工业社会到数字经济，哪条联系断了</a></li><li><a href="#chapter-3">09:33—共同生活的社区与相互理解</a></li><li><a href="#chapter-4">12:40—以劳动者与社区为中心的框架</a></li><li><a href="#chapter-5">16:52—护士、教师和技工怎样获得更强能力</a></li><li><a href="#chapter-6">20:54—算法的笼子与被忽视的工资问题</a></li><li><a href="#chapter-7">23:46—把员工视为成本，还是资产</a></li><li><a href="#chapter-8">26:07—企业领导者可以怎样行动</a></li><li><a href="#chapter-9">28:41—AI讨论中的两个误区</a></li><li><a href="#chapter-10">30:33—怎样判断AI走对了方向</a></li><li><a href="#chapter-11">32:34—工作消失不是唯一指标</a></li><li><a href="#chapter-12">34:03—技术人才、税收和数据制度</a></li><li><a href="#chapter-13">36:12—快速问答：代理、四天工作制与通才</a></li><li><a href="#chapter-14">38:55—给领导者的最后建议</a></li></ul></details>
+<h4 id="chapter-1">00:29—共同繁荣为什么进入危机</h4>
+<p><strong>Linda：</strong> 欢迎收听Radio Davos。这档节目讨论世界面对的重要挑战，以及可能的解决办法。我是Linda Lacina，本周代替Robin Pomeroy主持，因为我们在世界经济论坛纽约办公室请到了一位特别嘉宾。</p>
+<p>他是经济学家、麻省理工学院教授、2024年诺贝尔经济学奖得主Daron Acemoglu。他的新书《自由民主怎么了？重塑共同繁荣的政治》讨论不断扩大的经济分化、修复它需要什么，以及AI，特别是有利于劳动者的AI，可以发挥什么作用。欢迎你。</p>
+<p><strong>Acemoglu：</strong> 谢谢Linda，很高兴来。</p>
+<p><strong>Linda：</strong> 我们直接开始。在你看来，经济和人类现在面临的最大危机是什么？</p>
+<p><strong>Acemoglu：</strong> 我相信，自由民主是人类重要的成就之一。回看漫长演化，人们生活在相互争斗的群体或非常不自由的社会里。当时很难想象，我们能建立由非常不同的人组成的复杂社会，让他们共同生活，大体和平地参与政治，并利用国家制度创造共同繁荣。</p>
+<p>这里的共同繁荣，是经济增长的同时，很多人、大多数人口群体也得到合理的一份收益。这是了不起的成就，但更紧迫的问题是，它现在处于危险中。</p>
+<p>我们需要理解，自由民主为什么陷入危机，以及如何重建它。我确信，自由主义思想和自由民主制度在未来仍有特殊作用，也可以做得更好。</p>
+<p><strong>Linda：</strong> 为了让大家处在同一个讨论基础上，你怎样定义自由民主？</p>
+<p><strong>Acemoglu：</strong> 自由主义的核心是个人自由：表达、结社、宗教自由。但还要把这些原则转化为人们能够实际追求自己愿望的条件。</p>
+<p>这需要国家提供机会、教育、基础设施，并在残障、无法养家等严重困境下提供保障，同时保持与自由原则相容。自由民主把这些自由思想和原则，与民主参与结合起来，是它们相当成功的一种制度化形式。</p>
+<p><strong>Linda：</strong> 如果我们不能让它摆脱危机，会怎样？</p>
+<p><strong>Acemoglu：</strong> 今天，自由民主被视为建制，而反建制情绪无处不在。挑战它的一些运动既不自由，也不民主，并不真正给人发声和自治的能力，反而制造分裂；它们往往也没能给人带来福利改善。</p>
+<p>因此，我们可能面对的是更糟的思想，有时是仇恨，加上更多腐败、任意统治、法律面前不平等，最终也远离我们仍在追求的共同繁荣。</p>
+<h4 id="chapter-2">05:08—从工业社会到数字经济，哪条联系断了</h4>
+<p><strong>Linda：</strong> 这些裂缝大约50年前就开始出现。工业时代转向后工业时代时，什么发生了变化？为什么共同繁荣受到威胁？</p>
+<p><strong>Acemoglu：</strong> 要理解危机，必须从诊断开始。我认为根源至少可以追溯50年，问题扎根于工业社会向后工业社会的转变。</p>
+<p>后工业经济中，数字技术发挥重要作用，全球化把供应链和商品流动更紧密地连接起来。它们深刻改变经济，使共同繁荣更难实现，但并不是不可能。全球化和数字技术如何发展，都不是预先注定的。</p>
+<p>在美国及许多工业化经济体，过去共同繁荣的一条重要渠道是：企业创新、扩张、增产，同时需要雇用更多劳动者。在民主框架和强工会下，企业既要创造岗位，也得提高工资。利润与收入增长，因而与工资增长携手发生。</p>
+<p>数字技术改变了这种安排的各个方面。首先，它更有利于受过大学教育的人，他们可以担任管理、数据及行政工作。更重要的是，数字技术被用作自动化的平台，也就是使用机器和算法替代原来由劳动者完成的任务。</p>
+<p>自动化改变了游戏规则，因为它可以切断企业扩张与共同繁荣之间的联系。我必须说清楚：这并不意味着数字技术天生必然扩大不平等，关键是我们怎样开发和使用它。</p>
+<p>后工业社会也带来不同的社会关系。大学教育群体的社会地位和政治影响上升，尤其是纽约、波士顿等大城市里融入全球经济的人。他们同时越来越集中在自己的社区、社交网络和圈子，与其他群体在价值观上分化。</p>
+<p>这种变化破坏了自由民主需要的广泛联盟。例如，英国工党、欧洲社会民主党、美国民主党过去主要得到没有大学学位、从事体力或服务工作的工人阶层支持；如今这些人更多投向中右或强硬右翼，中左政党则越来越受到大城市大学及研究生学历人群支持。</p>
+<p>中左政党曾推动福利国家、共同繁荣和劳动者权利。现在，它们对不平等上升、非大学群体落后没有那么关注，后来又在文化政治中成为社会分裂的一部分，引发强烈反弹。</p>
+<h4 id="chapter-3">09:33—共同生活的社区与相互理解</h4>
+<p><strong>Linda：</strong> 书里有很多很具体的例子。比如俄亥俄州的Anchor Hocking玻璃公司，当时工厂工人、办公室员工和管理者的孩子上同一所学校，住在同一个街区。几十年后就不再如此了。这些故事为什么重要？</p>
+<p><strong>Acemoglu：</strong> 你概括得很好，它们确实讲出了整个故事。变化不只是管理者和工人不再住同一社区、不再让孩子上同一学校、不再去同一教堂，还意味着我们失去了理解别人处境、学会共情的重要渠道。</p>
+<p>社交媒体与线上交流时代加快了这个过程，因为我们在自然形成的社会网络中直接互动更少了。</p>
+<p>回看2016年特朗普击败希拉里，以及英国脱欧公投，伦敦、纽约、波士顿等大城市中受教育程度很高的人，对反建制情绪如此强烈感到震惊。真正令人震惊的是，这么强烈的情绪，竟然近30年都没被充分注意。</p>
+<p>原因是我们生活在隔离的圈子里。所读的主要报纸、交谈对象、教育系统，都属于这个圈子。这既是信息生态的失败，也让人们更难搭桥，形成民主运转所需的广泛共识。</p>
+<p><strong>Linda：</strong> 人们常忽略政治制度和经济繁荣的联系。一方怎样影响另一方？</p>
+<p><strong>Acemoglu：</strong> 制度至关重要。我研究并希望改善自由民主，是因为我相信，这种制度对我们希望拥有的生活很重要：和平，以对话和理解为基础，繁荣而自由。</p>
+<p>如果开始牺牲制度，就可能失去这些东西。因此，这本书既讨论自由思想怎样演变、怎样发挥作用，也讨论它为什么对共同繁荣、发声权和其他目标重要。</p>
+<h4 id="chapter-4">12:40—以劳动者与社区为中心的框架</h4>
+<p><strong>Linda：</strong> 你写道，自由主义的危机与未能适应变化的世界密切相关，并主张重塑它。为什么需要新框架？</p>
+<p><strong>Acemoglu：</strong> 首先，显然有些东西失灵了。人们愿意让腐败或能力可疑的领导人及思想掌握权力，说明情绪有多强烈。</p>
+<p>自由主义需要新的治理哲学。没有一组围绕共同道德价值、说明如何建设更好社会的连贯思想，就无法重塑制度。</p>
+<p>过去，社会民主思想对欧洲福利国家、共同繁荣的目标，以及向贫困地区提供更优公共服务，都发挥了很重要的作用。现在需要类似的东西。但社会民主主要对应工业时代，所以我强调一个相关又不同的方向，称为“工人阶层自由主义”。</p>
+<p><strong>Linda：</strong> AI如果被正确引导，可以帮助扩展集体知识、重建共同繁荣。你提出的“有利于劳动者的AI”是什么？</p>
+<p><strong>Acemoglu：</strong> 我先退一步，把前一个问题说完整。这个框架的核心，必须是共同繁荣、工作，以及没有大学学位、从事体力、服务和各种技工职业的人获得更好的经济条件。</p>
+<p>另一个重要部分是社区。要让社区参与，给它们自治空间，作出不同选择，探索各自价值，同时保持个人自由、表达权和发声权。</p>
+<p>从眼下的方向看，AI对两者都可能构成威胁。如果它沿着通用人工智能，再到人工超级智能的方向发展，可能把美国、欧洲，最终新兴世界相当大一部分劳动者排除出岗位。共同繁荣会因此极难实现，劳动者变得可以被舍弃、不再重要，像二等公民一样，不平等可能远远超过今天。</p>
+<p>AI也可能延续社交媒体的趋势，让我们更被动、更远离社区，不再参与现实互动里麻烦却必要的妥协，不再理解不同立场、搭桥和共同讨论。</p>
+<p>但关键在这里：AI的本性并不要求它做这些事，取决于我们怎样开发和使用它。有利于劳动者的AI，就是重新构想技术方向，使它与共同繁荣、更好的制度相互补充。</p>
+<h4 id="chapter-5">16:52—护士、教师和技工怎样获得更强能力</h4>
+<p><strong>Linda：</strong> 这种AI在现实里究竟是什么样？</p>
+<p><strong>Acemoglu：</strong> AI不仅是强大的生成技术，可以用于自动化，或者成为通用与超级智能的基础；它也是一种极其灵活、强大的信息技术，可以实时向个人提供准确、与具体情境相关的信息。</p>
+<p>这意味着，我们都可以更好地解决自己专业领域的问题，扩展专业能力，开始承担新任务、做出创新，提供更好或不同的商品与服务。</p>
+<p>这里劳动者仍然处于关键位置。我们扩大人的能力，让人完成新任务。人没有被挤到旁边，劳动需求反而可能增加，重新激活我刚才强调的渠道：企业表现良好，同时提高工资、创造岗位。</p>
+<p><strong>Linda：</strong> 那是什么阻止我们走向这个方向？</p>
+<p><strong>Acemoglu：</strong> 因为我们现在并没有朝这个方向走。AI投入超过1万亿美元，其中很大部分用于建设越来越复杂的基础模型。</p>
+<p>这些模型确实令人印象深刻。我不会赞同把它们说成“随机鹦鹉”的人。它们真的很有能力，也能让我们受益很多。但我们还需要用能够补充人类能力的方式开发它们，这才是有利于劳动者的议程。</p>
+<p>例子有很多。护士可以在诊断、护理、处方和后续照护决策上发挥更重要的作用。教师可以借助AI重新组织课堂，更接近一种成本可承受、能力也不错的个性化教育。</p>
+<p>电工、水管工和各种技工需要解决越来越复杂的问题，也可以获得扩展专业能力的工具，做以前做不了的事情。知识职业中的人，同样可以这样受益。</p>
+<p><strong>Linda：</strong> 这些承诺大家都听过，但许多人仍很担心。为什么它可能不会发生？</p>
+<p><strong>Acemoglu：</strong> 他们完全有理由担心。我们目前不是朝这个方向走。</p>
+<p><strong>Linda：</strong> 阻碍是什么？</p>
+<p><strong>Acemoglu：</strong> 我说的这种AI，并没有一个巨大的技术障碍，现在的能力已经可以做到。有少数公司正在尝试，但处在边缘，没有最好的科学家、模型和GPU，即使如此也在取得进展。</p>
+<p>我们需要更多资源投向这里，可眼下并没有。原因既在硅谷的经济模式，也在其思想取向：领导者优先追求越来越像人、或者超越人的模型。</p>
+<h4 id="chapter-6">20:54—算法的笼子与被忽视的工资问题</h4>
+<p><strong>Linda：</strong> 你提到“算法的笼子”，它怎样影响思考和我们选择的方向？</p>
+<p><strong>Acemoglu：</strong> 社区几乎天然会形成规范的笼子，有自己的规则，不愿让成员脱离。因此，即使社区有价值，也必须保护个人自由。社区与自由之间的复杂关系，是书中的核心问题之一。</p>
+<p>我说的算法笼子，是社交媒体做类似的事时，你没有得到社区的很多好处，却受到更强的规范约束。算法监督你，或者找来会强烈监督你的人，必要时以很激烈的方式把你压进某种行为模式。但这个过程没有共同道德价值、共同理解、信息交换等社区带来的好处。</p>
+<p><strong>Linda：</strong> 书里有个故事：疫情后你去参加会议，以为大家会讨论工资停滞，因为它那么重要，影响又那么广，结果人们却没谈。这是不是说明大家关注错了信号？</p>
+<p><strong>Acemoglu：</strong> 某种程度上是的。这既与算法笼子有关，也与欧美政治中占主导地位的大学教育群体，和教育程度较低人群之间的分化有关。</p>
+<p>工资不平等影响所有人，但负担主要落在没有大学学位的人身上。美国是极端、也很有说明力的案例：大学毕业生工资上升，研究生学历者工资增长很快；但从1980年起约35年间，没有大学学历的男性劳动者，扣除通胀后的实际收入几乎逐年下降。</p>
+<p>讨论不平等应当从这里开始，这个变化非常大。可承受负担的是非大学群体。如果你觉得他们的价值观不对、不属于你的联盟，平时又缺少互动，逐渐不再共情，他们的问题就被排到后面。我看到的正是这种情况。</p>
+<h4 id="chapter-7">23:46—把员工视为成本，还是资产</h4>
+<p><strong>Linda：</strong> 你说商业模式也会影响政治框架。理解这种联系，怎样帮助我们看AI？</p>
+<p><strong>Acemoglu：</strong> 最需要讨论的一个问题，是管理者和CEO如何看待劳动。</p>
+<p>如果把劳动仅仅看成成本，就会越来越倾向自动化。某种东西既然是成本，当然要努力削减。但员工也是最重要的资产之一。问题不应只有怎样压低成本，还应有怎样让这项关键资产更有生产率。有利于劳动者的AI，就从这里进入。</p>
+<p>另一个例子是社交媒体。书里我说得很清楚，它不是自由民主危机的根源，却在加剧危机。今天的混乱，与其商业模式紧密相关：抓住注意力，再用个性化数字广告赚钱。</p>
+<p>这只是数字技术的一种商业模式，不符合90年代末、2000年代初人们对网络的全部期待。那时大家谈经济民主、新闻民主、更自然的新闻生产和更好的沟通，后来也把阿拉伯之春中的一些变化视作Facebook和Twitter的礼物。</p>
+<p>这些人的判断最终可能不对，但愿望并不幼稚，因为数字技术有能力创造新的公共空间、提供更好信息，帮助人们搭桥和交流。只是社交媒体选择的商业模式没有朝那个方向发展。</p>
+<h4 id="chapter-8">26:07—企业领导者可以怎样行动</h4>
+<p><strong>Linda：</strong> 如果我是企业领导者，读到“我们需要更善于识别有利于劳动者的技术”，具体该做什么？本能会把我推向哪里，我又该怎样调整？</p>
+<p><strong>Acemoglu：</strong> 真正从事生产的企业领导者，往往很能理解这个想法，但他们也受约束。</p>
+<p>首先，他们需要科技行业提供相应工具，可目前拿不到足够好的工具。其次，股票市场和董事会形成了一种预期：如果不跟着大家用AI自动化工作，就落后于竞争者。领导者必须向股东和董事会证明自己在这么做，因此也处在两难中。</p>
+<p>第一步是改变叙事。达沃斯一直很重视自动化、提高利润、精简组织、建设更复杂的供应链。我认为，这里的人也应该问自己：我们正在推动的未来方向，真的是对的吗？</p>
+<p><strong>Linda：</strong> 没人觉得自己在把事情带往坏方向，大家都觉得在做好事。我主持领导力播客，每个人都说自己善于倾听、很友善。有什么问题，可以帮助他们在决策时真正检查方向？</p>
+<p><strong>Acemoglu：</strong> 可以问两类问题。</p>
+<p>第一，认真把越来越多自动化所导向的未来描绘出来，最终你可能会发现它并不可持续。如果越来越大比例的人变得贫穷、可以被舍弃，觉得自己、也被社会认为不再对共同利益有贡献，民主很难维系。那是一种反乌托邦。</p>
+<p>第二，对你的组织而言，真正改变局面的，是削减百分之二、三、四、五的成本，还是做新的事情？我们记得福特汽车，并不是因为它削减了成本，而是因为它通过做新事情改变了生产。要做到这一点，需要最有创造力的员工，也要给他们更好的工具。</p>
+<h4 id="chapter-9">28:41—AI讨论中的两个误区</h4>
+<p><strong>Linda：</strong> 关于AI和就业，哪些误解最让你感到困扰？</p>
+<p><strong>Acemoglu：</strong> 主要有两个。第一，媒体经常制造一个错误的二分法：AI要么带来无限繁荣，要么产生杀手机器人，摧毁人类文明。</p>
+<p>我担心的事情在中间：技术会进步，但我们把它推向了错误方向。媒体和思想领袖应当向公众提供相关的信息，而我们在这方面做得不好。</p>
+<p>第二，是把公众对AI方向的民主参与，等同于阻止进步。很多科技领导者或支持者说，如果想要更好未来，就让这些天才自行工作。这是非常糟糕的态度。</p>
+<p>AI会重塑生活的方方面面，也会改变其他数十亿人的生活，其中很多人没有参与决定的声音。我们有发声的能力，就有责任参与未来如何被重塑的讨论。即使技术主要由两三家公司推进，也不代表它们的CEO有权决定一切。公共参与非常重要。</p>
+<h4 id="chapter-10">30:33—怎样判断AI走对了方向</h4>
+<p><strong>Linda：</strong> 如果把AI做好了，日常生活会有什么不同？</p>
+<p><strong>Acemoglu：</strong> 可以想象电进入生活之后的变化。过程并非一帆风顺，但我们更有生产率，工厂更现代、更高效，家用电器改善了生活。</p>
+<p>也可以想象早期互联网，在后来尤其是社交媒体相关问题出现之前：我们获得更好的服务和信息，能做以前做不了的事，更多企业竞争着向我们提供商品和服务，也能创办许多有创造力的新公司。只要选择正确，AI同样可以做到很多这样的事。</p>
+<p><strong>Linda：</strong> 什么信号说明方向错了？什么数据或趋势应该让我们警觉？</p>
+<p><strong>Acemoglu：</strong> 一个很有代表性的信号，是劳动在行业增加值或国民收入中的份额下降。这种情况过去30年已经在发生。如果下降加快，就说明我们可能把所有鸡蛋都放在自动化这个篮子里。</p>
+<p>顺便说，自动化本身没有问题，从1750年起就一直存在，未来也会继续。问题是，如果我们只做自动化，却不做其他事情，不创造与人互补、有利于劳动者的AI，就会失衡。</p>
+<p><strong>Linda：</strong> 为什么一定要避免这个指标朝坏方向走？</p>
+<p><strong>Acemoglu：</strong> 因为它可能带来难以想象的不平等，并摧毁自由民主。还需要更多理由吗？</p>
+<h4 id="chapter-11">32:34—工作消失不是唯一指标</h4>
+<p><strong>Linda：</strong> 就业毁损呢？有没有一个门槛，达到后就不能回头，或者必须寻找新路径？</p>
+<p><strong>Acemoglu：</strong> 我不认为存在一个固定的就业毁损门槛。美国即使在创造共同繁荣的时候，也在大量摧毁岗位，同时创造大量岗位。</p>
+<p>我不是说，美国必须永远保留350万名客服人员。有些岗位会消失。但如果毁掉350万个客服岗位，却不给这些人其他机会，和帮助他们提升技能、找到更有意义、工资更高的工作，是完全不同的世界。</p>
+<p>比较密歇根州和德国引入机器人的过程，可以看到这一点。底特律、弗林特等地，福特、通用、克莱斯勒及其供应商引入机器人时，解雇操作工、焊工、喷漆工等。德国则把这些工人培训成技术员及更高技能的劳动者。对生产率和不平等的影响非常不同。</p>
+<h4 id="chapter-12">34:03—技术人才、税收和数据制度</h4>
+<p><strong>Linda：</strong> 对2027年，你希望看到什么变化？哪种调整算是走对了一步？</p>
+<p><strong>Acemoglu：</strong> 最终的大成功，不可能明年、甚至几年之内就实现，但我希望讨论方向改变：进入科技行业的大量优秀人才，有相当一部分不是为了实现AGI、把科幻梦想变成现实，而是因为相信AI可以朝有利于劳动者的方向发展，改善沟通，增强而不是削弱人的行动能力。</p>
+<p><strong>Linda：</strong> 怎样才能实现这种改变？</p>
+<p><strong>Acemoglu：</strong> 我不知道，希望自己知道。</p>
+<p><strong>Linda：</strong> 书里也没有答案？</p>
+<p><strong>Acemoglu：</strong> 没有一个现成答案，但它首先是社会规范的改变，政府政策也能帮助。政府不能不受约束地操纵AI，也不能代替企业家把AI做出来，但政府设定框架。</p>
+<p>税收影响行为。我认为，美国和很多发达经济体的税制严重扭曲：优惠给予资本，也使很多依靠资本收益赚钱的人受益，劳动则承受更高税负。</p>
+<p>这不仅不公平、扩大不平等，还不利于AI的未来，因为它向企业发出强烈信号：政府在补贴自动化，因此应该自动化。我们需要改变这些税收政策。</p>
+<p>还需要支持更有社会生产价值的AI方向，制定保护个人数据的新法律，并鼓励专家投入高质量数据。这会让各种模型受益，尤其是有利于劳动者的模型。政府能做很多事，但没有一种政策可以一举解决全部问题。</p>
+<h4 id="chapter-13">36:12—快速问答：代理、四天工作制与通才</h4>
+<p><strong>Linda：</strong> 最后来一组快速问答。我给你一些常听到的说法，你判断会不会发生。第一，有一天我们都会为AI代理工作。</p>
+<p><strong>Acemoglu：</strong> 我不这么认为。尽管AI模型不断变好，我认为AGI还不是短期内就能实现的东西，而且始终会有人控制AI。不会所有人都为AI代理工作。</p>
+<p><strong>Linda：</strong> 我们会每周工作四天。</p>
+<p><strong>Acemoglu：</strong> 有可能，但我不确定，也不确定这就是问题的答案。</p>
+<p><strong>Linda：</strong> 为什么？</p>
+<p><strong>Acemoglu：</strong> 如果想要工资增长和共同繁荣，就要让劳动更有生产率。某种四天工作制的推动逻辑却是：岗位总量固定或减少，只好在剩下的人之间更好地分配，让每个人少工作。</p>
+<p>这和另一种逻辑完全不同：我们越来越富裕，在生产中有很多可贡献的东西，同时寿命更长、经济更复杂，需要更多学习，所以拿出时间休闲或提升技能。如果是后者，我更支持。</p>
+<p>如果理由是岗位消失、我们无能为力，向AI认输，只好把工作缩成四天或三天，那是另一回事，我不太支持。</p>
+<p><strong>Linda：</strong> AI时代属于通才，而不是专家。</p>
+<p><strong>Acemoglu：</strong> 可能有一定道理，前提是你所说的通才，是能够灵活改变工作内容，把不同视角整合起来，尤其能以创新、创造性的方式整合的人。</p>
+<p><strong>Linda：</strong> 我们会拥有有利于劳动者的AI。</p>
+<p><strong>Acemoglu：</strong> 我希望如此，非常希望。</p>
+<p><strong>Linda：</strong> 你觉得可能性多大？</p>
+<p><strong>Acemoglu：</strong> 我没有放弃希望，但需要改变方向。</p>
+<p><strong>Linda：</strong> 可以给个概率吗？</p>
+<p><strong>Acemoglu：</strong> 我非常相信，自由主义最终有自我重建的能量；也非常相信，只要我们真正投入努力去创造有利于劳动者的AI，就能做到，并产生很好的社会结果。</p>
+<p>但我们是否真的会同时为制度和这种AI作出所需投入？我会说，可能性肯定不高于30%。所以我的乐观，是关于我们能够实现什么，而不是我们一定会采取行动把它实现。</p>
+<h4 id="chapter-14">38:55—给领导者的最后建议</h4>
+<p><strong>Linda：</strong> 最后一个问题，领导者未来一年应优先关注什么？</p>
+<p><strong>Acemoglu：</strong> 理解AI非常重要。同时也要关心制度的未来，以及我们能否围绕共同道德价值聚在一起，而不是被分开。思考工人阶层、不平等和就业，是朝这个方向迈出的第一步。</p>
+<p><strong>Linda：</strong> 非常感谢你。这次交流是我们的荣幸。</p>
+<p><strong>Acemoglu：</strong> 我也很高兴。</p>
+<p>*来源核验：采用完整英文原声字幕，核对至约39分46秒；保留全部实质访谈、举例与快速问答，删除片头重复预告、口头填充及订阅推广。正文涉及概率、未来就业和制度影响的判断均为嘉宾观点。*</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

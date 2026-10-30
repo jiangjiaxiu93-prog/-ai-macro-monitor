@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>亚马逊Q3电话会：AWS增长、Trainium外售与资本开支回报</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-30<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>亚马逊Q3电话会：AWS增长、Trainium外售与资本开支回报</h2>
+<div class="metaline">Amazon Q3 2026 Financial Results Conference Call；MarketBeat完整逐字稿；Andy Jassy、Brian Olsavsky、Dave Fildes · 2026-10-29 · <a href="https://www.marketbeat.com/earnings/reports/2026-10-29-amazoncom-inc-stock/" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文电话会纪要</div>
+<p class="kw">关键词：AI资本开支；算力采购；推理成本；企业采用；代理商务；单位经济；Amazon；AWS；Trainium</p>
+<h3>要点</h3>
+<ul><li>AWS三季度收入460亿美元、同比增长39.3%，积压订单5780亿美元。管理层预计2027、2028年均可增长逾40%，并解释大额算力预订、推理采用与自研芯片如何支撑判断。</li><li>三季度现金资本开支759亿美元，全年约2200亿美元指引维持，2027年计划明显增加。管理层强调回收期缩短，但未给出统一年限或2027年资本开支数值。</li><li>Trainium计划2027年底开始向外部销售；电话会逐项讨论芯片立即出售与在云中使用五至六年的收入和现金流取舍，同时覆盖零售、广告、机器人、Prime Video和Leo业务。</li></ul>
+<h3>电话会详细纪要</h3>
+<p>*按2026年10月29日电话会原始顺序整理，保留全部实质陈述与六组分析师问答。下列预测均为管理层当时判断；“年化收入”不等于已实现全年收入，预订及承诺不等于已确认收入。*</p>
+<h4 id="chapter-1">00:28—开场与统计口径（Dave Fildes）</h4>
+<p>投资者关系副总裁Dave Fildes介绍CEO Andy Jassy与CFO Brian Olsavsky参加答问，建议参照公司当日业绩公告中的财务数据和经营指标。除另有说明，电话会中的比较均针对2025年同期；管理层的评论、问答与前瞻性判断仅反映2026年10月29日的观点。</p>
+<p>非GAAP指标的说明及与GAAP的调节表，列于投资者关系网站上的公告、演示材料和SEC文件。指引基于目前已经观察到的订单趋势及管理层认为合适的假设，实际结果可能不同。</p>
+<p>影响因素包括汇率、能源价格、全球经济及地缘形势、关税与贸易政策、资源供应波动，尤其是存储芯片，以及客户需求和支出。衰退担忧、通胀、利率、地区劳动力约束、全球事件、互联网、电商、云服务与新技术的增长速度，同样可能改变结果。指引假设不会额外完成业务收购、重组或法律和解，不能准确预测全部商品与服务需求。</p>
+<h4 id="chapter-2">02:30—AWS增长与平台逻辑（Andy Jassy）</h4>
+<p>亚马逊三季度收入2019亿美元，同比增长12%；营业利润281亿美元，同比增长61%。Jassy将本季定义为又一个强劲季度。</p>
+<p>AWS同比增长39.3%，连续第六个季度加速，也是近五年来最快增速。这个结果是在去年同期已经增加大量产能的基础上取得的。积压订单达到5780亿美元，同比增长达到三位数，客户构成具有分散性。AWS大约每14秒安装一颗AI加速器，新增产能几乎一装好就被客户消耗。核心计算和存储收入增速均达到数年来的较高水平。</p>
+<p>核心业务的营业利润率长期较强，AI业务利润率也在迅速改善，显著领先于核心业务处于同一发展阶段时的水平。这是在存储等零部件成本较高、当前资本开支带来大量折旧的情况下取得的。管理层继续缩短资本开支回收时间，更加确信AWS会成为收入和自由现金流规模明显大于几年前预想、投入资本回报良好的业务。</p>
+<p>Jassy借用Jim Collins在《从优秀到卓越》中对飞轮的描述，解释AWS的相互促进关系：功能、安全和运营表现吸引客户把应用与数据放到AWS；生产推理通常希望靠近已有数据和应用，这带动AI需求；AI又需要强化学习、后训练、工具调用等核心云能力，反过来推动核心AWS需求；这些收入支持进一步投资平台功能。</p>
+<p>管理层强调，这是覆盖广泛客户体验、稳定运行与长期合作的平台策略，区别于主要托管GPU或租用短期数据中心容量的模式。其长期经济性不只依赖供给稀缺。</p>
+<h4 id="chapter-3">04:56—核心云、数据分析与Bedrock</h4>
+<p>全球约85%的IT支出仍发生在本地环境，管理层认为未来10至20年这一比例会向云端翻转。过去被认为不会迁云的大型机和存储区域网络，也开始移动，因为AWS开发了替代方案，并用AI降低迁移难度。客户可减少资本支出、降低运营成本、加快创新、提高开发效率，并让数据更容易被AI使用。AWS经过20年的经营，已经学会高效运行核心业务。</p>
+<p>随着客户产生更多数据，数据存储与分析引擎之间搬运数据越来越复杂、昂贵。收购DuckLabs后，DuckDB将成为AWS存储与分析的通用SQL语言：客户写一次SQL，就可在不同AWS分析服务中执行。Jassy称，这将把查询引擎之间的迁移和可移植性成本降到零，并帮助代理更有效地查询数据。</p>
+<p>Bedrock继续扩展推理服务。财富500强客户在Bedrock上的支出接近上年同期的七倍，平台token总量接近上年同期的17倍。管理层称，它是AWS历史上增长最快、收入达到数十亿美元规模的服务。近期加入OpenAI模型后，使用量增长很快；同时新加入由Bedrock托管的Kimi、GLM及SpaceX模型。</p>
+<p>安全是客户选择Bedrock的重要原因。客户输入和输出不会提供给模型供应商，也不会用于训练基础模型。客户调优模型时，AWS为其创建专属私有副本；数据在传输和存储期间均加密。</p>
+<h4 id="chapter-4">07:24—安全服务、代理与自研芯片</h4>
+<p>随着前沿模型更强，它们正在以过去没有的速度发现此前未被发现的软件漏洞。AWS开发Continuum，以机器速度发现、排序、验证和修复代码漏洞，客户包括Capital One、IBM、Infor、Luminate和Robinhood。三季度，公司宣布将其接入Claude Code、Codex和Kiro等实际编写代码的工具。Jassy称，新安全服务收到的客户兴趣超过此前任何同类新品。</p>
+<p>代理部署继续加速，数万客户使用AgentCore；第三季度通过它部署的代理数量，是此前三个季度合计的两倍。企业既会构建专门用途代理，也会使用开箱即用的代理服务。AWS提供Kiro编程代理、Amazon Connect联络中心代理、AWS Transform迁移服务，以及工作伙伴Amazon Quick。Quick增长很快，Mondelez、EchoStar、3M、Southwest Airlines和DXC Technology等大型企业选择它，原因包括面向工作场景及客户数据保护。</p>
+<p>芯片业务收入继续同比三位数增长，Graviton和Trainium各自的收入承诺均超过上年同期的20倍。AI有利于Graviton：后训练中的强化学习和代理工具调用，大量运行在CPU上。Jassy称，Graviton相对于其他选择具有约30%至40%的性价比优势。</p>
+<p>仅第三季度，采用AWS自研芯片的客户就节省了超过20亿美元。公司刚开源TorchNeuron，让开发者无需重写已有PyTorch代码即可在Trainium运行。</p>
+<p>新一代芯片推出后，旧代需求依然强劲。Graviton5发布后，前几代Graviton实例的积压订单仍环比超过翻倍；前代Trainium短期容量的价格，高于今年上半年。Trainium需求强烈，客户持续要求它在AWS之外销售，公司计划于2027年底开始这样做。</p>
+<h4 id="chapter-5">10:10—容量、资本开支与长期收入目标</h4>
+<p>AWS容量需求仍然很强。企业大规模使用推理尚处早期，但推理已经贡献AWS AI收入的一半以上，而且占比继续增长；训练收入也相当可观。</p>
+<p>2026年现金资本开支仍预计约2200亿美元，其中大部分投向AWS。2027年预计明显增加。管理层称，能够看见这些投资带来有吸引力财务回报的路径，相关逻辑在上次电话会上已有展开。</p>
+<p>AWS当前年化收入规模1840亿美元。Jassy认为，持续创新、核心云和AI功能扩展、企业希望把两类负载放在同一平台，以及每年的容量增加，使AWS有望在2027年和2028年分别增长超过40%，并在未来五至十年成为年收入超过1万亿美元的业务。这是管理层长期判断，并非已经实现的数据。</p>
+<h4 id="chapter-6">11:39—零售规模、配送、食品与药房</h4>
+<p>Jassy认为，市场低估了零售业务过去几年的进步：数千亿美元收入规模，计入广告后具有两位数营业利润率，同时保持增长。去年售出商品超过300亿件，今年以来销量仍同比增长接近15%。过去12个月总销售额增加超过900亿美元；在美国，每季度新增总销售额约为下一家最大竞争者的两倍，持续取得零售份额。</p>
+<p>过去几年，北美与国际分部各自的营业利润率都提高了接近10个百分点，使公司能够再投资客户体验。全球约80%的零售仍发生于实体门店，管理层认为这一结构会长期向电商翻转。</p>
+<p>公司正在扩展高效、快速的履约网络。配送提速、降低服务成本、食品和药房、AI购物之间具有相互促进作用。同日达、Amazon Now和Amazon Prime Air等网络持续扩张，三季度全球配送速度达到公司历年同期最快；当季向Prime客户同日或隔夜交付的商品超过15亿件。</p>
+<p>Amazon Now已覆盖超过450个城镇，订单商品件数达到上年同期的十倍。公司有望连续第四年降低单位服务成本，在匹配或低于竞争对手价格的同时，以可承受成本提供更丰富的生鲜和日用品。</p>
+<p>过去12个月，食品与Everyday Essentials日用品总销售额接近2500亿美元。三季度生鲜及日用品增速约为其余商店业务的三倍，约占总销售件数的一半。使用生鲜同日达的客户，购买的日用品件数接近未使用者的七倍；活跃食品客户涉及的非食品品类接近四倍，在家居、服装等品类的支出超过两倍。这些是用户群体比较，不是公司证明的单一因果提升幅度。</p>
+<p>Amazon Pharmacy用户同比增长超过60%，2026年每季增速都在加快；重复购买客户增长超过50%。J.D. Power连续第三年将其评为领先的邮寄药房。公司已在超过350个城市提供三小时处方药配送。</p>
+<h4 id="chapter-7">14:15—AI购物与广告增长放缓的解释</h4>
+<p>过去12个月，超过4亿客户用过Alexa for Shopping，互动量同比增长570%。美国使用该助手的客户，每单支出比未使用者高50%。助手可以研究商品、比较选择、查看一年价格记录、推荐个性化礼物，并代表用户追踪折扣和降价。</p>
+<p>亚马逊预计会与横向通用代理合作，但认为Alexa for Shopping会是用户在亚马逊购物时的主要代理。它能在浏览、获取灵感、查看商品详情和提问时随时陪伴，也能根据历史购买记录直接下单；已有的购物历史、收货地址和支付信息使过程更方便。</p>
+<p>广告三季度收入196亿美元，同比增长12%。管理层仍满意整体动能，解释了三项影响增速的因素。第一，多数国家的Prime Day从2025年的三季度提前到2026年二季度，广告和销售收入也相应前移；这一时点变化，对三季度同比广告增速相对于二季度的变化产生约850个基点影响。第二，2026年二季度包含首季NBA on Prime，去年二季度没有；三季度没有NBA赛事，新赛季从四季度开始。第三，2025年三季度公司调整搜索引擎营销，把更多流量导向亚马逊站内搜索页，提高客户体验和流量变现；本季度开始跨过这一高基数。管理层预计四季度广告同比增速恢复到百分之十几的高段。</p>
+<p>外部横向购物代理是否已明显冲击广告？Jassy回答，没有。目前很少客户大量通过这种方式购物，因为体验尚不够好，也不比直接去零售商网站研究和一键购买更方便。</p>
+<p>三季度推出的Amazon Ads Agent把全部广告能力放在一个AI优先的平台里，利用数万亿购物、浏览和流媒体信号，向广告主提供洞察、回答问题，并代为优化和执行。新的全漏斗活动将赞助广告、展示、视频和流媒体电视广告合并在一个活动中；广告主输入预算、周期等基本要求，AI负责规划、执行和持续优化。</p>
+<h4 id="chapter-8">17:40—Prime Video、设备与Leo</h4>
+<p>Prime Video已成为年化收入达数百亿美元、能够独立盈利的业务。管理层列举《Carrie》《The Summer I Turned Pretty》《The Boys》《Off Campus》《Reacher》《Fallout》等节目，以及《Project Hail Mary》等电影；体育内容包括Thursday Night Football、NBA on Prime、NASCAR、美国大师赛和欧洲冠军联赛。2026年Thursday Night Football开局表现达到节目历年最好水平。</p>
+<p>公司近期发布34款设备，覆盖Echo、Kindle、Alexa平板、Fire TV、Ring和Bee。上市尚早，但初期反应强劲，管理层期待假日季更多用户使用。</p>
+<p>Amazon Leo仍计划今年开始初期服务。Jassy表示，re:Invent和假日季即将到来，团队继续围绕客户体验创新。他认为，AWS和零售两条业务都有走向1万亿美元年收入的路径；这是长期潜力判断。</p>
+<h4 id="chapter-9">19:14—财务结果、成本与四季度指引（Brian Olsavsky）</h4>
+<p>全球收入2019亿美元，报告口径同比增长12%，剔除汇率影响增长13%。集团营业利润281亿美元，营业利润率13.9%，为公司历史最高。需要区分集团与分部：AWS营业利润为178亿美元，并非集团总额。</p>
+<p>Prime Day今年在美国等主要市场提前到二季度，去年全部在三季度。若剔除这一时点变化，三季度收入同比增速约再高400个基点。本季客户互动强劲，延续上半年的趋势。</p>
+<p>北美收入1129亿美元，同比增长6%；国际业务收入431亿美元，固定汇率增长8%；全球付费商品件数增长12%。数亿Prime会员持续响应丰富选择、低价和快速配送。过去一年，Prime会员为免费同日达下的生鲜月订单超过翻了三倍。</p>
+<p>北美营业利润87亿美元，营业利润率7.7%；国际营业利润16亿美元，营业利润率3.7%。履约网络承受燃油通胀和更高干线运输价格，但库存布置改善、运距缩短和包裹合并仍降低了整体单位服务成本。</p>
+<p>运输成本同比增长11%，低于销量的12%；剔除燃油和干线价格通胀后，运输成本增长8%，比销量增速低约400个基点。</p>
+<p>机器人和AI已在生产率与员工安全方面带来可测量收益，管理层预计收益会继续积累。2026年，Cardinal、Sparrow等机械臂数量翻倍。公司开发机器人基础模型，以加快编程、教授更复杂的物理任务，目标是在大规模上部署有用机器人。全球履约网络仍有明显的生产率改善、单位成本下降和配送提速空间。季度利润率可能波动，公司关注的是长期单位服务成本改善。</p>
+<p>AWS收入460亿美元，同比增39.3%，环比增加38亿美元，年化规模1840亿美元。核心云与AI共同驱动增长。客户迁云并扩大核心服务使用，为充分利用AI，有些客户也加速迁云。管理层观察到AI支出与核心服务收入之间的联系：AI投入增加时，核心消费也相应增加；更多AI负载进入生产，预计进一步带动计算、存储和网络需求。</p>
+<p>AWS营业利润178亿美元，营业利润率38.7%。自研芯片、自研网络、软件和流程改善，使容量配置及基础设施成本更有效率。利润率会随投资水平波动；AI收入同比三位数增长，Bedrock是重要贡献者。</p>
+<p>三季度现金资本开支759亿美元，主要投向AWS和AI。公司继续大额投资，因为认为AI有机会带来长期收入、自由现金流和投入资本回报。</p>
+<p>四季度净销售额预计2400亿至2470亿美元，按当前汇率估计，同比增长将受到约60个基点汇率拖累。营业利润预计285亿至335亿美元。</p>
+<p>Leo商业服务仍计划今年开始，但生产和发射等部分成本要到明年一季度才开始资本化，比CFO此前在电话会上的预期更晚。因此，四季度大部分Leo相关成本继续费用化。公司准备服务假日季零售客户及数百万AWS客户。</p>
+<h4 id="chapter-10">26:22—问答一：AWS环比增量、容量交付与燃油成本</h4>
+<p><strong>提问人：Justin Post，Bank of America。</strong> AWS同比继续加速，但环比增长放慢，是否有客户结构、token成本等具体原因？四季度容量增加如何安排？另请CFO说明燃油成本对四季度指引的影响。</p>
+<p><strong>Jassy回答：</strong> 在1840亿美元年化收入规模上实现39.3%增长非常少见，公司对此满意。增长已经连续六季加速，达到近五年最快。驱动力是从底层到上层完整的AI产品组合：SageMaker AI用于训练自有模型，Bedrock让客户以较强安全和性价比使用前沿模型，Strands与AgentCore支持自建代理的安全、可扩展运行，Kiro、Connect、Transform和Quick提供现成代理服务，客户采用速度很快。</p>
+<p>每季度都增加大量容量，但各季度新增量并不相等。公司规划通常可看到未来八至十个季度，未来仍有大量容量交付。管理层没有将本季环比变化量化分解成客户、token价格或其他单项因素，也没有给出四季度新增容量的具体数字。</p>
+<p>芯片也是增长驱动力。大规模使用AI的客户，尤其把推理部署到生产的企业，非常重视性价比，Trainium因此有吸引力。AI更广泛使用会带动强化学习、后训练和工具调用等核心云需求；Graviton相对其他x86供应商具有约30%至40%的性价比优势。容量逐季有波动，但在当前规模上预计2027、2028年仍各增长逾40%，并看到五至十年1万亿美元收入的可能，说明机会巨大。</p>
+<p><strong>Olsavsky回答：</strong> 没有可以提供的精确燃油影响金额，但四季度燃油和干线成本通胀压力高于三季度。年初对FBA卖家引入的燃油附加费，只收回相关货运燃油成本的一部分，无法覆盖全部；其余压力还体现在自营零售进货和出货运输。四季度指引已包含这些影响。</p>
+<h4 id="chapter-11">30:41—问答二：万亿美元AWS的依据与机器人里程碑</h4>
+<p><strong>提问人：Brian Nowak，Morgan Stanley。</strong> Jassy很少给出五至十年1万亿美元收入这样的长期判断，请解释推导方式，是自上而下还是自下而上？对未来增长的信心来自哪里？另问2027年零售机器人有哪些重点里程碑。</p>
+<p><strong>Jassy回答：</strong> 先看AWS当前年化收入和预计2027、2028年的增速。客户一次预订几百兆瓦、有时高达一吉瓦的大块容量，都必须提前很久预约，因为公司不能让一吉瓦容量闲置。对于2027、2028年以及部分2029年的大额客户需求，AWS已经有很好的可见性。</p>
+<p>同时，公司始终会为EC2、Bedrock按需使用留下相当一部分容量，并与客户密切合作，保证其有容量可用。把未来几年的高增长放在现有收入基数上，规模会很快抬升。管理层不认为眼下看到的大量使用会很快减弱，而企业在生产应用中普遍使用推理仍处早期。</p>
+<p>限制因素一部分是企业缺少懂得运行AI、后训练和针对应用微调模型的人，另一部分是推理成本。要使企业真正广泛使用推理，成本必须继续下降。这是AWS的重要任务，也是开发Trainium的主要原因。过去几年推理成本已显著下降，管理层预计还会明显降低。</p>
+<p>安全是新增的大用例：模型现在能找到人类没发现的漏洞，并帮助打补丁和部署。有些人估计，未来一两年token使用量中可能有20%左右用于安全。Jassy把它明确作为业内某些人的估计，而非公司正式量化指引。其上还有编程、消费与工作AI伙伴、Quick等用例。</p>
+<p>更进一步，Jassy认为，几乎所有现代企业生产应用都会被重写为可使用代理的应用，以便快速行动并应对安全风险。五至十年以后无法准确预测，尤其在这种增长率下，但超过1万亿美元并不难想象。</p>
+<p><strong>关于机器人：</strong> 亚马逊履约网络已有超过100万台机器人，对成本、生产率和安全产生明显影响。过去四五年安全表现大幅改善，安全事件指标达到公司较低水平，机器人是重要原因。但无论已部署能力还是正在开发的产品，仍处早期。</p>
+<p>履约中心将始终有大量员工，不过更多重复性工作会交由机器人。公司投资多种形态的机器人，也看到帮助完成送达客户门口最后100码的可能。</p>
+<p>评估标准是：生产率、安全、成本结构和交付时间，能否达到现有水平或更好。只有整体经济性令人满意，才会大规模部署。新的履约网络设计，包括同日达设施扩张，都高度采用机器人。Jassy认为，当前影响相比未来五年的潜力仍然很小；没有在本次问答中列出特定2027年产品发布日期或机器人数量目标。</p>
+<h4 id="chapter-12">37:12—问答三：AWS利润率与生鲜同日达</h4>
+<p><strong>提问人：Mark Mahaney，Evercore ISI。</strong> 感谢管理层提供AWS增长前景，也请谈利润率：未来两年能否大致维持高30%至40%的营业利润率？第二，生鲜购物和同日达已经覆盖多少Prime家庭？使用它的家庭，支出会提高20%、50%还是100%？</p>
+<p><strong>Olsavsky回答利润率：</strong> 公司没有给AWS营业利润率指引。三季度38.7%的强劲结果并非偶然，而是严格执行效率提升、容量优化、固定成本管理，以及越来越多使用自研芯片的成果。</p>
+<p>另一方面，AI业务增长过快会对整体利润率形成压力，因为AI利润率仍低于核心业务。核心与AI利润率都在改善，AI也领先于核心业务同等发展阶段，但仍然存在业务组合效应。零部件价格也是阻力；投资水平、新产品初期利润率及达到规模的速度等因素共同作用，公司会持续从成本与效率上应对，不能据此保证未来维持某个利润率区间。</p>
+<p><strong>关于生鲜：</strong> 亚马逊已有很大的食品相关业务，但过去主要集中在传统超市中间货架，例如日用品、罐头、药品和美妆。Whole Foods Market的收入和利润都比整体食品行业增长更快，城市中的Daily Shop等新店型表现良好，未来几年会继续铺开。</p>
+<p>如果要更全面地服务客户，就需要大众化的商品供给，而生鲜是切入点。对比客户在所有亚马逊可提供商品上的总支出，以及实际在亚马逊上的支出，差距最大的类别是食品。很多食品采购从生鲜开始，因此从同日达设施配送生鲜非常重要。</p>
+<p>日用品增长约为其余商店业务的三倍，目前约占商品件数的一半。使用生鲜同日达的客户购买日用品件数约为其他客户的七倍；食品客户购买的非食品类别接近四倍，在这些品类的支出约为两倍。这有助于缩小客户总购物支出与在亚马逊支出之间的差距，增加公司参与不同购物任务的机会。</p>
+<p>管理层没有直接披露覆盖Prime家庭的数量或比例，也没有确认分析师提出的20%、50%或100%增量。给出的七倍、四倍、两倍均为客户群体比较，不能当作使用服务后的净因果增幅。</p>
+<h4 id="chapter-13">42:15—问答四：Bedrock市场与Trainium内外分配</h4>
+<p><strong>提问人：Eric Sheridan，Goldman Sachs。</strong> 对Bedrock市场机会有哪些新认识，未来如何扩大？决定对外销售Trainium后，如何平衡外部销售需要的算力、内部应用与AWS容量需求？</p>
+<p><strong>Jassy回答Bedrock：</strong> 20多年提供技术服务的经验表明，不会有一种工具统治所有市场。早期领先者不一定永远是唯一选择，数据库、分析服务都如此；AI初期大家以为只有TensorFlow，后来PyTorch更大，模型也不会例外。</p>
+<p>Jassy预计未来两至三年，会有六至八种大致一样好、至少足够处理95%以上工作负载的模型。它们在推理、编程、视觉、延迟、成本方面各有优势。多数客户会使用多个模型，很多会在同一个生成式AI应用中混用。</p>
+<p>客户需要模型选择广、性价比好、安全与访问控制强的服务，以便根据应用限制和模型领先关系变化，随时调整组合。Bedrock就是这样的平台，既有Anthropic、OpenAI等闭源模型，也有Kimi、GLM等开放模型。Jassy认为，市场对更多开放模型有强烈需求，未来会继续出现新的选择。他判断Bedrock的机会很大，可能发展为与EC2相当规模的服务。</p>
+<p><strong>关于Trainium分配：</strong> 这是公司仍在评估的问题。既拥有大规模云业务，又有能力向外部销售强芯片的公司，实际上只有两家，所以同样面对这种规模取舍的同行不多。</p>
+<p>目前先进芯片主要由同一家制造商生产，其每年产量有限，各家公司取得一定配额后，必须决定外售多少、留在云中多少。</p>
+<p>外售能够更快确认收入：芯片离开库存时就实现销售。留在AWS、用于EC2实例或Bedrock，则可在五至六年间持续产生收入，因此最终可能获得更多绝对收入和自由现金流。两种模式存在时间与总量取舍，必须仔细选择。</p>
+<p>Jassy表示，迄今AWS与另一个面对同样取舍的供应商采用了不同策略。公司预计外部芯片销售会成为很大的业务，计划2027年底开始；此后可能每年都重新评估内外平衡。两边都会很重要。设计具备性价比、可扩展的芯片，既改善自身成本，也能建立独立的外售业务，而卖芯片和经营云基础设施是两种不同业务。管理层未给出各自分配比例或外售收入目标。</p>
+<h4 id="chapter-14">47:53—问答五：高增长需要多少资本与多长回收期</h4>
+<p><strong>提问人：Doug Anmuth，JPMorgan。</strong> 未来两年AWS每年增长40%以上，后续还有更长增长路径，这需要多少资本开支？服务器、网络和数据中心投资回报期限的判断有没有更新？</p>
+<p><strong>Jassy先回答回收期：</strong> 基础设施盈亏平衡点仍在提前，所需时间继续缩短。但核心云与AI不同，不同融资方式也不同，不能给出一个统一答案。AWS过去一直努力延长有效使用寿命、提前实现盈亏平衡，目前仍在取得进展。本次没有分别披露服务器、网络或数据中心的具体回收年限。</p>
+<p><strong>关于资本开支：</strong> 支撑这种增长所需投入很大。管理层把AI视为一生中极重要的转型机会。1840亿美元年化收入仍增长39%，之后两年可能各增长40%，最终成为万亿美元以上业务，公司会投资以维持领先。</p>
+<p>如果机会在25年中缓慢展开，把资本开支分散到25年当然更方便，但实际机会并不是这种节奏。Jassy明确表示，亚马逊有能力为该计划提供资金；他认为它会长期改变亚马逊的规模、收入和自由现金流。除此前确认2026年约2200亿美元及2027年明显增加外，没有补充未来年度资本开支金额，也没有在此问答中公布融资工具或额度安排。</p>
+<h4 id="chapter-15">50:38—问答六：推理服务、Trainium和结构性利润率</h4>
+<p><strong>提问人：Ross Sandler，Barclays。</strong> Bedrock的token市场增长很快，分析师理解大部分负载跑在Trainium上。随着业务从出售底层裸金属容量转向推理即服务，会怎样影响AWS收入增长，特别是利润率？</p>
+<p><strong>Jassy回答：</strong> 确认目前Bedrock大部分运行在Trainium上。主要原因是其性价比：既可尽量降低客户价格，也能给AWS带来有吸引力的利润率。</p>
+<p>比较不同云厂商成本结构时，要先看数据中心究竟是自有、长期租赁，还是机房托管、新型云厂商容量。Jassy称，相比长期租赁，使用新型云厂商容量的营业利润率约低3500个基点。这个数字是管理层对成本结构的比较，不是公司对全行业利润率的统一测算，也不是AWS当期利润率变化。</p>
+<p>再看上层硬件：如果使用大家都用的硬件，成本结构也会相近；有不同硬件能力，就可能获得优势。AWS大部分容量自有或长期租赁，加上运行在自身芯片上，公司拥有结构性成本优势。</p>
+<p>管理层认为，这些优势既可以通过价格让利传递给客户，也有助于AWS整体经济性。但本次仍未给出Bedrock单独利润率，或其收入占比变化对AWS利润率的定量弹性。</p>
+<h4 id="chapter-16">53:32—结束</h4>
+<p>电话会结束，回放将在投资者关系网站保留至少三个月，公司将在下一季度再与投资者交流。</p>
+<p>*完整度核验：读取MarketBeat原始HTML中`transcriptPresentation`的77个顺序段落，包含00:00开场、00:28—25:17管理层陈述、六组分析师全部问题与回答，以及53:32结束语。正文在HTML中完整存在，未停留于页面顶部摘要；没有发现需另取的后续分页。底稿分段编号和本纪要章节对应表保存在本地审核记录，原始英文不随网页发布。*</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
