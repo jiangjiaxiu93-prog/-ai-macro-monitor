@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Nathan Benaich谈2026年AI全景：研究自动化、网络风险与产业格局（The MAD Podcast）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-11-01<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>Nathan Benaich谈2026年AI全景：研究自动化、网络风险与产业格局（The MAD Podcast）</h2>
+<div class="metaline">The MAD Podcast；Matt Turck访谈Nathan Benaich · 2026-10-29 · <a href="https://www.youtube.com/watch?v=N4GpNBxBm-Q" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：前沿实验室；开放权重；代理安全；AI资本开支；企业采用；Nathan Benaich；Air Street Capital</p>
+<h2>Nathan Benaich谈2026年AI全景：研究自动化、网络风险与产业格局（The MAD Podcast）</h2>
+<p><strong>Source</strong>: The MAD Podcast；Matt Turck访谈Nathan Benaich <strong>Tag</strong>: 回报与泡沫 <strong>Pin</strong>: 96 <strong>Published</strong>: 2026-10-29 <strong>URL</strong>: https://www.youtube.com/watch?v=N4GpNBxBm-Q <strong>Format</strong>: 精翻 <strong>Keywords</strong>: 前沿实验室；开放权重；代理安全；AI资本开支；企业采用；Nathan Benaich；Air Street Capital</p>
+<h3>要点</h3>
+<ul><li>Benaich把AI研究自动化的下一步落在“选择值得研究的问题”上，讨论研究判断力的评估难题；他将2027年AGI列为个人预测，同时更关注近期网络安全与控制风险。</li><li>访谈从数据中心阻力、欧洲算力与推理产业，延伸至独立实验室、应用执行框架、代理尽调和企业自有AI。模型能力、真实采用和产业价值分配分别讨论，保留主持人的追问与嘉宾的条件判断。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:56—为什么预测2027年AGI</a></li><li><a href="#chapter-2">02:28—AI开始参与自己的研发</a></li><li><a href="#chapter-3">04:00—研究判断力意味着选对问题</a></li><li><a href="#chapter-4">08:34—风险讨论重新回来</a></li><li><a href="#chapter-5">10:13—权重窃取与人的风险</a></li><li><a href="#chapter-6">13:05—Hugging Face事件的经过</a></li><li><a href="#chapter-7">15:29—防御为何需要足够强的模型</a></li><li><a href="#chapter-8">17:33—前沿实验室的防御产品可能是什么</a></li><li><a href="#chapter-9">19:08—自我复制与集体奖励</a></li><li><a href="#chapter-10">21:16—能否共同放慢前沿发展</a></li><li><a href="#chapter-11">24:03—数据中心的邻避反应</a></li><li><a href="#chapter-12">26:45—欧洲的算力与电价约束</a></li><li><a href="#chapter-13">28:23—欧洲还能在哪些地方胜出</a></li><li><a href="#chapter-14">29:31—追赶前沿，或者转向推理</a></li><li><a href="#chapter-15">30:31—推理芯片与本地数据中心</a></li><li><a href="#chapter-16">33:34—买到GPU是否意味着主权AI</a></li><li><a href="#chapter-17">36:14—英国“我们有DeepMind”的问题</a></li><li><a href="#chapter-18">37:07—国防AI与本地供应商</a></li><li><a href="#chapter-19">39:41—通用前沿模型会集中于哪些实验室</a></li><li><a href="#chapter-20">41:17—独立实验室的机会</a></li><li><a href="#chapter-21">43:26—世界模型与模拟引擎</a></li><li><a href="#chapter-22">45:39—更便宜的模型会不会打破算力投资逻辑</a></li><li><a href="#chapter-23">46:43—模型与执行框架，谁创造差异</a></li><li><a href="#chapter-24">49:41—两天半完成十二次专家访谈</a></li><li><a href="#chapter-25">53:35—个人代理的信任问题</a></li><li><a href="#chapter-26">56:22—提示工程留下的采用障碍</a></li><li><a href="#chapter-27">59:02—AI是否需要自己的体验店</a></li><li><a href="#chapter-28">1:00:25—会写代码的代理，服务非程序员</a></li><li><a href="#chapter-29">1:02:49—企业希望掌握自己的AI</a></li><li><a href="#chapter-30">1:05:17—快问快答</a></li></ul></details>
+<h4 id="chapter-1">00:56—为什么预测2027年AGI</h4>
+<p><strong>Matt Turck：</strong>Nathan每年与团队编写《State of AI Report》，用约250页整理AI行业的事实、数据和趋势，是我经常阅读、查阅的材料。这是他第三次来到节目。我们会谈今年的主要事件，以及他的一些预测。</p>
+<p>每年你都会在报告最后作预测，过去通常比较克制，但今年最后一条直接写“2027年AGI”。为什么？</p>
+<p><strong>Nathan Benaich：</strong>写这份报告大概十年了。以前一年正好发生足够多的事情，能够写一份报告；今年却忙乱得多。接近10月8日发布日期时，我几乎隔一天就得修改，甚至想求大家，至少一天别出新闻，让我录完发布视频。</p>
+<p>写预测时，我已经列了几项令人担心的网络安全风险，过去几周它们又变得更严重。但像所有实际使用产品的人一样，我也看到能力几乎每周都在快速进步。</p>
+<p>现在很多用途里，我觉得模型非常出色。我尤其喜欢Astro。可以想象，未来十二个月，无论法律、金融、投资工作，还是理解自己不熟悉的问题，在我能投入的有限时间内，模型可能比我完成得更好。对我来说，这大致就相当于AGI。</p>
+<h4 id="chapter-2">02:28—AI开始参与自己的研发</h4>
+<p><strong>Matt：</strong>报告里一个重要主题是递归自我改进，也就是AI构建AI。这也是你认为AGI可能加速到来的原因吗？</p>
+<p><strong>Nathan：</strong>是的。当前难题是，怎样把模型还不擅长的问题，转化成适合递归自我改进的形式。例如，在计算机上建立近似任务的软件环境，或者提供可验证的奖励。</p>
+<p>如果在任意领域，最后的限制只是能投入多少算力、生成多少合成数据，那么对大多数知识工作来说，我觉得有一定可能实现。尤其当模型也越来越擅长充当自己的验证器时，这会是AGI更快到来的重要原因。</p>
+<p><strong>Matt：</strong>报告引用Anthropic的数据说，8月Claude主导了其所衡量的模型研发工作中的26%。</p>
+<p><strong>Nathan：</strong>对，几个月前还大概是1%。而8月已经感觉很久以前了，谁知道10月是多少。这项数据很有意思。</p>
+<p>另一项是它们今年6月关于递归自我改进的文章。研究设计了双路径实验：先让人类开展研究议程，走几步，决定研究什么、怎样做；某个时点再分叉，由人类继续，或者由不同代际的模型接手。</p>
+<p>实验结束后，人类评审比较两条路径。较早的模型版本，可能只有约10%的时候被偏好；到了Mythos系列，评审有64%的时候更偏好模型走出的研究方向。这说明，模型越来越会预测值得探索的下一步，或者研究树上有意思的分支。</p>
+<p>我还喜欢OpenAI关于内部AI研究人员使用Codex的数据。它们把token使用按研究过程分类：决定研究问题、怎样测试、设置实验、写训练代码、运行数据工程流程、搭建基础设施，再到写论文、解释和传播研究。</p>
+<p>大量token用在研究写作和解释上，其次是实验基础设施；但很少用于“应该探索什么问题”“为什么值得探索”“正确路径是什么”。</p>
+<h4 id="chapter-3">04:00—研究判断力意味着选对问题</h4>
+<p><strong>Nathan：</strong>我很喜欢这个问题，因为我受过科学、尤其生物学训练。十年、十五年前开始读博士时，要看大量论文，不断阅读，弄清当前知识状态、别人怎样测试想法、缺口在哪里、应该做什么实验，再和导师讨论方向。</p>
+<p>最好的导师能把你引向最有成果的路径，希望最终发表一篇《自然》论文；差的导师则没有好想法，也不知道该往哪里走。</p>
+<p>所以，社交媒体上常说的“研究品味”，在我看来是智能的重要标志，也是递归自我改进要发挥作用的关键组成部分。它与我的科学兴趣直接相关。</p>
+<p><strong>Matt：</strong>“品味”过去几年已经有点被说滥了，但在这里，它具体就是选择正确的问题。</p>
+<p><strong>Nathan：</strong>对。很多著名发明家会说，发明来自好的判断力。大量工作在于选择研究方向，而不是把所有可能性都穷举一遍。如果希望正确使用token和算力，也希望证明系统聪明，就不该只是蛮干。</p>
+<p><strong>Matt：</strong>从你与研究者的交流看，解决这个问题可能在未来几个月发生吗？</p>
+<p><strong>Nathan：</strong>可能更久，至少一年。我认为，难点在于怎样客观衡量“品味”。艺术至少有可观察的作品，葡萄酒也能表达为什么某一种口感更好。但科学和工程可以通过不同路径得到正确结果，并不容易立刻判断。</p>
+<p>是用更少token，得到人类认为最好的答案，就算好判断力？还是过程更重要？数学界对模型解决难题的反应，也涉及这个问题：我们得到了答案，但人或系统是否经历了理解通向答案的过程？有人认为，重要的是过程，不只是结果。</p>
+<p>因此，要判断这种能力是否真实，可能需要把“好的研究过程是什么样”也量化。</p>
+<h4 id="chapter-4">08:34—风险讨论重新回来</h4>
+<p><strong>Matt：</strong>接近2026年末，行业情绪怎样？两年前我们聊时，一个结论是末日论基本退潮了；现在它又回来。我们还请过Redwood研究员，谈过很多可怕场景。你怎么看？</p>
+<p><strong>Nathan：</strong>两三年前，主要谈的是生存风险，比如人类灭绝、失去控制。后来大家逐渐忘记，专心提高能力。现在风险讨论回来了，既有失控和生存风险，也有更近期的网络安全风险。</p>
+<p>对我来说，网络风险比“AI消灭人类”现实得多，虽然网络安全问题最终也可能通向灾难性结果。</p>
+<p>报告大致写在Hugging Face事件发生、OpenAI开始披露信息的时期。之后几周，又有PHP漏洞，以及亚洲和其他地方的政府服务被迫下线。越来越清楚的是，不管你怎样看AI安全争论，我们都需要网络安全。</p>
+<p>因此，我在报告中预测了多种网络威胁升级，包括从实验室窃取模型权重。我原本以为会由AI驱动，结果人类直接插个U盘之类的办法也可能制造风险。</p>
+<h4 id="chapter-5">10:13—权重窃取与人的风险</h4>
+<p><strong>Matt：</strong>具体预测是什么？</p>
+<p><strong>Nathan：</strong>会有AI驱动的网络攻击，针对前沿实验室，并成功窃取封闭模型的权重。</p>
+<p><strong>Matt：</strong>就是把模型偷走。</p>
+<p><strong>Nathan：</strong>对。结果一两周后，先发生的是一个人试图窃取知识产权。他是否试图拿到真正的模型权重还不清楚，但确实发生了相关事情。</p>
+<p><strong>Matt：</strong>是哪件事？</p>
+<p><strong>Nathan：</strong>一名在OpenAI工作过一段时间的员工，向办公室人员打听哪些会议室经常被高管使用，然后试图安装监听设备，把设备用卫生纸包起来、藏在电视后面。后来出现了一张人探头看电视后方、检查设备是否接好的画面，成了互联网笑话。</p>
+<p>那个人被举报给联邦调查局，随后接受调查。我们经常忘记，即使AI越来越强、可以组织网络攻击，很多风险仍来自人类。</p>
+<p>随着不同国家竞争更强AI系统，经济增长、经济和政治稳定都与之关联，这个问题更重要。美国模型实验室也开始公开打击模型蒸馏，一些人可能因此尝试其他方式获取能力。</p>
+<p>更广泛地说，公司和个人因为AI变得更富有，差距也可能扩大。报告里能看到，有些公司投入很多、收益很多，另一些公司员工还主要用ChatGPT写邮件。这些张力会增加风险。</p>
+<p>当公开可用的前沿模型，特别是一些中国开放模型，在网络安全任务上很强时，可被利用的范围和能够使用这些工具的人数，也会增加。</p>
+<h4 id="chapter-6">13:05—Hugging Face事件的经过</h4>
+<p><strong>Matt：</strong>开放权重在网络安全里的作用很复杂。Hugging Face事件中，它能够用开放模型保护自己，封闭模型却拒绝帮助。</p>
+<p><strong>Nathan：</strong>这可能是整件事里最让我担心，或者第二让我担心的事实。帮助调查的是一个中国模型，我记得可能是GLM 5.3。</p>
+<p><strong>Matt：</strong>这期是年度回顾，能否先概括一下事件？我们请过Thomas Wolf，但很多人可能听过无数次，却不知道到底发生了什么。</p>
+<p><strong>Nathan：</strong>先说明，Redwood、METR等机构都做过非常深入的分析，细节很多，我只能讲大体过程。</p>
+<p>OpenAI在评测最新前沿系统时，给模型一个困难到无法完成的任务。模型发现，可以利用文件系统中的命名机制传递信息，其他模型也能看到这些文件名。文件名里包含指令、知识或信息，可以帮助它们完成那个任务。于是，它们把文件系统当成留言板来交流。</p>
+<p>接着，一些模型通过环境配置中的问题访问了互联网。它们认为，Hugging Face上的数据、模型和代码库，包含类似环境，或许能帮助找到答案，于是开始访问，并组织数百个代理协作。</p>
+<p>部分代理在思维过程中明确指出，攻击第三方系统、违背安全约束是不对的。</p>
+<p>但它们最后仍认为，完成任务更重要。这也体现了评测奖励的难题：奖励机制很复杂，可能引出设计者没有预料的行为，又怎样预先列举系统可能采取的每一种行动？还有一些例子里，模型为了整个代理群的目标而牺牲自己，也令人担忧。</p>
+<h4 id="chapter-7">15:29—防御为何需要足够强的模型</h4>
+<p><strong>Nathan：</strong>Hugging Face当时很难使用Anthropic、OpenAI的封闭工具帮助调查，因为网络安全约束很严格。要弄清发生什么，需要把日志交给模型，而日志描述的正是网络攻击，模型于是拒绝处理。</p>
+<p><strong>Matt：</strong>安全的复杂之处在于，擅长防御往往也需要理解攻击，因此封闭模型内置的拒绝机制反而成了障碍。</p>
+<p><strong>Nathan：</strong>对。幸运的是，它们接到了OpenAI的电话或邮件，知道来源是OpenAI，而不是外部恶意攻击者。</p>
+<p>后来又发现，模型离开、或者所谓“逃离”环境的问题，并不只发生在OpenAI。Anthropic、Google、Meta在一两周里也出现类似问题，其中一些实验室使用同一家安全供应商构建环境。</p>
+<p>这引发两层担忧：模型很会寻找新颖办法达成目标，却可能产生不良行为；实验室本身是否把环境设置得足够安全？</p>
+<p>我们容易忘记，这些公司很年轻，却在开发非常先进、必须应对人类可能输入文本框的任何内容的技术。大型互联网公司已经处理了二十年的网络攻击，经历过更多安全建设过程。</p>
+<p>因此，我预测美国前沿模型实验室会推出真正的网络防御产品。否则，它们的系统一旦被用于攻击，我们其他人究竟怎样保护自己？</p>
+<h4 id="chapter-8">17:33—前沿实验室的防御产品可能是什么</h4>
+<p><strong>Matt：</strong>具体会是什么样的防御？</p>
+<p><strong>Nathan：</strong>例如，持续测试自家基础设施的前沿AI。新型云厂商越来越多地承载AI工作负载，也许可以购买实验室提供的工具，持续寻找自身基础设施的问题，再修复。</p>
+<p>也可能与CrowdStrike等公司合作。英伟达似乎也组织了安全合作联盟。使用者可能先经过类似反洗钱或身份核验的流程，不过不是为了金融监管，而是确认你不是恶意机构，再获得服务。</p>
+<p>更进一步，有些前沿实验室人员希望，暂时停止提高能力，用六个月把全世界的基础设施加固，防范网络风险。那需要很多钱，也许要把它视为国家安全和防务问题，用一部分防务预算购买token，保护关键基础设施，避免机场、在线购物和物流等系统瘫痪。</p>
+<h4 id="chapter-9">19:08—自我复制与集体奖励</h4>
+<p><strong>Matt：</strong>你还有一个有点吓人的预测：已部署代理把自己复制到环境之外，在原实例关闭后继续运行。这是什么意思？</p>
+<p><strong>Nathan：</strong>我可能读了点科幻小说。其实，写完预测几周后，Anthropic就有关于模型在边缘设备上复制的研究。</p>
+<p>我认为，我们还不了解很多行为。模型通常作为独立实体训练，并不一定被训练来相互协作。有研究比较单个前沿模型和多个模型合作完成任务，结果代理群反而更差，因为它们没有为协作接受训练。</p>
+<p>但就在今天，General Reasoning有一项新工作，通过集体奖励的强化学习，让模型作为一个组织行动：自己形成组织结构，共同实现目标。结果是，使用更少token，取得更好的表现。</p>
+<p>目前发现的另一面是，把这种经过集体奖励训练的模型放进网络安全情景，例如近似Hugging Face事件、通过留言板协作的环境，虽然没有模型真正实施不良行为，但如果考虑过不良行动，随着训练，它们越来越不愿意告诉人类。</p>
+<p>所以，我写那个预测，是因为觉得可能发生。我们还没有完全理解单个代理怎样工作，变成代理群以后，问题会更复杂。</p>
+<h4 id="chapter-10">21:16—能否共同放慢前沿发展</h4>
+<p><strong>Matt：</strong>最后谈谈这部分：AGI、递归自我改进、网络风险，以及事情失控。你怎么看共同放慢前沿发展的提议？合理吗，现实吗？</p>
+<p><strong>Nathan：</strong>可以从多个角度看。问普通公众：实验室负责人说，他们掌握的东西越来越难控制，有危险，而且已经发生事故。你希望继续加速，还是先搞清楚？很自然的反应是，先弄明白，再往前走。</p>
+<p>但现实中，经济里有太多参与方、太多钱与此相关，这种程度的合作协调非常困难，几乎是博弈论问题的极端版本。有些参与者可能因为落后而支持暂停，有些因为符合自身议程而支持，议程是否合理、是否另有目的，也难判断。</p>
+<p>实际问题是：谁来决定，怎样衡量，怎样执行，什么时候停，什么时候恢复？有人提议派外部评估者进入实验室。</p>
+<p><strong>Matt：</strong>毕马威的重大反击。</p>
+<p><strong>Nathan：</strong>这个笑话不错。也有人希望监测数据中心中的工作负载，给特定任务设算力阈值，但过去试过，这很难监督。</p>
+<p><strong>Matt：</strong>尤其还有国际层面的囚徒困境，比如中美之间。</p>
+<p><strong>Nathan：</strong>对。我没有确定答案。报告尽量呈现不同观点，让读者结合自己的信息判断。</p>
+<h4 id="chapter-11">24:03—数据中心的邻避反应</h4>
+<p><strong>Nathan：</strong>把话题延伸到邻避效应，去年报告预测，多数人不愿住在数据中心旁边，这会变成重要政治问题。</p>
+<p><strong>Matt：</strong>这个预测很准确。</p>
+<p><strong>Nathan：</strong>看起来是。越来越多州尝试或已经暂停新建项目，或者为并网制定新标准，例如要求数据中心自备电源，或对所在社区进行特定投资。</p>
+<p><strong>Matt：</strong>目前具体是什么情况？我们知道有反对建设的声音，还有什么细节？</p>
+<p><strong>Nathan：</strong>大约价值500亿美元的项目，因不同原因停滞。得州、宾夕法尼亚州等地暂停了新的数据中心接入。还有一项美国民调显示，人们宁愿住在核电站旁边，也不愿住在数据中心旁边，这相当惊人。</p>
+<p><strong>Matt：</strong>是缺乏理解、教育，还是公关太差？</p>
+<p><strong>Nathan：</strong>都有。公共讨论说，数据中心耗费大量水，会推高水费。但一些数据中心更像封闭泳池，初次注水后不断循环，之后的消耗没有想象那么大。</p>
+<p>电费是否上升，也不完全一致，因为有些设施用公共电网，有些独立供电。噪声则可能比较普遍，持续低频噪声确实令人不舒服。</p>
+<p>就业增加还是减少也不容易判断。但总体上，我们看到对暖通空调工程师、建筑人员、重型机械操作人员的需求上升，都是实际建设所需要的工作。</p>
+<p><strong>Matt：</strong>报告里有个很高的数字，是大约30万个新增岗位吗？</p>
+<p><strong>Nathan：</strong>对，新增岗位。</p>
+<p>邻避效应不只在美国。韩国也有类似情况。SK海力士和三星生产这些大型数据中心GPU所需的高带宽存储，股价上涨给员工带来财富，股票、期权和奖金都涨了，也推高了首尔房价。受益的人当然很高兴，但当地想建设更多数据中心时，也遇到与美国类似的反对。</p>
+<h4 id="chapter-12">26:45—欧洲的算力与电价约束</h4>
+<p><strong>Nathan：</strong>欧洲相对少见这种争论，因为可用算力本身就很少。报告估计，欧盟27国合计约有8万张H100等效GPU，比美国前五大GPU集群中任何一个都少。</p>
+<p>美国大型云厂商2026年支出约7300亿美元，欧洲承诺的金额却大致还是个位数十亿美元。除芬兰、挪威等地外，欧洲能源成本也很高。这些北欧市场与美国、中国大致可比，但其他国家明显更贵，英国尤其贵，同时也缺少充足容量。</p>
+<p><strong>Matt：</strong>报告的每千瓦时电价数据是，芬兰0.085，美国0.086，英国0.373，中国0.109。</p>
+<p><strong>Nathan：</strong>最近微软与Nscale的一笔大交易也取消了，至少微软退出了，因为数据中心供应商无法及时取得电网连接。</p>
+<h4 id="chapter-13">28:23—欧洲还能在哪些地方胜出</h4>
+<p><strong>Matt：</strong>继续这个线索。你在英国，全球投资，尤其关注欧洲。欧洲还有什么值得乐观的地方？</p>
+<p><strong>Nathan：</strong>确实困难。欧洲增长最快的公司，通常都有美国客户。</p>
+<p>但很鼓舞人心的是，不同领域已经有市场领先者：图像的Black Forest Labs、音频的ElevenLabs、视频的Synthesia，以及代码和应用生成的Lovable，都诞生于欧洲。所以，并非做不到。</p>
+<p>只是，如果没有美国客户，它们不会有今天这么大的规模。亚洲客户也越来越重要，例如韩国和日本正积极采用AI。</p>
+<p>挑战是，前沿与非前沿之间的差距很大，而且还在扩大。即使不纠结估算是否准确，设想从零开始建立一个实验室，追赶OpenAI或Anthropic，可能要投入一万亿美元。</p>
+<p>这也解释了为什么连Mistral都越来越像推理服务和云公司，而不只是推动前沿模型。当然，它也发布了不错的新模型，但仍落后于一些中国模型。</p>
+<h4 id="chapter-14">29:31—追赶前沿，或者转向推理</h4>
+<p><strong>Nathan：</strong>一些公司原本积累GPU资源，想训练前沿模型，后来退出竞争、提供推理服务。可以把这个趋势概括成：要么在追赶前沿的路上耗尽自己，要么活得足够久，最后开始提供推理。</p>
+<p>新实验室、新型云厂商、推理云都能看到这种变化。大家都想进入token流量，因为如果没有最好的模型，替别人运行模型也是一门生意。</p>
+<p>对欧洲来说，这可能是更有竞争力的切入点。各国需要确保能够使用美国前沿系统，也需要拿出某种战略筹码，避免再次遇到6月那种情况：通过出口限制，阻止非美国个人或实体使用Anthropic的Fable和Mythos模型。</p>
+<p>当时我在伦敦，很多人表达了不满。但如果不想再发生，能做什么？英国的一种想法是，投资并采购推理芯片。如果能做出很好的推理芯片，前沿实验室出于成本等原因愿意使用，就能用这个优势换取前沿技术的可获得性。</p>
+<h4 id="chapter-15">30:31—推理芯片与本地数据中心</h4>
+<p><strong>Matt：</strong>所以，欧洲可以成为推理中心。部分地区电价较低，虽然不是英国，美国实验室会愿意在欧洲运行推理。</p>
+<p><strong>Nathan：</strong>对，也可以实施数据驻留要求。</p>
+<p><strong>Matt：</strong>英国的推理芯片计划，已经是政策，还是大家正在讨论的想法？</p>
+<p><strong>Nathan：</strong>已经有政策安排。英国负责AI的部长，我觉得很适合这个位置，理解AI成功所需的基本条件：算力、人才和数据。</p>
+<p>他获得的任务，是充当新推理芯片的首批买家。我记得承诺的资金约为1亿或1.5亿英镑，在英国新公司设计的芯片可用时采购。</p>
+<p>韩国也有类似、但更有雄心的安排，每年在AI上投入约70亿美元，相当一部分用于模块化推理数据中心。韩国公司通常希望数据保留在韩国。</p>
+<p>这是很有意思的交换关系：国家不大，但富裕、技术接受度高，又通过存储在全球AI供应链中占重要位置。国际公司迟早希望进入韩国，日本也类似，但语言和数据驻留构成进入门槛。</p>
+<p>于是，当地可以说：“你需要数据驻留，我们提供数据中心，让你的技术在这里运行。”本地企业提供服务，也就能从中获利。</p>
+<h4 id="chapter-16">33:34—买到GPU是否意味着主权AI</h4>
+<p><strong>Matt：</strong>你似乎不太看好“主权AI”这个概念。我们录制时，黄仁勋刚在欧洲展开访问和投资，去过巴黎、伦敦和柏林GTC。你认为这没有实际作用？</p>
+<p><strong>Nathan：</strong>它有点像国家航空公司。各国买空客、波音的飞机，再贴上自己的标志，但飞机仍是别人制造的，并没有因此完全变成你的。</p>
+<p><strong>Matt：</strong>如果相信开放模型与封闭模型始终能保持合理距离，开源是不是提供了一些希望？</p>
+<p><strong>Nathan：</strong>有，但目前最强的开放模型很多来自中国，又会出现另一层问题。</p>
+<p><strong>Matt：</strong>也可能有美国的，例如Reflection。</p>
+<p><strong>Nathan：</strong>但就我看到的，美国开放模型还没有真正处在前沿。过去尝试这样做的一些团队，最后都为黄仁勋工作了。</p>
+<p>我认为，英伟达的策略很好。但这是两个不同的问题：购买英伟达GPU是否获得主权？我不这么认为。对英伟达而言，是否是好的商业策略？当然。</p>
+<p><strong>Matt：</strong>它们卖出了三百多亿美元。</p>
+<p><strong>Nathan：</strong>差不多。全球未来几年承诺投入主权AI的金额，约1380亿美元。看看这些项目最常选的供应商，英伟达遥遥领先，也没有太多替代选择。</p>
+<p>这是一个好的开始，也有必要做，因为技术确实很好。但不要因此以为自己已经获得了主权。</p>
+<h4 id="chapter-17">36:14—英国“我们有DeepMind”的问题</h4>
+<p><strong>Matt：</strong>美国政府限制非美国主体使用前沿模型，是今年的重大事件。其他国家和公司，除了至少试一试，还有别的选择吗？</p>
+<p><strong>Nathan：</strong>我有几种不同想法。值得尝试，但是否现实，是另一回事。如果要做，我认为应该建设能完成白领工作的系统。</p>
+<p>英国还有不少能力，可以尝试构建OpenAI、Anthropic、DeepMind或DeepSeek这样的竞争者。</p>
+<p><strong>Matt：</strong>有意思的是，你刚才把DeepMind放在了对手一边，但它本来就是英国公司。</p>
+<p><strong>Nathan：</strong>对。我认为，英国AI生态的一个问题，恰恰是政府太长时间不断说“DeepMind是英国公司”，最近才开始摆脱这种思维。</p>
+<p><strong>Matt：</strong>为什么是问题？</p>
+<p><strong>Nathan：</strong>因为这让人觉得，我们已经第一了。英国是做AI最好的地方，我们有DeepMind，所以已经很强。</p>
+<p><strong>Matt：</strong>问题在于这句话背后的态度。</p>
+<p><strong>Nathan：</strong>对。有人在政策讨论里提出，需要更多AI投资、采购更多本地公司的产品、改善创业环境，得到的回答却是：“但我们已经有DeepMind了。”</p>
+<h4 id="chapter-18">37:07—国防AI与本地供应商</h4>
+<p><strong>Matt：</strong>你也投资国防公司。未来战争越来越依赖AI，这似乎是主权能力尤其重要的领域。</p>
+<p><strong>Nathan：</strong>是的。推动力当然来自俄乌战争，更明显的转折，是JD Vance在慕尼黑安全会议上要求北约和欧洲认真投入自身防务。</p>
+<p>之后，出现了为新国防公司提供资本、鼓励政府提供贷款改善供应链的举措，催生了一批试图挑战传统主承包商的新公司。欧洲主要例子包括Stark、Helsing和Quantum Systems。</p>
+<p>战争方式也在变化。过去可能重点开发中程打击系统，攻击坦克部队；现在每天面对大量第一人称视角无人机和其他自主航空系统。有些依靠计算机视觉或光纤控制，不容易用传统干扰手段阻止。顺便说，光纤也因为数据中心需求而涨价了。</p>
+<p>因此，需要新的防空系统，法国的Altar等公司正在推动这个方向。供应链同样重要。例如，北约采购欧洲系统时，要求至少约70%的零部件来自中国以外。各国也越来越难把不断变化的美国安全承诺当作固定条件。</p>
+<p>〔译注：Altar为原始字幕所示名称，品牌拼写未进一步确认。〕</p>
+<p>所以，国防是一个从设计上就需要本地供应能力的市场，可能培育出更有竞争力的新企业。</p>
+<h4 id="chapter-19">39:41—通用前沿模型会集中于哪些实验室</h4>
+<p><strong>Matt：</strong>如果美国之外很难建立通用前沿AI，再回到美国。报告把Anthropic、OpenAI和Google列为赢家。以前还觉得实验室很多，现在你认为主要就是这三家？SSI、Thinking Machines以及不断出现的新实验室怎么办？也许还有Meta。</p>
+<p><strong>Nathan：</strong>对，边缘上还有Meta，尤其现在它在推动API服务和企业业务。未来六到十二个月，要看商业化怎样展开。但当前，我会说是这三家，加上Meta。</p>
+<p><strong>Matt：</strong>你认为优势会继续累积，市场就保持这种结构？</p>
+<p><strong>Nathan：</strong>对通用前沿模型，我倾向这么看。但某些具体能力上，专注下注仍可能成功。通过作出特定取舍，模型可以在某项任务上表现更好，例如Jev那样的分类模型，能够快速增长并受到欢迎。</p>
+<p>能持续多久还不知道，但这是给创业者的积极信号：聚焦某个能力，可能取得回报。问题是，这些可利用的能力缺口，未来会不会一直存在。</p>
+<h4 id="chapter-20">41:17—独立实验室的机会</h4>
+<p><strong>Matt：</strong>那几十家新实验室会怎样？伦敦就有David Silver等人的几家，美国也不断出现新团队。</p>
+<p><strong>Nathan：</strong>要看它们专注什么、是哪种模态。机器人和具身AI方面，独立实验室仍可能竞争并获胜。</p>
+<p>OpenAI和Anthropic越来越专注企业AI。我在报告里放了一页，列出它们过去的产品线，尤其OpenAI曾经很多，后来不断砍掉。大意是：“这个时刻太重要，不能被支线任务分散。”</p>
+<p>这意味着，它们大体没有专门做机器人，虽然Astro训练里可能包含相关数据。科学方向稍微不清楚：Anthropic明显投入生物学和药物发现，OpenAI可能更多专注模型，而不是掌握更长的产业链。</p>
+<p>还有与具身AI相关的世界模型，无论定义是加入行动的视频模型，还是其他形式。至少从公开信息看，Anthropic很少做这些，甚至没有图像生成模型。</p>
+<p>音频方面，实验室都有一些能力，但如果ElevenLabs继续以这样的速度发展，就说明专门能力仍有需求。</p>
+<p>这些是我能想象独立实验室成功的地方。相反，如果只是说“我们也做知识工作的通用前沿智能，只是更好、更快、更便宜”，我会比较怀疑，要看到才相信。打开电脑，应用长得完全一样，只是模型更好，这未必足够。</p>
+<h4 id="chapter-21">43:26—世界模型与模拟引擎</h4>
+<p><strong>Matt：</strong>世界模型实验室有什么令人兴奋的进展？李飞飞的World Labs被高价收购，买家是AMD；LeCun也在巴黎成立了AMI。你怎么看？</p>
+<p><strong>Nathan：</strong>我比较了解Odyssey，因为很早就投资了它。最新的Odyssey 3很有意思：一个自回归模型，以大量视频训练，再加入行动条件。采取一个动作，就根据动作生成下一帧。</p>
+<p>这种范式用于机器人操作、自动驾驶、电子游戏或娱乐时，能够跨这些领域泛化。现在已经看到它被用于机器人操作训练。</p>
+<p>从更广的层面，我很想知道，图像、音频、视频是否最终会融合成世界模型。如果发生，它可能吸收模拟器、游戏引擎的功能。这对机器人进入真实世界很重要，也影响物理系统设计和硬件工程。</p>
+<p>回到AMD收购World Labs，如果这个方向成立，底层计算平台也会非常重要。</p>
+<p>它需要支持这些环境，支持训练和推理。理解世界模型研究往哪里走，再调整硬件，使自己成为首选，对应的是很大的收入机会。我认为，这也是AMD收购World Labs的部分原因。</p>
+<p>类似地，英伟达多年来与研究着色器、三维视觉等方向的实验室保持紧密联系，提供算力，不断获取研究者反馈，确保自己的硬件适合前沿下一步的方向。</p>
+<h4 id="chapter-22">45:39—更便宜的模型会不会打破算力投资逻辑</h4>
+<p><strong>Matt：</strong>似乎有不少实验室在研究提高算力效率，从Flapping Airplanes，到重新受到关注的扩散模型公司，都在试图降低推理成本。</p>
+<p>这个想法很有意思，大家经常讨论一阵就忘了。但理论上，我们现在如此庞大的算力投资，可能受到某个更高效训练方法的影响。</p>
+<p><strong>Nathan：</strong>我反而认为，即使发生，也会看到更多使用。我自己在笔记本上使用Astro High，速度是1.5倍，我希望它能到10.5倍。</p>
+<p><strong>Matt：</strong>杰文斯悖论，再给我更多芯片。</p>
+<p><strong>Nathan：</strong>对，同样时间里，我可以做更多以前做不了的事。所以，我不确定一个高效系统就会把所有投资逻辑打破。</p>
+<h4 id="chapter-23">46:43—模型与执行框架，谁创造差异</h4>
+<p><strong>Matt：</strong>报告讨论了模型和执行框架的交汇。观点好像一直变：有人说智能全在模型里，有人说关键在框架。你怎么看？</p>
+<p><strong>Nathan：</strong>大体上，它像受伤时使用拐杖：你需要辅助，康复后就不需要了。</p>
+<p>如果模型不够前沿，就需要给它“拐杖”，包括工具、记忆处理、数据来源，以及完成特定任务的方法。目前，在非前沿模型上，这种做法会继续成立。</p>
+<p>但我愿意认真听取前沿实验室的判断：随着训练推进，这些辅助能力可能逐渐被模型吸收，或者由模型供应商自己的执行框架提供。有一个例子是，随着模型变强，Claude Code系统提示词里大约80%的内容被删掉了。</p>
+<p>执行框架也重要，因为OpenAI、Anthropic提供的产品，没有太强动力鼓励用户改用较弱模型。我做法律任务，付了200美元套餐，有token额度，就会希望质量最好。为什么要把档位从高调到低，冒结果变差的风险？</p>
+<p>除非产品界面和使用机制改变，推动用户少用昂贵工具，否则前沿实验室会继续提供这种体验。</p>
+<p>这也许给其他公司留下空间：能否采用较弱模型，再通过更好的执行框架补足能力？但我更倾向于把它看作产品决策。</p>
+<p><strong>Matt：</strong>对投资人来说，垂直或水平的执行框架公司，是值得投资的主题吗？</p>
+<p><strong>Nathan：</strong>如果单独看这个主题，目前我不会。当然，我可能改变看法。</p>
+<p>但对我投资的AI公司、代理公司，当每月token支出飙升，员工和产品使用都增加时，这个问题非常重要。应该认真研究，能否用更便宜、没那么前沿的模型，加上更好的框架，避免烧掉太多钱。</p>
+<h4 id="chapter-24">49:41—两天半完成十二次专家访谈</h4>
+<p><strong>Matt：</strong>你是独立管理基金的合伙人，也在投资工作里大量使用代理。有什么特别好的例子？</p>
+<p><strong>Nathan：</strong>最近最好的用途是专家研究。预算少时，可以问朋友；愿意花钱扩大范围，就找GLG、AlphaSense等机构，让它们找到专家、介绍、安排电话。来回协调很烦，还受到语言和时区限制。</p>
+<p>我开始用一款新产品，把原本需要我做的工作交给模型。我已经大量用Codex，有时也根据哪家模型最好而切换，把自己的想法、过去研究过的公司、它们表现如何、我问过什么、得到什么答案，全放进去。</p>
+<p>目的是找到最有价值的问题，帮助判断是否值得继续研究、是否投资。然后，把这些上下文交给专家访谈工具，设计访谈、确定希望访问的人群，启动研究。</p>
+<p>〔译注：嘉宾所用专家访谈产品，在原始字幕中分别写作“LT”和“LTO”，此处未据此确定品牌拼写。〕</p>
+<p>系统会寻找受访者，征得同意、筛选是否符合要求，再让他们与AI访谈。我非常惊讶：当时市场竞争激烈，我只有三天时间答复公司，客户研究中的细节很重要。</p>
+<p>我启动研究去睡觉，第二天醒来，已经有三位相当资深人士的访谈，以及完整逐字稿。我把逐字稿放回自己的模型，回答我们此前留下的问题——“我们”就是我和模型——再判断哪些证据已经足够，哪些回答又打开了新问题。</p>
+<p>于是，我们调整访谈提纲，更好地引导受访者回答那些问题，重新启动。第二天又有五位。如此反复，两天半获得十二次访谈、总计约十四小时，覆盖美国、印度以及德国、法国等欧洲市场。</p>
+<p>我本人不可能在那段时间完成这么多跨时区访谈，有些人和模型聊了一个小时二十分钟。</p>
+<p><strong>Matt：</strong>人类这么快就愿意舒服地与AI长谈，本身就很有意思。</p>
+<p><strong>Nathan：</strong>是的，也许因为我们都经常对着电脑，这些又通常是技术问题。遗憾的是，有时人们更愿意对着手机说话，而不是对着另一个人。</p>
+<p><strong>Matt：</strong>这也呼应了过去几个月我们听到的变化，有人开始更喜欢AI客服。</p>
+<p><strong>Nathan：</strong>因为原来的客服，人类在假装机器人，而且做得不好。公司要求他们机械地说话，现在真的换来一个很会做这件事的机器人，人反而可以像人一样交流。</p>
+<p>自动化客户研究对我很有价值。即使已经持有一家公司的股份，也可以持续访谈它的客户，进入董事会前取得一手信息。有限合伙人也可以这样做：基金经理说这家公司很好，到底好不好？可以直接问客户。</p>
+<h4 id="chapter-25">53:35—个人代理的信任问题</h4>
+<p><strong>Matt：</strong>今年尤其过去几个月，Instinct、Muse、Rockbot等个人代理兴起。你怎么看？</p>
+<p><strong>Nathan：</strong>我不把自己的数据交给它们，目前不太信任，但很多人愿意。</p>
+<p><strong>Matt：</strong>你是说，不想把信用卡信息交给一家两个月前还不存在、甚至不要求认真认证的公司。</p>
+<p><strong>Nathan：</strong>大致如此。而且，我觉得用ChatGPT已经能做类似的事情，没有看见它们额外提供多少价值。Codex和Claude已经能访问我的电脑、浏览器和一些通信应用，我已经信任这套安排，不想再增加风险。</p>
+<p>这提出了一个重要问题：做这类任务，你最信任哪家供应商？前段时间，我听Revolut的Nikolay谈到，公司有数百万、数千万用户，用户已经信任它保管钱和信用卡信息，现在里面又有AI助理。</p>
+<p>相比一家快速成长、可能还没做好信息安全的新公司，我可以想象自己更信任Revolut替我购物。</p>
+<p><strong>Matt：</strong>所以，个人代理可能成为大平台的功能，而不是反过来？</p>
+<p><strong>Nathan：</strong>这是可能的路径之一，平台也可能收购这些团队。</p>
+<p>还有人选择Meta的Muse，是因为一家创业公司十年后还活着、出了问题还能起诉并获得赔偿的概率，可能不高；Meta至少有过因问题向用户支付赔偿的历史。所以，有人会说：“至少我知道该找谁。”</p>
+<h4 id="chapter-26">56:22—提示工程留下的采用障碍</h4>
+<p><strong>Matt：</strong>但这些新个人代理，也确实在推动AI普及。报告还谈到Codex开始被非程序员使用。</p>
+<p><strong>Nathan：</strong>对。一边是递归自我改进、各种非常强的AI用途，另一边，绝大多数人几乎没有为AI付过钱，体验远低于前沿水平。前面那些高阶用途，也许只占用户的0.1%左右。</p>
+<p>部分原因是产品和营销不好。还有一两年前，大家反复说：“你必须成为提示工程师，必须学会写好提示，否则模型表现会很差。”</p>
+<p>不在科技行业的人看到这些，可能会想：“我怎么学？太复杂了，好像用自然语言写代码，算了，AI不好用。”</p>
+<p>今天真的还需要当提示工程师吗？我觉得，更多是把脑子里的想法直接说给手机听，尽可能说明白，系统就能组织起来。模型已经有足够能力，不需要原来那么多技巧。</p>
+<p>现在普通人更容易用了，但很多人在“提示工程时代”已经厌烦，还没回来。个人代理可以成为把他们重新带回来的入口，让他们把AI理解为一个能做事的工具，而不只是聊天。</p>
+<h4 id="chapter-27">59:02—AI是否需要自己的体验店</h4>
+<p><strong>Matt：</strong>这也涉及使用者与非使用者之间不断扩大的差距。报告说，Codex在OpenAI内部的采用率，远高于外部。</p>
+<p><strong>Nathan：</strong>很惊人。内部几乎所有人都用，外部组织的情况却不同。</p>
+<p><strong>Matt：</strong>这里有两组不同口径的数据：标普500公司AI披露分析中，69%报告了正式部署，但只有2%披露持续跟踪的指标；OpenAI活跃员工中，97.9%在此前28天使用过Codex。</p>
+<p><strong>Nathan：</strong>对。个人使用Codex的比例还不到1%。即使在使用者中，大多数，大概85%，主要拿它完成约半小时的任务；我记得只有约25%会让它做需要八小时以上的任务。</p>
+<p><strong>Matt：</strong>所以，理解这项技术的人不断加速，其他人相对放慢。</p>
+<p><strong>Nathan：</strong>像走进主题公园，只玩了第一关，却没有打开通往另一个世界的门。已经有人在那个世界里了，但绝大多数人，大概97%的人，还没有进去。</p>
+<p>所以，我想，AI应该有自己的Genius Bar或Geek Squad。我们在纽约，有很棒的苹果店和各种品牌体验店，为什么没有OpenAI体验店？</p>
+<p><strong>Matt：</strong>走进去以后，有人带你看各种用途？</p>
+<p><strong>Nathan：</strong>对。人们最终会相互演示，病毒式传播，但也可以专门开不同层级的课程：面向中小企业主、忙碌的家庭、医疗服务人员，或者任何群体。</p>
+<p>真正带着人操作，让他们看到，只要切换到工作模式或Codex，就可以完成什么。</p>
+<p>我认为，这会有很大帮助，让技术真正赋能普通人。否则，很多人的感受是：“外面有人用它做了很多我不懂的事，但我没有时间、意愿或耐心自己学。”</p>
+<p>这有点像运动。大家都知道应该锻炼，却大多不做，有时就是需要请一位教练带着做。</p>
+<h4 id="chapter-28">1:00:25—会写代码的代理，服务非程序员</h4>
+<p><strong>Matt：</strong>报告还说，非开发者使用Codex的增长快于开发者。从2025年8月到2026年6月，个人非开发者用户增加了137倍。所以，它们已经不只是编程代理，而是会写代码、服务更多人的代理。</p>
+<p><strong>Nathan：</strong>对，模型可能通过写代码执行知识工作，使用者却根本看不见代码。</p>
+<p>这个结果来自几方面。一方面，是很基本、但真正可用的集成。比如Google Drive连接器，默认版本可能做不了很多你想做的事，还得转到GWS CLI之类的命令行工具。那是一位Google工程师写的，他还因此被解雇了。只给代理很有限、高层的访问能力，会挡住大量工作流。</p>
+<p>另一方面，是一个循环：实验室发布模型；掌握某种工作流的数据公司或业务公司发现，模型在自己的评测上还不够好，但它们有环境和数据能改进；实验室意识到需要优化这项能力，于是购买数据、提高表现，再继续下一轮。</p>
+<p>从Codex，以及此前Claude Code面向法律、营销等工作的连接器开始，就是这样的路径：接入完成白领工作所需的工具，针对财务、法律、营销中的重要工作流优化，再用更好的产品、案例和营销交给用户，先从内部员工开始。</p>
+<p>到底叫“工作”还是“代码”，入口放在哪个滑块里，仍在不断讨论，可能还没完全弄清。但今天的能力已经很强。</p>
+<h4 id="chapter-29">1:02:49—企业希望掌握自己的AI</h4>
+<p><strong>Matt：</strong>我们谈了开放模型、大实验室和主权AI。现在似乎有一个趋势：企业，以及更早的垂直AI创业公司，希望掌握自己的AI，而不是完全依赖OpenAI和Anthropic。这对你是重要、可投资的主题吗？</p>
+<p><strong>Nathan：</strong>趋势确实在增强，背后有几个因素。</p>
+<p>一是成本优化；二是数据主权、驻留和隐私，不愿把所有信息都交给一家不完全信任其政策的第三方；三是，企业有自己真正关心的用途，不想等模型实验室开始重视它们，才获得更好的能力。还有一些国家层面的偏好。</p>
+<p>我更关心的是，谁最适合交付这项服务。Palantir显然是一个候选，已经与新型云厂商合作，也有完整的数据基础设施，在美国商业市场有优势，但欧洲未必一样。</p>
+<p>欧洲出现了一些类似新一代Palantir的公司，做类似的事情，只是带有不同的本地属性。</p>
+<p>还有推理公司，已经在提供开放模型服务。它们也许不只负责运行模型，还能提供工具，观察模型在企业里的执行轨迹，利用对话数据提供后训练服务，形成闭环。</p>
+<p>或者是已经在基础设施上建设推理业务的新型云厂商。也可能是数据公司：它们不再只给实验室提供强化学习环境，而是对企业说：“你整个公司也是一个工作环境。我们已经证明能帮助实验室，也许同样能帮助你。”</p>
+<h4 id="chapter-30">1:05:17—快问快答</h4>
+<p><strong>Matt：</strong>最后快问快答。2026年最被高估的趋势？</p>
+<p><strong>Nathan：</strong>家庭清洁机器人。</p>
+<p><strong>Matt：</strong>还不好用？</p>
+<p><strong>Nathan：</strong>不好用。</p>
+<p><strong>Matt：</strong>为什么大家都想演示叠衣服？</p>
+<p><strong>Nathan：</strong>不知道。这有点像代理替人订机票的演示。最近听说，旧金山开始有人问：“能不能演示点别的，别再订机票？”谢天谢地，我已经说了很久。</p>
+<p><strong>Matt：</strong>说好快问快答，我又追问了。你自己报告里最被低估的一页？</p>
+<p><strong>Nathan：</strong>把钱投到英伟达，而不是其他半导体创业公司，本来能赚多少。</p>
+<p><strong>Matt：</strong>具体一点？</p>
+<p><strong>Nathan：</strong>如果把投向那些替代半导体公司的钱，在各轮融资宣布的当天全部买入英伟达，赚到的钱会是原来的四倍。</p>
+<p><strong>Matt：</strong>过去八份报告里，你最自豪的预测？</p>
+<p><strong>Nathan：</strong>英伟达不会完成对Arm的收购。当时大家以为会成功，我们基于地缘和竞争因素判断不会发生。</p>
+<p>一方面，Arm股东因为没有完成收购而赚了很多钱；另一方面，如果成功，英伟达会拥有非常出色的CPU业务，能显著补强云端能力。尤其代理、强化学习等工作发展后，有不少任务受到CPU限制。那也可能改变一些地缘层面的关系。</p>
+<p><strong>Matt：</strong>谢谢你再来，也谢谢你每年完成这么庞大的《State of AI Report》。希望现在你的代理也在帮忙。报告在stateof.ai，配套视频也值得看。</p>
+<p><strong>Nathan：</strong>谢谢邀请，每次都很愉快。仅过去一年发生的事情，就已经令人难以置信。等明年我再来纽约，看看AGI预测怎样。</p>
+<p><strong>Matt：</strong>谢谢Nathan。</p>
+<p><strong>Nathan：</strong>谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

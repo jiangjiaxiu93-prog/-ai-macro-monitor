@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Jenny Johnson谈AI泡沫、SpaceX、Anthropic与资管业转型（Sourcery）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-11-01<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>Jenny Johnson谈AI泡沫、SpaceX、Anthropic与资管业转型（Sourcery）</h2>
+<div class="metaline">Sourcery；Molly O’Shea访谈Franklin Templeton首席执行官Jenny Johnson · 2026-10-29 · <a href="https://www.youtube.com/watch?v=VmCKksLNmsM" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；企业采用；生产率；组织变革；Jenny Johnson；Franklin Templeton；Anthropic</p>
+<h2>Jenny Johnson谈AI泡沫、SpaceX、Anthropic与资管业转型（Sourcery）</h2>
+<p><strong>Source</strong>: Sourcery；Molly O’Shea访谈Franklin Templeton首席执行官Jenny Johnson <strong>Tag</strong>: 回报与泡沫 <strong>Pin</strong>: 95 <strong>Published</strong>: 2026-10-29 <strong>URL</strong>: https://www.youtube.com/watch?v=VmCKksLNmsM <strong>Format</strong>: 精翻 <strong>Keywords</strong>: AI资本开支；融资估值；企业采用；生产率；组织变革；Jenny Johnson；Franklin Templeton；Anthropic</p>
+<h3>要点</h3>
+<ul><li>Johnson把技术长期价值与融资期限分开讨论：对AI提高生产率保持乐观，同时担心长期基础设施融资隐含了技术多年不发生剧变的假设。她也强调收入确认和公司间口径差异。</li><li>访谈保留Franklin Templeton投资SpaceX和Anthropic的过程、并购与定制化投资业务、内部AI采用、区块链基础设施，以及她从收发室到首席执行官的经历。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">01:08—市场在哪里，顺风与逆风是什么</a></li><li><a href="#chapter-2">05:34—AI为什么是增长动力</a></li><li><a href="#chapter-3">08:10—泡沫、融资期限与会计口径</a></li><li><a href="#chapter-4">11:28—怎样投资SpaceX与Anthropic</a></li><li><a href="#chapter-5">15:35—SpaceX的业务与关键人物风险</a></li><li><a href="#chapter-6">18:28—疫情中完成45亿美元并购</a></li><li><a href="#chapter-7">21:39—17次收购背后的能力与分销</a></li><li><a href="#chapter-8">24:11—Canvas从25亿美元到300亿美元</a></li><li><a href="#chapter-9">25:12—收购价格、激励与留人</a></li><li><a href="#chapter-10">28:43—区块链为什么可能重建金融基础设施</a></li><li><a href="#chapter-11">32:50—内部AI应用：投资、销售与后台</a></li><li><a href="#chapter-12">37:08—七十多年的公司历史</a></li><li><a href="#chapter-13">40:21—当代本杰明·富兰克林</a></li></ul></details>
+<h4 id="chapter-1">01:08—市场在哪里，顺风与逆风是什么</h4>
+<p><strong>Molly O’Shea：</strong>Jenny Johnson，欢迎来到Sourcery。</p>
+<p><strong>Jenny Johnson：</strong>谢谢邀请，很高兴来参加。</p>
+<p><strong>Molly：</strong>也谢谢你邀请我来到这么漂亮的纽约办公室。</p>
+<p><strong>Jenny：</strong>我们也很兴奋。这里是传承室，展示公司的历史。</p>
+<p><strong>Molly：</strong>我知道你们很喜欢本杰明·富兰克林。</p>
+<p><strong>Jenny：</strong>确实，他是个很了不起的人。</p>
+<p><strong>Molly：</strong>稍后我会问一个关于他的问题。先说说Franklin Templeton：你祖父在1947年创立公司，管理规模从250万美元增长到今天的1.8万亿美元，背后有很长的成长故事。你自己也从收发室一路做到了首席执行官，我们都会谈到。</p>
+<p>不过，先问市场。有人说，现在是隐藏的熊市；另一边又有AI溢价、大交易和推迟的IPO。你怎样理解目前的位置？</p>
+<p><strong>Jenny：</strong>需要把几件事分开。AI和大型云厂商周围有很多噪声，包括循环融资，以及收入确认方式。先把这些放一边。</p>
+<p>看经济本身，我认为通胀可能相当顽固，利率也可能维持较高水平。但当前利率从历史角度看并不特别异常，只是相对过去二十五年比较特殊。你比较年轻，可能不记得房贷利率高很多的年代，经济照样运行。</p>
+<p>利率环境确实更高。如果商业模式建立在低利率上，或者杠杆很多，就值得担心。但对于现金流良好的公司，消费者仍很强，尤其在美国。生产率增长约2%，我不认为这部分增长已经主要来自AI，而更多来自存在二十年左右的数字化、云服务等技术。</p>
+<p>新技术被组织采用，需要很长时间。我以前负责Franklin Templeton的技术工作，常告诉别人：大家以为最大的挑战是系统整合，实际上，第一是数据质量和组织方式，第二是变革管理。人们不喜欢改变，不想采用新东西，因为自己要付出很多努力。</p>
+<p>所以，今天的AI要真正明显体现在公司盈利里，还需要时间。这也是我看到的潜在上行空间。</p>
+<p>回到市场，除了大型云厂商，市场表现正在拓宽，盈利依然强劲。大约70%的公司盈利超过预期，仍有不错的顺风。</p>
+<p>逆风则包括：中东战争似乎很难迅速结束。一架两万美元的无人机就可能让一艘油轮停下来，保险难以取得，进而阻碍石油通过霍尔木兹海峡。不过，实际通过的石油比很多人预想的多。美国经济也已相当程度适应这个油价，但这种局面可能持续一阵子。俄乌冲突同样看不到迅速解决的迹象，因此企业需要把这些因素视为日常环境的一部分。</p>
+<p>我认为，中美关系比过去更有建设性，但也是一种亦敌亦友的关系。有些界限不会跨越，尤其科技领域，中国和美国会分别发展自己的方向。但双方也相互需要：美国需要稀土，中国需要美国经济和消费者购买其产品，因此仍会找到合作的办法。</p>
+<h4 id="chapter-2">05:34—AI为什么是增长动力</h4>
+<p><strong>Molly：</strong>你在观察哪些增长动力？</p>
+<p><strong>Jenny：</strong>我认为，最重要的是AI，它带来的变化很大。不过，我喜欢研究历史，所以对它的长期影响比较乐观。</p>
+<p>回顾重大新技术，每次都会有人预测大量工作消失。1997年，《商业周刊》封面说，互联网会消灭经纪人。今天，财务顾问为客户做的事情却比以前更多。他们不再只是投资顾问，而是真正的财务规划师，利用互联网和工具提供更多服务。</p>
+<p>很多现在无法想象的工作会出现。企业开始学会利用AI时，会有很大的顺风。最先做的通常是，把今天的工作做得更高效；但工具交到员工手里以后，他们会开始发挥创造力，产生我们原先想不到的需求和用途。</p>
+<p>我最近在用Meta眼镜。</p>
+<p><strong>Molly：</strong>你买的是那款设计师合作款吗？</p>
+<p><strong>Jenny：</strong>是带屏幕的那款吗？我买的是基本款Ray-Ban。有一次在高尔夫球场，我想：“它为什么不能替我找高尔夫球？”我儿子是程序员，于是我问他能不能做，他现在正在写一个应用。</p>
+<p>以前我会想到这件事吗？不会。它可能借助iPhone，但你不能总举着手机，需要眼镜这样的设备。现在我又想到另外三个程序，让他去做。</p>
+<p>我们会发现一开始根本想象不到的新用途。我并不悲观，但确实会有一段需要谨慎应对的过渡期。上行空间很大，可能是最强的顺风之一。</p>
+<p>而且，创新不只有AI。生物科学、新药研发管线、个性化医疗、材料科学，都有大量进展。还有3D打印，甚至所谓4D打印，让物体在合适条件下移动、形成所需形状。这些都是支持乐观看法的因素。</p>
+<h4 id="chapter-3">08:10—泡沫、融资期限与会计口径</h4>
+<p><strong>Molly：</strong>Ken Griffin刚在Citadel Securities的会议上被问到AI泡沫。他的一个主要担忧是，我们不知道芯片的供需最终会怎样：现在制造这么多芯片，它们什么时候过时，风险什么时候暴露？</p>
+<p>你研究历史，大家又已经谈了两三年泡沫。到底什么时候才算身处泡沫？是不是一直都在里面？你怎样理解不同周期中的泡沫？</p>
+<p><strong>Jenny：</strong>我负责技术团队时，Gartner有一条曲线，大概叫技术热情曲线之类的，我记不清具体名字。这个过程不断重复：新技术出现，大家说这是最伟大的东西，热情一路上升，然后突然跌落，所有人都幻灭，觉得糟透了。最后，它又回到比较合理的位置。</p>
+<p>问题是，我们现在在曲线的哪个位置？某些领域显然有泡沫感。</p>
+<p>如果你依据今天的技术去押注未来的能源需求，无论芯片制造还是电力生产，实际上是假设未来二十或三十年，技术不会出现巨大变化。但一旦需求出现，人们会创新，往往会取得很大进步。</p>
+<p>所以，我的直觉是，融资端我们仍喜欢较短期限，因为这些公司有很强的现金流。它们不是互联网泡沫时那些没有收入的公司，而是有可观盈利、能偿还债务的企业。</p>
+<p>但数据中心等项目的长期融资，我个人不会太愿意参与，因为这相当于押注今天的技术，并假设创新不会很快发生。我们已经看到，AI在解决人类历史上从未解决的数学问题。所以，我认为需要谨慎，在这一点上，Ken大概是对的。</p>
+<p>另一方面，会计也值得关注。某些收入究竟怎样计算，比较公司时是不是拿了不同口径，并不十分清楚。投资时必须真正理解这些问题。这也是我支持主动管理的原因。</p>
+<p>不过，你自己做节目准备时，大概就用了AI。我准备活动时，会和它反复对话，打开新的思路。然后，我通常把结果交给专家团队，让他们核实，因为不能直接把模型说的话当成事实。但它确实能改变思考方式。</p>
+<p>我们都感受到这个工具有多强，以及它带来的机会。只是需要时间。一旦它真正进入公司和行业，领先者可能很快就把同行甩在后面。</p>
+<h4 id="chapter-4">11:28—怎样投资SpaceX与Anthropic</h4>
+<p><strong>Molly：</strong>不管用什么收入指标，Anthropic和OpenAI的增长似乎正在挑战很多原有赢家。另一方面，IPO又被推迟，原因各式各样。也许他们说了不该说的话，也许那些话是认真的，我们应该听进去。</p>
+<p>为了准备这期节目，我听了你很多采访。有一次，你谈到SpaceX上市，让我看到Franklin Templeton我以前只隐约知道的一面：你们怎样开始做后期私募投资。能讲讲这个故事吗？它也很能说明公司的运作方式。</p>
+<p><strong>Jenny：</strong>我们的总部在硅谷，那里有一支成长股权投资团队。现在公司越来越晚上市，一些基金经理说：“过去IPO带给我们的那部分额外回报，现在拿不到了。我们应该做一些后期风险投资，因为今天的后期投资，其实就是以前IPO时我们要评估的那种业务。”</p>
+<p>共同基金或ETF可以持有最多15%的非流动性资产。通常不会用满15%，因为市场波动可能让比例超限，但可以配置6%、7%或8%。我们就这样开始参与后期私募交易。</p>
+<p>后来，一些客户看到我们参与的项目，问能不能专门设一个基金。所以，现在我们有了风险投资团队。一笔投资有时会同时由风险投资基金，以及希望获得后期私募敞口的传统基金经理参与。</p>
+<p><strong>Molly：</strong>所以，我发现你们投资了SpaceX。</p>
+<p><strong>Jenny：</strong>对，也投了Anthropic，还有不少其他公司。如果你就在当地，与创业者、风险投资圈有联系，总部也在那里，别忘了，你的孩子可能和这些人的孩子在同一所学校，他们是邻居，也是社区的一部分。相互认识，就有机会接触这些交易。</p>
+<h4 id="chapter-5">15:35—SpaceX的业务与关键人物风险</h4>
+<p><strong>Molly：</strong>SpaceX很特别，它比其他几家公司更早进入公开市场，业务也很多元，而且越来越想把自己定位为AI公司。我们刚才还谈了收入构成：上市前取得的数据中心合同、Starlink面向消费者的业务，以及降低发射成本、进而改变其他业务经济性的可能。</p>
+<p>对于SpaceX这样的公司，你关注什么？Elon似乎发过推文，说它会成为地球上利润最高的公司，而且领先一个数量级。</p>
+<p><strong>Jenny：</strong>这里有很多问题。先说一个：历史上每次出现热门方向，大家都会给公司改名字，过去是“互联网”，现在是“AI”。</p>
+<p>我们刚把母公司名称从Franklin Resources改成Franklin Templeton。我问父亲，为什么以前叫Franklin Resources？他说，二十世纪七十年代股市很糟，什么都不好卖，但通胀很高，黄金投资可以卖。如果名字里有“资源”，在股票市场就更受欢迎。</p>
+<p>所以，这种事一直存在，大家会抓住热门标签。我的建议是，专注自己的本行，如实说明自己是什么。</p>
+<p>但说到SpaceX，我自己用过Starlink。我在蒙大拿有个住处，以前一直得不到好的高速互联网，Starlink真的改变了我的体验，便携式设备也很出色。所有和我聊过、使用Starlink的人，都很喜欢它。</p>
+<p>如果读Walter Isaacson写的Elon传记，会知道他多么深刻地改变了太空投资和航天活动，也挑战了原来逐渐僵化的体系，重点就是创新和成本效率。</p>
+<p>Elon似乎非常专注于去火星。他经常提出一些让我们觉得荒唐的目标，可能不能按原定时间实现，但往往最终真能做到。</p>
+<p><strong>Molly：</strong>比如飞行汽车。</p>
+<p><strong>Jenny：</strong>对。我还看到一家飞行汽车公司很有趣地说：“欢迎加入竞争。”他做的机器人工作同样惊人，而这些都与他殖民火星的愿景有关。</p>
+<p>所以，我认为你说的情形是可能的。这里很大的风险，是对Elon本人的依赖。大家都得希望他保持健康，继续创新。</p>
+<h4 id="chapter-6">18:28—疫情中完成45亿美元并购</h4>
+<p><strong>Molly：</strong>转到你的职业经历。你刚做首席执行官，就领导了公司历史上的一项大型交易：45亿美元收购Legg Mason，管理规模也因此翻倍。为什么有这个信心，战略理由是什么？之后我也想谈谈你们六年间的17次收购。</p>
+<p><strong>Jenny：</strong>我们知道，有些市场能力必须补齐，Legg Mason刚好能补上。核心固定收益是很大的类别，它拥有很强的业务。</p>
+<p>我们也想扩大私募市场业务，已经收购过一家私人信贷管理公司。Legg Mason旗下的Clarion Partners是一家很优秀的房地产管理公司，帮助我们进一步进入私募市场。</p>
+<p>当时，Franklin的客户结构约75%来自零售财富渠道、25%来自机构；Legg Mason恰好相反。合并以后，机构和财富客户各约50%，业务更均衡。出于这些原因，战略上非常合理。</p>
+<p>我们已经为这笔交易工作了一年，但正式宣布是在我成为首席执行官大约五天后。问题是，三周后，疫情封锁开始，市场暴跌。</p>
+<p>有意思的是，我从没想过：“太糟糕了，我们已经签了交易，锁定了价格。”一些报道却说，可怜的Franklin，没法退出了。如果你做交易是因为战略契合，就应该能够穿越这些波动。我们知道它重要。</p>
+<p>而且，资管公司在市场下跌时通常不愿出售，因为现金流很好，大家知道市场反弹，业务就会回来。所以，无论如何，我们都很高兴能做成这笔交易。</p>
+<p>只是交割变得复杂得多。收购时，你需要了解人才。财务、人力资源、法律等公司职能有很多重叠，需要精简，也需要选出最好的人，组成最好的团队。</p>
+<p>收购方容易犯一个大错，就是默认自己的人最好。实际上，应该在双方团队里选择最合适的人。突然不能出差、不能当面交流，一切都要通过视频。</p>
+<p>幸好我们本来就很全球化，经常有人远程参加会议。现在这很常见，但当时很多人还持怀疑态度，我们却已经习惯了这种工作方式。最终，交易提前60天完成交割，这在当时很不容易。我们一直相信它是正确的交易，后来也证明对我们很好。</p>
+<h4 id="chapter-7">21:39—17次收购背后的能力与分销</h4>
+<p><strong>Molly：</strong>六年间17次收购，有哪些共同主题？增长背后的目标是什么？</p>
+<p><strong>Jenny：</strong>首先，要确保拥有竞争所需要的能力。行业一个重要趋势是，客户希望与更少的管理人合作。因此，要成为被保留的少数管理人之一，就必须具备更广泛的能力，能够提供更多东西，规模在这里很重要。</p>
+<p>前面提到，我们有一些需要补齐的类别，其他收购也主要围绕产品能力。今天我觉得还没有完全具备的，主要是基础设施；除此之外，我们的能力范围已经非常广。</p>
+<p>第二类目的，是加强分销。有时候，收购的是技术工具。比如OSAM，也就是O’Shaughnessy Asset Management，本身是一家量化公司，但最吸引我们的是它开发的Canvas直接指数化平台，能让独立管理账户更有效地管理税务。</p>
+<p>技术足够好，我们现在还能把它作为主动策略上的税务管理层，这是一种比较新的做法。因此，它既是产品能力，也是分销能力。有些客户不想要ETF或共同基金，而希望通过独立管理账户持有资产。</p>
+<p>我们还收购过几家财富管理机构，补充Fiduciary Trust业务；收购Lexington Partners，增加私募股权二级市场投资能力；并围绕私人信贷管理平台做了大约三次补充收购，确保全球规模、覆盖范围和业务能力。</p>
+<p>现在，很多人把私人信贷当成单一资产类别，可谈固定收益时，大家会区分高收益、按揭支持、资产支持、投资级等类别。私人信贷同样如此，需要具备不同能力，也就必须有相应的项目获取与发起能力。</p>
+<p>最近宣布的一笔交易，就是收购做资产支持融资的团队。很多客户感兴趣，利差也不错，但收购前，我们缺少这一领域的项目发起能力。</p>
+<h4 id="chapter-8">24:11—Canvas从25亿美元到300亿美元</h4>
+<p><strong>Molly：</strong>这些公司被收购后怎样成长？比如OSAM，之后发生了什么？</p>
+<p><strong>Jenny：</strong>收购时，Canvas平台规模大约25亿美元，现在是300亿美元，应该差不多四年。它发展得很好。</p>
+<p>Lexington和Clarion Partners的规模，在收购后都增长了一倍以上。我们收购BSP时，它大约管理260亿美元。其后也做了一些其他收购，现在私人信贷规模接近1000亿美元。</p>
+<p>很多人怀疑，传统资管公司能否与私募市场团队形成文化契合，因为薪酬结构等差异明显。但我们合作得很好。尤其当这些团队希望拓展财富渠道时，我们的经验很有帮助，因为财富渠道的销售方式，与机构销售很不一样。</p>
+<h4 id="chapter-9">25:12—收购价格、激励与留人</h4>
+<p><strong>Molly：</strong>大部分交易都用现金吗？怎样设计结构？被收购后规模增长几倍，你们又怎样激励团队？</p>
+<p><strong>Jenny：</strong>首先，买入时支付的是盈利或其他指标的一定倍数，本来就假设会有较好的增长。如果没有增长，问题会很大，尤其私募市场的估值倍数不低。</p>
+<p>不过，我们进入得比较早，有些价格很好。Lexington这笔，我认为当时确实付足了价格。但后来刚好遇到私募股权二级市场的好阶段，它的增长甚至超过模型预期，因此最终成为很好的交易。只是相对于收购时的资产规模，价格并不便宜。</p>
+<p>很多人忽略的一点是，私募市场通过业绩报酬分成来支付团队，而这部分分成往往要多年后才到账，天然形成很强的留人机制。传统资管收购没有同样机制：员工不会因为五年、十年前做的一项投资，还要等多年才能获得报酬而留下。</p>
+<p>回答你的问题，大多数交易用现金，有时结合债务。Putnam那笔则用了相当多Franklin股票，是对方希望拿我们的股票。</p>
+<p>Great-West Life看到了行业需要大型管理人的趋势，也看到了平台端的整合。Putnam业绩很好，但规模不足，无法进入一些平台。我们把这部分管理规模从约1360亿美元提高到超过2200亿美元，主要就是把优秀团队带进了以前因为规模不够而进不去的平台。</p>
+<p>对方希望分散投资，也希望继续持有一家资管公司的股份。与其只持有Putnam，不如拥有一家能力更广泛的管理人，因此主要通过股票完成了交易。</p>
+<h4 id="chapter-10">28:43—区块链为什么可能重建金融基础设施</h4>
+<p><strong>Molly：</strong>谈谈资产管理现代化。Lexington是一个很好的例子。市场低迷、我还在一家风险投资基金工作时，大家都缺少已分配回报，试着互相安慰。Lexington买下了我们约10%的组合，给有限合伙人提供了流动性。那很有帮助，我想它们也做得不错。</p>
+<p>另一个方向是代币化。你多次谈到它，你看到了什么？</p>
+<p><strong>Jenny：</strong>因为管理过技术和运营，我在理解区块链为何重要这件事上有一点优势。我确实认为，它会替代金融服务的底层轨道。</p>
+<p>过程会很慢，因为要改变很多商业模式，以及那些靠每笔交易收取费用的中间环节。但区块链特别擅长三件事。</p>
+<p>第一，它提供一个共同的事实来源。管理过后台或技术的人都知道，很多大型金融机构仍在使用大型主机，夜间批处理，数据要到半夜某个时间才更新。区块链则可以即时更新。企业为核对不同数据版本，花了很多钱。</p>
+<p>系统之间要核对，还要与交易对手核对。区块链提供一个所有人共同访问、即时更新的记录，可以消除大量这样的工作。</p>
+<p>第二，可以编写智能合约。我们约定，达到某个阈值，你要向我补充抵押品，达到另一个条件，我要向你补充，所有条款都可以写进程序。</p>
+<p>以前，这些约定通常放在某份文件里，或者需要费力嵌入交易流程。有人盯着文件，再说“你该补抵押品了，我去收”。智能合约则可以自动执行。</p>
+<p>第三，是支付能力。我看到这三点就觉得，很明显，这正是金融后台在做的工作，会有效率上的巨大改善。</p>
+<p>我们推出第一只获美国证监会批准、原生在链上运行的代币化货币市场基金时，监管要求我们同时运行旧的过户代理、股东记录系统和区块链系统。当时，仍在内部运营旧系统的机构很少，我想只有两家，我们是其中之一。</p>
+<p>因此，我们能直接比较并行处理的成本，结果让我们惊讶：链上运行便宜很多。传统货币市场基金需要500美元开户，因为再低，其他股东就得补贴这位客户的服务成本；区块链系统可以20美元开户，可能还可以降到5美元。</p>
+<p>这会带来很有意思、也很重要的金融创新：全天候交易、原子结算，以及通过编程和AI，把交易逻辑直接嵌进去。我们非常看好。</p>
+<p>比如，我们的代币化货币基金每秒计算利息。如果你是一家对冲基金，把它作为抵押品，持有四小时二十二分三十二秒，我们就支付对应期间的利息。当天赚到的现金，当天结束时进入账户。</p>
+<p>传统货币基金虽然整个月都在计提利息，但月底才能拿到现金。对于企业财务负责人，这很重要；对于把现金暂时放在这里的投资组合经理，也可以在现金到账后马上挪动、用于投资。这只是代币化可能带来创新的一个小例子。</p>
+<h4 id="chapter-11">32:50—内部AI应用：投资、销售与后台</h4>
+<p><strong>Molly：</strong>你们很早就认真拥抱这些变化，也在采用AI和代理。公司有超过1000个AI代理，服务800多位投资专业人士。内部还有哪些效率提升机会，痛点在哪里？</p>
+<p><strong>Jenny：</strong>我把AI分成几类。投资这一端，真正的价值是让我们成为更好的投资者。让分析师更高效，减少行政工作，把时间用于和企业交流、做更多研究，甚至覆盖更多公司，最终改善投资表现。与投资表现改善的价值相比，节约那点成本并不重要。</p>
+<p>分销这一端，则主要是增长。我们与微软做过一个合作项目，因为技术挑战和解决方案足够复杂，微软很兴奋，还投入了免费资源。</p>
+<p>问题本身很简单：销售希望见到合适的客户，进行合适的对话。但技术上很难，需要多个AI代理协作，还要从很多不同系统取数据。</p>
+<p>可能要读取产品系统，取得财务顾问的持仓信息，再把持仓与我们的产品比较；也可能看看社交媒体，了解客户关心什么；还要去晨星等评级机构获取信息，判断最合适的产品机会。</p>
+<p>早期结果显示，市场负责人拜访的客户数量提高23%，销售额提高11%。我们认为，效果会继续改善。这是分销端。</p>
+<p>成本节约主要在后台，但不一定意味着大幅减少人员，而是能做更多事情。技术部门令人兴奋的一点，是AI可以写代码。我从没见过哪个首席信息官会说：“今年业务部门想做的项目，我们全做完了。”一直都需要排优先级。如果能让更多项目完成，那就是很大的进步。重点是推进更多工作，不只是省钱。</p>
+<p>这就是我们对AI不同用途的分类。</p>
+<p>再回到大型云厂商及其收入模式。我认为，还有几件事没有充分发生。</p>
+<p>第一，刚开始，你把AI工具交给员工，让他们使用、编写代理，这很好。后来支出上升，就会开始问：这些代理都需要运行吗？需要按现在这个频率运行吗？这种治理和纪律，最终会怎样影响云厂商，我们还不知道。</p>
+<p>第二，很多员工请求，其实用免费模型可能已经足够。因此，需要一个治理层判断：这项请求值得付费使用顶级模型，另一项就交给免费模型。这些变化，都会影响云厂商最终的收入。</p>
+<p><strong>Molly：</strong>我们采访新公司时，也看到这种情况。开始依赖前沿模型，消耗非常多token、成本过高，后来调整系统，99%的工作转到开放权重或开源模型，效率就完全不同了。</p>
+<p>这可能造成很大影响。也许前沿模型仍用于生物科学，以及真正处在前沿的那些项目。</p>
+<h4 id="chapter-12">37:08—七十多年的公司历史</h4>
+<p><strong>Molly：</strong>回到公司的多代传承。我差点说成“本杰明·富兰克林·邓普顿”。</p>
+<p><strong>Jenny：</strong>我们的股票代码就是BEN，所以也可以这么叫。</p>
+<p><strong>Molly：</strong>对，纽约证券交易所的代码BEN。能介绍一下公司怎样走到今天吗？</p>
+<p><strong>Jenny：</strong>祖父原来经营一家经纪公司，非常欣赏本杰明·富兰克林。他成立了一个子公司，取名Franklin Funds。</p>
+<p>父亲服完兵役回来，大约二十四、二十五岁。他的哥哥接手了经纪业务，他则想自己做些事情，于是对祖父说，想接手这个子公司。</p>
+<p>当时管理资产250万美元，收入1万美元。他说，自己一个月大概赚两三百美元，但觉得刚开始工作拿这个工资已经不错，虽然他此前已经在军队待了四年。那是1955年。</p>
+<p>我上大学时，大概1983或1984年，参加了公司第一次“管理规模达到10亿美元”的庆祝会。用了那么久才到10亿美元。</p>
+<p>我们收购过一家加州公司，所以后来搬到加州。1973年，Franklin大概管理6000万美元，收购对象可能是1.2亿美元。下一年市场暴跌，我记得1973或1974年，全年利润勉强只有5000美元。但这仍是门好生意，只能坚持做下去。</p>
+<p>祖父当年成立公司的理由，是普通人无法获得股票市场的超额回报。于是出现了这种创新：把大家的钱集中起来，以合理价格提供专业投资意见，并获得个人单独投资时难以实现的分散化。</p>
+<p>我认为，今天私募市场也到了类似阶段。公司越来越晚上市，很多融资转向私人信贷。我们需要让普通人公平地获得这些投资机会，同时明确知道，这些工具确实缺乏流动性，但也可能因此提供额外回报。</p>
+<p><strong>Molly：</strong>现在也看到公开上市的封闭式基金等工具，让投资者接触上市前公司的资产。最后一个问题，也是今天最难的：谁是当代本杰明·富兰克林？</p>
+<h4 id="chapter-13">40:21—当代本杰明·富兰克林</h4>
+<p><strong>Jenny：</strong>我曾让团队研究过这个问题。大家觉得我们的标识看起来很老，我说：“你们在开玩笑吗？本杰明·富兰克林是当时的明星。”他是发明家、政治家、慈善家，很受欢迎，在法国尤其受女士们欢迎。</p>
+<p>所以，我说，应该做个内容：“今天的本杰明·富兰克林会是谁？”我觉得最接近的是Elon Musk。</p>
+<p>有人会反驳，他不像富兰克林那样做慈善，或者还有其他差异。但没有完美对应，每个人都会在一定程度上被自己所处的时代塑造。我认为，在今天技术进步的格局中，没有人的影响比Elon更大。</p>
+<p><strong>Molly：</strong>他说，要给美国每个孩子一股SpaceX股票。</p>
+<p><strong>Jenny：</strong>我喜欢这个想法。你看，他也在做了。富兰克林大概也得先赚到钱，再开展慈善。所以，我选Elon。</p>
+<p><strong>Molly：</strong>谢谢你，Jenny Johnson，这次谈话很愉快。</p>
+<p><strong>Jenny：</strong>谢谢，很高兴参加。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
