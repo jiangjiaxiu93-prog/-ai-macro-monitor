@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>下一家出色的律所为何可能像软件公司一样运作：Eve创始人Jay Madheswaran（a16z）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-31<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>下一家出色的律所为何可能像软件公司一样运作：Eve创始人Jay Madheswaran（a16z）</h2>
+<div class="metaline">a16z · 2026-10-30 · <a href="https://www.youtube.com/watch?v=iRMmPjunm3Q" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：垂直应用；企业代理；单位经济；企业采用；应用层护城河；Eve；Jay Madheswaran</p>
+<h2>下一家出色的律所为何可能像软件公司一样运作：Eve创始人Jay Madheswaran（a16z）</h2>
+<p><strong>Source</strong>: a16z <strong>Tag</strong>: 应用层探讨 <strong>Pin</strong>: 97 <strong>Published</strong>: 2026-10-30 <strong>URL</strong>: https://www.youtube.com/watch?v=iRMmPjunm3Q <strong>Format</strong>: 精翻 <strong>Keywords</strong>: 垂直应用；企业代理；单位经济；企业采用；应用层护城河；Eve；Jay Madheswaran</p>
+<h3>要点</h3>
+<ul><li>Eve把原告律师面临的约束理解为法律劳动供给不足：降低从接听电话到和解的执行成本，可以让过去不值得承接的案件获得代理。嘉宾介绍，一家洛杉矶客户律所通过全面改造流程，将每名律师管理的客户从约100人提高到500人。</li><li>讨论沿着客户接入、调查、证据交换、谈判与庭审展开，解释行业软件怎样进入原来的人工支出市场，也保留对双方同时获得AI、诉讼数量增加、律师价值及收费方式的追问。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:51—原告法律服务与Eve</a></li><li><a href="#chapter-2">03:50—小案子为什么找不到律师</a></li><li><a href="#chapter-3">08:42—扩大收入与接案能力</a></li><li><a href="#chapter-4">13:57—每名律师从100名客户到500名</a></li><li><a href="#chapter-5">15:53—法律软件背后的劳动市场</a></li><li><a href="#chapter-6">20:25—Eve为什么优于单纯的模型智能</a></li><li><a href="#chapter-7">27:00—当双方都获得AI能力</a></li><li><a href="#chapter-8">29:13—人类律师还做什么</a></li><li><a href="#chapter-9">33:01—用ChatGPT起诉银行之后，法院会成为瓶颈吗</a></li><li><a href="#chapter-10">35:15—小律所能否成长为十亿美元收入的企业</a></li><li><a href="#chapter-11">39:16—按小时计费会怎样变化</a></li><li><a href="#chapter-12">46:08—一个案件中的上万次处理</a></li><li><a href="#chapter-13">49:37—感恩节前一天的证据请求</a></li></ul></details>
+<h4 id="chapter-1">00:51—原告法律服务与Eve</h4>
+<p><strong>Alex Rampell：</strong>大家好，我是a16z合伙人Alex Rampell。很高兴请到Eve联合创始人兼首席执行官Jay。每个人都认识律师，也都知道法律，但尤其在硅谷，人们听到法律行业，往往想到大型商事律所：从哈佛法学院毕业，每小时收费2000美元的那种传统精英机构。</p>
+<p>其实，法律服务还有另一面，规模更大、更加分散，我们可以称它为原告法律服务。每次开车经过101公路，都会看到这类律师的广告牌。先谈谈Eve是什么，你们专注哪种法律服务和法律AI，也介绍一下这个行业。大多数美国人都熟悉它，但硅谷的人可能知道Wilson Sonsini，却没听过Morgan &amp; Morgan；后者的盈利可能还更好。原告法律服务到底是什么？也请你用自己的话介绍Eve。</p>
+<p><strong>Jay Madheswaran：</strong>谢谢邀请，我很愿意谈Eve。我们做的是为普通人服务的法律AI，为你我这样的个人服务，而不是机构、公司内部法务，或本来就拥有丰富资源的一方。我们关心的是，怎样为原本负担不起法律服务的人提供服务。</p>
+<p>原告法律服务行业就是这样形成的。你提到Wilson Sonsini可能每小时收费2000美元，这就是它的商业模式。律师的时间很贵，大家试图让律师去处理价值越来越高的工作。其他律师也一样，有很多账单需要支付。</p>
+<p>在今天的法律工作中，投入越多，就越能把事实陈述好、争取更好的结果。但普通人无法承受一张不知道案件会持续多久、每小时收费五六百美元的空白支票。因此，原告律师发展出了风险代理模式：只有替客户赢得案件，才能拿到报酬。这才使个人面对机构时，有了一定程度上公平竞争的可能。</p>
+<p>Eve希望处理从第一次接到客户电话，到最终取得和解的整个过程。怎样用AI完成这套端到端工作，再把它交给律师，放大他们能为客户取得的成果？这就是我们在做的事。可以把它理解为给大卫一把弹弓，帮助他对抗歌利亚。</p>
+<h4 id="chapter-2">03:50—小案子为什么找不到律师</h4>
+<p><strong>Alex：</strong>这让我想到经济学入门课里的供给曲线：价格越高，愿意提供的数量就越多。如果做一件事能赚10万美元，我当然愿意做。需求曲线则反过来，价格越低，需求量越大。</p>
+<p>把它放到法律服务里：如果我受到1000美元的损失，即使找风险代理律师，对方也可能不接。如果律师只能拿到赔偿的三分之一，他可能更愿意接大案子，因为每个案件总要投入一定的工作量。</p>
+<p>AI在一定程度上能缓解这种市场失灵。你说给大卫一把更大的弹弓，但如果我的损失是1000美元，显然无法请每小时收费1200美元的律师；风险代理虽然不要求预付，赔偿规模却也许不足以覆盖律师的成本。律师可能想帮助我，但还要给助理等人员发薪。如果软件可以承担这些工作，市场机会就会大得多，也能让原本无法获得服务的人得到法律救济。</p>
+<p>这些人不是被风险代理的预付价格挡住，而是律师接案不划算。律师想服务找上门来的1000个人，却做不到，只能专注最大的案子，小案子就被舍弃了。你怎么看？</p>
+<p><strong>Jay：</strong>完全同意，这就是当前的市场问题。从第一原则看，作为一个人，你理应得到优秀律师的代理。通常只有在走投无路时，我们才需要律师；这时候，人性最好和最坏的一面都会出现，但我们没有代表自己处理法律问题的技能。所以才有律师这个职业，司法也才成为政府体系的一大部分。</p>
+<p>今天，律师仍需要报酬，服务仍受法律劳动约束。如果一个案件不能带来至少5000美元的律师费，律师通常就不会接。即使能收5000美元，很多案件仍然亏钱，律所指望少数高赔偿案件来弥补。</p>
+<p><strong>Alex：</strong>而且还不保证一定能赢，这就是风险代理的风险。甚至可能赢了也亏，因为承办成本高于即使胜诉也能拿到的收入。</p>
+<p><strong>Jay：</strong>正是如此。想想轻微车祸，如果损失低于保险免赔额，美国律师通常不会碰这类案件，因为不划算。可是，3000或4000美元对个人来说，可能意味着整张工资单都没了，他们却找不到人代理。</p>
+<p>也要理解律师这一边。比如，你在工作中受到骚扰，而雇主本可以采取措施制止。在酒店或餐饮行业，雇主可以要求顾客不要骚扰员工，也可以调整流程。但现实中，这些事可能没有发生。</p>
+<p>当你打电话给律师，对方先要花30到45分钟接听、了解情况，再做法律研究。美国大部分雇佣关系是任意雇佣，律师必须把你的遭遇与法律保护条款相对应，找到诉因。这可能需要花10小时研究判例、核实事实、反复追问、判断是否符合条件。做完这些，最后仍可能发现案件连5000美元律师费都带不来。</p>
+<p>所以，以劳动雇佣纠纷为例，我们看到96%的案件被拒绝。这种情况下，除非自己掏钱，很难找到代理律师，而很多人没有钱。</p>
+<p><strong>Alex：</strong>于是，除非发生特别严重的事情，否则你只能忍着。</p>
+<p><strong>Jay：</strong>是的。目前的状态受法律劳动供给制约。Eve要做的，就是把原来10小时的工作变成即时完成：电话进来，Eve接听，利用对该律所的了解，自动判断是否属于律所应该承接的案件，然后完成索赔函或初步工作，让案件迅速启动。</p>
+<p>这会彻底改变这类案件的经济性。我们仍处于非常早期，Eve正在越来越多地承担跨越很长时间的端到端任务。案件可能持续半年或一年，中间有上千次行动和往返沟通。随着准确性提高，长周期执行变得可能，更复杂工作的处理成本也有机会逐渐趋于稳定。原本没有律师代理的人，就可能获得代理。</p>
+<p>问问自己：如果寻求法律帮助没有这么多阻力，你一生中会有多少次提出请求？这个数字比我们想象的高很多。</p>
+<h4 id="chapter-3">08:42—扩大收入与接案能力</h4>
+<p><strong>Alex：</strong>我有个真实的小故事。大约九个月前，我在Los Altos的一家Blue Bottle咖啡店向别人介绍Eve。很多人一想到AI，就是裁员、削减成本。但我解释的是：用了Eve，律所可以赚更多钱，因为它可以接更多案子，扩大收入。</p>
+<p>我只是外部投资人，肯定没有你讲得好。我们聊了很多话题，聊到Eve后，一个牵着大狗的人走过来，看起来还有点生气。我有点怕大狗。他问：“你刚才说的是什么公司？”我还以为他要发火。结果他说：“我是一名出庭律师，我想试试。”于是，我给你带来了一个客户。</p>
+<p><strong>Jay：</strong>谢谢。</p>
+<p><strong>Alex：</strong>关键在于扩大收入机会。大家都开车经过101公路，或者从佛罗里达沿美国东海岸一直向北的I-95。我几乎走过整条路，感觉一半广告牌都是原告律师的。他们做广告，显然是希望有人来电，说自己遇到事故或其他问题。</p>
+<p>这套经济账是什么样？花钱投广告，收到大量来电，却要拒绝90%的线索？究竟多少来电变成案件，多少案件变成收入？可以谈谈使用前后吗？从律师这一端看，你们的作用是扩大收入，律所具体怎样算账？</p>
+<p><strong>Jay：</strong>人们经过广告牌，只看到律师的脸，往往忘记了背后的团队，以及每通电话需要投入多少工作。Eve正是在帮助这些环节。</p>
+<p>律所的算术很简单：通常代理的人越多，收入越高。他们已经因为成本太高，拒绝了很多案件。所以，对他们来说，需求通常不是约束，劳动供给才是：内部有没有足够的人来提供服务？</p>
+<p>更复杂的是，不同规模律所的瓶颈还会变化。小律所可能只有一位律师、一位案件经理或办公室经理。后者接电话、记录信息，律师有空再回电，所有人都忙乱地四处奔波。</p>
+<p>下一阶段，律所找到系统化的方法，建立接案团队，甚至在某处设一个呼叫中心。可接案团队又变成新的瓶颈。假设广告牌拍得特别好、营销投入增加，突然涌入大量来电，团队又不堪重负，律所能服务的人数再次受限。</p>
+<p>这就是这些小企业每天面对的挑战。他们不是大型企业，而是希望代理个人的小型律所；大家读的是法学院，不是商学院，希望帮助客户。</p>
+<p>我们把这些流程整合进Eve平台，只在需要律师专业判断时把律师拉进来：这个案件有什么特别之处？怎样处理更好？Eve不断抬高基本服务水平，律师则思考怎样在此基础上再提高一个层次。我认为律师应该把时间放在与客户交流、帮助他们取得更好结果上。</p>
+<p><strong>Alex：</strong>这还是市场失灵的问题。如果能以每小时12美分雇到法律助理——或者某个相当于token成本的价格——我就可以服务所有5000条线索。但现实的劳动市场无法提供这样的供给，AI却让它成为可能。</p>
+<p>有没有效果对比的故事？就像生发广告中使用前和使用后的照片一样。你们最好的客户发生了什么变化？收入方面的变化应该相当明显。</p>
+<h4 id="chapter-4">13:57—每名律师从100名客户到500名</h4>
+<p><strong>Jay：</strong>洛杉矶有一家律所，每名律师管理的客户从约100人增加到500人。</p>
+<p><strong>Alex：</strong>哇。</p>
+<p><strong>Jay：</strong>这是可能实现的变化。当然，他们也付出了很大努力。他们把Eve用到整个流程：接听来电、资格判断，自动处理过去在律师、另一位律师和案件经理之间不断传递信息的问题。现在，这些交接由Eve里的代理处理。</p>
+<p>一直到和解阶段，参加调解前，系统会准备简报，告诉你应该关注什么、类似已处理案件的和解结果如何，以及过去哪些策略帮助你达到那个结果。</p>
+<p>这就是未来的样子：案件持续向前推进，你帮助系统做得比它独立执行时更好。律师在某种意义上会越来越像数据科学家或工程师，不断改进一套系统，让它越来越好。Eve上的优秀律所，在思维方式上已经开始经历这种转变。</p>
+<h4 id="chapter-5">15:53—法律软件背后的劳动市场</h4>
+<p><strong>Alex：</strong>这也揭示了AI应用的一个普遍问题。看看那些不太了解AI的普通律所，以前使用什么软件？如果是Wilson Sonsini这类大所，最重要的软件可能是计时工具，因为按小时收费。</p>
+<p>对风险代理律所，时间当然重要，但不会直接拿时间向客户收费。它需要知道每个案件花了多少钱，主要工具可能是Microsoft Word。过去风险投资人容易这样误判：原告法律软件市场很小，大家都买Microsoft Office，把软件支出加起来，也许只有数百亿美元或某个看起来很小的规模。</p>
+<p>但等一下，律师提供的服务和成果，涉及的是每年数千亿美元的市场。他们无法多提供服务，因为受到人工约束；每小时12美分的劳动供给并不存在。所以，软件市场背后，其实隐藏着一个劳动市场，规模比原先设想大得多。</p>
+<p>这也让描述变得别扭：你是一家法律软件公司，却不能因为过去软件市场小，就认定你的市场小。</p>
+<p>人们知道Harvey、企业法务软件，或者存在很久的电子证据发现工具。但在Eve出现前，这一行业的主要软件到底是什么？如果我刚从法学院毕业，准备进入这个领域，是不是只要Microsoft Word就能开业？</p>
+<p><strong>Jay：</strong>遗憾的是，原告律师与机构之间一直存在这种差异。历史上，原告律师往往只需要手机和电子邮件。甚至有些独立执业律师都不买Microsoft Word。</p>
+<p><strong>Alex：</strong>是因为成本吗？</p>
+<p><strong>Jay：</strong>不，是因为他们其实不需要大量做合同修订。这涉及信任边界：双方彼此对立，不是在协作。</p>
+<p><strong>Alex：</strong>不像合同审查那样，双方共同修改一份文件。</p>
+<p><strong>Jay：</strong>对。以前差不多就是这样，没有软件真正解决他们最核心的问题——劳动供给不足。他们所有工作的基础都是人工，也擅长管理人工，于是每遇到一个问题，想到的解决办法都是增加人工。行业就是这样成长起来的。</p>
+<p>结果，法律软件的大量资源流向了被告方和机构客户，因为预算在那里。Harvey以及今天大多数法律软件公司，主要都服务这一边：预算充足，产品容易销售，也容易融资。</p>
+<p>原告律所则是每个月都盯着现金支出的小企业。如果你从第一天起不能为他们带来结果，就会被淘汰，不会续约。他们会强烈抱怨，想尽办法追究。这使得进入这个市场很难。</p>
+<p>但我们发现，他们的激励很清楚：想代理更多人，想赢，而我们现在可以帮助他们做到。今天软件的美妙之处在于，一项任务只要能手工完成，包括处理新信息、转换信息——这些正是AI擅长的——就可以被编码成一个流程。这是从未发生过的根本变化。</p>
+<p>过去他们也尝试通过人员管理达到类似效果，却很难成功，因为每个案件都有足够多的差异，最后仍要依靠招聘足够聪明的人。现在，一个能干的人可以处理我们刚才说的500个案件，事实和情境各不相同。人的大脑很难记住所有细节，但现在不必再这样做。</p>
+<h4 id="chapter-6">20:25—Eve为什么优于单纯的模型智能</h4>
+<p><strong>Alex：</strong>很多应用层创始人现在会担心，自己会不会被大公司碾过：提供智能的模型实验室下一步进入我的领域，我是不是就完了？</p>
+<p>有很多应对办法，不过“防守”这个词也低估了事情本身。如果你拥有网络效应，或其他人没有的数据，就能提供更好的结果。用户在背后使用ChatGPT、Claude，或者自己也用这些工具，都没关系。</p>
+<p>你肯定思考过这个问题：为什么Eve比单纯提供智能更好？随着使用产品的律师增加，它又是怎样变好的？</p>
+<p><strong>Jay：</strong>我们押注的正是模型越来越好。如果有1000个爱因斯坦，或者最出色的律师来完成每项诉讼任务，我们当然愿意用。</p>
+<p>问题是，把爱因斯坦放进今天的一家律所，他也需要相当长时间才能有效工作。Eve解决的就是这个普遍问题。为什么他无法立刻产生效果？有几个原因。</p>
+<p>第一，原告法律服务的大部分数据无法从公开互联网抓取。不到1%的案件最终形成公开判决意见。绝大多数在诉前或更早阶段就和解了，有些只是双方谈判：“我受到了这样的损害，请纠正。”</p>
+<p><strong>Alex：</strong>举个具体例子。我出了车祸，责任不在我，对方保险公司却说：“你没伤得那么重，我们给你一美元。”它们总想拒赔，一条规则是拒赔，下一条还是拒赔。</p>
+<p>于是，我请律师争取应得的赔偿，因为我确实受伤了，车也确实报废了，对方却不愿支付。最后达成和解，没有真正进入庭审，但律师知道GEICO最终付了2.9万美元。我想，这是很有用的信息。</p>
+<p><strong>Jay：</strong>是的。保险公司要面对十万家不同律所，它们有共享的体系，知道所有案件；但这些信息分散在各地律所，各家并不知道GEICO每次怎样处理。</p>
+<p><strong>Alex：</strong>它们甚至有听起来很吓人的软件，比如Colossus，计算一根拇指骨折值多少钱。替它们说句公道话，这确实很难，但它们在做。</p>
+<p><strong>Jay：</strong>同时，它们也在计算，最低能付多少钱，而不一定符合那个具体个人的需要和情况。法律体系存在，就是为了纠正这些问题。</p>
+<p>有趣、也困难的地方在于：如果你今天上网搜索，怎样针对State Farm写一封出色的软组织损伤索赔函，这些知识并不存在于某个公开地方。新加入原告律所的法律助理也必须学习。</p>
+<p>事情还会更复杂：在当地司法辖区，法院、对方律师的行为都有差异，这些背景同样重要。Eve所做的，是把过去极难利用的多属性、多维度信息转化成一个实际问题的答案：此刻我做什么，最能改善这个案件的结果？</p>
+<p>在一个案件中，同一个问题会重复上千次。人的大脑无法始终把所有条件都记在心里，但AI可以。我们帮助律所积累这类数据，他们很快就能看到价值。最先体现价值的地方，通常是接案：我应该接谁的案子？我擅长代表谁？从这里开始，再不断变好。</p>
+<p><strong>Alex：</strong>这些都不是大型律所。比如，新泽西有一家四位律师的事务所，亚利桑那有一家七位律师的事务所，但对手往往都是State Farm或GEICO。理论上，彼此分享信息对他们有利。</p>
+<p>不过，创业初期的数据问题总是很难：客户会说“这是我的数据”。另一方面，应该也有一种分享才能获得回报的机制。比如，我投资过牙科AI公司，爱荷华州的牙医不能服务佛罗里达州的患者，但愿意学习其他牙医的经验。你们怎样处理数据隔离和使用问题？它会不会成为障碍？</p>
+<p><strong>Jay：</strong>我们基本遵循这个行业已有的合作规则，再用软件放大它们。对于自己的具体案件，律师非常重视隐私，法律也要求保护律师与客户之间的保密特权。我们从来不用这些数据训练模型。</p>
+<p>同时，律师本来也会为了分享知识而旅行，参加继续法律教育，交流对付State Farm某种抗辩的策略，因为对方会在很多案件中重复使用同样的抗辩。当然，这不是单独针对State Farm，任何对手都一样。</p>
+<p>我们会聘请自己的律师，跟踪平台上的案件成功率。我们希望，使用Eve的律师能更成功，这就是我们观察的结果。我们有一个叫Auditor的产品，每天夜里逐页分析每一个案件，寻找一位完美律师每次都会注意到的情况。</p>
+<p>遗憾的是，过去绝大多数、几乎每一个案件，都存在信息遗漏。现在，我们希望把这些遗漏找出来。</p>
+<h4 id="chapter-7">27:00—当双方都获得AI能力</h4>
+<p><strong>Alex：</strong>谈谈未来。一方面，GEICO总有一天也会变聪明。过去“拒绝、拒绝、再拒绝”的策略，是它们利用对抗式体系的办法。比如，我家烧了，说里面有一幅毕加索；它们怀疑我会这样夸大索赔，于是先拒绝。双方一直相互对抗，现在双方都将获得超能力。</p>
+<p>这已经有点像Muse和其他消费者代理带来的情况：我想订一家很难预约的餐厅，对方由真人接电话，而我只需每小时付一美分，就可以让代理不断打电话，相当于发动拒绝服务攻击。餐厅最终也会发现，再想办法阻止。</p>
+<p>你的客户的对手会怎样适应？过去GEICO说赔2000美元，消费者觉得实际损失也许是2500美元，但因为差额太小，对方不用太担心。现在，受损害的人可以反击，你在为他们提供能力。</p>
+<p>另一方面，你提到长周期代理。如果很多工作都可以交给AI，法律实践会变成什么样？律师像未来的数据科学家，但在对抗过程里，对方会用什么工具？法律工作有大量处理文字、寻找事实的任务，人类的作用会怎样变化？人当然要把案件带到终点，但AI具体做什么、不做什么？</p>
+<h4 id="chapter-8">29:13—人类律师还做什么</h4>
+<p><strong>Jay：</strong>我的思考框架是，个人始终需要有人代表。至于代理工作由谁完成，你可以假设99%甚至99.9%由AI承担，但始终有少量人类的参与。我们相信，这种参与能对结果产生积极影响。</p>
+<p>机构一边一直拥有更多资源、更多钱，也有更多时间。对为了费用而负债的个人来说，时间是对方非常有力的武器。机构会继续依靠集中化和标准化发挥优势。</p>
+<p>另一边，代表个人的律师会推动案件，让诉讼真正具有威慑力。我认为，更多案件会变得有分量，大量例行往返将由代理与代理交谈完成。听起来像一个疯狂的未来，但我们正朝那里走。</p>
+<p>真正带来差异的是：律师对这个客户、这组事实，以及当地对方律所和司法环境的理解。他们利用这些判断为客户争取结果。这种作用不会消失。</p>
+<p>我们已经看到，很多Eve客户选择花更多时间准备出庭，因为技术让他们做得到。过去，一旦出庭，整个律所几乎都要停下来，所有时间都用来准备庭审、参与陪审员遴选。</p>
+<p><strong>Alex：</strong>所以你希望案件尽量和解，整个流程主要围绕和解运作。</p>
+<p><strong>Jay：</strong>正是如此。现在，工作可以更多回到真正的法律代理：怎样把我们的立场表达清楚？客户已经走投无路，不管他们做过好事还是坏事，我怎样在真正关系到他们利益的事情上代表他们？</p>
+<p><strong>Alex：</strong>这也涉及你说的数据科学。以前这些信息太分散，没有一个汇总所有和解金额的公共仓库。</p>
+<p>我在诉讼融资里见过类似做法。如果我是风险代理律师，客户不按小时付钱，那我从哪里支付自己的工资、员工薪水和房租？会有公司说：“我来为这个案件融资。”它们押注你能胜诉，会研究是哪位法官，以及各种数据。这些公司一直很重视数据科学。</p>
+<p>过去，很多数据根本没有被集中记录。现在有了数据，律师就可以更聪明地决定：上庭、接受和解，还是继续反驳？GEICO提出1.2万美元，我该争取1.5万美元，还是上庭争取10万美元？怎样作出这些决定？</p>
+<p><strong>Jay：</strong>正是如此。我们可以帮助律师在每个案件里作出更好的决定，知道何时已经取得较优结果。但律师仍有责任尝试再向前推进。</p>
+<p>这就是我所说的类似数据科学的工作：利用软件的力量，去做以前根本没有想到可以做的事情，改善结果。</p>
+<h4 id="chapter-9">33:01—用ChatGPT起诉银行之后，法院会成为瓶颈吗</h4>
+<p><strong>Alex：</strong>这是个很宽泛的问题：法律体系会往哪里走？我和富国银行发生了一些纠纷，花了四个小时都没解决，最后想：“算了，我起诉它。”我打开Codex、ChatGPT，说“起诉富国银行”。四小时后，它真的完成了起诉，还找到了送达诉讼文书的人。我收到了通知，要开庭了，不过日期排到了二月。</p>
+<p>专利领域也发生着类似的事情。过去申请专利很费工，现在工作量下降，但美国专利商标局仍然是瓶颈。</p>
+<p>如果预测一下未来：AI逐渐成为基本配置，你们是原告法律服务这一环的一部分。把视野放到整个法律行业，五年后哪些地方相同，哪些地方不同？</p>
+<p><strong>Jay：</strong>我认为，建立某种不把所有事情都送进法院的体系，是不可避免的。而且法律里已经有这样的框架：某些退伍军人事务案件通过专门委员会处理，很多劳动雇佣问题在进入法院前，要先经过平等就业机会委员会。雇主也发展出不同的调解、仲裁机制，不一定都走法院。</p>
+<p>这种框架会自然演化，我预计会越来越常见。变化可能是，在某些领域出现自动化争议解决机制：由AI辅助的调解员，或者对双方保持中立的第三方，用AI加快形成处理方案。</p>
+<p>我不认为判断本身真的会被替代，但作判断的人会获得一组事实：历史上这种情况怎样处理，那种情况怎样处理，再由他们消除其中可能存在的偏差。我认为，人们会越来越多地把时间花在这一端。</p>
+<h4 id="chapter-10">35:15—小律所能否成长为十亿美元收入的企业</h4>
+<p><strong>Alex：</strong>你认为小律所会变大吗？过去每名律师只能处理100个案件，现在500个，未来也许5000个，为什么还把办公室局限在新泽西一个很小的地区？也许应该扩大范围，形成更像企业的大型法律服务机构。</p>
+<p>Morgan &amp; Morgan应该是最大的出庭律师事务所，有数十亿美元收入，但普通律所仍很小。如果有Eve，以及我们谈到的变化，一家小律所也可能成为年收入10亿美元的企业。从风险投资的角度看，这就有了高增长企业的可能，而不只是所谓“生活方式生意”。你以前也做过投资，知道这个对稳定赚钱的小生意多少带点贬义的说法。</p>
+<p>目前律所当然还不能普遍上市，亚利桑那州之类的地方也许有所不同。你认为地方上的小型律所，有机会成长为很大的机构吗？</p>
+<p><strong>Jay：</strong>我认为，很多律所会越来越像软件公司。过去三十年的软件革命，它们基本没有参与，现在终于可以参与了。</p>
+<p>深入看看就知道为什么。假设一个案件和解金额为2.5万美元，律师拿三分之一，为简单起见算8000美元。其中一半用于人工，30%用于营销，剩下的才可能是利润。今天的商业模式大致如此。</p>
+<p>这样的模式，很难再投资去更好地服务下一个客户。过去，基本只能通过招聘更好的律师来实现。</p>
+<p>现在，他们可以积累自己独有的数据库和数据集，在某一类法律业务里，取得比竞争对手更好的结果。这就是专业化。行业以前也经历过类似过程：三十年前，社区律师可能什么都做，从劳动纠纷到知识产权。后来，出现了擅长知识产权、擅长雇佣法的专业律师。</p>
+<p>今天，专业领域还在继续细分，比如专门处理出生缺陷一类的案件。以后可能再深入一层：有人非常擅长处理具有某种特定事实组合的软组织损伤案件。为这类案件投放广告，可能比Morgan &amp; Morgan那样到处挂广告牌更划算。</p>
+<p><strong>Alex：</strong>先在本地把某件事做得特别好，再因为在这个领域能力很强，把业务扩展到全国。</p>
+<p><strong>Jay：</strong>是的。我认为会出现这样的专业化，同时也会出现相反的趋势。我们与一些接近Morgan &amp; Morgan规模的律所合作，有些大型律所正在整合、收购其他律所。</p>
+<p>它们发现，用Eve可以迅速完成过去很痛苦的整合过程，因为可以围绕客户真正想要的结果来组织工作：客户想得到法律结果，而Eve正是为此设计的。</p>
+<p>这样，很多变革管理、人员调整和运营改变的工作，可以由Eve承担，收购更快就能产生价值。</p>
+<h4 id="chapter-11">39:16—按小时计费会怎样变化</h4>
+<p><strong>Alex：</strong>软件行业正在转向按结果定价，这很有意思。过去SaaS按每个席位、每月收费。我经常开玩笑，把它叫作软件销售的咖啡杯型模式：中杯、大杯、超大杯。</p>
+<p>随便打开一家SaaS公司网站，样子都差不多，每月79、99、129美元。Claude能那么轻易地复制这些网站，就是因为它们长得一样。收费单位都是席位。</p>
+<p>比如Zendesk，最后作为上市公司时，年经常性收入约20亿美元，后来被Permira和Hellman &amp; Friedman私有化。现在它们必须问：客户究竟还需要多少席位，可能一个都不要？我们需要提供结果。所以，很多AI公司都说，自己交付结果、按结果收费。</p>
+<p>你选择的法律领域，却从一开始就是结果导向。其他法律服务不是这样，但我敢说，客户大多更希望按结果付费。</p>
+<p>当然，有时很难。比如，我在McDermott Will &amp; Emery有一位很好的信托和遗产律师，但收费很贵。如果说我要买的是结果，那结果似乎是我的死亡，我也不确定自己是不是想要这个结果。不过，我更希望知道总共一个固定价格。</p>
+<p>替律师说句公道话，按小时收费并不一定是想多收客户的钱，而是存在信息不对称：我脑子里想要什么，能不能表达清楚？项目范围会不会不断变化？但其他法律服务，也许应该更像原告代理，比如移民法律服务，尽量按结果定价。</p>
+<p>困难在于数据不足，例如，怎样替被告赢得案件？你们可能可以扩展到原告服务之外。不知道你是否同意：原告服务似乎走在如今这些变化的前面，人们想要结果，而不想为原材料和投入付费。其他法律服务是不是也应该这样？</p>
+<p><strong>Jay：</strong>这正是我们的看法。难点确实存在：不管在被告方还是原告方，拿到新案件时，往往不知道它需要10小时还是100小时，只有接下来才会知道。</p>
+<p>因此，我们必须深入每个具体执业领域，真正做到交付结果。去年我们就在做今天被称为长周期代理的工作，因为要产生结果，就必须这样做。现在它们越来越能够交付法律结果。</p>
+<p>我认为，要扩大法律服务的可获得性，最终需要能够从一组事实出发，知道取得某个结果需要多少计算资源。这既依靠汇集并更好地使用数据，也依靠更有效地运行计算，完成既定结果。我们两者都在做，所以才如此专注于结果。</p>
+<p>大卫与歌利亚的关系存在于很多地方。大型律所、企业内部法务只是预算所在，它们可以在一段时间内近乎开出空白支票，但并不知道这些工作到底带来多大价值。</p>
+<p>你融资时，也许会收到10万美元的法律账单。它对应什么确切成果，值多少钱，很难说清。可这就是目前能采用的定价方式，因为律师不知道自己的工作能够产生怎样的预期价值。</p>
+<p><strong>Alex：</strong>还有信息不对称。“为C轮融资请律师”可能很简单，也可能非常复杂，所以很难定一个统一价格。收2.5万美元、只花一小时，律师不会受损；但如果最后要投入4000个小时，就可能亏钱。</p>
+<p>当然，在公司法律业务中，有些服务本来就是低价引流，希望在后面的并购或IPO中赚回来，这又与原告代理不同。那你们怎么收费？我想，你们成立第一天，也不可能知道对哪种客户收多少钱，想法应该经历过变化。</p>
+<p><strong>Jay：</strong>当然。说来有趣，第一天我们确实从你刚才说的那种杯型套餐开始，因为当时也不知道更好的办法。</p>
+<p>后来深入了解客户，发现他们关心的是结果，是怎样服务更多人。因此，我们很早就被迫转向结果定价，大约是一年半前。今天居然已经可以把一年半前称为早期，挺有意思。</p>
+<p><strong>Alex：</strong>AI时间就像狗的年龄再乘以100。</p>
+<p><strong>Jay：</strong>对。这就是我们的经历。还有很大的增长空间。刚才的价值分配图里，律师拿走三分之一，其中一半又用于人工。这部分人工支出可以减少。那么，怎样把省下来的钱用得更有价值？</p>
+<p>有意思的是，最好的办法可能是花在更多token、更多由Eve执行的工作上，从而给律所赚更多钱。这就是我们今天所处的循环。</p>
+<p>市场变化也在帮助我们。我们认为，按小时计费不会完全消失，但可能像按席位收费一样，逐渐失去主导地位。在某些法律领域，很难在多年后的结果出现前判断工作价值，按小时收费也许仍然最合适。但很多领域已经不是这样，我们知道结果是什么，应该能把工作成本摊到一个可预测的水平，再把服务交给客户。</p>
+<p>这就是我们的判断，也解释了为什么我们从一开始就专注于端到端的法律结果。理想的使用方式很简单：律师说“我接到这个客户”，交给Eve，系统在需要律师参与的时候再把他拉进来。</p>
+<h4 id="chapter-12">46:08—一个案件中的上万次处理</h4>
+<p><strong>Alex：</strong>我们谈了原告律师的供给约束：很多客户无法得到服务，因为获客成本与客户价值之间的账算不过来，任何生意都要面对这些问题。</p>
+<p>那你们自己的约束是什么？你们已经增长很快，还有什么限制了更快增长？需要投入什么，才能获得更大的产出？</p>
+<p><strong>Jay：</strong>很有意思。很多法律评测，包括Anthropic、OpenAI等公司研究、公开分享的评测，主要关注单项任务：给它一项任务，它做得大体还可以吗？我们与其中很多公司关系密切。</p>
+<p>现在世界正在转向代理工作，但对我们来说，一直真正重要的就是代理最终交付的结果。现阶段，受技术和流程限制，每个案件仍需相当数量的人类介入。不过，随着做更多工作，我们正在逐月大幅减少这些介入。</p>
+<p>在这个行业，这件事必须按案件类型分别完成。对每一类案件，我们都像研究一门科学那样学习：怎样解决它？怎样构建一个小型律师“大脑”，能够处理全部数据，推进到结果，并使用它能访问的各种工具，包括Claude等？这是一个很难的问题。</p>
+<p>所以，我们目前主要受工程师数量限制。有无穷多的工作可以做来推动它前进，而且需求已经存在。一旦能够端到端完成机动车事故案件，就能释放数千亿美元量级的价值；这还只是一种细分类型。</p>
+<p><strong>Alex：</strong>那我想问，你们是否已经有完全自主、端到端完成的案件：接电话、接入客户，最后从GEICO拿到支票？有没有发生过？</p>
+<p><strong>Jay：</strong>还没有，但已经接近了。这正是我们需要工程师的原因。</p>
+<p>举个尺度：一个案件可能有大约一万次来回处理。</p>
+<p><strong>Alex：</strong>一万次？</p>
+<p><strong>Jay：</strong>差不多。可以这样理解：客户进来，假设是人身伤害案件，需要医疗记录。你要给保险公司、医疗机构打电话，拿到客户已有的记录。今天这个过程可能要两周。</p>
+<p>Eve有外呼代理，用语音AI打这些电话。有意思的是，在这个环节，我们已经看到代理与其他代理交谈，学习怎样通过对方的流程。这很有趣，但它只是其中一个步骤。</p>
+<p>接下来，还要生成文件，与对方沟通。我们正在逐项端到端完成这些任务。今天仍需要一点人工介入，例如让结果更好，或把某个环节处理得更好。我们正在构建的，就是怎样把整件事从头到尾推进完成。一些客户已经在实际使用中呈现了早期迹象。</p>
+<h4 id="chapter-13">49:37—感恩节前一天的证据请求</h4>
+<p><strong>Alex：</strong>回到被告方及其庞大的信息体系，你有没有看到对方的反应发生变化？比如，他们收到某种请求，就会意识到必须和解。保险公司每年处理数万甚至更多案件，应该有相当明确的规则，不会临时随意决定。</p>
+<p>如果我是GEICO，你提出这个金额，我会先用另一个金额尝试和解。但当你们一方的成本下降，这套策略可能改变。你有没有看到客户的对手作出不同反应？</p>
+<p><strong>Jay：</strong>总体上，被告律师仍然大量采用按小时收费的商业模式，还没有赶上我们客户的速度。这里存在很大的定价不对称。</p>
+<p>有一家与我们合作的律所，过去对方总把证据交换请求拖到感恩节前一天或其他重要节日前发出，因为知道律师要休假，会被大量工作困住，最后可能做得不好，或者匆忙应付。</p>
+<p>由于这种策略反复出现，这家律所在Eve上建立了一个代理，专门在当天回复。下一次对方再这样做，律所立刻提交了回应，对方很惊讶：“怎么回事？”</p>
+<p><strong>Alex：</strong>原来的策略失效了。</p>
+<p><strong>Jay：</strong>类似变化有很多种。被告方开始意识到，原来对方也有资源的时候，事情会变成这样。这是很有意思的变化。</p>
+<p><strong>Alex：</strong>Jay，这次谈话很精彩，我学到了很多。原来不知道每个案件会有一万次处理。很高兴成为你们的合作伙伴，期待把Eve带给下一批一万家律所。</p>
+<p><strong>Jay：</strong>谢谢。我们还有很多工作要做。目前大概已经帮助了几十万名客户，而还有数亿人可以服务。我希望每天都能让他们的生活有所不同。</p>
+<p><strong>Alex：</strong>谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

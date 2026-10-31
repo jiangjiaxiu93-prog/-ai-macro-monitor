@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AWS的增长、客户分散度与供应商融资：Matt Garman访谈（Bloomberg Tech）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-10-31<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>AWS的增长、客户分散度与供应商融资：Matt Garman访谈（Bloomberg Tech）</h2>
+<div class="metaline">Bloomberg Tech · 2026-10-30 · <a href="https://www.youtube.com/watch?v=z4sCWxVyx8E" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；企业采用；融资估值；AWS；Matt Garman；Trainium</p>
+<h2>AWS的增长、客户分散度与供应商融资：Matt Garman访谈（Bloomberg Tech）</h2>
+<p><strong>Source</strong>: Bloomberg Tech <strong>Tag</strong>: 回报与泡沫 <strong>Pin</strong>: 96 <strong>Published</strong>: 2026-10-30 <strong>URL</strong>: https://www.youtube.com/watch?v=z4sCWxVyx8E <strong>Format</strong>: 精翻 <strong>Keywords</strong>: AI资本开支；算力采购；企业采用；融资估值；AWS；Matt Garman；Trainium</p>
+<h3>要点</h3>
+<ul><li>Garman称，AWS当前收入年化规模为1840亿美元、同比增长39%，并预计未来两年每年增长超过40%。他将信心归于5800亿美元积压订单和广泛客户需求；被追问时明确，增长预期并非全部来自已签合同。</li><li>访谈逐项讨论Anthropic与Bedrock终端需求、供应链瓶颈、Trainium对外销售，以及主持人提出的800亿美元供应商融资。Garman强调先投入、后多年回收现金流，未披露单一客户增长贡献或融资具体条款。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00—通向万亿美元收入的路径</a></li><li><a href="#chapter-2">03:20—为什么仍说AI处于早期</a></li><li><a href="#chapter-3">04:39—增长来自谁</a></li><li><a href="#chapter-4">07:25—瓶颈每天都在变化</a></li><li><a href="#chapter-5">08:41—为什么把Trainium卖到AWS之外</a></li><li><a href="#chapter-6">10:00—800亿美元供应商融资与现金流安排</a></li></ul></details>
+<h4 id="chapter-1">00:00—通向万亿美元收入的路径</h4>
+<p><strong>Ed Ludlow：</strong>我们请AWS首席执行官Matt Garman一起谈谈。Matt，欢迎再次来到节目。</p>
+<p><strong>Matt Garman：</strong>谢谢邀请。</p>
+<p><strong>Ed：</strong>Andy谈到，AWS本身有望在五到十年内成为收入达1万亿美元的业务。我知道他已经被问过这个问题，但还是请你介绍一下：怎样达到那里？从现在起的路线是什么？</p>
+<p><strong>Matt：</strong>看看我们今天的业务：按当前收入水平年化，规模是1840亿美元，同比增长39%，而且过去六个季度，每个季度的增长都在加速。如此规模的业务还能增长39%，很不寻常。</p>
+<p>向前看，我们观察到的需求，以及客户告诉我们的情况，让我们预计未来两年的增长率也会超过40%。这么大的业务再叠加复合增长，规模会很快变得更大。这让我们很兴奋，对亚马逊、AWS以及客户来说，都有很大的潜力。</p>
+<p><strong>Ed：</strong>有意思的是，以我的经验，亚马逊以前不太愿意对那么远之后的AWS增长作预测。你现在说，2027年和2028年都能增长40%。什么让你有信心这样说？你最关注哪些数据？</p>
+<p><strong>Matt：</strong>这是个好问题。越来越多的大型企业在AWS上构建业务，我们对未来一、二、三、四、五年的业务状况就有了更好的可见性。随着业务和客户基础扩大，我们获得越来越多的承诺。你可以看到，我们的积压订单已经增长到5800亿美元。这些是客户承诺在AWS上投入的支出，而且每个季度都在快速增长。</p>
+<p>我们正在投入大量产能和资本，扩大这项业务，确保所有客户都有容量可用。我们的目标是管理好容量，确保供给。我们投入很多，为客户准备充足的容量。与在AWS上构建业务的企业和初创公司交流时，我们希望让他们确信：当他们抓住眼前的大机会、继续增长时，会有容量支持。把这些因素结合起来，就形成了我们对业务增长的信心。</p>
+<p><strong>Ed：</strong>我想确认一下。你用了“承诺”这个词，如果它体现在积压订单中，那么是已经签约的需求，而不只是预期中的需求，对吗？</p>
+<p><strong>Matt：</strong>很大一部分已经签约，但不是全部。我们还看到很多新创公司进入，看到客户继续增长。</p>
+<p>典型的模式是：客户进入AWS，对我们作出较大的支出承诺，确定我们是他们的云平台。可能是ADP，也可能是刚刚参加过你节目的Roblox。他们在观察自身需求，以及AI会带来什么。</p>
+<p>这会产生一种飞轮效应：我们既了解他们的基础增长，也了解潜在增长。我们把所有客户的情况叠加起来，包括企业、初创公司和AI实验室，再确保有足够的容量来支持这些增长。因此，我们对未来几年的情况有较好的可见性。</p>
+<h4 id="chapter-2">03:20—为什么仍说AI处于早期</h4>
+<p><strong>Ed：</strong>Andy说过，你也说过，而且他特别强调，我们仍处于AI的早期阶段。这里似乎有一点矛盾：究竟还有什么没有发生，让我们可以继续说AI仍处于早期？</p>
+<p><strong>Matt：</strong>这很有意思。我们以前没有见过增长这么快的业务，也没有见过发展这么快的技术。对身处其中、了解技术能力的人来说，它正在改变客户所做的每一件事。</p>
+<p>很多客户还刚刚开始摸索怎样从中取得价值。我每天都会与企业和初创公司交流。他们看到，AI正在全面改变经营方式、公司运作方式以及产品的工作方式，但这些变化仍处于非常早期。</p>
+<p>即使他们只改造了1%、2%、3%、4%或5%的业务，已经得到很多价值。我们看到客户正在沿着这条路前进：改造范围从3%扩大到10%，再扩大到50%。这意味着提高效率、加快客户增长的巨大机会，也会表现为对AI和云服务更大的需求。</p>
+<h4 id="chapter-3">04:39—增长来自谁</h4>
+<p><strong>Ed：</strong>我们正在彭博电视和广播直播，与AWS首席执行官Matt Garman交谈。AWS对未来增长给出了很强的预期。</p>
+<p>你刚才说的很有意思，因为这同时涉及初创公司和大型企业。人们想知道，在当前这个很高的增长水平上，究竟是谁在拉动？只是那两家大型AI实验室，还是更广泛的需求？</p>
+<p><strong>Matt：</strong>正是增长的广泛性让我们有信心。特别是AWS，客户非常多样化。</p>
+<p>当然，我们与Anthropic、OpenAI这些大型AI实验室有深入合作，也与Meta、Salesforce、苹果等大型科技公司合作。但我们的客户遍布各类行业：银行、医疗公司，或者刚在某间公寓里起步的两人创业公司。我们看到的需求来自整个行业。</p>
+<p>我们有数万乃至数十万客户，每年都在增加支出。今年承诺在我们这里支出10亿美元的客户，比以往任何时候都多。</p>
+<p><strong>Ed：</strong>这个客户群有多大，Matt？</p>
+<p><strong>Matt：</strong>你是问10亿美元这组客户有多大吗？它相当可观，而且我们看到这个群体不断扩大。正是这种增长、多样性，让我们有信心。</p>
+<p>看看其他一些快速增长的厂商，它们的业务高度集中于少数几家实验室。AWS的情况不同，我们的客户几乎覆盖你能想到的每一个行业。当这些行业开始向云迁移，希望利用AI时，他们愿意选择AWS。他们想增长，也信任我们：信任我们的企业级安全、可用性，以及能够提供的一整套技术。这些因素支持持续增长，也让我们对广泛的客户群保持信心。</p>
+<p><strong>Ed：</strong>以Anthropic为例，能否给出具体数字：现在约40%的增长中，有多少是Anthropic向AWS采购算力带来的？</p>
+<p><strong>Matt：</strong>有意思的是，你可以读它们的S-1文件，里面披露了部分在我们这里的支出。但我想说，其中相当多的支出本身也分散在不同客户之间，因为很多发生在Bedrock上。实际上，是我们的客户在Bedrock上使用Anthropic、为此付费。</p>
+<p>所以，虽然从数字上看，很多业务像是直接来自Anthropic——它确实也是我们很好的合作伙伴——但背后分散着数万乃至数十万客户。他们在自己的应用里运行推理，应用建立在Bedrock和AWS之上。从我们的角度看，实际需求比那些数字表面呈现出来的还要分散。</p>
+<h4 id="chapter-4">07:25—瓶颈每天都在变化</h4>
+<p><strong>Ed：</strong>你们正在尽可能快地增加容量，也希望让客户相信，需要时就有供给。此刻最主要的约束是什么？是芯片、数据中心建设，还是电力？</p>
+<p><strong>Matt：</strong>整个行业都在快速扩大规模，我们也在非常快地建设。究竟哪个环节是最大的瓶颈，几乎每天都在变化。你提到的那些方面，我们都在加紧推进：电力、数据中心，确保有足够空间支持客户运行。有时是DRAM，有时是芯片，还有时是网络组件。</p>
+<p>我们为客户所做的一部分工作，就是深入供应链下游三层，真正理解他们需要哪些组件，怎样提前多年取得供应商的交付承诺，再把各种流程组织起来，高效地落实交付。</p>
+<p>我们最近披露，平均每14秒就安装一颗加速芯片，可能是GPU，也可能是Trainium。这是一轮规模很大、速度很快的扩张。目前我们仍受供给约束，正在为客户快速扩容，而且希望能够更快。</p>
+<h4 id="chapter-5">08:41—为什么把Trainium卖到AWS之外</h4>
+<p><strong>Ed：</strong>业务的下一项重大变化，是明年开始在AWS之外销售Trainium。我想，很多人并不了解实际会怎样运作。但这一定是个难以作出的选择，因为AWS内部同样有使用Trainium的需求。</p>
+<p><strong>Matt：</strong>是的，我们内部确实讨论过这个问题。不过，对我们和客户来说，这是一个重要的战略举措。</p>
+<p>我们与客户交流时，他们会说：“我希望把大部分工作负载放在AWS上。Trainium是一个性能很强、成本效益也很好的平台，能够以很高的性能水平运行AI工作负载。但有些任务，我们希望在本地运行。”</p>
+<p>在近期，并非所有东西都会迁移到云上。有些客户希望保留自己的数据中心，在本地运行；他们希望在两个地方都能用Trainium，既可以在AWS运行，也可以在自己的数据中心或其他地方运行。</p>
+<p>我们需要平衡具体怎样做，但对这项业务很期待。我认为它会很有意思，能支持那些确实希望以这个平台为基础构建业务的客户。他们喜欢Trainium，看到了它的性价比优势，也希望在不同地点使用。我们希望让他们能够做到。</p>
+<h4 id="chapter-6">10:00—800亿美元供应商融资与现金流安排</h4>
+<p><strong>Ed：</strong>最后一个问题。10-Q已经发布，我也读了。亚马逊为明年起的技术基础设施安排了约800亿美元供应商融资。这是用来做什么的？为什么需要这种机制？</p>
+<p><strong>Matt：</strong>当我们看到眼前这么大的机会时，也在寻找负责任的融资方式，让我们能够尽可能充分地满足客户需求。</p>
+<p>我们考虑的是怎样安排资本开支，使它与收入相平衡。AWS的业务模式一直如此：前期要投入大量资本，然后在一段时间内逐步变现。服务器可能是五到六年，数据中心和电力设施可能是二十到三十年。我们一直采用这样的模式。</p>
+<p>现在的扩张非常快，而且这是我们很看好的业务：增长39%，利润率处于百分之三十几的高段。我们认为，这是一项很好的业务，还有很大的机会继续投入。</p>
+<p>因此，我们会从合作伙伴生态以及其他渠道寻找办法，在快速扩张时平衡部分现金流，抓住我们认为很大的机会。正如你在节目开头提到的，我们认为，随着时间推移，它可能成长为一项万亿美元收入的业务。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
