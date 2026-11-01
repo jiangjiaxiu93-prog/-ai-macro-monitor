@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Anthropic招股书、Google重估与中期选举：Friedberg、Sacks、Chamath与Jason（All-In）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl on" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-11-01<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回AI 回报与泡沫跟踪</a>
+<div class="card"><article>
+<h2>Anthropic招股书、Google重估与中期选举：Friedberg、Sacks、Chamath与Jason（All-In）</h2>
+<div class="metaline">All-In Podcast；Jason Calacanis、David Sacks、David Friedberg、Chamath Palihapitiya · 2026-10-30 · <a href="https://www.youtube.com/watch?v=p1Dy4e4ff0s" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；单位经济；融资估值；生产率；AI监管；Anthropic；Google；David Friedberg</p>
+<h3>要点</h3>
+<ul><li>四人从Anthropic招股书讨论收入增长、算力约束、增量毛利与资本效率；Friedberg把分析延伸到芯片、算力供应商和终端客户，同时明确客户获得2—10倍回报是自己的假设。</li><li>Chamath担心大型AI企业与国债争夺资金会推高融资成本；讨论随后转向Google搜索与云业务的收入结构，以及中期选举对监管、建设审批和政治调查的影响。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00—开场：Sacks回归与“超级智能”这个词</a></li><li><a href="#chapter-2">03:22—Anthropic招股书：增长、现金与会计亏损</a></li><li><a href="#chapter-3">10:16—Friedberg：从芯片利润追问终端生产率</a></li><li><a href="#chapter-4">16:41—Chamath：微软生产率与Anthropic的算力约束</a></li><li><a href="#chapter-5">22:00—数据中心建设与两党的政治激励</a></li><li><a href="#chapter-6">26:13—客户分层、投入回报与IPO融资需求</a></li><li><a href="#chapter-7">32:47—AI融资会怎样影响国债和经济增长</a></li><li><a href="#chapter-8">36:43—Friedberg：政府与AI企业会争夺什么</a></li><li><a href="#chapter-9">40:31—政治影响力与AI安全阵营的分裂</a></li><li><a href="#chapter-10">46:15—买入IPO时，哪些风险可以估价</a></li><li><a href="#chapter-11">51:04—增长前景、开源竞争与系统性风险的分歧</a></li><li><a href="#chapter-12">55:34—模型降价、智能体与企业采用空间</a></li><li><a href="#chapter-13">1:01:57—Google为何大跌：广告增长与云业务</a></li><li><a href="#chapter-14">1:06:40—广告拍卖争议、业务转型与人才</a></li><li><a href="#chapter-15">1:11:15—Sacks：搜索占比下降与绝对收入增长</a></li><li><a href="#chapter-16">1:14:17—中期选举：国会、州长与数据中心审批</a></li><li><a href="#chapter-17">1:18:03—预测市场与两种选举情景</a></li><li><a href="#chapter-18">1:22:19—选举夜安排与政治钟摆</a></li></ul></details>
+<h4 id="chapter-1">00:00—开场：Sacks回归与“超级智能”这个词</h4>
+<p><strong>Jason：</strong>欢迎回到世界第一播客，顺便刺激一下那些平庸的同行。All-In已经连续四五年保持这个位置了。这是第295期，Sacks回来了。兄弟，你怎么样？</p>
+<p><strong>Sacks：</strong>挺好。我看到一条假新闻，说你们已经不用“超级智能”这个词了，因此受到了一些嘲讽。</p>
+<p><strong>Jason：</strong>今天我们就在这里讨论“本周超级智能”，整份提纲都是超级智能。</p>
+<p><strong>Sacks：</strong>也许我不该提，以免反而帮它扩大传播。他们说我们还在用AI，没有改说SI。</p>
+<p><strong>其他主持人：</strong>谁这么说？媒体现在就把时间花在这种事情上？</p>
+<p><strong>Sacks：</strong>这就是为什么说它是假新闻。他们甚至放了我的照片，但10月23日那期节目我根本没参加。</p>
+<p><strong>其他主持人：</strong>不过那张照片里，你确实很有总统的样子。他们说我们是“有影响力的科技播客”，这一点还不错。可我们不只是科技播客，我们是世界第一播客，该给我们应有的地位。</p>
+<p><strong>Sacks：</strong>报道说，我们对使用“超级智能”一词的热情冷却了，还试图说我是在违抗总统的指示。我再澄清一次：10月23日那期我没有参加。以后我会盯着你们，让你们遵守这条要求。</p>
+<p><strong>Jason：</strong>当然，我们会聚焦超级智能。本周还有大家最喜欢的有机农民David Friedberg。Ohalo怎么样？你最近也很忙。</p>
+<p><strong>Friedberg：</strong>Ohalo这周在肯尼亚，大家很兴奋，农民排着队试用真正的马铃薯种子。</p>
+<p><strong>Jason：</strong>看起来你精力不错。说到状态好，我们上周打牌玩得真开心，晚餐也很棒。</p>
+<p><strong>其他主持人：</strong>你连续七个小时没停过嘴，跟录播客一样，简直难以置信。后来Affleck给我发短信，说再也不想让J Cal参加牌局了。</p>
+<p><strong>Jason：</strong>你这是公开Ben Affleck也是牌友了吗？</p>
+<p><strong>其他主持人：</strong>如果在他和你之间二选一，我们选他，所以你出局了。</p>
+<p><strong>Jason：</strong>我没意见，这确实是升级。我很久没去参加牌局了，积攒了很多话题。不过那天真的很开心。</p>
+<p><strong>Jason：</strong>还有Chamath Palihapitiya，大家最喜欢的80/90公司企业销售主管。这周怎么样？敲钟庆祝了吗？完成销售指标了吗？还是周末得加班？</p>
+<p><strong>Chamath：</strong>第四季度开局不错，但我不想高兴得太早。</p>
+<p><strong>Jason：</strong>考虑到第三季度没做好，这算不错了。</p>
+<p><strong>Chamath：</strong>第三季度还可以，搞砸的是第二季度，而且完全是我的错。我逼着那三个可怜的销售只盯着特别大的订单，吃过亏才学会。</p>
+<p><strong>Jason：</strong>你也需要一垒安打、二垒安打，需要那些按时付款、按时启动项目的客户。看看Anthropic的招股书就知道，靠不断打出一垒和二垒安打，也能做成极大的生意。</p>
+<h4 id="chapter-2">03:22—Anthropic招股书：增长、现金与会计亏损</h4>
+<p><strong>Jason：</strong>说到大生意，Anthropic提交了S-1，也就是为首次公开募股介绍公司情况的文件。不得不问：这是不是创业史上最好的生意？高盛和摩根士丹利将牵头，目标是在11月16日、感恩节前上市。我们等了很久，期间一直推迟。股票代码是ANT。</p>
+<p>他们计划融资1000亿美元，差不多相当于三个月的算力钱。那将超过SpaceX，成为规模最大的IPO。如果大家还记得，SpaceX在6月融资了850亿美元。Polymarket给Anthropic至少融资950亿美元的概率是78%。估值目标为1.5万亿至2万亿美元；市场给上市市值介于1.75万亿与2万亿美元的概率是31%。因此，不妨先假设它略低于2万亿美元。</p>
+<p>Sacks，收入才是核心。2026年上半年收入163亿美元，同比增长14倍。换句话说，2025年前六个月只有今年同期的十四分之一。第二季度收入达到116亿美元，比五个季度前增长约30倍，单季就接近整个上半年的收入。</p>
+<p>他们说，token和服务的潜在市场规模是40万亿美元。这个数字很惊人，我不知道他们具体怎么推出来，待会儿可以谈。他们预计年底ARR达到1000亿美元，但没有说明这里的ARR指年度经常性收入，还是按当前收入速度年化的收入规模。</p>
+<p>他们拥有1120亿美元现金，股权结构也很特别：七位创始人——没错，有七位——通过一股F类股票合计掌握50.1%的投票权。Sacks，这是不是资本主义历史上最好的生意？</p>
+<p><strong>Sacks：</strong>很有可能。我认为这大概会成为有史以来回报最大的风险投资项目，尤其考虑到它创造价值所用的时间。这家公司才成立六年，退出规模已经可以和SpaceX的IPO相比，而SpaceX已经存在二十多年了。因此，这可能是风险投资支持的公司中，价值创造速度最快的一家。</p>
+<p>不知道你们有没有看到今天早上的一条帖子，讨论财富将如何分配给员工。数百名员工将获得数亿美元，另有数千名员工将获得1000万美元以上。这会是旧金山、甚至整个硅谷此前没有见过的一次巨大财富创造。</p>
+<p>招股书里还有一些数据反映了它的实力。第一，媒体一直反复强调的800亿美元亏损，被当作Anthropic不是一门真实生意、或者我们身处泡沫的证据。现在这种叙事基本被驳倒了：原来800亿美元是一个会计上的数字。</p>
+<p>Anthropic向亚马逊等基础设施合作伙伴发行过可转换票据。随着Anthropic估值上升，这些票据被记为资产负债表上的损失，并传导到损益表，但这不是实际现金损失。如果当时直接发行股权，就不会出现这个亏损。因此它不是现金亏损，基本是个账面数字。</p>
+<p>招股书反而显示，Anthropic是一家资本效率极高的公司。它总共融资大约1100亿美元，但公司成立至今只花掉了约90亿或100亿美元。正如J Cal所说，资产负债表上还剩约1000亿美元的现金及现金等价物。</p>
+<p>以前的报道让所有人以为这是一家巨额亏损的企业，结果它的资本使用效率很高。另一个变化是利润率改善。我记得它的毛利率现在大约是85%。对于一项给定的任务或能力，他们交付这项任务的成本效率每年大约改善10倍，也就是成本降至原来的十分之一。</p>
+<p>这使他们能够把模型或任务的价格降低，比如降低50%。消费者获得显著节省，而公司自身节省得更多，剩余效率提升进入利润率。因此，我们看到的是：token价格明显下降，但模型效率提升得更快，利润率反而上升。</p>
+<p>他们称之为“算力乘数”。Anthropic理解自己业务的方式很有意思。Dario的框架首先是原始算力：芯片不断变好、芯片数量不断增加，这部分也在快速扩张。其次是算力乘数，比如算法改进、数据筛选改善、更好的模型架构，以及更多采用混合专家架构等提高效率的方式。</p>
+<p>这样，同一个答案可以用十分之一的成本生成，也可以把这些效率提升用于创造更强的能力。我们看到的是，生意本身正在改善。我认为这也反驳了过去一年那些观点：说他们会被商品化，说开放模型会迫使他们不断奔跑、最终毛利率归零，或者说这门生意只能靠风投资金大幅补贴才能成立。</p>
+<p>实际上，有不少理由相信Anthropic已经取得明显领先。如果你相信他们所说的递归自我改进已经开始，那么这个领先优势还有可能扩大。</p>
+<h4 id="chapter-3">10:16—Friedberg：从芯片利润追问终端生产率</h4>
+<p><strong>Jason：</strong>Friedberg，你怎么看这么大一笔资金流入硅谷？还有这个让创始人掌握约51%投票权的治理结构，对科技业、风投业以及美国民主会有什么影响？我们此前没有见过这么多资金流入一个非营利组织——或者说，他们最终把Anthropic的这个实体称作什么。七位创始人所持股份中的80%可能进入这种非营利实体。也可能是公益公司，具体结构还不清楚，而且这是可选安排。这也是一个尚待揭晓的问题。你可以按任何顺序来谈。</p>
+<p><strong>Friedberg：</strong>我能否先谈谈AI正在创造的经济价值？这些材料也许揭示了一部分情况。Anthropic在S-1里列出了支出达到10万美元以上的客户数量。增长相当惊人：2024年底是200家，2025年底是1500家，到今年9月底已经有11900家。</p>
+<p>我问了一个问题：对多少家企业而言，每年花10万美元，还不到它全年总支出的1%？美国大约有20万至30万家，全球略超过100万家。也就是说，如果把每年可以花10万美元、而且不到总支出1%的企业视为潜在客户，Anthropic大概有100万家可服务客户。它现在的客户渗透率才约1%。</p>
+<p>接下来的问题是，这里面到底能不能赚到真金白银？我看了一遍AI价值链，试图找出各个环节是谁在赚钱，结果发现大家都在赚钱。我们已经讨论过不少次，我知道Chamath对新型云厂商也有自己的看法。</p>
+<p><strong>其他主持人：</strong>这张图是什么？AI生成的吗，还是你自己做的？</p>
+<p><strong>Friedberg：</strong>我让Claude帮我做的。也可以说，我让我们公司的分析师做的。基本上，我让它从英伟达开始：制造芯片花多少钱，卖出去又能收多少钱？</p>
+<p>英伟达每投入1美元销货成本，就转化为4美元收入，也就是75%的毛利率。然后芯片卖给SpaceX，SpaceX又能够在芯片支出上获得约83%的利润率，计算时大致采用五年折旧。</p>
+<p>例如，Colossus 1投入100亿美元，使用五年，每年折旧20亿美元。这大体就是年度成本，而Colossus每月带来12.5亿美元收入。</p>
+<p>接着，正如Sacks所说，Anthropic的S-1显示，每增加1美元收入，其增量毛利率大约是85%。显然，它还有一个基础算力支出，但这里说的是85%左右的增量毛利率。到最后，英伟达花掉的1美元，转化成Anthropic向客户销售所取得的18美元收入。</p>
+<p>那么客户赚到钱了吗？我们看到客户数量和支出都在这样增长，客户从中获得的价值，大概是其支出的2至10倍；否则，大概会出现留存问题和支出下降。也可能我错了，现在还处在早期的兴奋阶段，大家其实在亏钱，我们可以讨论这个问题。</p>
+<p>但一般而言，如果AI正在为客户创造价值，这就表明它确实带来了生产率提升。从整个价值链直到客户，都能创造这么多价值、取得这么多利润，而Anthropic在潜在客户中的渗透率才约1%，在每个客户潜在支出中的占比可能还不到10%。</p>
+<p>这让我想到，Google早期Eric Schmidt常说，Google的总潜在市场是全球商业活动。现在，我们可能第一次看到一家企业开始真正实现这种理论：如果能够为客户带来足够大的生产率提升，那么你的市场就是全部商业。</p>
+<p>这也意味着，这套技术或许相当于把人类劳动人口的有效规模扩大100倍、1000倍，甚至100万倍。最让我吃惊的是，我们还这么早，但各个环节已经如此赚钱，这说明整条价值链可能正在创造相当大的生产率增益。这是我读招股书最大的感受。不知道你们是否同意，还是觉得我的解读过度乐观、有点离谱？</p>
+<p><strong>其他主持人：</strong>这里最重要的，可能恰好是最后那个框——你在里面写了“假设”的那个。</p>
+<p><strong>Friedberg：</strong>对，就是“假设”。</p>
+<p><strong>其他主持人：</strong>顺便问一句，这个数字怎么测出来的？我同意你的方向，但还是想知道。</p>
+<p><strong>Friedberg：</strong>最后那个框是我自己设的。我说“假设2至10倍”，实际数字是多少，我不知道。但我自己是Claude用户，我觉得我们从中获得很多价值。我们的员工因为Claude，能完成原本做不到的事情，因此企业增长更快，同样的事情可以用更短的时间完成。我经常具体地感受到这种变化。</p>
+<p>我以前谈过很多转向开源的事情，我们现在也安装了自己的集群，运行自己的开源系统。但Claude展现的是：它的利润率很高，所以定价有相当大的调整空间。它可以继续降价，并开始细分市场。</p>
+<p>对于便宜、简单的任务，它可以用更便宜的token提高竞争力；对于高端任务，则可以对智能收取更高价格，通过不同价位，把所提供智能的价值分层。我想，所有人最终都会朝这个方向走。</p>
+<h4 id="chapter-4">16:41—Chamath：微软生产率与Anthropic的算力约束</h4>
+<p><strong>Chamath：</strong>Nick，把这张图放上来，它正好回应Friedberg谈的下游生产率收益：理论上，每个人使用AI都可能得到这样的提升。这是我的研究团队根据微软财报整理的，很惊人。</p>
+<p>过去四年，微软收入从1980亿美元增加到3320亿美元，而员工只增加了2000人。在AI出现之前，如果有人说，一家如此大规模的企业要让收入接近翻倍，你大概会以为员工人数也要翻倍。但实际人数基本持平。</p>
+<p>我们还不知道有多少人会接受微软刚提出的离职方案；据我理解，方案涉及最多6万人。如果接受的人很多，员工总数可能降到20万人以下。这种规模下的生产率变化，正好呼应你的观点。</p>
+<p>我不认为这说明AI导致工作岗位流失，更准确地说，我们看到的是在相同的人力投入下获得生产率提升。这很有意思。</p>
+<p>我读了S-1，给你们讲讲我的分析。这是我见过最不可思议的生意。我希望他们在11月11日之后上市，因为那样就必须更新第三季度数据，我们就能看得更清楚。我以前从没见过这样的商业机器。</p>
+<p>让我们期待11月11日之后第三季度数据公布。市场上的传闻是，收入增长速度有所放缓，降到大约50%的区间，第四季度还未知。我们用几张图逐一拆解。</p>
+<p>我看S-1，先看风险因素。我让团队做了一张词云，首先告诉我：他们害怕什么？风险章节给不同风险分配了多少篇幅，非常值得关注。结果显示，Anthropic最大的风险是算力，它出现的频次高于任何其他因素。具体包括数据中心、电力、芯片、电网、电力供应、硬件等。</p>
+<p>紧随其后、但仍排第二的是监管。他们在意政府政策、制裁和出口管制。再之后，是零数据留存、隐私和知识产权，然后才是AI安全、赚钱、竞争对手以及治理。</p>
+<p>还可以反过来看，他们不害怕什么？他们不太害怕客户采用不足，因为几乎很少提。他们也不太担心员工离开——如果已经在里面，现在走掉就太傻了。他们同样没怎么担心税收等其他事情。因此，这是一家主动向前发展、而且知道真正约束在哪里的企业。</p>
+<p>既然算力是最大风险，我们就继续展开分析。我让团队进一步看：这些风险具体怎么表述，提了多少次，花了多少文字？结果发现，算力问题中，最大的部分其实是数据中心，再往下是它承担的融资承诺和电力。</p>
+<p>这些都很重要，因为它们帮助我们确认真正的约束。数据中心和电力的发展，将决定这门生意的进展。这也为政界提供了非常清晰的议题：民主党想在2028年赢，和共和党想在2028年赢，各自会怎么做？</p>
+<p>我的理解是，这代表了整个AI产业的状况：一切都取决于数据中心，因此一切最终都取决于电力。假如你是民主党人，想让2028年选举前出现衰退，你最想做的就是拖慢这一切；只要拖慢电力和数据中心建设就可以了。</p>
+<p>反过来，如果你是共和党人，想在2028年有最好的胜算，这件事就必须做好：电力、供电和数据中心建设都必须做对。</p>
+<p><strong>Jason：</strong>也就是说，你的前提是，他们需要数据中心；没有更多数据中心，业务就无法继续增长。但Sacks，事实上，这些人是硅谷自由派中的自由派。这将是除Elon Musk之外，创始人创造的最大一笔财富。</p>
+<h4 id="chapter-5">22:00—数据中心建设与两党的政治激励</h4>
+<p><strong>Jason：</strong>我反而觉得，可能应该得出和Chamath相反的结论。民主党难道不应该出来说：“我们支持数据中心和能源，因为它们能帮助社会”？他们应该希望Dario这群人成功，因为这些人会成为左派的Elon Musk。抢先扛起数据中心建设的大旗，让Anthropic更赚钱，让他们51%或者80%的财富流向民主党的超级政治行动委员会，不是对民主党更有利吗？</p>
+<p><strong>Sacks：</strong>也许，但我不认为今天的民主党是那样。老一代克林顿民主党人——我说的是Bill Clinton那一代——早已不在了。我也没看到主张“丰裕”的民主党人获得多大势头。正如Gavin Newsom所说，民主党正越来越受美国民主社会主义者组织影响。</p>
+<p>他们在超级智能问题上的议程是什么？要么像Bernie Sanders、Elizabeth Warren和AOC希望的那样直接禁止，基本上想让开发超级智能的人坐20年牢，让开发超级智能的公司受到“企业死刑”；要么建立极其严厉的监管体系，成立联邦AI部——或许应该叫SI部——在每个模型发布前逐一审核和批准。基本上，就是给模型建一个车管所。</p>
+<p>这是民主党现在的议程。Reid Hoffman，或者Anthropic这边新崛起的寡头，比如Dustin Moskovitz，能不能凭借他们在民主党圈内的巨大影响力改变它？也许能。但我倾向于认为Chamath是对的：民主党会尽可能破坏特朗普治下的经济，而现在推动经济的恰恰是这轮超级智能繁荣。我认为党派激励会指向那个方向。</p>
+<p><strong>Jason：</strong>Friedberg，我觉得现在要破坏特朗普的经济，都不需要做太多。战争、关税以及其他事情已经推高通胀、带来各种问题。民主党采取另一条路，不是更聪明吗？</p>
+<p><strong>Sacks：</strong>先等一下。最近的GDPNow之类的数据，我记得第三季度是3.7%，上半年是2.5%。现在用于这轮建设的资本开支大约相当于GDP的3%。所以你可以说，美国当前的经济增长全部来自这轮超级智能建设。</p>
+<p><strong>Jason：</strong>这一点我同意。数字可以有各种讲法，但连特朗普自己的支持者都认为经济状况很糟糕。我们还是应该如实评价。那些转而投票给他的独立选民，对经济非常不满意；这一点清楚反映在他的支持率降到政治生涯最低，而他的政治生涯里已经出现过好几次低谷。Friedberg，民主党应该怎么做？</p>
+<p><strong>Sacks：</strong>首先，我不知道你指的是哪些特朗普支持者。</p>
+<p><strong>Jason：</strong>我说的是“美国优先”阵营里觉得他没有支持他们的那批人。你可以把Tucker、Megyn以及他们周围的圈子算进去。</p>
+<p><strong>Sacks：</strong>当然有人不喜欢这场战争，也认识到战争造成了一部分通胀。但我不认为他们说过整个经济是一场灾难。算了，我不想跟你争措辞。</p>
+<p><strong>Jason：</strong>如果你不持有股票，看待今天的经济可能会觉得，两党都不关心你：无论拜登，还是特朗普第二任期。处于经济分布下半部的人，对两党的看法就是这样。我们听到的反馈都指向这一点，下周二真正投票时就能验证。Chamath，继续拆解招股书吧。</p>
+<h4 id="chapter-6">26:13—客户分层、投入回报与IPO融资需求</h4>
+<p><strong>Chamath：</strong>第一部分就是先读风险因素，了解管理层担心什么。这里，管理层真正担心的基本只有算力，这是一道算力题。</p>
+<p>接下来，我看收入，试图理解这究竟是一门怎样的生意。它确实不可思议，原因正如Friedberg所说：虽然已有这样的收入和增长，它对整个商业与工作世界的覆盖才刚刚开始。</p>
+<p>这张图进一步拆分了我们理解的Anthropic客户收入结构：约4000万个人和小企业，每年花费不到10万美元；约1万家客户花费10万至100万美元；约1650家花费100万至1000万美元；只有250家超过1000万美元。</p>
+<p>因此，Friedberg说得对，他们可以让既有客户的支出持续扩张，使存量客户收入增长超过流失，同时以惊人的速度吸引新客户。这让我开始思考收入上限。你不必占领100%的潜在市场，达到25%或30%，再对既有客户扩张作出合理假设，就会发现，在未来三到七年内，它可能成为一家收入达数千亿美元的企业。</p>
+<p>什么会拖慢这种增长？换上我在80/90工作的视角，我的理解是：100万美元以下的订单之所以有这么强的增长，是因为公司大到一定程度以后，会把责任和预算向下分配。在总监、经理、副总裁这些层级，有数百万人掌握着大约100万美元的预算。</p>
+<p>这个预算范围内可以进行很多实验。他们愿意同时试用三四五种，甚至六七八九种工具。一旦从100万美元跨到数百万美元的订单，销售过程就要周密得多，需要企业内部多个职能协调，也需要证明某种投资回报，或者总拥有成本优势。这些数据也支持这一点。</p>
+<p>Jason，值得注意的是，已经有1900家客户能够证明这笔投入是值得的。我会这么理解：整个市场还有大量实验，但约1900家公司已经看到了比较清楚的回报，因此愿意开出大额支票。</p>
+<p>不过，这1900家里有很大一部分是获得风投支持的AI原生企业，要把它们剔除。剩下的大概只是几百家类似全球2000强的大企业。所以，终端投入回报的论证仍然有一些推测成分，但潜力在。只要这个潜力还在，市场就会继续给它定价。</p>
+<p>讲完收入构成，再看资本。我以前说，Anthropic需要拥有2000亿美元，实际上我希望它能接近2500亿美元。首先，首席财务官Krishna Rao干得太出色了：进入6月时，他们已经有1250亿美元，这很不可思议。</p>
+<p>有一张图我没放进来：走到这一步，累计净现金消耗只有大约90亿或100亿美元。相对于市值，这点消耗几乎微不足道。我此前以为他们现金少得多；我说他们需要筹集2000亿至2500亿美元、估值应该更接近1万亿美元时，假设的是资产负债表上只有300亿、400亿或500亿美元。这个假设是我错了。</p>
+<p>现在看，他们只要再融资800亿至1200亿美元，就能达到2500亿美元左右。为了做到这一点，我认为IPO估值的低端可能是1.3万亿美元，高端是1.7万亿美元，中点大约1.5万亿美元。如果现在让我粗略猜IPO价格，我会猜1.5万亿美元。</p>
+<p>我还留意了Alphabet有多少现金，以及Meta有多缺现金。看到Meta现金为负12亿美元，我很吃惊，第一反应是这一定有误。但截至9月底的10-Q显示的就是这个数字。</p>
+<p><strong>其他主持人：</strong>这里说的是净现金吧？也许没包括短期投资？我现在查一下Meta的数据。</p>
+<p><strong>Sacks：</strong>但你的大判断是对的：Anthropic坐拥超过1000亿美元现金，融到的钱只花了很少一部分，它一直是资本效率很高的企业。这次IPO又将融资1000亿美元，我记得还有约800亿美元的债务融资额度。加起来，它很快就会拥有超过3000亿美元的可用资金。</p>
+<p>一些看空Anthropic的人说，它对未来资本开支作出了那么多承诺，根本不可能履行。现在看，这笔资本恰恰可以支撑这些承诺，为算力订单以及预期的资本开支提供保障，大概可以覆盖到2030年前后。</p>
+<p><strong>Chamath：</strong>完全对。只需再融资800亿、900亿或1000亿美元，与要融1500亿、1750亿或2000亿美元很不一样，后者才是我以前以为他们需要的规模。IPO对资本市场的资金需求更小，就意味着更强的定价能力，也能更好地管理流通股规模。这些因素都让我更积极地看待此次IPO。</p>
+<p><strong>查阅数据的主持人：</strong>Meta净现金确实大约为负20亿美元：现金加短期投资800亿美元，债务820亿美元。</p>
+<p><strong>Chamath：</strong>好，回到这里。我的最大收获超出了Anthropic本身，也延续Sacks刚才的观点：整个美国经济都高度依赖AI产业。缩小来看，就是七八家公司在决定整个国家的经济基调。</p>
+<h4 id="chapter-7">32:47—AI融资会怎样影响国债和经济增长</h4>
+<p><strong>Chamath：</strong>不管喜不喜欢，我们现在就处于这个位置。为什么这么说？首先，全球最重要的企业正在进行一轮庞大的支出扩张。它们原本利润丰厚、现金持续累积、现金流充沛，现在却决定把支出油门踩到底，因为它们相信未来。这正是推动GDP和经济增长的力量。</p>
+<p>但在增加支出的同时，它们会消耗现金，因此必须举债。下一张图显示，除微软以外，其他公司的债务都升到了极高水平。顺便说一句，Satya做得真出色，在其他人债务大涨时，他把微软债务减半了。</p>
+<p>现在，AI产业对资本市场负有越来越多债务。这有什么重要？问题在于，它们筹集的资金量太大，开始挤占资本市场，而最重要的一部分，是对政府国债的需求。</p>
+<p>这些AI公司到2027年底需要筹集的资金，相当于同期财政部预计发行量的30%。无论我们喜不喜欢，它们都会开始争夺同一批资金。是不是很疯狂？仅仅七家公司就在挤占国债市场。</p>
+<p><strong>Sacks：</strong>很多人看到这些支出，就据此卖出这些股票。我反而从相反角度理解：这些公司很聪明，如果不认为投资有回报，就不会进行这种规模的投入。所以，未来……</p>
+<p><strong>Jason：</strong>从token使用量看，再考虑到美国企业里只有1%或2%的人正在使用这些工具，我们严重低估了采用率接下来会怎样增长。Claude甚至还没有推出一个类似Grok bot的机器人，OpenAI刚推出的那个也还只有很小的应用范围。</p>
+<p>假如1亿或2亿白领都像订阅Office套件一样订阅这些工具，类似Office 365那样普及到企业，而且每个人同时运行五个智能体，使用量、token消耗量都可能增长500倍。</p>
+<p>那就意味着算力根本不够，大家对建设规模的判断都错了。到时候，人们回头看今天，会问：“为什么当时没有多建一些算力？为什么没有多花一点资本开支？”</p>
+<p><strong>Chamath：</strong>你说得对，Jason。问题是监管阻力：各种审批、公用事业公司能否找到足够员工、设施能否真正通电，以及能否拿到需要的资本设备，眼下都存在缺口。整个国家像是堵住了，即使想建，也建不出来。</p>
+<p><strong>Jason：</strong>还有一个问题：如果建设支出仍然不够，而全国相当一部分人又认同社会主义、反对寡头，不管是共和党、独立派还是民主党的寡头——他们就是这样看待我们、科技业和其他行业的领导者——那就很危险，因为我们无法建成所需算力。</p>
+<p>如果无法完成建设，未来三到五年整个行业会怎样？我们怎么改变这种叙事，让人们愿意支持数据中心？</p>
+<h4 id="chapter-8">36:43—Friedberg：政府与AI企业会争夺什么</h4>
+<p><strong>Friedberg：</strong>我的看法是，人类会组织成群体，以创造有利于群体成员的力量。我们形成部落、社区；政府在某种意义上也是一种组织，是个人为实现目标结成的联盟。在民主制度下，目标原则上是服务多数选民。</p>
+<p>因此，在一个资源可以说相对有限的世界里，各种组织会相互竞争资源。非营利组织、营利企业和政府实际上都在竞争，因为它们如果得到更多资源、权力和影响力，就更能服务自己代表的人。</p>
+<p>AI拥有的力量，以及它在媒体、资本积累、改变人们观念、通过竞争能力和生产率聚集资源等方面产生的影响，使它在某种程度上成为对政府组织的威胁。</p>
+<p>回应Chamath的观点：如果其中一种表现是，资本对AI的兴趣超过了对政府的兴趣，政府不会愿意放任这种情况。无论左派还是右派政府，都会争取让AI成为政府的一部分，让政府吞并AI，或者控制AI组织。</p>
+<p>这也是为什么我一直认为，未来算力会受到监管：政府会分配算力容量，并试图通过立法实现这一点。我说的是生产完成后的环节。它们不一定直接控制芯片，而是控制实际的计算层，决定谁能获得多少算力。我认为，这是政府参与竞争的一种方式。</p>
+<p>短期内，这种竞争就可能首先表现为资本竞争。流向AI组织的资金越来越多，政府不会愿意让它持续，于是会试图阻止数据中心建设。</p>
+<p><strong>Chamath：</strong>在我的职业生涯里，从没见过少数几家公司形成一个整体，与政府争夺资本。也从没见过一群公司有组织地，为一个非常集中的用途筹集资金，把那么多钱押在同一方向上；这些资金原本会流向两年、三年、四年、五年、十年期债券拍卖。这实在很不同寻常。</p>
+<p><strong>Friedberg：</strong>接下来，你会听到双方都讲同一个故事：究竟哪一方更有利于人民？争论会围绕这个问题展开，而且双方都会说对方在撒谎。</p>
+<p>假如一方说谎，一方没有说谎，没有说谎的一方会说：“那些人在撒谎”，而且它说得对；说谎的一方当然也会指控另一方，因为它本来就在说谎。因此，你会听到双方都喊：“我们才是对社会、对人类更好的道路。”究竟是政府，还是私人市场里的AI？这会成为未来五年酝酿的一场巨大争夺。</p>
+<p><strong>Jason：</strong>那就看看谁会赢。政客可以被收买，Dario和Anthropic应该开始买，就像右派已经做过的那样。</p>
+<h4 id="chapter-9">40:31—政治影响力与AI安全阵营的分裂</h4>
+<p><strong>Sacks：</strong>他们已经在做了。</p>
+<p><strong>Jason：</strong>我没看到谁在替他们摇旗呐喊。他们有公开的政治代言人吗？</p>
+<p><strong>Sacks：</strong>当然有。Anthropic还是初创公司时，就把政府事务放在很高优先级。拜登执政期间，他们非常活跃；那一届政府里负责AI的一些官员，离任后立刻去了Anthropic。</p>
+<p><strong>Jason：</strong>我的意思是，你没有看到他们像你们那样，为特朗普举办筹款活动，公开站到台前。</p>
+<p><strong>Sacks：</strong>他们已经建立政治行动委员会、各种实体、非营利组织和非政府组织，并投入大量资金。他们有一个非常庞大的政府事务体系。</p>
+<p><strong>Jason：</strong>你公开支持特朗普，但我从没见过Dario公开站出来支持某位候选人。</p>
+<p><strong>Sacks：</strong>让我解释一下。我不是一家企业，只是一个有自己观点的人。我支持某些候选人，也为候选人举办筹款活动。我不是在谋求监管俘获。</p>
+<p><strong>Jason：</strong>我说的是，为什么Dario或其他创始人没有这样做？为什么他们不明确说：“我们选择这些候选人”？</p>
+<p><strong>Sacks：</strong>我们并不知道他们没有这么做。</p>
+<p><strong>Jason：</strong>至少他们没有公开这么做，因为我们没听到过。</p>
+<p><strong>Sacks：</strong>但他们向政治行动委员会捐了大量资金，这些是公开信息；那些委员会又支持具体候选人。</p>
+<p><strong>Jason：</strong>如果要认真参与，他们应该公开表态。</p>
+<p><strong>Sacks：</strong>这里有很大规模的旋转门现象：Anthropic一直在吸纳前政府官员，先是拜登政府的人，现在坦白说，也在招聘很多前特朗普政府官员。</p>
+<p><strong>Jason：</strong>是吗？</p>
+<p><strong>Sacks：</strong>是的，这都是公开信息。他们正在打造一个巨大的政府事务体系。随着资本继续增加、市值达到2万亿美元，你可以预期，他们在华盛顿会有更大影响力，或者说，有能力购买更多影响力。我认为这值得担忧。</p>
+<p>但有一点是：当他们从初创公司变成全球市值最高的几家上市公司之一，大家就会清楚看到，它是一家科技巨头，因此应该像看待其他科技巨头一样，对它保持怀疑。它不再是一家弱小、观点无害的初创企业，而是一个真正具有压倒性力量的巨人。</p>
+<p>我一直在说，他们正在成为人类历史上最强大的垄断者或双寡头，因为他们在创造AGI。上市会帮助公众更准确地认识他们的体量。</p>
+<p>现在已经能看到一种变化：AI末日论者与Anthropic之间开始出现分裂。过去一周，Vox——一个非常偏向AI末日论的媒体——发表了一篇有意思的文章，引用了一批同样持末日论观点的非政府组织。</p>
+<p>这些组织基本上在指出，如果把Anthropic的说法与实际行动分开看，它恰恰是推动递归自我改进最积极的公司。没有哪家公司比它更努力地冲向全面递归自我改进。</p>
+<p><strong>Sacks：</strong>他们就是铁了心要实现全面递归自我改进。他们的算力效率不断提高，能够降低成本、用十分之一的价格提供同样的能力，很大程度上正是因为越来越多地使用自己的模型，来生成算法改进、创造算力乘数。</p>
+<p>回到8月，Anthropic发过一篇很有意思的博客，解释他们如何使用递归自我改进。里面有张图显示，研发下一代模型所涉及的任务，已有26%在使用这种方式。那还是8月，现在是10月，比例到了多少，谁也不知道。</p>
+<p>因此，他们正在非常快速地推进递归自我改进。Dario几个月前发表的那封“控制进展节奏”的信，也可以这样理解：他们几乎是在提前给自己准备辩解。他们承认，“我们推进递归自我改进的速度不比任何人慢”；同时，又像是在对世界说：“我们本来想让它停下来、慢一点，也努力争取大家同意控制节奏，但你们不同意，所以我们只好继续。”</p>
+<p>万一递归自我改进出了大问题，这就像是提前为自己准备的辩词。但他们发布那封信时，应该知道不可能让全世界都同意放慢。因而，整件事有点像一种道德姿态展示。</p>
+<p>无论如何，我认为它表明，Anthropic与末日论阵营的分裂可能正在到来。要维持超级智能领域第一名的位置，它就必须快速推进前沿能力，继续追求递归自我改进，而这恰恰是末日论者最害怕的事情。在各种风险里，他们最担心的是失控跃升的超级智能。这可能是双方关系破裂的开端，但还要观察。</p>
+<h4 id="chapter-10">46:15—买入IPO时，哪些风险可以估价</h4>
+<p><strong>Jason：</strong>回到你的分析，Chamath。我们讲了极强的收入增长、前所未见的生意、大量现金，以及建设资金。他们将在IPO再融一些钱，而这些公司发债正在挤占国债需求。你刚才讲到这里，继续吧。</p>
+<p><strong>Chamath：</strong>对。现在就得回到风险因素。如果要给这次IPO定价，或者决定是否买入，我会怎么判断？在1.4万亿、1.5万亿、1.6万亿美元这一带，我认为定价大致公允。谈不上捡便宜，但它给了你一个投资未来的入场价格。接下来，你就必须对未来形成判断。</p>
+<p>我认为有两类风险。第一类来自收入结构：Anthropic需要多长时间，才能向那1万家客户展示足够明确的回报计算，让它们从不到100万美元的支出，增加到几百万，再增加到几千万美元？这是一个很简单、可以逐季跟踪的问题。</p>
+<p>这些客户的支出之所以会增加，是因为出现了经得起验证的使用案例、白皮书和分析，使企业内部的审批体系、由多位高管组成的团队，能够比较明确地批准数百万美元的支出。这是Anthropic自身的风险，我认为可以给它定价。</p>
+<p>第二类风险，就是刚才埋下的话题：一种很难定价的市场风险。AI产业已经大到开始与美国国债竞争资金。为什么这很重要，又为什么构成市场风险？</p>
+<p>国债要和Facebook、SpaceX、Anthropic、OpenAI争夺资金，就意味着某一方必须付出更高价格。我们推演一种情况：如果投资者认为政府债券质量更好、期限风险更合适，愿意避险买国债，那么超大规模云厂商以及Anthropic、OpenAI等公司，就必须以更高票息融资。</p>
+<p>如果这样，Friedberg的产业链图也会发挥作用：更高的利率沿着整个生态传导，新型云厂商要付更多钱，其他环节也一样。违约风险会增加，并更早出现，这就是我们上次讨论的负向反身性循环。</p>
+<p>反过来，假如AI企业能以合理利率融到钱，而美国财政部在拍卖时必须付出更高利率，那么整个经济的借款成本都会上升，因为美国经济的其他部分，都以两年、五年、十年期国债收益率体系为基础。</p>
+<p>这是一种我还没弄清楚的巨大市场风险，因为以前没见过。</p>
+<p><strong>Jason：</strong>快收尾了，你把这个市场风险简明地说一下，到底是什么？</p>
+<p><strong>Chamath：</strong>如果美国财政部为了吸引买家，必须提高债券利率，那么整个经济的借款成本都会上升，产生负面影响。反过来，如果必须多付利息的是AI产业，那么负面影响会集中在AI产业内部。</p>
+<p>问题是，我们正在考虑买的是一只AI股票。因此，不少路径会带来下行风险，而不只是上行。当然，也存在一切顺利、所有业务继续高速发展的情况。</p>
+<p>我的结构性判断是，美国经济正在进入一个奇怪阶段：有一种我们以前见过、现在又出现的情况——这整个产业已经“大而不能倒”。当这些公司占全部资本市场股权和债务资金流的40%或50%，又相当于国债发行量的30%、35%或40%，这种争夺就会发生。它们大到不能倒，问题也就转化为系统性问题。我总体上仍然看好，但这层风险需要认真看。</p>
+<h4 id="chapter-11">51:04—增长前景、开源竞争与系统性风险的分歧</h4>
+<p><strong>Jason：</strong>我理解，作为身处其中的市场参与者，这让你困惑。但也可以反过来论证：这可能是有史以来最好的生意，是一家美国企业，而美国仍是世界上最强的经济体。你可以拿中国等经济体来比较，但在超级智能上，美国正在全面领先。</p>
+<p>我做了一点研究，比较历史上最强商业模式头七年的收入。如果Anthropic实现自己设定的目标——大体上先到1000亿美元，再到3000亿美元，最终到6000亿美元——它就在这条路径上。今年收入规模已经接近1000亿美元，大约相当于Google的三分之一、苹果的四分之一。</p>
+<p>〔译注：此处保留嘉宾“收入”的口头表述；节目开头将1000亿美元称为年底ARR目标，并指出其具体年化口径尚未说明。〕</p>
+<p>再看美国历史上几种最强商业模式头七年的累计收入：亚马逊、Google按点击付费的搜索，以及iPhone。在我看来，这就是历史上最好的三种商业模式。这里亚马逊还没算AWS，只算图书和零售；等后面年份再把AWS加进去，比较就更有意思了。</p>
+<p>Anthropic的生意有可能比这三种商业模式加起来还大。我们此前没有见过这种情况。对于全球投资者，这意味着你几乎没有选择，只能买美国国债和这些企业债。钱还能放到哪里？法国？中国？你没法把它放进中国。</p>
+<p><strong>Sacks：</strong>你过去一年不是一直说，开放模型会抢走Anthropic的生意吗？你改变看法了？</p>
+<p><strong>Jason：</strong>面对新证据，必须承认：他们正在降价，而企业市场的机会实在太大，开源目前没有对它造成重大冲击。你会听到一些初创公司和企业尝试开源的个案，但现在我们看到了它的财务数字，显然这些还不足以拖慢它。至少目前还没有。</p>
+<p><strong>Chamath：</strong>我并没有质疑收入增长或者商业质量。我说的是，市场有时会出现系统性风险，让所有人同时转向规避风险。</p>
+<p>我明确想说的是，过去十五二十年，我没见过这样的情况。上次接近这种局面，是全球金融危机：经济中很狭窄的一部分，几乎代表了资本市场的一切活动。这只意味着，每个人都必须更加留意。不管你做多AI还是做空AI，都不是重点。</p>
+<p>我讨论的是结构性问题：大约十家公司为了同一件事筹措资金，集体在借款市场上与全球政府竞争。这会产生什么影响，我还不知道，因为没有先例。</p>
+<p><strong>Jason：</strong>回到Sacks对我的质疑——这个质疑很好。另一方面，Anthropic收入增速确实正在大幅放缓，季度环比增长在减速。当然，它现在的收入基数已经很大。</p>
+<p><strong>Sacks：</strong>我们还没有第三季度数据。X上的传闻——也不知道能信多少——说第三季度增长确实明显减速，但其中一部分可能是因为他们消除了99%的蒸馏行为。为阻止复制它的模型通过蒸馏获取能力，他们主动承受了一次很大的收入损失。</p>
+<p><strong>Jason：</strong>也就是不再从那些偷取他们能力的人身上赚钱。</p>
+<p><strong>Sacks：</strong>是的。另外，传闻还说，他们最近大幅降低token价格以后，需求已经重新加速。在第三季度经历几次波折之后，增长似乎又回到了原来的轨道。</p>
+<p>最令人印象深刻的是，降低token成本并不是单纯放弃定价权，也不是牺牲利润率；他们的利润率实际上在提高。能够这样做，是因为算法改进让模型越来越高效。</p>
+<h4 id="chapter-12">55:34—模型降价、智能体与企业采用空间</h4>
+<p><strong>Jason：</strong>而且，模型层面发生的事情更有意思。他们降低第二梯队、第三梯队模型的价格，比如Sonnet、Opus。这些模型越来越便宜，而企业觉得：“这已经够用了。”价格下降后，企业得到更多价值、能解决更多问题，却不觉得一定要使用最新、最强的Fable。</p>
+<p>如果你是Ohalo，要做科学研究，也许需要最前沿模型；如果你是数学家，也许也需要。但只要他们能让次新模型每年便宜10倍，杰文斯悖论就会越来越明显：企业会用得更多。token价格很重要。</p>
+<p><strong>Sacks：</strong>我们不断在各个层面看到杰文斯悖论。token价格下降，使用场景就越来越多，企业越用越多，最后总需求持续上升，收入和市场规模也不断扩大。</p>
+<p>再强调你之前说的一点：新应用消耗的token远远多于最初的应用。智能体比单次提示消耗更多；网络防御需要的token，也远远超过每年做一次渗透测试。你需要持续监测智能体、攻击面以及各种相关活动。</p>
+<p>因此，新应用会使用指数级增加的token。价格可以持续下降，但市场规模仍然扩大。</p>
+<p>我确实认为，Anthropic最大的风险是某种形式的开源模型竞争。未必需要在最前沿追上它，只要在某些任务上，以很低价格提供已经足够的智能，就可能把这部分能力商品化。比如编程，就是一块很大的市场。</p>
+<p>还有一个第二层风险：Anthropic要保持领先，让模型越来越高效，就必须使用更多递归自我改进。从他们公布的图表能看到，他们越来越多地用最新模型发现算力乘数、发现新的算法效率。</p>
+<p>因此，它必须不断推进自己也称为高风险的活动。我不确定自己是否完全相信末日论者关于递归自我改进的叙事，但Anthropic自己说它很危险，却又必须继续推进，以取得算法改进、领先开放模型。</p>
+<p>我想知道，这种状态能持续多久？会不会有一天，它与末日论阵营发生无法弥合的分裂？那些人会不会要求停止递归自我改进，或者把速度降到开放模型真正能追上的程度？我没有答案。这只是对“开放模型能否追上”这个问题的一种更细致的考虑。</p>
+<p><strong>Jason：</strong>这张图也很能说明问题。Gallup一直调查人们在工作中使用AI的频率，把每天使用和经常使用——即每周几次——分开。我们谈的比例仍然只有10%、20%这样的水平，发展还很早。</p>
+<p>很多大型企业不允许员工不受限制地使用AI，更不允许把邮件、知识库、Notion、Slack都接进去。因为害怕网络安全问题，大公司实际上没有让员工充分使用AI的能力。</p>
+<p>Chamath，一旦这类安全威胁得到缓解，每天使用的人数占比可能从10%升到60%、70%甚至80%。当每个员工都拥有一个智能体时，增长空间还非常大。上周我刚看到，Uber给每位员工都买了OpenAI的ChatGPT。接下来要看的，就是企业会不会为每一个员工购买这些工具。</p>
+<p>这个问题我们已经讨论得够充分了。恭喜Anthropic团队及其投资者，做出了一家极不寻常的企业。也特别向Sacks致意，他在多期节目里都预测，这会成为最好的生意，看起来这一次他说对了。接下来继续观察。</p>
+<p><strong>Sacks：</strong>但我一直说的是两件事。第一，它可能是最好的生意，正在创造AGI垄断。第二，它在谋求监管俘获，我们绝不能允许这种情况，尤其考虑到第一点。</p>
+<p>已经拥有这么好的生意和如此强的地位，还要寻求监管保护，我觉得非常不体面。IPO反而有助于澄清这一点：当它被看作科技垄断巨头，或者巨大双寡头的一部分，替它建立监管护城河的理由就站不住了。我们应当尽一切努力，让市场更加竞争，并保持竞争。</p>
+<p><strong>Jason：</strong>会不会出现一场“拆分Anthropic”的运动？把实验室、token业务和订阅业务拆开？</p>
+<p><strong>其他主持人：</strong>有可能。</p>
+<p><strong>Jason：</strong>谁说过，他们正在建立“最后一家企业”？是Gavin吧？</p>
+<p><strong>其他主持人：</strong>Gavin说有人告诉他，Dario这么说过。Dario后来给了一段很长的回应，但你们记得，他没有否认。</p>
+<p><strong>Jason：</strong>我想，他们显然相信自己拥有这种潜力。对照刚才那些商业模式，Anthropic确实拥有一门非常强的生意，现在就看自己能否守住。等OpenAI披露数据，我们就能拿到这个领域三家主要参与者的关键资料。等OpenAI提交文件，这场牌局里所有人的底牌都翻开，会非常有意思。</p>
+<h4 id="chapter-13">1:01:57—Google为何大跌：广告增长与云业务</h4>
+<p><strong>Jason：</strong>Google周四遭到重挫，跌了10%至15%；大家知道，我们在周四录制。第三季度财报让它损失约5000亿美元市值。</p>
+<p>原因是什么？它已经连续两个季度搜索收入不及预期。搜索次数大幅增长，但广告点击没有同步增长，于是出现了一些设法让用户多点广告的操作。</p>
+<p>尽管云业务高速增长，自由现金流却为负。Google Cloud收入同比翻倍，达到307亿美元；这是它对应AWS的业务，做得很不错。公司总收入仍很强，同比增长25%。</p>
+<p>问题在于，市场看着按点击付费的广告网络，会想：如果直接给用户答案，它在某个时点显然会受到影响。ChatGPT、Anthropic、Grok直接回答问题；如果是智能体，甚至直接替用户把问题解决掉，这对搜索很有颠覆性。</p>
+<p>搜索是为所有其他业务提供资金的核心业务，增长率从17%降到12%。虽然仍然增长不错，但确实在减速。Friedberg，这是你的老东家，你见证了按点击付费的搜索生意。它曾与iPhone一起，被我们称为最好的商业模式。你怎么看？</p>
+<p>你会担心这门生意吗？还是认为Google已经靠Cloud、YouTube、Android等业务，完成了足够的多元化？现在是买入机会，还是应该回避？</p>
+<p><strong>Friedberg：</strong>这是一个复杂的问题。核心服务、核心广告收入能否维持增长势头，眼下确实面临挑战。整体业务的估值大约相当于21倍经营利润。这样的倍数，来自对未来现金流可靠性及其增长的预期。</p>
+<p>Google Cloud的表现非常突出。不知道你们是否还记得，就在不久前，这块业务还不赚钱。去年同一季度，它的经营利润是35亿美元左右；今年这一季度超过110亿美元。</p>
+<p>这很像SpaceX的AI业务：已经建成的计算基础设施具有巨大价值。问题是，Google是否还拥有运行在基础设施之上的模型？在不少场景下，它有，因此可以在价值链这一层获得更高利润率。</p>
+<p>所以我说情况复杂：你可以围绕云业务，构建一个未来几年持续增长的逻辑。难点在核心Google服务业务：过去一年，经营利润从约335亿美元增长到390亿美元。但有人指出，这可能很大程度上来自广告定价算法变化，某些点击现在让Google赚到了更高收益。</p>
+<p>随着时间推移，广告主会发现、会感受到这种变化，然后削减支出，撤走一部分预算，这门生意看起来就没那么好了。</p>
+<p>因此，问题是：Google有没有一个能够追上并加速增长的消费级AI业务，来支撑整体收入？所有人都应该盯着，消费端替代核心业务的AI产品究竟是什么。</p>
+<p><strong>Jason：</strong>你说的核心业务，是用户在Google里输入搜索时，背后的按点击付费广告网络？</p>
+<p><strong>Friedberg：</strong>对，就是核心消费端业务。是否存在一个消费级AI替代品，开始创造有意义的收入，弥补原有收入？它的增长曲线，能否赶上核心搜索可能出现的停滞或下降？这个替代发生得有多快？这些问题变化很快，现在很难回答。</p>
+<p>我觉得内部有一些动荡，有些人会问：“我们究竟是什么？”不只是公司整体，各个业务部门内部也有这个问题。Google搜索到底是什么，是AI，还是搜索？Google Cloud是什么，是模型，还是单纯把算力出租给别人？</p>
+<p>最近Jeff Dean等人离开Google，我们可能已经看到这种冲突。我并不确定，但有一种解释是：Google内部开发模型的计算机科学家，没有得到他们原本希望获得的资源，因为Google把这些算力租给别人，可以赚到更多钱。</p>
+<p>因此，“Google现在想成为怎样的公司”是个很难回答的问题。我觉得他们还没有一个很好的答案，财报也没有把它讲清楚。</p>
+<h4 id="chapter-14">1:06:40—广告拍卖争议、业务转型与人才</h4>
+<p><strong>Jason：</strong>确实没讲清楚，市场反应也不好。但公平地说，团队知道这一天会来，也做了准备。他们把公司改名为Alphabet，请来优秀的首席财务官，让其他投资项目自己站稳脚跟。Waymo这样的业务需要独立发展、引入外部资本。</p>
+<p>YouTube、Android、Google Cloud都在快速增长，核心搜索则在放缓。搜索次数仍然上升，只是收入增速略降。你觉得他们能修复这个问题吗？还是应该像Bending Spoons那样，从搜索里尽量多获取现金，再投入消费级AI、企业AI、未来的模型以及托管别人的模型？Chamath，你怎么看？</p>
+<p><strong>Chamath：</strong>我不认为Bending Spoons是在做你说的事，也不是什么都能拿Bending Spoons来类比。</p>
+<p><strong>Jason：</strong>我说清楚一点：我是指按利润来管理搜索业务，不一定追求继续增长，尽量从中赚取现金。</p>
+<p><strong>Chamath：</strong>我觉得他们上个季度已经在这样做了，但市场不喜欢。Nick，把那条很有意思的帖子放上来。我认为，不少担忧来自人们对Max Anderson那篇帖子的反应，它获得了500万次浏览。</p>
+<p>他以一个多年在Google每月投放50万美元以上广告的客户身份写了这些内容。这里都是他的说法，我并不知道是否属实。他逐条列出了发生的变化，其中最值得注意的，正是Friedberg提到的拍卖模式变化。</p>
+<p>通常，在维克里拍卖中，假如Friedberg和我都出价，他出价最高，我是第二高，那么他会中标，但支付的是我的出价。这是一个很好的价格发现方式。我们当初在Facebook建立第一套广告系统时，基本逐项照着Google的功能做。</p>
+<p>但如果Google现在放弃了这种拍卖，Friedberg说的就成立了：它可能在超额获利。一旦市场察觉，就会开始追问，这门生意内部究竟发生了什么。</p>
+<p>这些说法从7月起就已广泛传播，我不确定Google投资者关系团队是否及时回应、把问题消除在早期。财报后的舆论争论，至少有一部分是在重新传播Max那篇帖子，强调“这已经持续很久”。评论区还有很多人说，他的分析符合自己的经验。</p>
+<p>Jason，我不在Google广告生态里花钱，因此不知道具体细节。但Google投资者关系团队必须主动处理。如果市场逐渐相信，这门生意是在拆东墙补西墙，把未来的钱提前拉到今天，以平滑当前业绩，那么股价会作出负面反应，今天你已经看到了。</p>
+<p>之后还会有另一个问题：广告收入占总收入的比例下降到某个水平，Alphabet就更像一家多业务集团。有YouTube一块、Google Cloud一块、其他投资项目一块、搜索一块，没有哪项绝对主导。</p>
+<p>从某种意义上，我觉得这样反而更好，因为业务更加分散，对任何单项业务的依赖更低。但它必须经历一个复杂过程：有些投资者不想持有这样的公司，买家群体会变化。</p>
+<p>以前买它的人，可能想通过一只股票押注搜索或广告；现在公司转向另一种商业模式，就需要原有投资者退出、另一批投资者进入。改变分类时，很多人会觉得太复杂，干脆不碰。</p>
+<p>所以第一个问题是，如果你负责Google投资者关系，请读一读这篇帖子，反驳它，或者想办法主动回应，因为现在每个分析师都会去查这些说法是真是假。</p>
+<p>第二个问题很具体：怎样把Demis留在Google？就这一件事。没有别的了。Thomas Kurian要什么报酬就给他，但最关键的是，怎样留下Demis？</p>
+<h4 id="chapter-15">1:11:15—Sacks：搜索占比下降与绝对收入增长</h4>
+<p><strong>Jason：</strong>Sacks，Alphabet过去十年一直在增加收入来源的韧性和多样性。你觉得这里风险很大吗？对这只股票，你会做多、做空，还是中性？</p>
+<p><strong>Sacks：</strong>我看到有人发帖，说Google搜索收入占Alphabet总收入的比例第一次降到50%以下，把它描绘成灾难。这符合“搜索将被AI颠覆”的叙事，表面看确实像那么回事。但仔细读数字后，我觉得根本没有那么糟。</p>
+<p>搜索收入的相对占比的确下降了，但绝对收入仍在增加。同比增长12%，从560亿美元增至630亿美元，也就是一年增加约70亿美元。我认为，可以说Google搜索仍然运转良好，只是相对于其他业务增长没那么快，目前还没有出现绝对恶化。</p>
+<p>占比降到50%以下，是因为Alphabet其他业务增长得更快，最重要的就是Google Cloud：同比几乎翻倍，达到307亿美元。是云业务崛起，让搜索看起来像在衰落。</p>
+<p>我反而觉得，Alphabet终于让一些其他业务真正做起来、进入快速增长，终于实现收入多元化，是一件好事。减少对搜索的依赖，是他们想做了很久的事情。现在有YouTube、G Suite订阅等多个业务。因此，我倾向于认为，今天市场对这条消息的抛售有些过头了。当然，我不是在建议任何人买任何东西。</p>
+<p><strong>Jason：</strong>我同意。可以把从成立以来和过去十年的图都放出来。搜索次数仍在增加，人们担心的显然是每次搜索带来的收入。但另一面也确实如你所说：现在公司只有约50%依赖这门生意，而且还会继续下降。</p>
+<p>就我个人而言，我刚刚买了些股票。我在做多，而且就在录节目的时候又买了一些Google。</p>
+<p><strong>其他主持人：</strong>别忘了，Alphabet还持有SpaceX约6%的股份，以及Anthropic约15%的股份。</p>
+<p><strong>Jason：</strong>还有Waymo约85%的股份。这也是拼图的一部分。亚马逊同样持有Anthropic很大一部分股份，也会是赢家。</p>
+<h4 id="chapter-16">1:14:17—中期选举：国会、州长与数据中心审批</h4>
+<p><strong>Jason：</strong>差不多到时间了。周二选举前，大家要不要谈谈预测？中期选举里，你们最关注什么？Chamath，有没有什么与市场共识不同的判断？</p>
+<p><strong>Chamath：</strong>很有意思，我现在相当困惑，甚至开始减少关注，因为错误信息太多。我原先认为、现在仍然认为，会出现Sacks所说的那种“小水花”——更像是民主党的一阵小水花。</p>
+<p>但看一些早期数据，又是另一回事。不知道Bret Baier是不是在给自己的判断留后路，他有一段在X上传得很广的视频，看起来像是共和党会惨败，参众两院都输掉。</p>
+<p>我的基本判断仍然是：共和党守住参议院，民主党在众议院取得微弱多数。回到我们开头说的，如果这样，民主党的行动方向就很清楚：怎样制造恐惧、不确定性和怀疑？一种办法就是传唤所有人、要求披露、调查取证，一份接一份公布文件，让公众一直讨论这些材料，直到2028年。</p>
+<p>第一，制造不确定性。第二，经济放缓有利于民主党进入2028年选举周期。因此，他们会尽可能影响电力许可和数据中心建设，因为正如前面讨论的，这就是整个经济高度依赖的部分。</p>
+<p>所以，在我看来，除调查和舆论这一块以外，联邦层面结果未必是最重要的。现在应该高度关注州长选举以及其他一些地方选举。</p>
+<p><strong>Jason：</strong>Sacks，你的观点变了吗？</p>
+<p><strong>Sacks：</strong>我认为这些民调都不能轻信。首先，已经有几家民调机构承认自己是假的。真有这种恶作剧，而那些假民调还被纳入了平均值。</p>
+<p>有些民调直接造假，其余很多也存在已知偏差。Patrick Ruffini研究了最近三次选举，发现四分之三民调的误差方向都有利于民主党。这是一种反复出现的模式。</p>
+<p>2024年我们就见过。Ann Selzer被称为民调金标准，却说特朗普会在艾奥瓦州输掉大约10个百分点，结果完全不对。民调机构有偏差、造假的历史，或者你也可以说，它们由于某种原因，过度抽取了进步派样本。</p>
+<p>因此，人们应该把这些杂音屏蔽掉。我认为其中一些就是为了打击积极性、压低投票率。共和党人只管去投票就好。</p>
+<p>经济并不是灾难，那完全是假新闻。我们知道增长率：上个季度2.5%，当前跟踪值3.7%。家庭收入中位数接近9万美元，处于历史最高水平；贫困率处于历史低位，贫困线以下人口比例大约12%，是最低水平。</p>
+<p>这也不只是K型复苏。普通家庭的实际工资确实在增长，而拜登执政时并非如此。所以我不认为，人们应该被这种媒体行动影响，变得对当前情况极度消沉。</p>
+<h4 id="chapter-17">1:18:03—预测市场与两种选举情景</h4>
+<p><strong>主持人：</strong>J Cal，你怎么看？</p>
+<p><strong>Jason：</strong>我同意，很多届选举以来，民调数据都令人怀疑。Wedgewood做的这件事，他们说是行为艺术，但看起来又挺当真。我不知道他们为谁工作，也不知道里面有什么把戏。</p>
+<p>不过，我信Polymarket。看它的价格，接下来会发生什么已经很清楚。</p>
+<p><strong>Sacks：</strong>Polymarket在Bolsonaro的选举上就错了，虽然我觉得他也许被夺走了胜利；在Netanyahu的选举上也错了。预测市场只是公众情绪的反映，或者更准确地说，是愿意下注的那部分公众情绪，也可能完全错。在那两次全国选举里，它就完全判断错了。</p>
+<p>顺便说，我不是预测共和党会奇迹般获胜。执政党在中期选举获胜，本来就很少见。Bill Clinton和Barack Obama都经历过惨痛的中期选举失利。</p>
+<p>1994年，克林顿输给Newt Gingrich和“与美国契约”；共和党四十年来第一次控制众议院。奥巴马的一次中期选举也遭到了重创。因此，在野党在中期选举表现很好，是常见现象。</p>
+<p>我只是说，媒体已经把它描绘成海啸、惨败，但最后可能只是一次比较正常的中期选举结果。无论如何，人们应该出门投票，不要被媒体说法打击或吓住，因为媒体长期以来就有出错和偏见的记录。</p>
+<p><strong>主持人：</strong>J Cal，你有没有与之前不同的看法？</p>
+<p><strong>Jason：</strong>我认为Polymarket这次会判断正确。民主党会拿下参议院，目前概率是68%，我相信这个概率；众议院大家本来就认为民主党会赢，概率是92%。</p>
+<p>为什么这样判断？特朗普净支持率降到了历史最低，国家对现状非常不满。自由派会大规模出来投反特朗普的票；温和派要么不来，要么不会像他第二次参选时那样对特朗普抱有好奇和期待。</p>
+<p>当时Kamala是个糟糕的候选人，所以有些人想：“得试试别的。”他们就转向特朗普。在Kamala和特朗普之间二选一，我认为对大多数美国人来说，特朗普是更好的选择。</p>
+<p>但现在共和党出现了分裂。“美国优先”阵营觉得被特朗普抽走了脚下的地毯：经济问题还在，通胀没解决，战争没结束，反而又打了一场新战争。所以那批人很愤怒。</p>
+<p>这些因素放在一起，我认为民主党会比较轻松地横扫两院。如果接着看后面的两张牌，首先是弹劾。按我的理解，程序先在众议院、再到参议院，是一个法律程序。我们会重新看到特朗普遭到弹劾，两院都参与进去，局面会非常混乱。</p>
+<p>然后民主党会不断提出法案，迫使共和党投反对票，以削弱JD Vance未来参选的机会。因此，接下来两年会很混乱。让我说完。</p>
+<p>我认为，这两年的混乱最后会让共和党需要新的候选人，结束特朗普时代，也意味着JD Vance、Marco Rubio这一轮过去，转而寻找一位更民粹、并且真正执行民粹议程的新领军人物。支持者觉得特朗普代表了这种议程，却没有落实。</p>
+<p>这不是我的个人政治愿望，而是我的分析。Chamath，你说。</p>
+<p><strong>Chamath：</strong>我想说的是，你认为会有这样一场民主党的行动：他们拿下众议院，就会传唤所有人。</p>
+<p><strong>Jason：</strong>对，他们会传唤所有人，调查能想到的每一种谋取私利指控：有依据的、没依据的、介于两者之间的，都会查。</p>
+<h4 id="chapter-18">1:22:19—选举夜安排与政治钟摆</h4>
+<p><strong>Jason：</strong>我们选举夜会有一组很不错的来宾，包括Shayne Coplan、Tim Dillon、Rahm Emanuel和Taylor Lorenz。估计会既混乱又有趣。</p>
+<p><strong>其他主持人：</strong>Taylor Lorenz最近有点走上自我修正的轨道了。她在某些话题上的表现确实很好。</p>
+<p><strong>Jason：</strong>Tim Dillon也会来，我很喜欢他。</p>
+<p><strong>Sacks：</strong>我不会参加。</p>
+<p><strong>Jason：</strong>什么？你要去哪儿？</p>
+<p><strong>Sacks：</strong>我为什么一定要参加中期选举直播？</p>
+<p><strong>Jason：</strong>因为你的党要输，所以你不来？</p>
+<p><strong>Sacks：</strong>如果我们表现超预期，我就进来庆祝一下。</p>
+<p><strong>其他主持人：</strong>这不太厚道。大家都想听你说话。我们可以喝点龙舌兰，开开心心地聊结果。别对着咖啡哭，换成对着龙舌兰哭。也许我们可以去Chamath家，一边喝酒一边直播。</p>
+<p><strong>Sacks：</strong>J Cal，对于民主党如果获胜后会发生什么，你的分析有很多部分我同意，因为他们并没有改变本性。人们只是忘了民主党是什么样，忘了疫情时他们的表现，忘了那些法律战和疯狂的“觉醒”议程。这些东西都在，随时准备回来。</p>
+<p>他们没有真正分析自己为什么输掉2024年选举，也没有真正调整。要说有变化，反而是变得更激进了。连Gavin Newsom都承认，美国民主社会主义者组织在党内正在上升。</p>
+<p>因此，如果民主党拿下国会，你大概会看到他们多么失常，美国公众也会重新想起来。这会很有意思。政治为什么有钟摆？就是这个原因。</p>
+<p><strong>Jason：</strong>确实有钟摆。我想知道，如果不是JD Vance和Rubio，右派下一位领军人物会是谁。我觉得，也许会出现一个我们现在根本说不出名字的人，左派可能也一样。</p>
+<p>总之，接下来会很有意思。我们会把Sacks拉来。各位，下次直播见，爱你们，兄弟们。再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
