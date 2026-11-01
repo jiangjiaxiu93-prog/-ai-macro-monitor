@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>从78%的使用意愿到10%—15%的实际采用：Bumble的AI产品实验（AI Engineer）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-11-02<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>从78%的使用意愿到10%—15%的实际采用：Bumble的AI产品实验（AI Engineer）</h2>
+<div class="metaline">AI Engineer；Bumble产品经理Supriya Subudhi演讲 · 2026-10-31 · <a href="https://www.youtube.com/watch?v=CvmZtAPmAW4" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业采用；用户增长；单位经济；消费级AI；应用层护城河；Bumble；Supriya Subudhi</p>
+<h3>要点</h3>
+<ul><li>Bumble调查中78%的受访者希望获得个人资料反馈，但照片建议功能进入A/B测试后，实际使用比例只有10%—15%。团队把入口放进上传照片和匹配受阻的既有流程，才推动采用率提升。</li><li>正向平均指标同时掩盖错误建议、成本与地区差异：高质量模型的成本约为简单方案十倍，换便宜模型又削弱效果。最终判断还要覆盖真实输出、完整成本及各市场可上线的范围。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00—AI产品的A/B测试为什么不同</a></li><li><a href="#chapter-2">01:31—照片反馈功能与产品经理的责任</a></li><li><a href="#chapter-3">02:38—用户说想要，真正推出后却不用</a></li><li><a href="#chapter-4">05:19—平均改善可能掩盖长尾问题</a></li><li><a href="#chapter-5">07:54—业务指标改善，账单却可能失控</a></li><li><a href="#chapter-6">10:37—实验效果属于具体模型，不能直接迁移</a></li><li><a href="#chapter-7">11:49—有时不会迎来全球推广</a></li><li><a href="#chapter-8">13:54—判断成功前要问的五个问题</a></li></ul></details>
+<h4 id="chapter-1">00:00—AI产品的A/B测试为什么不同</h4>
+<p>大家好，我是Supriya，很高兴来到这里。今天想讲讲，AI产品的A/B测试为什么有些特别。</p>
+<p>A/B测试就是比较两种版本，看哪一种更好。可以比较两封邮件的点击率，也可以比较两个功能版本，或者把新功能与已经上线的版本比较。</p>
+<p>先问大家一个问题：有多少人觉得，如果A/B测试结果为正，就应该把功能上线？看来很多人已经知道，到了AI这里，情况会有些不同。</p>
+<p>我在消费级科技产品里测试生成式AI和大语言模型时发现，正向的A/B测试结果，往往只是整个过程的起点。今天会讲五个我们真正遇到并需要解决的问题。</p>
+<h4 id="chapter-2">01:31—照片反馈功能与产品经理的责任</h4>
+<p>我在Bumble做产品经理。Bumble是一款月活跃用户超过2000万的约会应用。</p>
+<p>产品经理代表用户，理解他们遇到的问题，尝试提供解决方案；同时也要对公司的损益负责，因为可用资源并不是无限的。</p>
+<p>为了讲清楚这五个问题，先介绍我们实际推出的功能，大家可以对照自己的工作。我们做的是AI照片反馈。</p>
+<p>约会应用里的用户需要建立个人资料，上传照片，却往往不知道怎样才算好。于是，我们结合对有效约会资料的理解，让AI生成建议，帮助用户改善上传的照片。</p>
+<h4 id="chapter-3">02:38—用户说想要，真正推出后却不用</h4>
+<p>第一个问题是，用户主动提出需求，但功能推出后又忽略它。</p>
+<p>产品经理从用户研究开始，发现问题、寻找解决方式。问卷和访谈都是很好的工具。在Bumble研究中，几乎所有人都会提到：他们不知道自己的约会资料够不够好，也没有从我们这里得到足够支持，无法判断自己做得怎么样。</p>
+<p>大语言模型出现后，我们立即觉得，可以用AI解决这个问题。我们设计了不同版本，让AI支持和指导约会过程，而不是替人谈恋爱。</p>
+<p>向用户展示这些例子时，反应非常好。约78%的受访者说，希望我们提供反馈，告诉他们怎样改进。</p>
+<p>但进入A/B测试后，一半用户得到这个功能，一半没有，我们看到实际使用比例只有10%至15%。这让我们认识到，用户对AI持开放态度，并不能预测他们是否真的会使用。</p>
+<p>于是，我们回到产品管理最基本的事情：把AI的使用过程嵌入用户原本就在做的事情里。教育和提醒非常重要。</p>
+<p>我们不再把它做成一个独立功能，指望用户自己在应用里找到；而是在用户上传照片时问：“要不要获得反馈？”如果用户找不到匹配对象、遇到了障碍，我们会提醒：“看过个人资料里的反馈了吗？也许可以改一改。”这些安排提高了采用率。</p>
+<p>当然，还必须测量实际行为。如果问卷结果很好，你就直接上线，却不看用户有没有使用，也就没办法改善采用率。</p>
+<h4 id="chapter-4">05:19—平均改善可能掩盖长尾问题</h4>
+<p>第二个问题是，平均意义上的成功，可能掩盖长尾表现。</p>
+<p>功能推出后，整体结果很好：得到反馈的用户，会上传更多照片，也会更频繁地修改个人资料。但深入看具体输出，会发现奇怪的情况，例如，对着已经在笑的人，AI还建议“多笑一点”。</p>
+<p>因此，只看正向平均值，已经不足以判断成功，必须检查细节。</p>
+<p>举两个例子。Spotify有AI DJ，可以为用户生成播放列表。再假设银行应用用AI帮你做预算，决定一个月应该在哪些地方花多少钱。这两种用途的错误后果，很不一样。</p>
+<p>四首推荐歌曲里有两首不好听，可以接受；但如果一个人根本负担不起，应用却建议他花2000美元，就不能接受。</p>
+<p>所以，我们从建立明确边界开始，规定AI反馈应该做什么、不应该做什么。例如，不能让用户改变自己控制不了的事情，像肤色、身高，这些都不该成为AI建议的对象。</p>
+<p>下一步，是阅读真实输出。评测在这里非常有用。设置合适的评测工具后，我们可以看到真实用户收到的内容，判断提示词究竟是否有效。</p>
+<p>成功标准因此发生了变化：除了看整体指标是否改善，还要检查长尾中的结果。不同用户群体得到的反馈，我们是否满意？女性和男性的反应是否相同？不同国家、不同语言的用户是否有不同体验？法语生成的内容，可能就与英语不同。</p>
+<h4 id="chapter-5">07:54—业务指标改善，账单却可能失控</h4>
+<p>第三个问题是，生成式AI的成功会带来成本。</p>
+<p>刚开始时，我们觉得这个用户问题很重要，因此想要尽可能好的反馈质量和准确度，就直接用了最强的模型。自然，它的成本大约是简单方案的十倍，再加上评测运行费用，总成本就过高了。</p>
+<p>Bumble并非第一次用AI，匹配算法本来就是AI的一种应用。但传统机器学习与生成式AI的成本结构不同。</p>
+<p>算法通常在前期计算和训练上投入较多，运行起来以后，每多一个用户，增量成本并不高。生成式AI则是：产品越成功、用户越多、使用越频繁，账单就越大。</p>
+<p>因此，也许不要一开始就直接用最强模型。还必须想清楚，为什么要使用AI。我遇到不少同行，只是接到了公司要求：“产品里必须加入AI。”但你得知道，目标到底是短期收益，还是长期价值。</p>
+<p>以亚马逊的购物助手为例。它为什么要推出助手？可能是为了短期目标：更好的推荐带来更多购买和收入。</p>
+<p>但如果推荐效果不够好，是不是就不做了？也未必。长期看，一个值得依赖的助手，可能让用户在多个电商平台之间选择亚马逊。因此，推出它也可能是为了品牌价值，以及长期把用户留在平台上。</p>
+<p>明确目标，才能决定预算和愿意投入多少。短期收益可能很快就能用投资回报判断；如果是长期布局，也许值得争取额外预算。</p>
+<h4 id="chapter-6">10:37—实验效果属于具体模型，不能直接迁移</h4>
+<p>前面提到，我们直接用了最强模型，但成本太高，无法推广到更大规模。于是，团队作了一个看起来很简单的决定：换成更便宜的模型。</p>
+<p>成本确实降了，效果也一起下降，因为准确度变低了。这说明，A/B测试里看到的收益，来自当时使用的那个模型，不能只归因于“给用户提供反馈”这个抽象想法。</p>
+<p>我们学到的，是必须进行大量测试，并以数据为依据。评测体系帮助我们比较：不同模型对不同数据集有什么影响，成本相差多少，以及不同提示词、不同反馈版本能否快速重测。</p>
+<p>最终，我们找到了能够取得良好效果的最低成本方案。</p>
+<h4 id="chapter-7">11:49—有时不会迎来全球推广</h4>
+<p>最后一个问题是，有时这个功能根本没有全球推广的机会。</p>
+<p>Meta最近推出Muse AI，我来自伦敦，所以还没用上；它只在美国和加拿大提供服务。AI监管仍在变化，不同地区的规则也不一样，公司不合规就会承担财务和法律风险。</p>
+<p>我们的项目从美国开始，也在美国上线了。但之后就停住了：美国已经可用的版本，不能直接原样推出到其他国家。</p>
+<p>这让我们很快认识到，不管是产品经理、产品工程师还是前沿部署工程师，都需要具备更全面的视角，在早期就考虑合规和法律适用问题，不能等做完以后再想。</p>
+<p>有几种不同路径。你可以先确定，功能一定要在全球推出，然后理解各地限制，在这些限制的交集中开发。</p>
+<p>也可以决定，美国是能产生最大影响的市场，因此先为美国做出最好的版本，暂时不去其他地方。</p>
+<p>还可以承担额外成本，让应用在不同国家以不同方式运行。这些都是现在必须作出的选择。即使做出了很好的产品，如果不能交到用户手里，也没有意义。</p>
+<h4 id="chapter-8">13:54—判断成功前要问的五个问题</h4>
+<p>在开发AI功能时，请问自己五个问题。</p>
+<p>第一，人们真的在用，还是只是说自己会用？</p>
+<p>第二，你读过真实输出，还是只看平均指标？</p>
+<p>第三，把方案涉及的全部成本都算进去以后，它仍然值得吗？</p>
+<p>第四，最强模型带来的效果，是你负担得起的吗？</p>
+<p>第五，你是否已经明确，从法律上看，能够在哪些市场推出？</p>
+<p>判断一项AI功能是否成功，已经超出了它有没有赢得A/B测试。谢谢大家。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

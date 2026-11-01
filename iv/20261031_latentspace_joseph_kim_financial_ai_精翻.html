@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>金融AI怎样跨过产品与判断力门槛：Joseph Kim访谈（Latent Space）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:236px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:var(--brand);
+text-transform:uppercase;margin:14px 12px 4px}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:236px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:.8px;margin:9px 0 2px;text-align:center}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">AI</div><div><div class="en">AI MACRO MONITOR</div><div class="cn">AI 产业监测</div></div></a><div class="grp">监测</div><a class="nl" href="../frontier.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp">精读</div><a class="nl" href="../podcast_archive.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">播客与访谈档案</span><span class="sh">播客访谈</span></a><a class="nl" href="../market_podcasts.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">市场热点播客精读</span><span class="sh">市场播客</span></a><a class="nl on" href="../topics.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">AI 应用主题跟踪</span><span class="sh">应用主题</span></a><a class="nl" href="../roi.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">AI 回报与泡沫跟踪</span><span class="sh">回报泡沫</span></a><a class="nl" href="../capex_returns.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2M8 18h2M14 18h2"/></svg><span class="lb">AI资本开支收入回报测算</span><span class="sh">资本测算</span></a><a class="nl" href="../ai_macro.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">AI宏观影响的探讨</span><span class="sh">宏观影响</span></a><div class="grp">宏观</div><a class="nl" href="../daily.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">美股与宏观每日复盘</span><span class="sh">每日复盘</span></a><a class="nl" href="../fed.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储委员发言跟踪</span><span class="sh">联储发言</span></a><a class="nl" href="../mideast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">中东地缘与油价跟踪</span><span class="sh">中东油价</span></a><div class="grp">数据</div><a class="nl" href="../earnings.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="foot">数据日期 2026-11-02<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回AI 应用主题跟踪</a>
+<div class="card"><article>
+<h2>金融AI怎样跨过产品与判断力门槛：Joseph Kim访谈（Latent Space）</h2>
+<div class="metaline">Latent Space；swyx、Richard MacManus访谈OpenAI金融服务产品负责人Joseph Kim · 2026-10-31 · <a href="https://www.youtube.com/watch?v=v-d1WTqIULs" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：垂直应用；企业采用；企业代理；应用层护城河；代理安全；OpenAI；ChatGPT；Joseph Kim</p>
+<h3>要点</h3>
+<ul><li>Kim把金融产品的差异化归于可靠数据、机构模板和工作流。他称，团队测试过的部分大型数据商MCP连接错误率超过40%，因此选择自行引入数据；产品约95%的工作，其他开发者也能基于相同插件能力完成。</li><li>当前产品依靠人在环路及银行既有复核链条；更高级的投研任务则需要判断力、审美和专家反馈。他认为，金融评测容易被错误答案、含糊任务与奖励投机扭曲，必须检验分数能否对应真实职业任务。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00—片头引语</a></li><li><a href="#chapter-2">00:25—从金融服务产品谈起</a></li><li><a href="#chapter-3">02:19—金融能力进入通用模型，产品决定采用率</a></li><li><a href="#chapter-4">05:29—为什么有MCP连接，还要自己打包数据</a></li><li><a href="#chapter-5">06:39—通用平台的80%，以及决定成败的20%</a></li><li><a href="#chapter-6">09:18—安全、权限与银行已有的复核体系</a></li><li><a href="#chapter-7">12:36—“犯一个错就会毁掉职业生涯”怎样理解</a></li><li><a href="#chapter-8">15:46—怎样训练审美与专业判断</a></li><li><a href="#chapter-9">19:04—从初级分析师工作向投资观点上移</a></li><li><a href="#chapter-10">22:14—金融评测为什么容易失真</a></li><li><a href="#chapter-11">25:25—团队需要哪些金融专业能力</a></li></ul></details>
+<h4 id="chapter-1">00:00—片头引语</h4>
+<p><strong>Joseph：</strong>OpenAI曾在预训练上遇到问题，因此难以继续扩大模型规模。2026年，我们已经解决了其中很多问题。</p>
+<h4 id="chapter-2">00:25—从金融服务产品谈起</h4>
+<p><strong>主持人：</strong>今天在纽约AI Finance活动的演播室里，我们请到OpenAI负责ChatGPT金融业务的Joseph Kim，还有Latent Space编辑负责人Richard。Joseph刚做了一场很精彩的主题演讲。我们尽量不重复演讲内容，大家可以另行观看。先用三十秒介绍一下你刚才讲了什么吧。</p>
+<p><strong>Joseph：</strong>第一部分是我们刚发布的ChatGPT for Financial Services。这是一款面向企业的产品，希望把大家在消费版ChatGPT里喜欢的能力、工具，与企业所需的内容结合起来，例如机构专用模板，以及Daloopa、S&amp;P等数据源。我们与摩根士丹利、Evercore这些设计合作伙伴一起开发，市场反馈非常好。</p>
+<p>演讲的第二部分更面向未来：深入思考模型能力改善的趋势，并把这些趋势延伸到2027年年中、年底。到那时模型能做什么？对于在模型之上构建产品的人，这意味着什么？怎样提前为几个月后就可能到来的智能能力做准备？</p>
+<p><strong>主持人：</strong>有意思的是，你原来做研究，现在也负责很多产品和工程工作。做一款金融专用产品，需要什么？你演讲里提到，ChatGPT Work推出、Codex开始面向更广泛用户后，金融用途明显增加。如今你们开始推出专门的金融产品，金融推理数据究竟是什么样的？金融模型的训练需要什么？</p>
+<h4 id="chapter-3">02:19—金融能力进入通用模型，产品决定采用率</h4>
+<p><strong>Joseph：</strong>我们做的金融推理和分析训练，都会放到上游的主训练任务里，也就是最终产出GPT-6 Astra、GPT-6.1 Astra等通用模型的那次训练。金融数据进入的是主模型，所以其他人也可以在这些能力之上构建自己的产品。</p>
+<p>这对我们很重要。OpenAI希望智能能力不只服务于内部开发的第一方产品，也能供创业公司、其他企业以及希望把模型直接接入内部系统的金融机构使用。我们会把这些能力开放给他们。</p>
+<p>你提到产品和研究，这也是OpenAI工作的核心。我们内部把自己称为一家“研究与部署公司”，而且这个顺序是有意安排的：先研究，再部署。</p>
+<p>如果目标是改变人们完成知识工作的方式，我们首先思考模型能做什么、将往哪个方向发展、会带来哪些新可能；然后再深入思考，应该构建哪些产品功能和操作界面，让更多人能够用到这些智能。</p>
+<p>我演讲里有一张OpenAI内部采用Codex的图。软件工程师的采用曲线一直很稳定地向右上方走，他们逐渐把它纳入日常工作。但财务、法律和销售的使用率，原本几乎是零，随后突然跳到90%左右。</p>
+<p>再看这个跃升发生的时间，会发现正好是我们2月发布Codex桌面应用之后。这说明模型和产品协同开发很重要：产品的作用，就是让尽可能多的用户能够使用模型能力。</p>
+<p><strong>主持人：</strong>金融人员开始用Codex以后，你们发现了什么，又把哪些经验用于金融数据的后训练？</p>
+<p><strong>Joseph：</strong>我可以从ChatGPT for Financial Services是怎么做出来的讲起。这个过程很特别，因为我们此前并没有开发很多第一方产品，Codex是最主要的一个。它也是第一次把产品、模型运行框架和研究都放在同一个团队体系里，这给开发带来很大灵活性。</p>
+<p>过去半年，我最大的体会是：做企业产品，必须面对所在行业的现实，并围绕这些现实来设计。人们很容易忽略这一点。只从第一性原理出发，你也许能得出一个逻辑自洽的结论，也能用道理去辩护；但如果忽视行业的真实状态、竞争关系以及各参与者各自的目标，就做不出合适的产品。</p>
+<h4 id="chapter-4">05:29—为什么有MCP连接，还要自己打包数据</h4>
+<p><strong>Joseph：</strong>数据就是一个例子。数据在我们设计产品时占了很大比重，但单从第一性原理看，这个决定一开始并不容易解释。</p>
+<p>假如我说，要把季度财报电话会逐字稿引入产品，和产品打包。别人首先就会问：“商店里已经有MCP连接器，你再打包一次，到底增加了什么价值？”纸面上看不太好：客户可能已经有数据许可，会觉得重复付费；他们也可能已有MCP，为什么还要做？</p>
+<p>但我们真正把这些MCP逐一接起来测试后，发现错误率很高。有些来自知名供应商的MCP，错误率超过40%。所以，MCP在纸面上是一回事，实际数据表现又是一回事。</p>
+<p>我们觉得这个体验太差，要在大规模使用时解决问题，就得把数据引入自身体系，控制从头到尾的使用体验。为打包数据额外支付的钱，是值得的。这是一个与行业实际情况高度相关的产品决定。</p>
+<p>结果客户很认可，提得最多的优点就是数据。因此，这个决定奏效了。</p>
+<p><strong>主持人：</strong>从技术角度看，其他开发者如果想为法律、销售等领域做专门的运行框架，该学习什么？你们调整Codex、做后训练，构建了金融产品。把通用能力变成某个行业的产品，有什么经验？</p>
+<h4 id="chapter-5">06:39—通用平台的80%，以及决定成败的20%</h4>
+<p><strong>Joseph：</strong>后训练听起来很有趣，因为它是我们独有的能力，也容易让大家兴奋。但我们开发的内容，95%都是初创公司或其他企业也能做的。要做出好产品，并不需要大量动用修改底层模型的特权。</p>
+<p>我们的大部分产品，建立在Codex——现在更准确地说是ChatGPT——的插件架构和基础能力之上。我们在这方面投入了很多时间和精力。</p>
+<p>OpenAI内部其实也面临着外部创业公司的类似问题。我的团队在很多方面，就像一家建立在OpenAI技术之上的创业公司。我们同样需要找到可扩展的方式，站在已有能力的基础上继续开发。</p>
+<p>Codex很好：有记忆、技能、持续运行等功能。我们的判断是，它大约能覆盖一款成功金融产品所需能力的80%，但剩下20%仍然缺失。团队必须把这20%补出来，才能赢得市场。</p>
+<p>这个判断的另一半是：如果直接把Codex包装成金融产品推出，它会失败。所以，最后那20%非常关键。</p>
+<p>我们于是选择插件架构，使用与其他ChatGPT开发者相同的基础能力。我在演讲里说过，我确实认为，未来会有一家价值10亿美元的企业建立在ChatGPT插件之上。它可以使用平台提供的全部横向能力，再加上自己的独特部分。</p>
+<p>这种独特部分可能是数据、界面变化，也可能是某项集成。它们具有真实价值，完全可能创造10亿美元量级的商业价值。</p>
+<h4 id="chapter-6">09:18—安全、权限与银行已有的复核体系</h4>
+<p><strong>主持人：</strong>现在，任务编排越来越自动化，多个智能体会一起执行工作。但金融场景风险很多，你们在产品里怎样处理安全？</p>
+<p><strong>Joseph：</strong>安全极其重要，而且只会更加重要。智能体已经变得更自主、更独立，我们预计这个趋势会延续到2027年和2028年。</p>
+<p>上个月推出的产品，可以借用很多已经存在的安全和审阅方式，检查工作，避免模型错误影响业务结果。它本质上是金融知识工作者的生产率工具，背后有一个很深的前提：始终有人参与。</p>
+<p>假如你是一名金融分析师，当天有很多任务，就像软件工程师使用Codex一样，每项任务先试着用ChatGPT做。根据任务不同，它也许能完成30%，也许能完成80%，但总有人负责整个工作过程。</p>
+<p>这个前提让我们能够清晰地把审核、复核责任交给使用者，也很容易向客户解释。但我们正在认真思考下一步。下一代产品，会不同于这种始终有人盯着的生产率工具。</p>
+<p>我们在考虑两件事。第一，怎样把产品的安全和权限设计成人们直觉上理解的形式？人们非常熟悉的是与同事、实习生和周围的人协作。如果产品的行为方式接近这些协作方式，就容易学习和使用。</p>
+<p>因此，安全机制也应该像管理一个人。例如，人员本来就有读写权限的区别。我以前在Google，新来的软件工程师要先取得一种叫“readability”的代码审阅资格，系统中也有各种制衡和检查，不能一来就随意修改。</p>
+<p>既然组织里已经有监督人类工作的系统，如果模型像人一样工作，就可以复用这些系统。这也让我们更容易与金融机构讨论和推进产品，我们接下来会在这方面投入很多。</p>
+<p>第二，银行原本就有一套层级复核机制。初级分析师完成大量基础工作，交给助理审阅；助理加入自己的推理和判断，再交给副总裁，之后到总监、董事总经理。这个体系一直在隐含地检查工作，用来防止人犯错。人会犯和模型一样多的错误，因此，我们在金融产品里会充分利用已有的复核链条。</p>
+<h4 id="chapter-7">12:36—“犯一个错就会毁掉职业生涯”怎样理解</h4>
+<p><strong>主持人：</strong>有一种常见想法：金融工作里的一个错误会层层放大，交错一份材料，整个职业生涯就有危险。分析师应该怎样开始使用这些工具？</p>
+<p>自动驾驶有不同自动化等级，你的一张幻灯片还提到2027年“不再需要PowerPoint”，很多人会在工作中使用AI。对于担心犯错的人，应该怎样理解我们现在的位置和未来方向？除了人在环路这个前提，随着越来越多任务被交出去，又该怎么想？</p>
+<p><strong>Joseph：</strong>我有两种看法，出发点不同。我首先认为，“只要犯一个错，职业生涯就完了”本身并不准确。不过，我们先假设它是真的。</p>
+<p>即使如此，错误也不全都一样，模型的不同能力同样不能一概而论。通常，到了一定级别，风险才会更高。副总裁比初级分析师承担的责任大，因为默认工作此前已经经过检查。如果一个错误最终被董事总经理看到，就说明很多安全网同时失效了。</p>
+<p>真正可能造成严重职业后果的，是把一个事实搞错，而这个错误又改变了结论。这显然是影响很大的错误。</p>
+<p>我们看到，模型对细节的注意力正在明显改善。2022年、2023年大家经常谈“幻觉”，如今这个词没有当时出现得那么频繁。模型在事实层面的可靠性，已经进步很多，而且还在继续提高。</p>
+<p>我有信心，把这种持续改善与现有检查机制结合起来，会让严重事实错误一路传到董事总经理那里的概率变得很低。</p>
+<p>目前模型更缺乏的，其实是人类的判断力和审美。例如，一张幻灯片并没有事实错误，但看着很难看：格式不对，颜色有点别扭，某些地方显得粗糙，所以它不是一张好幻灯片。</p>
+<p>这种错误与严重的事实错误不同，但它仍然重要，会影响成果是否有用。展望2027年，我预计模型会在这类更柔性的目标上取得很大进步。这里没有简单的对错，而是比较：有没有另一种方式比当前更好？</p>
+<h4 id="chapter-8">15:46—怎样训练审美与专业判断</h4>
+<p><strong>主持人：</strong>那怎样解决审美问题？怎样把审美训练进模型？</p>
+<p><strong>Joseph：</strong>有意思的是，在早期阶段，我们训练的很多东西，本来就是人类偏好。基于人类反馈的强化学习，得到的常常是成对比较信号：给你两个选项，哪一个更好？</p>
+<p>后来，我们做了可验证奖励、环境，以及各种其他强化学习机制，人们反而有点忘了，早期强化学习很大程度上就是围绕人的偏好展开的。</p>
+<p>技术上的回答很简单，真正实施当然更复杂：训练一个奖励模型，让很多人比较两种结果，说出哪一个更好。这种方法仍然有效。</p>
+<p>我们改善幻灯片生成能力，就是这样做的。让人看两张幻灯片，判断哪张更好。我们发现，人类非常擅长审美判断，实际上比模型更强。一个人几秒钟就能看出来；如果让评分模型做，它可能花很多推理token，分析这个像素、那个位置，最后仍然判断错。</p>
+<p>所以，人类对于提升模型仍然非常有价值。我们会大量依靠人的偏好，赋予模型审美。</p>
+<p>还有一个先例，让我们相信这种方法能奏效：编程。编程还没有被完全解决，但假设已经完成了80%，正在处理剩下20%。软件开发本来就是可验证奖励和人类偏好的组合。</p>
+<p>可验证的部分包括：代码能不能编译，有没有语法错误，函数输出是否符合预期。但优秀的软件工程还包括：系统设计是否清楚，长期能否维护，是否容易做单元测试，是否遵循行业普遍认可的做法。</p>
+<p>从这个角度看，很多金融工作很相似。Excel模型能不能正确加总，有没有引用错误，都可以验证，属于第一层合理性检查。但还有另一层：“如果由我来做，会不会这样建模？”</p>
+<p>进入金融领域后，我学到了所谓模型的“手感”：稍微改变输入，再看输出。经验丰富的金融从业者能够通过这种方式，判断数据在模型中传递是否合理。这种专业偏好，和“代码写得干不干净、好不好”很相似。编程领域的进步，让我相信金融领域的这些问题也能解决。</p>
+<p><strong>主持人：</strong>可以提一下Cognition的FrontierCode。SWE-bench更多问答案是否正确，而这类评测还会问：“你会合并这份代码吗？”可能有几份PR都能通过测试，但你究竟会选哪一份？所以有时会出现推理量更少、评分反而更高的情况，因为它也在测品味。</p>
+<h4 id="chapter-9">19:04—从初级分析师工作向投资观点上移</h4>
+<p><strong>主持人：</strong>你的另一个2027年预测也很有意思：模型会更擅长形成投资逻辑，产生投资和交易想法。但有经验的人往往依靠直觉，而且有价值的观点常常与主流看法相反，否则很难取得突出回报。你们怎样训练智能体完成这类工作？</p>
+<p><strong>Joseph：</strong>到目前为止，金融AI的大部分应用都集中在初级分析师的任务上，原因有两个。</p>
+<p>第一，产品必须建立在今天的模型能力之上。目前模型很擅长接受具体指令并执行，例如做一张符合机构模板、长成指定样式的幻灯片。因此，我们围绕这些能力设计产品。</p>
+<p>第二，我们很希望模型能做好人类不擅长、或者不喜欢做的事。虽然有人例外，但我接触的很多人不喜欢搭Excel模型，因为工作繁琐、细节多、很容易出错。做幻灯片也是一样：复制标识，把它精确放到指定位置，都很费事。</p>
+<p>所以，产品方向由两方面共同推动：模型已经擅长什么，以及人愿意做什么、不愿意做什么。我们已经解决了不少相对容易的任务，接下来到2027年，会沿着职业分工向上走，从初级分析师，走到助理，再到董事总经理承担的一些工作。</p>
+<p>越往上，目标越模糊。最初可以判断一张幻灯片是否适合给客户看；到了投资观点，就可能不知道想法好不好，甚至需要等三年，看市场如何发展，才能给出比较明确的答案。</p>
+<p>目标更模糊，训练方法和能力改进就更困难，研究难度会增加。但我不认为这无法解决。它需要持续的研究投入、优质数据，以及行业专家的反馈。我们希望得到接近最高水平、前0.1%专家的意见，让模型达到人类的水平。</p>
+<p>要做到这一点，需要继续扩展基础模型，也需要研究机构把它作为重要问题。我在团队里推动的一件事，就是让金融成为OpenAI的重点。有这两方面结合，我相信2027年会取得很多进展。</p>
+<h4 id="chapter-10">22:14—金融评测为什么容易失真</h4>
+<p><strong>主持人：</strong>你怎么看现在的金融基准测试？很多还停留在数字对不对，怎样把审美和判断加入你们自己的评测？这也可以看作对行业的邀请，让大家开发自己的评测。</p>
+<p>另外，你一方面说要为今天的模型构建系统，另一方面又预测未来。今天交给客户的金融服务，应该怎样设置边界、限制和检查，让他们放心它不会失控？</p>
+<p><strong>Joseph：</strong>先谈评测，这是我花很多时间研究的问题。做一个好评测极其困难，没真正做过的人不一定意识得到。</p>
+<p>你希望分数真正对应某种能力，但设计出来的测试只是那种能力的代理指标，而且通常只覆盖其中一个维度。让它与实际想测的技能相关，本来就很难。</p>
+<p>另外，准备正确答案和设计准确的评分方式，也很费工夫。如果评分方式不对，评测就很容易被钻空子，出现奖励投机：模型在测试里得分很高，实际能力却很差。这个问题不仅存在于金融，其他领域也一样。</p>
+<p>我们认为，目前还没有非常好的金融工作评测。此前有一些研究，比如我们做的GDPval，覆盖更广泛的知识工作。如果看Astra的发布材料，会发现我们没有继续谈GDPval。</p>
+<p>我们知道它已经完全饱和，剩下没有饱和的部分，基本上又存在缺陷。因此，我们已经不再报告和跟踪它。</p>
+<p>GPT-6 Astra发布时有一个困难，就是没有合适方式在金融评测上展示进步。内部有些评测，当时还不想公开，之后会公布。</p>
+<p>这里还有一种研究偏差：如果分数提高，研究者通常就默认模型变好了，不继续追查；如果模型明明强了很多，分数却没变、或者没有按预期提升，大家才回头研究评测本身。</p>
+<p>GPT-6就遇到过这种情况。我们在一组金融评测上跑模型，数字没怎么变化，于是深入检查，发现很多地方有问题。实际上，模型已经把评测做到了饱和；剩下做错的题，是因为标准答案有误、提示词没有写清楚，或者评测存在其他缺陷。</p>
+<p>所以，我的团队现在正在尝试建立更好的评测，让分数真正预测某个职业中有多少工作可以自动化。比如，一个投资银行评测，如果得分很高，就应该意味着能自动完成大量初级投行分析师的工作。</p>
+<h4 id="chapter-11">25:25—团队需要哪些金融专业能力</h4>
+<p><strong>主持人：</strong>最后，对金融业以及Latent Space听众，有什么想说的？你们也在招聘吧，大家怎样帮到你们？</p>
+<p><strong>Joseph：</strong>首先可以关注ChatGPT for Financial Services。现在它是企业产品，但我们正在努力让更多专业个人用户通过Pro套餐使用，希望之后会有消息。</p>
+<p>其次，我们确实在招聘。客户需求增长很快，所以团队也在扩张，岗位很多。除了前端、后端等常规产品工程岗位，也需要优秀的产品经理。</p>
+<p>在某种意义上，好的产品管理，是我们在这个领域取得成功的主要瓶颈之一。投行、股票研究、资产管理等方向，我们都在寻找了解行业的产品经理。</p>
+<p>我还想特别提一下领域专家。编程模型能够取得进步，一个重要优势是，训练和改进模型的人自己就知道好代码是什么样的。但做金融模型时，我们没有这个天然优势。</p>
+<p>所以，我们需要更多金融专业人士，与工程师、研究人员和产品经理合作，把模型和产品在各自专业领域里的表现真正做好。</p>
+<p><strong>主持人：</strong>这也回答了我想问的，普通用户什么时候能试用。你们正在努力把它带到Pro。</p>
+<p><strong>Joseph：</strong>对，我们很努力地让更多人能够使用。</p>
+<p><strong>主持人：</strong>谢谢你，也推荐大家去看主题演讲。那里还有你对未来的判断，以及预训练问题取得进展的讨论。</p>
+<p><strong>Joseph：</strong>非常感谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
