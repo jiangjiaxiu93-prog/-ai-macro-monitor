@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>苹果FY2026第四季度电话会：Siri AI变现、存储涨价与假日季指引</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-03<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>苹果FY2026第四季度电话会：Siri AI变现、存储涨价与假日季指引</h2>
+<div class="metaline">Apple Q4 FY2026 Earnings Call；SingjuPost完整逐字稿 · 2026-11-02 · <a href="https://singjupost.com/apple-aapl-q4-2026-earnings-call-transcript/" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文电话会纪要</div>
+<p class="kw">关键词：Apple；Siri AI；端侧推理；云端推理；服务变现；存储成本；资本回报</p>
+<h3>要点</h3>
+<ul><li>九月季度收入1,145亿美元，同比增长12%；iPhone和Mac分别增长17%、24%，服务增长10%。十二月季度总收入指引增长7%—10%、服务增长8%—9%、毛利率45%—46%。</li><li>存储涨价压低毛利，前期库存和部分非存储组件降本提供抵消；制造采购承诺环比增加330亿美元。先进制程约束开始缓解，Mac和iPad的假日季约束更多转向存储。</li><li>Siri AI云端推理费用计入服务销售成本，设备收入中的一部分递延确认；苹果计划未来向需要更多服务器端功能用量的用户提供付费扩展访问。公司尚未披露端侧、私有云与其他云资源的具体使用比例。</li></ul>
+<h3>电话会纪要</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">开场：前瞻性信息与参会管理层</a></li><li><a href="#chapter-2">John Ternus：季度业绩与产品周期</a></li><li><a href="#chapter-3">Siri AI与端侧AI的机会</a></li><li><a href="#chapter-4">iPhone：收入、换机与折叠形态</a></li><li><a href="#chapter-5">Mac与iPad：新用户、性能及供应约束</a></li><li><a href="#chapter-6">可穿戴设备与家庭产品</a></li><li><a href="#chapter-7">服务：内容、支付与生态</a></li><li><a href="#chapter-8">责任、隐私与美国制造</a></li><li><a href="#chapter-9">Kevan Parekh：财务结果、毛利与费用</a></li><li><a href="#chapter-10">各产品类别的财务补充</a></li><li><a href="#chapter-11">企业采用：医疗、航空与本地AI</a></li><li><a href="#chapter-12">现金、债务与股东回报</a></li><li><a href="#chapter-13">十二月季度指引</a></li><li><a href="#chapter-14">1．Michael Ng（Goldman Sachs）：标准版iPhone与iCloud+变现</a></li><li><a href="#chapter-15">2．Erik Woodring（Morgan Stanley）：消费者智能体与服务增长</a></li><li><a href="#chapter-16">3．Amit Daryanani（Evercore ISI）：智能体入口与毛利率</a></li><li><a href="#chapter-17">4．Ben Reitzes（Melius Research）：净现金目标与长期服务增长</a></li><li><a href="#chapter-18">5．Wamsi Mohan（Bank of America）：存储采购与Siri算力成本</a></li><li><a href="#chapter-19">6．Samik Chatterjee（JPMorgan）：Duo交付与供应瓶颈变化</a></li><li><a href="#chapter-20">7．Krish Sankar（TD Cowen）：存储可得性、毛利抵消与系统级智能体</a></li><li><a href="#chapter-21">8．David Vogt（UBS）：量价拆分、需求弹性与研发费用</a></li><li><a href="#chapter-22">9．Richard Kramer（Arete Research）：系统融合与大中华区增长</a></li><li><a href="#chapter-23">10．Ben Bollin（Cleveland Research）：购买负担与供需平衡</a></li><li><a href="#chapter-24">结束语</a></li></ul></details>
+<p>本次电话会于美东2026年11月2日举行，讨论截至9月26日的2026财年第四季度及全年业绩；逐字稿页面于11月3日发布。以下依管理层陈述和分析师问答顺序整理，保留全部实质讨论。十二月季度对应2027财年第一季度。</p>
+<h4 id="chapter-1">开场：前瞻性信息与参会管理层</h4>
+<p>投资者关系负责人Suhasini Chandramouli提示，收入、毛利率、营业费用、其他收入与费用、税率和业务前景等陈述包含前瞻性信息。宏观经济、关税及其他措施、法律与监管程序等因素，可能令实际结果偏离预测。风险说明见已提交的10-Q、10-K、当日8-K及新闻稿；截至9月26日财年的10-K计划次日提交。相关陈述以电话会时点为准。</p>
+<p>John Ternus首次以苹果CEO身份参加业绩电话会，随后由CFO Kevan Parekh介绍财务结果。COO Sabih Khan加入问答，负责运营、制造、AppleCare、环境事务及全球供应商合作等领域。</p>
+<h4 id="chapter-2">John Ternus：季度业绩与产品周期</h4>
+<p>本季收入1,145亿美元，同比增长12%，创九月季度纪录，推动全年收入与每股收益达到公司纪录。Ternus表示，公司刚经历了密集的产品发布期。</p>
+<p>iPhone Duo采用折叠形态；iPhone 18 Pro与Pro Max重点提升相机、电池续航和性能。新MacBook Pro首次加入触控，苹果也发布了新iMac与14英寸MacBook Pro。新iPad mini引入OLED显示屏、轻薄设计；Apple Watch更新健康功能；AirPods 5在开放式佩戴形态中提供主动降噪。家庭产品包括HomeView、新Apple TV 4K与HomePod mini。</p>
+<p>公司将Siri AI定位为深度整合各平台、个性化并保护隐私的助手。9月先面向美国英语用户推出测试版，10月扩展至法语、日语、韩语、葡萄牙语及西班牙语。Ternus表示，相关隐私设计使苹果自身也无法访问用户数据，公司仍有更多功能计划。</p>
+<p>他看好的机会包括产品路线图、服务、健康、新兴市场、企业和教育。苹果与菲律宾教育部门达成其规模最大的Mac教育采购协议，计划向教师及工作人员部署17万台MacBook Neo。这类项目可以扩大生态用户基础，并支持后续增长。</p>
+<p>公司强调，产品开发结合工程、设计、软件、供应链与零售人才，以质量、性能、设计、耐用性和直观使用体验吸引升级及转用苹果的用户。服务则扩展设备的工作、娱乐、聆听、观看与沟通用途。活跃设备安装基础已超过25亿台，为扩大服务提供基础。</p>
+<h4 id="chapter-3">Siri AI与端侧AI的机会</h4>
+<p>Ternus将Siri AI描述为重新设计的助手，能理解与用户相关的信息、屏幕内容并进行自然对话，以帮助处理日常事务。公司对早期评测与用户反馈满意。</p>
+<p>iPhone仍被定位为“智能个人中枢”，随身携带并理解信息、照片、笔记与应用所组成的个人情境，在需要时提供智能。Mac则正在经历自己的AI应用扩展：新产品线中的每台Mac都能运行AI，Mac mini和Mac Studio尤其适用于本地、私有AI，能够完成过去难以实现的任务。</p>
+<p>公司希望Mac、iPhone与iPad同时成为第一方和第三方AI应用的平台。Ternus强调，创新应以对用户生活的实际影响衡量，而苹果的工作是继续开发产品并扩大覆盖。</p>
+<h4 id="chapter-4">iPhone：收入、换机与折叠形态</h4>
+<p>iPhone九月季度收入576亿美元，同比增长17%，仍受到供应限制和汇率逆风。美国及大中华区均实现强劲两位数增长，并创九月季度纪录。</p>
+<p>苹果整体在跟踪的绝大多数市场增长，美洲、欧洲、大中华区和亚太其他地区创九月季度收入纪录；发达及新兴市场也创同期纪录，印度创历史纪录。iPhone全球换机用户创九月季度纪录，美国、中国大陆和印度也达到同期纪录，全年换机人数创全球纪录。</p>
+<p>iPhone Duo从设计之初就希望以可折叠形态提供更大的屏幕，让体验像iPad一样自然、直观。硬件和软件共同设计，既保留iPhone特点，也带来新使用方式。开发者正在适配新形态，公司对评论及客户反应满意，正在努力加快交付。</p>
+<p>iPhone 18 Pro系列引入可变光圈及新的摄影风格。A20 Pro配合新一代均热板，提升持续性能；Pro Max显著改善电池续航。A20 Pro新增双16核神经网络引擎，以支持端侧AI与计算摄影。</p>
+<h4 id="chapter-5">Mac与iPad：新用户、性能及供应约束</h4>
+<p>Mac收入108亿美元，同比增长24%，同样受到供应约束。多数市场实现两位数增长，新兴市场尤其强劲并创九月季度纪录。首次购买Mac的客户数创同期纪录。根据IDC数据，公司认为季度及全年全球市场份额提高，全年Mac销量创纪录。</p>
+<p>新MacBook Pro配备ProLED XDR屏幕并首次支持触控，同时改善全天续航、音频和轻薄设计。M6进入14英寸MacBook Pro及新iMac，更新CPU与双16核神经网络引擎，用于日常任务和私有端侧AI。</p>
+<p>iPad收入62亿美元。新iPad mini搭载OLED屏幕与A20 Pro，设计更薄。管理层强调其在教室、设计工作室以及移动使用场景中的用途。</p>
+<h4 id="chapter-6">可穿戴设备与家庭产品</h4>
+<p>可穿戴、家庭及配件收入83亿美元。</p>
+<p>Apple Watch新增Health Sensing System，配合S11芯片提升心率感知；Health Age、Readiness分别帮助理解健康状态及运动恢复需求，Health应用也经过重设计。Audio Intelligence将于后续软件更新推出，用于帮助记住容易遗漏的时刻。</p>
+<p>Series 12采用轻量设计；Ultra 4相较前代延长续航、改善设备端GPS。AirPods 5更新开放式主动降噪、音质、电池与耐用性。与iPhone及Apple Intelligence结合，可通过Live Translation进行跨语言沟通，或免手持地借助Siri AI获得知识性回答。</p>
+<p>HomeView结合家庭娱乐、沟通与管理，并提供家庭成员各自的个性化体验。新Apple TV 4K加入Apple Intelligence，另有新HomePod mini。Apple Home Collection通过与主要合作伙伴合作，把家庭体验拓展到苹果自有硬件之外。上述产品沿用公司的隐私保护原则。</p>
+<h4 id="chapter-7">服务：内容、支付与生态</h4>
+<p>服务收入316亿美元，同比增长10%，创历史纪录。多数跟踪市场实现两位数增长；美洲与欧洲创历史收入纪录，亚太其他地区创九月季度纪录。</p>
+<p>管理层介绍，Apple TV作品在第78届黄金时段艾美奖中表现突出，喜剧《Widow’s Bay》获得14项奖项；内容阵容包括《Slow Horses》《Ted Lasso》和即将推出的电影《Being Human》。Apple TV+作品累计获得超过900次获奖及3,800多次提名。</p>
+<p>Apple Pay与Axis Bank合作进入印度，当前在90多个市场提供服务。Apple Music在伦敦开设Apple Music Hall，用于小型现场演出，开幕活动邀请Elton John表演。</p>
+<h4 id="chapter-8">责任、隐私与美国制造</h4>
+<p>公司强调提高再生材料使用和耐用性，减少资源消耗；通过Apple Watch声音识别支持聋人及听障用户；端侧处理使个人数据留在设备上；新儿童安全功能协助家长管理设备使用时间和方式。</p>
+<p>美国制造计划继续拓展供应商合作。Perryman为iPhone Duo提供钛材，Qnity Electronics参与iPhone 18 Pro可变光圈相机技术。最新iPhone中约100个组件来自十多个州的美国公司。</p>
+<p>苹果表示，其与全美50州数千家供应商及合作伙伴的合作支持超过45万个美国就业岗位。这属于四年6,000亿美元美国创新及先进制造承诺的一部分。</p>
+<h4 id="chapter-9">Kevan Parekh：财务结果、毛利与费用</h4>
+<p>本季收入1,145亿美元，同比增长12%。增长受到约两个百分点的环比汇率逆风，以及iPhone、Mac、iPad供应限制影响。产品收入829亿美元，同比增长12%，主要由iPhone与Mac两位数增长推动。超过25亿台活跃设备的安装基础，在主要产品类别和地域分部均创新高。</p>
+<p>服务收入316亿美元，同比增长10%；视频、云服务、支付及广告创历史纪录，音乐创九月季度纪录。</p>
+<p>公司总毛利率47.9%，产品毛利率37.2%。两项口径均包含关税退款的正面影响，九月季度约为一个百分点。若从六月与九月两个季度均剔除退款，总毛利率和产品毛利率环比都约下降一个百分点，主要来自存储成本提高。截至九月季度，公司已收到此前所付关税相关退款的绝大部分。</p>
+<p>服务毛利率为76%，环比提高40个基点。营业费用192亿美元，同比增长21%，反映持续研发投入。净利润307亿美元，摊薄每股收益2.10美元，同比增长14%；每股收益中约0.05美元来自关税退款。即使剔除退款，净利润及EPS仍创九月季度纪录。经营现金流约281亿美元。</p>
+<p>全年收入4,788亿美元，同比增长15%；全年EPS为8.98美元，同比增长20%，均创公司财年纪录。</p>
+<h4 id="chapter-10">各产品类别的财务补充</h4>
+<p>iPhone收入576亿美元，同比增长17%，多数市场两位数增长，发达及新兴市场均创九月季度收入纪录。全年iPhone收入在全球及每个地域分部都创新高。活跃安装基础创新高，全年换机人数在美国、中国大陆、印度、日本等市场也创纪录。Worldpanel调查显示，iPhone在美国、中国城市、印度、英国、德国、澳大利亚和日本均有畅销机型。</p>
+<p>Mac收入108亿美元，同比增长24%，主要由MacBook Neo和MacBook Pro推动。发达与新兴市场均为两位数增长；印度、东南亚等市场创历史纪录。新兴市场全年Mac表现创新高，换机与首次购买用户共同推动增长。</p>
+<p>iPad收入62亿美元，同比下降10%，原因包括供应限制，以及上年A16版iPad上市形成的高基数。安装基础创新高，季度购机用户中超过一半首次购买iPad。</p>
+<p>可穿戴、家庭及配件收入83亿美元，同比下降8%，主要面临上年Watch SE 3与AirPods Pro 3上市的高基数。可穿戴设备安装基础创新高，购买Apple Watch的客户超过一半为首次购买。</p>
+<p>服务收入316亿美元，同比增长10%，同时受到超过1.5个百分点的环比汇率逆风。多数市场创历史纪录，包括拉美、印度等新兴市场。交易账户与付费账户均创新高，付费订阅超过15亿，同比增长两位数。</p>
+<p>公司继续扩展服务：100多个国家和地区的iCloud+方案加入Apple TV与Apple Arcade；Apple Maps广告已在美国、加拿大上线，为本地商家接触客户提供新渠道，并强调用户隐私。</p>
+<h4 id="chapter-11">企业采用：医疗、航空与本地AI</h4>
+<p>Duke Health借助Stryker获FDA授权的应用，首次使用Apple Vision Pro辅助髋关节镜手术。</p>
+<p>American Airlines向乘务人员部署超过3.7万部iPhone 17，使用Tap to Pay处理机上购物；另外向飞行员和维修人员部署2.5万台iPad。</p>
+<p>企业采用Mac的用途也在扩大。Gap在数百家门店完全通过Mac mini运行AI防损系统，避免云端token费用。佳士得在Mac Studio上运行本地模型，改善估价等核心生产力流程。这些是管理层给出的具体采用案例。</p>
+<h4 id="chapter-12">现金、债务与股东回报</h4>
+<p>季末现金与有价证券为1,370亿美元，总债务800亿美元。季度向股东返还约280亿美元，包括39亿美元股息及等价支付，以及240亿美元股票回购；分项与总额存在四舍五入。</p>
+<h4 id="chapter-13">十二月季度指引</h4>
+<p>指引假设全球关税税率、政策及执行方式维持电话会时点状态，全球宏观经济前景不进一步恶化。</p>
+<p>总收入预计同比增长7%—10%，反映公司对受限供应的当前判断，预计仍将是公司收入规模最高的季度。服务收入预计增长8%—9%，同比增速相较前季面临第三方授权及汇率的进一步逆风。</p>
+<p>毛利率预计45%—46%，主要反映更高的存储成本，也包括Siri AI扩展的部分成本。营业费用预计204亿至208亿美元。其他收入与费用净额预计约3亿美元，不包含少数股权投资按市值计价的潜在影响；税率预计约17%。</p>
+<p>董事会宣布每股普通股现金股息0.27美元，登记日为11月12日，支付日为11月16日。</p>
+<h3>分析师问答</h3>
+<h4 id="chapter-14">1．Michael Ng（Goldman Sachs）：标准版iPhone与iCloud+变现</h4>
+<p><strong>问题一：</strong>九月新品阵容没有标准版iPhone 18。原因是供应或组件限制，还是与推出Duo有关？</p>
+<p><strong>Ternus：</strong>公司很高兴在九月推出iPhone Duo和18 Pro。iPhone 17、iPhone Air和17e继续构成假日季完整产品阵容。公司不评论未来产品路线图，对当前阵容感到满意。</p>
+<p>管理层没有解释标准版18缺席的具体原因，也没有确认分析师提出的供应限制假设。</p>
+<p><strong>问题二：</strong>iCloud+与家庭安防连接增强，也可能承载Apple Intelligence变现。随着iPhone大容量存储价格上升及家庭产品扩展，iCloud+的附加购买率是否受益？</p>
+<p><strong>Ternus：</strong>九月季度云服务收入创历史纪录，公司很看好iCloud+。100多个国家及地区的套餐加入Apple TV和Apple Arcade，可以接触更多潜在订阅用户。</p>
+<p>Apple Intelligence也有机会。Siri AI、智能照片编辑等依赖服务器模型的功能，将设置一定使用量限制。需要更大容量的用户，未来可以购买扩展访问。iCloud最初的档位主要围绕存储，如今正在增加更多能力和功能。</p>
+<p>公司没有披露具体附加购买率、未来扩展访问价格或推出时间。</p>
+<h4 id="chapter-15">2．Erik Woodring（Morgan Stanley）：消费者智能体与服务增长</h4>
+<p><strong>问题一：</strong>AI从聊天机器人转向消费者智能体，为苹果带来机会，也带来风险。苹果和Siri AI希望扮演什么角色？其他智能体侵入服务业务的风险如何应对？</p>
+<p><strong>Ternus：</strong>Siri长期很受欢迎，每天处理超过25亿次请求。新的Siri AI是公司一直希望提供的Siri体验。</p>
+<p>当前它主要响应用户请求，但采用现代的编排器驱动架构，可随时间拓展能力。公司认为智能体工具对用户有潜力，同时要确保用户清楚自己授予了哪些访问权限，并保护安全与隐私。</p>
+<p>公司正在Siri AI上推进这些方向，也认为苹果设备是使用各种形式AI的良好平台。管理层未量化其他智能体对服务收入的潜在影响。</p>
+<p><strong>问题二：</strong>服务收入九月增长10%，十二月预计略低。随着搜索变化、监管影响App Store变现，哪些新服务可能抵消这些历史收入来源的压力，长期增长能否持续？</p>
+<p><strong>Parekh：</strong>九月服务收入增长10%，相较六月的同比增速变化主要由汇率驱动。视频、云服务、支付及广告表现强，包括第一方Apple Ads；音乐创九月季度纪录。</p>
+<p>从三月到九月，汇率对同比增速的影响约四个百分点，符合此前所说的主要拖累来源。十二月还预计新增约半个百分点的环比汇率逆风。</p>
+<p>九月App Store整体表现与上年相近；第三方应用付费订阅数创新高，并保持两位数增长。但移动游戏存在此前已提到的压力，预计延续至十二月。此外，公司调整了部分国家的App Store商业模式；美国仍受影响外链交易的法院裁决约束。</p>
+<p>十二月服务增长8%—9%的判断，主要纳入第三方授权和额外半个百分点汇率逆风。</p>
+<p><strong>Ternus补充：</strong>长期服务机会仍然很好。超过25亿台活跃设备构成增长基础。九月App Store平均每周访问用户接近10亿、创纪录，至少支付一项服务费用的用户也创新高。Apple Pay与Axis Bank合作进入印度，AI也可能创造新机会。公司没有承诺具体长期增速。</p>
+<h4 id="chapter-16">3．Amit Daryanani（Evercore ISI）：智能体入口与毛利率</h4>
+<p><strong>问题一：</strong>当个人智能体更普遍时，核心客户关系会否从设备转移到智能体？苹果整合芯片、硬件、软件，怎样把个人情境与屏幕感知结合起来，使智能体超越回答问题？Siri进展到哪一步？</p>
+<p><strong>Ternus：</strong>苹果将iPhone视为智能个人中枢。联系人、沟通记录、健康、财务等大量个人数据都在iPhone上。Siri可以在安全、私密、其他主体无法访问的方式下帮助用户使用这些数据，苹果自身也不能访问。这是公司重视的核心差异化，会继续推进。</p>
+<p>管理层没有给出超越问答的具体功能时间表，也没有直接量化客户关系转移的风险。</p>
+<p><strong>问题二：</strong>剔除关税退款后，十二月毛利率指引似乎意味着环比至少下降约140个基点。能否拆分存储涨价、产品组合和Siri AI扩展成本？</p>
+<p><strong>Parekh：</strong>十二月毛利率预计45%—46%。剔除九月退款后，中点对应的环比降幅大体与提问所述一致，主要由更高存储成本推动。</p>
+<p><strong>Ternus：</strong>目前存储价格变化很不寻常。九月存储成本比六月高，但前期库存与部分非存储组件成本下降抵消了一部分。</p>
+<p>十二月预计存储成本进一步上升。六月末Mac、iPad及九月iPhone价格调整提供一些抵消；十二月仍有前期库存和部分非存储组件降本的帮助。再往后，采购存储的价格仍在上升，而前期库存带来的好处将逐渐减弱。</p>
+<p>为了改善供应，六月至九月期间制造采购承诺增加了330亿美元，次日发布的年报会显示这一变化。</p>
+<p><strong>Parekh续答：</strong>随着Siri AI覆盖更多用户，相关云成本计入服务销售成本。和以往设备捆绑Maps、Siri、iCloud的做法相同，公司把部分设备收入递延，并在设备使用寿命内确认。十二月季度的硬件递延将反映加入Siri AI。</p>
+<p>云端成本和收入递延都会影响毛利率。公司继续投入支持业务，也看到AI推动收入的多条途径：新能力吸引升级及转用苹果；第三方应用及合作伙伴机会；第一方服务中，Siri AI与Apple Intelligence服务器功能的付费扩展访问。</p>
+<p>管理层没有披露各因素精确的毛利率百分点拆分。</p>
+<h4 id="chapter-17">4．Ben Reitzes（Melius Research）：净现金目标与长期服务增长</h4>
+<p><strong>问题一：</strong>此前公司说不再以净现金中性为目标。在新CEO领导下，这意味着可能转成净负债来回购或并购，还是可能重新积累更多现金？</p>
+<p><strong>Parekh：</strong>公司确实不再使用净现金中性目标。现金与债务应独立评估、分别优化，从而保留合适的灵活性。</p>
+<p>资本配置理念没有改变：为业务投入所需资金，把多余现金返还股东。取消净现金中性目标，是为了在优化资产负债表和为公司作合适投资时增加灵活性。公司没有宣布转向净负债，也没有承诺提高现金储备。</p>
+<p><strong>问题二：</strong>公司通常只指引一个季度，但服务增速从8%—9%的水平，长期能否再加快？AI能否带来尚未讨论的新服务，抬升增长？</p>
+<p><strong>Parekh：</strong>支持长期机会的因素包括超过25亿台活跃设备、九月App Store周访问用户纪录，以及交易、付费账户创新高。新兴市场服务收入继续两位数增长，印度Apple Pay是一个例子。</p>
+<p>公司持续改善既有和新服务的功能与覆盖范围。iCloud套餐加入Apple TV和Arcade扩大潜在订阅群，AppleCare+ Family也是一个例子。公司会继续寻找增长机会，但没有提供长期增速或新的AI服务收入目标。</p>
+<h4 id="chapter-18">5．Wamsi Mohan（Bank of America）：存储采购与Siri算力成本</h4>
+<p><strong>问题一：</strong>苹果现在采购存储，需要与资金充足、签订长期协议的公司竞争。采购方式是否改变？未来存储压力如何发展？如果持续涨价，产品价格是否也会继续提高？</p>
+<p><strong>Khan：</strong>公司与很多供应商合作已有数十年，重视这种关系，未来还会继续合作。公司始终努力改善供应，六月到九月制造采购承诺增加330亿美元。</p>
+<p><strong>Parekh补充：</strong>公司用多项行动应对：降低非存储组件成本，利用前期库存，并且不情愿地调整产品价格，先是六月左右的iPad与Mac，随后九月的iPhone。</p>
+<p>作这些决定时，公司会评估销量、收入、利润率，以及短期和长期影响，认为当前取得了平衡。管理层没有披露具体长期采购协议、存储锁价机制，也未预告下一轮涨价。</p>
+<p><strong>问题二：</strong>Siri AI刚上线，token消耗如何分布在端侧、Private Cloud Compute和GCP？使用量有没有加速？如果全球使用迅速增加，是否需要提高算力支出？</p>
+<p><strong>Parekh：</strong>Siri AI请求会在设备端和已介绍的Private Cloud Compute环境中处理。现在太早，尚难预测成本结构的具体比例。</p>
+<p>端侧运行非常高效，基本没有与之相连的额外运行成本；服务器侧会有推理费用。这正是此前所说Siri AI成本将进入服务销售成本的原因。</p>
+<p>产品刚推出并覆盖更多用户，公司仍处于了解成本组合以及进一步算力需求的早期阶段。没有披露端侧、私有云或GCP的占比，也没有给出使用量增速与额外算力投入金额。</p>
+<h4 id="chapter-19">6．Samik Chatterjee（JPMorgan）：Duo交付与供应瓶颈变化</h4>
+<p><strong>问题一：</strong>推出Duo以后学到了什么？需求如何？目前需要解决哪些供应链问题，何时能达到供需平衡？</p>
+<p><strong>Khan：</strong>公司对Duo的早期反应很满意，但目前仍供不应求。产能爬坡进展良好，团队正努力尽快交付。现在很难预测供需何时达到平衡。</p>
+<p><strong>问题二：</strong>九月及十二月都有供应限制。整体影响是否加大？能否量化两季收入受到的影响？</p>
+<p><strong>Khan：</strong>九月iPhone、Mac和iPad都受到供应限制，来自较高的需求，供应链的灵活性也比正常时候更低。</p>
+<p>第四财季的限制主要是制造系统级芯片所需先进制程的可用性。随着更多产品转向最新2纳米节点，先进制程约束开始缓解。</p>
+<p>十二月预计Mac和iPad仍有约束，主要来自存储，因为需求高于原先预期。管理层没有量化两季损失的收入，也未给出全公司约束强弱的统一数值比较。</p>
+<h4 id="chapter-20">7．Krish Sankar（TD Cowen）：存储可得性、毛利抵消与系统级智能体</h4>
+<p><strong>问题一：</strong>存储涨价对毛利的影响是否在一个至两个百分点左右？除了价格，存储本身是否难以获得？是否通过长期采购协议保证数量？</p>
+<p><strong>Khan：</strong>公司继续努力改善供应，并重申六月到九月制造采购承诺增加330亿美元。没有披露具体长期协议。</p>
+<p><strong>追问：</strong>那未来毛利影响应当怎样理解？</p>
+<p><strong>Parekh：</strong>剔除六月、九月两个季度的关税退款，九月毛利率环比变化约一个百分点，全部来自存储影响。</p>
+<p>存储涨价的原始冲击比这个净降幅更大，但前期库存、非存储组件降本和部分售价调整形成抵消。十二月仍预计存储成本构成挑战，指引已经包含这一点；看指引中点，环比毛利下降的大部分也来自存储成本提高。</p>
+<p>管理层没有确认分析师提出的一个至两个百分点毛影响区间，应保留公司披露的净影响与抵消机制。</p>
+<p><strong>问题二：</strong>消费者智能体竞争增加，Siri嵌入操作系统，与受限于独立应用架构的智能体相比，会怎样发展？</p>
+<p><strong>Ternus：</strong>当前Siri主要基于用户请求，底层采用现代的编排器驱动架构，可以逐步扩展能力。公司最重视以私密、安全的方式提供功能，并保护个人数据。没有给出对应用型竞争者的具体优劣测算。</p>
+<h4 id="chapter-21">8．David Vogt（UBS）：量价拆分、需求弹性与研发费用</h4>
+<p><strong>问题一：</strong>结合供应和十二月指引，能否拆分产品收入增长中数量与价格的贡献？看起来iPhone、Mac都可能两位数增长，而PC/Mac市场价格上涨明显，苹果也已调价。到底什么在驱动？</p>
+<p><strong>Parekh：</strong>公司通常不提供这种细节，只重申总收入预计增长7%—10%，且上年十二月季度已经增长16%，比较基数很强。</p>
+<p>目前判断价格弹性为时尚早。iPad和Mac在调价后一直受供应约束；iPhone也刚于九月调整价格。因此，还不能准确评估调价对需求的弹性影响。管理层没有确认提问中iPhone与Mac将各自两位数增长的假设。</p>
+<p><strong>问题二：</strong>过去一年研发投入增长很快，2027财年第一季度的营业费用指引似乎有所放缓。各项因素如何作用？</p>
+<p><strong>Parekh：</strong>公司不细分指引。十二月营业费用预计同比增长11%—13%，来自继续增加研发投入，尤其是AI。</p>
+<p>增速确实低于2026财年，但整体AI投入仍在显著增加。公司会继续为产品路线图投资，十二月指引也反映这一点。</p>
+<p><strong>Ternus补充：</strong>公司有信心，当前支出足以支持既定产品路线图。</p>
+<h4 id="chapter-22">9．Richard Kramer（Arete Research）：系统融合与大中华区增长</h4>
+<p><strong>问题一：</strong>最新MacBook Pro加入触控、Dynamic Island和Siri AI等更像iOS的功能。未来macOS与iOS会否更紧密，甚至为简化体验或降低成本而合并成一个操作系统？</p>
+<p><strong>Ternus：</strong>公司对Mac和iPad都很自豪，多年来一直把功能跨生态共享，比如iPhone、Mac和iPad之间的Handoff。</p>
+<p>设计目标是把每种产品做好。上周发布的MacBook Pro在各方面都有进步，公司很满意。目前没有计划进行根本性不同的调整，即使有，也不会在此讨论。没有宣布统一操作系统路线图。</p>
+<p><strong>问题二：</strong>大中华区经历两年销售下降后，2026财年增长28%。复苏来自什么？这样领先其他地域的增速能否持续？</p>
+<p><strong>Parekh：</strong>九月季度大中华区收入增长21%，创同期纪录，主要由iPhone同期纪录及Mac强劲两位数增长推动。全年增长28%。Tim Cook和Sabih近期到当地与客户、开发者及伙伴会面，公司对包括Duo在内的新产品反应感到满意。</p>
+<p>活跃安装基础创新高，中国大陆iPhone全年换机人数创纪录。Worldpanel调查显示，iPhone占据中国城市畅销智能手机前三款，公司认为iPhone和Mac份额都提高。</p>
+<p>Mac全年换机和首次购买客户均创新高。Counterpoint数据显示，九月季度MacBook Air和MacBook Neo是销量前两位的笔记本机型，Mac mini是畅销桌面电脑机型。管理层将表现归于产品实力，没有承诺后续持续28%的增长。</p>
+<h4 id="chapter-23">10．Ben Bollin（Cleveland Research）：购买负担与供需平衡</h4>
+<p><strong>问题一：</strong>设备价格提高后，以旧换新、补贴等降低购买负担的项目对销量有多重要？苹果如何在不完全由自身出资的情况下鼓励这些项目？</p>
+<p><strong>Ternus：</strong>公司在开发和定价时，着眼于产品、服务质量及客户价值。异常的存储价格对售价造成压力，但公司仍对产品表现满意。</p>
+<p>苹果持续投资Apple Upgrade Program等项目，这些项目帮助消费者承担设备购买成本，因此确实是重要因素。管理层没有提出新的外部补贴或融资安排。</p>
+<p><strong>问题二：</strong>整个产品组合的供需平衡，距离希望达到的位置还有多远？公司如何实现？</p>
+<p><strong>Khan：</strong>十二月Mac与iPad预计仍受供应约束，主要来自存储，原因是需求高于此前预期。公司不提供十二月季度以后的展望。</p>
+<h4 id="chapter-24">结束语</h4>
+<p>投资者关系负责人表示，电话会回放将在Apple Podcasts与苹果投资者网站提供。会议在上述第十组问答后结束。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
