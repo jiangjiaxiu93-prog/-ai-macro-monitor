@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Sam Altman谈算力豪赌、超级智能与创业判断（Figuring Out）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl on" href="../model_returns.html" aria-current="page" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-05<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../model_returns.html">← 返回大模型公司的回报</a>
+<div class="card"><article>
+<h2>Sam Altman谈算力豪赌、超级智能与创业判断（Figuring Out）</h2>
+<div class="metaline">Figuring Out FO583；Raj Shamani、Sam Altman · 2026-11-03 · <a href="https://www.youtube.com/watch?v=TjPPIf-M6KE" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；前沿实验室；AI监管；研发效率；组织变革；OpenAI</p>
+<h3>要点</h3>
+<ul><li>Altman回顾，GPT-4训练完成后，内部体验及对扩展规律的理解，使OpenAI决定大幅押注算力。模型能力若略弱一些，他认为决策就可能不同。</li><li>他区分模型失控与人类借AI集中权力两类风险，并讨论品牌、研究文化、人才流动和企业可靠性要求。</li><li>对话保留了从童年、被误解到创业判断的完整问答，包括ChatGPT早期约5%的内部留存、逆共识投资、复利、雄心与个人生活的代价。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">02:02 认识技术背后的人</a></li><li><a href="#chapter-2">04:22 童年与不合群的感觉</a></li><li><a href="#chapter-3">06:54 印度的乐观与美国的怀疑</a></li><li><a href="#chapter-4">09:30 没有OpenAI股权带来的误解</a></li><li><a href="#chapter-5">10:44 被误解与判断错误有什么区别</a></li><li><a href="#chapter-6">16:26 GPT-4之后的算力豪赌</a></li><li><a href="#chapter-7">18:34 怎样避免身边只有附和者</a></li><li><a href="#chapter-8">20:53 创业时机、非共识与好问题</a></li><li><a href="#chapter-9">27:27 为什么提前发布ChatGPT</a></li><li><a href="#chapter-10">31:04 为什么多数人不去尝试大胆的目标</a></li><li><a href="#chapter-11">34:06 超级智能与权力集中</a></li><li><a href="#chapter-12">36:40 OpenAI与Altman各自的优势</a></li><li><a href="#chapter-13">38:04 员工支持与研究实验室的文化</a></li><li><a href="#chapter-14">41:27 人才离开与不同团队之间的分歧</a></li><li><a href="#chapter-15">42:47 面对混乱、紧张与失去自由</a></li><li><a href="#chapter-16">47:24 护城河与判断创始人</a></li><li><a href="#chapter-17">51:54 成功没有单一的创始人模板</a></li><li><a href="#chapter-18">54:23 雄心可以培养吗</a></li><li><a href="#chapter-19">56:48 少听建议与持续复利</a></li><li><a href="#chapter-20">59:08 反思与AI进步速度</a></li><li><a href="#chapter-21">01:02:45 孩子将生活在怎样的AI世界</a></li><li><a href="#chapter-22">01:03:38 下一件最想创造的事</a></li><li><a href="#chapter-23">01:04:49 成为Sam Altman的代价</a></li><li><a href="#chapter-24">01:06:16 幕后片段</a></li></ul></details>
+<h4 id="chapter-1">02:02 认识技术背后的人</h4>
+<p><strong>Raj Shamani</strong></p>
+<p>今天与Sam Altman的对话，我想了解的是打造这项技术的人。他有哪些不安全感，害怕什么？作为朋友、父亲，以及正在创造可能塑造人类未来的重要事物的人，他如何思考？他怎样发现模式、找到那些并不显而易见的事情，进而创造出未来了不起的东西？这是我们想了解的。</p>
+<p>希望听完以后，你能从他的思考方式里得到一些启发，用在自己的生活中。欢迎来到节目。</p>
+<p><strong>Sam Altman</strong></p>
+<p>谢谢邀请。</p>
+<p><strong>Raj</strong></p>
+<p>Sam Altman，欢迎来到Figuring Out，很荣幸。</p>
+<p><strong>Sam</strong></p>
+<p>谢谢你做这次访谈。</p>
+<p><strong>Raj</strong></p>
+<p>如果有人第一次看到你，对你毫无了解，你会怎么在接下来的六十秒里介绍自己？</p>
+<p><strong>Sam</strong></p>
+<p>我是一个技术爱好者，对世界充满好奇。我相信AI会影响我们每个人的生活，希望大部分影响都非常积极。我也是一个父亲，很爱我的孩子。我会这么介绍。</p>
+<h4 id="chapter-2">04:22 童年与不合群的感觉</h4>
+<p><strong>Raj</strong></p>
+<p>你会提前想好，自己该怎样思考、说些什么、如何表达吗？</p>
+<p><strong>Sam</strong></p>
+<p>我通常只是自然地谈脑子里正在想的、自己感兴趣的事。</p>
+<p><strong>Raj</strong></p>
+<p>从小就这样吗，总在想下一件有趣的事？</p>
+<p><strong>Sam</strong></p>
+<p>我想小时候就是。我一直跟着自己的好奇心走。</p>
+<p><strong>Raj</strong></p>
+<p>小时候，你会觉得自己不如别人吗？</p>
+<p><strong>Sam</strong></p>
+<p>经常。我想大多数孩子都有这种感觉。我是个很书呆子的孩子，不擅长运动，而在我成长的年代，会运动才是很酷的事情。</p>
+<p><strong>Raj</strong></p>
+<p>我也一样，不擅长运动。</p>
+<p><strong>Sam</strong></p>
+<p>那时候运动很受欢迎。我一直有不少朋友，也善于与人建立联系，但从来不是那个很酷的孩子。</p>
+<p><strong>Raj</strong></p>
+<p>这会困扰你吗？</p>
+<p><strong>Sam</strong></p>
+<p>有一点，但不像某些人那么严重。我想孩子都希望受欢迎、显得很酷，觉得自己进不了核心圈子，确实会很难受。</p>
+<p><strong>Raj</strong></p>
+<p>你说没有像别人那样困扰，具体有什么区别？你当时怎么想？</p>
+<p><strong>Sam</strong></p>
+<p>我和一些人聊过，他们会说“我童年最鲜明的特点，就是我很书呆子、不酷，而且我非常讨厌这一点”。我也是书呆子，也不酷，但只是有点介意。我有电脑，有一小群很亲近的朋友，童年很美好，我觉得自己很快乐。</p>
+<p><strong>Raj</strong></p>
+<p>我想更深入了解你的脑子，你怎么想、怎么做决定、怎么看某些事。这对我很有吸引力，是不是过去谈得太少？</p>
+<p><strong>Sam</strong></p>
+<p>用这种方式谈自己很难，但我会尽力。</p>
+<p><strong>Raj</strong></p>
+<p>你在很多访谈里提过一些片段，我一直不明白，为什么大家没有顺着那些方向继续深入。</p>
+<p><strong>Sam</strong></p>
+<p>那就试试。</p>
+<h4 id="chapter-3">06:54 印度的乐观与美国的怀疑</h4>
+<p><strong>Raj</strong></p>
+<p>我在美国随便找个人聊，往往对AI略感悲观。在印度，人们却很乐观。</p>
+<p><strong>Sam</strong></p>
+<p>差别非常明显。</p>
+<p><strong>Raj</strong></p>
+<p>为什么会这么不同？</p>
+<p><strong>Sam</strong></p>
+<p>首先，按ChatGPT用户数计算，印度已经是我们全球最大的市场，而且增长很快。那里有非常强的创造和建设热情。</p>
+<p><strong>Raj</strong></p>
+<p>比美国还大？</p>
+<p><strong>Sam</strong></p>
+<p>对，印度的ChatGPT用户比美国更多。大家用它做各种很棒的事情，创办公司。我刚听说，一个印度孩子要为学校筹款，以前从没做过，却用我们的一组工具完成了整个流程，很了不起。</p>
+<p>那里采用很多、增长很快。不过，至少从公开表达的态度来看，美国相对世界其他地方，似乎格外不看好AI，印度则可能格外乐观。</p>
+<p><strong>Raj</strong></p>
+<p>你怎么理解这种差别？</p>
+<p><strong>Sam</strong></p>
+<p>很多人都观察到，发展更快、经济增长更快，而且产品和服务存在巨大供给缺口的国家，比发达经济体更欢迎AI。我想这肯定是原因之一。</p>
+<p><strong>Raj</strong></p>
+<p>我在美国和印度读关于你的报道时，也能感受到类似的悲观和乐观。你开启了我们这个时代最重要的技术变革之一，而且甚至没有自己公司的股权，却突然成了别人眼中的坏人。为什么？</p>
+<p><strong>Sam</strong></p>
+<p>我觉得美国人对掌权者有很强的怀疑，尤其是科技行业拥有的巨大权力。从某些角度看，这是好事。不过我感觉，程度有些过头了。</p>
+<h4 id="chapter-4">09:30 没有OpenAI股权带来的误解</h4>
+<p><strong>Raj</strong></p>
+<p>世界对你最大的误解是什么？</p>
+<p><strong>Sam</strong></p>
+<p>你刚才已经提到一个。我认为，不持有OpenAI股权是个错误。当时我觉得理由很充分，但这件事给人们带来了巨大的困惑。</p>
+<p>有意思的是，艺术家为自己的作品拼命投入，或者运动员刻苦训练却没赚很多钱，大家都能理解。这件事对我来说，就相当于那样。</p>
+<p><strong>Raj</strong></p>
+<p>为什么别人会误解？他们不喜欢什么、不理解什么？</p>
+<p><strong>Sam</strong></p>
+<p>因为它与人们通常理解的创业和经商动机差别太大了。它很奇怪，而人们不喜欢奇怪的东西。</p>
+<p><strong>Raj</strong></p>
+<p>我也觉得奇怪。</p>
+<p><strong>Sam</strong></p>
+<p>于是你就会想，他究竟为什么做这件事，是不是为了什么别的东西？</p>
+<p><strong>Raj</strong></p>
+<p>那你为什么做？</p>
+<p><strong>Sam</strong></p>
+<p>这是我能想象到最有趣、最重要、最有用的工作。它实在太有意思了，能够参与让我非常兴奋。这是多么值得追求的一件事。</p>
+<h4 id="chapter-5">10:44 被误解与判断错误有什么区别</h4>
+<p><strong>Raj</strong></p>
+<p>这真是个可以一直追问下去的问题，我和很多人一样，还不完全理解，但很尊重你做的事。</p>
+<p>你说过一句话，我照着读，“应该用短期较低的地位，换取长期较高的地位，而多数人似乎不愿这样做。所以只要你是对的，被大多数人误解就是优势，而非弱点。”</p>
+<p>我觉得很有意思。但在结果出现之前，你怎么知道自己只是被误解，而不是判断错了？</p>
+<p><strong>Sam</strong></p>
+<p>难就难在，你确实不知道。你可以有很强的信念，也可以随着证据增加而越来越确信，我觉得这才是应该追求的。但你不可能完全确定。不确定性也是令人兴奋的一部分。</p>
+<p>刚成立OpenAI时，这件事的社会认可度非常低。我们知道，如果做成会很有价值，但几乎没人认真对待。大家说，通用人工智能也许一百年后才会出现，也许永远不会，你们就是一群年轻人，又没有那种资历完美的学术团队。评价非常负面。</p>
+<p>我们有理由下注，随着搞清楚更多事情，也有理由更加自信。但最后真的成功，仍然很惊人。我认为这是一个期望价值很好的选择，但离确定性远得很。</p>
+<p><strong>Raj</strong></p>
+<p>是什么信号让你越来越相信它可能成功，值得去做？</p>
+<p><strong>Sam</strong></p>
+<p>我觉得每个人一生中可能只有少数几个重要洞见，然后不断以新的方式应用。对我来说，其中一个就是规模带来的惊人性质。</p>
+<p>我在企业、国家、城市、个人职业生涯、各种技术，以及我之前参与的Y Combinator这样的网络中，都见过这种现象。一个在小规模下有效的东西，真正扩展到大规模时，往往会出现很强的超线性回报。</p>
+<p>我和其他人一样，无论有意无意，都在做模式识别。所以当我们看到神经网络开始奏效，而且规模越大表现越好时，我非常感兴趣，强烈直觉是应该把它继续扩大很多。</p>
+<p>那时我们还不知道，可以怎样精确预测规模对应的能力，距离形成扩展定律还有好几年。但已经大致观察到，把神经网络做大，它就能做更惊人的事情。AlexNet的成果首先体现了这一点，之后还有很多例子。</p>
+<p><strong>Raj</strong></p>
+<p>这些信号其他人应该也看得到吧？是什么阻止他们沿着这个方向做？</p>
+<p><strong>Sam</strong></p>
+<p>这是我职业生涯中最困惑的事情之一。为什么在2015、2016年，甚至到2018至2021年，其他人看着同样的数据，却没有说“这太惊人了，我们必须投更多钱”？</p>
+<p>对我和公司里其他人来说，它似乎非常明显。我们甚至有点觉得自己是不是疯了，别人怎么会看不到？</p>
+<p>可能因为这个方法看起来太简单，又太难以置信。看着神经网络犯的错误，人们会说，这么笨的东西，怎么可能只靠做大就解决所有问题？</p>
+<p>很多聪明人说，你必须有符号表征，必须做别的东西，或者他们能提出听起来非常有说服力的反对理由。我记得有人解释为什么我们的方法永远行不通，听起来特别有道理。</p>
+<p><strong>Raj</strong></p>
+<p>他说了什么？</p>
+<p><strong>Sam</strong></p>
+<p>大概是，模型只是在根据训练集，学习预测接下来最可能出现的内容。所以它们永远无法创造新知识，因为只能对训练集里已有的东西建模。</p>
+<p>这听起来很合理。你给模型看一百万道数学题，它也许能学会做这些题，但一个尚未证明、尚未被发现的新问题，没有出现在训练集里，它怎么会做？</p>
+<p>现在我们知道，这个判断不成立。但当时确实很有说服力。它漏掉的是，模型学到的不仅是那些具体数学题，虽然它也会学到题目，更重要的是通用的推理能力，而推理能力可以扩展到新的事情上。</p>
+<h4 id="chapter-6">16:26 GPT-4之后的算力豪赌</h4>
+<p><strong>Raj</strong></p>
+<p>说一个具体决定吧。当其他人说“这可能永远做不成”时，你做过什么影响深远、仿佛一半是确定性、一半是妄想的决策？</p>
+<p><strong>Sam</strong></p>
+<p>GPT-4训练结束后，大概是2022年8月。我记得完成训练到对外发布，间隔约七八个月。</p>
+<p>我们在内部使用它，知道它很了不起，但又过了一段时间，才真正意识到它会打开哪些新的研究方向，GPT-4之后模型可能进步得多快，以及我们能做后来成为思维链和推理模型的那些研究。</p>
+<p>然后我们决定在算力上大举下注。我们看到模型还能继续扩展，而且会创造非常重要的价值。但这是一种新判断，外界还没走到那一步，他们连GPT-4都没见过，也没有真正理解我们认为它能做什么。</p>
+<p>于是我们决定，把公司的未来押在大量采购算力上。很多人觉得疯狂，但我们已经实际用过这个模型，也理解了扩展的性质，因此有足够信心认为自己很可能是对的。</p>
+<p><strong>Raj</strong></p>
+<p>另一个选项是什么？</p>
+<p><strong>Sam</strong></p>
+<p>在算力上采取小得多的投入，以更慢的速度扩展。</p>
+<p><strong>Raj</strong></p>
+<p>如果当时得到其他信息，你会改变决定吗？</p>
+<p><strong>Sam</strong></p>
+<p>如果模型哪怕只稍微不那么聪明，比如GPT-4最终只有所谓“GPT-3.8”的水平，我们可能就没有信心下这么大的注。</p>
+<h4 id="chapter-7">18:34 怎样避免身边只有附和者</h4>
+<p><strong>Raj</strong></p>
+<p>到今天，别人还会说你有些想入非非吗？</p>
+<p><strong>Sam</strong></p>
+<p>会，但我可能应该多听到一些这样的声音。</p>
+<p><strong>Raj</strong></p>
+<p>为什么？</p>
+<p><strong>Sam</strong></p>
+<p>很多处在我这种位置的人，之所以出问题，就是周围附和的人太多。你确实需要反对意见。</p>
+<p><strong>Raj</strong></p>
+<p>你怎么确保今天身边不是一群只会说好的人？</p>
+<p><strong>Sam</strong></p>
+<p>让老朋友留在身边很有帮助，与共事十年以上的人合作也很有用。还要主动建立一种文化，当你错了，有人强烈反对，你会奖励这种行为，让他们容易提出异议。</p>
+<p>这需要持续维护。你过去正确的次数越多，在世界上拥有的权力越大，越难得到真正的反对意见。</p>
+<p><strong>Raj</strong></p>
+<p>作为创始人，我困惑的是，如果身边全是老朋友、聪明人、你尊重的导师，他们都说你错了、方向不对，你怎么说服他们，或者坚持与他们相反的选择？你怎么知道今天坚持自己才是正确的？</p>
+<p><strong>Sam</strong></p>
+<p>我违背所有人建议做事的次数非常少。确实发生过，但很少。</p>
+<p>我见过一些创始人，他们最自豪的就是，在所有人都说错的时候仍然坚持。我的看法是，这种事只能非常勉强、非常谨慎地去做。</p>
+<p>既然你让聪明人围在身边，大多数时候就应该听他们。如果所有人都觉得你做得不对，你还是决定做，就应该把它当成一件代价昂贵、很可能判断错误、风险很高的事。你必须有非常充分的信念。</p>
+<h4 id="chapter-8">20:53 创业时机、非共识与好问题</h4>
+<p><strong>Raj</strong></p>
+<p>谈到其他聪明的创始人，是什么阻止他们做出像你这样非凡的事？他们显然很聪明。</p>
+<p><strong>Sam</strong></p>
+<p>AI这样的机会只发生一次。也许我们在选择问题上运气好，或者判断得好。但很多人也在做非凡的事情。</p>
+<p>现在全球优秀企业诞生的数量和速度，我从没见过这么高。这肯定是我经历过最好的时代，也很可能是历史上最适合创造东西的时代，无论是新公司、新技术，还是新的创意项目。</p>
+<p>我们刚刚得到了一份难以置信的礼物，人们正在做的事情很了不起。我相信接下来会出现许多非凡的公司，以及公司之外的创造。</p>
+<p><strong>Raj</strong></p>
+<p>假设有位创始人正在看节目，觉得自己因为理解AI和技术而看得很清楚的事，别人却完全看不懂。他怎么判断自己做的是对的，而不只是觉得自己被误解了？</p>
+<p><strong>Sam</strong></p>
+<p>这正是创始人的工作。如果你想做自己能够想象的最有雄心的公司，几乎肯定会被误解。当然，也有很多显然很好的点子，照样能让你取得巨大成功。但只要想法显而易见，其他有雄心的人也会去做。</p>
+<p>2015年我们成立OpenAI时，那一年新成立的AGI实验室可能一只手都数得过来，甚至远远不到五个，也许只有OpenAI，我不确定。但照片分享公司可能有一万家。</p>
+<p>多数人觉得做照片分享公司更好，可问题是，有一万家竞争者，Instagram还有巨大的网络效应。</p>
+<p>因此，如果你有理由认为某件事比表面上看更有价值，即使成功概率不高，但一旦成功价值极大，使其期望价值值得下注，你就有真正的优势。</p>
+<p>当你比别人更早理解某项技术、一段科学知识，或者世界的某个特点时，很自然会想，这么多聪明人都不认可，我不想被他们说蠢，他们会把我劝退。</p>
+<p>但我鼓励大家培养另一种反应。如果你真的理解它，而且能够说清楚为什么值得做，而非一厢情愿，就应该珍惜这样的时刻。作为创造者，这恰恰是最该兴奋的时候。</p>
+<p><strong>Raj</strong></p>
+<p>具体怎么找到这种非共识的机会？</p>
+<p><strong>Sam</strong></p>
+<p>好问题。我的经历里，几乎从没人教过我这件事。学校大部分时间教你回答别人提出的问题，很少教你决定应该问什么。可能读到博士，才开始更多提出自己的问题，然后逐渐增加。</p>
+<p>我认为应该更早教年轻人，怎样提出值得问的问题，怎样寻找那些还不知道、值得探索的事情。学会这种能力，是我找到非共识机会最有效的方式。</p>
+<p><strong>Raj</strong></p>
+<p>就是学会提出好问题？</p>
+<p><strong>Sam</strong></p>
+<p>对。</p>
+<p><strong>Raj</strong></p>
+<p>这种能力能学吗？</p>
+<p><strong>Sam</strong></p>
+<p>我认为能。和其他事情一样，人们的天赋不会完全相同，但很多人似乎都能学会。</p>
+<p><strong>Raj</strong></p>
+<p>我忘了是哪个国家、哪种文化，有一种习惯，孩子放学回家，母亲会问“你今天问了什么问题”。</p>
+<p><strong>Sam</strong></p>
+<p>真的吗？是哪种文化？很有意思。</p>
+<p><strong>Raj</strong></p>
+<p>可能是以色列，我不确定。母亲不问今天最精彩的事，而问“今天你提出了什么问题”。</p>
+<p><strong>Sam</strong></p>
+<p>很棒。</p>
+<p><strong>Raj</strong></p>
+<p>这是值得培养的习惯吗？</p>
+<p><strong>Sam</strong></p>
+<p>我要开始这样问我的孩子。大概十五年后再向你汇报结果。</p>
+<p><strong>Raj</strong></p>
+<p>但怎么区分真正的洞见和一厢情愿？有没有什么信号，能告诉你自己的思路可能有道理？</p>
+<p><strong>Sam</strong></p>
+<p>一个办法是，你能否向一位乐观、有热情，但思维严谨的聪明朋友解释清楚，并让他调整判断，理解为什么这可能是一个好选择。</p>
+<p>刚成立OpenAI时，默认态度是强烈怀疑。我会向人解释，这些是证据，我们看到了什么，为什么可能奏效，成功后为什么价值巨大，以及为什么这条路线可能走得通。至于如果能创造超级智能，它为什么有价值，倒很容易理解。</p>
+<p>并不是每次都能说服人，但足够多的聪明非专业人士听完后会说，好，这让我更新了看法，值得去做。</p>
+<p>如果能说服所有人，可能说明想法已经太明显了。但如果一个人都说服不了，我会更怀疑自己。</p>
+<p>不过我一边说，也在想，历史上肯定有人谁都说服不了，最终却是对的。所以到某个程度，你仍然得相信自己的直觉。</p>
+<h4 id="chapter-9">27:27 为什么提前发布ChatGPT</h4>
+<p><strong>Raj</strong></p>
+<p>你有没有过只有自己相信、其他人都不信的时候？</p>
+<p><strong>Sam</strong></p>
+<p>有些较小的决定，我说OpenAI要做这件事，其他管理层都不愿意。</p>
+<p><strong>Raj</strong></p>
+<p>举个例子。</p>
+<p><strong>Sam</strong></p>
+<p>发布ChatGPT大概算一个。大家并非不想发布聊天机器人，而是多数人觉得还太早、产品不够好。</p>
+<p><strong>Raj</strong></p>
+<p>是什么让你坚持发布？是YC的经历吗？</p>
+<p><strong>Sam</strong></p>
+<p>我想是。很多年来，我反复告诉创始人，如果第一版产品没有让你觉得有一点尴尬，就说明发布得太晚了，因为你需要用户反馈。</p>
+<p>还有一个信号。我们有内部版本，留存率很差。最初版本的ChatGPT，可能只有5%左右的人用了以后持续使用。</p>
+<p>当然，这个数据本身有很多问题。内部还有更好的模型和其他交互界面。但不少人看了就说，只有5%的留存，怎么能发布？太糟了。通常这种判断是对的，但如果你去跟那5%的用户交流，会发现有些人真的非常喜欢。</p>
+<p>YC还有一个经验，对早期项目来说，少数人特别喜欢，往往比很多人只有一点喜欢更重要。</p>
+<p>所以，内部原型的整体留存率很低，但喜欢它的人用得很多，也真的喜欢。我认为这是很好的信号。</p>
+<p><strong>Raj</strong></p>
+<p>你说了两个不同的观点。第一个是，如果不为第一版感到尴尬，就发布得太晚。今天你仍然能接受这种尴尬吗？</p>
+<p><strong>Sam</strong></p>
+<p>能。</p>
+<p><strong>Raj</strong></p>
+<p>既能接受被误解，也能接受尴尬？</p>
+<p><strong>Sam</strong></p>
+<p>对。我当然希望做出优秀产品，但也愿意发布一些早期雏形，获取反馈、学习。它们不一定都能成功。</p>
+<p><strong>Raj</strong></p>
+<p>公司规模变得这么大，就没有变化吗？这么多用户已经信任你们这么久。</p>
+<p><strong>Sam</strong></p>
+<p>变化很多。面向整个ChatGPT用户群发布的东西，必须达到很高的门槛。它已经越来越接近关键基础设施，企业非常依赖这些服务，所以企业产品的要求极高。</p>
+<p><strong>Raj</strong></p>
+<p>也就是说，现在情况变了。</p>
+<p><strong>Sam</strong></p>
+<p>但我们仍然可以用其他方式试验。希望你会看到我们尝试很多新产品。有些会让你非常喜欢，最终进入核心体验。有些则会让人觉得，理论上很酷，但不适合自己。</p>
+<p><strong>Raj</strong></p>
+<p>你今天仍觉得自己被误解吗？</p>
+<p><strong>Sam</strong></p>
+<p>大多数人现在已经承认，AI真的会发生。它当然并非处处受欢迎。我们希望世界变成什么样，希望人们如何使用这些工具和技术，仍然没有得到充分理解。但至少，大家理解AI正在到来。</p>
+<h4 id="chapter-10">31:04 为什么多数人不去尝试大胆的目标</h4>
+<p><strong>Raj</strong></p>
+<p>再回到创造非凡事物和支持别人创业。你还写过，大意是，人凭意志改变现实、改变世界的能力，比想象中大得多，而多数人甚至没有尝试。你记得吗？</p>
+<p><strong>Sam</strong></p>
+<p>记得类似的话。大概是，你能做到的远比自己想象的多，而多数人尝试得不够。</p>
+<p><strong>Raj</strong></p>
+<p>为什么人们不愿去做那些大胆、看似不可能的事？</p>
+<p><strong>Sam</strong></p>
+<p>我有很多猜测，但不少最终都归结为，人们想留在群体中。不做不同寻常的事，就不用冒失败、被认为错误或愚蠢的风险，更舒服。</p>
+<p>从进化生物学很容易解释这种倾向，人不想被部落赶出去。人们承受着很强的压力，阻止自己去做这些事。</p>
+<p><strong>Raj</strong></p>
+<p>因为社会就是这么组织的？</p>
+<p><strong>Sam</strong></p>
+<p>还要更深一层。社会之所以形成今天这样，也是进化压力的结果。这种倾向可能深深植根于多数人身上。</p>
+<p><strong>Raj</strong></p>
+<p>那你身上有什么，让你能按自己的意愿改变世界？</p>
+<p><strong>Sam</strong></p>
+<p>像很多科技从业者一样，我似乎天生就少一点那种“必须沿着既定道路、和别人做一样的事”的内在压力。在很多其他场景，这反而可能是缺点。我猜它很大程度上与遗传有关。</p>
+<p><strong>Raj</strong></p>
+<p>只有遗传？没有后来培养的东西吗？</p>
+<p><strong>Sam</strong></p>
+<p>当然也有其他因素。但你可以找到一些研究，有轻度自闭症特征的人，更可能做出新的科学发现，或者执着于一个想法，不顾各种不利条件，在实验室里拼命研究。</p>
+<p><strong>Raj</strong></p>
+<p>对你来说，那个真正改变现实的时刻是什么？</p>
+<p><strong>Sam</strong></p>
+<p>大概是成立OpenAI。希望如此，现在下结论还太早，但它可能会是我一生做过最重要的事。</p>
+<h4 id="chapter-11">34:06 超级智能与权力集中</h4>
+<p><strong>Raj</strong></p>
+<p>你会为它担心吗？</p>
+<p><strong>Sam</strong></p>
+<p>你是指AI？</p>
+<p><strong>Raj</strong></p>
+<p>对，也包括OpenAI。</p>
+<p><strong>Sam</strong></p>
+<p>当然。</p>
+<p><strong>Raj</strong></p>
+<p>最大的担忧是什么？</p>
+<p><strong>Sam</strong></p>
+<p>我们已经做了一些事，也会继续做下去，它会成为社会中一股非常强大的力量。我相信它能带来好处，整体上会带来巨大的好处。但风险和影响都很大，我们承担很重的责任。</p>
+<p><strong>Raj</strong></p>
+<p>这让我想起你早期写的一篇关于超人类机器智能的文章。那年五月，你给Elon写信，说如果Google之外还有人开始做这件事，会更好。</p>
+<p>你曾说，它可能成为人类继续生存面临的最大威胁。那么为什么由你来做，就能让威胁更小？</p>
+<p><strong>Sam</strong></p>
+<p>我相信多元化。我也不认为只有我们拥有这项技术是好事。</p>
+<p>用比较简化的说法，它可能通过两条路径严重出问题。第一，AI失控。我们有意或无意地把未来的控制权交给远比人类强大的系统，而且再也拿不回来。</p>
+<p>第二，某一个人、公司或国家，相对其他人变得过于强大。这种状态很不稳定。</p>
+<p>我认为，有多个AI团队，以略有不同的方法相互竞争、用不同方式把技术提供给世界，会更好。</p>
+<p>前面谈到人们不喜欢有权力的人，我自己也不喜欢权力过度集中。我认为那样行不通，也希望我们不会走到那一步。</p>
+<p><strong>Raj</strong></p>
+<p>成立公司时你也是这样想的吗，不能让一个已经拥有所有资源的人再掌握这种权力？</p>
+<p><strong>Sam</strong></p>
+<p>至少不应该只有一个。我认为应该有多个团队共同尝试。</p>
+<h4 id="chapter-12">36:40 OpenAI与Altman各自的优势</h4>
+<p><strong>Raj</strong></p>
+<p>现在有四五家大公司，资本充足、人才优秀、技术研究也很强，大家都在做。你们独特的竞争优势是什么？</p>
+<p><strong>Sam</strong></p>
+<p>我认为我们拥有最多的用户，也拥有从芯片、数据中心、模型到周边能力的最佳技术栈，能够把丰富的智能交到人们手里。</p>
+<p>我认为我们有最好的品牌，以及使用这项技术的人希望看到的价值观。我们希望其他人也能成功，我觉得大家能感受到。我们不想成为一家统治所有人的公司，这与我们创立时的想法一致。</p>
+<p><strong>Raj</strong></p>
+<p>我想问的是，什么让你成为Sam Altman。</p>
+<p><strong>Sam</strong></p>
+<p>你是问我个人？</p>
+<p><strong>Raj</strong></p>
+<p>你个人最大的优势是什么？</p>
+<p><strong>Sam</strong></p>
+<p>我做这件事的时间最长。当然，这么说也不对，Demis做得比我更久。</p>
+<p>我的一个大优势，是有很长时间观察整个发展过程。这不仅帮助我形成经营公司的直觉，也让我在整个生态里建立了广泛联系，这些关系非常有帮助。</p>
+<h4 id="chapter-13">38:04 员工支持与研究实验室的文化</h4>
+<p><strong>Raj</strong></p>
+<p>你肯定做对了什么。你被解雇时，有七百名员工威胁辞职，几乎整个公司都愿意支持你。作为创始人，你觉得自己做对了什么？</p>
+<p><strong>Sam</strong></p>
+<p>我不觉得是某一件事，甚至不觉得主要是因为我。也许我做的，是选择管理团队，设定我们追求什么、如何工作。</p>
+<p>但我们最成功的地方，是聚集了一群非常出色、被同一使命驱动的人，并形成健康的文化。在必须坚定的地方保持高度确信，在其他地方保持开放与探索。这种组合很特别。</p>
+<p>如果未来有人写OpenAI的历史，我最希望他们谈的是，我们如何重新发现优秀研究实验室所需要的文化，以及这种文化为什么曾经缺失了那么久。</p>
+<p><strong>Raj</strong></p>
+<p>年轻创始人如果也想建立这样的公司，可以从你们的文化里学到什么？</p>
+<p><strong>Sam</strong></p>
+<p>首先，对自己究竟想做什么有很强的信念，并且极其清楚。即使你的目标在大多数人看来很疯狂，也许恰恰因为如此，你愿意明确这样想、这样说、这样行动，就会吸引特定的一群人。</p>
+<p>我们开始时说，要努力做出AGI，准备沿着这个方向推进。但最重要的是，我们押注AGI这个目标。如果最初的路线不对，我们会换路线。</p>
+<p>当时世界上没有多少团队还愿意公开说自己要做AGI。我记得连DeepMind那时都不再这么说了。</p>
+<p>因此，虽然多数人觉得我们疯了、不想和我们扯上关系，但我们事实上把那些同样相信这个目标、又非常有才华的人聚集到了一起。回看近代一些伟大的科学与创新项目，很多都有这一共同点。</p>
+<p><strong>Raj</strong></p>
+<p>所以就是选择一个极其遥远、很大的问题，清楚表明自己要解决它，就能建立出色的企业文化？</p>
+<p><strong>Sam</strong></p>
+<p>“遥远得不切实际”不是我会选的词。应该选择某个真正有才华的人很想解决的问题，清楚、专注地告诉大家，这就是我们要做的事。</p>
+<p>不要含糊其辞，也不要因为有人会说你疯狂、愚蠢甚至更难听，就开始遮遮掩掩。这样，你就能把一群信念很强的人聚在一起，指向一个真正重要的目标。</p>
+<h4 id="chapter-14">41:27 人才离开与不同团队之间的分歧</h4>
+<p><strong>Raj</strong></p>
+<p>你聚集了这些人才，但后来一些人开始离开。你把这叫作莎士比亚式的“AI戏剧”。Mira离开了，Ilya离开了，Dario去做别的事情，还有Elon。他们都在建自己的东西，彼此也未必相处融洽。你们原本一起开始，现在各做各的，分歧到底是什么？</p>
+<p><strong>Sam</strong></p>
+<p>我觉得，很多人脑子里会出现一种想法，因为这件事影响太大、风险太高，所以他们只相信自己来做。</p>
+<p><strong>Raj</strong></p>
+<p>这是因为技术路线不同，还是担心权力集中在别人手里？他们担心别人的方向，还是担心那个人拥有权力？</p>
+<p><strong>Sam</strong></p>
+<p>我觉得两者往往连在一起。大概是“他的做法不好，所以我不能让权力集中到他手里”。</p>
+<p><strong>Raj</strong></p>
+<p>也就是方法和信任。</p>
+<p><strong>Sam</strong></p>
+<p>对。</p>
+<h4 id="chapter-15">42:47 面对混乱、紧张与失去自由</h4>
+<p><strong>Raj</strong></p>
+<p>经历了这些以后，你这个人变了吗？你还年轻，却经历过诉讼、做疯狂的事、同事离开，还有政府对你进行各种调查。</p>
+<p><strong>Sam</strong></p>
+<p>也没那么年轻了。没有人能一边建设超级智能，一边过完全平静的生活，所以我并不特别意外。</p>
+<p>刚成立OpenAI时，我没有认真想过这一面。但后来越来越确定它真的可能成功，我很清楚地意识到，我的生活会变得非常疯狂，这很糟糕。</p>
+<p>不过，我觉得自己天性上还比较适合应对。周围即使有很多混乱，我也能处理。</p>
+<p><strong>Raj</strong></p>
+<p>为什么这么说？</p>
+<p><strong>Sam</strong></p>
+<p>因为看起来我确实能。</p>
+<p><strong>Raj</strong></p>
+<p>公司成立时，你就确定自己能应付？</p>
+<p><strong>Sam</strong></p>
+<p>不是。开始时，即使理智上明白，如果真正成功就会发生这些，情感上也没有认真体会过，直到后来才逐渐消化。</p>
+<p><strong>Raj</strong></p>
+<p>你平时会紧张吗？我好像读到过，你不太会紧张。</p>
+<p><strong>Sam</strong></p>
+<p>以前当然紧张过。但现在事情已经疯狂到这种程度，让我进入紧张状态所需要的刺激强度，变得很高。</p>
+<p><strong>Raj</strong></p>
+<p>现在还会吗？</p>
+<p><strong>Sam</strong></p>
+<p>会，只是很少，门槛很高。</p>
+<p><strong>Raj</strong></p>
+<p>什么情况下会紧张，什么情况下不会？</p>
+<p><strong>Sam</strong></p>
+<p>我记得最近一次，是准备公布Navier–Stokes研究结果的时候。我当时想，这真的太惊人了，这是真正的大事。</p>
+<p>这是一些极其困难的问题，甚至超出了人类过去能做到的事情，而AI现在正在做。我觉得那是个非常不可思议的时刻，确实很紧张。那可能是最近一次让我心跳加速的事。</p>
+<p><strong>Raj</strong></p>
+<p>你会做什么让自己恢复正常？</p>
+<p><strong>Sam</strong></p>
+<p>以前我经常冥想，有一段时间每天几个小时。现在不这样了，但如果紧张，我能很快重新进入那个状态。</p>
+<p><strong>Raj</strong></p>
+<p>一下就能进入？有没有固定仪式、呼吸练习之类？</p>
+<p><strong>Sam</strong></p>
+<p>没有。我坐下，闭上眼睛，仍然能很快进入冥想状态。</p>
+<p><strong>Raj</strong></p>
+<p>几分钟，还是几秒钟？</p>
+<p><strong>Sam</strong></p>
+<p>按秒算，需要一些时间。</p>
+<p><strong>Raj</strong></p>
+<p>过去的哪个版本的你已经消失了？刚开始时你是什么样，现在又变成了什么样？</p>
+<p><strong>Sam</strong></p>
+<p>以前无忧无虑得多。成立OpenAI时，我生活很轻松，有很多爱好。朋友突然约我某个周二晚上吃饭，我大概就有空。</p>
+<p>现在日程排得极其精确，已经很久不能随兴做点什么了。这让我很难过。</p>
+<p><strong>Raj</strong></p>
+<p>有没有一个瞬间，让你意识到自己再也不能无忧无虑了？</p>
+<p><strong>Sam</strong></p>
+<p>这个问题也可以换成，人们常问我最怀念以前生活里的什么。</p>
+<p>上次有人问，我突然意识到，自己很怀念周六下午去咖啡馆，点一大杯咖啡，带着电脑，看看周围的人和世界，慢慢回邮件，但更多时候只是随便上网。</p>
+<p>我已经好几年没有这样过了。我也不知道为什么，第一个跳出来的就是这件事，但确实很怀念。</p>
+<p><strong>Raj</strong></p>
+<p>现在不能再这样了吗？</p>
+<p><strong>Sam</strong></p>
+<p>理论上可以，但旁边桌子会坐着两个安保人员，我也不再是世界上一个没人认识的普通人。</p>
+<h4 id="chapter-16">47:24 护城河与判断创始人</h4>
+<p><strong>Raj</strong></p>
+<p>回到创业和YC。你写过，以前会问创始人，这家公司将来如何成为垄断企业。为什么问这个？</p>
+<p><strong>Sam</strong></p>
+<p>我们通常会问，护城河是什么，竞争优势是什么。这些词想表达的都是，怎样避免所有利润率都被竞争压到零。</p>
+<p><strong>Raj</strong></p>
+<p>但从第一天就问怎样建立最终形成垄断的护城河，真的重要吗？刚创业时，很多事根本不知道。</p>
+<p><strong>Sam</strong></p>
+<p>我不认为它最重要，甚至排不到最前面的几个问题。我会先问，产品是什么，用户为什么需要，怎样获得更多用户。</p>
+<p>护城河是战略的一部分，但绝不是最重要的一部分。</p>
+<p><strong>Raj</strong></p>
+<p>公司到了一定规模以后，会变得重要吗？</p>
+<p><strong>Sam</strong></p>
+<p>会。长期竞争优势是什么，这个问题很重要，但仍然不是最重要的。</p>
+<p><strong>Raj</strong></p>
+<p>你见过几千家公司，也有很成功的投资经历，选中了Reddit、Stripe等等。见一位创始人三四十分钟，能判断他是否有能力把公司做出来吗？</p>
+<p><strong>Sam</strong></p>
+<p>不能完全准确，但可以形成相当强的直觉。</p>
+<p><strong>Raj</strong></p>
+<p>你具体看什么，会识别哪些模式？</p>
+<p><strong>Sam</strong></p>
+<p>显而易见的因素很多，我说几个讨论得没那么多的。</p>
+<p>如果他沟通清楚，能把事情解释明白，让人容易跟上，这是我非常看重的一点。</p>
+<p>如果会面结束时，我真心想跟这个人共事，也很重要。早期创始人的一大部分工作，就是向共同创始人、客户、潜在员工、投资人传播自己的想法，让他们相信。</p>
+<p>我还会看，他能否迅速提出新想法、快速改进想法，以及对世界是否有我以前没听过、既新颖又推理充分的认识。</p>
+<p><strong>Raj</strong></p>
+<p>很多创业者还提到承受痛苦的能力，你能判断吗？</p>
+<p><strong>Sam</strong></p>
+<p>三十分钟里很难直接判断。可以问过去的经历，我以前也会这么做，寻找能体现这种能力的故事。但很难仅从当下对话看出来，还是得依赖对方讲的经历。</p>
+<p><strong>Raj</strong></p>
+<p>他讲自己承受过多少痛苦，你能判断真假吗？</p>
+<p><strong>Sam</strong></p>
+<p>这正是我说难的地方。</p>
+<p><strong>Raj</strong></p>
+<p>你自己呢？你能承受什么程度的痛苦，是99%的人承受不了的？</p>
+<p><strong>Sam</strong></p>
+<p>与我见过的一些创始人相比，我不觉得这就是我最大的优势。但对自己相信的事，我确实愿意坚持，不断做下去。</p>
+<p><strong>Raj</strong></p>
+<p>你刚才想到哪位创始人？</p>
+<p><strong>Sam</strong></p>
+<p>没有特指某个人。</p>
+<p><strong>Raj</strong></p>
+<p>有没有你认识的人，特别能承受痛苦，一直坚持？</p>
+<p><strong>Sam</strong></p>
+<p>现在没有一个名字马上跳出来。但这些年，很多YC创始人给我留下深刻印象。他们几乎看不到成功信号，资源也很少，却仍然坚持苦干。</p>
+<h4 id="chapter-17">51:54 成功没有单一的创始人模板</h4>
+<p><strong>Raj</strong></p>
+<p>Stripe、Reddit这些创始人之间，除了沟通能力，还有共同模式吗？</p>
+<p><strong>Sam</strong></p>
+<p>很多创始人确实共享一些特征，但很少有特征适用于所有人。YC最重要的经验之一，就是不同类型的创始人，可以通过非常不同的方式取得成功。</p>
+<p><strong>Raj</strong></p>
+<p>那你究竟看到什么共同点？</p>
+<p><strong>Sam</strong></p>
+<p>当然可以说，要有驱动力、聪明、沟通好，要有一个愿意全力投入的想法。我们能列很长的创始人特征清单，也能列很长的优秀企业特征清单。</p>
+<p>但有个有意思的观察，能说明成功方式多么多样。拿YC最成功的十家公司，他们的创始人显然都优秀，公司也都优秀。可如果把这十个人打乱，让他们交换担任各家公司的CEO，会是一场灾难。</p>
+<p>从这个观察可以得出很多结论，其中一个就是，成功的创始人有很多种，并不存在一套对每个人、每家公司都有效的模式。</p>
+<p><strong>Raj</strong></p>
+<p>如果成功没有统一公式，有没有共同的失败模式？</p>
+<p><strong>Sam</strong></p>
+<p>当然有很多。缺乏驱动力、专注、清晰思考和愿景，或者不能保持积极态度，反复解决困难问题。这些都很糟糕。</p>
+<p>有很多特征几乎可以预示失败，这一面反而更容易判断。成功的路径则很多样。</p>
+<h4 id="chapter-18">54:23 雄心可以培养吗</h4>
+<p><strong>Raj</strong></p>
+<p>你首先说缺乏驱动力。很多人把它理解为雄心，雄心可以教、可以训练吗？</p>
+<p><strong>Sam</strong></p>
+<p>可以。这是YC给我最愉快的惊喜之一，也是YC对世界创造的价值比外界认识到更多的原因之一。</p>
+<p>有些东西也许教不了，但可以让人变得更有雄心。并非每个人都行，而且很难预测谁能被改变，但它确实会发生。</p>
+<p><strong>Raj</strong></p>
+<p>怎么教？</p>
+<p><strong>Sam</strong></p>
+<p>我发现最有效的是两件事结合。第一，有一群正在经历同样事情的同伴。第二，让人不断面对难度递增的挑战，发现自己能做的比原来想象的更多，形成更好的直觉，然后继续。</p>
+<p><strong>Raj</strong></p>
+<p>你也是进入这样的同伴群体后，才变得更有雄心，还是以前就这样？</p>
+<p><strong>Sam</strong></p>
+<p>后来变得有雄心得多。</p>
+<p><strong>Raj</strong></p>
+<p>这种雄心来自身边人都很有雄心所带来的信心，还是来自不安全感？</p>
+<p><strong>Sam</strong></p>
+<p>Paul Graham以前说，演示日越来越近，大家不想失败，这种压力会起作用。那确实可以看成一种不安全感。</p>
+<p>但我觉得更多来自积极的兴奋。看到身边的人做出惊人的东西，你会想，我们都是一起进来的，如果他们能做到，我也能。</p>
+<p><strong>Raj</strong></p>
+<p>对你来说，更多是信心？</p>
+<p><strong>Sam</strong></p>
+<p>我想是。而且，如果你不断接受稍微更大一点的挑战，并且把它做好，就会在这个学习过程中不断积累信心。</p>
+<p><strong>Raj</strong></p>
+<p>只有同伴圈子能让人变成这样吗？</p>
+<p><strong>Sam</strong></p>
+<p>什么意思？</p>
+<p><strong>Raj</strong></p>
+<p>只有其他有雄心的人，才能给你这种影响吗？</p>
+<p><strong>Sam</strong></p>
+<p>不是，可以有很多来源。但人类天生会向身边的人学习。有句名言说，你会成为五个最亲近朋友的平均值，所以应该认真选择这五个人。</p>
+<p><strong>Raj</strong></p>
+<p>你相信这句话？</p>
+<p><strong>Sam</strong></p>
+<p>不完全相信，但显然有一定道理。</p>
+<h4 id="chapter-19">56:48 少听建议与持续复利</h4>
+<p><strong>Raj</strong></p>
+<p>作为创始人，你收到过最糟糕的建议是什么？</p>
+<p><strong>Sam</strong></p>
+<p>几乎所有建议都很糟，很难选最差的一条。我的总体建议是，少听建议。</p>
+<p><strong>Raj</strong></p>
+<p>你有没有回家以后想，也许那些建议都对，是自己错了？</p>
+<p><strong>Sam</strong></p>
+<p>YC积累了非常丰富的经验，我想可以提炼出五到十条极其重要、置信度很高的通用建议。那些应该听。</p>
+<p>比如YC的口号，“做出人们想要的东西”。如果早期创业只能留一条原则，就是它。还有一些几乎同样重要的原则。</p>
+<p>但你不会因为听了第八百期讲如何创业的播客，就变成优秀创始人。你得自己做，自己弄明白。很多真正需要的建议，与个人具体情况高度相关。除了那些基本真理，再多听一期播客，未必还能学到多少。</p>
+<p><strong>Raj</strong></p>
+<p>但你写过一篇文章，讲成功的十三条规则？</p>
+<p><strong>Sam</strong></p>
+<p>记得写过，但不记得每条是什么了。我想现在可以写得更好，也可以更短。</p>
+<p><strong>Raj</strong></p>
+<p>如果不写十三条，你会留下什么？</p>
+<p><strong>Sam</strong></p>
+<p>我当时第一条写的是复利，这一点可能仍然被低估。</p>
+<p>很多人没有推动自己持续向前。那个笑话说得好，你确实有二十年经验，但只是同一年经验重复了二十遍。</p>
+<p>职业生涯很美妙的一点，是每一个阶段都可以建立在上一个阶段之上。但你必须不断推动自己，去做新的、不舒服的、不那么显而易见的事情。很多人在职业生涯很早就停止了。</p>
+<p>从现实看，多数人并没有一直留在持续复利的指数增长曲线上。我认为，这是一条很有价值、又并不显而易见的建议。</p>
+<h4 id="chapter-20">59:08 反思与AI进步速度</h4>
+<p><strong>Raj</strong></p>
+<p>你最近做的最不舒服的事是什么？</p>
+<p><strong>Sam</strong></p>
+<p>现在很多事情又都变得陌生了。比如，如何应对当前关于AI进步速度的争论。这件事很重要，也非常难做对，是一个全新的难题。</p>
+<p><strong>Raj</strong></p>
+<p>你怎么确保自己判断正确？</p>
+<p><strong>Sam</strong></p>
+<p>花很多时间思考、与人交流，尽量获得更多数据和新想法。</p>
+<p><strong>Raj</strong></p>
+<p>你会回到家后想，也许自己错了吗？</p>
+<p><strong>Sam</strong></p>
+<p>当然。如果不会，那才是灾难。</p>
+<p>我们谈信念、自信，有些人把它理解成不要反省，认定了就别怀疑。我一直努力质疑所有事情。在找到足以改变想法的理由之前，行动上仍然保持一致和坚定，但持续反思非常重要。</p>
+<p><strong>Raj</strong></p>
+<p>具体怎么做？</p>
+<p><strong>Sam</strong></p>
+<p>通常是从不同角度反复思考同一个问题，先提出很多可能很差的想法，在脑子里拆解、找毛病，然后找其他人，听取更多意见，再尝试一个不同版本，再调整。就是这样的迭代过程。</p>
+<p><strong>Raj</strong></p>
+<p>能用你眼下最大的一个问题举例吗？</p>
+<p><strong>Sam</strong></p>
+<p>就是刚才那个。进入递归自我改进，也就是RSI的时代后，我们应该怎样看待进步速度？怎样避免两类严重问题，失去控制，或者权力过度集中？合适的治理机制是什么？</p>
+<p>AI应该被允许比人聪明多少，提升速度可以多快？安全、监测、对齐该怎么处理？哪些地方可以承担风险，哪些地方不行？</p>
+<p><strong>Raj</strong></p>
+<p>回到家，看到孩子和家人时，你会换一种角度思考吗？</p>
+<p><strong>Sam</strong></p>
+<p>和孩子在一起时，我尽量就陪他们，做一个尽可能好的父亲，不让自己被其他事情分心。</p>
+<p>但我确实发现，周末早上在家工作，与在办公室工作很不一样。至少对我而言，很重要的一种节奏是，先和别人密集互动、一起工作，再留出完整的大块时间，把外界关掉，独立思考和工作。</p>
+<p>这两种状态来回切换，对我的工作方式非常重要。</p>
+<p><strong>Raj</strong></p>
+<p>你很容易做到，还是经历了困难才学会？</p>
+<p><strong>Sam</strong></p>
+<p>对我来说很自然，也很容易，就是这种方式适合我。</p>
+<p><strong>Raj</strong></p>
+<p>就是把外界关掉？</p>
+<p><strong>Sam</strong></p>
+<p>对，那是一种很不同的工作方式。在家里的办公室，我主要独立工作。如果只有这种状态，会很糟糕。但如果完全没有独处时间，只是在公司不停开会，也行不通。我需要来回切换。</p>
+<h4 id="chapter-21">01:02:45 孩子将生活在怎样的AI世界</h4>
+<p><strong>Raj</strong></p>
+<p>我刚才问家人，其实是想说，你承认这件事可能向不同方向发展，是很大的担忧。那么当你不在了，无法指导和保护孩子与家人时，你会放心让孩子生活在你今天参与创造的AI世界里吗？</p>
+<p><strong>Sam</strong></p>
+<p>会。正如前面说的，事情有很多可能出错的方式，所以我不知道未来究竟是什么样。</p>
+<p>但我非常相信，人们能找到适应和繁荣的办法，让社会对大家都更好。我认为世界最可能的方向，仍然是继续变得好很多。</p>
+<h4 id="chapter-22">01:03:38 下一件最想创造的事</h4>
+<p><strong>Raj</strong></p>
+<p>最后两个问题，我会问每位嘉宾。你接下来最想创造的非凡事物是什么？</p>
+<p><strong>Sam</strong></p>
+<p>第一个想到的是，我特别期待看看，AI在发现新科学这件事上能走多远。</p>
+<p>数学方面的结果让我非常震撼，也让我觉得，我们比我原来预期的更接近这个里程碑。</p>
+<p>想象一台机器，能够帮助我们更好地理解世界，发现物理学最深层的洞见，找到新疗法、新能源，以及那些现在甚至无法想象、却会因科学理解进步而成为可能的东西。我非常想把这样的机器做出来。</p>
+<p>世界的改善有多大程度来自科学理解的进步，一直让我感叹。如今我认为AI真的可以加速这个过程，这将改变整个人类。</p>
+<p><strong>Raj</strong></p>
+<p>这就是你想做的？</p>
+<p><strong>Sam</strong></p>
+<p>对。</p>
+<h4 id="chapter-23">01:04:49 成为Sam Altman的代价</h4>
+<p><strong>Raj</strong></p>
+<p>成为Sam Altman，成为可能正在塑造人类最重要技术的人，代价是什么？</p>
+<p><strong>Sam</strong></p>
+<p>这很难回答，因为主观上，这已经是我现在的生活。前面举了个小例子，我不能周末去咖啡馆随便工作了。</p>
+<p>但能参与这些事情，我觉得自己非常幸运。虽然累、压力大，很多人把自己的焦虑投射到我身上，生活也有各种取舍，但这就是我现在熟悉的生活。其他一切，都像是很遥远的过去。</p>
+<p>所以我并没有那种深受折磨、觉得“这一切发生在我身上太可怕了”的心态。</p>
+<p><strong>Raj</strong></p>
+<p>明白，非常感谢。希望以后还能聊很多次，有机会更深入地做一版更长的访谈。</p>
+<p><strong>Sam</strong></p>
+<p>我也希望。非常感谢邀请。</p>
+<h4 id="chapter-24">01:06:16 幕后片段</h4>
+<p><strong>Sam</strong></p>
+<p>你好，最近怎么样？谢谢你做这次访谈。</p>
+<p><strong>Raj</strong></p>
+<p>很好，我是Raj，很高兴认识你。你觉得我们的布置怎么样？</p>
+<p><strong>Sam</strong></p>
+<p>很酷，我以前没见过这样的布置，我很喜欢。我也很好。就模型进展而言，这是一个非常特别的时期。你怎么样？</p>
+<p><strong>Raj</strong></p>
+<p>挺好的，有点紧张，但我想能顺利完成。我想请你尝尝这个。</p>
+<p><strong>Sam</strong></p>
+<p>当然。味道不错。里面最主要的蘑菇成分是什么？猴头菇？我现在感觉很好。</p>
+<p><strong>Raj</strong></p>
+<p>感觉不错？</p>
+<p><strong>Sam</strong></p>
+<p>对。</p>
+<p>---</p>
+<p>原节目于2026年11月3日发布，约68分钟。正文按原顺序保留全部实质问答及幕后对话，略去重复预告、订阅呼吁与无信息的口头重复。英文逐字稿见文末来源。[SingjuPost逐字稿](https://singjupost.com/fo583-raj-shamani-w-sam-altman-ai-revolution-superintelligence-future-of-humanity-transcript/)</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
