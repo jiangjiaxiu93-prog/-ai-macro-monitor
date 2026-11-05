@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AppLovin三季度电话会纪要：模型升级、广告主回报与算力投入（2026）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-06<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>AppLovin三季度电话会纪要：模型升级、广告主回报与算力投入（2026）</h2>
+<div class="metaline">AppLovin 2026年第三季度财报电话会；Adam Foroughi、Matt Stumpf、David Hsiao；MarketBeat / Quartr逐字稿 · 2026-11-04 · <a href="https://www.marketbeat.com/earnings/reports/2026-11-4-applovin-co-stock/" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文电话会纪要</div>
+<p class="kw">关键词：企业采用；AI资本开支；推理成本；研发效率；定价与变现；AppLovin</p>
+<h3>要点</h3>
+<ul><li>部分新模型上线后，广告主在目标投放回报下可扩大预算，游戏收入增长近50%。训练投入增加，同时服务优化使数据中心成本占收入比重下降。</li><li>三季度收入约21.8亿美元、调整后EBITDA约18.4亿美元，自由现金流约14亿美元。四季度指引已纳入上线模型效果，管理层未承诺后续升级节奏。</li><li>问答重点涉及数据与模型共同扩展、统一拍卖、客户学习成本、消费广告季节性及潜在数据关系收购。管理层拒绝给出固定自学习增速和抽成率目标。</li></ul>
+<h3>详细电话会纪要</h3>
+<h4 id="chapter-1">00:00 开场与财务口径</h4>
+<p>投资者关系负责人David Hsiao介绍，公司相关SEC文件、财务数据、新闻稿和财务更新可在投资者关系网站查阅。本次讨论包含平台发展、增长机会和未来经营表现等前瞻判断，实际结果可能与预测不同。公司提示投资者查阅2026年第二季度及即将提交的第三季度10-Q风险因素。</p>
+<p>本次还涉及非GAAP指标，对应GAAP数据及调节表见新闻稿和财务更新。电话会由CEO兼联合创始人Adam Foroughi和CFO Matt Stumpf先作陈述，再进入分析师问答。</p>
+<h4 id="chapter-2">01:30 CEO陈述</h4>
+<p><strong>收入与模型更新。</strong> 三季度收入约21.8亿美元，同比增长55%，较二季度增加逾2亿美元。收入和调整后EBITDA均高于原指引上限。管理层称，团队在维持日常经营的同时，推进了一次技术复杂程度可与Axon 2.0相比的模型转换。</p>
+<p>本季度部分上线了基于上季度所述新架构的下一代模型。广告主发现，在满足目标广告支出回报率的前提下，可以投入更多预算，因此扩大了投放。游戏业务收入同比增长接近50%，与模型上线同步重新加速。</p>
+<p><strong>升级仍未完成。</strong> Foroughi强调，目前只是部分上线，后续转换工作仍在进行。新一代架构比旧架构提供更多优化空间，对数据稀疏的场景改善尤其重要，包括新广告主、小广告主和新类别，这些恰好是消费广告业务所面对的场景。</p>
+<p>模型收益不会按固定季度节奏出现，公司不会承诺每次升级的时间或增幅。</p>
+<p><strong>训练与服务成本。</strong> 部分团队训练新模型的同时，工程师优化了模型服务方式。尽管训练投入增加，数据中心成本占收入的比重仍下降。公司表示，每笔投入都要经过回报检验，本季度同时体现为收入增长与利润率改善。</p>
+<p><strong>业务组合与后续重点。</strong> 消费广告又实现了一个强劲季度，四季度是这类客户的季节性支出高峰。公司在多个广告主类别之间运行统一拍卖，游戏继续改善，消费广告扩展增长空间。</p>
+<p>管理层维持长期收入大约每年增长30%的预期，并希望条件允许时明显超过这一速度。下一年的重点包括完成模型转换并继续优化，扩大现有客户投放、加快新客获取，改善创意工具与广告格式，以及开始扩大联网电视CTV投入。</p>
+<p>Foroughi回顾，上季度公司解释了业绩低于预期的原因，并表示问题已经修复、业务重新加速。本季度结果体现了这一路径。公司将继续围绕长期建设，同时披露挑战和机会。</p>
+<h4 id="chapter-3">04:39 CFO陈述</h4>
+<p><strong>利润与增长。</strong> 三季度净利润约14.4亿美元，同比增长72%，净利润率66%。收入约21.8亿美元，同比增长55%、环比增长14%，较原指引上限高约1亿美元。</p>
+<p>超预期主要来自模型改善推动的核心移动游戏业务，消费广告也持续扩大。消费广告主支出环比两位数增长、同比三位数增长。</p>
+<p>调整后EBITDA约18.4亿美元，同比增长59%，利润率84%，较去年同期提高约190个基点。环比新增收入转化为调整后EBITDA的比例为87%。</p>
+<p><strong>成本与现金流。</strong> 基础设施团队优化服务方式，使数据中心成本占收入比重下降，同时公司仍增加现有及新模型的训练算力。管理层主要管理调整后EBITDA金额和自由现金流，愿意为新增收入机会继续投入。</p>
+<p>三季度自由现金流约14亿美元，为调整后EBITDA的77%，二季度为53%。二季度转化率受现金税款支付时点拖累。全年仍预计自由现金流约为调整后EBITDA的70%至75%。</p>
+<p>Stumpf以同行作对比，称当季大型数字广告平台收入同比增长大约10%至百分之二十几，而公司增长55%。公司较轻的资产模式，本季度将约65%的收入转化为自由现金流。</p>
+<p><strong>资产负债表与回购。</strong> 季末现金31.7亿美元，长期债务35亿美元，净杠杆低于调整后EBITDA的0.1倍，低于公司长期约1倍的目标水平。</p>
+<p>三季度回购及代扣股份合计410万股，耗资14亿美元，高于二季度，季末流通股约3.31亿股。董事会追加32亿美元回购授权，截至十月末可用授权总额约36亿美元。</p>
+<p>计划启动以来，公司累计回购及代扣1.04亿股，耗资94亿美元，平均每股90美元，相当于同期自由现金流的85%。加权平均稀释股数连续八个季度下降，同比约降2%。</p>
+<p><strong>四季度指引。</strong> 收入预计23.65亿至23.95亿美元，同比增长43%至44%，环比增长8%至10%。调整后EBITDA预计19.95亿至20.25亿美元，同比增长43%至45%。</p>
+<p>按区间中值，2026年全年收入及调整后EBITDA增速均超过50%。指引包含正常季节性、消费广告继续扩张、已经上线并产生效果的模型改善，以及持续增加的新模型训练投入。</p>
+<h3>分析师问答</h3>
+<h4 id="chapter-4">09:30 James Heaney，Jefferies</h4>
+<p><strong>问题一涉及新模型。</strong> 与Axon 2相比，新一代模型最重要的改善是什么，什么时候能全面上线？</p>
+<p>Foroughi回答，上季度就已说明，希望训练更大的模型、使用更多算力，以改善输出，现在正开始上线并取得好结果。但公司不能承诺全面上线的日期，也不能承诺能力提升的具体路径。新模型比旧一代有更多可优化空间，这是管理层看好后续发展的主要原因。</p>
+<p><strong>问题二涉及指引。</strong> 三季度收入环比增长14%，四季度有电商旺季支持，为什么指引仅为环比增长8%至10%？是否偏保守？</p>
+<p>Stumpf回答，指引原则与过去几个季度一致，只纳入当前能够确认的因素，包括正常季节性、已上线并发挥作用的模型更新，以及数据中心成本增加。公司没有改变指引方法，也没有把尚未实现的模型提升提前纳入。</p>
+<h4 id="chapter-5">11:10 Jason Bazinet，Citi</h4>
+<p><strong>问题涉及转介绍合作。</strong> 上季度说会更积极投入推荐伙伴计划，目前进展是否令人满意？</p>
+<p>Foroughi表示，仍在建设中，这是一条跨多个季度、甚至多年的发展路径。合作伙伴业务起步较早，但从市场追踪的像素安装数量等信号看，新客户进入速度正在加快。</p>
+<p>后续增长可能来自更多合作协议、公司主动投放更多推广广告，以及客户获得好体验后形成的口碑。</p>
+<p>客户进入后，还要把广告活动扩大并优化，进行增量效果研究，确认平台确实创造新增业务，然后才会长期大幅增加预算。因此，效果会逐步积累，不能把签约直接当成完全成熟的投放收入。</p>
+<h4 id="chapter-6">12:25 Matthew Cost，Morgan Stanley</h4>
+<p><strong>问题一涉及游戏增长空间。</strong> 今年此前曾讨论游戏业务20%至30%的增长，以及规模扩大后的约束。新模型的效果是否使管理层上调长期空间判断？</p>
+<p>Foroughi澄清，过去两个季度明确表达的是，整个业务长期约30%的年度增长预期。公司是统一拍卖平台，不能把游戏和消费广告完全孤立地预测。</p>
+<p>他举例，如果消费广告下季度增长1000%，拍卖竞争会改变，因此很难把某个垂直类别单独当成封闭系统。</p>
+<p>新模型确实比旧模型更准确，而且还有更多优化空间。如果继续兑现，游戏业务当然可能长期维持更高增速。但实现整体30%的增长，并不要求游戏一定超出此前路径，因为消费广告已经形成一定规模，仍以三位数速度增长，客户渗透也很低。</p>
+<p><strong>追问涉及CTV。</strong> 公司再次在开场重点提到联网电视，相比六个月前，它在产品路线图中的位置有何变化？</p>
+<p>Foroughi称，团队已开展试点广告活动，观众在联网电视上可能开始看到公司投放的广告。产品表现很有希望，内部信心上升。</p>
+<p>但它是一个全新市场、仍处早期，不应预计近期就对财务数据形成实质贡献。如果客户效果足够好，公司会进一步披露。</p>
+<h4 id="chapter-7">14:46 Benjamin Black，Deutsche Bank</h4>
+<p><strong>问题一涉及数据飞轮。</strong> 消费广告仍需更多数据，才能改善模型。新架构是否让公司接近当年游戏业务的临界点，还需哪些投入？</p>
+<p>Foroughi回答，数据和架构相互配合。客户进入平台、分享数据，会持续增加数据密度。与此同时，模型架构需要能够处理更多数据，训练更大、更复杂的模型，并使用更大的计算集群。</p>
+<p>新架构让游戏和消费广告两侧都能训练更大的模型。公司仍然需要更多数据，获取越快，预测输出改善的机会越大。</p>
+<p>因此会持续通过转介绍、推广和新客获取增加数据，也可能考虑某种数据收购。过去经验是，更多数据能够支持更复杂、更大的模型，并改善结果。</p>
+<p><strong>问题二涉及假日季与次年留存。</strong> 消费广告预算相对去年怎样？如果旺季效果强，预算是否会延续到2027年，还是一季度照常回落？</p>
+<p>Foroughi表示，当时尚未真正进入假日旺季，预算会在接下来几周逐渐体现。单个电商广告主通常四季度很强、一季度较弱，季节性回落是这个行业的基本特征。</p>
+<p>公司仍处于客户快速增长阶段，新客增加可以帮助抵消较弱季节的影响，但不能据此取消同客户口径的季节性。</p>
+<p>历史上，公司一季度较强，与游戏行业所谓“第五季度”现象有关。进入一季度后，电商竞争下降，游戏广告回报更有吸引力，模型会分配更多游戏广告，客户也愿意在高价四季度之后扩大投放。</p>
+<p>过去这一结构使公司相对其他广告平台更抗季节性。随着电商占比提高，未来可能出现更强的四季度和更难比较的一季度。</p>
+<h4 id="chapter-8">17:56 Stephen Ju，UBS</h4>
+<p><strong>问题涉及拍卖价格与老客户回报。</strong> 一些广告主担心电商竞价者增加会抬高广告价格，预先把预算转向其他平台。AppLovin能否吸收新增需求，同时避免现有客户的回报被压缩？供给是否可能成为限制？</p>
+<p>Foroughi指出，过去三年公司规模和竞争力显著上升，客户仍然扩大支出，这表明广告回报也在改善。</p>
+<p>模型越能准确预测某次展示带来的结果，就越能合理定价。单看每千次展示成本CPM上涨，并不能完整反映客户经济效果。如果模型提升转化率，CPM可以上涨，而最终广告支出回报率也同时提高。</p>
+<p>他对小样本渠道调查持保留态度，认为接受访谈的客户未必代表那些最成功、最忙于扩大投放的客户。公司本季度净收入的环比增量，本身已接近一些公开披露竞争者全年的收入规模。</p>
+<p>管理层的回答主要围绕预测效率和最终回报，没有给出一个可容纳新增广告预算的固定上限。</p>
+<h4 id="chapter-9">20:13 Robert Coolbrith，Evercore</h4>
+<p><strong>问题一涉及模型通用化。</strong> 模型变大、可处理的数据更多以后，是否会跨媒体与客户类别变得更通用，从而改变消费广告和游戏模型分开的安排？</p>
+<p>Foroughi回答，有这种可能，未来可能把架构朝这个方向推进，未给出明确实施时间。</p>
+<p><strong>问题二涉及品牌效果广告。</strong> 移动网页供给及iOS 26等变化，促使部分品牌关注应用内广告，这是否构成机会？</p>
+<p>Foroughi将客户目标分为两类。一类真正优化增量广告回报或最终购买交易，另一类虽然称为效果品牌广告，实际仍以触达人群为主。</p>
+<p>传统开放网页广告里，很多预算希望以尽可能低的价格触达某类受众。AppLovin则试图从发现商品一直优化到最终交易。</p>
+<p>如果广告主关心完整交易结果，而且能数字化追踪，公司认为预算有机会转向应用内。这一市场规模很大，平台流经的总支出可以反推出来，整个行业可能已经是搜索和社交之外很大的广告机会。管理层预计，只要效果持续，资金会跟随。</p>
+<h4 id="chapter-10">22:22 Clark Lampen，BTIG</h4>
+<p><strong>问题一涉及有效供给扩张。</strong> 更好的模型是否能在同一批游戏和广告位中，识别出更多可供非游戏广告主利用的展示？这种潜在扩张有多大？</p>
+<p>Foroughi表示，MAX及游戏广告市场本身已达数百亿美元规模，比外界常见估计更大。新模型和消费广告增长，也确实创造获取新供给的机会。</p>
+<p>但面向第三方开放、又能一次性显著改变公司规模的大型供给来源并不多，通常需要长期积累。</p>
+<p>CTV之所以有吸引力，是因为尚缺少真正从上层触达到最终交易的效果广告方案。如果公司先做出可规模化的产品，可以开发大量变现不足的库存，类似十至十五年前的移动广告。</p>
+<p>短中期更大的机会，是提高现有游戏生态中的转化效率。消费广告带来内容多样性。例如，一个用户一周原本看到二十条游戏广告，未来可能看到十五条商品广告和五条游戏广告。</p>
+<p>这并不意味着游戏客户损失75%的有效机会。更准确的模型可以保留真正会带来游戏转化的那五次展示，再利用其他展示创造商品交易。长期公司仍会扩展外部供给，但近期重点是这一内部效率空间。</p>
+<p><strong>问题二涉及回购。</strong> 分析师指出，按电话会当时口径，股价年内仍大约下跌40%，新增授权是否允许公司在价格偏离内在价值时更积极买入，还是以固定计划为主？</p>
+<p>Stumpf回答，三季度回购已经明显加速，正是因为公司认为股价与内在价值出现偏离。新增授权保留了未来同样采取机会型回购的能力。</p>
+<h4 id="chapter-11">26:06 Martin Yang，Oppenheimer</h4>
+<p><strong>问题一涉及广告格式。</strong> 动态商品广告有时比视频更有效。公司长期目标是更多样化格式，还是暂时等待生成式AI视频数量与质量改善？</p>
+<p>Foroughi表示，两条路线都会推进。用于创意的大模型会继续改善，生态中已有公司直接生成广告，这会改善广告主表现。</p>
+<p>AppLovin也会开发新格式，让用户看到更多样化的内容。平台每天展示大量广告，内容多样性本身就可能带来提升。</p>
+<p>消费广告产品虽然已推出一段时间，仍然很新，广告格式演进还有限。管理层预计未来几年会发生更多变化。</p>
+<p><strong>问题二涉及客户学习成本。</strong> 与去年旺季前相比，电商客户所需学习时间或试投预算是否改善？</p>
+<p>Foroughi称，学习有两面。模型变好了，新架构在数据较少时也能更快产生结果。但客户开始新的投放关系时，仍然谨慎，不能只看支出与平台归因回报，还需要做增量效果研究。</p>
+<p>因此，预算逐步爬坡是行业常态。产品每个季度一方面改善现有客户结果，另一方面要让刚进入、数据很少的客户尽快看到好效果，降低流失率。</p>
+<h4 id="chapter-12">28:40 Rob Sanderson，Loop Capital</h4>
+<p><strong>问题一涉及自助渠道与客户差异。</strong> 新客来自自助平台和转介绍，转化情况怎样？广告主专业程度是否仍然显著影响结果？</p>
+<p>Foroughi回答，产品仍早期，通过公司团队得到帮助的客户，成功概率比完全自助更高。有经验的广告主即使自助，也可以成功。</p>
+<p>但非常小的企业，例如刚出现、交易量和历史数据都很少的小型珠宝商，还无法保证接入就立刻获得良好结果。</p>
+<p>更多数据会提高模型在缺乏单个客户数据时的预测能力。五年后，数据规模和模型发展可能让各类客户结果明显改善，但今天仍要逐步扩展产品适用范围。</p>
+<p><strong>问题二涉及创意瓶颈。</strong> 广告素材是否仍然是主要失败原因？生成式AI创意工具的发展是否慢于一年前预期？</p>
+<p>Foroughi认为，西方大型模型企业目前更关注其他方向，因此公司之外投入这一具体问题的研发资源相对少。</p>
+<p>素材不足未必使投放完全失效，但会造成机会损失。熟悉Meta、TikTok和AppLovin的广告主普遍知道，要在AppLovin上扩大规模，需要提供更多创意。知道这一点的客户表现更好，不熟悉规则的小客户则可能损失增长空间。</p>
+<p>AppLovin广告更长，也确实被用户看到。相比其他平台上传十条可能很少被观看的广告，这里的广告平均观看时间超过三十五秒，采用全屏形式，用户不能同时在屏幕上做其他事。</p>
+<p>因此，素材数量与质量的组合决定可扩张规模。有些客户已经学会，另一些仍在学习。</p>
+<p><strong>问题三涉及数据供给。</strong> 更大模型是否有足够自然生成的数据？如果收购数据，需要客户数据、交易数据，还是长期有效的数据？</p>
+<p>Foroughi表示，本季度的强劲结果，来自更聪明地处理已经拥有的数据，并没有依靠额外收购数据。</p>
+<p>但模型普遍需要更多数据。每新增一个客户，同时建立收入关系和数据关系，公司目前不急于收购，因为业务本身运行良好。</p>
+<p>长期看，如果能更快引入数据，可以缩短发展路径、扩展增长空间。回答没有列出具体数据类型、数据保鲜要求或已确定的收购对象。</p>
+<h4 id="chapter-13">32:54 Shweta Khajuria，Wolfe</h4>
+<p><strong>问题涉及可见度与护城河。</strong> 对担心商业模式可预测性和收入增长持续性的投资人，公司能否披露更多指标？</p>
+<p>Foroughi称，过去约十六个季度中，大多数季度表现很好，约十四个季度超过收入指引上限，而且超出幅度并非微不足道。增长来自技术改善和新客户进入，但这两者尚难形成稳定、可用于精确外推的指标。</p>
+<p>消费广告仍处早期，公司无法提供一个可以可靠预测未来的固定KPI。工程师改善模型、引入更多数据，都有可能带来显著上行，但发生时间不容易预测。</p>
+<p>他强调，公司已经是规模很大的独立广告技术平台，没有自己的第一方内容网站，却创造了大量现金流。广告主每年通过平台投放，另一侧形成数百亿美元商品和服务收入。</p>
+<p>管理层把这些交易视为新增经济活动的重要来源，但没有提供新的因果测量或稳定增长公式。</p>
+<h4 id="chapter-14">35:27 Ralph Schackart，William Blair</h4>
+<p><strong>问题一涉及Axon 3.0。</strong> 新架构既然与Axon 2.0同样重要，是否可以理解为Axon 3.0？全面上线后可能产生多大影响？</p>
+<p>Foroughi表示，从技术复杂程度看，确实处在相似层级。但公司并非面向消费者发布通用AI模型，因此没有按版本号对外命名。</p>
+<p>新架构允许处理更多数据、启动更大集群，并有望改善输出。当前仍只完成部分上线，所有模型都完成转换还有复杂研发工作。</p>
+<p>它提供了比旧架构更长的改进路线图，但公司没有量化全面上线后的确定财务提升。</p>
+<p><strong>问题二涉及竞争。</strong> 上季度市场担心竞争，当前管理层如何看行业？</p>
+<p>Foroughi称，其他公司也表现不错，这个市场可以同时支持多家公司增长。不同模型对同一次展示的预测和报价不同，所有模型共同改进，会使广告主业务更好。</p>
+<p>上季度的问题主要来自公司自身执行失误。如今多家竞争者同时表现良好，公司仍交出强劲季度结果，支持了管理层此前的解释。</p>
+<h4 id="chapter-15">37:29 Bryan Smilek，JPMorgan</h4>
+<p><strong>问题一涉及长期增长拆分。</strong> 分析师引用CEO在All-In Summit提到的平台年化广告总支出接近200亿美元，询问长期30%增长中，模型改善与新增客户各占多少。</p>
+<p>Foroughi表示，无法可靠拆分。游戏领域可能已经覆盖几乎所有主要移动游戏公司，新客机会更多来自消费广告。</p>
+<p>数据继续积累，新架构提供长期优化空间，但不同季度的主要增长来源会变化。有时游戏模型出现提升，有时消费广告更强。</p>
+<p>消费广告增长快、占比逐渐提高，而且客户渗透仍很低。每个季度有更多人认识平台，这本身就形成较长的增长路径。回答没有重新确认一个最新广告总支出数字，也没有给出增长贡献比例。</p>
+<p><strong>问题二涉及四季度游戏假设。</strong> 在环比增长8%至10%的指引中，游戏业务假设是什么？</p>
+<p>Stumpf表示，公司不拆分游戏与消费广告指引。两类业务都纳入正常四季度季节性，消费广告有黑色星期五、网络星期一和假日购物，游戏业务四季度通常也较强。</p>
+<p>当前已经实现的模型改善，同样已纳入8%至10%的总体环比增长区间。</p>
+<h4 id="chapter-16">39:45 Alec Brondolo，Wells Fargo</h4>
+<p><strong>问题一涉及数据收购。</strong> 理想的并购对象或数据关系是什么？</p>
+<p><strong>问题二涉及亚太像素增长。</strong> 外部像素追踪显示，电商客户增加似乎更多来自亚太，是否意味着当地产品匹配度优于北美和欧洲？</p>
+<p>Foroughi先回答第二问。公司长期同时重视亚太和北美，两地也是规模最大的销售团队，欧洲、中东及非洲也有覆盖。</p>
+<p>一些亚太客户利用亚洲供应链，为某个产品或渠道新建独立网站，可能没有在其他渠道投放。花1000美元后，是否赚钱容易判断，归因复杂度较低。有些像素站点就是专门为AppLovin创建的新网站。</p>
+<p>北美则有更多大型、已有长期品牌和单一域名的企业，不会为每种尝试重新建一个网站。因此，亚太像素数量增长较快，不能直接推出客户渗透更强。</p>
+<p>关于并购，Foroughi用收购MoPub举例。公司当时MAX已经成功，收购后约九十天关闭MoPub旧平台，把客户迁移到MAX。管理层称，该交易已经收回成本多次。</p>
+<p>未来寻找的是有价值的数据关系和客户关系。公司认为自己可能用十年也能逐步获得这些客户，但如果通过并购更快迁入客户及数据，就可以把长期发展压缩到较短时间。公司没有披露正在谈判的具体目标。</p>
+<h4 id="chapter-17">42:49 Omar Dessouky，BofA</h4>
+<p><strong>问题涉及自学习增长。</strong> 过去模型不断用实时展示数据再训练，曾被描述为带来3%至5%的持续自学习增长。三季度是否仍有这一动力，四季度指引是否包含？未来是靠自学习，还是主要靠工程师推动升级？</p>
+<p>Foroughi表示，模型持续作出预测、收到新数据、重新评估，自然会存在某种学习与强化过程。这是深度学习系统常见的运作方式。</p>
+<p>但无法准确拆成3%、3.2%或4%，也不能单独测出模型自身改善对收入的固定贡献。</p>
+<p>因此，公司不会在财务预测里先填一个固定自学习增速，再额外叠加一个模型升级增速。</p>
+<p>过去可能谈一年一次重大提升，但近十六个季度中，除了上一季度，几乎每季都出现多次A/B测试带来的能力改善，并共同推动增长。它们可以累积，却难以按固定百分比拆解或预测。</p>
+<h4 id="chapter-18">45:00 Jim Callahan，Piper Sandler</h4>
+<p><strong>问题一涉及MAX供给增长。</strong> 去年曾说MAX供给两位数增长，今年及2027年怎么看？</p>
+<p>Foroughi表示，仍是较强的两位数增长。上季度公司甚至提过，单个季度就实现两位数增长。</p>
+<p>相比一些广告市场在供给数量和价值上仅有低两位数甚至个位数增长，MAX这一领域仍然增长较快。公司没有给出2027年的确定百分比指引。</p>
+<p><strong>问题二涉及展示采购成本。</strong> 行业调查显示展示价格上升，对当前及未来成本有什么影响？</p>
+<p>Foroughi指出，MAX增长同时来自更多供给和每次展示价值提高。竞争者变得更擅长变现，拍卖价格就上升，发布商获得更多收入。</p>
+<p>AppLovin需要支付更高的库存价格，或者以至少同样的速度改善自身技术。如果技术改善快于市场，就能更快增长。</p>
+<p>管理层认为，过去四年的很多创新属于后一种情况，公司的技术进步快于市场，因此业务增长也更快。</p>
+<h4 id="chapter-19">46:35 Vasily Karasyov，Cannonball</h4>
+<p><strong>问题一涉及抽成率。</strong> 抽成率较上季度或去年如何变化？消费广告和游戏分别建模，会不会使两者抽成波动不同？</p>
+<p>Foroughi表示，公司不以抽成率为优化目标，它更像事后计算的结果。</p>
+<p>他举例，转化率略高于1%时，买入一千次展示，可能约987次都没有产生对应收入，单看这些展示就是亏掉投入。剩余少数展示，却可能以很小成本产生大量收入。</p>
+<p>如果工程师短期内带来巨大提升，公司就可能获得更多经济收益。如果与市场同步进步，经济关系可能稳定。如果多年落后，市场价格改善快于自身技术，收益空间就会被压缩。</p>
+<p>他强调团队长期执行能力和研发突破，但没有披露一个明确的抽成率水平。</p>
+<p><strong>追问涉及游戏与消费广告的内在差异。</strong> 是否存在某种结构性原因，导致两边抽成显著不同？</p>
+<p>Foroughi回答，两者在同一个拍卖里竞争，结果应当比较接近。</p>
+<p>例如游戏广告预测价值为每千次展示20美元，即单次2美分，消费广告以21美元赢下。这两个出价很接近。如果模型预测准确，不会长期出现一个合理价值50美元、另一个20美元，却被当成同类机会的巨大偏离。</p>
+<h4 id="chapter-20">49:07 Tim Nollen，SSR</h4>
+<p><strong>问题涉及数据来源、处理与所有权。</strong> 数据究竟属于最初的游戏开发商、处理交易的广告技术公司，还是聚合平台处理后获得新的数据权利？</p>
+<p>Foroughi先询问，分析师指的是哪类数据，是否是聚合平台数据，因为公司系统里有很多不同数据。</p>
+<p>Nollen进一步说，交易产生原始数据，聚合平台处理并形成数据包，想知道这些数据归谁。</p>
+<p>Foroughi要求给出一次具体广告展示的例子。Nollen于是解释，假设交易由AppLovin或另一家公司处理，聚合平台能够看到经过系统的数据，是否因此获得这些数据的来源权利。</p>
+<p>Foroughi指出，问题中对聚合平台可访问内容的理解有偏差。</p>
+<p>MAX作为聚合系统能看到竞价，但Axon模型或公司自己的广告竞价系统，能获得的是是否赢得这次展示、最终成交价格，以及失败竞价者也能收到的价格反馈。</p>
+<p>它并不知道另一家竞价者究竟为了什么具体广告出价，也看不到另一家赢下拍卖后，最终向用户展示了什么内容。</p>
+<p>那份具体广告及其模型输出，属于负责建模、处理数据、与广告主和用户建立关系的广告公司。</p>
+<p>Foroughi表示，MAX并没有因此赋予自家竞价模型特殊的数据通道。平台建设时，公司选择让所有竞价者与自身获得相同的数据访问，以形成公平市场。管理层认为，公平竞争提高了每次展示的潜在价格，支持了MAX的变现表现。</p>
+<p>Nollen确认，解释回答了他的问题。</p>
+<h4 id="chapter-21">51:56 Matthew Swanson，RBC</h4>
+<p><strong>问题一涉及客户初期效果。</strong> 对不够成熟、需要指导的消费广告客户，改善责任更多在AppLovin模型，还是客户学习如何使用平台？</p>
+<p><strong>问题二涉及获客优先级。</strong> 应该优先找能立即贡献收入的专业客户，还是最有长期潜力的合作伙伴？</p>
+<p>Foroughi表示，当前很大一部分是学习曲线。很多客户以前没在游戏里买广告，不习惯自己的广告真正被完整观看，也不习惯这么长的观看时间。</p>
+<p>让一家商店制作六十秒内容展示自己，并不容易。游戏客户可以做一个小游戏，让用户直接体验，逻辑更直观。消费广告的媒体采购人员需要理解这种不同的环境。</p>
+<p>随着更多客户和代理商掌握方法，会逐渐形成标准打法。它有点像十年前的社交广告，刚出现时规模小、没人知道怎么做，后来成为成熟业务。</p>
+<p>在客户选择上，公司确实优先争取更专业的广告主。这也是战略合作和推荐伙伴有意义的原因，能够带来真正适合平台的客户，而不是只靠广撒广告获取用户。</p>
+<h4 id="chapter-22">53:52 结束</h4>
+<p>主持人宣布本季度问答结束。全文覆盖管理层陈述与18组分析师提问、全部实质追问和回答。</p>
+<p>---</p>
+<p>本文按原电话会顺序整理详细纪要。金额沿用电话会口述口径，模型效果、长期增长及竞争判断归属于管理层。原电话会约54分钟，发表于2026年11月4日。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
