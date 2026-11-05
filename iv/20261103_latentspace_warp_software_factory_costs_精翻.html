@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Warp CEO谈软件工厂：代理评估、交付成本与工程团队的下一步（Latent Space）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-05<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>Warp CEO谈软件工厂：代理评估、交付成本与工程团队的下一步（Latent Space）</h2>
+<div class="metaline">Latent Space；swyx、Zach Lloyd · 2026-11-03 · <a href="https://www.youtube.com/watch?v=LL0YmIyBKSU" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：编程代理；企业采用；推理成本；单位经济；生产率</p>
+<h3>要点</h3>
+<ul><li>Warp把代码库、工具、技能与工作流统一定义为代码，再集中保存每次代理工作的过程和产物，用真实任务评估模型与运行框架。</li><li>Lloyd称，内部调优把每个PR的成本从约80美元降到15至20美元，过去一个月吞吐量提高40%，代码回退率没有上升。</li><li>他同时讨论了适用的团队规模、企业既有采购承诺、订阅与API的价格差，以及产品工程和软件工厂工程的分工。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 为什么讨论软件工厂</a></li><li><a href="#chapter-2">01:31 什么才算一个软件工厂</a></li><li><a href="#chapter-3">04:30 用代码定义工厂与工作入口</a></li><li><a href="#chapter-4">07:34 从Slack请求到移动应用PR</a></li><li><a href="#chapter-5">08:41 成本、吞吐量与质量怎样测量</a></li><li><a href="#chapter-6">12:03 谁在使用这些管理与评估功能</a></li><li><a href="#chapter-7">14:32 让代理帮助改进工厂</a></li><li><a href="#chapter-8">16:10 用公司的真实任务建立基准</a></li><li><a href="#chapter-9">18:59 软件工厂需要哪些层次</a></li><li><a href="#chapter-10">23:59 从每个PR约80美元降到15至20美元</a></li><li><a href="#chapter-11">27:03 哪些团队需要这些基础设施</a></li><li><a href="#chapter-12">30:24 最有力的反对意见与订阅价格差</a></li><li><a href="#chapter-13">33:23 产品工程与工厂工程</a></li></ul></details>
+<h4 id="chapter-1">00:00 为什么讨论软件工厂</h4>
+<p><strong>swyx</strong></p>
+<p>今天我们来深入看看Warp，与Zach Lloyd交流。他做Warp已经有一段时间，公司逐渐转向现在的形态，也就是软件工厂，并采取开放源码的方式。</p>
+<p>他在AI Engineer的演讲受到很多关注。大家都在尝试为自己建立类似系统，Warp提供了一种方案。他提出的定义也像是一套开放的规范，逐渐成为人们对这类系统的基本期待。</p>
+<p>你会需要云，需要一个控制平台，还需要那些团队已经习以为常的安全和协作功能。接下来我们会看看它具体意味着什么。</p>
+<h4 id="chapter-2">01:31 什么才算一个软件工厂</h4>
+<p><strong>swyx</strong></p>
+<p>我们在远程演播室里和Zach Lloyd聊聊。欢迎。你最近的AI Engineer演讲传播得很广，似乎触动了大家特别关心的事情。</p>
+<p><strong>Zach Lloyd</strong></p>
+<p>大家对软件工厂很感兴趣，这也是我和Warp正在专注的方向。对于软件工厂究竟是什么，以及它对开发者意味着什么，我们有一些比较明确、也可能有意思的看法。</p>
+<p><strong>swyx</strong></p>
+<p>你们网站主标题是“面向云端软件工厂的开放基础设施”。你比我花更多时间向别人解释这个概念。人们以为软件工厂是什么，他们实际上需要什么？</p>
+<p><strong>Zach</strong></p>
+<p>我与企业和开发者交流时，发现大多数人都想建立某种内部软件工厂，或者一组这样的工厂。</p>
+<p>我先说自己的定义。它是一个运行在云端的代理系统。你定义不同代理在团队或产品的软件开发过程中承担什么角色，并赋予系统一定自主性，让代理能自己做一些事情。</p>
+<p>这个系统应该能够被测量，并形成闭环。团队可以不断调优、测量、做基准测试。随着大家转向代理式开发，你能更有把握地确认，团队是在用可扩展、有效率的方式进行开发。</p>
+<p><strong>swyx</strong></p>
+<p>人们来找你时，通常会有什么误解？比如，以为只要买了某个东西，就能得到一台很厉害的赚钱机器。</p>
+<p><strong>Zach</strong></p>
+<p>很多企业会把不同的自动化串在一起。有的人把“我们用了很多代理来交付软件”这件事，统称为内部软件工厂，却没有一个明确的对象。</p>
+<p>我们会帮助他们把它具体化。软件工厂应该是一个很明确的系统，用代码定义。工作流、技能、MCP等，都应该包含在其中。它应该能够在某个时点被运行，并让你测量它的表现。</p>
+<p>大家有各种不同的理解。对于Warp Factories，我们会明确说，这是一个可以编排、可以测量的具体系统。每个产品范围对应一个工厂。</p>
+<h4 id="chapter-3">04:30 用代码定义工厂与工作入口</h4>
+<p><strong>Zach</strong></p>
+<p>你现在看到的是Warp的软件工厂平台。一个工厂服务于某个产品范围，比如移动应用，或者服务端应用。</p>
+<p>它会操作一组代码仓库，需要一组技能、一组MCP工具，并关联一个工作流。这个工作流大体上对应团队现在为代码库作修改时已经采用的过程。</p>
+<p>可能先有问题分诊，再形成规格，然后实现。关键是有一个明确的工作流，而且工作流本身由代码定义。</p>
+<p>我们用一个YAML文件，说明可以访问哪些仓库，接入哪些MCP服务，以及有哪些集成。整个系统会在一个地方被明确定义下来。</p>
+<p>使用工厂时，可以考虑两类角色。</p>
+<p>第一类是做产品的人，他们从事产品工程，通过工厂交付功能。他们可以继续使用现有工具，把任务从Slack交给工厂，通过Linear或Jira这样的任务管理器交给工厂，也可以从GitHub、API或MCP进入。</p>
+<p>可以把它理解为，把一个工作项目放入工厂。一旦进入，就启动一个预先定义好的工作流，而这个工作流由代码定义。到这里清楚吗？</p>
+<p><strong>swyx</strong></p>
+<p>我很喜欢用代码把东西定义清楚。</p>
+<p><strong>Zach</strong></p>
+<p>一旦这样建立起来，无论任务从Slack、Linear还是自动化触发器进入，比如出现一个服务端错误，都经过同一个系统。</p>
+<p>这会带来一系列好处。首先，无论代理在哪里运行，你都能看到工作记录。这里展示的是Warp内部团队实时使用工厂的情况。</p>
+<p>对于每个建立了工厂的产品，你都可以看到整个团队的编程代理工作过程。这不只是为了看看某位同事在做什么，更重要的是，代理对话、代理产物、整个团队由代理完成的工作，都被集中起来了。</p>
+<p>我说系统形成闭环时，这些对话和运行记录就是它改进自己的关键材料。</p>
+<h4 id="chapter-4">07:34 从Slack请求到移动应用PR</h4>
+<p><strong>Zach</strong></p>
+<p>看这个例子，一位同事正在开发我们的移动应用，他从Slack发起工作。我也可以直接在Slack里打开它。</p>
+<p>系统保存了完整对话，也保存了开发过程中计算机操作工具生成的屏幕截图。你能看到编排系统的不同代理分别做了什么。</p>
+<p>这类记录覆盖每一次工作。</p>
+<p>我与企业交流时发现，大多数团队现在还没有这样的系统。工程师分别在自己的终端使用Claude Code，或者在本地使用Codex应用。大家希望最终能把这些工作集中起来观察。</p>
+<h4 id="chapter-5">08:41 成本、吞吐量与质量怎样测量</h4>
+<p><strong>Zach</strong></p>
+<p>集中以后，你就能得到很多关于全公司代理式编程的数据。</p>
+<p>一个维度是团队产出，包括传统DORA指标，比如交付一项变更需要多长时间。</p>
+<p>另一个维度是自动化程度。我们会统计，每合并一个PR，人类需要介入多少次。也会看吞吐量和成本。</p>
+<p>我们一直在使用这些指标。对很多企业来说，成本非常重要。你需要为工厂选择合适的模型和技能，让每个PR的成本逐步下降。</p>
+<p>可以按个人拆分成本，按自动化任务拆分，也可以看钱花在软件开发生命周期的哪个环节。</p>
+<p>还有一个很重要的能力，是往里面看，了解编程代理在不同维度的表现。可以把它理解为在线评估，我们把它叫作评分器。</p>
+<p>它们可以衡量很一般的问题，比如代理是不是太啰嗦，效率如何，代码质量好不好。我们在这些方面也还有工作要做。</p>
+<p><strong>swyx</strong></p>
+<p>这些评分规则由用户定义，还是平台提供？</p>
+<p><strong>Zach</strong></p>
+<p>两种都有。我们会提供一组通用、开箱可用的规则。与企业合作时，他们也可能有特别想跟踪的失误。</p>
+<p>例如，代理是不是总作某一种修改，导致构建失败？或者是否有某个工作流里的特定问题？这些规则同样由代码定义，可以定制。</p>
+<p>建立一个评分器后，背后会有一组已经保存的历史代理对话，再让代理回头给这些运行记录打分。</p>
+<p>这里是一个检查冗余测试的例子。编程代理经常会出现这种情况，写了很多实际不需要的测试。它在摸索实现方法时写出来，然后把它们留在代码里。结果代码库膨胀，还浪费token。</p>
+<p>如果你想检查这个问题，就可以建立一个评估项。它采用大语言模型作为评判者的方式，选择评判模型、运行范围、评分提示词，再设定采样率。</p>
+<p>因为这些评分本身也要运行代理，需要考虑成本，不一定要检查每一次运行。</p>
+<p>建立起来以后，就相当于有一批代理观察整个团队的编程会话，找出哪些情况下测试写多了。你会得到记录，也会知道应该去哪里改进团队使用代理的方式。</p>
+<h4 id="chapter-6">12:03 谁在使用这些管理与评估功能</h4>
+<p><strong>swyx</strong></p>
+<p>我想确认一下，Warp是不是存在不同的使用层级。你展示的这些东西，更像是CTO管理整个公司、观察很多工程师工作的视角。</p>
+<p><strong>Zach</strong></p>
+<p>是的，使用者包括工程经理、CTO，也经常是平台团队，通常不会是日常做产品的每一位工程师。</p>
+<p>我们合作的公司经常有开发体验团队或平台团队，一直在尝试优化编程代理。我展示的工具，就是给他们回答一个问题，公司怎样才能把Claude Code、Codex之类的工具用得更好？</p>
+<p><strong>swyx</strong></p>
+<p>这部分清楚了。</p>
+<p><strong>Zach</strong></p>
+<p>我还想强调一个普遍原则。无论用Warp Factories，还是自己建设内部工厂，都应该尽量让一切被记录、被观察、被测量。</p>
+<p>到了这个阶段，团队才可以用工程方法改善编程代理。</p>
+<p>你在社交平台上经常看到，有人推荐一个新模型、一种新框架，争论Pi、Claude Code、Cursor哪个更好。我们希望企业能真正测量这些东西。</p>
+<p>企业会希望建立类似的系统，无论购买还是自建，收集信息，观察编程代理的工作表现。</p>
+<p>另外，这个系统也允许建立很多自动化。有人从Slack开始工作，也有人设置不同的触发条件，把任务送进工厂。</p>
+<h4 id="chapter-7">14:32 让代理帮助改进工厂</h4>
+<p><strong>Zach</strong></p>
+<p>有了刚才的评分系统，还可以再建立一个代理循环，让代理去寻找评分失败的情况，并建议怎样改进系统。</p>
+<p>这里是一个简单例子。我们把这类能力叫作自我改进。</p>
+<p>自我改进代理观察问题分诊步骤，找到了54个同类失败案例。它认为，如果分诊代理能够启动一个子代理进行调查，这些案例本来可能处理得更好。</p>
+<p>你可以回头查看它为什么作出这个判断。更有意思的是，整个工厂已经被定义成代码，而它们又是编程代理，所以可以直接针对工厂定义提交PR，尝试改进工厂本身。</p>
+<p>这样就形成了一个完整的学习循环，帮助系统优化。</p>
+<p>我们还没有做完、但接下来想做的一步，是针对每个这样的建议，回放过去的运行记录，检查这个改动是否真的会改善结果。</p>
+<p>当基础能力齐备后，能采用的工程方法就会很多。</p>
+<h4 id="chapter-8">16:10 用公司的真实任务建立基准</h4>
+<p><strong>Zach</strong></p>
+<p>最后再展示一个能力，然后我们可以更广泛地谈这个思路。</p>
+<p>企业应该争取具备基准测试能力。我们自己在内部也觉得它非常有用。</p>
+<p>在工厂的语境下，基准测试是把系统里已经完成过的代理任务，加入一套测试集。比如，你可以挑出一组与前端开发有关的真实任务。</p>
+<p>有了这套测试集，就可以在不同配置组合下回放同样的任务。</p>
+<p>我很重视的一点是，除了替换模型，还应该能替换代理运行框架。Warp有自己的框架，但也允许与Claude Code、Codex、Pi进行比较，模型也可以选择。</p>
+<p>最后得到的结果，会类似公开的SWE或Terminal Bench测试，但使用的是公司自己的真实工作。</p>
+<p>这里展示的是某一组任务的成本与正确率权衡。理想位置在左上角，成本低，正确率高。</p>
+<p>这些模型已经稍微旧了一点，因为变化实在太快。比如，这里GPT-5.6 Sol在任务集上大约有95%的正确率，平均成本六美元。GLM 5.3 Flash大约93%，平均成本两美元。</p>
+<p>你可以把这些信息放进模型路由策略，甚至代理框架的选择策略，并针对自己的工作流和代码库进行定义。</p>
+<p>从更大的角度看，这就是我们所说的软件工厂工程。我们现在有了编程代理这样一种新的基础能力，团队和公司需要用工程思维判断，是否在合适的地方、用合适的方式部署了它。</p>
+<p>我们正在为企业建设这样的基础设施和工具。很多已经尝试自建系统的公司，都对这个方向很有共鸣。</p>
+<p>这大概就是我所说的软件工厂。我讲了不少，可以先停一下。</p>
+<h4 id="chapter-9">18:59 软件工厂需要哪些层次</h4>
+<p><strong>swyx</strong></p>
+<p>如果你把这套思路讲得足够深入，也许大家最后都会尝试构建一个Warp，即使没有购买Warp。</p>
+<p>我很喜欢你们网站和演讲中强调的几个点。入口应该覆盖各种工具，工厂本身应该是代码，也要有评估循环。有人把这叫代理开发生命周期，有人仍然叫软件开发生命周期。</p>
+<p><strong>Zach</strong></p>
+<p>我会把它看成一套分层的系统。</p>
+<p>基础层是基础设施。首先，非常重要的一点，是用声明式代码定义工厂。这里可以类比Terraform。</p>
+<p>你会得到版本管理的好处。无论把它叫软件开发、AI开发还是产品开发生命周期，都可以看到某个版本具体怎样运作。</p>
+<p>你能建立分支并测试，也能在改动后回退。这些都是源代码管理本来就有的优点。</p>
+<p>另外，代码化还带来一个很重要的好处，编程代理可以提出改进。这是建立自我改进软件工厂的基础。</p>
+<p>再往上一层，需要有地方收集代理生成的全部信息。你会希望检查信息、寻找失误模式，也希望用不同变量回放历史任务，从测量的角度优化系统。</p>
+<p>因此，你需要代理对话、代理产物，以及从所有工具进入、最终得到结果的整个交互记录。</p>
+<p>一个任务可能从Slack开始，继续到Linear，再到GitHub，收到代码审查意见，最后合并代码。它甚至可能已经发布，然后导致服务端崩溃。</p>
+<p>你需要能够回头诊断，哪里本来可以做得更好，失误究竟在哪里。大概率会由代理帮你调查，但人也可以直接看。</p>
+<p>另一个明显的需要，是把数据接入系统。你得有办法连接MCP服务。</p>
+<p>随着公司变大，不同部门还会需要不同权限。营销团队能访问哪些MCP，销售团队能访问哪些，工程团队又能访问哪些？企业规模不同，复杂度也不同。</p>
+<p>还需要一个算力层，而且应该把它作为独立组件看待。现在有很多代理沙箱供应商，如果使用第三方，最好设计成可以替换的。</p>
+<p>我们主要使用Namespace。</p>
+<p><strong>swyx</strong></p>
+<p>他们是在AI Engineer Europe发布的。</p>
+<p><strong>Zach</strong></p>
+<p>Namespace很好，但这个部分应该可以替换。你如果想用Daytona、Modal、E2B，都应该能接进来。</p>
+<p>根据需求，还要支持不同平台。默认可能使用Linux沙箱，但如果要让代理操作计算机，比如我们测试iOS应用，就需要能够运行Mac虚拟机，启动模拟器，让代理实际点击和操作。</p>
+<p>在推理服务上，我们也非常开放，希望足够灵活。</p>
+<p>很多企业已经向Anthropic、OpenAI或Google作出采购承诺，希望继续消化这些额度。我们允许客户接入自己的推理供应商，也可以通过我们购买推理。</p>
+<p>甚至代理运行框架也可以自行接入。我觉得这很重要。前面提到的Pi，以及兼容ACP的框架，都可以被编排进来。</p>
+<h4 id="chapter-10">23:59 从每个PR约80美元降到15至20美元</h4>
+<p><strong>Zach</strong></p>
+<p>然后是改进层，也就是刚才演示的那些功能。整个系统真正有价值的地方，在于你可以持续改进它。</p>
+<p>举个Warp内部的数字。最开始采用工厂方法时，我们每个PR大约花80美元，因为在一些不该使用Opus的地方用了它。分诊代理也用了能力很强、成本很高的模型。</p>
+<p>代理的结构还带来了很多重复工作。某些场景里，子代理太多，减少代理数量反而更好。</p>
+<p>我们利用这些内置功能，做了很多内部调优和测试，最终把每个PR的成本降到大约20美元，或者15美元左右。</p>
+<p>PR吞吐量的改善也可以测量。过去一个月，它提高了40%。我们同时测量代码回退率，并没有看到它上升。</p>
+<p>所以，对观察、测量、调优这套方法，我有很强的信心。</p>
+<p>你还需要一个编排器。有时大家把编排器说得像是整个平台，在我看来，它是平台的一部分。</p>
+<p>它读取工厂的代码定义，让工作经过不同阶段，调用正确的模型、加载正确的技能，也负责触发适当的自动化。</p>
+<p>最后，你需要多个入口。</p>
+<p>我们的理念，是把工厂带进公司现有的知识工作工具。最明显的例子是Slack，我们大概60%的工作从Slack开始。</p>
+<p>但有时从任务管理器开始更合适。也有开发者习惯在终端里使用Claude Code，先在那里做一部分工作，再把规格提交给工厂。</p>
+<p>因此，我们希望整个系统由API和MCP驱动。工厂本身成为一块没有固定交互界面的基础设施，支持多个入口。</p>
+<p>这种分层视角很容易让企业理解。它是开发者基础设施里一个新的组成部分，位置大概比持续集成和持续交付再往前一层。我认为，大多数公司以后都会有类似系统。</p>
+<h4 id="chapter-11">27:03 哪些团队需要这些基础设施</h4>
+<p><strong>swyx</strong></p>
+<p>你把层次讲得很清楚，比我以前见过的更完整。</p>
+<p>Cognition、Cursor等公司似乎也都在做某种从底层到上层的组合。软件行业总有打包和拆分。</p>
+<p>但一个B2B软件公司的CTO可能会问，我只是想把工作做好，真的需要全部这六层吗？这究竟适合谁？</p>
+<p><strong>Zach</strong></p>
+<p>最有共鸣的公司，首先得达到一定规模。如果团队只有几个人，这套东西确实太重了。</p>
+<p><strong>swyx</strong></p>
+<p>那就先用Claude Code或Codex的订阅，推进得更快。跟其他团队平台一样，到了某个阶段，才从随手做事转向搭建平台。</p>
+<p><strong>Zach</strong></p>
+<p>对。我们开始看到有意义的下限，大概在五至十名工程师左右。再往上，一直到非常大的公司，都会希望具备类似能力。</p>
+<p>公司越大，落地所需的工作也越多。如果要在公司自己的基础设施里部署这种系统，就很难做到纯粹即插即用。内部开发环境的复杂度，会随着规模扩大。</p>
+<p>但也有很多十至一百名工程师、快速增长的成长阶段公司，可以比较自助地使用。特别是它们已经用了Slack、Linear或Jira等常见组合时。</p>
+<p><strong>swyx</strong></p>
+<p>等一下，你刚才把它叫作“快乐技术栈”？</p>
+<p><strong>Zach</strong></p>
+<p>只是我们自己的说法，并没有贬低Teams的意思。</p>
+<p>有一组在初创公司里很常见的工具集成，可以让这类系统较快接入，马上产生价值，不需要太多设置。</p>
+<p>如果你用过Devin之类的产品，也许体验过相近的好处。在Slack、Linear这样本来就支持多人协作的环境里工作，会产生一些单独使用工具时没有意识到的收益。</p>
+<p>比如，Slack里有服务端崩溃频道，也有用户反馈频道，这些信息可以直接送进工厂，让它开始工作。工厂还可以根据谁熟悉相关代码，把团队里的不同人拉进来。</p>
+<p>所以，不一定要很大的公司才适合，但小到只有几个人时，确实未必有必要。</p>
+<p>最适合的情况，是公司希望建立一套基础设施，在模型和代理持续变化时，仍然有一个可以不断积累、改进的系统。</p>
+<h4 id="chapter-12">30:24 最有力的反对意见与订阅价格差</h4>
+<p><strong>swyx</strong></p>
+<p>再追问一个问题，然后请你介绍一下接下来的演讲。</p>
+<p>如果要把反对这套方案的理由说得尽可能有力，会是什么？别人提出异议时，哪些困难是用户应该提前知道的？</p>
+<p><strong>Zach</strong></p>
+<p>有一类典型客户，目前不太适合我们这套方案，就是基础设施高度定制的公司。</p>
+<p>比如Uber、Ramp这样的企业，有非常大的内部开发者团队，也在建设自己的系统。这类公司会带来比较大的实施挑战。</p>
+<p>此外，特别小的团队直接用订阅，在经济上可能更划算。虽然这又回到了规模问题。</p>
+<p><strong>swyx</strong></p>
+<p>订阅这个问题，我不想略过去。很多人直接转向按API付费，但它可能比购买一组订阅贵五至五十倍。</p>
+<p>真的有人那样组合使用订阅吗？还是说这与服务条款冲突太大，根本不用考虑？</p>
+<p><strong>Zach</strong></p>
+<p>我们接触过很多小公司。他们觉得平台很好，也很想用，但自己现在正在轮换一批每月200美元的订阅。</p>
+<p>有人会说，自己在轮流用17个订阅。你很难想象这种做法会被允许，但我确实不知道具体情况。现实中有人这样做。</p>
+<p>如果这种方式被允许，它可能是最便宜的。但同时会失去很多其他好处，也很难随规模扩大持续使用。公司达到一定规模后，很可能就不能再这样做。</p>
+<p><strong>swyx</strong></p>
+<p>我的意思是，补贴幅度确实很大。一个200美元的计划，可能对应价值8000美元的API使用量。这不是可以随便忽略的钱。</p>
+<p><strong>Zach</strong></p>
+<p>确实如此。从商业角度看，这也是我不想只做一个编程代理产品的原因之一。</p>
+<p>如果你的底层成本高那么多，很难做出有竞争力的编程代理。这就是现实。</p>
+<p>Cursor做得很好。我认为它完成了很好的转型，走向模型实验室，正是因为充分理解了其中的经济关系。</p>
+<p>Warp Factories提供的，是编程代理优化平台、编程代理生产力平台。这是我们这款产品的优势所在。</p>
+<p>仍然有一些独立编程代理，我也在观察它们接下来会怎样发展。</p>
+<p><strong>swyx</strong></p>
+<p>主要有Cognition、OpenCode，当然还有Factory。</p>
+<h4 id="chapter-13">33:23 产品工程与工厂工程</h4>
+<p><strong>swyx</strong></p>
+<p>最后，介绍一下你接下来演讲的方向。你一直在发展这套思考，下一步会谈什么？</p>
+<p><strong>Zach</strong></p>
+<p>我会重点谈，在软件工厂工程越来越重要的世界里，做工程师意味着什么。</p>
+<p>你的角色是什么，工作是什么？产品工程与工厂工程这两种工作，会怎样分工？</p>
+<p>如果把工厂工程视为一个新的专业方向，它具体是什么样的，有哪些工具？工程师又怎样培养合适的能力，去建设那个生产软件的系统？</p>
+<p><strong>swyx</strong></p>
+<p>这是很好的概括。想继续了解你的人，到哪里找你？你们在招聘哪些岗位？</p>
+<p><strong>Zach</strong></p>
+<p>可以去warp.dev，大部分信息都在那里。我们在招工程师，也在招市场与销售团队成员、数据团队成员和设计师，有很多职位。</p>
+<p>我也在自己的账号上持续分享有关软件工厂的想法。可以关注ZachLloydTweets，我会继续把思考发出来。</p>
+<p><strong>swyx</strong></p>
+<p>谢谢你今天的时间。</p>
+<p><strong>Zach</strong></p>
+<p>谢谢邀请。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

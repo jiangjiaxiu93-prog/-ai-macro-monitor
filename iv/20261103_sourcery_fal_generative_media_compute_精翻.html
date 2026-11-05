@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>fal联合创始人谈生成式媒体：付费需求、算力瓶颈与产业链利润（Sourcery）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-05<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>fal联合创始人谈生成式媒体：付费需求、算力瓶颈与产业链利润（Sourcery）</h2>
+<div class="metaline">Sourcery；Molly O’Shea、Burkay Gür、Gorkem Yurtseven · 2026-11-03 · <a href="https://www.youtube.com/watch?v=pPzJ1wE8Lnw" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业采用；推理成本；算力采购；产业价值分配；按量计费</p>
+<h3>要点</h3>
+<ul><li>两位创始人称，专业生成式媒体用户可每月花费一万至两万美元。视频价格上涨伴随质量提升，广告与影视需求也随之扩大。</li><li>fal视频收入占比曾升至约70%，图像编辑又把图片业务带回约一半。公司需要提前配置算力，同时协调模型发布与客户产品上线。</li><li>他们认为，算力环节的技术创新可以形成利润，应用层仍面临竞争与营销成本。访谈保留了团队组织、好莱坞采用及世界模型的完整讨论。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:48 开场、餐厅与融资之后的重心</a></li><li><a href="#chapter-2">03:15 生成式媒体为什么形成了市场</a></li><li><a href="#chapter-3">06:50 价格上涨之后，专业需求进入了市场</a></li><li><a href="#chapter-4">09:35 广告、快速试验与自动优化</a></li><li><a href="#chapter-5">13:19 从Python算力平台转向图片模型</a></li><li><a href="#chapter-6">18:02 招聘本来就对AI着迷的人</a></li><li><a href="#chapter-7">23:01 创意产业中的技术与团队的起源</a></li><li><a href="#chapter-8">27:48 扁平组织与“超级个人贡献者”</a></li><li><a href="#chapter-9">32:28 主动性、进取心与谦逊</a></li><li><a href="#chapter-10">35:58 保持领先的难处</a></li><li><a href="#chapter-11">37:42 模型发布为什么需要先准备算力</a></li><li><a href="#chapter-12">41:55 模型名字与fal名字的来历</a></li><li><a href="#chapter-13">45:12 开源、定制与客户信任</a></li><li><a href="#chapter-14">49:02 好莱坞采用、劳动与AI回报</a></li><li><a href="#chapter-15">53:39 等待有持久价值的作品与世界模型</a></li><li><a href="#chapter-16">56:58 谁给他们启发</a></li><li><a href="#chapter-17">58:55 有争议的判断与利润落在哪里</a></li></ul></details>
+<h4 id="chapter-1">00:48 开场、餐厅与融资之后的重心</h4>
+<p><strong>Molly O’Shea</strong></p>
+<p>我之前一直把Gorkem的名字念错。现在你们教会我了，我会一直练习这个发音。你们的名字真是太“容易”了。欢迎来到Sourcery。</p>
+<p>我们今天在一个特别的地方，你们介绍一下这里吧。</p>
+<p><strong>嘉宾</strong></p>
+<p>我们在Dalida。先向Sayat和Laura致意。这是一家受到很多土耳其文化影响的东地中海餐厅。有件有意思的事，我就是在这里结婚的，Gorkem为我们主持了婚礼。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>那是一场很棒的婚礼。</p>
+<p><strong>Molly</strong></p>
+<p>恭喜。我已经闻到食物的香味了，镜头外大家正在吃。希望今天的对谈也像这里的食物一样丰富。</p>
+<p>我大概找过Michelle无数次，因为你们的名字一直出现在我面前。品牌很酷，增长又快。我们报道融资，每次我都想，下一轮一定要采访你们。结果那一轮已经完成，再下一轮也完成了。我一直追，你们一直融更多的钱。恭喜最近这一轮。</p>
+<p><strong>嘉宾</strong></p>
+<p>谢谢。像现在很多高速增长的公司一样，我们接连做了几轮融资。这次是迄今规模最大的一轮。</p>
+<p><strong>Molly</strong></p>
+<p>你们似乎已经到了不想再为融资做太多媒体宣传的阶段。热潮的那个拐点过去了，业务已经运转起来。</p>
+<p><strong>嘉宾</strong></p>
+<p>是的。我们更愿意把注意力放在业务上。融资公告在早期会带来一些推动，但轮次多了，它就没有那么重要。业务本身更重要。</p>
+<p><strong>Molly</strong></p>
+<p>那种肾上腺素的感觉已经过去了。融资宣传当然有助于招聘、接触客户，但现在需要专注。</p>
+<h4 id="chapter-2">03:15 生成式媒体为什么形成了市场</h4>
+<p><strong>Molly</strong></p>
+<p>来谈谈业务的演变。生成式媒体在AI领域发展得很快，能看到各种视频和创意内容。现在处在什么阶段，为什么会突然发展起来？</p>
+<p><strong>嘉宾</strong></p>
+<p>我们的理解是，AI已经找到三个产品与市场相匹配的方向。一个是搜索，包括最初ChatGPT的消费者产品，以及现在的Google和Gemini。第二个很明确，而且正在高速增长，是编程代理。第三个，我们认为就是生成式媒体。</p>
+<p>可以这样看。有了编程代理，一个人每个月可能在Claude或OpenAI上花一万至两万美元。生成式媒体是另一个能出现这种个人支出强度的领域。</p>
+<p>如果这就是你的工作，你在一家AI原生工作室，或者现在的传统工作室工作，你会坐在电脑前生成一整天的视频，一个月花一万至两万美元。除了编程，这是AI里另一个个人可以花这么多钱的用例。搜索的市场本身太大，可以单独算一类。</p>
+<p>其他领域还没有形成同样的动态。越来越多人开始采用，同时每个人的花费又这么高，这就是你看到增长的原因。</p>
+<p><strong>Molly</strong></p>
+<p>这可能是个很基础的问题，你们有没有惊讶于背后居然有这么多钱？</p>
+<p><strong>嘉宾</strong></p>
+<p>完全有。我们一路都在吃惊。</p>
+<p>从图片模型转向视频模型的速度，比我们想象的快得多。现在大概50%的收入来自视频。视频收入一开始是零，后来一度达到约70%。当时我们以为视频会完全接管业务，图片模型已经差不多了，所需算力太少，问题也相对简单，以后都会是视频。</p>
+<p>结果，图像编辑模型又让图片业务活过来了。它们还对视频生成有帮助，因为你可以生成不同的帧，而视频模型在这些帧之间进行插值的效果会好得多。图像编辑让图片模型重新增长，现在收入又回到大致一半对一半。</p>
+<p>我们本以为一部分业务正在衰退，结果它又大幅回升。这本身就很出人意料。</p>
+<p>视频模型也在继续进步。现在最好的模型大概生成10至12秒视频，新模型也许能达到30秒。但距离实时流式生成高清晰度视频，还很远。在达到那个阶段之前，这个方向会继续发展。</p>
+<p>分辨率越高、时长越长，成本增长会很快。推理时需要处理更多注意力，分辨率提高也会让像素数量大幅增加。生成视频正在变得更贵。</p>
+<p>因此，我们现在有了一个理解框架。未来还有很大的商业空间，因为目前得到的视频，仍然非常初级。</p>
+<h4 id="chapter-3">06:50 价格上涨之后，专业需求进入了市场</h4>
+<p><strong>另一位嘉宾</strong></p>
+<p>去年有一个很有意思的时点，Veo 2发布了。当时Kling大概是最好的视频模型之一，也有MiniMax。价格在往下降。</p>
+<p>假设最初生成一段五秒视频要40美分，后来大概稳定在30美分左右。Veo 2却突然变成五秒钟五美元，贵了十倍以上。</p>
+<p>我们当时想，究竟谁会花这个钱？看起来也就是另一段五秒视频。结果需求几乎像是没有尽头。人们开始用它，后来出现更贵的模型，人们也继续用。</p>
+<p>背后发生的事情是，专业用途变多了。真正做广告、市场营销、电影制作的人开始采用，因为质量上升太多，其他模型无法满足的需求终于可以得到满足。</p>
+<p>于是，使用量在增长，能力在提高，产品也在不断变贵。人们最后确实花了更多钱。</p>
+<p>这种进步还在持续。大家谈大语言模型时，经常讨论是不是撞墙了、边际回报是不是在下降。我们所在的市场离那个阶段还很远。新的视频模型和版本带来很多新东西，质量提高，价格提高，大家仍然希望使用。</p>
+<p><strong>Molly</strong></p>
+<p>你们还记得Sora吗？感觉已经像是很久以前的事了。那是一个很酷的时刻，但显然太贵了。</p>
+<p><strong>嘉宾</strong></p>
+<p>是的，运行它确实贵。我们也在平台上托管过Sora，在它被关闭前的最后三个月，我们看到很大的增长。我们还在想，这是怎么回事，使用量似乎一直在增加。</p>
+<p>传闻是，没有足够算力同时支持其他事情，而Sora本身运行成本也高。不过，我觉得它原本有很好的前景。也许以后某个时候还会回来。</p>
+<h4 id="chapter-4">09:35 广告、快速试验与自动优化</h4>
+<p><strong>Molly</strong></p>
+<p>我们今天早些时候去了AppLovin。这期节目应该会晚一些发布。我和CEO Adam、CTO Gio谈了广告算法，以及怎样的广告最有效。他们说，效果最好的广告其实大约有60秒。</p>
+<p>我问，他们有没有考虑使用Higgsfield一类公司，提供这类服务，或者收购生成式广告平台。很多生成式媒体的用途确实是广告。但目前还没有完全做好，可能最好的成品也只有五秒，并非每个品牌都能这样用。</p>
+<p>从你们的起点和未来方向来看，广告会是最大的用途吗？</p>
+<p><strong>嘉宾</strong></p>
+<p>我喜欢广告这个生意。互联网依靠广告运转，而且这些模型能生成的内容，很适合用户自制风格的广告。</p>
+<p>这类素材通常用完就可以丢。如果不奏效，再做一个就行。画面质量、灯光都不必完美，甚至要看起来像是在家里做的，这反而更容易实现。</p>
+<p>即使最好的广告长达60秒，也不必连续生成60秒。你可以用很多快速切换的小片段拼起来，在某些情况下效果甚至更好。</p>
+<p>此外，你会得到大量反馈数据。现在我觉得还没有谁把整个过程做得特别好，但你可以把广告发布出去，观察人们怎样互动，然后持续改进，或者小幅调整发布内容，把表现好的素材展示得更多。</p>
+<p>这一切都可以自动发生。视频模型非常适合这种流程。现在还没有人做到尽善尽美，但我们希望参与这样的自动化广告业务。我觉得它会是一个很好的生意。</p>
+<p><strong>Molly</strong></p>
+<p>你刚才说的这种根据结果反复优化，让我想到一个很好笑的例子。我原本想在另一场采访里说，后来觉得可能不太合适。</p>
+<p>我会制作短视频、做互联网上的内容。我发现过一个很有效的小技巧，就是在开场举起胳膊、露出腋下。仅仅这样，观看量就增加了十倍。我当时想，怎么会这样？</p>
+<p><strong>嘉宾</strong></p>
+<p>那你可以生成自己处于一百种不同姿势的画面。</p>
+<p><strong>Molly</strong></p>
+<p>是的。缩略图一直都要测试。我们做YouTube，要测缩略图、标题、文案，因为不同东西会影响算法怎样分发。</p>
+<p><strong>嘉宾</strong></p>
+<p>已经有很懂行的用户在这样做。有些是规模较小的创作者，也有大公司。还没有普及到所有地方，但确实已经存在，我们也与几家这样的公司合作。</p>
+<p>以后它会更容易使用。把强化学习和背后的技术全部接起来，现在还不够简单。再过几年，我认为这会成为常态。</p>
+<h4 id="chapter-5">13:19 从Python算力平台转向图片模型</h4>
+<p><strong>Molly</strong></p>
+<p>来谈谈fal背后的引擎，然后再聊你们的文化怎样跟上增长。你们最初是一家算力公司，后来才进入这个领域。这个过程是什么样的？你们怎样全面投入这个新类别？</p>
+<p><strong>嘉宾</strong></p>
+<p>我们是在2021年开始做算力的，可以说是这一轮AI之前。</p>
+<p>最初的想法是，上一轮数据基础设施浪潮带来了Snowflake、Databricks这样的公司。它们有什么共同点？它们掌握算力。要建立下一代数据基础设施公司，我们也得围绕算力来做。</p>
+<p>我们当时认为，下一个重要方向会是Python。Snowflake所做的事情，以及Databricks在一定程度上做的事情，是让SQL在云上运行。它们控制算力，并让算力能够弹性扩展。</p>
+<p>我们认为，既然AI是下一件大事，Python也会随之成为重点。于是，我们与一些很好的团队合作，把他们的数据科学、机器学习工作负载搬到云上。那是我们的起点。</p>
+<p>公司刚开始不久，市场上就出现了非常大的技术突破。ChatGPT来了，在我们这个领域，Stable Diffusion和DALL-E也来了。</p>
+<p>我们需要作选择。继续做最初的数据基础设施，还是进入新的AI世界？</p>
+<p>当时有语言模型，也有很受关注的开源模型。Llama随后发布，市场开始激烈降价。我们只有五六个人，账上也没有那么多钱，公司还很早期，无法靠负毛利卖token去竞争。</p>
+<p>所以，我们想做一件更有意思、又符合这个趋势的事，专注图片模型。那时候还看不到视频模型，甚至没有什么人讨论它们。但我们认为，可以用自己已经建好的基础设施，让图片模型在云上跑得快很多。</p>
+<p>我们的团队技术能力很强，觉得可以把模型运行得更快。不过，对于这些模型最终会走向哪里，我们当时还没有一套很完整的判断。</p>
+<p>做下去以后，最早一批客户很感兴趣。原来的业务做了一年，一美元收入都没有。这个新业务的收入却开始往上走，显然有些东西不一样。我们因此专注于图片模型。</p>
+<p>大约三至六个月后，我们才意识到，这个趋势可能比最初想的更大。图片模型能帮助人们做的事情，与大语言模型很不同。它会服务广告、营销，买方也会完全不同。</p>
+<p>为了把这件事讲清楚，我们决定给它起一个不同的名字，于是使用了“生成式媒体”这个词，把它放上网站，称fal为生成式媒体公司。</p>
+<p>那时我们总要解释这个词是什么意思。三年前，大家确实不太理解。三年过去，它已经形成了更明确的市场，变成一个新的行业。</p>
+<p><strong>Molly</strong></p>
+<p>现在大家已经想用它制作长片了。</p>
+<p><strong>嘉宾</strong></p>
+<p>对。你第一次玩早期DALL-E时，大概不会想到它能拿来拍电影。进展真的很快。只过了约18个月，人们就开始觉得，也许真的可以制作长片。</p>
+<h4 id="chapter-6">18:02 招聘本来就对AI着迷的人</h4>
+<p><strong>Molly</strong></p>
+<p>我们在旧金山，这里的人对技术特别着迷。你们也许也是。业务在这个拐点高速增长，你们怎样跟上研究进展？会直接看研究吗？一路上怎样学习？</p>
+<p><strong>嘉宾</strong></p>
+<p>一开始，我们参与得非常深。团队很小，每一点技术优势都得自己去争取。</p>
+<p>现在，我们有一支很强的领导团队，其中很多人是以前在其他公司一起工作过的同事。能够依靠这些人，是这份工作很棒的一部分。</p>
+<p>我可以问他们怎样看新东西、在关注什么。现在我获得的信息，很大一部分来自这支团队。我仍然很好奇，想读所有东西，但我从领导团队学到的，已经比从互联网上学到的更多。</p>
+<p><strong>Molly</strong></p>
+<p>这挺好。你呢？</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我想接着说，怎样搭建团队非常重要。我从以前在Coinbase的经历里得到很多启发。</p>
+<p>我2016年加入Coinbase时，公司差不多一百人，还在早期。我们现在大概150人，规模有些相近。</p>
+<p>当时Coinbase在Reddit发布过一份加密货币测验，考你究竟懂多少这个领域的东西，包括很多技术术语。那还是AI出现之前，答案没有那么好找。你得先通过测试，才有机会和团队成员通电话。</p>
+<p>这个做法对Coinbase长期成功很重要。你希望找到真正痴迷于这个领域的人，因为很多时候，工作本身就是不断跟上最新进展。</p>
+<p>一种方法是，先找很优秀的人加入，再希望他们保持动力。另一种是，直接找那些已经充满动力的人。这就是他们整天在想、最兴奋的事情。即使你不雇用他们，他们也会自己去做。</p>
+<p>这是我们早期招聘的标准，现在仍然如此。这样，团队自然会一直了解最新进展，也会始终对手头的事情充满动力。你不用额外去制造这种动力，他们本来就沉浸在AI、生成式媒体里。</p>
+<h4 id="chapter-7">23:01 创意产业中的技术与团队的起源</h4>
+<p><strong>Molly</strong></p>
+<p>你们从哪里招聘？他们原来做什么？我经常问这个问题，因为这些工作三四年前几乎还不存在。</p>
+<p><strong>嘉宾</strong></p>
+<p>一开始，这个市场也被忽视了，因为它与大语言模型的增长同时发生。如果单独出现，它本来可能是最受关注的领域，但当时它只能排在第二。</p>
+<p><strong>Molly</strong></p>
+<p>创意行业在某种程度上又和技术有些冲突。</p>
+<p><strong>嘉宾</strong></p>
+<p>创意产业一直有大量技术参与。比如IMAX摄影机，体积可以有那张桌子那么大。动画、电影制作的不同环节，都有技术投入。</p>
+<p>技术影响有时扩大，然后进入平台期。我们可能又到了一个这样的时刻，未来五至十年，技术会再次给创意产业带来很大的影响。</p>
+<p>AWS、AMD都有规模很大的媒体业务，向工作室和媒体公司销售产品。这是下一轮变化。</p>
+<p><strong>Molly</strong></p>
+<p>我最近还听到有人谈Christopher Nolan和他保存IMAX胶片所需的基础设施。九百磅的胶片，真的很重。</p>
+<p>说回团队。你们一个来自Coinbase，一个来自Amazon。你们怎样认识，最初怎样把一群人组织到一起？</p>
+<p><strong>嘉宾</strong></p>
+<p>我们都是土耳其人，但在土耳其时互不认识。我2014年搬到旧金山后，很快认识了他。那时我们在不同的公司，各做各的工作。</p>
+<p>真正发现彼此适合一起工作，是疫情期间。我们在Palm Springs租了一栋房子，才意识到，两个人可能有合作的默契。大概又过了一年，我们才成立公司。</p>
+<p>我们做朋友已经十多年，但在那次Palm Springs同住之前，从来没有一起工作过。现在这家公司已经做了五六年。</p>
+<p><strong>Molly</strong></p>
+<p>然后你们从Coinbase拉人过来。</p>
+<p><strong>嘉宾</strong></p>
+<p>Coinbase和Amazon，两边都有。</p>
+<p><strong>Molly</strong></p>
+<p>最早找的是什么样的人？</p>
+<p><strong>嘉宾</strong></p>
+<p>各方面都很好的人。技术能力当然必须强。早期我们做很多很深的技术工作，必须把技术做好。现在也仍然如此，但当时这尤其是我们的区别所在。</p>
+<p>同时，我们希望是能相处得好的人。初创团队之间的默契非常重要。找到产品与市场的匹配，大概是创业最难的一步。</p>
+<p>在我们看来，团队要保持足够小，成员之间能紧密合作、一起坚持。要能不断试验想法，抛弃无效的东西，然后继续往前。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>三十五岁左右创业的一个优势，就是已经有一段完整的工作经历。你知道和哪些人共事过，信任谁、不信任谁，可以把这些人召集起来。</p>
+<p>当你拿着一件值得做的事联系他们，他们会愿意加入这段经历。年轻一些时，可能还没有这种积累，只能自己出去招聘，再建立信任。</p>
+<p>我们已经与很多人建立了信任，所以最早的工程团队几乎全是以前认识、共事过、信任的人。这让解决问题容易得多。</p>
+<h4 id="chapter-8">27:48 扁平组织与“超级个人贡献者”</h4>
+<p><strong>Molly</strong></p>
+<p>你们怎样看扩大团队和保持扁平之间的关系？</p>
+<p><strong>嘉宾</strong></p>
+<p>从文化和组织结构看，我们比一般初创公司更扁平。最深的汇报关系大概只有两层，这是有意设计的。</p>
+<p>我们很相信“超级个人贡献者”，现在这个说法越来越常见了。以前我们未必给它起过名字。</p>
+<p><strong>Molly</strong></p>
+<p>我们已经有前线部署工程师，现在又有超级个人贡献者。很快可能就是前线部署代理了。</p>
+<p><strong>嘉宾</strong></p>
+<p>所谓超级个人贡献者，是指管理层也应该是特别擅长亲自做事的人。能直接动手，同时也能带团队。</p>
+<p>我们一直采用类似的结构，只是没有这么称呼。我们没有纯管理者，也不打算招聘只做管理的人。</p>
+<p>我们会围绕团队里那些很有吸引力、又确实很厉害的人组织团队。这是一种自然形成领导力的方式。先加入优秀的人，看谁逐渐成为领导者，再把团队聚到他们周围。</p>
+<p>当然，这种方式能持续多久，是一个问题。它有边界，最终会碰到沟通瓶颈。这是规模化的挑战之一。</p>
+<p>我们会反复思考怎样与整个团队沟通，怎样让所有人的方向保持一致。公司长大以后，这些问题越来越突出。</p>
+<p>目前我们会经常和团队沟通，继续保持扁平，观察哪里开始失灵。真的有必要时，也许会再增加管理层级。但现在，我们仍然很专注于这种超级个人贡献者的结构。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我们的增长时点，刚好赶上编程代理和大语言模型成为软件工程的重要组成部分。</p>
+<p>只要代理和编程模型继续以这样的速度进步，我认为这种结构可以长期维持。你需要很强的技术领导者，也就是超级个人贡献者，每个人带五至十名工程师，再依靠编程代理完成大部分工作。</p>
+<p>这样，可能只要两层组织就够了。</p>
+<p><strong>Molly</strong></p>
+<p>AppLovin已经有数十亿美元收入，员工大约四百人，工程团队只有一百人。我今天刚去过，真的很惊人。他们的市值最高到过约2500亿美元，现在大概1300亿至1500亿美元。</p>
+<p>Adam非常认同你们这种说法。他的整个体系都围绕个人贡献者建立。也不只是因为现在有编程代理，人还要承担业务判断、与别人协作。</p>
+<p>这是一种结构性的变化。只做一个十倍效率的工程师，可能还不够，你得承担更多。</p>
+<p><strong>嘉宾</strong></p>
+<p>其他CEO也在谈。Coinbase的Brian Armstrong最近几乎把蓝图都讲出来了，说明接下来会怎样建设公司。Elon也很支持这种做法，无论你怎样评价他。</p>
+<p>它正在流行。非技术公司实施起来更难，因为组织层级已经很多。技术公司也需要走出舒适区，但至少更适合尝试。</p>
+<h4 id="chapter-9">32:28 主动性、进取心与谦逊</h4>
+<p><strong>Molly</strong></p>
+<p>你们最看重哪些特征？</p>
+<p><strong>嘉宾</strong></p>
+<p>我们经常在办公室谈主动性。</p>
+<p>你刚才提到，软件工程师也要作业务决定。在Amazon、Coinbase这样的大公司，通常不会这样，软件工程师就是做软件工程。</p>
+<p>但现在市场变化太快，客户不断出现，也在不同模型之间快速切换。很多时候，我们希望工程师直接作业务决定，或者直接与客户合作，因此必须承担相关判断。</p>
+<p>这种工程师最难找。我们看一个人能不能独立行动、承担责任，并对自己的决定负责。具备这种主动性之后，我们想要的其他东西通常会随之而来。</p>
+<p>它很难测试。最好的判断方法，还是以前与这个人合作过。这是我们非常重视的一点。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>进取心也很重要，也许和主动性有些相关。在这个市场里，必须很想推动事情、很想赢，真正想把公司做大。</p>
+<p>同样，这很难测试，但坐下来和候选人聊，多少能感觉到。我们还会做一点反向劝退，把实际情况讲明白，这有助于判断他到底有多想做这件事。</p>
+<p>我们不认同有害的工作时长文化。比如，周末我们会回家。</p>
+<p><strong>Molly</strong></p>
+<p>真的？这我倒是第一次听说。你们周末回家，公司居然也成功了。</p>
+<p><strong>嘉宾</strong></p>
+<p>对，很不可思议吧。其实，没有回家这件事，也没什么好炫耀的。</p>
+<p>但我们会诚实说明基本要求。确实可能遇到时间很紧的阶段，需要很用力推进，工作60个小时、80个小时。把这些情况讲清楚，会筛掉一些人。所以，进取心很重要。</p>
+<p>还有谦逊。与我们团队打过交道的客户，大概会同意，我们的人自我意识没有那么强，很容易合作。</p>
+<p>他们必须很有能力，同时又不能因为能力强就待人糟糕。这种组合并不好找。团队的人很友善，也很好合作，我觉得这也是客户喜欢我们的原因。</p>
+<p>有能力、容易相处，这两者可以同时做到。所以我们也会按谦逊这个标准筛选。</p>
+<h4 id="chapter-10">35:58 保持领先的难处</h4>
+<p><strong>Molly</strong></p>
+<p>最大的意外挑战是什么？除了那些大家都知道的常规困难，有没有什么是你们完全没想到的？</p>
+<p><strong>嘉宾</strong></p>
+<p>一家企业要一直处在行业前沿，真的很难。</p>
+<p>首先，你得特别想做一家大公司。其次，你得持续跟上，这需要大量努力。要做出一家大的初创公司，必须非常投入、非常有进取心。这份工作会给人带来消耗。</p>
+<p>Adam可能也会这么说。它就是需要大量辛苦的工作。</p>
+<p><strong>Molly</strong></p>
+<p>我问他最兴奋什么，他说自己已经没有兴奋这种感觉了。</p>
+<p><strong>嘉宾</strong></p>
+<p>那他已经超过我们这个阶段了。</p>
+<p><strong>Molly</strong></p>
+<p>你们总有一天也会到那里，没有情绪。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我们这个行业变化非常快。如果一个月没有好的新模型，所有人就开始紧张，怎么一个月都没有新东西？</p>
+<p>答案通常是，再等一个月，了不起的东西就会出现。从我们创业以来，一直如此。</p>
+<p>这让大家保持兴奋，也保持信心。下一个模型会解锁新的用例，带来新的客户。这给我们的业务带来了大量增长，到目前为止，它还在不断发生。</p>
+<h4 id="chapter-11">37:42 模型发布为什么需要先准备算力</h4>
+<p><strong>Molly</strong></p>
+<p>你们看到的好模型主要从哪里来？它们是零散出现的吗？有没有共同规律？</p>
+<p><strong>嘉宾</strong></p>
+<p>现在我们在生态里承担的作用更大了。一方面，我们是模型开发商的基础设施合作伙伴。另一方面，我们又是应用、工作室等模型使用者的API合作伙伴。</p>
+<p>因此，我们能同时看到供给和需求。现在算力非常紧张，如果你准备推出一个新模型，就必须提前规划，确保有足够算力运行推理。</p>
+<p>如果模型成功，你很可能无法只靠自己采购足够的算力。所以，发布时与我们这样的推理供应商合作，通常是个好办法。</p>
+<p>我们与模型开发商合作得非常紧密。客户通常会同时使用多个模型，但他们也非常关注模型发布，因为自己的产品上线经常要和模型发布配合。</p>
+<p>我们因此也要与客户保持紧密沟通。有时，我们必须提前预测模型一侧会出现多少增长，为此采购算力，自己先作一些投资，让整个领域能继续发展。</p>
+<p>必须有人承担这个工作。否则，算力会流向编程代理，或者流向那些投入更多资本的公司。</p>
+<p>通过提前规划、投入算力，我们可以同时支持模型开发商和基于模型开发应用的人。最近几个月，这已经成为我们在生态里的责任，因为算力实在太难获得。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>生成式媒体还有两个很独特的地方。</p>
+<p>第一，它包含很多模态。人们一提生成式媒体，可能只想到视频，但其实还有文生图、图像编辑、3D、文字转语音、语音转文字，以及游戏等用途。</p>
+<p><strong>Molly</strong></p>
+<p>3D、4D、5D。</p>
+<p><strong>嘉宾</strong></p>
+<p>对。每个子类别里，可能又有五至十家公司。整个领域发生的事情更多，也更分散。</p>
+<p>第二，行业仍然很早期，所以不同玩家之间不断出现超越。我们还没有达到终点的90%或98%之类的位置，也许才走到大约一半。</p>
+<p>因此，会有更多团队相互超越，实验室也更有多样性。竞争不只是OpenAI、Anthropic来回领先，而可能是八家不同公司轮流超越对方。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>一个重要原因是，我们还没有用完数据。世界上有非常多的视频，每天又会产生大量新视频，没有谁说自己已经把所有视频都拿来训练了。</p>
+<p>训练视频模型的难点，反而是从数据里筛出有价值的视频。需要更多数据时，外面还有大量数据，免费的视频也足够多。</p>
+<p>问题空间本身也更大。你试图理解整个世界、物理规律和各种事物，而不是像编程，或某些语言模型一样，围绕一个更特定的目标优化。</p>
+<p>所以，人们可以从更多方向做出有意思、吸引人的模型。这样的事情几乎每隔一个月就在发生。</p>
+<h4 id="chapter-12">41:55 模型名字与fal名字的来历</h4>
+<p><strong>Molly</strong></p>
+<p>所以模型名字也越来越重要，要靠名字作出区分。它们有些名字真的很好笑。</p>
+<p><strong>嘉宾</strong></p>
+<p>Happy Horse、Nano Banana，还有Happy Oyster这样的游戏模型。也有MiniMax、Seedance、Seedream。</p>
+<p><strong>Molly</strong></p>
+<p>Nano Banana火起来时，所有人连续三天都在谈，连我爸爸也在谈。我当时都不知道发生了什么。</p>
+<p><strong>嘉宾</strong></p>
+<p>它背后的故事，大概是匿名发布。有些团队会先以代号发布模型，不说自己是谁。模型排名很高，大家就开始兴奋。</p>
+<p>Nano Banana本来似乎只是临时代号，后来这个名字就留下来了，变成正式名字。</p>
+<p><strong>Molly</strong></p>
+<p>如果你们自己是一个模型，会叫什么？</p>
+<p><strong>嘉宾</strong></p>
+<p>Sorbet，雪葩。我不知道为什么，就是很喜欢这个词。我甚至一度想把公司改名叫Sorbet。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>他真的很喜欢雪葩。</p>
+<p><strong>嘉宾</strong></p>
+<p>我也会想一些比较特别的颜色，比如酒红色、绿松石色。我觉得可以用它们做一系列模型的名字。</p>
+<p><strong>Molly</strong></p>
+<p>那你呢？</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>可以用鸟。鸟的种类很多，单是猫头鹰，就有很多种。也可以用昆虫。我的主题大概会是自然。</p>
+<p><strong>Molly</strong></p>
+<p>那fal这个名字是怎么来的？</p>
+<p><strong>嘉宾</strong></p>
+<p>它有一个更长的名字，Features and Labels，也就是特征和标签。fal是它们的缩写。</p>
+<p>如果你是做机器学习很久的人，会知道这两个词。这是这一轮AI之前就很常见的机器学习术语。</p>
+<p>它还有另一个意思。你喝过土耳其咖啡吗？</p>
+<p><strong>Molly</strong></p>
+<p>喝过。</p>
+<p><strong>嘉宾</strong></p>
+<p>有没有人用咖啡渣给你占卜过？</p>
+<p><strong>Molly</strong></p>
+<p>没有。</p>
+<p><strong>嘉宾</strong></p>
+<p>那就是土耳其语里的fal，用咖啡渣看命运、预测未来。喝完以后，别人看杯里的咖啡渣。以后我们可以给你试试。</p>
+<p><strong>Molly</strong></p>
+<p>你们训练过这项技能吗？能看出我的未来？</p>
+<p><strong>嘉宾</strong></p>
+<p>土耳其人都做过。</p>
+<p><strong>Molly</strong></p>
+<p>那我们现在就来吧。</p>
+<p><strong>嘉宾</strong></p>
+<p>可以，这里应该有土耳其咖啡。</p>
+<h4 id="chapter-13">45:12 开源、定制与客户信任</h4>
+<p><strong>Molly</strong></p>
+<p>开源和闭源的争论，两至四个月、六个月以后还会继续吗？你们觉得它会持续多久？</p>
+<p><strong>嘉宾</strong></p>
+<p>我认为会继续。对稍微落后一点的团队来说，开源模型是一种非常有效的营销方式。只要开源，整个世界都会开始谈你。</p>
+<p>同时，它确实有技术优势。你去问好莱坞的工作室，会发现他们想微调模型，想用不同的LoRA、滤镜改变灯光，想使用尚未公开的角色和风格。要做到这一点，唯一的办法就是开源。</p>
+<p>所以，人们还会继续。有人做出领先模型，稍微落后的人选择开源，钟摆会不断摆动。</p>
+<p>我们最初以为这会对业务构成更大威胁，因为当时主要运行开源模型。后来，我们也开始与闭源模型合作，替它们运行推理，对我们来说，两边都可以发展。</p>
+<p>开源让生态更有意思，对行业整体也有好处。我们一直欢迎更多开源模型，也尽可能支持社区。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>人们保护知识产权的需求，也会一直存在。媒体内容、源代码、客户名单，大家都想保护。</p>
+<p>如果东西可以在自己的本地环境运行，就少了一层顾虑。这种需求会持续，所以这个争论也会持续。</p>
+<p><strong>嘉宾</strong></p>
+<p>我们与客户交流时，只要他们知道模型运行在我们的GPU上，对整个过程的信任就会提高很多。无论开源还是闭源，都有这个效果。</p>
+<p>这已经成为我们业务的重要区别。开源时，他们当然知道可以自行部署，但仍会信任我们，因为我们可以做得更好。</p>
+<p>视频模型尤其需要信任。创作者经常把尚未发布的内容输入模型，不希望它泄露。我们一直向企业客户强调这一点，他们很认同。</p>
+<h4 id="chapter-14">49:02 好莱坞采用、劳动与AI回报</h4>
+<p><strong>Molly</strong></p>
+<p>从更大的角度看，现在有什么重要问题，是大家还没有问出来的？</p>
+<p><strong>嘉宾</strong></p>
+<p>我想说的未必完全符合这个问题。不过，你听好莱坞播客、看好莱坞新闻，经常会看到“AI会毁掉好莱坞”这样的说法。</p>
+<p>我们就在这个业务里，一直与这些人交流。到目前为止，我认为AI对好莱坞实际上还没有什么影响。人们多少是在把想象投射到未来。</p>
+<p>过去六个月，我们来自好莱坞的业务在增长，现在已经占收入中一个有意义的比例。但就劳动而言，我会说，目前还没有影响。它在好莱坞也几乎还没有制作出真正值得关注的内容。</p>
+<p>未来会发生，已经有一些迹象。但这个话题已经谈了四年，很多时候都是恐惧，真正发生的事情还很少。这是远处观察的人不容易意识到的。</p>
+<p><strong>Molly</strong></p>
+<p>洛杉矶很多相关讨论集中在监管和不同法律上。</p>
+<p><strong>嘉宾</strong></p>
+<p>采用慢也有这个原因。不只是模型质量要过关，公司律师也必须认可。现在，我们终于逐渐看到，大家开始认真投入。</p>
+<p><strong>Molly</strong></p>
+<p>你认为大家还应该问什么？</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我觉得大家已经什么都在问了，甚至问得太多。</p>
+<p>从更广的AI范围看，仍然有很多人怀疑用途。他们问，投入了这么多资本开支，最终会流向哪里？AI到底有没有用？</p>
+<p>我相对乐观。很多作出这些判断的人，并没有真正理解AI在企业里怎样被使用。</p>
+<p>生成式媒体还非常早期，甚至才刚开始。广告、好莱坞、社交内容，我们开始看到一些用途。但价值是真实的。</p>
+<p>比如，我们刚估计过软件工程团队的速度提升，大概是三至四倍。在AI之前，要以同样速度推进，我们真的需要四倍的人。而现在为AI付的钱，肯定比多雇那么多人少。</p>
+<p>所以，对我们来说，投入回报很明确。如果你去使用AI的企业里，真正深入测量回报，而不只是读一些报告或听非技术人士评论，我觉得会看到不同的情况。我很看好算力。</p>
+<p><strong>嘉宾</strong></p>
+<p>我们经常说，未来每家大公司都会是一家算力公司，只是面向客户的入口不同。</p>
+<p>我们的入口很独特。有人通过编程代理提供算力，新型云厂商的入口可能更直接。Databricks的入口是数据。大家讲述这件事的方式各不相同。</p>
+<p>但在背后，谁运行了更多算力，谁就能带来更多收入。我们有自己的、有意思的入口，而且还在持续增长。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>算力仍然不够。你听到两千亿美元资本开支之类的数字，其中很多设施还没有建成。建设需要很长时间，现在仍然缺算力。</p>
+<h4 id="chapter-15">53:39 等待有持久价值的作品与世界模型</h4>
+<p><strong>Molly</strong></p>
+<p>最后还有两个问题，然后我会请你们给一个有争议的判断，先通知一下，让你们准备。</p>
+<p>未来十二个月，你们最期待什么？</p>
+<p><strong>嘉宾</strong></p>
+<p>我期待第一部经得起时间检验的AI作品。</p>
+<p>我的定义是，我们今天看了，一年后再看，仍然会像今天一样喜欢。到目前为止，AI内容主要是在展示能力，看视频模型能做什么，图片模型又能做什么。</p>
+<p>我们需要到达一个阶段，作品本身始终有生命力。我希望未来一年会出现一部得到广泛认可的短片或动画，几年后人们回头看，仍然像今天一样喜欢。</p>
+<p><strong>Molly</strong></p>
+<p>那就是常看常新的内容。</p>
+<p><strong>嘉宾</strong></p>
+<p>这很重要。大家说《玩具总动员》对计算机动画就有这样的意义。它大概是1996年前后出来的，已经过去那么久，我们现在仍然可以看，仍然很好。</p>
+<p><strong>Molly</strong></p>
+<p>你会这样看《奥德赛》吗？</p>
+<p><strong>嘉宾</strong></p>
+<p>我还没看。我在等大银幕IMAX场次，还没有买到票。</p>
+<p><strong>Molly</strong></p>
+<p>你一直在谈Christopher Nolan，竟然还没看。可以去Sphere。</p>
+<p><strong>嘉宾</strong></p>
+<p>那里会放吗？也许银幕太大了，未必是Nolan想要的效果。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我期待世界模型，我们还没有花很多时间谈它们。</p>
+<p>三个月前，我其实还很怀疑。世界模型看起来有点像游戏，你可以用键盘输入动作，在世界里移动、探索。</p>
+<p>但最近看到的东西，确实非常惊人，我开始变得很乐观。接下来主要是质量提高，以及速度大幅改善。</p>
+<p>新的架构也开始让世界保持更好的连续性。以前你看见一朵花，转头，再回头，它可能就没了。现在模型能够保留这些东西。</p>
+<p>以后，人们可以用一个提示词做出游戏。我觉得这个领域会快速发展。</p>
+<p>大的挑战仍然是算力，因为玩这样的游戏时，需要一直有一颗GPU运行。但游戏本身的质量会提高很多。</p>
+<p>AI游戏现在还没有形成一个明确的产品与市场匹配方向。我认为有很大机会形成，也许会成为前面三个方向之外的第四类。</p>
+<p><strong>Molly</strong></p>
+<p>而且会非常贵。</p>
+<p><strong>嘉宾</strong></p>
+<p>是的。</p>
+<h4 id="chapter-16">56:58 谁给他们启发</h4>
+<p><strong>Molly</strong></p>
+<p>下一个问题我想从个人角度问。你们曾经为一些很有影响力的人工作，比如Brian Armstrong、Jeff Bezos。你们关注芯片，也许会关注Jensen Huang，刚才又一直谈Christopher Nolan。</p>
+<p>哪些人让你们受到启发，愿意继续努力？</p>
+<p><strong>嘉宾</strong></p>
+<p>上一代创始人里，我认为Jack Dorsey被低估了。他能涉足的范围很广，现在也许又在回归。</p>
+<p>看他从Twitter到Square的经历，很有启发。我没有近距离与他共事过，但年轻时在硅谷，我一直关注他在做什么。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我不一定会说某个人每天推动我前进，但我很喜欢Ali Ghodsi。他这些年多次推动公司转型，一直重新创造公司。</p>
+<p>我觉得这对建立一家长久存在的公司、穿过这么多变化非常重要。他是一位很好的领导者。</p>
+<h4 id="chapter-17">58:55 有争议的判断与利润落在哪里</h4>
+<p><strong>Molly</strong></p>
+<p>现在到了最后一个问题，你们最有争议的判断是什么？</p>
+<p><strong>嘉宾</strong></p>
+<p>压力好大，还没准备好。</p>
+<p><strong>Molly</strong></p>
+<p>可以慢慢想。可以谈IPO、公司消失，或者别人不知道从哪里弄来的假GPU。</p>
+<p><strong>嘉宾</strong></p>
+<p>我一年前有过一个想法，OpenAI和Meta合并。</p>
+<p><strong>Molly</strong></p>
+<p>这个仍然可能发生。</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>但我觉得那对整个行业会不好。</p>
+<p><strong>嘉宾</strong></p>
+<p>我的想法也不是特别耸动，只是觉得有一定道理。</p>
+<p>以前，OpenAI被认为在消费者市场有优势。大家说，消费者市场更难赢，既然它赢了消费者，就会赢得整个竞争。</p>
+<p>后来Anthropic从企业业务切进来，Google也开始推进自己的消费者产品。现在我觉得，OpenAI在企业或消费者领域，都未必在非常明显地胜出。</p>
+<p>另一方面，Meta也处在一种需要补充能力的状态。所以我想，如果两家公司把力量结合起来，也许可以真正赢得消费者市场。</p>
+<p>但我没有任何内部信息。这完全是我个人的猜测，只是觉得可能是一种有道理的做法。</p>
+<p><strong>Molly</strong></p>
+<p>这个很有意思。还有吗？</p>
+<p><strong>另一位嘉宾</strong></p>
+<p>我来讲一个我们都讨论过的观点。</p>
+<p>以前的共识是，应用层会留下更多利润。现在我觉得情况完全反过来了。应用层的利润空间接近零，竞争很多，营销又要花大量钱。</p>
+<p>在我们看来，要创造利润，就得处在算力处理的环节，并能在那个环节作技术创新。</p>
+<p>四五年前我们刚创业时，大家的看法正好相反。他们认为基础设施会不断降价，应用层才有利润。看看现在，应用层也没有多少利润空间。</p>
+<p><strong>Molly</strong></p>
+<p>我们也和Tony Kim谈过类似问题。他说芯片的利润率好得多，现在真正赚钱的主要是它们。</p>
+<p><strong>嘉宾</strong></p>
+<p>我还有一个最近一直在想的观点，编程其实是生成式媒体的一部分。</p>
+<p><strong>Molly</strong></p>
+<p>真的？</p>
+<p><strong>嘉宾</strong></p>
+<p>它当然有自己的独立属性，但我们看到越来越多开发者构建更丰富的应用，已经不仅是一个网站。</p>
+<p>比如，可编程的视频内容。有些网站看起来更像一段视频。编程越来越成为fal上开发者所使用的关键能力。</p>
+<p>因此，我们可能也必须投入这个方向，因为自己的客户已经提出大量需求。</p>
+<p><strong>Molly</strong></p>
+<p>一切都是计算机。</p>
+<p><strong>嘉宾</strong></p>
+<p>一切都是计算机。这就是我们的观点。</p>
+<p><strong>Molly</strong></p>
+<p>那就在这里结束。谢谢你们，我很期待晚餐，还有咖啡，我等不及想知道自己的命运了。</p>
+<p><strong>嘉宾</strong></p>
+<p>谢谢你，Molly。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

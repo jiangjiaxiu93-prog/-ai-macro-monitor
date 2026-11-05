@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Datadog三季度电话会纪要——AI客户用量、提前续约与自研模型</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-05<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>Datadog三季度电话会纪要——AI客户用量、提前续约与自研模型</h2>
+<div class="metaline">Datadog Q3 2026 Earnings Call；The Motley Fool完整逐字稿 · 2026-11-04 · <a href="https://www.fool.com/earnings/call-transcripts/2026/11/04/datadog-ddog-q3-2026-earnings-call-transcript/" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文电话会纪要</div>
+<p class="kw">关键词：企业采用；按量计费；推理成本；单位经济；云迁移</p>
+<h3>要点</h3>
+<ul><li>三季度收入11.97亿美元，同比增长35%。最大客户减少用量，但实际支出仍显著超过最低承诺。四季度指引仅按该客户的合同最低承诺计入。</li><li>非AI客户收入连续第五个季度加速。部分大型客户提前续约、提高承诺并获得更低单价，短期影响收入确认，管理层强调长期用量增长。</li><li>Scout自研模型、AI成本管理及代理可观测性持续推进。管理层完整回应了模型成本、客户预算、训练需求、产品交叉销售与2027年预测边界。</li></ul>
+<h3>电话会纪要</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">开场与财务口径</a></li><li><a href="#chapter-2">Olivier Pomel的业务概述</a></li><li><a href="#chapter-3">AI for Datadog与Scout模型</a></li><li><a href="#chapter-4">Datadog for AI的性能、安全与成本功能</a></li><li><a href="#chapter-5">三季度八组客户案例</a></li><li><a href="#chapter-6">长期驱动与AI客户覆盖</a></li><li><a href="#chapter-7">David Obstler的收入、客户与留存回顾</a></li><li><a href="#chapter-8">利润、资产负债表与现金流</a></li><li><a href="#chapter-9">第四季度和全年指引</a></li><li><a href="#chapter-10">问答一　Sanjit Singh，Morgan Stanley</a></li><li><a href="#chapter-11">问答二　Gabriela Borges，Goldman Sachs</a></li><li><a href="#chapter-12">问答三　Raimo Lenschow，Barclays</a></li><li><a href="#chapter-13">问答四　Samik Chatterjee，JPMorgan</a></li><li><a href="#chapter-14">问答五　Matthew Hedberg，RBC</a></li><li><a href="#chapter-15">问答六　Karl Keirstead，UBS</a></li><li><a href="#chapter-16">问答七　Joel代Fatima Boolani提问，Citi</a></li><li><a href="#chapter-17">问答八　Kirk Materne，Evercore ISI</a></li><li><a href="#chapter-18">问答九　Peter Weed，Bernstein Research</a></li><li><a href="#chapter-19">问答十　Koji Ikeda，Bank of America</a></li><li><a href="#chapter-20">问答十一　Patrick Edwin Colville，Scotiabank</a></li><li><a href="#chapter-21">问答十二　Aleksandr Zukin，Wolfe Research</a></li><li><a href="#chapter-22">结束语</a></li></ul></details>
+<p>本次电话会于2026年11月4日举行，讨论2026年第三季度业绩及第四季度和全年指引。以下依管理层陈述及12组分析师问答的原始顺序整理。</p>
+<h4 id="chapter-1">开场与财务口径</h4>
+<p>战略财务及投资者关系负责人AJ Lubich主持会议，联合创始人兼CEO Olivier Pomel和CFO David Obstler参加。Lubich感谢过去五年半负责投资者关系的Yuka Broderick，她将在公司内部担任新职务。Lubich曾参与公司2019年IPO，此次重新负责相关工作。</p>
+<p>公司提示，业绩展望、产品能力及市场机会等前瞻表述基于会议当日情况。非GAAP指标与GAAP指标的调节表见当日业绩公告。</p>
+<h4 id="chapter-2">Olivier Pomel的业务概述</h4>
+<p>Pomel表示，三季度各产品线与不同客户群都有需求增长。非AI客户收入同比增速连续第五个季度加快，达到20%区间的高段，比上一季度提高约一个百分点，去年同期约为20%。</p>
+<p>AI客户群仍是重要增长来源，客户数量与客户自身业务规模继续扩大。公司看到，从技术型初创企业到大型企业，都在使用AI及现代技术，带动云服务和Datadog平台采用。</p>
+<p>三季度收入约12亿美元，同比增长35%，超过指引上限。客户数约3.35万家，去年同期约3.2万家。ARR达到10万美元以上的客户约4860家，去年同期约4060家，这些客户贡献了约91%的ARR。</p>
+<p>三季度自由现金流为2.51亿美元，自由现金流利润率21%。</p>
+<p>平台多产品采用持续扩大。61%的客户使用至少四款产品，去年同期54%。41%的客户使用至少六款产品，去年同期31%。16%的客户使用至少十款产品，去年同期8%。</p>
+<p>基础设施监控产品组合的ARR已超过20亿美元，同比增长处在30%区间的中段。它是公司十多年前推出的第一项产品，现在覆盖云基础设施、本地服务器、容器、无服务器应用与GPU集群。</p>
+<p>Pomel表示，公司在全球可观测性市场的份额仍只有百分之十几，即使已经是主要供应商，仍有很大空间。</p>
+<h4 id="chapter-3">AI for Datadog与Scout模型</h4>
+<p>公司沿两个方向投入研发。AI for Datadog侧重用AI改善平台本身的功能与自动化。Datadog for AI侧重帮助客户管理AI技术栈。</p>
+<p>旗舰代理Bits AI按采用速度衡量，是公司历史上推出后采用最快的产品。</p>
+<p>Bits Testing于十月正式开放。用户点击一次，就能发现应用中的关键用户流程，并生成相应测试。</p>
+<p>公司上个月推出Scout，一个针对站点可靠性工程任务优化的推理模型。它使用内部的分布式强化学习基础设施训练，目前支持Bits进行故障调查。</p>
+<p>在告警调查任务上，公司称Scout达到、甚至超过前沿模型的表现，而推理成本只占其一小部分。这样，Bits可以调查更多告警，更早启动，并更深入地处理事件，持续充当客户的第一响应者。</p>
+<p>Pomel认为，Scout还证明了一种路径，利用公司自己的生产数据、关键用户流程和内部工具训练模型，可以取得有意义的结果。</p>
+<p>六月加入的Adaptive ML团队正在加快强化学习和模型后训练工作。公司预计，这些研究会逐渐提高整个平台的能力，推动自主运维。</p>
+<h4 id="chapter-4">Datadog for AI的性能、安全与成本功能</h4>
+<p>AI从实验进入生产后，客户需要回答三个问题。系统运行得怎样，是否安全，以及投入产生了怎样的回报。客户也希望将这些信息与其他技术系统放在同一个平台观察。</p>
+<p>在性能方面，GPU Monitoring已经从硬件可靠性扩展到提高集群利用率、训练吞吐量及降低单次推理请求成本。年初以来，被监控的GPU设备数量达到此前的八倍。一些前沿模型实验室正作为设计合作伙伴参与产品开发。</p>
+<p>在代理层，Agent Observability用于监控和评估生产环境里的代理，包括回答质量、延迟与token用量。今年以来，送入该产品的追踪片段数量达到此前的九倍。</p>
+<p>Agent Observability已经进入Anthropic Marketplace，Datadog也是OpenAI新企业市场的首发合作伙伴。客户可以通过自己已经合作的前沿实验室采购。</p>
+<p>在安全方面，AI Guard发现组织内部运行的定制代理，并在运行时防范提示注入和数据外泄。它使用的，是Datadog为观察这些代理而收集的同一套实时数据。</p>
+<p>在成本方面，企业的token与AI支出快速增长。在Datadog Cloud Cost Management，也就是CCM中，除三大云平台之外，AI供应商已经是客户监测的最大支出类别。</p>
+<p>CCM的AI成本功能可以展示哪些团队、模型、代理消耗预算，并提供预算管理、预测与异常告警。超过三分之一的CCM客户已经跟踪AI成本，使用这一能力的客户数量扩大到此前的十一倍以上。</p>
+<p>再往上，Agent Console结合CCM数据，显示哪些代理真正被使用，由谁使用，执行什么任务，成本多少，以及取得什么结果。</p>
+<p>Pomel还提到，Forrester在2026年AIOps平台评估中将Datadog列为领导者，Gartner八月发布的AI供应商评估也肯定其可观测性平台位置。他认为，这支持了公司帮助客户应对AI复杂性的方向。</p>
+<h4 id="chapter-5">三季度八组客户案例</h4>
+<p>第一，公司与一家领先软件企业签下七位数美元年化扩容，年度承诺金额超过翻倍。客户正把AI代理投入生产，将使用Datadog Agent Observability替换一款独立商业工具，监测成本与质量。</p>
+<p>客户同时采用FlexLogs，以更低成本收集和关联更多日志。它会整合三款工具，扩展到20款Datadog产品，包括OnCall和Bits AI。</p>
+<p>第二，公司与一家美国联邦国防机构签下五年期、七位数美元年化合同。该客户有数千个云账户，分布在数百个任务负责人之下，原有人工工具带来可见性割裂和安全盲点。</p>
+<p>客户选择Datadog作为企业可观测性与安全平台，最初采用九款产品，包括基础设施监控和云安全。这笔业务与公司对政府市场的投入，以及当年取得的FedRAMP High认证有关。</p>
+<p>公司正继续扩展政府平台，支持最高至Impact Level 5的工作负载，并将其作为长期公共部门投入的一部分。</p>
+<p>第三，公司与一家居家医疗软件企业签下七位数美元年化合同。该企业随着规模扩大，原有分散工具拖慢事件响应并影响客户体验。</p>
+<p>客户会把四款工具整合到Datadog，用FlexLogs和Cloud SIEM替换原有日志和安全供应商，借助敏感数据扫描器帮助满足HIPAA要求。最初采用九款产品，包括事件管理和Bits AI。</p>
+<p>第四，公司与一家在线娱乐企业签下七位数美元年化扩容。该客户在旺季流量快速增长，自己的AI代理已经使用Datadog的MCP服务器，此次再加入Bits AI。</p>
+<p>它使用的Datadog产品将增至23款，包括Agent Observability和Cloud Cost Management。</p>
+<p>第五，公司同时与日本两家大型银行分别签下七位数美元年化合同。两家银行都在现代化改造核心金融系统，希望统一观察云端和本地环境。</p>
+<p>它们采用完整平台，包括三项可观测性支柱、数字体验、安全、软件交付、服务管理以及Bits AI，以推进AI驱动的运维。</p>
+<p>第六，公司与一家欧洲主要AI实验室签下六位数美元年化合同。该实验室的开发者受到构建缓慢、测试不稳定的影响，产品发布速度受限。</p>
+<p>客户选择CI Visibility与Test Optimization，替换一款商业工具，让工程师把时间用于交付产品。它们也使用Bits AI建立监控与定制分析。</p>
+<p>第七，一家领先AI编程公司进行了七位数美元年化扩容，使整体合同达到八位数美元年化规模。</p>
+<p>该客户业务快速增长，因此提前续约。它将采用FlexLogs和新的Infinite Cardinality Metrics，随着数据量上升保持成本效率。它也是Datadog MCP服务器的大用户之一，采用产品数将增至13款。</p>
+<p>第八，全球一家大型科技公司的AI部门进行了八位数美元年化扩容，年度承诺接近原来的三倍。</p>
+<p>Datadog仅在两个季度前才获得这名客户，如今客户已经把平台扩展至大量AI训练工作负载，并采用APM和Bits AI，降低工程上的摩擦。</p>
+<p>除这些大客户外，公司也在扩大Datadog for Startups计划，覆盖更多更早期的AI原生企业，并与增长特别快的企业开展更深入的工程合作。</p>
+<h4 id="chapter-6">长期驱动与AI客户覆盖</h4>
+<p>Pomel表示，数字化转型与云迁移仍是长期驱动，AI已经成为另一个重要增长来源。AI工作负载进入生产，会增加云消耗和Datadog平台使用。</p>
+<p>公司称，15家领先AI企业均是其客户。更广泛的AI客户数已经超过850家，上一季度约750家。</p>
+<p>约三分之一的全部客户使用至少一款Datadog AI产品。在ARR超过10万美元的客户中，这一比例约为四分之三。很多客户刚开始使用，后续仍有扩展空间。</p>
+<p>年初以来，MCP工具调用量达到此前的50倍。</p>
+<p>管理层认为，AI让客户写出、运行更多软件，技术栈中又增加了模型、代理和不同基础设施，复杂性增长很快。AI for Datadog帮助客户承担更多工作，Datadog for AI帮助客户运行AI，自有研究则把数据转化成模型，逐步提高自动化程度。</p>
+<h4 id="chapter-7">David Obstler的收入、客户与留存回顾</h4>
+<p>CFO披露，三季度收入为11.97亿美元，同比增长35%。既有客户用量增长，新客户收入爬坡，也共同贡献增长。</p>
+<p>非AI客户收入增速达到20%区间高段，比上一季度提高约一个百分点，去年同期约20%。不同客户规模、支出档位和行业表现广泛增长。</p>
+<p>剔除最大客户后，公司收入增速再次加快。</p>
+<p>公司已在八月沟通过，最大客户在三季度会减少用量。实际情况是，用量确实下降，但支出仍超过合同最低承诺。</p>
+<p>其他AI客户整体增长仍显著快于公司其余业务。超过850家AI客户中，已有39家每年在Datadog支出超过100万美元。</p>
+<p>新客户最初签约规模更大，收入增长更快。三季度同比收入增量中，约30%来自新客户，去年同期约25%。</p>
+<p>过去十二个月净收入留存率处在120%区间的低段，与上一季度相近。流失率仍然低，总收入留存率维持在90%区间的中高段。管理层认为，这体现平台对客户的重要性。</p>
+<p>三季度账单金额为11.6亿美元，同比增长30%。剩余履约义务RPO为38.5亿美元，同比增长38%。当前RPO同比增速处在30%区间的中段，合同期限同比略有延长。</p>
+<p>Obstler再次强调，公司认为收入比账单金额或RPO更能反映业务趋势。</p>
+<h4 id="chapter-8">利润、资产负债表与现金流</h4>
+<p>除特别说明外，以下利润表数据均为非GAAP口径。</p>
+<p>三季度毛利润9.72亿美元，毛利率81.2%。上一季度毛利率79.6%，去年同期81.2%。</p>
+<p>运营费用同比增长25%，上一季度同比增长26%，去年同期增长32%。</p>
+<p>营业利润3.34亿美元，营业利润率28%。上一季度及去年同期的营业利润率均为23%。</p>
+<p>季度末，现金、现金等价物和可交易证券合计52亿美元。</p>
+<p>经营现金流2.9亿美元。扣除资本开支与资本化软件支出后，自由现金流2.51亿美元，自由现金流利润率21%。</p>
+<p>季度之间的收款和付款时点会有变化。过去十二个月的自由现金流利润率为26%。</p>
+<h4 id="chapter-9">第四季度和全年指引</h4>
+<p>公司继续根据最近几个月观察到的业务趋势制定指引，并对增长趋势作保守调整。</p>
+<p>对最大客户，四季度指引仅计入合同最低承诺金额。</p>
+<p>四季度收入预计11.9亿至12亿美元，同比增长25%至26%。剔除最大客户后，指引隐含收入增长处于30%区间的低段至中段。</p>
+<p>四季度非GAAP营业利润预计2.8亿至2.9亿美元，对应约24%的营业利润率。该季度包含AWS re:Invent等较大的营销投入。</p>
+<p>四季度非GAAP每股收益预计0.69至0.71美元，采用约3.79亿股加权平均摊薄股份。</p>
+<p>2026全年收入预计45.15亿至45.25亿美元，同比增长约32%。非GAAP营业利润预计10.9亿至11.05亿美元，对应约24%的营业利润率。</p>
+<p>全年非GAAP每股收益预计2.73至2.75美元，采用约3.75亿股加权平均摊薄股份。</p>
+<p>全年净利息及其他收入预计约2亿美元。现金税款预计3000万至4000万美元，2026年及以后继续采用21%的非GAAP税率。</p>
+<p>全年资本开支与资本化软件支出合计，预计占收入3%至4%。</p>
+<h4 id="chapter-10">问答一　Sanjit Singh，Morgan Stanley</h4>
+<p><strong>问题</strong></p>
+<p>与90天前相比，四季度指引对核心业务、最大客户及其他客户群的假设有什么变化？较弱的环比表现，主要是不是来自把最大客户按最低承诺金额计入的做法？</p>
+<p><strong>管理层回答</strong></p>
+<p>最大客户已经续约，三季度实际支出超过最低承诺。尽管如此，四季度指引仍只纳入最低承诺。</p>
+<p>其他业务在三季度加速。与上次沟通相比，一个变化是，公司与一些大型客户，包括大型AI客户，提前完成续约或延长合同。</p>
+<p>这些客户提高了承诺金额、延长合作，因此获得更好的价格。这属于公司正常商业模式，但较低单价会对近期收入产生一些压力。</p>
+<p>Pomel补充，一些客户比原来预想的时间更早续约，部分客户才采用产品几个季度。十月又发生了一次这样的续约。长期看，这些都是积极进展。其余情况大体符合预期，非AI客户持续加速属于积极变化。</p>
+<p><strong>追问</strong></p>
+<p>非AI原生客户已经连续多个季度加速。AI产品在大客户中的采用，能否继续支撑这一趋势？还是增速可能进入平台期？</p>
+<p><strong>Pomel回答</strong></p>
+<p>长期看，这些客户都会采用AI、消耗更多云服务、建设更多软件，并改变工作方式，公司因此预期有较长的增长期。</p>
+<p>但增长率会继续上升多少，或者稳定在什么水平，很难判断。现有增速已经很高。管理层对背后的长期趋势有信心，未给出进一步加速的具体预测。</p>
+<h4 id="chapter-11">问答二　Gabriela Borges，Goldman Sachs</h4>
+<p><strong>问题</strong></p>
+<p>AI原生客户过去十二个月增长很快，现在又同时面对最大客户续约与其他客户提前续约。应该怎样预测这个客户群的环比收入？</p>
+<p>是否再过两个季度就会恢复较稳定的状态，或者每年都会因提前续约、获得价格优惠而出现一次环比变化？承诺金额增加才能换得更低价格，长期是好事，但怎样理解短期波动？</p>
+<p><strong>管理层回答</strong></p>
+<p>最大客户三季度支出显著高于最低承诺，公司只把最低承诺放进四季度指引。因此，它实际消耗多少，是影响环比的重要变量。</p>
+<p>公司无法决定客户在最低承诺之上使用多少。实际支出可能高出不同幅度。如果收入稳定在最低承诺附近，相关环比波动也会减小。</p>
+<p>客户增长、续约、获得更好价格，并随时间调整流量，是公司成立以来一直存在的过程。</p>
+<p>新的地方是，一些AI企业扩张速度非常快，产生了公司过去没有遇到过的动态。例如，采用产品几个季度后，就可能大幅增长并提前续约。</p>
+<p>AI客户群也在不断扩大，进入其中的大客户更多，公司当季又获得一家AI实验室。长期看，更广的客户基础会带来更多稳定性。</p>
+<p>Pomel认为，相关变化并不意味着业务高度不稳定。他提到，实际结果相对于预期的变化，讨论的是季度之间约两个百分点量级的情况。</p>
+<p>按量计费让公司更容易把握中长期方向，极短期的收入路径则更难预测。</p>
+<p>Obstler补充，通常三季度到四季度的环比增长会受到十二月下旬季节性影响。假期和代码冻结，会影响按用量计费产品。这种因素可能被其他增长掩盖，但它仍然存在。</p>
+<h4 id="chapter-12">问答三　Raimo Lenschow，Barclays</h4>
+<p><strong>问题</strong></p>
+<p>提前续约时，同样的用量对应更低价格，因此先出现短期收入压力。随后客户用量继续增长，过几个季度又回到较正常的增长路径。这样理解是否正确？</p>
+<p><strong>Pomel回答</strong></p>
+<p>这种理解基本正确。</p>
+<p>续约时，双方也会重新看未来需求。客户可能发现，某些数据不需要那么多，而另一些用途需要更多。Datadog也可能建议，根据实际用途改用不同的数据保留层级。</p>
+<p>因此，续约包含账户层面的优化。但背景仍是客户增长、部署更大的工作负载，并计划在未来把Datadog使用规模扩大到两倍、三倍或四倍。</p>
+<p><strong>追问</strong></p>
+<p>过去，非AI业务主要受云迁移和现代化推动。现在AI让客户写更多代码、开展更多应用改造，客户本身的工作方式也在改变。这对非AI业务意味着什么？</p>
+<p><strong>Pomel回答</strong></p>
+<p>首先，Datadog本身能为客户做更多事情，产品覆盖范围也更广。</p>
+<p>当客户使用AI编写更多软件时，持续集成、部署和测试环节的压力都会增加，因此客户更愿意采用公司的CI等产品。</p>
+<p>管理层在陈述中介绍的客户案例，也包含这类业务。它让Datadog获得核心可观测性之外的产品机会。</p>
+<h4 id="chapter-13">问答四　Samik Chatterjee，JPMorgan</h4>
+<p><strong>问题</strong></p>
+<p>三季度最大客户支出超过最低承诺，能够说明这对收入超过指引贡献了多少吗？与其他业务相比，占比怎样？</p>
+<p><strong>管理层回答</strong></p>
+<p>公司没有披露具体拆分。</p>
+<p>Obstler表示，如果指引低于客户实际消费，而客户最后花得更多，从数学上当然会带来超出指引的贡献。</p>
+<p>三季度，公司使用了相对于当时消费情况偏保守的假设。四季度，公司明确采用最低承诺。</p>
+<p>Pomel表示，对最大客户的假设没有在季度过程中改变。与上次沟通相比，需要关注的变化是，整体客户增长出现积极趋势，以及一些大型客户、包括其他AI客户提前续约。</p>
+<p><strong>追问</strong></p>
+<p>新客户对收入增长的贡献持续上升。平均首次签约规模现在怎样，与过去相比有何变化？展望明年，公司怎样看新客户对增长的贡献？</p>
+<p><strong>管理层回答</strong></p>
+<p>公司未提供明年的具体指引，也没有给出平均首次签约金额。</p>
+<p>Obstler表示，随着平台扩大、客户采用更多产品，平均首次签约规模在增加。</p>
+<p>Pomel解释，一些AI原生公司很早就具有较大规模，并且比过去的公司增长得更快，因此较早贡献更多收入。</p>
+<p>公司也进入了新的客户类别，从第一天起就签下较大的客户。当天提到的美国国防机构，以及日本三家最大银行中的两家，都是这种例子。</p>
+<p>与五年前相比，这已经成为业务中一个新的组成部分。这些新签合同尚未显著反映到收入中，因为客户的用量还没有完成爬坡。</p>
+<h4 id="chapter-14">问答五　Matthew Hedberg，RBC</h4>
+<p><strong>问题</strong></p>
+<p>一家大型科技公司AI部门签下八位数美元年化扩容，并把Datadog用于训练工作负载。能否介绍训练相关机会，以及它可能怎样影响增长？</p>
+<p><strong>Pomel回答</strong></p>
+<p>这个方向在积极演变。</p>
+<p>一两年前，主要只有少数前沿实验室开展大规模训练。现在，公司看到开展较大规模训练的大实验室或新实验室数量增加了一个量级。</p>
+<p>再往下一层，还有更多企业开始自己训练模型，Datadog也在其中，并且已经展示了一些研究成果。</p>
+<p>如果训练、模型定制逐渐成为更多企业日常业务的一部分，会产生新的机会。公司正在投入，但目前仍处于观察市场发展的早期阶段。</p>
+<p>现有迹象令人感兴趣，公司也能帮助一些很大的客户。不过，还需要继续投资、继续建设。</p>
+<p><strong>追问</strong></p>
+<p>最大客户三季度支出显著高于最低承诺。这个消费模式，是否改变了公司对它长期使用Datadog、新用途与未来机会的看法？</p>
+<p><strong>Obstler回答</strong></p>
+<p>每个客户内部都可能有多个业务部门、多类终端用户和多种用途，最大客户也有这样的可能。</p>
+<p>但公司无法控制它的消费。公司有合同、已经完成续约，并不据此预测该客户未来用量。管理层未对这名客户新增用途的具体收入机会作出量化判断。</p>
+<h4 id="chapter-15">问答六　Karl Keirstead，UBS</h4>
+<p><strong>问题</strong></p>
+<p>客户面对快速上升的token与AI支出，是否正在改变企业采购行为？</p>
+<p>部分提前续约客户如果是传统企业，它们争取更低价格，是否反映预算压力？</p>
+<p><strong>Pomel回答</strong></p>
+<p>AI支出增长是一个普遍问题，尤其是编程代理的采用快速扩大。</p>
+<p>这些支出很大程度上没有提前进入预算。一年前，很少有人为今天这样的AI消费金额作了计划。企业现在需要理解哪些支出确有必要，以及带来了什么价值。</p>
+<p>这产生了很强的工具需求。Cloud Cost Management和Agent Console等产品正在受益。</p>
+<p>但公司此次看到的提前续约，主要来自大型客户，包括AI实验室和技术企业。它们的续约主要与自身业务增长有关，与控制自身token消费没有直接关系。</p>
+<h4 id="chapter-16">问答七　Joel代Fatima Boolani提问，Citi</h4>
+<p><strong>问题</strong></p>
+<p>毛利率和营业利润率表现较好，具体由哪些因素驱动？公司仍在大力投资哪些领域，最新投入立场是什么？</p>
+<p>另外，能否给出Bits AI在客户群中的更多数据？</p>
+<p><strong>Obstler回答</strong></p>
+<p>公司继续积极投资市场与销售。在地理覆盖以及联邦政府等终端市场中，仍有未覆盖的空间。</p>
+<p>公司正在扩大销售配额承载能力，并在增长中看到结果。</p>
+<p>研发投入也继续，既包括AI，也包括人员。管理层认为，获得市场份额、提高平台采用深度，以及扩大全球销售覆盖，都有很多机会。</p>
+<p><strong>Pomel补充Bits AI</strong></p>
+<p>按使用的客户数、个人用户数等指标衡量，Bits AI是公司采用表现最好的产品发布之一，管理层对此非常积极。</p>
+<p>过去一个季度，公司还重新设计了包装和计价。原来单独按调查任务收费，现在改成覆盖Bits多种用途的AI Credits。公司看到这项调整带来积极效果。</p>
+<p>产品仍处于早期，还有很多客户希望自动化的流程，也有大量功能需要建设。公司没有在本次问答中提供具体客户数量或独立收入数字。</p>
+<p><strong>Obstler补充毛利率</strong></p>
+<p>平台采用与工程优化共同支持毛利率。公司长期大致维持在80%上下，本季度约81%。</p>
+<p>持续投资、优化和工程项目是正常工作。这个季度的结果体现了过去几个季度已经显示的毛利率稳定性。</p>
+<h4 id="chapter-17">问答八　Kirk Materne，Evercore ISI</h4>
+<p><strong>问题</strong></p>
+<p>AI原生客户因为增长很快而提前续约，以换得更好的价格。续约时，公司是否也有机会交叉销售更多产品？新合同里的产品采用情况怎样？</p>
+<p><strong>Pomel回答</strong></p>
+<p>如果与五六年前的云原生客户群比较，这一代客户采用的产品更多，平台覆盖也更广。</p>
+<p>一部分新增采用发生在续约时，另一部分会随着新需求出现、产品覆盖更多内部团队，而自然发生。</p>
+<p><strong>Obstler补充</strong></p>
+<p>这些续约采用了比原合同更高的承诺金额。更大的承诺，是客户获得用量折扣的基础。</p>
+<p><strong>追问</strong></p>
+<p>长期看这些提前续约是好事，但对未来一个季度的预测而言，是否会增加波动、降低环比可见性？</p>
+<p><strong>管理层回答</strong></p>
+<p>它会使客户收入路径的时点产生小幅变化。</p>
+<p>本次环比指引主要涉及三个因素。第一，提前续约和新的价格。第二，最大客户仅按最低承诺纳入指引。第三，四季度本身的季节性。</p>
+<p>随着RPO和合同期限扩大，短期收入路径可能在边际上更有波动。</p>
+<p>Pomel强调，快速增长的客户自己也很难准确知道未来几个月会增长多少，哪部分业务增长，消费怎样变化。Datadog的工作，是支持客户增长并作出适合客户的安排。</p>
+<p>准备财报电话会时，公司必须区分哪些事情已经知道、能够沟通，哪些事情还无法确定。但管理层对客户、采用情况及产业趋势整体仍然积极。</p>
+<p>Obstler补充，提高客户承诺、扩大平台采用、延长合同，一直都是公司的商业方式。它会带来一定时间差，但与公司历史上的做法一致。</p>
+<h4 id="chapter-18">问答九　Peter Weed，Bernstein Research</h4>
+<p><strong>问题</strong></p>
+<p>Bits AI和Scout受到关注。它们怎样收费，是直接产生收入，还是主要推动Bits AI及平台整体采用？是否可能成为新的主要业务支柱？</p>
+<p><strong>Pomel回答</strong></p>
+<p>两种作用都有。</p>
+<p>底层仍然是公司获取的数据、处理这些数据的能力，以及各项产品。在此之上，公司对Bits执行的AI功能收取AI Credits费用。</p>
+<p>AI Credits的定价会尽量接近推理成本，以便模型效率提高时，把成本节省传给客户，也让客户执行更多调查。</p>
+<p>公司选择这种方式，是因为模型领域变化太快，效率改善也很快。如果未来操作数量可能增长几个量级，而单次处理成本下降几个量级，对每个具体动作固定一个长期价格，价值有限。</p>
+<p>长期看，公司既希望直接变现，也希望增加客户价值、带动更广的平台采用。最终哪一种收入贡献会占主导，现在还难判断。</p>
+<p>管理层更关注使用量与客户价值的增长，因为整个业务本来就是按量计费。</p>
+<h4 id="chapter-19">问答十　Koji Ikeda，Bank of America</h4>
+<p><strong>问题</strong></p>
+<p>基础设施监控ARR已超过20亿美元，增长处在30%区间中段。与今年早些时候披露的15亿美元规模相比，增速变化怎样？</p>
+<p>其中多少增长来自AI基础设施？如果GPU效率提高，这种增长能否持续？</p>
+<p><strong>Pomel回答</strong></p>
+<p>公司整体业务加速，既有AI相关客户，也有其余客户群贡献，基础设施监控同样如此。</p>
+<p>当前这部分增长，还没有直接依赖GPU监控的广泛变现。</p>
+<p>公司已经有GPU训练相关监控产品，但尚未大规模对这些产品变现，因此它更多是未来机会。当前的业务数字，并未包含这一机会充分兑现后的贡献。</p>
+<p>管理层没有量化AI基础设施对现有增速的具体占比，也未给出与15亿美元披露时点之间的精确增速差。</p>
+<h4 id="chapter-20">问答十一　Patrick Edwin Colville，Scotiabank</h4>
+<p><strong>问题</strong></p>
+<p>Datadog开始训练自己的模型，同时观察到更多客户这样做。这会怎样改变公司内部和面向客户的专有模型token、开放权重模型token使用结构？</p>
+<p>如果这一趋势扩大，对利润率会有什么影响？</p>
+<p><strong>Pomel回答</strong></p>
+<p>Datadog和客户都在混合使用不同模型，这可能代表行业未来的方向。</p>
+<p>公司大量使用领先实验室的高端模型，也越来越多地使用开放权重模型，并在其上进行训练与后训练。</p>
+<p>有些能力目前仍需从外部最强模型获得。有些任务，直接拿开放权重模型运行，就已经足够好而且成本高效。还有一些任务，可以通过自己的数据、工作流和后训练，显著提高效率。</p>
+<p>Datadog已经在公布的部分模型上这样做。Pomel预计，这种混合使用的结构会持续。</p>
+<p>对利润率而言，公司可以更主动决定钱怎么花。如果任务具有自身独特性，而且自建能带来更好的经济效益，就应该这样做。</p>
+<p>如果某项需求与其他企业很相似、差异化有限，使用现成模型也合适。管理层未给出这种变化对未来利润率的量化贡献。</p>
+<h4 id="chapter-21">问答十二　Aleksandr Zukin，Wolfe Research</h4>
+<p><strong>问题</strong></p>
+<p>AI原生及其他客户对Agent Observability的需求，正在多大程度上推动追踪等产品？客户采用水平提高，是否改变长期机会？</p>
+<p>公司对网络安全业务又有哪些计划？</p>
+<p><strong>Pomel回答</strong></p>
+<p>Agent Observability需求正在增长。AI原生实验室一直有需求，近期更值得注意的是，其他企业也越来越多地使用它。</p>
+<p>随着这些客户更深入采用AI，公司看到实际需求、实际用量和很有吸引力的业务机会储备。管理层认为，产品正在跨过从早期采用走向更广泛使用的门槛，但本次没有给出具体收入或客户数。</p>
+<p>安全领域也出现很多AI相关机会。公司已经能向大型客户同时销售可观测性和安全平台，美国国防机构等客户案例体现了这一点。</p>
+<p>管理层对产品与市场的匹配程度，以及AI推动的技术工具更新方向保持积极。</p>
+<p><strong>追问</strong></p>
+<p>2027年应该怎样预测最大客户收入？分析师推测它可能是一年期合同，询问是否应维持某个收入水平，或者把部分收入从模型里移除。</p>
+<p>对于其他提前续约的AI原生客户，公司是否也全部按最低承诺预测，还是会计入更高用量？</p>
+<p><strong>Obstler回答</strong></p>
+<p>公司会在年终电话会上给出2027年指引，目前不对下一年度作进一步说明。过去几个季度，公司一直强调对最大客户采用合同最低承诺的做法，下一次指引时会提供更多信息。</p>
+<p>对于其余业务，公司一贯采用的方法，是观察客户最近的自然增长速度，然后作保守折减。这也适用于提前续约的客户，以及更广泛的客户群。</p>
+<p>管理层没有确认分析师关于合同期限的推测，也没有把所有其他客户的预测改成统一按最低承诺计入。</p>
+<h4 id="chapter-22">结束语</h4>
+<p>Pomel感谢团队完成三季度工作，表示四季度也很忙碌。公司将在几周后的AWS大会与更多客户会面，并期待继续发布产品。电话会随后结束。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
