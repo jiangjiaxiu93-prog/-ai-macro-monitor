@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Max Levchin谈AI资本开支、信用模型与代理购物（Yahoo Finance）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-07<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>Max Levchin谈AI资本开支、信用模型与代理购物（Yahoo Finance）</h2>
+<div class="metaline">Yahoo Finance · Sozzi Unleashed · Brian Sozzi、Max Levchin · 2026-11-06 · <a href="https://www.youtube.com/watch?v=c8QLuWNJEnY" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；代理商务；垂直应用；Affirm</p>
+<h3>要点</h3>
+<ul><li>Levchin认为，市场正在押注AI资本开支退潮，但他继续看好技术进步，同时承认数据中心带来的噪声、电力与社区问题需要解决。</li><li>Affirm称，专门训练的Transformer信用模型扩大了可批准借款人范围，同时维持相同损失率。代理购物进一步扩展到买方、商户与融资方之间的交互。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:36 市场在押注AI资本开支会停下来</a></li><li><a href="#chapter-2">03:08 市场震荡也会推动监管和资源配置讨论</a></li><li><a href="#chapter-3">04:28 Transformer信用模型寻找传统方法遗漏的人</a></li><li><a href="#chapter-4">07:20 相同损失率下扩大批准范围</a></li><li><a href="#chapter-5">08:25 代理购物把买家、商户和融资方连接起来</a></li><li><a href="#chapter-6">10:29 假日消费与Affirm经营表现</a></li></ul></details>
+<h4 id="chapter-1">00:36 市场在押注AI资本开支会停下来</h4>
+<p><strong>主持人</strong> 你们这一季表现很好。作为经历过许多轮科技周期的人，你怎么看现在市场上发生的事情？</p>
+<p><strong>Max Levchin</strong> 如果我知道怎样预测市场，甚至真正理解市场，我大概会做另一份工作。不过，我觉得市场已经围绕AI资本开支摇摆了一阵子，反复交易“他们到底会不会继续投”。现在市场押注的是不会。我认为这个判断错了。当然，我主要还是一个观察者，我有自己的公司要经营。</p>
+<p><strong>主持人</strong> 我总觉得你同时过着几种生活。你骑车比赛，戴着耳机埋头做Affirm，同时又认识科技界的许多人。两天前选举发生的变化，让他们有多担心？</p>
+<p><strong>Levchin</strong> 才过去两天。我一直在准备财报，随后做交流。如果允许我自己夸一句，这一季确实很好。</p>
+<p>我认为，我们正处在科技发展中一个极其重要的时刻。无论从消费者使用还是企业使用来看，都值得参与。我们已经非常接近解决世界上一些重要的问题。</p>
+<p>换一个角度看数据中心建设的争论。噪声、原本供给居民社区的电力被重新分配，这些担忧完全真实，都需要解决。同时，从现在走向癌症、阿尔茨海默病等问题的解决方案，中间需要AI继续进步。</p>
+<p>如果我们已经能够解决、或者接近解决量子场论相关问题——我不确定那个问题目前究竟进展到哪一步——以及纳维－斯托克斯问题这类极其困难的数学问题，那么我认为，再迭代若干轮，也可能解决重要的生物学和疾病问题。我甚至觉得，借助这些工具，在下一个十年结束前，我们可能会研究明白反重力之类的问题。</p>
+<p>所以，我们会找到建设数据中心的地方。我们应该、也必须确保社区从中受益。我们不会踩下急刹车，决定退回黑暗时代，说我们不要癌症的解决办法。</p>
+<h4 id="chapter-2">03:08 市场震荡也会推动监管和资源配置讨论</h4>
+<p><strong>主持人</strong> 我之所以问你，是因为你既是科技行业的先行者，也真心热爱技术。想到技术进步可能放慢，你刚才提到的疾病可能因此更难攻克，会不会很难受？</p>
+<p><strong>Levchin</strong> 我是技术乐观主义者。我认为进步总体上很难被阻止。一旦人们看到了某件事可行，就会找出实现它的办法。</p>
+<p>最近AI领域也有很多来凑热闹的人。如果一定要在这样一个大跌日找积极的一面，市场的一次出清可能也有帮助。</p>
+<p><strong>主持人</strong> 我确实需要一些积极的东西。</p>
+<p><strong>Levchin</strong> 我一向很积极。积极的一面是，我们必须真正讨论监管、公平获得技术的机会，以及怎样把这些能力用来解决最重要的问题。也许少做一点无聊视频，多投入一些钱研究癌症。我认为这些变化会发生。</p>
+<p>所以，这个时刻还好。我不认为它会造成根本性的破坏，也不认为它会把前沿实验室的价值打到零或砍掉一半。这些实验室可能是过去二三十年里最重要的一类新企业，甚至可能在更长的历史尺度上也如此。</p>
+<h4 id="chapter-3">04:28 Transformer信用模型寻找传统方法遗漏的人</h4>
+<p><strong>主持人</strong> 回到Affirm，你在财报电话会上提到一个Transformer模型。我很感兴趣，不过也不想假装自己完全理解了。能解释一下吗？</p>
+<p><strong>Levchin</strong> 这很令人兴奋，有点像我们自己的小型前沿实验室。它是一个用途非常明确的专用模型。我们没有把全人类知识编码进一个以语言输入、语言输出的解码器，而是训练模型去观察借款人的信用报告、还款表现，以及我们掌握的其他相关信息，寻找人类可能遗漏的数据模式。我们已经训练出模型，现在还在训练更大、更好的新版本。</p>
+<p>信用审核模型从一开始就是人来构建的。上世纪五十年代那种信用业务的旧时代，判断可能是“你看起来很像我，我觉得你可靠，所以给你贷款”。这件事现在很少被谈起，但信用资格确实曾这样决定。</p>
+<p>我们后来走了很远，从受到邮编、种族和各种偏见影响的审核方式，走向主要由模型驱动、受到监管、明确规定哪些变量可以用、哪些不能用的体系。</p>
+<p>这些规则仍在。公平信贷已经有一套考虑周密、监管严格的法律。我们非常认真地确保自己满足每一项要求。</p>
+<p>随着审核技术改进，我们会用机器和统计学习训练模型，但最初决定使用哪些因素，通常仍依靠分析、深入思考和优秀人才的判断。之后还要测试，确保这些因素不会与种族、所在地等受限制的特征形成过强关联。</p>
+<p>即使人再聪明，也可能发现不了某些隐藏模式。例如，一个人在工作转换期间是否仍有偿付能力。零工工作是一种比较新的形态，而适合机器使用的信用数据大约从上世纪八九十年代开始积累。历史样本对这类新情况覆盖有限，人很难据此发现全部规律。</p>
+<p>Transformer能够观察来自大量来源的数据，进一步寻找信息。目标很简单，找到更多值得获得信贷的借款人，找到那些会被传统模型拒绝、但我们可以负责任地、安全地向其放贷、而且他们能够偿还的人。</p>
+<h4 id="chapter-4">07:20 相同损失率下扩大批准范围</h4>
+<p><strong>Levchin</strong> 这就是我们研究的目标。我们花了多年提出假设、训练基于Transformer的模型、进行比较，并测试它们的可解释性。</p>
+<p>如果拒绝了一个人的信贷申请，你不能说“我也不太确定，也许模型产生了幻觉”。你必须解释原因，而且同样的情况应当得到一致的答案。所有这些工作花了很多年。</p>
+<p>我们终于有足够信心，把模型上线，随后立即看到可以明显扩大批准人群，同时保持完全相同的损失水平。</p>
+<p>这意味着，原本会被拒绝的人现在有了更多获得信贷的机会。对我们和投资者来说，核心结果是在相同损失率下发放更多贷款。</p>
+<p>我们仍坚持原来的原则，不收滞纳金、不收复利，继续改变我们创业时就想解决的那些行业问题。同时，我们能够服务的群体进一步扩大了。</p>
+<h4 id="chapter-5">08:25 代理购物把买家、商户和融资方连接起来</h4>
+<p><strong>主持人</strong> 把这些能力放到代理购物时代里，如果一年后我们再聊，假设经济保持健康，公司盈利能力可能就很可观。我们刚刚也看到了就业数据。</p>
+<p><strong>Levchin</strong> 对，就业还可以，情况还可以。</p>
+<p><strong>主持人</strong> 再把代理购物与你们内部的模型结合起来，影响会很大。</p>
+<p><strong>Levchin</strong> 这非常重要。我对代理购物的发展方向很乐观，不过它需要时间。过去几轮大家都承诺AI会彻底改变一切，但每件事都需要时间。现在之所以觉得世界加速了，是因为有很多人受到鼓舞，正在做很有价值的工作。</p>
+<p>随着代理购物增长，需要获得信贷的人会增加。我们的工作就是服务这些人，我们一定会参与其中。</p>
+<p><strong>主持人</strong> 你们会有自己的代理吗？</p>
+<p><strong>Levchin</strong> 我认为，最终每一家想参与新经济的公司都可能拥有不止一个代理。所以，简短回答是会的。会出现很多不同种类的代理。</p>
+<p>有件事很少被讨论，但在我看来很明显。你会有一个代理，我也会有一个代理，它们去找零售商。目前很多代理还是通过点击网页按钮与商户交互。这种状态会很短暂。</p>
+<p>零售商也会有自己的代理。它可能会说“我知道你，你是Brian的代理。他很注重健身，需要蛋白质。如果买一件好看的T恤，我们就送他一份蛋白质产品”。</p>
+<p>于是买方和卖方都会有代理。融资方的代理也会加入对话，表示愿意为交易提供资金，并且按照消费者无法偿还的风险、商户无法按约交付的风险等因素，给出合适的定价。</p>
+<p>这样的智能交互会越来越多。代理这个词其实只是一个比较新颖的说法，本质上是让世界上的每一项流程都拥有更多智能，我认为大家都会因此受益。</p>
+<h4 id="chapter-6">10:29 假日消费与Affirm经营表现</h4>
+<p><strong>主持人</strong> 你看好假日购物季吗？</p>
+<p><strong>Levchin</strong> 看好。我们目前看到的需求表现很好。昨天刚发布的这一季财报显示，信用状况良好，需求也很好。营收增长34%，盈利端增长35%。业务很健康。</p>
+<p>我们的业务很适合观察经济情况。如果营收不增长，说明人们没有购物。如果人们失去工作，或者决定自己付不起账单，盈利端就不会增长。现在两边都在增长，而且盈利端增长超过营收。</p>
+<p>*此处35%沿用嘉宾所说的盈利端增幅，采访未说明具体利润指标口径。*</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
