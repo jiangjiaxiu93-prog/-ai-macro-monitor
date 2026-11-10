@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Edward Chancellor谈四百年金融狂热与当下AI泡沫（Master Investor全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-11<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Edward Chancellor谈四百年金融狂热与当下AI泡沫（Master Investor全文精翻）</h2>
+<div class="metaline">The Master Investor Podcast · Wilfred Frost、Edward Chancellor · 2026-11-10 · <a href="https://www.youtube.com/watch?v=bhgiF3nWr7w" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；算力采购；单位经济；Edward Chancellor</p>
+<p>访谈录于2026年11月9日。Edward Chancellor是《金融投机史》和《时间的价格》的作者，曾在GMO与Jeremy Grantham共事。</p>
+<h3>要点</h3>
+<ul><li>Chancellor以铁路、通信和互联网周期为参照，认为技术改变世界与早期资本获得回报之间存在很大距离，赢家往往要在出清后才能辨认。</li><li>他把资金收紧视为泡沫破裂最常见的前因，并认为当下政府财政状况削弱了危机后的救助能力。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 《金融投机史》与历史的反复</a></li><li><a href="#chapter-2">05:24 泡沫的三个阶段</a></li><li><a href="#chapter-3">07:41 投机狂热也是一种社会运动</a></li><li><a href="#chapter-4">10:00 投资与赌博</a></li><li><a href="#chapter-5">12:11 郁金香、资本流入与期货杠杆</a></li><li><a href="#chapter-6">15:02 早期逆向投资者与女士头饰</a></li><li><a href="#chapter-7">19:00 南海泡沫与“让魔鬼抓走最后一个人”</a></li><li><a href="#chapter-8">21:14 动量因子为什么能持续奏效</a></li><li><a href="#chapter-9">25:00 狂热中的救世主式领袖</a></li><li><a href="#chapter-10">29:12 泡沫破裂后的政治反噬</a></li><li><a href="#chapter-11">32:06 铁路狂热、重复建设与AI数据中心</a></li><li><a href="#chapter-12">36:15 信息传播更快，为什么投机反而更强</a></li><li><a href="#chapter-13">40:33 日本泡沫与政府兜底的幻觉</a></li><li><a href="#chapter-14">43:23 从互联网基础设施到AI，谁会真正赚到钱</a></li><li><a href="#chapter-15">47:09 真正的赢家往往在出清后出现</a></li><li><a href="#chapter-16">52:24 财政脆弱让下一次出清更危险</a></li><li><a href="#chapter-17">55:00 依据历史，为什么判断今天存在泡沫</a></li><li><a href="#chapter-18">56:40 利率上升与泡沫破裂</a></li><li><a href="#chapter-19">59:45 最后的投资建议</a></li></ul></details>
+<h4 id="chapter-1">00:00 《金融投机史》与历史的反复</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>今天的嘉宾是世界上最杰出的金融史学者之一。他写过多部畅销、广受好评的金融著作，包括《Capital Account》《Capital Returns》《Crunch Time for Credit》，以及《时间的价格：利息的真实历史》，还参与了Jeremy Grantham的传记《The Making of a Permabear》，我们之前在节目里也和Jeremy深入讨论过这本书。</p>
+<p>不过，今天主要想谈的，是他的《金融投机史》，英文名Devil Take the Hindmost。这本关于金融投机历史的书，被广泛认为是讨论泡沫与狂热的经典。</p>
+<p>Edward也在投资领域有丰富经历，曾在GMO与Jeremy Grantham共事，还与Jeremy Hosking、Marathon和Hosking Partners有过广泛合作。他同时也是记者，主要为路透Breakingviews撰稿。</p>
+<p>Edward，很高兴请到你，谢谢你来参加。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我也很高兴。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>《金融投机史》初版是1999年出版的。此后显然又出现过好几轮金融狂热和泡沫，你也对它们作过思考和写作。</p>
+<p>这本书读起来非常好，我很喜欢。但我也想说，它可能是我读过最有用的书之一。我折了很多页角，划了很多重点，我知道今后还会经常翻看。</p>
+<p>所以今天很希望按你的研究，回顾历史上的这些泡沫，再带着今天的视角，谈谈哪些内容让我印象最深。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>如果这本书确实有用，我想是因为投资世界里存在反复出现的周期，而人的行为，说实话，变化并不大。</p>
+<p>因此，有历史视角的投资人，对一些最近几年没有发生过的事情，也会比较熟悉。</p>
+<p>你刚才提到，这本书1999年出版，正处在互联网科技大泡沫之中，或者说，已经靠近尾声。当时有一些投资人，对市场正在发生的事持怀疑态度。对他们来说，这本书几乎是从天而降的甘露。</p>
+<p>他们读后会想，1999年的情况，确实与过去那些大狂热很像。这给了他们坚持原有立场的信心，最后证明这样做是对的。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>正如我说的，这是金融投机史方面的经典。我早就把它列在阅读清单上，非常高兴这次访谈之前终于读了。</p>
+<p>它也让我看到，原来往前追溯那么久，发生过这么多次狂热。我们总谈1929年、2008年和1999年，但还有很多值得在今天这段对话里拆开讲。</p>
+<h4 id="chapter-2">05:24 泡沫的三个阶段</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>在此之前，我想请你先作一个概括。Charles Kindleberger的框架，也许不是你最后着重采用的框架，但他把泡沫分成三个阶段。能不能帮我们拆解一下，这些是不是所有泡沫共有的阶段？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>他首先讲的是“置换”，对吗？</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>置换、正反馈，然后是狂热。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>这看起来是合理的分类。我和Kindleberger有些交往，写这本书的时候还去拜访过他。</p>
+<p>如果他今天还在，可能会说，他的《狂热、恐慌与崩盘》应当比我的书更具优先地位，我大概也同意。</p>
+<p>问题是，什么叫置换？它可能是技术带来的变化，比如1990年代的互联网，或者今天的AI。也可能是金融层面的变化。</p>
+<p>比如，我写的关于利息历史的《时间的价格》，其实讲的就是，极度宽松的货币、异常低的利率，如何创造出一种变化。如果你愿意，也可以把它称为置换。</p>
+<p>然后，确实会有反馈循环。所谓反馈循环，实际上就是投机情绪从一个人传到另一个人。</p>
+<p>最后是狂热。不过，在顶点时还有另一件事，怀疑者、唱反调的人，已经被挤出局了。即使还没被挤出局，也没有人理会他们。</p>
+<p>因此，表面呈现出来的狂热，可能比现实中实际存在的狂热更强。</p>
+<h4 id="chapter-3">07:41 投机狂热也是一种社会运动</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>Kindleberger还提到另一件事，我想多谈一会。当狂热真正兴起时，它既是经济现象，也是社会现象。</p>
+<p>你在书里写过，“我相信，只有放在社会背景下，才能理解投机。投机的历史也不能只是对经济事务的描述，它还必须在某种程度上是一部社会史。”</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>对，很高兴我当时写了这句话。这其实也是我和Kindleberger讨论过的一个问题。</p>
+<p>我本科和研究生学的都是历史，并不是经济史。后来开始写金融史，我很自然地就会把事件放在各自的社会背景下。</p>
+<p>而Kindleberger更像是在对泡沫进行分类，把它们从具体事件中抽离出来。</p>
+<p>后面我们可能还会谈到，投机时期往往会得到当局支持。又或者，投机繁荣发生在一个整个社会都很兴奋的阶段，发生在人们的交流方式正在改变的时候。</p>
+<p>因此，投机狂热显然是一种社会运动。想想第一本把各种投机狂热放在一起叙述的书，Charles Mackay的《非同寻常的大众幻想与群众性癫狂》，出版于1840年代初。</p>
+<p>他描述了郁金香狂热、密西西比泡沫、南海泡沫，但同时又把它们放在其他社会狂热的背景里，比如猎巫狂热，比如意大利的舞蹈狂热，也就是塔兰泰拉舞狂症，还有其他类型的狂热。</p>
+<p>至少在我看来，金融投机狂热就是经济领域中的社会狂热。它和其他社会狂热有很多共同特征。</p>
+<h4 id="chapter-4">10:00 投资与赌博</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>我们后面会谈，中期选举结果如何影响这种背景。在进入具体时间线、逐个讨论历史上的狂热及其对今天的意义之前，还有一个铺垫性问题，投资和赌博之间的区别。</p>
+<p>从Mackay到Schumpeter，再到其他人，你引用了很多精彩的话。其中Fred Schwed的一段，格外打动我。</p>
+<p>“投机，是试图把少量金钱变成大量金钱的努力，这种努力很可能失败。投资，是试图防止大量金钱变成少量金钱的努力，这种努力应当成功。”</p>
+<p>我非常喜欢这句话。我想，当市场里的大多数人，从投资人变成赌徒时，这就是泡沫和狂热的核心。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>Fred Schwed这句话，出自《客户的游艇在哪里？》。这本书写于1930年代，以非常出色、幽默又尖刻的笔调，描述华尔街发生的事情。</p>
+<p>用平实的话说，他想表达的是，投资关心保全资本、安全边际之类的问题，因此也就接受缓慢、渐进的回报。</p>
+<p>而投机更接近赌博。人们下注，是为了快速赚钱，但他们对风险定错了价。因此，在投机泡沫中，最终得到的回报会很低。为了快速挣一美元，最后却把整整一美元都赔掉。</p>
+<p>现在也能看到这种情况。大量散户在Robinhood和其他平台交易，他们自称在“投资”，但所做的要么是预测市场那种直接的赌博，要么就是投机性押注。</p>
+<h4 id="chapter-5">12:11 郁金香、资本流入与期货杠杆</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>这正好带我们来到17世纪初，你写到的阿姆斯特丹证券市场泡沫。</p>
+<p>那一轮狂热让我感兴趣的地方，是其中完全看不到理性的因素。今天我们还可以反复争论，这个市盈率有没有道理，那里的盈利是不是在增长，或者一切是不是被夸大了。</p>
+<p>但你对17世纪初的描述，似乎真的是纯粹投机。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>你说的是郁金香狂热？</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>也包括它之前的发展。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我倒不完全这么看。当时有荷兰东印度公司，成立于17世纪初，支付股息，股票也可以交易。</p>
+<p>17世纪初的荷兰社会，很有意思的一点是，它确实是第一个现代商业社会，非常重商。那个时期，现代金融的一些特征开始发展起来，有可交易的债券市场，也有可交易的股票市场。</p>
+<p>随后，突然出现了郁金香球茎泡沫。据说，当时某些稀有球茎，能开出带杂色条纹花朵的品种，一枚就能卖到阿姆斯特丹一幢联排住宅的价格。</p>
+<p>我觉得那里发生的，就是Kindleberger所说的反馈机制。人们开始不断抬高球茎的价格。那些郁金香确实稀有，而当时又是一个非常商业化的社会。</p>
+<p>1630年代中期的荷兰，利率很低，有大量资本流动，更准确地说，是大量海外资本流入。与此同时，球茎期货市场也发展起来了。</p>
+<p>杠杆、资本流入和低利率，都是泡沫中经常出现的特征。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>你写到，郁金香泡沫结束时，并没有一个明显的触发因素。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我认为，当所有交易都转向期货以后，现货市场里其实已经没什么交易，期货价格就与现货市场荒唐地脱离了。</p>
+<p>在这种情况下，不需要多大的触发因素，市场就会崩盘。崩盘之后，当局介入，实际上把那些合同取消了。</p>
+<h4 id="chapter-6">15:02 早期逆向投资者与女士头饰</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>17世纪还有一个我想多谈的地方，就是逆向投资者的出现，尤其是1690年代末的崩盘。</p>
+<p>你提到了John Law和Richard Steele，认为他们是最早的一批逆向思考者，还把这件事与女士头饰的大小联系起来。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>与头饰有关的是Steele，不是Law。Richard Steele是记者、作家、剧作家，同时也是企业家。</p>
+<p>英国第一次股市泡沫发生在1690年代。那一次的置换，是马萨诸塞海岸外一次非常成功的沉船打捞，为投资人挣了很多钱。于是，我们有了第一次技术狂热，围绕潜水钟展开。</p>
+<p>那也是一个货币极其宽松的阶段，伦敦货币体系出现了某种崩溃。与此同时，最早刊载股价的报纸开始出现，所以投机传染有了传播媒介。</p>
+<p>Richard Steele爵士半开玩笑地写道，股票的涨落，与女士头饰的高低一致。</p>
+<p>我认为，他可能是第一个指出这一点的人，投机情绪其实就像时尚，一会儿兴起，一会儿消退。</p>
+<p>他还表达过一种关于投机情绪的判断，原话我记不太清了。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>我这里有原文。我来读，“没有什么比充分了解人们的希望与恐惧更有用了。在别人得意忘形时保持怀疑，在别人认为卖出符合自身利益时，怀着暗自的喜悦买入。”</p>
+<p>意思就是，别人恐惧时贪婪，只不过说得更长。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>说实话，如果想成为一个认真的投资人，或者一个成功的投资人，除了这几句话包含的思想，真的不需要再知道太多。</p>
+<p>当人群失去理智时，保持明智、理性的逆向思考，是一件非常好的事。</p>
+<p>不过，后来Steele自己也参与了南海泡沫中的一家公司，好像是一家鱼类运输、鱼塘之类的企业。所以，他也不是完全免于偶尔陷入狂热，我们谁都不能。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>他最先识别出了这种现象，却也许没有从自己那些漂亮的话里吸取教训。</p>
+<h4 id="chapter-7">19:00 南海泡沫与“让魔鬼抓走最后一个人”</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>接下来谈南海泡沫，1720年代。如果我说错了请纠正我，你用作书名的“让魔鬼抓走最后一个人”，这句话似乎正是在南海泡沫中，被用于描述人们的想法。</p>
+<p>按你的叙述，让我印象很深的是，人们从投资第一天起，就知道这是泡沫。但他们想的是，我迅速进去，在一切出问题之前再出来。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>用今天的说法，试图为泡沫寻找合理解释的金融学者，会谈“大傻瓜理论”。也就是说，我愿意以高于基本价值的价格买一只股票，因为我相信，你是一个比我更大的傻瓜。</p>
+<p>写书时，我发现了南海泡沫期间的一句话。那是1720年一场很短、但规模极大、后来非常著名的泡沫。一位银行家说，当世界上其他人都疯了，我们必须以某种方式模仿他们，让魔鬼抓走最后一个人。</p>
+<p>这反映了狂热中带有犬儒色彩的一面。人们只是在玩这个游戏，用今天的话说，就是动量。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>对。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>动量今天也是市场中一个很大的因子。他们希望自己能及时出来，但说出那句话的银行家Martin，后来赔得精光，还声称是别人给他出了馊主意。</p>
+<p>这也是狂热中经常出现的一种轻飘飘的心态。嘿，有很多钱可以赚。我们知道某个时候会出现损失，但人们开始相信，不知怎么的，损失总不会落到自己头上。</p>
+<p>可从整体上说，损失终究会落到他们身上。狂热结束时，他们当然会极其恼火，然后四处寻找替罪羊，责怪别人。南海泡沫破裂后，这种情况尤其严重。</p>
+<h4 id="chapter-8">21:14 动量因子为什么能持续奏效</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>回到南海泡沫之前，我们先岔开一下。你刚才说，动量投资是这个行业给“大傻瓜理论”起的一个正当名称。</p>
+<p>过去有没有一段时期，像从2009年低点一直到今天这样，无论叫动量投资，还是叫大傻瓜理论，都持续奏效了这么久？</p>
+<p>我2008年毕业，当时在一家很传统、甚至有些无聊的资产管理公司接受训练，学的是贴现现金流估值。但过去近二十年，你如果只看这些，会错过巨大的涨幅。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>动量作为我们现在所说的一个因子，已经被回测到美国1920年代。它似乎是一个相当可靠的因子，历史上大致能带来几个百分点的超额回报。</p>
+<p>它在泡沫时期当然尤其有效。但之后会出现所谓“动量反转”，这个说法听起来似乎挺无害，实际并不无害。</p>
+<p>泡沫破裂时，比如2000年，又比如金融危机期间房地产泡沫破裂时，会出现非常剧烈的动量反转。</p>
+<p>我最近看到过一项研究，似乎说，从大约1995年到2015年，靠动量其实没有赚到钱。</p>
+<p>过去十到十五年，我们确实进入了一个尤其偏重动量的市场。原因可能有很多。一部分就像你说的，所谓价值投资，以相对未来盈利较低的价格买入，在直到不久前的一段时期里都不起作用。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>另一个原因，我觉得是投资从主动转向被动，从专业投资人选择股票，转向投资指数。这个过程本身会创造巨大的动量效应。</p>
+<p>你可以这样想，一个基金经理表现落后，手里持有一大堆小盘股，它们表现不好，跑输市场。于是，这个经理被解雇，资金转而投向整个市场，然后就流入那些表现不错的大盘股。</p>
+<p>还有一些投资者，会提前交易这个过程。</p>
+<p>因此，市场机制的变化，也在鼓励动量。</p>
+<p>此外，至少在美国，现在还有一个规模非常大的散户交易群体。信不信由你，他们的成交量可能是专业投资者的两倍。这些人按动量交易，买正在上涨的东西，这是他们的本性。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>它会一直奏效，直到失效为止。也许我们后面会回到这个结论。</p>
+<h4 id="chapter-9">25:00 狂热中的救世主式领袖</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>我们迅速回到南海泡沫，再问一个问题。提醒一下，那是1720年代。</p>
+<p>你谈了很多关于John Blunt爵士的事。他是公司董事，也是整个安排的主要设计者。你形容他有一种“夸大的救世主姿态，以及无边权力的感觉”。</p>
+<p>这句话让我想到，能不能也把它用来形容今天为AI交易发声的某些主要人物？</p>
+<p>有意思的是，黄仁勋刚经历了这个周末，让我也想到了他，虽然以前他并不是我名单上最靠前的人选，因为他看起来更有原则。直到现在，他卷入了一件可能涉及间谍的事情。</p>
+<p>一些科技领袖身上，确实有不少救世主色彩，对吗？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我认为是的。以黄仁勋和英伟达来说，他希望把自己，以及英伟达，放在AI革命不可或缺的位置。</p>
+<p>关于所谓中国间谍的故事，我并不了解。但英伟达和黄仁勋，确实一直在给这些相当脆弱的数据中心公司提供资金，参与大规模的供应商融资，或者说循环融资。</p>
+<p>这和世纪之交电信繁荣时的情况相似，但规模大得多。</p>
+<p>再想一想，如果你可能进入一个通用人工智能，甚至超级智能的世界，当然会激发人们身上的救世主情结。</p>
+<p>我想到的是那些经营前沿实验室的人，Anthropic的Amodei、OpenAI的Altman，以及SpaceX的Elon Musk。他们需要宣扬一种救世主般的信心，让大家相信自己在做的事情，才能筹到资本，进而有能力去做。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我并不是说，每一场大泡沫都必须有一个救世主式领袖，但这确实有帮助。</p>
+<p>就像其他社会狂热，你得有人领着大家参加“儿童十字军”。围绕一个能让人产生极强信心的领袖组织起来，每一场狂热都会运转得更有效率。</p>
+<p>而南海泡沫里的John Blunt，后来就越过了界限。这是泡沫中很常见的特征。如果你是领袖，反馈循环的一部分，就是得到所有这些人的崇拜与信任。你当然会倾向于过度自信，进而越界。这种特征很常见，也常常使人陷入麻烦。</p>
+<p>Blunt还有一点，他通过自己的Sword Blade银行提供杠杆，让人借钱买南海公司的股票。</p>
+<p>我想你也可以说，黄仁勋正在为购买自己GPU芯片的人提供杠杆。</p>
+<p>Blunt还向议会、国王和威尔士亲王行贿。南海泡沫是投机泡沫中，政治阶层被最广泛拉入其中的一次。</p>
+<p>当时为什么把它叫“bubble”？那时这个词的意思是骗局，并不只是某个膨胀后破掉的东西。“Bubble”最初的含义就是诈骗。</p>
+<p>南海泡沫本身，就是一场巨大的骗局。</p>
+<h4 id="chapter-10">29:12 泡沫破裂后的政治反噬</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>我本来准备晚一点谈中期选举，不过现在也许正好。南海泡沫之后，政治上出现了很强的清算。比如1720年的《泡沫法案》，尽管它后来又被废除了。</p>
+<p>看到这次中期选举结果，你会不会……</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>精确地说，1720年之后，引入了具有追溯效力的立法，没收人们在泡沫期间积累的财富。</p>
+<p>比如财政大臣John Aislabie爵士，在约克郡给自己买了一座漂亮的大庄园，后来被没收了。</p>
+<p>还有历史学家Edward Gibbon的家族，他的父辈是一位议员，在那个时期赚了钱，在Gibbon看来，那些钱赚得是正当的，但财富也被拿走了。</p>
+<p>按英国的法律传统，这种事几乎前所未有，也说明事后的反噬有多强烈。</p>
+<p>关于中期选举，我们前面说过，狂热的社会和政治层面，往往需要当局睁一只眼闭一只眼，或者主动支持。这显然就是Donald Trump过去几年在做的事情。</p>
+<p>他推出各种Trump加密货币。虽然理论上，他没有亲自管理股票投资，但他的账户出现了极不寻常的高频交易，有成千上万笔交易。</p>
+<p>Trump的大家庭参与了各种AI项目，也参与了各处房地产项目。外交人员飞到哪里，旁边似乎就会谈成房地产交易。</p>
+<p>从我读到的选后分析看，公众对政府的腐败，或者他们所感知的腐败，有极大的不满。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>这能戳破泡沫吗？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>什么都有可能戳破泡沫。但我自己的看法是，股市仍然非常高。</p>
+<p>美国房地产市场不受欢迎，是因为价格被抬得太高，大多数人进不去。美国股市相对历史估值也非常昂贵。</p>
+<p>所以如果泡沫破裂，反噬可能会比我们迄今见到的任何情况都强得多。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>不过，按这个说法，中期选举结果本身，大概还不能算触发因素。</p>
+<p>接下来谈铁路泡沫。我想，本节目听众大概都了解铁路泡沫的大致情况。让我印象很深的是，当时每个人都在讨论、写文章说存在铁路泡沫，但它还是破裂了。</p>
+<p>我们常常会这样想，今天就是个很好的例子，上周某一天大跌，大西洋两岸所有主流媒体都在讨论，AI是不是有泡沫？</p>
+<p>这几乎会让你退后一步想，如果讨论已经跨过了这个门槛，也许意味着，后面还会再涨一段。</p>
+<p>但铁路泡沫似乎表明，它破裂时，完全可能所有人早就知道有泡沫了。</p>
+<h4 id="chapter-11">32:06 铁路狂热、重复建设与AI数据中心</h4>
+<p><strong>Edward Chancellor</strong></p>
+<p>对，这个看法有道理。铁路泡沫，指的是1840年代中期，英国铁路系统极其迅速、大规模的扩张。</p>
+<p>它与今天，以及互联网泡沫时期，都有一些相当鲜明的相似之处。</p>
+<p>首先，有一种革命性技术，让人们非常兴奋，而且有些兴奋过头。比如，人们会说，铁路将带来世界永久和平，诸如此类。所有人都将讲同一种语言。</p>
+<p>顺便说，这也是AI的一项承诺，可能比当年还稍微有道理些。</p>
+<p>所以，有了这种对新技术的、姑且称为救世主式的兴奋，又有巨额资本投入。</p>
+<p>最后，建出来的铁路系统，在伦敦到Peterborough之间有三条线路，利兹到曼彻斯特之间也有三条。也就是建设过度了。</p>
+<p>说实话，这也是2000年代初铺设通信系统时发生的事，也就是当年所谓的“信息高速公路”。我认为今天可能也在发生。</p>
+<p>许多差异并不大的AI模型相互竞争，同时又大规模建设装满芯片的数据中心，用来运行这些模型。</p>
+<p>人们已经在算这些数字。特别是把未来五年那些尚属计划中的投入也算进去，有人会说，AI投资可能达到15万亿美元。我不知道具体数值，但这样的规模，可能已经比1840年代的铁路狂热还要大。</p>
+<p>所以人们开始问，这是不是有点脆弱？是不是泡沫？这毫不奇怪。</p>
+<p>但仅仅观察到有人说它是泡沫，并不能告诉你，它马上就会破裂，因为背后可能仍有非常强的动量。</p>
+<h4 id="chapter-12">36:15 信息传播更快，为什么投机反而更强</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>接下来谈1920年代。有一段让我印象特别深，你前面也隐约提到过。</p>
+<p>无线电在1920年代起了很大的作用。你谈到信息传播速度更快，互联网泡沫时期显然又出现了类似变化，今天的AI交易可能也是如此。</p>
+<p>你写道，“几乎没有历史证据表明，通信的改善会让金融市场更温顺，或让投资行为建立在更充分的信息上。恰恰相反，过去，金融信息更容易获得、通信条件改善，往往会把冲动的新参与者吸引进投机游戏。”</p>
+<p>然后你分析了，许多泡沫中，虽然并非每一次，都伴随着交流方式的跃升。你前面已经提过日报。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>对，17世纪末有报纸。铁路时代又恰好与电报同时出现，所以信息既通过铁路，也通过电报，更快地传播。</p>
+<p>1920年代有你说的无线电，还有电话，也有电动股票报价机的发展，人们能看到股价怎么走。</p>
+<p>到了1990年代，有了互联网连接。人们一边通过互联网券商交易互联网股票，一边在网上投资论坛彼此交流。</p>
+<p>再往后来到今天，人与人的连接更加无缝。想想2020至2021年的迷因股泡沫。</p>
+<p>如果你记得，它起源于Reddit的WallStreetBets社区。散户决定把那些迷因股炒起来。这种事，只有在一个高度互联的世界才可能发生。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我认为，这也有助于解释，为什么加密货币泡沫——如果我们可以这么叫它——能持续这么长时间。</p>
+<p>现在整个世界都连在一起，带有传染性的投机观念可以在全球扩散。</p>
+<p>我大部分时间住在西萨默塞特郡。村子里的人也在炒AI和加密货币，总让我感到惊讶。那可是个偏僻地方。他们本来应该拿钱再买一块田之类的，而不是买加密货币。</p>
+<p>至少在我看来，这说明潜在的投机群体比过去大得多，彼此之间的连接也紧密得多。</p>
+<p>我很高兴自己在二十六七年前写下那段话，因为今天我的感受更强。矛盾之处在于，我们连接越紧密，掌握的信息越多，行为却越不理性，作出的决定越糟。</p>
+<p>对我来说，这真的很令人担心。而且这不仅限于金融，政治领域等等也一样。</p>
+<p>在一个高度互联的世界里，非理性似乎会非常快地浮到表面。政治世界里也能看到这种情况。</p>
+<p>不过，写金融有个好处，我们可以谈这些投资方面的事情，而不至于引发太多争议。</p>
+<h4 id="chapter-13">40:33 日本泡沫与政府兜底的幻觉</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>1920年代还有很多可以谈，但我准备跳到1980年代的日本。</p>
+<p>在书里所有的泡沫、狂热和我摘出的句子中，这一段让我最强烈地觉得，自己可能正在读今天的美国。</p>
+<p>你写道，“当投资者相信，市场风险由政府承担，而不是由他们自己承担时，危险就出现了。经济学家把这叫作道德风险。整个1980年代，怀疑者不断被告知，日本政府不会允许股价下跌，日本银行和券商大到不能倒。泡沫崩溃时，这种信念终于显露出本来面目，一种愚蠢的妄想，把银行带向毁灭。”</p>
+<p>今天，这种心态也非常明显，对吧？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我认为，很多大泡沫背后都有道德风险。中国房地产泡沫尤其如此。全球金融危机之后，这场泡沫开始变得非常强烈。</p>
+<p>像我这样的人会说，你看，有5,000万套空房，估值没有道理，诸如此类。人们却会说，不，北京不会让泡沫破裂。</p>
+<p>我认为，道德风险支撑着很多泡沫，也让它们通常持续得更久一点。然后，当局往往最终会害怕。</p>
+<p>日本泡沫破裂，就是在日本银行加息之后。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>圣诞节当天。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>对，圣诞节当天。不知道为什么，当然，日本不是基督教国家，所以圣诞节……总之，那天它们上调了利率。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>当时日本银行行长三重野康，明确的目标就是戳破房地产泡沫。他也确实做到了，同时还戳破了股票泡沫。</p>
+<p>后来股市花了大约三十年，甚至三十多年，才恢复过来。</p>
+<p>2020年末，习近平限制中国房地产开发商获得信贷时，实际上也对中国房地产泡沫做了类似的事。</p>
+<p>所以，道德风险会推动市场，让你感觉风险有人托底。如果你能享受上涨的收益，却可能不用承担下跌的损失，当然就会冒更多风险。这就是道德风险的本性。</p>
+<h4 id="chapter-14">43:23 从互联网基础设施到AI，谁会真正赚到钱</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>接下来谈互联网泡沫。仍然有很多内容可以展开，但其中一点特别打动我。有时，这些巨大的技术革命，确实也能成为好投资。</p>
+<p>你区分了电话、电报那种基本上具有垄断性质的投资，与有许多相互竞争企业，甚至只是寡头竞争的情况。</p>
+<p>在后一种情况下，过度投资会制造很多输家，即使技术本身最终大放异彩。1990年代到2000年代初，就出现了这种情况。</p>
+<p>你怎么看今天？是不是只有英伟达一家独大？还是说，超大规模云厂商形成了一组寡头，最终即使有一两个赢家，也会有好几个大输家？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>今天AI领域的英伟达，在GPU芯片上看起来确实占据非常强的主导地位。但它不是唯一一家。谷歌和博通在做TPU，也就是张量处理器，中国也在发展竞争产品。</p>
+<p>我认为，这也可能让AI投资繁荣成为所有这些投资热潮中最危险的一次，最终胜出的技术是什么，现在并不清楚。</p>
+<p>有不少人认为，我们会从今天的大语言模型，从那些占地有半个曼哈顿那么大的数据中心，转向能在办公室，甚至智能手机上运行的小语言模型。</p>
+<p>如果是这样，你可能就不再需要那么多TPU。所以潜在的资本错配非常巨大。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>模型这一边也不明朗。你可能知道，Anthropic和OpenAI这些所谓前沿模型，正在把市场份额让给中国的开源模型。</p>
+<p>按我读到的说法，这些模型能提供95%的能力，而成本只有2%。</p>
+<p>所以，除了那种直到不久前还被称为“token maxing”、拼命刷token消耗量的人，任何真正想控制成本的人，都只会在确实必要的任务上用前沿模型，其他时候则用更便宜的竞争产品。</p>
+<p>我确实认为，你应该记得，互联网时期，大家对铺设地下光纤、提供互联网接入服务的公司，都非常兴奋。</p>
+<p>但最后它们成了什么？只是商品化的生意，没有人再在意。甚至移动通信运营商，也没有人再在意。</p>
+<p>1999、2000年左右，我记得Vodafone一度占英国股市的17%，现在却没人在意它们。</p>
+<p>最后，是移动运营商太多，互联网服务提供商太多，光纤太多。那些新兴电信运营商从根本上就没有经济性。今天这些独立数据中心提供商，也可能没有经济性。</p>
+<h4 id="chapter-15">47:09 真正的赢家往往在出清后出现</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>你最近也写过，在上涨过程中，泡沫其实很不擅长识别赢家，何况之后还会有一次崩溃。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>对，按照定义，接下来会有出清。在出清过程中，许多企业破产，谁会胜出并不清楚。有时，最终的赢家是在后来才出现的。</p>
+<p>回到互联网时期，我经常想，1980年代初那些鼓吹互联网革命的人，大方向是对的。它会改变所有人的生活，改变做生意的方式，是一场非常重大的信息革命，甚至是一场文明层面的革命。</p>
+<p>但除了亚马逊——而它的股价后来也跌了大约95%——真正的赢家，正如你所知，是之后才浮现的。</p>
+<p>谷歌当时没有上市，Facebook甚至还没成立。互联网革命真正的赢家，直到泡沫破裂以后，才真正出现。</p>
+<p>所以我的看法是，你可以观察到革命性技术的兴起，但总体而言，更有道理的做法是先站到旁边，等待泡沫破裂，观察出清，然后看看哪些公司正在取得主导地位。</p>
+<p>AI领域也可能像过去一样，经历这个过程。 ### 49:01 “万物泡沫”为什么比上一轮更大</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>你9月给路透Breakingviews写过一篇文章，说“万物泡沫”回来了，而且比以往任何时候都大。你当时把它与迷因股狂热之后的2022年高点作比较。</p>
+<p>能不能展开讲一下那篇文章的核心意思？你是否在说，今年夏天看到的疯狂，甚至超过了那场迷因股泡沫？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我当时参考的是投资人Richard Bernstein在2021年写的一篇文章。他指出了几个因素，包括市场中的杠杆、很高的换手率、所谓金融民主化的存在，以及IPO。</p>
+<p>我想说的是，现在我们有SpaceX上市。2020、2021年，有许多那些不太靠谱的小型SPAC。而SpaceX，你既可以把它看成史上最大的IPO，也可以把它看成历史上最大的迷因股，我认为它就是。</p>
+<p>市场成交非常活跃。Citadel Securities处理美国大量散户交易，它指出，今年夏天的成交量，超过了2021年的顶峰。</p>
+<p>Robinhood也扩大了产品范围。它的客户数量大概已经是过去的好几倍。现在，它们提供的不只是迷因股和大型科技股交易，也包括加密货币、预测市场。</p>
+<p>所以，这又是一个特征。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>然后，到处都充斥着大量杠杆。</p>
+<p>那些带有博彩性质的交易平台，正在转向永续期货，可能允许100倍、200倍杠杆的头寸。</p>
+<p>还有对英伟达等个股提供三倍杠杆的交易所交易基金。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>还有SpaceX。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>有意思的是，最强的投机狂热，其实发生在韩国市场。那些自称“蚂蚁”的投机者，初夏时利用杠杆，把SK海力士等韩国半导体股炒了上去。</p>
+<p>顺便说，这还得到了韩国总理的主动支持。所以，这又是一个同时发生的道德风险案例。</p>
+<h4 id="chapter-16">52:24 财政脆弱让下一次出清更危险</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>你提到了杠杆，我们再谈谈你最近写过的另一件事，同时存在的政府债务状况。</p>
+<p>你注意到了一个重要变化，不只在美国，也很不幸地发生在英国等其他国家，就是政府债务由本国与外国投资者分别持有的比例。</p>
+<p>当你像现在这样，必须以很快的速度再融资时，这种变化大概会在未来制造更大的问题。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>对。我认为，政府财政的基础很差，让今天的投机环境尤其危险。</p>
+<p>以前并非如此。我们刚才谈到1920年代，当时美国政府有财政盈余。1999、2000年，美国政府也有盈余。全球金融危机期间，债务水平相对较低。</p>
+<p>所以，政府可以出来支持市场，道德风险机制也就能发挥作用。</p>
+<p>现在，这看起来更值得怀疑，尤其是英国、美国和法国。这些国家高度依赖海外借款，净国际投资头寸又是巨额负值。换句话说，它们欠世界其他地方的钱，比它们在世界其他地方拥有的资产更多。</p>
+<p>人们经常说，日本的债务余额最高，但日本也拥有世界上最多的海外资产，这实际上提供了支撑。</p>
+<p>所以，等到这一切开始瓦解时，政府债务这边会发生什么，会很值得看。</p>
+<p>而且，正如前面提到的，当人们发现自己的投资大幅缩水时，会出现什么样的反噬和寻找替罪羊的行为？我不认为那会是一个很愉快的局面。</p>
+<h4 id="chapter-17">55:00 依据历史，为什么判断今天存在泡沫</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>我们开始收尾。Edward，你说“等到它瓦解时”，所以我想，你确信我们身处泡沫，而且它会瓦解。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>在我看来，确实如此。</p>
+<p>做投资有一个好处，就是你会不断被证明是错的。这应该有助于校准判断，让人避免过度自信。</p>
+<p>从这个意义上说，我并没有过度自信。就我个人而言，泡沫破不破，对我的影响不会太大。</p>
+<p>但目前确实满足了所有那些因素。今年早些时候，我和Jeremy Grantham合写过一篇文章，可以在GMO网站找到。我们逐项梳理了历史特征，大概列出了十条，也包括刚才谈到的一些。</p>
+<p>这些特征现在全在那里。</p>
+<p>你还能怎么说？未来当然并非注定要重现过去。只是，在金融世界里，确实存在深刻的循环性。在我看来，这比政治或其他类型的历史更清楚。</p>
+<p>所以，这应该让人相对更有信心作出判断。它走起来像泡沫，叫起来也像泡沫，那它就是泡沫。</p>
+<p>当然，还要继续分析，看看自己会不会错。但我认为没有。</p>
+<h4 id="chapter-18">56:40 利率上升与泡沫破裂</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>利率上升发生在泡沫破裂之前，这种情况有多常见？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>非常常见。这个答案甚至有点无聊。</p>
+<p>以1929年为例，美联储从1928年开始加息，最终，保证金贷款等杠杆融资的成本变得非常高。</p>
+<p>我们前面谈过，日本银行在1989年加息。格林斯潘领导的美联储，在1999、2000年也在加息。</p>
+<p>美国房地产泡沫，实际上是在互联网泡沫之后那段极低利率时期被创造出来的。但从2004年前后开始，美联储连续多次上调利率，后来房地产泡沫开始破裂。</p>
+<p>这确实是一个相当常见的特征。甚至再往近了看，2022年，美联储开始加息，“万物泡沫”随之破裂。</p>
+<p>我那本讲利息历史的《时间的价格》，恰好在2022年出版。书里说，美联储加息时，泡沫就会破裂。就所谓“万物泡沫”而言，这个判断是对的。</p>
+<p>但我的书没预料到，AI繁荣会让投机再度复兴。</p>
+<p>所以，虽然说起来无聊，但投机泡沫破裂时，最常见的特征就是资金收紧。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>按现在的利率，最近两次央行会议前后，短端、长端利率都在上升，是不是更应该保持警惕？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>时点始终是个问题。美国利率相对较高，和五年前相比当然高得多。通胀保值债券提供的实际利率也相当可观，而美国股市的对应收益率却低得多。</p>
+<p>因此，金融学者所说的股权风险溢价，几乎没有了，或者说，已经很少。</p>
+<p>我并不是说，情况不能变得更极端。1999、2000年，美国通胀保值国债的实际收益率曾达到4.5%，与此同时，股市估值却比以往任何时候都高。所以，这些情况还可能走得更远。</p>
+<p>但如果不担心政府的偿付能力，眼下更有道理的做法，的确是减少股票持仓，在组合里增加债券。</p>
+<h4 id="chapter-19">59:45 最后的投资建议</h4>
+<p><strong>Wilfred Frost</strong></p>
+<p>最后收尾时，我们总会问嘉宾一个问题。对听众来说，你最重要的一条投资建议是什么？</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>我最重要的建议，是避开被动投资或指数投资。我认为它已经走得太远。</p>
+<p>指数本身过度集中，而且过度集中在最具投机性的主题上。</p>
+<p>对投资者而言，把钱交给真正的人类投资者，让他们判断什么价格才合理，会更有道理。</p>
+<p>其中许多人都来过你的节目，也包括你非常熟悉的Jeremy Grantham。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>时间到了，Edward。非常愉快，谢谢你来参加Master Investor播客。</p>
+<p>我非常喜欢读到的你这第一本书。不，应该说第二本，因为我读过Jeremy那本……</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>这本是第一本，是我写的第一本。</p>
+<p><strong>Wilfred Frost</strong></p>
+<p>还有你帮助Jeremy Grantham写的那本。我很期待读你的其他作品，也希望你再来，一起讨论。</p>
+<p><strong>Edward Chancellor</strong></p>
+<p>好，很期待。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

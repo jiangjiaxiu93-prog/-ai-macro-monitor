@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AWS CEO Matt Garman谈万亿美元云业务、推理需求与资本开支（Sources全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-11<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>AWS CEO Matt Garman谈万亿美元云业务、推理需求与资本开支（Sources全文精翻）</h2>
+<div class="metaline">Sources · Alex Heath、Matt Garman · 2026-11-10 · <a href="https://www.youtube.com/watch?v=1C_MErgk2Z0" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；推理成本；单位经济；前沿实验室；AWS；Trainium</p>
+<p>Matt Garman为AWS首席执行官。访谈于美国中期选举后录制，11月10日发布，约53分钟。正文中的目标、需求判断与竞争评价为嘉宾在录制时的表述。</p>
+<h3>要点</h3>
+<ul><li>Garman解释AI如何推动核心工作负载上云，并以分阶段支出、长期合同与客户分散度说明资本开支的安排。</li><li>他认为推理尚不到最终规模的1%，讨论新云的债务和客户集中风险、Trainium外售，以及全栈竞争与算力分配。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00 AWS的万亿美元目标</a></li><li><a href="#chapter-2">02:24 AI如何加速云业务增长</a></li><li><a href="#chapter-3">05:57 AI推动原本推迟的上云项目</a></li><li><a href="#chapter-4">09:33 AI扩张的成本与产能约束</a></li><li><a href="#chapter-5">12:27 如何分阶段安排2030年的投资</a></li><li><a href="#chapter-6">14:10 算力建设热潮中的风险</a></li><li><a href="#chapter-7">17:02 训练、推理与付费用户</a></li><li><a href="#chapter-8">18:38 推理还不到最终规模的1%</a></li><li><a href="#chapter-9">20:03 选后反对数据中心的声音</a></li><li><a href="#chapter-10">24:07 行业需要建立怎样的共同规则</a></li><li><a href="#chapter-11">28:21 太空、海洋与沙漠中的数据中心</a></li><li><a href="#chapter-12">31:38 新兴推理供应商在云体系中的位置</a></li><li><a href="#chapter-13">33:53 AWS为什么要覆盖全栈</a></li><li><a href="#chapter-14">36:52 为什么开始对外销售Trainium芯片</a></li><li><a href="#chapter-15">38:11 如何分配稀缺算力</a></li><li><a href="#chapter-16">40:10 Nova的重置与前沿模型目标</a></li><li><a href="#chapter-17">41:37 用数学证明帮助代理遵守规则</a></li><li><a href="#chapter-18">46:31 开放与闭源模型的竞争</a></li><li><a href="#chapter-19">49:14 在亚马逊内部经营AWS</a></li></ul></details>
+<h4 id="chapter-1">00:00 AWS的万亿美元目标</h4>
+<p><strong>Alex Heath</strong></p>
+<p>Matt，很高兴和你见面。我觉得AWS现在发生的事情，在很多方面都前所未有。</p>
+<p>你们是全球最大的云计算公司，资本开支也最高。据估算，你们在美国正在开发的容量约有44吉瓦，比Google和Meta加起来还多。</p>
+<p>刚刚，Andy Jassy又在财报会上说，AWS未来五到十年可能成为年收入1万亿美元的业务。这显然是个非常大的数字。按我的计算，以目前的收入年化规模为基础，如果五年实现，需要大约40%的复合增长率，如果十年实现，则大约18%。这还是建立在已经非常庞大的基数上。</p>
+<p>很多人听到之后都在想，你们究竟看到了什么？我也翻看了你们过去几个季度对业务的表述。今年较早的时候，Andy好像还说，2036年前后大概能做到6,000亿美元。第二季度，他提出了1万亿美元。到第三季度，语气已经非常坚定，像是一次很明确的宣示。</p>
+<p>不妨就从这里开始，第二季度到第三季度之间，发生了什么？</p>
+<p><strong>Matt Garman</strong></p>
+<p>退一步说，过去20年，我们可能一直都认为，AWS是一个极其庞大、前所未见的商业机会。</p>
+<p>我在AWS已经20年了，业务一直在增长。随着时间推移，我们越来越确信，这个机会真的非常大。</p>
+<p>我们现在的收入年化规模是1,820亿美元，超过1,800亿美元的业务，仍然增长39%。能够达到这个位置的公司，并没有多少。而且，过去连续六个季度，我们的同比增速每一季都在提高。</p>
+<p>看到这种加速，我们想到的是，始终有一个基本判断，大多数工作负载仍然运行在本地环境里。云已经很大，但人们手里依然有很多数据中心，很多工作负载留在本地，而且每天还在不断产生新的工作负载。</p>
+<h4 id="chapter-2">02:24 AI如何加速云业务增长</h4>
+<p><strong>Matt Garman</strong></p>
+<p>过去两年，真正令我们兴奋的，是这个飞轮。客户现在看到，AI给他们带来了巨大机会，可以提高效率、创造新业务、构建新的客户体验，重新思考工作怎样完成，更快地为客户开发。</p>
+<p>但如果核心工作负载不在云里，就很难获得这些收益。如果运行的还是本地数据库、本地大型机，或者旧数据中心里的VMware集群，要让代理和这些系统交互、从各个数据源提取数据，就会非常困难，很难有效运转。</p>
+<p>客户过去已经知道云的好处，成本更低，敏捷性更高。AWS过去20年增长很好，本来就有这些原因。但当人们意识到，如果不把核心工作负载放到云里，就无法享受AI的价值时，增长真正加快了。所以，过去几年，我们的核心业务明显加速。</p>
+<p>核心工作负载迁入云里的越多，客户就越能利用AI。这样就形成了一个非常积极的飞轮，推动我们看到的收入增长显著加快，也进一步增强了我们对AWS增长的信心。</p>
+<p>另一个变化，是现在能做的事情。几年前，我们看到出色的内容生成、出色的对话聊天机器人。进入真正能够完成工作的代理时代后，客户才刚刚开始探索可能性。</p>
+<p>完全自主的代理，利用非常强大的模型，能够运行越来越久，处理越来越难的事情。客户开始真正思考和看到，核心工作负载中的哪些部分可以自动化、改进，并在此基础上继续构建。</p>
+<p>这实际上打开了企业正在做的一切事情，也扩大了所有人的市场。除了把原来花在一个地方的钱转向另一个地方，它还能够创造新业务，给我们的客户创造新的收入来源，云则成为他们达到这些目标的方式。</p>
+<p>我们看到，数以万计的初创公司、企业和大型公司都在增长。它们才刚刚开始获得收益，同时这个飞轮已经在发挥作用，这让我们非常有信心，未来还有巨大的业务空间。</p>
+<p>当然，这远没有成为确定的事情。从现在走到那里，还需要大量执行、大量发明，还有很多工作要做。但帮助客户增长、利用这些技术的机会和空间，比以往任何时候都大。</p>
+<h4 id="chapter-3">05:57 AI推动原本推迟的上云项目</h4>
+<p><strong>Alex Heath</strong></p>
+<p>也就是说，AI让企业从本地走向云，推动了很多增长。</p>
+<p><strong>Matt Garman</strong></p>
+<p>完全如此。</p>
+<p><strong>Alex Heath</strong></p>
+<p>很有意思，我之前没想到这一点。你和公司多年来一直在说，外界低估了仍然留在本地的数据量。给不了解的听众解释一下，本地就是数据还在某个本地环境，没有放进云里。</p>
+<p>你们现在看到，那些过去一直没有拥抱云的公司，因为AI开始走向云了。</p>
+<p><strong>Matt Garman</strong></p>
+<p>拿分析工作负载来说。传统上，客户可能会说，我有一个数据仓库，运行在自己的数据中心。我可以把它迁到云里，使用亚马逊的分析能力，也可以迁到Snowflake、Databricks之类的平台，这当然很好。</p>
+<p>很多人确实这么做了。但也有人会想，现在在本地也能分析，而且运行正常。也许暂时不迁，等明年、后年，项目安排得过来再说。</p>
+<p>我们一直看到这种迁移，只是它们比较慢，有节奏，也事先排好了时间。</p>
+<p>现在人们开始说，我可以让代理跨越所有数据源工作。借助云环境里的新技术，例如横跨不同数据源的DuckDB数据引擎，获得的收益也不只是让分析更快、更便宜，而是让代理完成整个过程。</p>
+<p>代理要做这件事，就必须能访问所有数据源，数据源必须对它开放，它还要知道数据在哪里。这样，我就能得到全新的洞察，建立新业务，释放新的收入和利润来源。</p>
+<p>可如果有一个数据源还锁在大型机里，就做不到。所以，当客户开始看见收益时，就会把这些东西都带进来。我认为，不采取行动的企业，确实面临被已经进入云的企业赶超的风险。</p>
+<p><strong>Alex Heath</strong></p>
+<p>这些增长有多少来自大客户想花更多钱，有多少来自长尾？</p>
+<p><strong>Matt Garman</strong></p>
+<p>大客户规模大，花的钱也多，所以确实有相当一部分来自它们。但长尾也在扩大，增长确实遍布各类客户。</p>
+<p>谈长尾时，我不是说，我们的增长主要来自牙医诊所这样的极小型企业。这类客户大多由合作伙伴服务，伙伴把软件和服务运行在AWS上。</p>
+<p>我们的直接客户范围很广，既有全球排名前5,000的大企业，也有初创公司。就在本周，我去了湾区，见了很多初创企业，其中不少成立还不到六个月。它们在考虑如何利用AWS，加快业务增长、技术开发和进入市场的速度。我们的其他客户也很希望获得这些能力。</p>
+<p>所以，这是各类客户共同推动的增长。有时是全球最大的银行、医疗企业、政府，有时是只有两个人、想把一个点子做出来的团队，所有这些群体都在增长。</p>
+<p>事实上，对两个人的初创团队来说，从没有像今天这样容易，尝试一个想法，再真正把它做大。我还没见过哪个两人团队，会先去找数据中心场地、装一台服务器，再开始创业，这完全不合理。</p>
+<p>这一点已经成立很久了，但今天他们可以用AI，进一步放大影响、提高增长速度。我们看到，新公司一旦找到产品与市场的契合，扩张就非常快。而AWS和云也给它们不断迭代的机会，直到找到这种契合。</p>
+<h4 id="chapter-4">09:33 AI扩张的成本与产能约束</h4>
+<p><strong>Alex Heath</strong></p>
+<p>不过，这个阶段确实有一个新问题。尤其如果是一家AI使用很重、做很多推理的公司，随着规模扩大——我记得可能是Fireworks的Lin说过——你可能会一路扩张到破产。</p>
+<p>还有一种情况，是算力不够，根本无法扩张，而你们拥有大部分算力。对于你遇到的企业、初创团队，面临这种问题时，你怎么看，又会怎样建议？我觉得这个问题非常真实。</p>
+<p><strong>Matt Garman</strong></p>
+<p>确实非常真实。我们正在深入思考，也在投入建设更完善的成本管理工具，让企业能够应对。</p>
+<p>客户想要的控制方式很多。有人说，账户花到这个金额就直接关掉，没关系，我之后再处理，但不能超过这个数。有人希望达到某个金额时提醒。如果是推理，有人希望从昂贵的模型切换到便宜模型。</p>
+<p>我们在考虑，究竟可以给客户提供哪些工具和控制手段，让他们对成本管理真正放心。</p>
+<p>这也不只是小客户担心花掉1万美元、负担不起。大企业同样会说，我可能希望某个人的支出大体不受限制，但Alex，你的个人账户只能花100美元，到了就停。</p>
+<p>所以，提供足够细致的控制，让各种规模的公司都能使用，我认为非常重要。</p>
+<p><strong>Matt Garman</strong></p>
+<p>从产能角度看，问题也确实存在，这正是我们投入这么多资本开支、建设基础设施的部分原因。</p>
+<p>很多人担心，投入资本时会有集中度风险。我们处于一个比较有利的位置，使用量分散在大量客户之间，有几十万、上百万客户都在使用AWS。</p>
+<p>需求来自广泛的企业，这让我们有信心投入大量资本，真正增加客户可用的算力。因为我们能很清楚地看到，它们如何增长，明年、后年的需求大致会怎样。</p>
+<p>很多大客户会给出五年，有时甚至八年、九年、十年的支出承诺。大部分则是三年、四年、五年、六年。这样，我们对增长就有很好的可见度。</p>
+<p>而且，坦率说，客户实际支出往往超过承诺。承诺更像一条基线，但已经能帮助我们判断增长会在哪里。</p>
+<p>现在，需求远远超过供给。即使我们已经投入这么多资本开支，提前建设这么多产能，我仍预计，未来几年产能都会不足。</p>
+<h4 id="chapter-5">12:27 如何分阶段安排2030年的投资</h4>
+<p><strong>Alex Heath</strong></p>
+<p>你能看清2030年的情况吗？</p>
+<p><strong>Matt Garman</strong></p>
+<p>能看到一些趋势。但我个人可看不透未来，否则……</p>
+<p><strong>Alex Heath</strong></p>
+<p>你就是炼金术士了。</p>
+<p><strong>Matt Garman</strong></p>
+<p>对，那我就去做点体育博彩之类的事了。不过，我们确实会得到信号。</p>
+<p>我们的思考方式，某种程度上可以追溯到亚马逊的供应链根基，真正管理完整的供应链。</p>
+<p>在AWS，我们思考的是，怎样尽可能晚地花钱，让自己掌握尽可能多的信息，同时保留能够满足需求上行情景的选择权。</p>
+<p>最理想的状态，是产能恰好等于需要。但不可能总是精准匹配，既不想资本开支过多，也不想严重不足。</p>
+<p>所以，要识别交期特别长、必须提前花钱的部分，比如买土地、落实电力合同、取得许可。等到数据中心更接近落地时，再购买网络设备、发电机等。</p>
+<p>如果考虑2030年，我今天可能就在买届时要用的土地。但现在不会买服务器，不会把所有东西都买齐。</p>
+<p>为支撑2030年设想中的增长而需要投入的很多资本开支，都可以等到更接近2030年的时候再花。因此，我不需要今天就把2030年看得完全准确，掌握方向即可。</p>
+<p>即使判断错了，土地也大致可以转售。最糟糕的情况，可能是在资产升值方面少赚一点或亏一点，但总体上，它是一项可以转售的耐久资产。</p>
+<p>我们就是这样分阶段安排投资，降低其中一些风险。但这确实需要大量长期规划、思考，也要持续观察各种变量。</p>
+<h4 id="chapter-6">14:10 算力建设热潮中的风险</h4>
+<p><strong>Alex Heath</strong></p>
+<p>市场里每个人好像都在寻找理由，怀疑这场算力交易。CoreWeave、新云厂商，尤其债务市场，已经能看到这些表现。</p>
+<p>很想听听你怎么看眼下这个阶段。你刚才有所涉及，当然你们的位置不同。但我觉得，大家都在试图弄清楚，其中的系统性风险到底有多大。</p>
+<p><strong>Matt Garman</strong></p>
+<p>我认为风险主要集中在局部，因为大家作出的投资选择有很大差异，每个人都要为自己的选择负责。</p>
+<p>如果完全依靠利率相对较高的债务融资，那么现金流到位时间所允许的偏差，就小得多。客户高度集中、工作负载高度集中，也会让可承受的偏差更小。</p>
+<p>看看许多新云厂商的工作负载，主要是非常大的训练集群，买下这些集群的，又主要是少数客户，而且融资利率相对较高。</p>
+<p>我们虽然同样拥有数据中心和计算机，但业务本身差别很大。大部分业务分散在数以百万计的企业、初创公司、中小企业、政府等客户之间。相当一部分还是核心计算，比如计算集群、高性能计算、网站、备份存储、数据库。</p>
+<p>AI工作负载中，今天大多数是推理。仔细看，推理其实已经成为应用里的一个构建模块，应用都在嵌入AI。</p>
+<p>它可以帮助投放更好的广告，可以在邮件里自动建议内容，可以帮助交易员判断下一笔股票交易，但始终是应用的一部分。</p>
+<p>所以，这是非常分散的工作负载。即使用量集中在Anthropic、OpenAI和少数模型供应商那里，真正通过我们运行推理的终端用户，仍然有成千上万。</p>
+<p>如果一两家公司经营不好，甚至某家模型供应商出了问题，使用量也会转向其他地方。人们仍然需要推理，会找到另一个模型，可能是开放权重模型。我们手里有计算机，新模型可以放到这些计算机上运行。所以，对我们来说，风险结构很不一样。</p>
+<h4 id="chapter-7">17:02 训练、推理与付费用户</h4>
+<p><strong>Alex Heath</strong></p>
+<p>你们在OpenAI、Anthropic都有很大的投资，它们显然也是重要伙伴。</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们当然希望它们表现好。</p>
+<p><strong>Alex Heath</strong></p>
+<p>当然。我觉得，所有人现在都在紧张地等着Anthropic的IPO。</p>
+<p>但你们对工作负载有很好的可见度，所以想问问训练和推理的比例。你预计，训练未来占整个市场的份额会变小吗？</p>
+<p>推理看起来还早，但大家又都想弄清楚，究竟会有多大。当你看到“只有2%的美国人付费使用过AI”，或者企业几乎还没怎么用，而推理已经在爆发式增长，就会想，哪里才是上限？这又意味着，训练在整个市场里会占多少？</p>
+<p><strong>Matt Garman</strong></p>
+<p>顺便说，我觉得那个统计有些误导。可能只有2%的人直接为模型使用付过费，但拥有Netflix账户的人，比例应该高得多。Netflix给他们推荐电影，就意味着他们实际已经在使用AI。</p>
+<p>有多少美国人直接为数据库付费？可能很少。但每次登录某个服务，大家每天都在用数据库。所以，这个数字并不能很好地反映AI已经多深地融入每一个应用。</p>
+<p>每天，人们都会访问亚马逊网站，搜索商品，AI已经嵌入搜索过程。他们也在为这些服务付费，某种意义上也就为AI付了费。</p>
+<p>从这个角度看，推理是非常庞大的业务。Anthropic的一些申报文件已经让大家看到了它的收入规模，这是一项非常好、也非常大的业务。</p>
+<p>训练同样是好业务，只是集中度很高。我们会继续支持训练集群，今天也在支持，但在我们业务中，大部分时候它占的是少数。我们主要希望服务的，还是那些在我们平台上建设和增长的数百万客户。</p>
+<h4 id="chapter-8">18:38 推理还不到最终规模的1%</h4>
+<p><strong>Alex Heath</strong></p>
+<p>你觉得，推理现在有多早？</p>
+<p><strong>Matt Garman</strong></p>
+<p>非常早。如果说今天已经达到最终规模的1%，我觉得都低估了未来，我认为连1%都不到，前面的空间非常大。</p>
+<p>每次看到推理便宜50%，我们都会看到用量增加一个数量级。所以，有人一边担心价格怎么变得这么便宜，一边却又看到收入年年提高。</p>
+<p>我认为，我们仍然在这条路径非常早的阶段。这也是我们对基础设施投入有信心的原因，未来能够做、也将会做的事情，还多得多。</p>
+<p><strong>Alex Heath</strong></p>
+<p>这些推动推理的支出，你认为来自现有预算，还是净新增预算？如果推理最终可能是数万亿美元规模，我就想知道，这笔钱从哪里来？</p>
+<p><strong>Matt Garman</strong></p>
+<p>这些来源都有。有时候创造了新价值，有时候来自其他预算，这个问题没有唯一答案。</p>
+<p>有时，它让你能够比过去快得多地创造产品、服务和能力，从而推动收入，我们可以把它称为新的收入来源。</p>
+<p>有时，它带来效率提升，补充现有人员的能力。我不一定要再雇一个人，现有人员就能完成两倍的工作。这两种情况都存在。</p>
+<h4 id="chapter-9">20:03 选后反对数据中心的声音</h4>
+<p><strong>Alex Heath</strong></p>
+<p>你怎么看美国目前对数据中心的态度？尤其是中期选举之后，得州那位以暂停建设为竞选主张的州长获胜。</p>
+<p>我知道，你们有自己的做法，大量使用可再生能源，也非常节制地使用水。但与此同时，这件事已经变成一个争议焦点，也许在变好之前，还会进一步恶化。</p>
+<p><strong>Matt Garman</strong></p>
+<p>这里有几件事。我们有责任帮助大家了解，不同的数据中心建设运营者，做法有很大差别。很多行业都是这样，但今天大家往往把我们混在一起看。</p>
+<p>行业里有一部分公司，会花大量时间思考，怎样成为负责任的企业，成为社区里好的成员。</p>
+<p>早期建设履约中心等设施时，我们就学到了这些。做数据中心也一样，需要和地方政界人士、社区居民合作，让大家看到，我们带来了高薪工作，也要确保对所在社区的影响很小。</p>
+<p>我们带来电力，为带入电网的全部电力付费。在许多运营所在社区，我们实际上让每位居民的税负降低了数千美元。</p>
+<p>环境方面，过去五年，我们在全球新增零碳能源方面的规模最大，而且每年都在继续为电网增加零碳能源，相关投入非常大。</p>
+<p>我们很早就在思考用水，承诺到2030年实现水资源正效益，也就是，在运营所在的每个社区，补充的水比使用的更多。</p>
+<p>即使今天我们最大的数据中心，用水量也低于40个美国家庭，大概就是一个街区，实际上是相对很小的水量。</p>
+<p><strong>Alex Heath</strong></p>
+<p>我看到一个统计，说高尔夫球场用水比数据中心还多。</p>
+<p><strong>Matt Garman</strong></p>
+<p>多得多。打高尔夫的朋友不喜欢我引用这个数据，但确实如此。</p>
+<p>外面有很多设施，用水量远高于我们的数据中心。数据中心确实可以采用用水量很大的运行方式，但我们没有这样做，也不是所有人都选择我们的做法。</p>
+<p>有人还会很自豪地说，自己违反规定，不听要求，不拿许可，照样建数据中心，公开以对抗社区为荣。这给数据中心带来了坏名声，也让我们需要花时间解决这些问题。</p>
+<p>即使说到中期选举，我们也和很多民主党、共和党人士密切合作，过去一直如此，未来也会继续。我们已经和五届不同的政府合作过，他们也重视这种合作。</p>
+<p>有些问题上，我们意见不同，但会一起讨论、辩论，想办法找到双方都能获益的方案。</p>
+<p>所以，我对我们目前的位置很有信心，也祝贺所有在选举中获胜的人。我们对自己为社区带来的东西有信心，也会继续前进。</p>
+<p>技术今天对经济非常重要，不能简单地关掉、决定不要了，那样对国家没有好处。</p>
+<p><strong>Alex Heath</strong></p>
+<p>有些人就是希望这样。</p>
+<p><strong>Matt Garman</strong></p>
+<p>他们以为自己希望如此。可如果问，你会放弃Netflix订阅吗？他们说，这个不能放弃。那会停止在Instagram上和朋友互动吗？这个也不行。会停止让亚马逊送货吗？也不行。</p>
+<p>但这些都需要数据中心。这里存在一个奇怪的脱节。</p>
+<p>我觉得，人们希望企业负责任，不希望科技精英来告诉自己该怎么做，但也确实喜欢别人为自己创造好用、愿意使用的产品。</p>
+<p>我们的看法是，这两件事可以同时做好。</p>
+<h4 id="chapter-10">24:07 行业需要建立怎样的共同规则</h4>
+<p><strong>Alex Heath</strong></p>
+<p>选举结果出来，第二天醒来看到一切，你有没有想过，作为整个行业，我们该怎么办？你谈了亚马逊自己的做法，但行业整体是不是需要做得更多？还有什么能做？</p>
+<p><strong>Matt Garman</strong></p>
+<p>确实需要。我们正在和业务所在的一些州的州长合作，思考怎样把我们实际在做的事，以及他们希望推进的事，转化为更有结构、人人都必须遵守的制度。</p>
+<p>需要清楚地说明，为什么社区拥有数据中心是好事，因为它带来税基、高薪工作。也要说明，为什么这对国家重要。</p>
+<p>技术仍然会继续发展。另一种情况，是它在别的地方发生。我认为，那样对美国的安全和经济都不好，但世界不会停下来。</p>
+<p>因此，需要平衡，既对社区、居民、国家有好处，也对企业合理，让企业仍然有动力去解决这些问题。我非常确信，存在这样一条路径。</p>
+<h4 id="chapter-11">28:21 太空、海洋与沙漠中的数据中心</h4>
+<p><strong>Alex Heath</strong></p>
+<p>想听听你对三个选址方向的反应。现在大家在讨论，把数据中心放到太空、海洋和沙漠，对这些地方有不同程度的热情。</p>
+<p>先说太空吧，你怎么看太空数据中心？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我认为，未来一二十年内，在经济上可行、在实践中可操作的可能性很低。</p>
+<p><strong>Alex Heath</strong></p>
+<p>一二十年？</p>
+<p><strong>Matt Garman</strong></p>
+<p>对。</p>
+<p><strong>Alex Heath</strong></p>
+<p>那太空这边，就是不看好了。</p>
+<p><strong>Matt Garman</strong></p>
+<p>它听起来很好，能获得免费的能源，放在上面某个地方。</p>
+<p>但首先，发射仍然相对不频繁，而且昂贵。</p>
+<p><strong>Alex Heath</strong></p>
+<p>Elon在努力解决，但确实如此，仍然要等。</p>
+<p><strong>Matt Garman</strong></p>
+<p>我很欣赏这些努力，但一个人解决不了全部问题。整个世界今天还做不到每天发射一次。</p>
+<p>我们今天在数据中心里，每14秒就新增一颗GPU。</p>
+<p><strong>Alex Heath</strong></p>
+<p>哇。</p>
+<p><strong>Matt Garman</strong></p>
+<p>全世界每天都未必发射一次，而我们自己每14秒就在部署一颗GPU。</p>
+<p>再说，一架GPU机柜可能就重一吨。我都不确定发射载具能装进去多少，能送上去多少。</p>
+<p>大家谈吉瓦级数据中心、兆瓦级机柜，但多数太阳能电池板的功率是千瓦级，远没到吉瓦级。你需要在太空中建起非常巨大的设施。</p>
+<p>还有，这些东西非常热。大家会说，太空很冷，但太空也没有空气，在那里散热其实很困难。那是一个很难应对的环境，辐射到处都是，服务器的制造成本会高得多，维护也是一个问题。</p>
+<p>当然，这些在技术上都能解决，只是需要时间。我列出的任何一项，都不能说完全做不到。但我认为，离实际实现还很远。</p>
+<p><strong>Alex Heath</strong></p>
+<p>那海洋呢？</p>
+<p><strong>Matt Garman</strong></p>
+<p>海洋也有一些类似问题。有冷却条件，这是好事。但设备在水里漂浮、移动，事情会更难。所以，我认为海洋可能也不太实际。</p>
+<p>你提到的三个地方，沙漠的可能性远远最高。那里有一些不错的环境条件，可以找到散热条件，也有适合太阳能的区域。</p>
+<p>沙漠非常值得关注。采用液冷后，至少从能耗的某些维度看，给数据中心冷却，反而会变得稍微容易一些。</p>
+<p>所以，海洋或者沙漠可能是有意思的地方，尤其是你还可以铺设电缆。数据传输之类的东西，实际上相当重要。</p>
+<p><strong>Alex Heath</strong></p>
+<p>而且那里没有人，在当前这种氛围下，也许还是件好事。</p>
+<p><strong>Matt Garman</strong></p>
+<p>是，但也意味着，没有人能从增加的税基等事情中受益。</p>
+<p>人们喜欢生活在有高薪工作的城镇，希望这些设施就在附近。如果放到别处，高薪工作就不在你的城里，税基也不在你的城里。有很多这样的不利之处。</p>
+<p>所以，人们也会意识到，其实自己还是想要这些。</p>
+<h4 id="chapter-12">31:38 新兴推理供应商在云体系中的位置</h4>
+<p><strong>Alex Heath</strong></p>
+<p>我很好奇，你怎么看不断出现的推理供应商。Baseten、Fireworks、Modal、fal，名单还可以列很长。</p>
+<p>它们服务的是云技术栈中一个重要、正在增长的部分，非常AI原生，需要大量针对模型的调优。还有一个围绕后训练和推理的世界正在形成。</p>
+<p>你们显然也有这些能力。你怎么看它们？这是一个正在形成的新型云市场，还是某个阶段的现象？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我更多把它们看作建在云之上的应用或服务。它们与我们建立的东西，主要是互补，有些方面也存在竞争。</p>
+<p>可以类比数据库领域建在AWS上的MongoDB，或者分析领域建在AWS上的Snowflake、Databricks。</p>
+<p>推理供应商在AWS之上构建服务，对客户总体有好处。客户希望在AWS里使用这些推理能力，和自己其余的AWS技术栈放在一起。</p>
+<p>有些维度可能竞争，但我们在这样的环境里已经运营很久。许多产品既与客户的产品竞争，也支持客户。从AWS建立之初，我们就知道，在我们之上构建服务的伙伴，会是提供给终端客户的能力中非常重要的一部分，一直如此。</p>
+<p>我们的看法是，伙伴在我们平台上成功，我们就会成功，客户也能获得更多选择。所以，我更多把这些公司放在这个位置。</p>
+<p>它们做得很好，帮助客户使用开放权重模型。这些模型往往很难用、很难优化，需要专业知识，它们能提供很好的帮助。</p>
+<p>客户可能拥有独特的数据，或者有特别的方式使用开源、开放权重模型，让成本更低，或获得不同能力。每家供应商的切入点不同，但它们都在帮助客户。</p>
+<p>我们很喜欢和它们合作，它们是伙伴生态里很重要的一部分。</p>
+<h4 id="chapter-13">33:53 AWS为什么要覆盖全栈</h4>
+<p><strong>Alex Heath</strong></p>
+<p>我还想追问，AWS的优势，你认为有多少来自软件层，有多少来自底层裸金属？</p>
+<p>尤其是代理可以写集成、重新构建某些东西，未来很可能出现这样的情况，代理替公司选择云，替它们完成所有事情。</p>
+<p>在这样的世界，你需要掌握技术栈的哪些层？你们考虑过吗？</p>
+<p><strong>Matt Garman</strong></p>
+<p>说得明确一点，我们认为，参与所有层都很重要，每一层对我们都非常重要。</p>
+<p>在最底层，参与者本来就没有多少。我们经常认为，现在基本只有三家，而且未来大概仍然会维持类似数量。</p>
+<p>越往上，数量就像一个不断展开的漏斗。到了终端用户应用，有成千上万种，规模有大有小，数量很多。</p>
+<p>我们希望参与所有层。参与基础设施，自己制造芯片、网络设备，覆盖最底层。也提供服务，包括托管数据库、托管存储、托管分析。</p>
+<p>最上层，我们同样有应用。客户服务有Connect，员工生产力有Quick，开发者有Kiro。我们努力在所有这些层竞争。</p>
+<p>越往上，也会有更多企业基于我们的底层能力，构建产品，再在上一层竞争。</p>
+<p><strong>Alex Heath</strong></p>
+<p>许多推理厂商就是从你们这里采购。</p>
+<p><strong>Matt Garman</strong></p>
+<p>对，它们更多处于中间层，从AWS采购，在上面建立并运营服务。</p>
+<p>最底层，我们除了硬件供应商之类，很少再和其他人合作，因为自己就是底座。但往上走，就更多是竞合环境，我们很欢迎，也鼓励这种情况。</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们希望帮助客户，直接在我们平台上运行推理。对于其他推理引擎，无论是OpenAI、Anthropic，还是Fireworks、Baseten针对开放权重模型做的优化，或者直接使用开放权重模型，或者用我们自己的模型，我们都希望客户能够获得这些能力。</p>
+<p>随着时间推移，我们很希望把它们全都放进Bedrock。现在还没做到，技术上尚不能全部实现。但只要它们愿意，我们希望都能提供。如果不愿意，也没关系。</p>
+<p>我们希望尽可能让客户轻松地使用，对自己应用最合适的价格、性能和能力组合。</p>
+<p>即使我们在技术栈上层没有胜出，只要服务建在AWS之上，我们仍然会受益。同时，我们掌握的环节更多，团队也能够建设对客户有价值的服务，所以相信自己能很好地提供其中许多能力。</p>
+<h4 id="chapter-14">36:52 为什么开始对外销售Trainium芯片</h4>
+<p><strong>Alex Heath</strong></p>
+<p>说到底层，我对你们开始对外销售Trainium芯片很感兴趣，以前没怎么听你谈过。</p>
+<p>为什么这么做？Google也开始对外销售TPU。这是为了定价权，还是维持一个围绕自己运转的市场？背后是什么原因？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们在Trainium上投入非常多，效果很好。人们告诉我们，希望能在更多地方使用Trainium。</p>
+<p><strong>Alex Heath</strong></p>
+<p>为什么不要求他们只能在AWS里用？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们不可能建设世界上每一座数据中心。有些系统会留在本地，可能在某个国家，可能在某个政府内部，或者其他地方。</p>
+<p><strong>Alex Heath</strong></p>
+<p>所以，也有主权AI的因素。</p>
+<p><strong>Matt Garman</strong></p>
+<p>有可能，场景很多。看看英伟达今天卖芯片的去向，很多卖给我们、Google、微软，也有很多卖到其他地方。</p>
+<p>85%的工作负载仍然在本地，本地场所依然很多。客户会告诉我们，很愿意让很多工作负载在云里使用Trainium，但也希望一部分在自己的数据中心里运行。</p>
+<p>我们认为，这里存在很好的业务机会，也很期待，所以会持续投入，未来做得越来越多。</p>
+<h4 id="chapter-15">38:11 如何分配稀缺算力</h4>
+<p><strong>Alex Heath</strong></p>
+<p>现在整个基础设施里的算力，你们怎样分配？既要面对初创公司、车库里想做点东西的团队，也有你们持有大量股权、深度合作的大实验室，需要庞大训练集群。怎样平衡？</p>
+<p><strong>Matt Garman</strong></p>
+<p>很难，我们花很多时间处理。我希望自己有某种神奇办法。</p>
+<p><strong>Alex Heath</strong></p>
+<p>你们每天开分配会议吗？</p>
+<p><strong>Matt Garman</strong></p>
+<p>不用每天，但会定期开，认真讨论怎么分配。我很想对所有人都答应，但新增产能总归有限。正如刚才说的，每天都在增加很多，所以很多时候确实能答应。</p>
+<p>有时必须回到客户那里说，我知道你想两周后拿到，但要等四周。或者，知道你想要东海岸的产能，但能提供的是西海岸，或者海外、印度，或者其他有能力、有空余产能的地方。</p>
+<p>有时客户说，这样可以。有时说不行，那我们就再回去调整。</p>
+<p>我们非常有意识地确保客户结构多样，不希望100%的产能都卖给大实验室或大型科技公司。希望有企业过来说，需要10颗GPU时，我们也能答应。这是AWS价值的一部分，所以会刻意预留产能。</p>
+<p>初创公司同样如此。我完全可以把现在知道2027年会到位的每一颗加速器，都提前卖光，然后就不用再管。但我们刻意不这么做，正是因为希望能满足后来进来的许多企业，也能满足一家今天甚至还没成立的新公司。</p>
+<p>因此，我们按组合来安排。一大部分产能提前很久作出承诺，而且签长期合同；一部分留在手里，确保能服务这些新客户。当然，还要为Bedrock预留相当一部分产能，尽可能支撑那里的需求。</p>
+<h4 id="chapter-16">40:10 Nova的重置与前沿模型目标</h4>
+<p><strong>Alex Heath</strong></p>
+<p>今年早些时候，我们上次谈过Nova，以及你们做前沿模型的抱负。你当时说得很明确，希望AWS站在前沿，也认为必须做到。</p>
+<p>此后发生了一些变化，我一直没能完全弄清，所以想问问。出现了一些裁员，也有Nova模型被停止、冻结之类的消息。</p>
+<p>这是你们决定，内部不需要再拥有前沿模型了吗？现在是什么战略？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们对这项战略的投入，和以往一样坚定。只能说，请继续关注，我们很期待接下来的东西。</p>
+<p><strong>Alex Heath</strong></p>
+<p>所以，更像一次重置。</p>
+<p><strong>Matt Garman</strong></p>
+<p>对，更像重置。我们从以前采取的一些方法里，找到了可以学习和改进的机会。</p>
+<p>投入规模仍然很大，从长期战略看，也依然重要。我们认为，客户会希望AWS提供自己的第一方前沿模型，所以在这个方向上投入很多。</p>
+<p><strong>Alex Heath</strong></p>
+<p>能更具体地讲讲，学到了什么，是什么推动了这次重置？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我们做了重置，确保合适的人才到位，也学习怎样确保所需的数据和基础设施就绪，以及如何大规模做好这些事情。</p>
+<p>我们学到了很多，团队正在全力推进，现在做得很好。</p>
+<h4 id="chapter-17">41:37 用数学证明帮助代理遵守规则</h4>
+<p><strong>Alex Heath</strong></p>
+<p>你怎么看目前代理的安全？客户会担心，系统会不会失控。</p>
+<p>与此同时，有银行给客户发邮件，说不要让Muse登录账户等等。你们其实也封锁了Muse。</p>
+<p>现在这个阶段很疯狂，代理开始穿行在各种系统之间，企业则在想，自己究竟该怎么办。你在内部和团队、客户，围绕这些事情有过什么讨论？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我觉得，这涉及两个不同问题。</p>
+<p>与正在开发代理的客户交流时，很明显，我们需要提供更多工具，帮助他们建立代理安全能力，管理和控制代理。</p>
+<p>代理、AI模型，本质上都是用来完成工作的工具。我们有责任帮助客户，让这些工具更容易留在安全边界内，完成客户想做的工作，避免太多危险，防止给公司造成伤害、泄露数据，或者发生重大的安全事故。需要和客户一起发明相应的工具。</p>
+<p>其中一个让我非常兴奋的技术突破，通常被称为神经符号AI。</p>
+<p>亚马逊内部研究投入最大的一块，可能就是我们所说的自动化推理，利用数学证明处理计算机科学问题，证明某些事情成立。</p>
+<p>举个具体例子，在AWS里创建新的IAM权限模型时，可以通过IAM Access Analyzer检查。它会考察组织内部所有权限的组合，告诉你是否和其他权限冲突。比如，这条规则说可以访问，另一条说不能访问，系统就指出两者冲突，需要解决，否则就不会接受。</p>
+<p><strong>Matt Garman</strong></p>
+<p>如果靠穷举去搞清楚这些问题，所需算力可能超过地球上所有计算机。但通过数学证明，可以相对很快地完成，并获得百分之百的证明和可验证性。</p>
+<p>就像x+y=y+x。如果靠穷举去证明，当然不行，因为有无限多种组合。但用数学，也许三步就能证明。</p>
+<p>把这种能力用到代理上，就可以说，我想要一个非确定性的代理，让它处理保险理赔。</p>
+<p>它需要自行探索，访问一些数据源，尝试不同方法，这个过程很复杂。但我又要确保，它永远不违反这条、那条规则，始终遵守我的政策。</p>
+<p>如果有一个自动化推理代理，帮助引导核心AI代理，为它建立防护边界，并能确定性地证明，它永远不会违反那些不变量，那么，把自动化推理与传统AI系统结合，就有机会建立一套工具，提供行为可被证明正确、能够遵守规则的代理。</p>
+<p>我们在这个方向投入很多，已经显示出很大潜力。虽然还早，但这样的工具可以非常强大。</p>
+<p>它可能解锁这样的场景，一家保险公司说，我很希望完全自动化地让代理处理理赔。客户提交申请，十秒钟就得到回复，而不是等一个月，才知道理赔有没有结果。</p>
+<p>那将改变整个体验，因为保险公司可以放心地让代理全自动处理。客户体验会改善，公司可能也能做更多业务。</p>
+<p>但今天，公司还不放心，必须有人类在环。这正是我们希望真正打通的地方，也是投入大量时间思考的领域。</p>
+<p>如果解锁了，用量会进一步大幅上升。所以我才认为，我们还处于探索可能性的非常早期。</p>
+<p><strong>Alex Heath</strong></p>
+<p>你觉得，部署的时间表是什么？</p>
+<p><strong>Matt Garman</strong></p>
+<p>要看情况。明年应该会有一些。</p>
+<p><strong>Alex Heath</strong></p>
+<p>好的。</p>
+<p><strong>Matt Garman</strong></p>
+<p>之后还会不断迭代、扩展。</p>
+<p><strong>Alex Heath</strong></p>
+<p>听上去，这是下一项重大投入。</p>
+<p><strong>Matt Garman</strong></p>
+<p>是其中之一。它可以在保留非确定性AI模型优点的同时，为系统增加确定性。</p>
+<p><strong>Alex Heath</strong></p>
+<p>这也许能解决很多人担心的安全问题。</p>
+<p><strong>Matt Garman</strong></p>
+<p>对。想象一下，能够定义一条规则，要求代理永远不要尝试提升自己的权限。这样，即使它拥有一个能够提升权限的“魔法盒子”，它也不会尝试。</p>
+<h4 id="chapter-18">46:31 开放与闭源模型的竞争</h4>
+<p><strong>Alex Heath</strong></p>
+<p>展望未来，开放与闭源token的组合，你觉得开放权重模型和相关token用量，现在有多早？</p>
+<p>你预计未来大部分推理会来自开放模型，还是两边一直比较均衡？你有深入想过吗？</p>
+<p><strong>Matt Garman</strong></p>
+<p>我也不知道。开放权重有很多很好的用途。</p>
+<p>但我确实看到，很多前沿实验室正在做更多工作，锁住自己的模型，让蒸馏变得更困难。所以，开放权重模型持续进步的速度，有可能放慢，取决于这些防护有多成功。</p>
+<p><strong>Alex Heath</strong></p>
+<p>还要看中国会发生什么。</p>
+<p><strong>Matt Garman</strong></p>
+<p>几乎所有这些开放权重模型，之所以发展起来，都和能够从前沿模型蒸馏有关，这也不是什么秘密。</p>
+<p>如果前沿实验室通过隐藏推理token、加密等方式阻止一部分蒸馏，你就可能看到速度放慢。当然，也可能不会，因为还有很多人从第一性原理出发，建立自己的开放权重模型。</p>
+<p>所以，我预计，无论中国、世界其他地方，还是美国，仍会出现新的、相当强大的模型，因为很多使用场景里，人们确实希望控制权重。</p>
+<p>他们可能想通过微调、后训练等方式，混入自己的数据。但如果前沿模型持续进步，这种调优究竟能带来多大长期价值，还要观察。</p>
+<p><strong>Matt Garman</strong></p>
+<p>另一个因素当然是成本。已经能看到一些前沿模型公司作出反应。它们蒸馏自己的模型，效果可以比别人偷偷尝试蒸馏更好，因此能够开发更小、更便宜的版本，用更低价格提供。</p>
+<p>过去几个月，OpenAI和Anthropic都做了这样的事情。</p>
+<p>这种市场动态很有意思，要看接下来怎样演变。我不认为它们会直接把90%的token拱手让给开放权重模型。</p>
+<p>它们有动力参与竞争，固定成本已经投入，可以进一步开发自己拥有的、非常强大的蒸馏模型，然后以更低价格出售。</p>
+<p>所以，这里还会有很有意思的竞争变化。</p>
+<p>我不知道最终结果。我们的工作，是确保无论谁成功、哪种方式可行，都能得到支持。希望这些模型都运行在Bedrock里，我们把它们交给客户，让客户用起来，帮助他们成功。</p>
+<h4 id="chapter-19">49:14 在亚马逊内部经营AWS</h4>
+<p><strong>Alex Heath</strong></p>
+<p>最后一个问题。AWS贡献亚马逊大约23%的收入，但我记得占营业利润约63%。亚马逊做很多事情，像是一家公司里装着很多家公司。</p>
+<p>AWS从一开始，你就在参与，现在又在领导它。对于不了解的人来说，这是一项极其庞大的业务，同时又属于一个更大的整体。</p>
+<p>今天，在亚马逊内部担任AWS的CEO，是怎样一种体验？</p>
+<p><strong>Matt Garman</strong></p>
+<p>这就是我一直在做的工作，已经做了几十年。</p>
+<p>很有意思，亚马逊是一家非常好的公司。过去20年，我非常喜欢在这里工作，原因之一，是这家公司让你真正去建设，鼓励你大胆思考，追逐巨大的机会，把它做出来，做一些很有抱负的事情。</p>
+<p>20年前，谁会想到，一家网上书店会成为全球最大的科技公司之一，为政府、银行等提供底层能力？</p>
+<p>但我们提出这个想法时，Jeff说，太棒了，这是一个很好的机会，值得追求。我们也赋予团队权力，让他们大胆思考自己能做什么。</p>
+<p>没人会想到，亚马逊会成为——我想，我们现在是全球最大的数据库公司。</p>
+<p><strong>Matt Garman</strong></p>
+<p>这些事情，最初都很难预料。只是我们找到一个非常聪明的团队，让他们去发明一种新的云数据库，后来他们做出了Aurora，很受欢迎，于是我们就走到了今天。</p>
+<p>这是一个很有意思的工作环境。每天来上班，都可以问，今天我能尝试解决客户的什么问题？</p>
+<p>我们追逐的是最大的客户问题，可能来自初创公司、政府、受监管行业，也可能来自自己公司的业务。</p>
+<p>在亚马逊内部运作，还有一个很好的地方，就是天然拥有一些可以使用服务的客户。</p>
+<p>我觉得自己非常幸运，AWS从起步、成长的时候，就有亚马逊零售网站这样一个全球最大的应用之一可以服务。</p>
+<p>你想想，全球最大、最复杂的技术应用之一，不断使用你的服务，不断告诉你，我需要这个，需要那个，这里不好用，要改善，这里扩展不了，这有多幸运。</p>
+<p>在我们很多业务上，亚马逊零售都比外部客户更早达到巨大规模。所以，这里非常适合发明创造，有时候很疯狂，但我们很喜欢。</p>
+<p><strong>Alex Heath</strong></p>
+<p>Matt，谢谢。</p>
+<p><strong>Matt Garman</strong></p>
+<p>谢谢你，谢谢邀请。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
