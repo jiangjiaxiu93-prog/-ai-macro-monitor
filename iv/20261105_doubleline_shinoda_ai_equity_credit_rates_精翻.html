@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ken Shinoda谈AI股票超卖、科技债与利率中枢（DoubleLine全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl on" href="../market_podcasts.html" aria-current="page" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-10<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../market_podcasts.html">← 返回美股和科技相关</a>
+<div class="card"><article>
+<h2>Ken Shinoda谈AI股票超卖、科技债与利率中枢（DoubleLine全文精翻）</h2>
+<div class="metaline">DoubleLine Capital · Ken Shinoda · 2026-11-05 · <a href="https://www.youtube.com/watch?v=1TrIq9buPfk" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；算力采购；DoubleLine；Ken Shinoda</p>
+<p>节目于11月3日录制，11月5日发布，约16分钟。Ken Shinoda为DoubleLine组合经理，以下行情与仓位判断均对应录制时点。</p>
+<h3>要点</h3>
+<ul><li>Shinoda认为科技股短期超卖，但预计风险偏好修复后，美债收益率可能回升，十年期收益率的新中枢约为5.25%。</li><li>他披露部分组合几乎未配科技和数据中心债，近期小幅买入收益率接近8%的高收益债，并继续偏好短久期信用和部分抵押贷款证券。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">指数横盘背后的领导板块变化</a></li><li><a href="#chapter-2">广度分化与昔日输赢家的轮换</a></li><li><a href="#chapter-3">海外资产、美元与黄金的流动性作用</a></li><li><a href="#chapter-4">增长、通胀与十年期收益率的区间</a></li><li><a href="#chapter-5">短久期信用与高收益债的买入</a></li><li><a href="#chapter-6">科技股票与科技债券的回报不对称</a></li></ul></details>
+<h4 id="chapter-1">指数横盘背后的领导板块变化</h4>
+<p><strong>Ken Shinoda</strong></p>
+<p>大家好，欢迎回到Channel 11。我是Ken Shinoda。今天是11月3日，星期二。本期标题是《AI通往地狱的公路》，因为股票市场最近波动很大。我们开始吧。</p>
+<p>大盘一直横盘，仍在200日均线上方。从此前7541点附近的位置又反弹了一些，标普500大概回到了7600点。但如果只看指数，会觉得它只是横着走，指数下面却有很多股票已经进入熊市，也有不少股票最近大涨。市场领导板块发生了很大变化。</p>
+<p>这里黄色部分是十月份表现，通信服务跌15%，动量跌11%。这些数据截至十月底，随后市场又有反弹。信息技术跌6%。公用事业受益于利率下行，上涨9.4%，必需消费涨9.8%，医疗涨8.4%，能源涨14%，年初以来已经上涨53%。</p>
+<p>放眼全球，新兴市场十月份下跌，日经跌了大概3%。最右侧的纳斯达克跌5%。年初以来，其他市场整体表现优于美国。标普上涨11%，英国富时也上涨11%，日经上涨27%。罗素2000也不差，上涨14.4%。领导板块在变化。</p>
+<p>原来领涨的是七巨头，现在它们也在领跌。七巨头里有不少股票年初以来持平或下跌。看市值加权标普500和等权重指数的对比，前者有很高的七巨头权重。七巨头落后时，等权重指数就会跑赢。</p>
+<p>有一个值得注意的地方。科技动量因子的表现，基本已经比互联网泡沫破裂时更弱。这张图的数据截至10月23日，也就是一周多以前。</p>
+<p>我觉得现在的动量极其负面。大家都非常悲观，看空的人全出来了。Ray Dalio说世界末日要来了，Howard Marks也在谈泡沫。我觉得大家实在太悲观了。中期选举过后，我们会走出来，我认为市场会恢复。这只是我的个人观点，可能我在DoubleLine内部也属于非共识。但我确实觉得，一些科技股有点超卖。</p>
+<h4 id="chapter-2">广度分化与昔日输赢家的轮换</h4>
+<p>广度背离也很有意思。左边是标普500相对50日均线的偏离，往下走就意味着进入超卖区域。右边则比较超买和超卖的股票数量。按这个指标，只有16.8%的股票超卖，却能让整个指数跌这么多，因为下跌集中在权重很大的少数公司。</p>
+<p>与此同时，其他股票正在追赶。广度改善了很多，不少股票已经恢复，甚至创出新高，只是几个权重很大的名字拖住了指数。</p>
+<p>换一种画法也能看到。下方是七巨头，等权重的500家公司表现更好，红色的等权重标普500也在跑赢，而包含七巨头的市值加权标普在往下走。</p>
+<p>加密货币方面，币安出了那件事，损失是60亿还是80亿美元？我有点意外，价格没有跌更多。不过，他们后来表示会承担这些损失。狗狗币这条线也许该拿掉了，因为现在基本没什么动静。</p>
+<p>这些投机性品种整体偏弱，可以把它们叫作加杠杆的黄金交易，或者说反“婴儿潮一代”的交易。黄金是婴儿潮一代买的，Z世代想买的是加密货币。</p>
+<p>我认为黄金走弱，是因为投资者把它拿来获取流动性。市场上不少资产跌了很多，也有许多使用杠杆的参与者，所以黄金成了他们筹集现金的来源。</p>
+<p>半导体年初以来居然还是上涨的，我想仍涨了40%或50%，只是距离高点很远。早些时候涨幅非常大，现在费半相对标普500在下跌。软件却很有意思，今年早些时候被砸得很厉害，最近反而获得买盘。今天的输家是昨天的赢家，今天的赢家又是昨天的输家，这就是目前股票市场的一个主题。</p>
+<p>看具体公司，Salesforce已经明显脱离低点。ServiceNow我没听财报，不知道出了什么，但看起来发生了一些坏事，股价受到打击。不过，在这之前，它也已经从夏季低点回升。Adobe同样如此，跌到过200美元，现在回到250美元。Intuit大概做了一个双底，又涨回352美元。</p>
+<h4 id="chapter-3">海外资产、美元与黄金的流动性作用</h4>
+<p>刚才也看到了，海外市场总体比较抗跌，新兴市场在左下角表现最差。有些海外市场表现更好，原因是什么？科技股更少。欧洲指数的科技权重低得多，日经也是。中国和中国台湾地区等新兴市场有更多科技敞口，我认为这也是新兴市场落后的原因之一。</p>
+<p>“让欧洲再次伟大”。比较MSCI欧洲和标普500，标普受到科技股拖累，最近欧洲开始跑赢。但长期来看，仍然是标普更好。</p>
+<p>美元最近反弹，我认为有避险的因素。欧洲发生了很多事，人们担心法国，也担心法国的问题传染到别处，那里有许多抗议活动。</p>
+<p>这也是债市上涨的原因之一。进入九月底时，债券已经非常超卖，随后季度末到了，投资者再平衡、买入债券。股票市场又开始暴露对科技支出的担忧，再加上法国的种种情况，几项因素合在一起，为债券反弹创造了条件。不过，我现在稍微没那么乐观，稍后会讲。</p>
+<p>欧元也许会在这里企稳，美元可能已经过强，欧元过弱。日元离开低点，汇率回到一美元兑150多日元的中段。从历史来看，日元仍然便宜，越来越多人去日本旅行。我身边每个人好像都在去日本，这让我也想去看亲戚，但又不太想去，因为不喜欢人多，现在那里游客非常多。</p>
+<p>商品指数一直在涨。如果各种商品价格已经高过2022年的高点，谁能说通胀正在回到2%？它们有几年没怎么动，随后突然大涨，再经历明显下跌。那轮下跌由能源带动，后来又反弹。</p>
+<p>现在带头下跌的不是能源，能源仍然上涨，而是其他一些品种，特别是天然气和贵金属。黄金、白银正在调整。还是那句话，我认为部分黄金被用来获取流动性。</p>
+<h4 id="chapter-4">增长、通胀与十年期收益率的区间</h4>
+<p>经济目前没有衰退。制造业PMI和服务业PMI都处于扩张区间，而且表现相当好。目前看不到衰退迹象，除非支出大幅收缩，但现在看起来并不会发生。</p>
+<p>制造业方面，除了中国，其他地方都处于扩张。服务业方面，中国基本在50，其他经济体也都处于扩张。所以全球经济看起来还可以，中国的确相对较弱。有人认为，中国因为增长较低而在输出通缩。</p>
+<p>亚特兰大联储GDPNow很强，根据目前公布的数据，经济仍将继续增长。零售销售也显示消费者仍在花钱。能源和食品价格上涨正在挤压他们，但高收入消费者仍然在支出。</p>
+<p>再看美债收益率。刚才说了这轮缓解性上涨。我认为中期选举过后，科技股可能会获得喘息机会。我们看过摩根士丹利的科技动量组合，这轮抛售已经走得很远，情绪又非常负面。</p>
+<p>如果选举过后市场缓解、风险资产修复，而通胀仍远未达到2%、增长仍然强劲，收益率就可能重新上行。某天醒来，十年期收益率又接近5.25%，我不会意外。</p>
+<p>我并不是极度看空，只是认为这轮上涨太快、太远。收益率还能更低吗？有可能。下限也许是4.75%至4.80%。但我认为十年期收益率的新重心是5.25%，此后会在4%区间的高位，到可能5.5%之间来回，具体取决于通胀、能源和增长数据。</p>
+<p>收益率曲线又开始变陡。过程很颠簸，但我确实认为它还会继续陡峭化。</p>
+<p>盈亏平衡通胀率仍比较温和，这大概是个好消息。市场暂时认为美联储会履行职责。因此，通胀预期基本稳定，收益率上行主要表现为实际收益率上升，最近收益率下行则主要是实际收益率下降，盈亏平衡通胀率没有太大变化。</p>
+<h4 id="chapter-5">短久期信用与高收益债的买入</h4>
+<p>固定收益终于有了一个不错的月份。最左边的综合债券指数十月份上涨2.4%，久期较长、信用质量较高的资产表现都不错，机构抵押贷款证券涨了3%。</p>
+<p>但信用市场内部正在分化，风险较高的品种挨打。这是好事，市场在要求更高收益率，明确告诉你这些东西有风险，会发生违约，比如CCC级高收益债和CCC级银行贷款。</p>
+<p>年初以来，固定收益整体又接近持平。如果再涨一点，再多赚一些票息，综合债券指数也许能勉强取得全年不亏的结果。</p>
+<p>CCC级资产受到冲击，但短久期信用、短久期证券化资产一直表现不错。这个配置我们好像已经讲了几年，仍然有效。久期保持短一些，在曲线前端赚收益。这并不特别性感，但一些投资级债券能让你多赚100个、甚至200个基点，又能安心睡觉。</p>
+<p>信用利差普遍扩大，不过图上部分ABS和新兴市场是例外。高收益债领跌，我们上周五和本周一实际上小幅买了一些。当时利差基本处在过去12个月最宽的水平，有些品种的收益率接近8%，我认为从长期看有吸引力。</p>
+<p>欧洲方面，法国暂时稍微稳定了一些，后面还要看。但其他一些国家也出现少许传染，人们开始担心西班牙、意大利。目前问题似乎主要还集中在法国，意大利应该排在其次，我们要继续观察。</p>
+<p>图上能看到投资级与高收益利差都在扩大。投资级利差从70多个基点的低位扩大了一些，后来又收回来，我想现在重新低于90个基点。高收益利差则达到12个月最宽水平，当然还谈不上历史最便宜，但我们觉得值得小幅买入。</p>
+<p>尤其如果我的判断是对的，大家的确过度悲观，选举后出现缓解性反弹，股票回升、利率保持稳定，信用利差就可能收窄。</p>
+<h4 id="chapter-6">科技股票与科技债券的回报不对称</h4>
+<p>这是一张我们大概一周、或者一两个月前加入的新图，显示一些科技公司债的利差扩大。</p>
+<p>我们的一个主题一直是，别在股票和债券上同时做多科技。如果AI会长期存在，所有人都会使用，并且会改变世界，那么股票价格可以涨很多。债券只给你一点额外利差，却让你承担下行风险。</p>
+<p>所以，我们对科技和数据中心相关债的配置一直非常低，有些组合几乎没有。这一判断是对的，因为利差已经扩大。</p>
+<p>图中橙色和中蓝色的甲骨文、SpaceX利差，已经扩大到200多个基点的中高段，接近332个基点的单B级高收益债指数。</p>
+<p>因此，我们的态度已经从“别买这些东西”，开始转向“现在利差更宽了，也许该考虑一下”。此前采取了防守，现在某些板块开始有意思，尤其是那些相对安全、利差却已经扩大的资产。</p>
+<p>那么，什么便宜？科技资产便宜了一些，股票市场里看得到，债券市场也一样。我认为抵押贷款证券是比较便宜的资产之一，尤其是非机构抵押贷款证券，包括存量RMBS和CMBS。</p>
+<p>公司债也比以前好一些，原来估值便宜程度还不到第10百分位，现在已经接近第30百分位。高收益债刚才说了，我们小幅买入，因为它经历调整，成了相对便宜的品种之一。</p>
+<p>假如现在有人给我一笔新钱，让我买便宜的资产，我不会选新兴市场，也不会笼统买整个证券化市场，因为有些板块并没有出现多大波动。变便宜的主要是高收益债、部分银行贷款，以及抵押贷款市场里的某些领域。</p>
+<p>这个月就讲到这里。祝大家好运，市场最近很颠簸，我们再看看会发生什么。</p>
+<p>这条“AI通往地狱的公路”，我觉得短期有些超卖，悲观的人太多。近期可能出现反弹。长期问题是否结束，还要再看，但短期随着中期选举过去，出现一些修复，我不会意外。</p>
+<p>我也可能看错，不过，我准备逢低买入。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
