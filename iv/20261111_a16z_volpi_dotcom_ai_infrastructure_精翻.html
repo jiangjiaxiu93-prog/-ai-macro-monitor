@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Mike Volpi谈互联网泡沫与AI基建的异同、GPU寿命和产业利润分配（a16z全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-12<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Mike Volpi谈互联网泡沫与AI基建的异同、GPU寿命和产业利润分配（a16z全文精翻）</h2>
+<div class="metaline">a16z · Mike Volpi、Raghu Raghuram、Guido Appenzeller · 2026-11-11 · <a href="https://www.youtube.com/watch?v=LI3lxzHfRrU" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：互联网泡沫；AI基础设施；GPU寿命；融资结构；供需；思科；英伟达；产业集中；网络架构</p>
+<p>Mike Volpi曾在思科负责战略与并购，亲历互联网基础设施建设及泡沫破裂，现为投资人。两位主持人为前VMware首席执行官Raghu Raghuram与曾任职于英特尔、VMware的Guido Appenzeller。节目约56分钟，按完整英文原始字幕翻译，删除片头重复预告、口头填充及重复半句。自动字幕没有逐人标注，能从内容确认身份的提问标出姓名，其余主持人接话统一标为“主持人”，保持原先后顺序。技术名词依上下文校正，识别存在实质疑点处附译注。</p>
+<h3>要点</h3>
+<ul><li>Volpi认为，AI的实际应用与收入增长快于互联网建设初期，但债务融资者能否保有资产，取决于需求、融资条件与行业调整。</li><li>旧GPU租金仍强，既可能反映资产寿命延长，也可能反映短缺。主持人追问，芯片供应增加后，每瓦token收入与能效会怎样改变旧设备价值。</li><li>思科当年的超额订货和供应链预付款，使需求转弱时的订单跌幅被放大。Volpi同时讨论了晶圆瓶颈、模型路由、系统架构与网络设备利润的变化。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:53 互联网建设与AI建设的相似和差异</a></li><li><a href="#chapter-2">09:29 融资结构与GPU的实际经济寿命</a></li><li><a href="#chapter-3">14:31 思科并购与英伟达塑造行业的尝试</a></li><li><a href="#chapter-4">22:27 思科怎样建立并购整合流程</a></li><li><a href="#chapter-5">25:32 从企业一侧看出售和并购关系</a></li><li><a href="#chapter-6">31:58 AI基础设施的供需约束和系统架构</a></li><li><a href="#chapter-7">38:02 芯片竞争、存储带宽与光互连</a></li><li><a href="#chapter-8">43:45 思科当年怎样从供不应求转为订单骤降</a></li><li><a href="#chapter-9">46:08 AI负载变化怎样改变网络设备的价值</a></li><li><a href="#chapter-10">53:46 本轮周期为什么需要系统层面的判断</a></li></ul></details>
+<h4 id="chapter-1">00:53 互联网建设与AI建设的相似和差异</h4>
+<p><strong>主持人</strong></p>
+<p>Mike，很高兴你来参加播客。现在邀请你尤其合适。你在思科时，是互联网大规模建设的参与者之一。如今，AI也在经历大规模建设。</p>
+<p>Guido、我和听众都很想听听你从各个维度比较当年和现在，包括实际建设、融资方式、技术差别等。</p>
+<p>有些听众可能不了解或不记得，Mike在20世纪90年代末是思科的高管，负责很多并购和战略行动。那正是互联网建起来的时期，他身处其中。</p>
+<p>我们从这里开始。当互联网刚起飞时，你就在思科。你们很快做了很多事情，整个行业也赶着铺设带宽。这些带宽有一段时间没有派上用场，后来却发现还不够用。</p>
+<p>这与今天有一些相似之处。看到AI建设时，你会怎样回看过去的经验？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>首先，能与两位一起讨论，我很荣幸。Raghu，还有Guido，我们过去至少有过一次共事的机会。现在确实很有意思，历史会押韵。</p>
+<p>有一些相似之处。回顾90年代末的建设，哪些观察适用于今天，哪些需要区别看待，可能有助于理解。</p>
+<p>一个共同主题是，我们当时正在建设互联网、万维网，以及运行在互联网之上的各种东西。我们预期它会深刻改变世界，也设想了很多最终能够从建设中大幅受益的应用。</p>
+<p>这些应用包括不同的媒体形态。最初只有图片和文字，后来有音频、视频，再后来有高质量视频，以及电商、社交网络等。在90年代，人们已经想到了这些东西，但它们还没有真正出现。</p>
+<p>与此同时，需求大幅上升。至少，连接需求在增长，带宽需求也有相当大的增长。股权和债务资本同时大量涌入。</p>
+<p>先看带宽，尤其是光纤带宽。它增加容量的方式、每次增加的幅度，与计算不同。</p>
+<p>当时我们发明了波分复用，也就是WDM。一根光纤原来传1吉比特或10吉比特，加入更多颜色的光后，同一根光纤就能传输原来40倍或80倍的容量。因此，技术变化带来了非常剧烈的容量增长。</p>
+<p>计算有所不同。它最终仍受类似摩尔定律的规律约束。虽然听起来有些难以置信，但与当年的带宽相比，计算能力改善的速度实际上更温和。</p>
+<p>我认为，另一个差别是，今天AI的实际可用程度，高于当时网络带宽的实际可用程度。</p>
+<p>这可以从服务提供商的收入增长看出来。Anthropic、OpenAI，我不知道谷歌内部的数据是什么样，还有Fireworks、Together、Modal等提供开源模型服务的公司，它们的增长速度都明显高于当年。利润率可能没有那么好，但增长速度确实快得多。</p>
+<p>后来发生了什么？某个时点，市场受到冲击，发现一些建立在互联网之上的企业并没有那么好。冲击传遍整个行业，债务负担最重的企业最终破产。</p>
+<p>值得注意的是，这些债务购买了资产，也就是光纤。那些资产后来确实很有用，只是经营它们的人换了，因为破产的公司已经失去了资产。</p>
+<p>所以，首先要认识到，当年建设的带宽资产，以及我推测这一次建设的计算资产，都会有用。它们有用这一点，我没有疑问。至于它们还会不会由同一批公司拥有，是一个值得讨论的经济问题。</p>
+<p>说得直接一点，我是否认为现在建设的东西有用，而且会被充分使用，甚至还不够？百分之百。但今天拥有它们的人，将来是否仍然拥有？这取决于很多因素，其中不少因素超出建设者的控制范围，包括宏观经济、地缘环境等。</p>
+<p>建设者中，有些公司的资产负债表相当健康。但我最近一次与英伟达的人交谈时，他们说市场上有200家新云公司，这些公司的资产负债表就不怎么样。</p>
+<p>当然，有些比另一些好。不过，整体而言，我预计市场会经历经济层面的调整，行业结构也会被整理。但底层资产在相当长的时间里仍会有用。</p>
+<p><strong>主持人</strong></p>
+<p>与当年相比，还有一个很大的差别，就是一切规模都大了很多。当时投向互联网基础设施的资金，只占GDP不到一个百分点中的很小一部分。今天，我们投向AI基础设施的资金大约占GDP的2%，对吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>规模确实大得多。但从一个很高的抽象层次看，我们究竟在建设什么？当年建设的是通信，今天建设的是智能。智能的经济价值，很可能高于通信的经济价值。</p>
+<p>所以，这种差别并不令人意外。还有一点，尽管听起来可能奇怪，但近30年过去了，市场现在更有效率。因此，更多风险资本愿意进入AI，当年还没有这么强的动员能力。</p>
+<p>总体上，我对这轮周期更乐观，同时也认为会发生调整，行业结构会经历清理。</p>
+<p><strong>主持人</strong></p>
+<p>信息技术的作用也大幅提高了。90年代末，个人电脑算得上常见，但远没有无处不在。今天，软件已经进入各个领域，对任何一家企业来说，都是经营的核心部分。</p>
+<p><strong>主持人</strong></p>
+<p>还有智能的分发成本。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>当然。而且，除了企业，70亿人的口袋里还都有一台超级计算机。因此，对底层技术所创造价值的消费，分布得更广。</p>
+<h4 id="chapter-2">09:29 融资结构与GPU的实际经济寿命</h4>
+<p><strong>主持人</strong></p>
+<p>我已经记不全90年代和2000年代初金融层面的所有变化了。最近冲击这个体系的因素之一，是利率上升，加上资金规模太大，让人担心它会挤出其他一切投资，甚至没有足够的资本来支持建设。</p>
+<p>当年的带宽和互联网建设没有这种情况，对吗？当时没有突然大幅加息吧？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>没有特别大幅度的利率上升。那时有几个很大的差别。</p>
+<p>一个差别是，按比例看，我认为当年有更多资本来自设备供应商自己的资产负债表。今天的建设更多由资本市场驱动，包括私募债务、公开股票市场等。</p>
+<p>英伟达也有供应商融资。我想，可能不该把它叫作供应商融资，但看起来确实很像。也有一些公司融资，但大部分以股权形式进行，和某一笔特定设备采购等事项没有直接绑定。所以，我会说，现在的资本结构稍微干净一些。</p>
+<p>不过，有一点对90年代有利。当时很多钱变成了埋在地下的光纤。一根光纤埋下去，可以使用很长时间，20年、30年都能继续发挥作用。</p>
+<p>这一次，一个决定性的因素是，投入的计算资产，实际寿命有多长？这很有意思，因为计算投资的主要部分是芯片，是GPU，占比超过80%。</p>
+<p><strong>主持人</strong></p>
+<p>对，这是很大的一块。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我还记得大家非常期待Hopper、H100的时候。那时的说法是，也许它有5年的使用寿命，每个GPU小时可以租1.80美元到2美元。</p>
+<p>那已经是4年前了。照这个逻辑，现在应该快没用了。可它完全还在用，而且租金比原来更高，大概在2.50美元或3美元。</p>
+<p>有意思的是，我们本来认为这类资产有5年寿命，但部分由于AI自身的发展，它的实际使用时间长了不少。</p>
+<p>如果你为一种资产提供融资，而它最终拥有更长的使用寿命，你就会受益，因为最初的商业模型是按较短寿命建立的。</p>
+<p>从某种意义上说，AI擅长软件带来了一个意外结果，底层资产的寿命在延长，使它更容易获得融资。这是这轮建设开始时，我没有完全预料到的现象。</p>
+<p><strong>主持人</strong></p>
+<p>不过，债权投资人还没有普遍接受GPU寿命延长的说法。新云公司对此比较……</p>
+<p><strong>主持人</strong></p>
+<p>我也还没有完全接受。现在看起来，主要原因是这种资产极度稀缺。因此，连上一代设备仍然很值钱。</p>
+<p>如果有一天，GPU供应变得充裕，情况可能完全不同，也许又会回到原来那些假设。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>关键指标是，每瓦电力能够带来多少token收入。</p>
+<p><strong>主持人</strong></p>
+<p>也许是这样。Hopper会明显落后于Blackwell，Blackwell又会明显落后于Vera Rubin。它们把每一瓦电力转化成收入的效率在提高。</p>
+<p>理论上，一旦拥有足够多的Vera Rubin，继续运行H100就没有太大意义了，因为它把电力转化为美元的效率太差。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>正确。但问题是，眼下需求非常大。即使每瓦转换成收入的效率较低，你也仍然会使用这些资产。</p>
+<p>现在的短缺很明显。我们稍后也许会谈到，短缺最终集中在半导体本身的制造上。</p>
+<p><strong>主持人</strong></p>
+<p>而且，看起来短期内不会改变。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。所以，如果稀缺持续，资产的使用寿命就会继续较长。</p>
+<p><strong>主持人</strong></p>
+<p>我认为这一点是对的。另一个很大的差别是，当年有一段时间存在闲置带宽，今天却没有闲置GPU这种东西。</p>
+<p>有一些电力没有被充分利用。如果网络做得更好，大概还能从同一块GPU中获得更多浮点运算能力。</p>
+<p><strong>主持人</strong></p>
+<p>我刚才也想说，某些使用场景下，模型浮点运算利用率，也就是MFU，以及系统建设方式，确实是影响因素。不过，总体上，GPU并没有闲置。</p>
+<h4 id="chapter-3">14:31 思科并购与英伟达塑造行业的尝试</h4>
+<p><strong>主持人</strong></p>
+<p>你在思科的时候，公司曾经是全球市值最高的公司，对吧？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对，我当时就在。</p>
+<p><strong>主持人</strong></p>
+<p>所以，你当时为全球市值最高的公司做并购。回头看，效果相当不错。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我自己很满意。</p>
+<p><strong>主持人</strong></p>
+<p>对于2026年的英伟达，你有什么建议？那边负责并购的人，正处于与你当年一样的位置。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对，Van现在的位置就和我当年一样。</p>
+<p>回头看，我认为思科并购流程做得好的一点是，我们愿意进行足够多的收购，从而得到具有统计意义的结果。</p>
+<p>有些收购效果很好，有些一般，有些完全失败。如果大致分成三组，三分之一很好，三分之一平平，三分之一失败。</p>
+<p>我们的优势，是不怕失败，而且做得足够频繁，最终出现了几个特别突出的结果。比如Andy Bechtolsheim的公司、Mario那边的公司等，其中一些即使对我们来说，也产生了类似风险投资的回报。你花5亿美元买下一家公司，两年后，它就贡献10亿美元利润。</p>
+<p><strong>主持人</strong></p>
+<p>这很惊人。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我在1994年加入，那时只有我一个业务拓展人员。到2000年前后，思科大约50%的收入都来自收购得到的业务。</p>
+<p>这些收购非常有价值。我们在单笔收购上花的钱，几乎从来没有超过自身市值的4%或5%。相对于当时的市值，大多数收购都可以说很便宜。</p>
+<p><strong>主持人</strong></p>
+<p>放到英伟达身上，这会意味着多大金额？我都不想算。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我当时的逻辑是，如果你的股价一天波动对应的市值，超过这笔收购的价格，就可以做很多这样的收购，别人也不会太在意。</p>
+<p><strong>主持人</strong></p>
+<p>这些交易都是用股票支付的吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>几乎全是股票。少数很小的收购用现金。</p>
+<p><strong>主持人</strong></p>
+<p>而且，它们后来成为重要产品线，有些甚至成为行业领先产品线。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>你熟悉网络业务，应该能够理解这一点。网络行业的收购有一个特点，它运行在开放协议之上。</p>
+<p>我可以买一家别人做的交换机公司，因为协议开放，它的交换机可以马上与我的交换机、路由器通信。思科确实有几个我们很喜欢的专有协议，但总体上，OSPF、BGP、IS-IS、以太网交换、802系列等都是互通的。</p>
+<p>因此，可以马上把产品放进销售体系，销售团队几乎换一个商标就能卖。这使我们可以非常快速地完成收购并发挥作用。</p>
+<p>与今天黄仁勋所处的环境比较，首先，英伟达已经做了一些非常聪明的收购。Mellanox就是一个非常成功的例子。</p>
+<p>它们现在也在做其他收购。有些让我有点摸不着头脑，比如Hugging Face，我不完全理解其中的逻辑。也许有它的道理，只是我很难看出来。</p>
+<p>我认为，这没有太大关系。它们可以做一些尝试，承担风险，有些会成功。如果能像Mellanox那么成功，回报就很可观。有些则会失败。</p>
+<p>市场给了它们一个拥有很多选择权的时刻。基本上，它们想做什么都可以，这正是承担这些风险的好时机。</p>
+<p>我认为它们做得很聪明。当然，你总能批评某一笔收购。相信我，我在思科时一直被批评，比如为什么收购StrataCom，没有买Cascade，为什么从Vinod那边买了一家最终没有做成的光网络公司，诸如此类。</p>
+<p>最后回头看，我们团队在我任职期间大概做了70笔收购。这些业务贡献了公司一半收入，当时公司收入是300亿美元，也就是150亿美元。这套策略发挥了作用。</p>
+<p>我认为，英伟达团队也在做类似的事，很有意思，也很明智。至于它们为整个行业提供融资的做法，效果还有待观察。</p>
+<p>〔译注，上述Hugging Face“收购”及个别人名按受访者原话保留，自动字幕未提供交易范围或完整姓名，本文不将这段口述补写为经过独立核实的交易事实。〕</p>
+<p><strong>主持人</strong></p>
+<p>这一点确实不同。英伟达基本上在尝试塑造整个行业。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。但行业有自己的力量，会形成自己的结构。想改变这个结构很难。</p>
+<p><strong>Guido Appenzeller</strong></p>
+<p>我替英伟达说几句。我曾在英特尔工作，看到大型云厂商怎样把英特尔与最终客户隔开。最后，它们能够设计出比英特尔更好的芯片，一个原因就是英特尔已经不知道客户究竟在用芯片做什么。</p>
+<p>所以，我能理解英伟达希望销售对象超过三四家客户的想法。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我也理解。</p>
+<p><strong>主持人</strong></p>
+<p>你也可以问，怎样的资本配置更有效？这个时点可能是一生难得遇到一次的机会，把资金投入未来创新，也有自己的理由。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>你们两位都说得有道理。Guido，我想说的是，行业会趋向某种结构，因为这种结构能够创造更多效用和经济价值。</p>
+<p>为什么有三家超大规模云厂商？因为规模在这门生意里很重要。因此，行业会趋于集中。无论给那些小公司多少融资，它们始终比较弱。</p>
+<p>当然，英伟达不喜欢只有三家客户，它希望有50家，于是为这些公司提供资金。但某个时候，它们还是会消失，因为规模型行业最终倾向于整合。</p>
+<p>我们可以给美国100家航空公司融资，最后仍然可能只剩三家。我的意思是，这种做法最终可能很难达到塑造行业结构的目标，尽管出发点可以理解。</p>
+<p>它也许能带来很好的回报。我不知道它们是否真正在意资本回报，如果在合适的时间退出，也许可以做到。</p>
+<p><strong>主持人</strong></p>
+<p>这已经超出资本回报本身了。我同意，这在一定程度上是在决定行业形态。同时，它也促进了很多创新，因为我们投资的初创公司，以及其他很多初创公司，现在确实能够获得这些算力。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>总体而言，我理解它们为什么这样做。我们投资的很多公司也是受益者，所以，谢谢Jensen。</p>
+<h4 id="chapter-4">22:27 思科怎样建立并购整合流程</h4>
+<p><strong>Raghu Raghuram</strong></p>
+<p>VMware做的收购可能没有你们多，但在整个公司历史上，也做了15笔以上。</p>
+<p>我们的观察是，无论买一家20人的公司，还是2000人的公司，收购后围绕整合、文化、商业模式、销售团队等事项，都有很多工作。你们当年在思科是怎样做到的？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>结构上，我们有一个很小的交易团队，不到10个人，负责收购。还有一个稍大的整合项目管理团队，有一套整合的规则和指导原则。</p>
+<p>负责项目管理的人，在思科各业务部门、事业部和职能部门都有同事与他们配合。</p>
+<p>需要认识到，企业擅长运行流程，处理一次性事件的能力就很差。所以，如果我们要做大量收购，就需要可以反复执行的流程，再由一个集中团队管理这些流程。</p>
+<p>早期在思科，经常没有人正式负责整合。做法大概是，Raghu，这件事交给你了，你去把它整合好，完成后告诉我。你会想，我从哪里开始？</p>
+<p>我们发现，这种做法不好，于是建立了流程，效果相当不错。</p>
+<p>困难出现在我们喜欢收购小公司，但思科自身变得太大，小公司已经小到难以对整体业务产生显著贡献。</p>
+<p>后来，我们开始买更大的公司。这主要发生在我之后，因为我在2000年停止负责并购，转而管理一个业务部门。</p>
+<p>这时就遇到你说的问题。大公司非常难整合，它们经营了很久，文化形成已久。比如，我们收购Scientific Atlanta，结果很糟糕。我们还买过一些表现不太好的业务。</p>
+<p>我们也开始采用一种做法，只做部分整合。</p>
+<p><strong>主持人</strong></p>
+<p>这种方式很糟。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对，效果不好。所以，应对办法是建立流程。而当你不再尊重这个流程时，就会遇到你刚才说的大问题。</p>
+<h4 id="chapter-5">25:32 从企业一侧看出售和并购关系</h4>
+<p><strong>主持人</strong></p>
+<p>从被投公司的角度看呢？你有被投公司，我们也有被投公司。最近几年，有些公司通过被大公司收购实现了退出。</p>
+<p>这里有两个问题。如果你是被投公司的首席执行官，需要留意什么？作为董事，现在又会怎样建议这些公司考虑退出？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>当你作为董事，面对一家企业有机会出售的情况时，大致有三种结果。</p>
+<p>第一，公司经营得很好，出售是个很差的主意。这时，你会努力说服首席执行官继续做下去。</p>
+<p>第二，公司陷入困境，资金不多，出售是一条很好的出路，大家都满意。你就帮助交易发生，管理好流程。</p>
+<p>第三，是介于两者之间的公司，你并不完全确定应该怎么做。</p>
+<p>这时，有几个重要指标。首先，首席执行官、创始人和创始团队是否还有那股劲？他们是否想继续做，是否相信自己能够穿过这个过渡阶段，进入下一阶段？他们还想不想做？</p>
+<p>如果首席执行官或领导者的想法是，也许该考虑卖了，我有点累，这条路已经走得很久，那就把公司卖掉，进入下一阶段。</p>
+<p>第二，必须非常冷静、客观地判断，这项业务未来是否足够有吸引力。</p>
+<p>最终要问的是，它能不能再增长10倍。如果只有翻倍的空间，我会更愿意现在就拿钱。</p>
+<p>这是一个很难的决定，因为你也会有情感。你虽然不是创始人，但可能已经与公司合作了四五六年，投入了很多心血，也曾推荐好朋友去那里工作。即便如此，你仍然得退一步，客观判断它是否还有10倍的空间，然后帮助公司调整方向。</p>
+<p>不过，我认为最重要的参数，还是创始人自己怎么想。</p>
+<p><strong>主持人</strong></p>
+<p>很多被投公司的创始人，对这类交易实际怎样发生，仍然觉得神秘。有的人以为，某天一家公司突然打电话给另一家公司，说我想买你。另一种情况则是双方建立了很长时间的关系。</p>
+<p>你在思科时怎样做？对于那些即使预期还能增长10倍的被投公司，你会怎样建议？是直接打电话说“你好，我想买你”吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>你当然会尽可能建立关系网络，了解正在发生什么。我们把这看作给市场上的公司建立目录，几乎每家公司都可能是潜在收购对象。</p>
+<p>因此，你要了解它们的增长情况、创始人是什么样、背后有哪些投资者、有什么目标、客户是谁。要充分掌握信息。</p>
+<p>企业发展部门当然需要做这些工作，但我也把持续了解周围发生什么，视为公司里每个人的责任。</p>
+<p>然后，思科会把这份公司目录与自身战略结合起来。比如，我们是一家路由器公司，但以后交换机数量会多于路由器，因此需要交换机产品，市场上有哪些交换机公司可以选择？或者，光网络因为带宽需求变得重要，哪些公司可以选择？</p>
+<p>反方向的情况也很常见，一家公司来找你，说它希望被收购。我总体上认为，这往往不是好机会。要么它正在组织竞价，要么如果你真的对它感兴趣，早就应该考虑过了。因此，我们几乎不关注主动找上门来的出售邀约。</p>
+<p>从小公司或初创公司的角度，我一直鼓励创始人和大公司交流，也和竞争对手交流，保持对话。</p>
+<p>有人会说，这像是在到处推销自己。我把它看成收集信息的方式。我甚至鼓励首席执行官和直接竞争者一起喝咖啡。</p>
+<p>如果你不了解情况，可能会泄露一些信息。希望你有足够判断力。对方也可能告诉你一些有意思的东西，或者改变你对行业的理解。</p>
+<p>所以，我鼓励大家持续与外界沟通，看看市场发生了什么。通常，当你开始觉得公司有点困难，可能想出售时，由于此前一直在交流，你已经相当清楚哪些公司处于什么位置。</p>
+<p>初创公司的首席执行官当然不应该把一整天都用来聊天。但每周与英伟达、亚马逊、OpenAI等公司的相关负责人喝一两次咖啡，值得去做。</p>
+<p>只要找对人，这种信息交流不会让你损失太多，因为对方本来就在思考这些问题，而你能够从关系中获得很多。</p>
+<p><strong>主持人</strong></p>
+<p>这个建议很好。我也一直告诉被投公司的首席执行官，如果你没有每一家竞争对手首席执行官的手机号码，这是一个问题。总有一天你会需要它。这个关系网络需要提前建立。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>完全同意。</p>
+<h4 id="chapter-6">31:58 AI基础设施的供需约束和系统架构</h4>
+<p><strong>主持人</strong></p>
+<p>并购先聊到这里，回到技术。你在基础设施领域已经做了30多年。很少有人像你这样了解这个领域，拥有这么多经验。</p>
+<p>能否概括一下现在的格局？你怎样看基础设施机会，技术上有哪些缺口，创始人应该关注什么？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>这是个很有意思的话题。我认为，需要从两个维度看当前行业结构。</p>
+<p>一个维度是纵向技术栈，从极紫外光刻设备，也就是EUV，一直到AI应用，以及中间的所有层次。另一个维度，尤其在基础设施一侧，是它的价值链。</p>
+<p>首先，今天AI算力、token等需求接近无限，供给却受到很强约束。换个说法，我们都生活在Jensen的世界里。他处于主导地位，这一点没有疑问。</p>
+<p>我认为，当需求特征或供给特征改变时，行业形态才会开始改变。</p>
+<p>现在供给端当然有一些电力限制，但主要限制仍然是芯片。如果没有更多晶圆厂产能，这一点就不会变。也就是说，未来两三年内大概不会发生根本变化。</p>
+<p>也许到5年后，可以设想有更多晶圆厂产能，可以让同样的机器加工更多晶圆，或者造出更多ASML设备等。但这大概是支配行业的一个因素。</p>
+<p>因此，我们仍然处于一个相对稀缺的世界。掌握晶圆厂产能的人，在基础设施领域具有决定其他参与者命运的力量。</p>
+<p>需求端，我认为大家会更聪明地选择消费哪类token。过去两年，每个人都想要最高端的前沿模型token。</p>
+<p>现在讨论的是模型路由，以及怎样把任务转移到其他模型。Anthropic最高端的token，与Kimi最高端的token之间，价格差距可能是5倍、7倍，差别非常大。</p>
+<p>人们会更清楚应该消费什么。我认为，这至少会开始让需求体现出对价格的敏感性，而且更可能在近期发生。</p>
+<p>这些就是支配行业的基本力量。无论你是新云、推理云，还是模型开发者，都处在供给和需求这两端之间。</p>
+<p>再看基础设施本身。今天仍然需要把整套基础设施当作一个系统来思考。</p>
+<p>这与过去的网络时代很不同。过去，你假设从A到B的流量大小、类型、发生时间，都有很大的不确定性，因此很容易通过统计复用来分配负载。</p>
+<p>今天，大量GPU一直在运行、一直互相连接，流量更加稳定。各组件之间的连接很大程度上仍是专有的，比如NVLink，所以很难把一个组件换成另一个。</p>
+<p>我甚至会说，今天最好的架构可能是谷歌TPU架构，因为它确实是按一个完整系统来设计的。</p>
+<p>我认为，英伟达式架构正在朝TPU架构的方向移动，只是仍有少数组件可以替换。</p>
+<p>其他一些参与者的做法是，拿一块Cerebras芯片，搭配一台Arista交换机，再拼上其他部件。至少在今天，这些系统存在效率损失，因为它们是拼接出来的。</p>
+<p>行业会演进。但今天，能够把整个基础设施视为一个系统，并在这个层面优化架构的人，拥有竞争优势。</p>
+<p><strong>主持人</strong></p>
+<p>看起来，最小单元正在从一块卡，变成一个机架，有些情况下甚至是几个机架。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。</p>
+<p><strong>主持人</strong></p>
+<p>最近宣布的那个产品，可能就是这样的最小单元。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>如果看谷歌使用环形拓扑、光学MEMS交换机等技术的方式，它实际上是把整个数据中心当作最小单元。</p>
+<p><strong>主持人</strong></p>
+<p>所以，最小单元是一整排。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。我感觉，英伟达也想朝这个方向走。</p>
+<p><strong>主持人</strong></p>
+<p>显然如此。两个主要供应商都在走系统化路线。</p>
+<h4 id="chapter-7">38:02 芯片竞争、存储带宽与光互连</h4>
+<p><strong>主持人</strong></p>
+<p>甚至更小的初创公司也在朝这个方向走。你怎样看AI芯片的演变？</p>
+<p>现在，Jensen的主导地位非常强。谷歌TPU也很成功，目前主要通过谷歌提供，预计未来会有所变化，但TPU数量仍不够。</p>
+<p>接下来会怎样？我们会看到更多有竞争力的芯片吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我认为肯定会。</p>
+<p><strong>主持人</strong></p>
+<p>我们都希望如此，也都想投资这些公司。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>首先，一个很有意思的现象，是模型架构变得相当多样。</p>
+<p>有些人用FP4、FP8，有些用专家数量很多的混合专家模型，有些专家较少，有些在大幅增加参数量，有些则没有。</p>
+<p>我认为，芯片设计与围绕它优化的模型之间，存在相互关系。</p>
+<p><strong>主持人</strong></p>
+<p>也就是软硬件协同设计。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。所以，芯片会不会更多样？我认为会，因为模型设计会更多样。你想做什么模型，想让模型完成什么事，就可以选择不同芯片架构。</p>
+<p>到目前为止，推理的强度在很大程度上决定着芯片架构。较强的推理需求，意味着较大的参数规模和较大的KV缓存，需要在存储与芯片之间频繁通信。</p>
+<p>如果只能通过芯片边缘进行通信，连接数量就会少于能够利用芯片上下表面的情况。因此，我很看好三维存储架构。</p>
+<p>最近一些采用混合铜键合的新技术更有意思，因为可以获得更高密度。</p>
+<p>只要我们继续看到这种对KV缓存依赖很强的用例，这种架构就有很大潜力。目前看，价值较高的劳动，或者AI完成的工作，似乎大多由推理驱动。这应该有利于拥有良好存储带宽的架构。</p>
+<p>我们投资了Cerebras。Cerebras在速度方面做得很好。但如果模型放不进片上SRAM，就需要很多芯片。</p>
+<p><strong>主持人</strong></p>
+<p>对，需要很多。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>因为一旦访问Cerebras芯片之外的存储，速度就没有那么快。而且，由于晶圆级芯片面积很大，在片外存储带宽方面，实际上还有明显劣势。</p>
+<p>现在，他们在Cerebras芯片上运行Soul，那是一个很大的模型，所以他们已经想办法把它放进去。但我猜，OpenAI为了让模型适配这块芯片，应该做了不少工作。</p>
+<p><strong>主持人</strong></p>
+<p>我们也看好三维架构，但它的可制造性要复杂得多，会受到很多因素影响。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我很看好。我是学热力学的机械工程师，所以，热对我来说算是朋友。</p>
+<p><strong>主持人</strong></p>
+<p>会这么说的人可不多。台积电和其他公司的封装部门，现在大概都想给你打电话了。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我同意，芯片封装会很复杂，尤其是热方面的特征。</p>
+<p>当逻辑芯片与存储芯片放进同一个封装时，虽然材料的热膨胀系数相同，但逻辑芯片会热得多。要把这些东西放在同一个封装里，难度相当大。</p>
+<p><strong>主持人</strong></p>
+<p>芯片又热起来了，而且还会越来越热。</p>
+<p>另一种可能是让它们继续分开，用光互连连接起来。你看好这种办法吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>看好。不过，光学元件很敏感，需要大量试验。加热后，它们的表现会变差。光子不喜欢高温。</p>
+<p>理论上，你希望有一个内部带波导的基板之类的东西。但只要逻辑芯片开始变热，温度超出舒适区间，就可能出现各种连接问题。</p>
+<p>所以，我认为光学技术很有意思。但我的看法是，如果可以用铜，我会选择铜。</p>
+<p><strong>主持人</strong></p>
+<p>即使是纵向扩展的机架，也这样吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>机架级纵向扩展是另一回事，它能简化布线等问题。我刚才说的是服务器内部。</p>
+<p>到了机架顶部交换等位置，肯定需要光，因为带宽已经不够。</p>
+<h4 id="chapter-8">43:45 思科当年怎样从供不应求转为订单骤降</h4>
+<p><strong>主持人</strong></p>
+<p>思科曾经是全球市值最高的公司，是网络硬件的早期领导者，支撑了整个互联网。但后来，它失去了这个位置。</p>
+<p>是什么触发了这个变化？我们能学到什么？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>当需求，或者人们感知到的需求，出现泡沫时，客户往往会超额下单，因为他们知道订单会被削减。</p>
+<p>我们当时每一条产品线的产能都不够，交换机根本做不出来那么多，订单一层叠一层。</p>
+<p>于是，我们也向整个供应链大量下单。因为需求看起来如此强劲，我们承担了这些订单的财务风险。也就是说，钱先给你，你把钱留着，尽快把东西交给我们。</p>
+<p><strong>主持人</strong></p>
+<p>这能出什么问题呢？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>后来，需求干涸时，客户会取消订单。他们会说，我本来就下了实际需求两倍的订单，所以先砍掉一半，然后剩下的一半还要再减半。</p>
+<p>于是，订单降到了原来的四分之一。</p>
+<p>你一方面承担了供应链风险，另一方面需求却大幅下滑。</p>
+<p>我记得很清楚，这发生在我们的那个财季。思科的财季与自然季度错开一个月，所以这季包含11月、12月、1月。</p>
+<p>通常，这样的公司在12月会比较弱，1月第一周开始恢复，到1月底就能弥补。所以，12月表现疲软时，我们觉得没什么大不了，12月一向如此。</p>
+<p>但到了1月第一周，什么都没有发生。第二周，还是没有恢复。到了第三周，我们开始意识到事情不对了。</p>
+<p>最后，那个季度可能比预期少了35%或40%，具体数字我记不清了。</p>
+<p><strong>主持人</strong></p>
+<p>对于一家上市十年、从没在季度业绩上失过手的公司，这个差距非常大。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。整个调整就是这样发生的。非常困难。我印象中，股价从80多美元跌到9美元，六个月左右就只剩原来的十分之一。那段时间很艰难。</p>
+<h4 id="chapter-9">46:08 AI负载变化怎样改变网络设备的价值</h4>
+<p><strong>主持人</strong></p>
+<p>每次上层负载发生足够大的变化，底层基础设施的软件和硬件都得随之变化。AI已经让我们看到这一点，刚才也谈了计算。</p>
+<p>网络会怎样？网络已经出现很大变化，以前只有一张网，现在突然多了一张后端网络。它从哪里来？</p>
+<p><strong>主持人</strong></p>
+<p>你刚才是说以太网已经死了吗？</p>
+<p><strong>主持人</strong></p>
+<p>好，那就说以太网已经死了。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>以太网是一种帧机制。</p>
+<p><strong>主持人</strong></p>
+<p>它又回来了。之前死过，对吧？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>电信世界最初从电路交换开始。打电话的思路是，从A点到B点保持固定带宽，把线路接上，就可以通话。</p>
+<p>后来我们发现，这种方式不太可靠，一条线路被切断，连接就没了。而且，在流量模式不均匀的世界里，它的扩展性不好。</p>
+<p>于是，我们转向分组交换。分组很方便，因为它允许统计复用，这正是它的重要优点。后来有可变长度分组，也就是IP分组等。</p>
+<p>整个网络设备行业，基本都建立在一个假设上，数据到达和离开设备的时间并不均匀，负载会被摊开。因为并非所有人都会同时通过同一设备通信，所以可以用低于总连接带宽的设备处理能力，连接更多带宽。输入流量向不同出口的分布，也有很大变化。</p>
+<p>这就是互联网，也是过去的负载。</p>
+<p><strong>主持人</strong></p>
+<p>这种认识很长时间里几乎成为信条。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>但看今天的AI数据中心，流量到达的随机性已经很不同。链路持续被充分利用，GPU也希望持续被充分利用。流量模式比过去可预测得多，训练尤其如此。</p>
+<p>推理的可预测性低一些，但仍然可以看出流量模式，尤其在批处理做得比较好时。</p>
+<p><strong>主持人</strong></p>
+<p>尤其采用较大批次时，可以让它更可预测。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>所以，工作负载的基本特征变了。但今天占主导地位的网络架构，比如博通Tomahawk，仍然是统计分组交换架构，与它当年收购Dune的技术一脉相承。</p>
+<p>我认为，数据中心网络在某个时候会出现一种新架构，假定流量高度可预测、设备持续充分利用。</p>
+<p><strong>主持人</strong></p>
+<p>所以，你是说重新回到电路，光电路？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。</p>
+<p><strong>主持人</strong></p>
+<p>时分复用也可以，或者把几种方式组合起来。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>复用方式有很多种，可以采用某种固定时序，比如TDM等。核心在于，流量调度可以按确定时序进行。</p>
+<p>今天买到的交换机，带宽是合适的，架构对新负载的适配性却不够。未来的数据中心交换机，也许可以使用MEMS之类的技术。</p>
+<p><strong>主持人</strong></p>
+<p>是把ATM带回数据中心吗？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>但即便ATM也使用统计复用的信元。我说的是更直接的电路。</p>
+<p>对于网络设备厂商，包括我的老东家，这可能是坏消息。因为当事情变得简单，你就很难收取高价。</p>
+<p>交换机之所以复杂，是因为要处理随机、统计复用的流量。一个分组到了，要先放进存储，执行查找，再把它从某个出口送出去。这很难做，所以设备可以卖得贵。</p>
+<p>但在相对静态的环境里，就不再需要那么多智能和缓冲，可以直接送过去。</p>
+<p>所以，针对这种负载，存在重新思考网络架构、显著降低成本的机会。</p>
+<p>这是典型的创新者困境。对于今天的任何供应商，这都不是一个有利趋势，你不会主动想做。但如果是新进入者，认为世界已经改变，愿意重新设计，就可能做出有意思的东西。</p>
+<p>它可以是光学的、电学的，或者两者结合。我认为这样的架构会出现，谷歌的网络已经提供了一些线索。</p>
+<p><strong>主持人</strong></p>
+<p>Amin在光电路交换方面一直是先行者，他们是较早开始做这件事的，用于环形拓扑。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。不过，我不明白为什么切换这么慢，似乎要一分钟。</p>
+<p><strong>主持人</strong></p>
+<p>在一定程度上，这是由使用场景决定的。现在主要用它来建立相对静态的连接，所以为什么要那么在意切换时间？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>有道理，但从可用性角度，我还是希望几毫秒就完成。</p>
+<p><strong>主持人</strong></p>
+<p>实际上大概可以做到。我认为技术已经具备，只是还没有相应使用场景。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>我一直在看这方面的很多技术，无论是MEMS，还是马赫—曾德尔干涉仪，也就是MZI等，看看里面有没有机会。</p>
+<p>但最终必须有人拿出一种架构。然后的问题是，谁愿意接受它？你无法只造出一台交换机，却没有系统其他部分的配合。</p>
+<p><strong>主持人</strong></p>
+<p>这个困境也延伸到了用户的惯性。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>完全正确。</p>
+<p><strong>主持人</strong></p>
+<p>回到前面所说的“交付一整排”基础设施，网络已经成为整体架构中不可分割的一部分。因此，这种创新在一定程度上，可能几乎必须来自GPU供应商。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对。但有意思的是，现在只有英伟达和谷歌有能力交付整套机架系统，AMD也许以后能做到。因此，今天必须由它们接受这样的变化。</p>
+<p>随着更多芯片供应商出现，是否可能形成一种大家都同意的替代架构？就像我们当年做过的那样。</p>
+<p><strong>主持人</strong></p>
+<p>IETF 2.0。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>现在两家供应商占主导地位，各有自己的做法，不太可能轻易改变。其他参与者能不能联合起来，说我们共同接受这一套标准化网络架构，然后按照它建设？</p>
+<p><strong>主持人</strong></p>
+<p>像一支反抗军联盟，我喜欢这个想法。</p>
+<p><strong>主持人</strong></p>
+<p>买方也必须同意，这是关键。</p>
+<h4 id="chapter-10">53:46 本轮周期为什么需要系统层面的判断</h4>
+<p><strong>主持人</strong></p>
+<p>Mike，你已经经历过很多轮周期，也见过上一轮真正大规模的周期。你怎样比较这一次？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>你们可能知道，我新成立了一家风险投资基金，字幕识别为Habi Capital〔名称识别存疑〕。严格说，我在2023年已经退休，本来应该去买一艘游艇。</p>
+<p><strong>主持人</strong></p>
+<p>看来这个计划没有顺利实现。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>为什么又回来了？我确实认为，这是做我们这份工作、身处这个行业很有吸引力的时期。</p>
+<p>除了变化规模大、影响深远之外，理解下一步会怎样，还需要投入更多思考。你没有水晶球，下一步并不明显。</p>
+<p>所以，你必须持续思考，而且要在系统层面思考。我以前从未在一个行业里，需要先理解光怎样在蔡司反射镜上聚焦，才能判断我的聊天机器人表现会不会好。</p>
+<p>这些事情之间有非常复杂的联系。这里出现瓶颈，那里发生变化，一个变化又影响另一个地方。因此，从思考的角度看，我觉得这个时期非常有意思。</p>
+<p>而且，由于这项事业的规模如此大，只要弄清这些不同部分怎样互相释放空间，就可以在这里建立一家公司，在那里建立另一家。一家可能值1万亿美元，另一家可能值5000亿美元，等等。</p>
+<p>坦白说，我没有想到自己的职业生涯里，还会再次遇到这样的时期。我觉得，现在做这份工作充满变化，也很有意思。我们都应该觉得自己很幸运。</p>
+<p><strong>主持人</strong></p>
+<p>比1999年更有意思？</p>
+<p><strong>Mike Volpi</strong></p>
+<p>对，明显更有意思。</p>
+<p><strong>主持人</strong></p>
+<p>完全同意。我们进入这个行业的原因也很相近。这一个小时很有收获，谢谢你。这个话题还能一直聊下去，也许以后再继续。</p>
+<p><strong>Mike Volpi</strong></p>
+<p>今天聊得很开心，谢谢你们。</p>
+<p><strong>主持人</strong></p>
+<p>谢谢你来，Mike。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
