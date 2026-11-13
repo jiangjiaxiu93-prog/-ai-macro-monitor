@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ronnie Chatterji谈AI生产率、就业与经济转型（Possible全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl on" href="../ai_macro.html" aria-current="page" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../ai_macro.html">← 返回经济影响</a>
+<div class="card"><article>
+<h2>Ronnie Chatterji谈AI生产率、就业与经济转型（Possible全文精翻）</h2>
+<div class="metaline">Possible · Reid Hoffman、Aria Finger、Ronnie Chatterji · 2026-11-11 · <a href="https://www.youtube.com/watch?v=ZBGh-Mw7UV0" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；企业采用；生产率；劳动市场；组织变革；OpenAI；Ronnie Chatterji</p>
+<p>Ronnie Chatterji为OpenAI首席经济学家。访谈由Reid Hoffman与Aria Finger主持，发布于2026年11月11日。</p>
+<ul><li>Chatterji预计，未来12至18个月，AI代理将向更多企业与岗位扩散，生产率影响会更加明显。他强调辨认AI的贡献需要超出资本开支和个别企业案例的证据。</li><li>访谈讨论企业采用的时滞、岗位内部任务变化、就业和收入分配，以及医疗、教育、照护等服务需求如何影响AI带来的经济收益。</li><li>他以全天候、并行工作的代理解释未来算力需求，并用岗位任务会变化、需求会扩张的机制，反驳从任务测试直接推算失业的做法。</li></ul>
+<h3>全文精翻</h3>
+<h4 id="chapter-1">00:35 电脑时代的生产率悖论会重演吗</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>1987年，经济学家Robert Solow说过一句后来非常有名的话，到处都能看到计算机时代，唯独生产率统计里看不到。</p>
+<p>当时，办公室已经摆满个人电脑，全国层面的数字却几乎没有变化。真正的生产率繁荣，要到1990年代末才出现，前后相隔将近十年。而它一旦到来，几乎就没有人怀疑计算机在其中发挥了真实作用。</p>
+<p><strong>Aria Finger</strong></p>
+<p>今天，我们请来了一位非常有条件判断AI是否会重演这个过程的经济学家，OpenAI首任首席经济学家Ronnie Chatterji。</p>
+<p>在OpenAI内部，他和团队能看到人们实际上怎样使用AI工作。这方面的可见度，几乎超过世界上任何一家统计机构。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>Ronnie在OpenAI的同事，还制作了一项测试，让AI与真实工作任务比较。这些任务覆盖44种职业，由有经验的专业人士编写和评价。</p>
+<p>Ronnie预计，更大的生产率收益会在未来一两年进入统计数字。这比计算机时代经历的时滞短得多。</p>
+<p><strong>Aria Finger</strong></p>
+<p>今天，我们与Ronnie讨论AI可能怎样改变经济，变化何时会变得可见，谁最先受到影响，我们会调整进入怎样一种经济，以及开发技术的公司能否决定它最终作用在哪里。</p>
+<h4 id="chapter-2">02:03 OpenAI首席经济学家的工作</h4>
+<p><strong>Aria Finger</strong></p>
+<p>Ronnie，非常感谢你今天来参加节目。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>很高兴来到这里，谢谢邀请。</p>
+<p><strong>Aria Finger</strong></p>
+<p>你是OpenAI首任首席经济学家。接受这份工作时，你以为自己会做些什么？实际做起来又变成了什么？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我记得，我妻子还问过，你到底准备去做一份什么工作？</p>
+<p>这原本并不在我的求职计划里。人生中经常会有一些非常适合自己的事，出现以前，你甚至不知道自己正在寻找它。</p>
+<p>我从政府岗位回来时，之前主要参与了《芯片与科学法案》的实施。所以，OpenAI最初找我，谈的是芯片。</p>
+<p>我们围绕半导体及其在人工智能中的作用，进行了很有意思的讨论，但我并不知道会有什么结果。随后，我们一直聊，聊了很久。这可能也很有OpenAI的风格。</p>
+<p>交谈对象中间换过几次，最后，我们慢慢谈到了一个想法，他们需要一位首席经济学家。</p>
+<p>我说，我可以为你们写一份岗位说明，你们再去找合适的人。他应该有这些资历、这些能力，但我本人当时并没有打算接受这份工作。</p>
+<p>我的职业经历一直在学术界与公共政策之间往返，我并不确定，是否想以那种方式进入一家企业内部工作。</p>
+<p>当然，担任顾问、参与咨询、提供建议，这些学术经济学家常见的合作方式，我都很愿意。</p>
+<p>后来，他们回来对我说，我们真的认为，你就是最适合这个岗位的人。</p>
+<p>我说，那把岗位说明发给我看看吧。结果就是我自己写的那份。</p>
+<p>这让我意识到，我有机会按照自己真正感兴趣的方向塑造这个岗位。想到AI的潜力，以及它对经济的影响，我和妻子觉得，这是一个不该错过的机会。</p>
+<p>那是两年前。这个选择很好，此后的经历也非常丰富、变化非常快。</p>
+<p><strong>Aria Finger</strong></p>
+<p>现在做的事情，还是你两年前写在岗位说明里的那些吗？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>Aria，我觉得从那以后，可能已经变了六次。</p>
+<p>有些东西，我一开始就想对了。我知道自己想做有益于人类的研究，给大家提供关于AI的信息。</p>
+<p>做这样的工作，有一点必须认真考虑，你会得到很多关注，人们会留意你发布的内容。</p>
+<p>我认为，这个岗位有责任确保人们获得关于AI经济影响的准确信息。我们后面还会详细谈这个问题。</p>
+<p>第二，我知道自己需要一个团队。</p>
+<p>我想招聘有博士学位、有数据科学背景的人，也需要能够在组织内部推动工作的人。我在政府工作过，知道跨部门把事情办成有多难。</p>
+<p>我希望招聘MBA，以及真正有过把项目一步步推进经验的人。所以，我们现在的团队包括项目经理、数据科学家和经济学家。</p>
+<p>这种组合，是我很早就意识到需要的。</p>
+<p><strong>Aria Finger</strong></p>
+<p>很好。</p>
+<h4 id="chapter-3">04:35 未来12至18个月会发生什么</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>你的团队发布原创经济研究。我们从这里谈起。</p>
+<p>展望未来18个月，你真正预期经济会发生哪些变化？公众讨论里，又有哪些东西比较像误导性的噪声？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我觉得，未来12至18个月有几件事会发生，而且已经在开始发生。</p>
+<p>第一，我们仍处于AI代理革命的早期。如果你住在旧金山，可能会觉得“早期”这个词很意外，但对世界其他地方来说，这才刚刚开始。</p>
+<p>即便在已经使用AI的企业里，真正打开连接器之类功能的，仍然只是相对较小的一部分。</p>
+<p>连接器可以把AI与企业已有的软件应用接起来，这是一个很大的突破口。</p>
+<p>我们刚才在休息室还聊过这个问题。如果AI没有连上你的电脑，只是一个你问它答的机器，你就还没有获得它的全部好处。</p>
+<p>我认为，未来12至18个月，代理式AI会向企业的其他部门扩展。更多公司会采用它，而且会在全世界明显铺开。</p>
+<p>第二，考虑到AI能力已经增长这么多，就业市场本身的变化，还没有一些人预想得那么大。</p>
+<p>但岗位下面具体做的工作，已经变了。</p>
+<p>当我们观察人们实际上怎样工作时，会发现相当一部分任务已经超出原来的岗位说明。</p>
+<p>假设你是一位财务专业人员，现在可以做营销、做一些人力资源相关的工作。假设你原本从事传播，现在也可以分析数字。</p>
+<p>大家正在跨出原来的岗位边界，去做过去做不了的事情。随着更多员工在企业里获得代理工具的能力，这个趋势还会加快。</p>
+<p>最后一点，我认为AI会开始更明显地出现在生产率统计中。</p>
+<p>我们知道，它已经通过资本开支渠道进入GDP，硬件投资的规模很大。但经济学家真正关注的是生产率。我觉得，这方面的变化会在未来12至18个月变得更明显。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>那讨论中的噪声呢？</p>
+<p>有人可能高估了AI现在已经带来的影响。对于当下以及未来18个月，你认为哪些说法比较具有误导性？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>大家谈增长时，尤其是经济学以外的人，经常会报出非常大的数字。</p>
+<p>我在政府工作的几个阶段，都碰上过非常重大的事件。我知道，10%的经济增速是非常高的。</p>
+<p>但人们想到AI的力量，就很容易说，先告诉我过去的增长速度，再把它乘以五。</p>
+<p>美国经济增速即便只额外提高1个百分点，也足以带来深刻改变。提高2个百分点，你一定会感受到。</p>
+<p>所以，如果认为未来两三年会实现10%的增长，可能是对数量级缺乏正确校准。</p>
+<p>就业市场也是如此。失业率哪怕只上升0.5至1个百分点，也会引发严肃讨论。那绝不会是一个大家没有注意就过去的变化。</p>
+<p>你刚才提到，失业率可能在短时间内翻三倍，我认为这种情况相对不太可能。</p>
+<p>新冠疫情期间，我在政府工作。2020年初到三四月左右，失业率翻了三倍，过程非常剧烈。但那是经历了疫情这样的冲击，才出现失业率三倍的变化。</p>
+<p>要对未来12至18个月的AI作出同样预测，你采用的经济模型，恐怕与我采用的很不一样。</p>
+<h4 id="chapter-4">07:44 企业内部的采用时滞</h4>
+<p><strong>Aria Finger</strong></p>
+<p>我们后面还会回到就业数字和生产率。</p>
+<p>企业使用AI正在增加，这并不意外。但有些人使用得非常深入，也有人在企业里完全不用。我们已经习惯看到这种差异。</p>
+<p>旧金山可能走在前面，工程部门也走在前面。经济里还有哪些地方，你认为会最快采用AI？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我觉得，法律部门和人力资源部门，是两个不该被忽视的地方。</p>
+<p>从我在OpenAI内部看到的情况说，我们的律师当然可能是一个有选择性的样本，但他们用AI改善工作流程的能力，让我很感兴趣。</p>
+<p>他们的进展速度，几乎和我见到的任何团队一样快。</p>
+<p>看我们内部的数据，2025年11月，旧金山各种群聊都热闹起来，大家不断分享AI能做到的惊人事情。我们都记得那个时刻，离现在其实没有多久。</p>
+<p>但直到2026年四五月，OpenAI的其他部门，才像研究与技术部门一样，把代理工具全面融入工作。</p>
+<p>如果看2025年末，几乎所有研究和工程人员，都已经在全部工作里使用代理式AI。</p>
+<p>而像我们这样的非技术人员——说起来有点惭愧，身为经济学家，受了那么多教育，拿了那么多学位，整天处理数字，我现在也被算作非技术人员了——大约到2026年四五月，才完成类似的采用过程。</p>
+<p>技术团队与非技术团队之间，相隔大约四五个月。</p>
+<p>Aria，我觉得这个参照非常有意义。并不是每家企业都像OpenAI，但法律与人力资源部门有大量结构化数据和流程，我会非常密切地关注它们。</p>
+<p><strong>Aria Finger</strong></p>
+<p>对，结构化数据，这个解释很有道理。</p>
+<h4 id="chapter-5">09:25 AI怎样改变创业的成本</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>我们现在在硅谷的一个核心地带录节目，创业当然是一个非常有硅谷特色的话题。</p>
+<p>AI会怎样改变创办公司的成本？</p>
+<p>更便宜的试验，会创造更多企业和岗位，还是带来成本更低的失败？除了创办公司，还有后续扩大规模的过程。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这是个很好的问题。</p>
+<p>我最初在伯克利开始学术研究时，研究的就是创业。当时也是一个创业试验不断增加的年代。</p>
+<p>我决定用自己的博士论文，研究这个叫作创业的新议题。那时它还算不上很主流的研究方向，但看看窗外，就知道它很重要。</p>
+<p>多年以后，我回到这里，AI又成了加快创业过程、推动新企业形成的一种力量。</p>
+<p>Reid，你提到更快失败为什么可能有益于经济，我很喜欢这个问题。</p>
+<p>我刚开始研究创业时，总觉得最后应该得到一家企业，好像最终结果应当是“一”。</p>
+<p>但真正与经历过创业的人交流，会发现失败本身往往带来最多的学习。你们两位都接触过很多这样的经历。</p>
+<p>有时，失败是下一家伟大公司的前奏。对很多人来说，创业也让我们认识到，自己其实更适合加入别人的团队。</p>
+<p>大多数人更适合加入企业，或者做联合创始人，真正独自发起创业的人相对较少。</p>
+<p>所以，创业过程越快走到一个清晰结果，通常越好。结果多数时候会是失败。</p>
+<p>我认为，AI有一个很大的好处，就是加快试验过程。它会带来更多失败，但也会带来更多有价值的成功。</p>
+<p><strong>Aria Finger</strong></p>
+<p>我也想到很多这样的例子。比如我妈妈，她是钢琴教师，只有自己一个员工，从定义上看也算创业者。</p>
+<p>AI可以帮助她的事业，这种帮助在五年、十年前是没有的。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这样她就能把时间放在自己更喜欢的事上，比如和学生一起工作、教学生。</p>
+<p>拓展新客户、处理账单、与家长沟通，这些事情就能减少一些。</p>
+<p><strong>Aria Finger</strong></p>
+<p>没错，我们这些家长。每位老师都知道，最好别去应付家长。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我认为，AI也会让更多个人创业成为可能。</p>
+<p>从我们的很多数据看，有些地区的人，比较难找到联合创始人。美国有些地方，也很难招聘到首席营销官。</p>
+<p>这些人现在可以更快开始。他们可以从AI那里获得专家的帮助，学习以前没有机会接触的知识。</p>
+<p>这会让获得机会的门槛变得更低。有人可以更快扩大规模，也有人会决定，把时间花在其他事情上。我觉得这同样可以是一个好的结果。</p>
+<h4 id="chapter-6">11:56 创业潜力有没有变成现实</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>从你看到的情况说，这里面当然有巨大的潜力。你认识的硅谷创业者，可能都在尽可能多地使用AI、消耗token。</p>
+<p>但美国其他地方，以及世界其他地区，也在发生这种变化吗？</p>
+<p>除了巨大的潜力和承诺，有没有真正看到这类创业活动增长？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>有，我确实看到了。</p>
+<p>世界上有些地方，风险投资没有那么容易获得，从零到一非常困难。现在，你会看到人们更快开始行动。</p>
+<p>我们大约六个月前发布过一份报告，显示可能有400万美国人，在创业过程的某个环节使用ChatGPT。所以，美国也在发生这种变化。</p>
+<p>关键在于头脑风暴、构思，以及从第一步走到下一步。</p>
+<p>我很久以前写过一篇关于创业过程的论文。它记录到，最常见的失败点，竟然是把自己的想法告诉另一个人，然后取得反馈。</p>
+<p>听起来很不可思议。尤其是在硅谷长大的人，可能会问，这怎么会构成阻力？但对很多人来说，确实如此。</p>
+<p>现在，他们可以问AI，你觉得这个想法怎么样？然后获得建设性反馈。克服这样的阻力，可能非常重要。</p>
+<p>已经经营中的小企业，也可以优化产品组合，或者人力资源策略。</p>
+<p>例如，东南亚的一家餐馆，现在可以分析菜单应该放什么，什么卖得最好，选址是否合适。</p>
+<p>过去按咨询公司的收费，它很难请人专门分析这些问题。现在AI能够提供帮助，增强创业者的能力。</p>
+<p>我认为，这对未来很重要，也会成为经济收益的一个重要来源。</p>
+<h4 id="chapter-7">13:43 资本开支进入GDP，生产率贡献怎样识别</h4>
+<p><strong>Aria Finger</strong></p>
+<p>回到生产率数字。</p>
+<p>大家常说，1990年代互联网出现时，信息技术投资增加以后，生产率很久才体现出来。</p>
+<p>但Obama以前的经济顾问Jason Furman说，生产率收益已经进入统计数字。Anthropic也有类似的倾向。</p>
+<p>你说，还需要18至24个月。你为什么对数据有不同的解读？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我认为，AI已经在GDP里体现出来了，这一点应该承认。</p>
+<p>如果看资本开支，AI基础设施投资对GDP增速的贡献，大约在40个基点到1个百分点之间。这很重要，对美国经济起到了明显的支撑作用。</p>
+<p>下一步，是把这些投入转化为生产率，转化为经济学家所说的全要素生产率，也就是TFP。</p>
+<p>我看过Jason引用的一些数据。那些数据与生产率开始受益的判断相符，但我们目前还不能确定，贡献究竟是不是来自AI。这需要进一步研究。</p>
+<p>而且，就像你说的，很多研究只有事后才能完成。</p>
+<p>1995年有一次很有名的美联储会议，Greenspan与Yellen讨论这个问题。Greenspan确信自己已经看到了生产率变化，而Yellen说，数据里还看不到。</p>
+<p>Yellen是一位非常优秀的经济学家，也在伯克利任教，我非常尊重她。但后来，那次会议所参考的数字被大幅上修了。</p>
+<p>所以，我确实觉得，我们可能正处在类似时刻的开端。</p>
+<p>但对我来说，要在统计里识别出来，并把原因归于AI，还需要多一点时间。</p>
+<p>与此同时，我们也很难长期忽视眼前看到的情况。AI正在很多企业里产生有益影响。企业负责人继续增加投入，在组织各处使用AI。</p>
+<p>我相信市场与激励，既然他们这样做，就应当已经看到了某种回报，而这些回报会转化为生产率。</p>
+<p>这种变化会在不同企业、不同地区逐步发生。我想借用William Gibson那句名言，未来已经到来，只是分布得不均匀。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>有意思的是，Gibson跟我一位朋友说过，他其实没说过这句话，但他很喜欢。</p>
+<p><strong>Aria Finger</strong></p>
+<p>他很愿意接受这句名言。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>那也许我应该直接说……</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>未来分布得不均匀。他觉得这是一句很好的话，应该有人这样说过。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>那就谢谢William Gibson，这很重要。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>确实是很重要的一句话。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这是他从来没说过的最棒的名言，太有意思了。</p>
+<p>不过，我觉得，这确实反映了今天AI所处的位置。</p>
+<p>企业采用AI很不均衡。有些企业已经把使用强度推得很高，成为深度用户，而我们所说的中位数采用者，还远远落在后面。</p>
+<p>这两者的差距还在不断扩大，对AI怎样影响经济有很大的意义。</p>
+<h4 id="chapter-8">15:57 哪些国家更快采用AI</h4>
+<p><strong>Aria Finger</strong></p>
+<p>你说分布不均衡。我不知道你有没有研究美国以外的情况，世界上哪些地方，AI的采用程度更高？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>加入OpenAI以来，我去过12个国家。这让我有机会到世界各地，与企业、普通人以及政府官员交流，了解他们怎么看AI。</p>
+<p>不同地方的看法差异很大。</p>
+<p>东亚、日本与韩国，对AI及其改造经济的能力相当乐观。过去在学术界和政府工作时，我也在这两个国家待过很多时间。</p>
+<p>我觉得，这种乐观与它们过去成功应用技术的经验有关，也与它们和美国、欧洲不同的人口结构有关。</p>
+<p>还有一点，那里很多企业已经在受益。看看芯片供应链，看看韩国的SK海力士和三星，就能看到这些影响。</p>
+<p>所以，那里对AI有很高的期待，企业使用强度也很高。很多企业本来就采用了其他先进技术，现在继续接入AI，因此更接近前沿。</p>
+<p>另外一些国家，目前更多还是消费者使用AI、从中获益，企业采用相对不足。</p>
+<p>但我觉得，这很大程度上是时间问题，也很符合过去很多技术的扩散规律。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>哪些国家的AI使用给了你最大的正面惊喜？能不能举三个？另外，有没有三个你原来以为会使用很多，结果却出乎意料的地方？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这个问题很有意思。</p>
+<p>正面惊喜包括印度尼西亚和巴西。它们的使用强度，比你可能预想的高得多。我们也准备发布相关数据。</p>
+<p>人口年轻，可能与教育、收入水平一样，是其中的重要驱动因素。18至25岁的人在全世界都大量使用AI，年轻人口较多的国家因此会显现出很强的使用势头。</p>
+<p>我有机会访问印度尼西亚和巴西的大学，现场的听众让我非常惊讶。你们两位也做过很多这样的演讲，应该了解那种感受。</p>
+<p>我特别记得雅加达。我小时候去过那里，这次再回去，发现大家讨论的问题，与旧金山相差并不大。</p>
+<p>那里的学生，用AI的方式与旧金山同龄人一样，可以更快接触想法、掌握技能、完成事情，几乎看不到时滞。这让我印象很深。</p>
+<p>另一个是印度。现在也许很多人已经不觉得印度算惊喜，但我到印度参加AI峰会时，看到有那么多公司围绕AI建立起来，还是很震撼。</p>
+<p>一些大型企业集团的AI策略，也让我印象深刻。</p>
+<p>有一点需要记住。虽然会出现很多初创公司，但现有的大企业也已经明白了。他们读过哈佛商学院那些案例，不想成为案例里被淘汰的恐龙。他们也要确保自己采用AI。</p>
+<p>至于负面惊喜，我更愿意说，世界不同地方面临不同的采用障碍。</p>
+<p>例如，欧洲正在认真讨论，怎样把AI有效用于企业，怎样掌握技术体系中自己认为重要的环节，以及在一个全球化、同时地缘环境正在变化的经济里，怎样做到这些。</p>
+<p>从Draghi报告和其他文件就能看出，欧洲对AI在企业与社会里的作用，有非常活跃的讨论。</p>
+<p>因此，我会把它描述成正在展开的实质性辩论。</p>
+<h4 id="chapter-9">19:09 资本开支推高需求，生产率降低成本，哪股力量更强</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>IMF认为，在生产率尚未显现以前，资本开支繁荣就已经支撑了美国增长。</p>
+<p>这意味着两股宏观力量同时存在。资本开支现在推高需求和通胀，生产率则应该在之后降低通胀。</p>
+<p>未来两年会怎么发展？哪一股力量会占上风？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>经济学家最喜欢比较不同力量的大小。</p>
+<p>先看通胀，它由很多方面构成。今天推动通胀的因素里，有地缘政治、食品价格，以及很多与AI没有关系的事情。</p>
+<p>与AI相关的部分，可能更多体现在硬件供应链。</p>
+<p>例如DRAM价格，我在政府工作时一直非常关注。过去一年，它的涨幅非常大。</p>
+<p>这些供应链瓶颈推动的通胀，我认为最终只占整体的一小部分。随着基础设施建设推进、供给增加，这部分压力应该逐渐缓和。</p>
+<p>当然，也要看价值链不同环节的公司采取怎样的竞争策略。</p>
+<p>从更长时间看，AI有机会降低很多商品与服务的价格。我预期，最终占上风的是这股力量。</p>
+<p>两年可能比我预计的实现时间稍微快一些，但随着时间推移，我认为后面这股力量会更大。</p>
+<p>在旧金山，人们把它叫作杰文斯悖论。我更习惯叫它向下倾斜的需求曲线。</p>
+<p>当完成一件事的价格变低，只要需求弹性处在一定水平，人们就可能需要更多这种产品或服务。</p>
+<p>所以，我认为AI会让很多市场扩大，而且在自己的研究里，已经看到了一些这样的情况。</p>
+<h4 id="chapter-10">20:42 假设AI在2031年兑现回报</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>到目前为止，我们一直在解读指标。现在看整个经济的全貌。</p>
+<p>假设AI不断取得进展，我们一下跳到遥远的2031年。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>天哪，那可真是遥远的未来。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>没错。请具体描述一下，那会是一种怎样的经济？增长多快，大家在哪里工作，工资又会是什么样？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>先看采用模式。如果你设定的情景成立，像美国这样采用AI较早的国家，就会收获更多收益。</p>
+<p>到2031年，你可能看到信息技术革命的重演，而且幅度更大。</p>
+<p>Nick Bloom、John Van Reenen与Raffaella Sadun有一篇很有名的论文，研究过我们前面所说关键时期的美国与英国企业，怎样采用信息技术。</p>
+<p>美国企业采用得更多，而且配套的管理实践与技术互补。这一点很重要。它们因此取得更多生产率收益，而这些生产率收益，后来持续推动了美国增长。</p>
+<p>如果AI像我们预期那样发挥作用，2031年就可能再次出现这种局面。</p>
+<p>美国企业采用AI，再带着这些能力走向全球，美国经济的增长速度也会提高。</p>
+<p>就像前面说的，增长额外提高1至2个百分点，经济稳定在3%至4%的增速，都非常重要。这是值得关注的稳态变化。</p>
+<p>从行业看，我写过一些相关东西，也对此有很强的判断。教育与医疗，会是两个就业大幅增加的领域。</p>
+<p>为什么这样说？在你设定的情景里，社会变得更富裕，而社会富裕以后，通常会在教育与医疗上花更多钱。</p>
+<p>当AI创造更多资源，我们真正重视的事情就会显现出来。照顾他人、教育他人，是其中很重要的一部分。</p>
+<p>向这些行业加入技术，通常也会增加用人。教育技术和很多医疗技术的发展，都有这样的历史。</p>
+<p>从偏好说，如果让我选择，用机器人取代幼儿园教师，还是把班级人数减半、多请老师，由两位教师来教，我更愿意选择聘请更多教师。</p>
+<p>我觉得，大多数美国人也会这样选择。对于医生、护士以及其他照护人员，也会作出类似选择。</p>
+<p>所以，我认为这些行业的就业会增加很多。</p>
+<p>工资方面，真正的问题是，我们能不能把这些工作变得更好。</p>
+<p>目前，美国大约每七个岗位里，就有一个在教育与医疗领域。如果经济从现在的结构，转向更多教育与医疗就业，但这些岗位的工资，低于人们原来工作的工资，收益就会大打折扣。</p>
+<p>这些岗位的待遇和工作质量，需要得到改善。这方面也有很多可以讨论的办法。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>虽然它在招聘与就业中的规模可能没有那么大，但娱乐业会不会也是一个方向？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我觉得会。</p>
+<p>有多少人的孩子告诉过他们，长大以后想成为网红？经济学家总喜欢举新职业的例子，以前我们举的常常是网络安全，现在也许该说网红了。</p>
+<p>还有播客主持人。过去我们甚至没有这个词。</p>
+<p>AI和其他工具，会创造很多新的娱乐供给方式。可能通过YouTube这类平台传播，也可能出现我们还没有想到的媒介，用来制作视频和艺术作品。</p>
+<p>机会会很多。</p>
+<p>但关键是需求渠道怎样运转。人们究竟能消费多少AI艺术？市场会不会集中在少数参与者手里？</p>
+<p>供给和需求分别会有多开放、多普及，这些都值得观察。不过，我认为娱乐业确实可能是一个很大的方向。</p>
+<h4 id="chapter-11">23:57 更多教师和照护人员，谁来付钱</h4>
+<p><strong>Aria Finger</strong></p>
+<p>你已经猜到我的下一个问题了。</p>
+<p>大家都希望小班教学，但我看到的研究表明，教师质量比单纯缩小班级更重要。</p>
+<p>所以，有时需要问，怎样用AI帮助我们获得更好的教师？当然，给教师多少报酬，在这里非常重要。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>当然。</p>
+<p><strong>Aria Finger</strong></p>
+<p>你提到了照护经济。我们在节目里经常谈这个话题，与Anne-Marie Slaughter讨论过，也谈到过Springbank Ventures。</p>
+<p>它看起来离AI很远，实际影响却可能非常大。</p>
+<p>你主张，在AGI经济里，照护经济会扩张，更多人可以成为护士、医生、教师。</p>
+<p>但钱从哪里来？谁为这些进入照护行业的人付工资？怎样才能实现这种转变？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>如果AI真的像Reid设定的那个情景一样带来收益，我们就会有资金来做这些事。</p>
+<p>其中一部分，可能需要改变劳动与资本的税收安排。</p>
+<p>如果我们把经济关系、激励和政府分配渠道设计好，就可以把AI创造的生产率收益，导向我们重视的这些行业。</p>
+<p>如果现有制度办不到，就需要建立更好的制度。这在我看来，是政府的一项主要职责。</p>
+<p>AI带来丰厚收益，政府因此获得更多税收，然后把资源分配到社会希望投入的地方。</p>
+<p>从历史看，美国人确实愿意在教育与医疗上花钱。对于花多少、效率如何，当然有分歧，但整体上，这两个行业已经吸收了大量资源。</p>
+<p>如果出现很大的生产率提升，我认为这种选择还会延续。</p>
+<p>这可能需要税制和资金分配方式的改变。</p>
+<p>但有一个前提。如果AI没有带来这些收益，我们就没有这样的机会。</p>
+<p>在AI真正成功、广泛采用并产生收益的世界里，我们有钱投资教育和医疗。假如这些条件没有实现，经济变化的幅度也会比你设定的情景小。</p>
+<h4 id="chapter-12">25:45 从提供信息到帮助人们办成事情</h4>
+<p><strong>Aria Finger</strong></p>
+<p>我还觉得，AI为医疗与教育提供更多资金很重要，但谁都会说，除了多花钱，我们还需要更好的服务。</p>
+<p>我们需要更好的医疗、更好的教育。如果AI也能够让这些服务变得更好、更充足，那就非常重要。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我完全同意，Aria。</p>
+<p>这让我想到小时候申请经济资助。当时要填写FAFSA，也就是联邦学生资助申请表。我不知道现在是否还用类似的表，我的孩子还没到这个阶段。</p>
+<p>我小时候，人们谈互联网，主要说它会提供信息。</p>
+<p>互联网会告诉你填写FAFSA所需的信息，但你仍然要自己查，再把信息填进表格。</p>
+<p>现在，我们有机会真正帮助人们走完整个流程，而这恰恰是他们需要的。</p>
+<p>想想填写资助申请的人、低收入家庭里需要申请教育券的孩子，或者想进入合适器官移植名单的人。</p>
+<p>这些情形，都涉及稀缺资源的分配，而人们需要取得这些资源。</p>
+<p>假设你的代理能够帮你完成这些事，会怎样？</p>
+<p>我们经常谈代理帮助购物的好处，那当然很好。但如果代理能够帮人们应对复杂的办事流程呢？</p>
+<p>另一边，世界银行、IMF，以及通过很多组织分配出去的援助，也可以帮助各国建立自己的代理平台。</p>
+<p>这样，资源名额的分配，就可能由两边的代理按照公众决定的规则进行，最终形成更有效率的市场结果。</p>
+<p>我认为，这是一个很大的机会。帮助人们把事情办成，会是一个显著的提升，也有望改善服务效率。</p>
+<h4 id="chapter-13">27:07 办事更容易了，稀缺资源仍然有限</h4>
+<p><strong>Aria Finger</strong></p>
+<p>我能再问一个问题吗？</p>
+<p>让人更容易填表、更容易完成办事流程，当然很好。但现在也有很多讨论，认为过去的技术和AI，把一些原本有必要存在的阻力也降低了。</p>
+<p>比如，赌博变得太容易，可能有害。有些资助申请的阻力，也与一个现实有关，我们并没有足够的钱，给每一个人提供资助。</p>
+<p>目前，复杂的程序在某种程度上，也帮助我们分配有限的资源。</p>
+<p>如果阻力下降、效率提高，我们会不会碰到另一个问题，实际上根本没有足够资金，服务所有申请者？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这是个很好的问题。</p>
+<p>有点像一家餐馆，所有顾客都派代理来订位，但餐馆自己只有一部电话，电话一直响个不停。</p>
+<p>餐馆这一侧，也需要一个代理平台。这就是关键。</p>
+<p>两边都需要能够相互沟通的平台。我现在工作里也有类似的问题。如果很多人把AI生成的新内容放到我桌上，我仍然需要决定，哪些值得推进，哪些应该优先。</p>
+<p>如果人们在申请有限名额、争取稀缺资源的同时，供给这一侧也有一个按照明确规则运行的代理平台来协调，就可能产生非常大的福利收益。</p>
+<p>很多领域已经做过类似的分配设计，也有很多经济学家在研究它。</p>
+<p>这在我看来，是AI最令人兴奋的机会之一，却经常被忽视。</p>
+<p>我们很关注AI会怎样冲击专业能力，这当然重要。但有时，AI提供的是一个人第一次能够接触到的专家帮助。</p>
+<p>假设一个人周围100英里内，都没有行为健康方面的专业人员，他原本根本接触不到相关服务。那么，先有一个能够对话、提供初步帮助的AI，就可能很有价值。</p>
+<p>AI也确实可能在很多情况下，对专业能力造成负面影响。市场与政府都需要认真思考这个问题。</p>
+<p>但在许多地方，人们此前根本没有机会获得这些服务。我认为，我们会逐渐发现这些机会，它们也会成为重要的生产率渠道。</p>
+<h4 id="chapter-14">28:45 全天候代理怎样进入经济核算</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>这里有一个更具体的问题。</p>
+<p>我们谈到成本曲线、投资方向，以及岗位怎样创造。医疗和教育都是很好的例子。但还有一个变化，服务可以全天候提供。</p>
+<p>从服务业看，这个时间因素非常重要。</p>
+<p>例如，晚上九点，你的孩子或者祖父母出现医疗问题，你该怎么办？能不能找到医生？该不该去医院？能不能到医院？</p>
+<p>全天候这个因素，会怎样进入经济的整体图景？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>始终在线的代理会怎样影响经济，确实是一个大问题。</p>
+<p>对于一些需要持续投入、不能睡觉的任务，能够一直工作的代理，会释放很大的收益。这是我们现在正在研究的事情。</p>
+<p>但在另一些场景里，代理可能需要进一步澄清问题，或者取得许可。世界的其他部分有没有醒着，仍然可能很重要。</p>
+<p>第二，回到Aria刚才的问题，如果系统还没有准备好，就需要防止它被压垮。</p>
+<p>持续运行的代理可以很好，但如果它把一个没有能力承受的系统冲垮，就会出现问题。我们需要为此制定运行规则。</p>
+<p>即便在OpenAI内部，我和团队也经常讨论，向这个Slack频道发送多少AI生成的内容？谁负责审阅这段代码，或者这份文字材料？</p>
+<p>如果你给别人发一份他根本无法理解的东西，实际上就像向他征收了一笔额外的税，要求他付出时间和精力。</p>
+<p>所以，设定这些边界非常重要，而且要由人来设定。代理经济可能需要这样的协调规则。</p>
+<p>也许会先发生一些案例，让我们不得不更加认真地想这些问题。我认为，这方面的安排会是必要的。</p>
+<p>更广泛地说，我在OpenAI内部看到，代理工作的时数，已经是人类的三倍。</p>
+<p>我们发布过一份关于研究加速的报告，是我现在最感兴趣的报告之一。它研究AI怎样帮助AI研究人员，也怎样帮助公司里的其他人。</p>
+<p>如果工作时数达到人类的三倍，就能打开很多机会。</p>
+<p>但投手不断把球投出去，另一边仍然需要有人接球。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>而且还不止这一点。这让我想到《人月神话》，现在也可以谈某种“AI工时神话”。</p>
+<p>AI可以全天候工作，还可以并行运行。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>对。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>所以，就出现了一种很难直觉理解的AI工作时数。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>仔细想，确实会让人有点头疼。</p>
+<p>而且我认为，工作能够并行，是你前面谈到的硬件投资能否获得回报，一个很关键的基础。</p>
+<p>如果你想象的世界，只是Aria、Reid、Ronnie各自同时用一个聊天机器人，那么很难想象，我们究竟要问多少问题，才能支撑如此庞大的硬件投资。</p>
+<p>但想象一下，大量代理并行、持续运行，执行各种任务。想想网络安全、金融市场里价值最高的那些用例。</p>
+<p>这时，你就开始能看到，为什么经济要创造大量价值，可能真的需要这么多算力。</p>
+<p>我觉得，AI行业以外的人，可能对这一点还没有给予足够重视。</p>
+<h4 id="chapter-15">31:45 技术偏向替代还是增强，谁来决定</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>我们换到另一位经济学家的研究。诺贝尔经济学奖得主Daron Acemoglu多年来一直主张，技术往哪个方向发展，是一种选择。</p>
+<p>但OpenAI和Anthropic的使用数据似乎显示，多数企业用途是自动化，而且客户要求的也正是自动化。</p>
+<p>实验室能不能主动选择增强人的能力，或者至少把技术往这个方向引导？这显然有很好的社会意义。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我认为，一家实验室无法独立做到，还需要把政府政策考虑进来。</p>
+<p>从实验室的角度看，有一种对比很有意思。</p>
+<p>有些CEO只谈削减成本，另一些则在思考，怎样创造新的价值。</p>
+<p>回看互联网、SaaS软件、电力、蒸汽机和半导体，创新的承诺也包括创造以前不存在的产品，开辟原来没有的新行业。</p>
+<p>AI也有这样的机会。现在谈它的CEO也许相对少一些，但它会和效率提高一样重要。</p>
+<p>所以，我认为我们会看到这种变化。</p>
+<p>另一方面，一家组织想单方面把技术引向某个方向，也可能很难。其他提供商可能专门强调效率收益，或者以这一点来吸引客户。</p>
+<p>因此，需要实验室与政府共同思考，怎样让发展方向有利于美国的长期竞争力。</p>
+<p>如果经济缺少那些有生产价值的岗位，也可能造成很大伤害。这些问题需要认真处理，一家组织很难独自解决。</p>
+<p>我同意Acemoglu，技术方向涉及选择，而且我们必须共同作出这个选择。</p>
+<p>他已经很详细地写过制度的作用。但要建立让所有人都能参与、共同协调的制度，恰恰是最困难的部分。</p>
+<p>制度需要信任，也需要执行力。这会是未来十年需要努力的方向。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>而且，这种集体行动的范围，可能超出一个行业，甚至超出单个社会。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>当然，也会涉及地缘层面的考虑。</p>
+<p>不过，政府、私营部门、实验室和慈善组织里，已经有相当一批人围绕这些话题走到一起，我觉得这是一种有意义的迹象，说明他们正在思考。</p>
+<p>但就像你说的，在竞争激烈的全球经济里，这些制度可能很难维持。所以，这就是我们需要努力的事情。</p>
+<h4 id="chapter-16">34:05 收益分散、损失集中，会怎样影响政治</h4>
+<p><strong>Aria Finger</strong></p>
+<p>你刚才列举了历史上的各种技术。它们推动我们前进，同时也创造赢家和输家。</p>
+<p>你说，GDP增速提高2或者3个百分点，是非常大的变化，长期复利效应很强。失业率提高3、4、5个百分点，也同样是重大变化。</p>
+<p>我们上周讨论“中国冲击”时，有人说，受到影响的也就是300万至500万个岗位。在一个有3.5亿人口的国家里，这个数字看上去不算特别大。</p>
+<p>但它的后果很大，因为损失集中在特定人群，而数百万消费者购买便宜商品的收益，却是分散的。</p>
+<p>展望未来五年，你觉得哪些人可能是AI的输家？这又会怎样影响政治？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>首先，你说得对。</p>
+<p>冲击占总人口的比例，即便从数量上看不大，也会深刻影响社会对经济的感受，当然也会影响政治。</p>
+<p>我住在北卡罗来纳州，那里就受到过“中国冲击”的不利影响。如果看它怎样在后面很长时间里塑造北卡的经济与政治，就会知道影响非常大。</p>
+<p>David Autor在这方面做过非常好的研究。</p>
+<p>你可能看他标出来的那些受影响选区或者通勤区，觉得它们只占全国县、通勤区或者国会选区的一小部分。</p>
+<p>但在两党制、有选举人团、政治力量接近五五开的国家里，这些地方最终可能非常有影响力。</p>
+<p>因此，我觉得这很重要。</p>
+<p>AI可能也会出现类似情况。影响集中在某些行业、某些地区，仍然可以对政治经济产生巨大作用。</p>
+<p>如果它创造赢家和输家，赢家很可能也会更分散，和我们刚才讨论全球化那段历史时一样。</p>
+<p>我已经在数据里看到一些迹象。</p>
+<p>AI一个很大的作用，是创造消费者剩余。经济学家很喜欢谈这个概念，但其他人往往觉得难懂。</p>
+<p>最简单的解释是，假设我用免费版ChatGPT规划一次假期，没有为此向ChatGPT付费，但假期安排得更好，家人更开心，玩得更愉快，还留下很好的照片。</p>
+<p>它为我创造了价值，但没有计入GDP。</p>
+<p>如果你在假期结束以后对我说，下次旅行不用ChatGPT，我可以给你一笔钱，我可能会回答，你得付我很多钱，上次的体验实在太好了。</p>
+<p>这里面就有价值，这个价值叫消费者剩余。如果看AI为经济带来的这些东西，规模大约每年3000亿美元左右。</p>
+<p>它会在全国、在全世界创造大量分散的受益者。</p>
+<p>而且，在资源比较匮乏的地方，收益甚至更高。</p>
+<p>与很多技术不同，他们从ChatGPT得到答案的质量，与我得到的质量相当接近，这本来也是有意如此设计的。</p>
+<p>同时，在某些重要领域，他们原有的服务水平平均更低。因此，印度或者巴西的福利提升，可能高于我在北卡罗来纳州Durham得到的提升。这是一个很大的不同。</p>
+<p>所以，我们会看到收益扩散到世界各地，但负面影响更加集中。</p>
+<p>我认为，这会进一步增加人们对AI的怀疑，而这种怀疑现在已经存在。</p>
+<p>我们的政治体系已经在处理它。看看各个地方围绕数据中心的辩论，看看AI在2026年选举里有多重要，我想2028年也会如此。</p>
+<p>我们的制度正在尽其所能地应对。</p>
+<p>这种过程肯定很混乱，但民主制度就是通过这样的方式逐步解决问题。相比让某个集中的权力中心回避处理这些问题，我更愿意看到现在这种讨论。</p>
+<p>这是我对未来的预期。我也相信，我们的制度能够承受这种变化。</p>
+<p>但这正说明，前面谈到的制度建设很重要。政府内部和外部，都需要有制度，确保帮助真正到达需要的人。</p>
+<p>在“中国冲击”那次，我们行动得太少，也太慢。</p>
+<h4 id="chapter-17">37:52 怎样让公众相信AI会帮助自己</h4>
+<p><strong>Aria Finger</strong></p>
+<p>这正是我想继续问的。我们已经看到一些反弹。</p>
+<p>你认为，政府具体应该做什么？</p>
+<p>显然，你认为应该继续投资AI，它能给美国，以及世界各地使用它的人，带来很大优势。但我们也有可能错过部分创新收益。</p>
+<p>有没有一些具体事情，政府可以做，让公众因为AI确实在帮助自己，而真正对它感到期待？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>先从个人层面说，我们需要理解别人的处境，我也理解每一个有这种感受的人。</p>
+<p>你可能相信这项技术，每天都在用，觉得它总体上会让世界更好。但其他人感受不同，我们必须认真面对。</p>
+<p>我经常与学生交流。他们一边使用AI，一边又有复杂的感受，也会担心它怎样影响自己的工作。</p>
+<p><strong>Aria Finger</strong></p>
+<p>而且他们可能是对的。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>他们可能是对的，可能真的会失去工作。</p>
+<p>即便最后并没有失去工作，也不代表他们此刻的感受就不真实。</p>
+<p>我不能只是以经济学家的身份走进来，告诉他们，失业率其实只有4.1%。</p>
+<p>首先需要理解他们。现在找工作很难，经济又变化得很快。</p>
+<p>《华尔街日报》里的故事，可能只是个别案例，但它们仍然很能打动人。我昨天还读到一位化学工程师找工作的报道，引起了很多讨论。这样的故事，确实会影响人们的感受。</p>
+<p>所以，第一是共情，接着才是提供证据。</p>
+<p>你要告诉大家，AI在哪里创造岗位，在哪里产生负面影响。</p>
+<p>斯坦福有一项做得很好的研究，显示初入职场者的招聘有所走弱。作者非常坦诚地说明，数据究竟能支持哪些结论。我认为，这是我们目前最接近观察到负面影响的一项证据。</p>
+<p>把数据拿出来，让大家理解和判断。可能的话，也把他们引向那些正在增长的地方。</p>
+<p>医疗岗位在增加。它们未必是科技行业从业者想做的同一种工作，但确实在增加。</p>
+<p>需要给人们诚实的判断。</p>
+<p>第一步，是建立信任。现在围绕AI存在信任缺口。很多领域都有信任问题，但AI是一个很典型的例子。</p>
+<p>第二，政府和两党的政策制定者，需要让人们相信，我所说的自动稳定器确实能发挥作用。</p>
+<p>现在大家讨论发明很多新制度，我完全理解。但过去已经有的工具，也应该记得使用。</p>
+<p>无论在金融危机时期，还是新冠疫情后，我们都有自动稳定器。</p>
+<p>失业率上升，食品援助就增加，其他福利支出也可能提高。州一级也有这样的机制。</p>
+<p>州失业保险系统里，有很多看起来普通、不够吸引眼球的事情可以修好。我们应该把它们都做好。</p>
+<p>把这些事情逐项完善，就能更充分地应对未来。这些政策，无论哪种情景下都值得做。</p>
+<p>如果AI没有推高失业率，我们就为其他可能发生的冲击加固了社会安全网。如果它确实推高失业率，我们也已经做好准备。</p>
+<p>这同样会建立信任。</p>
+<p>最后一点，既需要在表达上做到，也可能需要通过政策落实，人们要感觉到，人类仍然掌握主动权。</p>
+<p>与那些怀疑AI的人交流，他们会非常坦诚地讲自己的担心。</p>
+<p>有些人觉得，自己的专业能力和职业受到威胁。数学家现在就在讨论这个问题，这种讨论非常深刻，也很重要。</p>
+<p>有些年轻人担心，未来更难积累专业能力，也很难迈入就业市场。</p>
+<p>还有一些人，担心数据中心等AI基础设施造成的外部影响。</p>
+<p>面对每一类人，都需要解释，我们准备怎样处理这些负面影响和外部性。</p>
+<p>政府也需要让公众相信，我们能够参与解决问题，帮助你们完成转型。</p>
+<p>这很难。但如果人类参与其中、握着方向盘，就会带来更多信心。</p>
+<p>现在很多人感觉，变化只是发生在自己身上，自己没有机会作出选择。让他们感觉自己能够参与决定，非常重要。</p>
+<p>这些事情都不容易。我并不羡慕我们的领导人和政策制定者。但我认为，没有比解决这些问题更重要的事了。</p>
+<h4 id="chapter-18">41:39 哪个政府部门最能帮助AI扩散</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>你在政府工作过。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>对。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>如果你希望影响AI怎样帮助劳动者、小企业，未来三年你最想在哪个部门工作？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我记得，2020年Gina Raimondo给我打过一个电话，她当时还是罗得岛州州长。</p>
+<p>我原本不知道她为什么找我。她打电话来的时候，我妻子也给我发了消息，说有传闻，她可能被提名担任商务部长。</p>
+<p>我就想，商务部？</p>
+<p>随后，我和Gina交流，她很希望我到商务部为她工作，但我当时还没有完全被说服。</p>
+<p>我对商务部了解不算多。上一届政府时，我在白宫工作，也认识很多在财政部工作的人，过去却没有认真考虑过商务部。</p>
+<p>但Gina很擅长把一件事讲清楚。她一口气列出了商务部能做的很多事情。其中有些事情，它过去未必做过，但具备去做的条件。</p>
+<p>她先谈到NIST，也就是国家标准与技术研究院。我听说过它，但老实说，过去没有特别关注。</p>
+<p>她问，未来量子、AI、能源等深科技的标准，由谁来制定？就是商务部里的NIST。</p>
+<p>气候与可持续性的问题呢？NOAA，也就是国家海洋和大气管理局，也属于商务部。</p>
+<p>怎样发展地区和城市？商务部还有EDA，也就是经济发展署。</p>
+<p>她列举了很多这样的机构与职能。而那时，商务部还没有深度介入后来围绕芯片、《芯片法案》、出口管制等展开的讨论。</p>
+<p>听完这些，我意识到，商务部会成为一种新经济政策的发动机，而且这种政策可能具有持续性和跨党派支持。</p>
+<p>按照我早年的经验，很多经济政策主要由财政部和白宫推动。但回看过去十年，商务部已经成为经济政策的主要参与者，甚至可能是最主要的参与者。</p>
+<p>所以，如果你问的是企业、技术采用与小企业，我会说，商务部是最值得去的地方。</p>
+<p>Gina一定很愿意听我这么说。但我认为，这确实是她教会我的一个认识，而且今天仍然成立。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>Gina非常出色。</p>
+<p><strong>Aria Finger</strong></p>
+<p>她来过我们的节目，那一期简直像一堂大师课。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>希望你们问过，她最喜欢的经济学家是谁。如果没问，下次一定要补问，这样我们才算扯平。</p>
+<h4 id="chapter-19">43:48 前沿模型、贸易与国家竞争力</h4>
+<p><strong>Aria Finger</strong></p>
+<p>沿着这个问题，获取前沿模型正在成为一个双向的贸易问题。</p>
+<p>你负责过《芯片法案》的实施。先把安全问题放在一边，展望五年后，你觉得出口美国模型，会扩大美国能分到的经济收益，还是会让我们的优势流失？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>经济学入门课常告诉我们，把东西放在成本最低、规模最大效应最强的地方生产。</p>
+<p>这就是为什么，半导体制造的中心最后集中到了台湾的台积电。</p>
+<p>但下一门课——并不是每个人都修过的经济学进阶课——会告诉你，把生产集中在一个地理区域，会带来外部性。</p>
+<p>如果那个地方可能发生冲突，这一点尤其重要。</p>
+<p>还会有环境、可持续性和国家安全方面的外部性。</p>
+<p>把这些因素考虑进去以后，决策就需要同时评估这些外部影响，以及国家竞争力。</p>
+<p>对我来说，让全世界获得AI模型和智能，当然很重要。</p>
+<p>但涉及前沿能力，尤其是网络安全之类的能力时，我认为各国有很强的国家利益，需要更加谨慎地决定这些能力怎样分发，因为力量平衡与安全，确实与它们相关。</p>
+<p>所以，你前面提到的两部分问题，实际上很难分开，都需要放进经济政策制定者的工具箱。</p>
+<p>我第二次进入政府工作时，有一个很重要的认识。</p>
+<p>第一次在政府工作，我主要研究经济，几乎不接触国家安全或者国防领域的人。</p>
+<p>第二次，我们做的事情几乎都可以叫作地缘经济学，位于国家安全与传统经济政策的交汇处。</p>
+<p>这是一种非常大的变化。我们这一代接受经济学训练时，几乎都没有为此做好准备。</p>
+<p>我记得，研究生第一天就问过产业政策，有人告诉我，那是欧洲人在做的事情，在这里不要太关注。</p>
+<p>但等我重新回到政府，我们已经开始思考，怎样在美国建立一个有活力的半导体制造业。</p>
+<p>我相信，这些问题会超越任何一届具体政府。</p>
+<p>AI、量子、能源、合成生物学，以及其他很多领域，都会提出类似的问题。</p>
+<p>这与以前研究经济、制定政策的方式相比，是一个很大的转变。</p>
+<p><strong>Aria Finger</strong></p>
+<p>那在贸易政策上，你怎样看待保护本国人民与开放市场之间的取舍？这似乎是一个永恒的争论。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>很多深科技市场的发展方式，会与互联网时代不同。我觉得大家对这一点还没有足够重视。</p>
+<p>过去估计总可服务市场，也许直接看看全球人口，或者采用类似的办法。</p>
+<p>现在，如果世界不同地区使用不同的技术体系，你的总可服务市场就会不一样。</p>
+<p>有些技术本身也不同。比如量子计算与互联网。互联网时代，我们曾经努力让全世界更多人上网。但量子计算领域，谁最先、谁最好，非常重要。</p>
+<p>这些差异，会改变市场规模，也会改变公司的战略。在量子和AI里，都能看到这种情况。</p>
+<p>很多人看到政府与企业的互动，会问，为什么这样安排？这与过去不一样。</p>
+<p>但技术本身也不一样了。</p>
+<p>与过去的消费科技相比，深科技天然会更多地与国家安全相交，也就意味着政府会扮演不同角色。</p>
+<p>有时，需要在保护国家安全与更大的市场之间取舍。</p>
+<p>不同政策制定者、不同公司，会朝不同方向推动。但如果未来多届政府都形成这方面的共识，我不会感到意外。</p>
+<h4 id="chapter-20">47:16 前沿实验室为什么需要首席经济学家</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>我们通过你的团队，来看看OpenAI内部。</p>
+<p>科技公司设置首席经济学家已经有一段时间，Amazon、Uber、Microsoft、Google都有。</p>
+<p>前沿实验室为什么也需要这个岗位？你的存在，会让公司内部发生什么变化？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>希望Sam在听，我得为自己的岗位作一下解释。</p>
+<p>首席经济学家进入科技公司的潮流，大概从2000年代初开始。</p>
+<p>Hal Varian在伯克利任教时，我还是那里的一名学生。后来他加入Google，我们当时都在用他的教科书，所以大家都觉得，这是一个很大的变化。</p>
+<p>当时，像他这样的人接受这样的企业职位，还很少见。我们都意识到，一个新时代开始了。</p>
+<p>后来，你刚才列举的其他企业，也出现了类似岗位。</p>
+<p>对于前沿实验室，我认为有两个主要原因。</p>
+<p>第一，有非常多的数据，需要被解释和理解，才能给社会提供作决策的工具。</p>
+<p>如果问我自己最重要的工作是什么，我会说，是把数据与洞见公开出来，让商务部、英格兰银行，或者其他国家的人，都能够理解究竟发生了什么。</p>
+<p>这是我的第一职责。</p>
+<p>坦率地说，全球也许只有另外少数几个组织，拥有接近我们这种质量的数据。从消费者使用这一侧看，我们的数据尤其丰富。</p>
+<p>所以，整理这些数据，把它们发布出来，同时保持客观，没有预设倾向，是一个很大的责任。</p>
+<p>实验室内部需要经济学家来做这件事。</p>
+<p>我们有很优秀的数据科学团队。数据科学家经常思考产品决策，以及怎样为企业内部的决策者提供信息，这很重要。</p>
+<p>但有经济学家站在实验室之外的更大图景上思考，也非常关键。</p>
+<p>第二，我们正在代理经济里创造能够参与经济活动的行动者。</p>
+<p>我的MBA学生，以及下一代人，未来管理的代理数量，可能会超过他们管理的人数。</p>
+<p>这些代理会怎样行动？它们会支持什么样的经济组织？哪些激励会约束和推动它们？</p>
+<p>经济学家其实很有经验去回答这些问题。</p>
+<p>所以，一方面是数据，另一方面是把经济学推理与理论用于代理经济。这两点加起来，就是前沿实验室需要首席经济学家的原因。</p>
+<h4 id="chapter-21">49:25 身在OpenAI，怎样建立研究可信度</h4>
+<p><strong>Aria Finger</strong></p>
+<p>你还有一个比较特殊的地方。你与外部学者合作发表论文，也接受同行评审。这对一家企业来说，并不常见。</p>
+<p>站在OpenAI内部，你能看到哪些坐在大学里看不到的东西？</p>
+<p>同时，这又会付出什么可信度代价？别人可能会说，你就在OpenAI工作，为什么应该相信你发布的研究？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>这是个很好的问题。</p>
+<p>Aria，2024年决定接受这份工作时，我认真想过这个问题。</p>
+<p>我知道，自己的生活很难再和过去完全一样。此前在政府，我有那种身份。这是研究生毕业以后，我第一次全职进入一家私营机构。</p>
+<p>我很快就意识到，需要与外部学者合作。</p>
+<p>首先，他们能够看到很多我看不到的东西。</p>
+<p>在适当的数据治理和安全安排之下，如果能让他们了解我们的情况，他们的洞见也会反过来教会我很多东西。</p>
+<p>我不可能在自己团队里拥有全部专业知识，不可能同时有理论经济学家、宏观经济学家，以及我希望有的每一种专家。</p>
+<p>因此，与别人合作非常重要。</p>
+<p>第二，要发表研究。</p>
+<p>经济学家通过工作论文和正式出版物彼此交流。这个方式很传统，但如果你希望影响经济学家怎样理解AI，就必须写这些东西。</p>
+<p>它们耗时很长。我有很多论文正在不同期刊审稿，过程真的很漫长。</p>
+<p>有时，我甚至想向匿名审稿人求情，拜托，我本来并不非得做这件事。</p>
+<p>但它确实很重要，所以我们还是要经历这些麻烦。</p>
+<p>一旦论文发表，它们就会成为一套逐渐积累的知识，影响经济学家怎样思考。我自己也是通过这种方式学习的。</p>
+<p>我们现在有一篇工作论文，在不到一年时间里，已经获得大约850次引用。</p>
+<p>这很惊人，说明短时间里，就有850个后续研究或者引用者，认为有理由建立在这项工作上继续推进。</p>
+<p>如果能正式发表，希望还会有更多人引用。目前它还只是一篇工作论文。这就是为什么要写、要把研究拿出来。</p>
+<p>可信度一直是一个挑战，这条线很难把握。</p>
+<p>有两件事，是我在努力做的。</p>
+<p>第一，除了与外部学者合作，我也尽可能提供更多数据，让他们能够自己做研究。</p>
+<p>你想回归，想做分析，都可以自己完成，这样就能提高透明度。</p>
+<p>第二，期刊本身有同行评审。如果论文发表，至少意味着OpenAI之外也有人认为，这项研究是有价值的。</p>
+<p>还有第三件事，需要支持其他人的研究，把更多人带进来。</p>
+<p>我们有一个叫作Exchange的项目，已经资助14个研究团队，用我们的数据开展研究。他们可以独立于OpenAI开展自己的工作。</p>
+<p>这些都是建立可信度的办法。</p>
+<p><strong>Aria Finger</strong></p>
+<p>很好。</p>
+<h4 id="chapter-22">51:57 为什么把研究重点放在当下</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>据我理解，你和OpenAI的研究，主要关注人和企业现在怎样使用AI。</p>
+<p>为什么选择这个重点？为了保持这种聚焦，你又放弃了什么？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>组建团队时，必须决定优先做什么，这很难。</p>
+<p>一开始，你什么都不想放弃，像走进糖果店的孩子。</p>
+<p>但一些在科技组织里工作很久的同事和朋友告诉我，Ronnie，你必须选择，必须排序。</p>
+<p>刚加入时，我掌握的知识还不够完整，但我会听聪明人的建议。</p>
+<p>所以，我决定，只专心做几件事。选择研究方向时，我会更多押注当下与数据。</p>
+<p>为什么？</p>
+<p>我在政府工作过，也坐过那些政策岗位。如果目标是给政策制定者与企业负责人提供实际能用的数据，那么告诉他们现在正在发生什么，可能更有价值。</p>
+<p>而且，他们现在恰恰缺少这些数据。</p>
+<p>长期预测，也许每六个月就得更新一次，告诉大家，之前说的那个时间，要再推迟一年。我觉得，把工作重心放在当下，会更好。</p>
+<p>当然，也有代价。</p>
+<p>你得出的结论，可能有人会说，这个我早就知道了。</p>
+<p>我会回答，你以前以为自己知道，但其实并没有这样的证据。</p>
+<p>对我而言，实证基础是最有把握的部分。这个世界太难预测了。</p>
+<p>一些预测确实能够拓宽大家讨论的范围，让人们想象以前没有想到的事情。</p>
+<p>但它们也可能创造很多噪声，让企业负责人和政府领导者更难作决定。</p>
+<p>如果看政策制定者回应最积极、最有用的研究，往往是告诉他们，AI现在怎样影响就业市场。</p>
+<p>因为他们的工作，就是要处理现在的问题。</p>
+<p>所以，我作出了这个选择，它确实带来取舍。</p>
+<h4 id="chapter-23">53:29 不同立场怎样进入研究</h4>
+<p><strong>Aria Finger</strong></p>
+<p>说到可信度，现在一个很重要的问题，是你属于民主党还是共和党。</p>
+<p>OpenAI请来了Jason Furman与Michael Strain，两位来自不同政治阵营的经济学家。</p>
+<p>我想，这可能也有助于建立跨党派的可信度。为什么请他们加入？这些外部人士的支持，又能带来什么？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我认为，需要把很多不同视角的人带进来。</p>
+<p>在经济学界，与不同政党有联系的经济学家，可能85%的时间，对经济问题的看法其实一致。</p>
+<p>当然，其他问题上，观点可能更多元。</p>
+<p>让人们能够在OpenAI里看到与自己相近的视角，觉得自己的看法得到代表，非常重要。</p>
+<p>想象一下，将来每天有十亿人向AI询问财务、政治、关系方面的建议。</p>
+<p>如果你正在开发这种机器智能，人们当然会希望，它提供的信息没有偏见，而且建立在最佳证据上。</p>
+<p>对于怎样做到这一点，不同人也会有不同看法。</p>
+<p>邀请不同人士担任顾问、提供建议，就可以与不同群体建立信任。</p>
+<p>但事情也不止于此，你还得走出去，见到这些人，与他们交流，展示实际数据，告诉他们什么是提示词，AI会生成什么。</p>
+<p>就像前面说的，在世界各地这样做，就有机会建立全球性的信任。</p>
+<p>在美国，我们也在这样做。我已经去过很多州，讨论AI，办过工作坊和训练营。</p>
+<p>过去我可能是负责教的人，但随着技术进步，现在我也在不断学习。</p>
+<p>到场本身，就是很重要的一部分。我们在自己的职业经历里，应该都体会过这一点。</p>
+<p>我过去在公共部门工作时就发现，真正来到现场，是化解不信任与紧张关系的一种很好的办法。</p>
+<p>如果你天天在Twitter上与别人争论，很容易忘记，面对面交流时，人们的反应会完全不同。</p>
+<p>他们会觉得，当面再对这个人无礼，就难多了。我在各地交流时，确实学到了这一点。</p>
+<p>所以，我们会用这些办法建立信任。请他们两位参与，也是其中一个例子。</p>
+<h4 id="chapter-24">55:25 最希望谁来挑战自己的数据</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>你最希望哪位经济学家来与你的数据辩论？希望争论什么？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我觉得Daron Acemoglu一直在提出很多很有价值的AI反方观点。</p>
+<p>有些人会问，这会不会让你觉得受到威胁？我会说，这恰恰能帮助我们进步。</p>
+<p>他写过很多很有影响力的书，我也从他的研究里学到了很多。</p>
+<p>我很愿意与他分享数据。我们已经交流过，我也希望看看，他是否会从这些数据里得出与我们相同的结论。</p>
+<p>如果我把这件事做好，他可能在解读和长期预测上仍然与我们不同。</p>
+<p>但我认为，让他直接接触这些数据，会非常有意义。而且，他以前就做过这种研究。</p>
+<p>所以，就目前而言，他是我最希望与我们的数据互动、提出挑战的人。</p>
+<h4 id="chapter-25">56:11 能完成一半任务，是否意味着一半失业概率</h4>
+<p><strong>Aria Finger</strong></p>
+<p>你工作的另一部分，是衡量AI能做哪些真实工作，以及它的经济意义。</p>
+<p>GDPval就是OpenAI为此建立的测试，任务由44种职业里有经验的专业人士编写和评价。</p>
+<p>但怎样把一个完整的职业变成测试？这些测试又能告诉我们，AI对经济究竟能产生怎样的影响？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>如果可以，我想从头说起。</p>
+<p>大家对AI与就业的很多兴趣，最初来自分析任务。这个出发点很好。</p>
+<p>如果你问，Ronnie，你工作时做些什么，我可以列出来。或者更好一点，让劳工部告诉你，Ronnie做什么，他们也能列出来，这就是O*NET职业数据库。</p>
+<p>它基本上是一张任务清单。</p>
+<p>接下来再问，AI能不能完成这些任务？机器学习研究者很喜欢基准测试，于是就可以让AI与任务比较，看看它是否比人做得好，是否相当，打平时又应该怎样计算。</p>
+<p>GDPval的想法，大致就来自这里。</p>
+<p>但一开始，很多人会看Ronnie Chatterji工作里的十项任务，然后说，如果AI有五项比Ronnie做得好，那他就有50%的概率失业。</p>
+<p>这种推断根本不成立。我要非常强调，实际情况完全不是这样运转的。</p>
+<p>我至今记得，1984年，我父亲的办公室里有了一台电脑。</p>
+<p>他会做很大的回归分析。以前，他要拿着穿孔卡片，到大型主机机房里工作。他给我讲过很多这样的故事。</p>
+<p>他也是经济学教授，所以我算第二代经济学家。</p>
+<p>有了电脑以后，电脑基本能够帮助完成他的每一项工作。但他并没有在1984年失去工作。</p>
+<p>他用电脑做更大的回归，跑更多模型，完成更多研究，写更多论文。</p>
+<p>所以，一个岗位接触AI的程度高，也可能是一件好事，关键是你能不能把它用于自己的工作。</p>
+<p>另一个经常被忽略的问题，是对我们很多人而言，任务本来就是内生于岗位的，会随着目标与做事方式变化。</p>
+<p>别人并不是简单告诉你，Ronnie，你只能做这十件事。</p>
+<p>他给你的可能是一个边界有点模糊的高层目标，再告诉你，多数人通常通过这十件事来实现它。</p>
+<p>然后你自己想，应该怎样做。你可能发现，还可以用别的方式达到目标，于是增加任务十一、十二，去掉任务一、二。</p>
+<p>很多人，特别是白领，就是这样工作的。</p>
+<p>因此，从任务出发建立机器学习基准，虽然很有意思，却也让人误以为，能够直接从测试结果推导AI会消灭多少岗位。</p>
+<p>这种推断还完全漏掉了一种可能，相关产品或服务的需求本身会增加。</p>
+<p>我觉得，这样的起点，让我们作出了一些至今没有实现的预测。有时，对那些努力理解现实的人，也造成了误导。</p>
+<p>不过，GDPval本身很有意思。你能看到AI制作幻灯片、制作电子表格，以及完成很多职业任务的能力有多强。</p>
+<p>例如，对财务分析师，可以看到GDPval在这份工作不同环节上的表现。</p>
+<p>我们利用O*NET和其他职业分类，也与真正做这些工作的人深入交流，尽可能把工作内容写清楚。</p>
+<p>但过去三年，McKinsey业务分析师的工作，肯定已经发生很大变化。</p>
+<p>这个目标一直在移动，因此我们需要继续观察岗位本身怎样变化。</p>
+<p>我要特别感谢建立GDPval的前沿评估团队。他们做出了一个可以持续跟踪AI经济影响的基准，非常有价值，我们一直在使用。</p>
+<p>与此同时，岗位本身也在变化，有时甚至可能变得比AI更快。</p>
+<p><strong>Aria Finger</strong></p>
+<p>对。</p>
+<h4 id="chapter-26">59:20 AI时代需要新的职业测量体系</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>我在LinkedIn时就很熟悉O*NET。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>当然。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>你们有没有分析过，它在AI时代到底有多准确，更新得够不够及时？</p>
+<p>“老”也许不是最合适的说法，但它确实有点过时。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>Reid、Aria，你们面对的是大众听众，这个问题可能会把我们带进一个很深的专业话题。聊到最后，也许只剩五位听众。</p>
+<p>但我可以肯定，经济学家普遍都想改进它。</p>
+<p>它是我们目前最好的工具，却未必是为现在这些用途设计的。</p>
+<p>它覆盖得非常全面，所以大家把它用在很多原本没有计划覆盖的地方。</p>
+<p>我认为，一个非常值得做的项目，是围绕工作与AI，建立新的测量基础设施。</p>
+<p>我们团队已经讨论过很多次，也向劳工部提交过相关意见。</p>
+<p>我的岗位恰好可以做这种很专业、很细的工作，因为有人会听，也有能力与可信度把它推进。</p>
+<p>我们很希望看到对数据基础设施的新投资。现在的O*NET，与我们想研究的问题之间，还存在不匹配。</p>
+<p>这方面还可以说很多，但那可能得留给一个更专业的播客。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>但它也非常重要，这就是我为什么要问。</p>
+<p>AI出现以前，我在LinkedIn时就认识这个问题，那时它已经有点老旧了。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>对，当年我们还把它用于LinkedIn。</p>
+<p>现在完全有机会建立更好的数据。我认为，应该在美国整体经济层面，以及世界各地，围绕这些新问题建立测量。</p>
+<p>可以想象一项国际性的努力。</p>
+<p>还有一件事，我们此前没有谈到。就业风险最早出现的信号，也许出现在菲律宾的呼叫中心市场，或者印度的业务流程外包市场。</p>
+<p>寻找这些早期信号，可能同样重要。</p>
+<p>如果有合适的劳动分类体系，识别这些变化就会更有帮助。</p>
+<h4 id="chapter-27">60:59 怎样把独有数据变成可信的公共信息</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>你们团队掌握的人们怎样用AI工作的数据，可能比世界上任何其他组织都多，肯定比任何一家统计机构多。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>是的。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>你前面谈到关注当下，以及如实报告数据。</p>
+<p>你怎么看自己的责任？什么时候发布，按什么顺序发布，以什么形式向公众展示这些东西？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>先从传播的角度说，向做得最好的人学习很重要。</p>
+<p>我们团队里就有一位以前在LinkedIn工作的人，做过数据洞见相关工作。</p>
+<p>LinkedIn以前也拥有很多早期数据，以及与就业市场高度相关的信息。</p>
+<p>怎样把它们整理成大家愿意阅读和使用的形式，非常重要。</p>
+<p>但这是一个很拥挤的领域。你们也知道，现在有很多人在写未来工作会是什么样。</p>
+<p>所以，首先要想，我们的受众是谁？什么样的数据与洞见，对他们有意义？</p>
+<p>我们做过受众划分，也在考虑，哪些人会对我们的研究有反应，应该使用哪些平台。</p>
+<p>LinkedIn、X、Substack，都是不同的平台，需要思考每个平台上适合放什么。</p>
+<p>从实质内容看，我们更关注人们实际做的工作。</p>
+<p>统计岗位数量，劳工统计局有更好的位置和条件去做。</p>
+<p>我们能看到的独特之处，是人们究竟怎样在工作中使用AI。</p>
+<p>因此，我们在Signals和Enterprise Signals数据里，构建了一些只有我们能够提供的指标与测量。</p>
+<p>这是另一个关键。除了传播渠道，也需要有自己独有、能够提供的实质内容。否则，别人为什么要来找你？</p>
+<p>最后一部分最难。</p>
+<p>这些东西往往非常专业，经济学家又喜欢彼此用专业语言交流。</p>
+<p>怎样让它变得有现实意义，让《华尔街日报》、播客或者Substack愿意使用？</p>
+<p>怎样在把内容讲简单、准确传播，与过度简化导致失真之间，把握好边界？</p>
+<p>要维持Aria刚才问到的可信度，就必须确保别人准确理解你传达的信息。</p>
+<p>我花很多时间思考这两件事。我们是不是说得太抽象、太专业？与此同时，最终传达出去的东西，是否仍然正确？</p>
+<p>我觉得，准确是最重要的责任。</p>
+<p>我们刚才在休息室也聊到，我做很多演讲，结果两边的人都可能不满意。</p>
+<p>有人结束后走过来说，你讲强化学习讲得还不够深入。另一群人却说，我刚刚才第一次打开ChatGPT。</p>
+<p>你怎么同时照顾他们？</p>
+<p>经济统计也一样。我们在尽力，希望最终能达到目的。你们的听众会告诉我，做得够不够好。</p>
+<h4 id="chapter-28">63:37 两年里，什么变化最出乎意料</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>这些都很有意思。</p>
+<p>进入快问快答之前，有没有什么问题，你原本希望我们问，但还没有问到？有没有最近特别放在心上的事？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>加入OpenAI以后，最让我惊讶的事情，其实是能力增长。</p>
+<p>工作中，我经常讨论，大家对经济影响的预测，哪些对、哪些错。那是我比较熟悉的领域。</p>
+<p>但在技术能力这一侧，我原来没有很强的先验判断。听过很多说法，身为经济学家，也天然比较怀疑。</p>
+<p>但能力增长的幅度，真的非常惊人。</p>
+<p>那些理解规模定律，理解技术前进方向和速度的人，他们当初是对的。我从中学到了很多。</p>
+<p>你必须诚实面对，哪些地方需要更新自己的判断，哪些地方原来的认识可能比较正确。</p>
+<p>在就业和增长方面，我的判断比较准确。但能力增长方面，我原来差得很远。这很有意思。</p>
+<p>想想我加入OpenAI时，AI还做不了我女儿的数学作业。现在，我们已经能解决一些人类一百年来都没有解决的问题。</p>
+<p>变化只发生在两年里。认真想一想，确实值得敬畏。它有很多影响，但单是这个变化，就已经让我很震撼。</p>
+<p>这就是加入OpenAI以后，最令我惊讶的事情。</p>
+<p><strong>Aria Finger</strong></p>
+<p>我觉得还有一个很有意思的地方。</p>
+<p>几乎没有别的技术，变化得这样快，而且这种变化真的会影响公众的看法。</p>
+<p>我身边很多人，仍然认为ChatGPT或者AI很不擅长数学。他们会说，为什么要用它做数学？你忘了吗，它数学很差。</p>
+<p>但如果他们18个月前用过ChatGPT，现在对技术的看法就已经过时了。</p>
+<p>他们可能因此认为，AI对自己、对工作、对生活没有帮助。</p>
+<p>所以，我们几乎每个月都要重新向人们介绍这项技术。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我们确实已经经历了好几轮变化。</p>
+<p>有些人2024年试用的时候，还处在聊天机器人时代，就是你问我答。</p>
+<p>后来有了推理模型。现在人们可能已经有些忽略，但o1系列在思考、推理和相关优化方面，曾经非常重要。</p>
+<p>现在，我们又进入代理时代。</p>
+<p>那些当年问它数学问题、发现它答不出来的人，脑中想象的可能仍然是，向ChatGPT提问，你能不能证明这个定理？</p>
+<p>但他们可能还没有想到，一万个代理一起协作，会是什么样。</p>
+<p>那更接近一个研究组织。</p>
+<p>我们生活在这个世界里，但对很多人来说，它变化得太快了。2024年所说的AI，已经不足以描述2026年的AI。</p>
+<h4 id="chapter-29">65:58 AI怎样推动经济学研究</h4>
+<p><strong>Aria Finger</strong></p>
+<p>好，我很期待接下来的部分。你还有问题？请继续。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>那我应该问问，你什么时候会有AI代理，来推进经济学这个领域？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>应该问。</p>
+<p>AI代理已经在推进经济学，只是它的方式，可能比看过数学突破的人想象的更普通一些。</p>
+<p>我们的很多工作，与最理论化的数学研究之间，有一定距离。</p>
+<p>如果把它说成上游或者下游，可能都会得罪经济学家，但社会科学确实同时包含艺术与科学。</p>
+<p>其中的艺术，在于怎样找到研究问题。</p>
+<p>经济学也有少数长期未解、类似千禧年难题的问题，但大多数研究，更重要的是提出正确的问题。</p>
+<p>目前，这一部分仍然在人类手里，而且做得很好。</p>
+<p>回答问题的方式，也有一种讲究与优雅。经济学当然有理论分支，会更接近严格证明。</p>
+<p>但在很多实证研究里，你需要把问题正确地表述出来，放进已有文献，再用手头数据，以很有说服力的方式回答。</p>
+<p>AI会帮助构思研究问题，找到以前可能漏掉的文献，特别是你平时不读的期刊里的研究。</p>
+<p>它也可以帮助把自己的研究与结论，连接到此前没有注意到的其他研究。</p>
+<p>还可以检查，代码里有没有基本错误，数据是否匹配正确，所跑的模型设定，对计量经济学里需要担心的各种问题，是否足够稳健。</p>
+<p>这些都非常重要。</p>
+<p>至于发一个提示词，就让AI写完一篇论文，X上对此有不同意见。我自己仍然在写自己的论文。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>是的。那我们现在进入快问快答。</p>
+<h4 id="chapter-30">67:38 快问快答，员工人均营收与组织</h4>
+<p><strong>Aria Finger</strong></p>
+<p>这是特别版的快问快答。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>有配乐吗？或者来一段鼓声？</p>
+<p><strong>Aria Finger</strong></p>
+<p>准备好了吗？第一个问题，你每周会看、但公司外面几乎没人关注的一个数字是什么？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我很关注自己跟踪的某些企业的员工人均营收。</p>
+<p>斯坦福数字经济实验室那篇关于就业市场的论文，叫作《煤矿中的金丝雀》。我觉得这个标题很好。</p>
+<p>但我真正想找的，是能够提前显示生产率变化的金丝雀。</p>
+<p>前面谈到Yellen与Greenspan的争论，也谈到Jason Furman的判断。我想知道，应该观察什么。</p>
+<p>Jason、其他研究者，以及Erik Brynjolfsson，都提到过一些数字。</p>
+<p>我在看员工人均营收，也在跟踪一组根据自己掌握的信息，认为与AI关联度特别高的企业，观察它们怎样随时间变化。</p>
+<p>这个数字未必每个月都会发布，但我一直在跟踪。也许还有其他人在看，但它确实是我很关心的指标。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>这些数字里，有没有什么惊喜，或者有意思的发现？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我暂时留一点悬念。</p>
+<p>有些你原以为员工人均营收会上升的行业，其实升得没有那么快。</p>
+<p>另有一些不太受关注的行业，让我很感兴趣。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>那就为未来的发现预备鼓声。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>没错。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>关于AI，经济学家有什么共识，你认为是错的？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我会说，通往AGI的道路，必须经过组织。</p>
+<p>经济学家和机器学习研究者，经常都忽略这一点。</p>
+<p>很多机器学习研究者，更关注AI的原始能力。他们会想，既然技术能做这些事，接下来就会去做。</p>
+<p>但他们低估了组织在新技术采用中的中介作用。</p>
+<p>经济学确实有组织经济学这个分支，但在很多分析里，组织仍然被忽略了。</p>
+<p>坦率地说，我认为组织是人类最伟大的发明之一。它体现了人们共同调动资源与才干、一起把事情办成的能力。</p>
+<p>经济学家和其他人，都在很大程度上低估组织在塑造AI实际影响方面的作用。</p>
+<p>在我看来，要走到我们讨论的那种AGI状态，必须经过企业的采用。这就是我的判断。</p>
+<h4 id="chapter-31">69:34 2030年的失业率与AI使用率</h4>
+<p><strong>Aria Finger</strong></p>
+<p>现在是2030年末，你猜美国失业率是多少？给一个最好的估计。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我希望会在5%或者更低。</p>
+<p>如果AI按照我们刚才讨论的方式产生收益，它未必会带来很大的就业扰动。</p>
+<p>如果AI的采用超出了我们最大胆的想象，而且以某种方式给就业市场造成严重负面影响，我们就必须采取行动，让转型更平缓，帮助人们重新进入有生产价值的工作。</p>
+<p>过程中有很多政策工具可以使用。</p>
+<p>我认为，从现在到2030年，要么我们能够应对这些问题，要么会发现，AI对岗位的影响，小于一些人的想象。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>那么，2030年美国劳动者中，每天使用AI的比例呢？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我记得，根据David Deming及其合作者的一项工作场景调查，现在大约是40%。</p>
+<p>到那时，我认为会上升到80%。</p>
+<p>还有一个有意思的情况，有些工作已经在使用AI，但人们并不认为自己正在使用AI。</p>
+<p>所以，比例还可能更高，因为AI会被嵌入许多其他平台。</p>
+<h4 id="chapter-32">70:39 最想聘用哪一位经济学家</h4>
+<p><strong>Aria Finger</strong></p>
+<p>无论在世还是已经去世，明天你最想聘用哪位经济学家？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>很高兴你给了后面那个选项。</p>
+<p>前两天，有一段对话让我想到这个问题。有人在比较，我们这一代怎样学习经济学，上一代又怎样学习。</p>
+<p>我有一个可以对照的例子。我父亲在1963年获得经济学博士学位。</p>
+<p>他跟我说过，当年的一门课里，读过John Kenneth Galbraith写的书。</p>
+<p>今天多数经济学家，可能不会再读Galbraith，因为他的写法有很多叙事，也大量涉及经济史。</p>
+<p>那天晚餐时我们就在讨论，这些东西对今天的经济学家，其实也很有用。</p>
+<p>我们很多人，对自己这个学科的历史了解得不够。我也包括在内。</p>
+<p>所以，我觉得需要Galbraith这样的人。</p>
+<p>他担任过美国驻印度大使，也是一位有影响力的公共知识分子，能够把技术变化与经济发展、地缘政治、国内政治的影响联系起来。</p>
+<p>他在非常高的层次上理解这些东西。这就是我想聘用他的人选。</p>
+<h4 id="chapter-33">71:36 2036年，代理能否组成完整组织</h4>
+<p><strong>Reid Hoffman</strong></p>
+<p>很好。</p>
+<p>2036年的经济，有哪一件事，因为AI而能做到，但今天还做不到，而且你愿意为它打赌？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>我觉得，到那时一定会有由代理构成的组织。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>整个组织？</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>对，整个组织。</p>
+<p>看看今天已经能用代理做什么，它们有多强，再看看它们共同协作时又能做什么。</p>
+<p>让这样的组织真正运转，最需要持续关注的，就是算力成本。</p>
+<p>当然，法律责任由谁承担，公司最终的剩余索取权归谁，都是重要问题。</p>
+<p>但从功能上看，我们能够拥有代理构成的组织。</p>
+<p>它们的规模，可能小于最宏大的设想，但我认为，这是一个相当有把握的估计。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>很好。</p>
+<p><strong>Aria Finger</strong></p>
+<p>Ronnie，非常感谢你。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>谢谢邀请。</p>
+<p><strong>Reid Hoffman</strong></p>
+<p>感谢参加。</p>
+<p><strong>Ronnie Chatterji</strong></p>
+<p>非常好，谢谢。</p>
+<p><strong>Aria Finger</strong></p>
+<p>太棒了。</p>
+<h4 id="chapter-34">72:40 制作与鸣谢</h4>
+<p>Possible由Palette Media制作，主持人为Aria Finger与Reid Hoffman，节目统筹为Shaun Young。</p>
+<p>制作人员包括Thanasi Dilos、Katie Sanders、Spencer Strasmore、Yimu Xiu、Aman Suri、Danny Garrison、Trent Barboza与Tafadzwa Nemarundwe。</p>
+<p>特别感谢Surya Yalamanchili、Saida Sapieva、Ian Alas、Greg Beato、Parth Patil与Ben Relles。</p>
+<p>同时感谢Zach Herlick、Amanda Anderson、Josh King、Olivia Oran、Allie Mack，以及Midpen Media Center团队。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
