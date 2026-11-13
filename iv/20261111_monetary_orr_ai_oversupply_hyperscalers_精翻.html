@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>David Orr谈AI算力过剩、超大云回报与市场仓位（Monetary Matters全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>David Orr谈AI算力过剩、超大云回报与市场仓位（Monetary Matters全文精翻）</h2>
+<div class="metaline">Monetary Matters Network · Other People's Money · Max Wiethe、David Orr · 2026-11-11 · <a href="https://www.youtube.com/watch?v=w7Lc5Iyg-To" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：算力供需；AI资本开支；超大云厂商；软件护城河；市场仓位；基金风控；估值；流动性</p>
+<p>David Orr为对冲基金Militia Capital创始人，主持人为Max Wiethe。</p>
+<ul><li>Orr认为算力建设可能先于实体世界的吸收能力扩张，过剩发生的时间决定当前股票定价是否已经见顶。</li><li>他解释偏好超大云厂商的合同与回报逻辑，并结合自己的持仓、软件开发和组合管理经历，讨论这一判断的条件。</li></ul>
+<h3>全文精翻</h3>
+<h4 id="chapter-1">00:56 从AI拥挤交易到被迫平仓</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>欢迎收听Other People's Money。今天的嘉宾是David Orr，他是对冲基金Militia Capital的创始人，已经经营这只基金多年，回报非常出色，年化复合回报达到48%，资产规模已经超过5亿美元。</p>
+<p>David，谢谢你来参加节目。</p>
+<p><strong>David Orr</strong></p>
+<p>谢谢邀请。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我们正处在一个很特别的市场环境里。录制是在美国中期选举之后的一周，市场对选举结果作出了相当大的反应。</p>
+<p>有些变化在中选结果出来以前就已经开始了。今年最热门的交易，大概就是做多AI基础设施、数据中心和半导体。你怎么看这笔交易的退潮？</p>
+<p><strong>David Orr</strong></p>
+<p>就像你说的，实际上从六月开始，市场已经有些下行。我认识的几位最优秀的交易员认为，六月出现过一轮最后加速冲高，然后见顶。</p>
+<p>我觉得市场一直在找一个让AI大幅下跌的理由。太多人在高位建立了持仓，上行空间就受到限制，走势已经转弱，也没有新的边际买家，只是在等一个下跌的触发点。</p>
+<p>我之前发过几次这方面的看法，也预料到这种可能。不过，究竟什么事件会触发下跌，没有人真正知道。</p>
+<p>这次最大的新闻，大概是得州州长选举。我觉得真正的原因并不在这条新闻本身。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>无论六月还是这一次，都出现了很多关于基金出问题、投资者被迫平仓的说法。</p>
+<p>遇到这样的抛售，你怎么分辨基本面驱动的卖出和被迫清仓？</p>
+<p><strong>David Orr</strong></p>
+<p>这些机构会用八倍杠杆，或者大约六到十倍的杠杆。</p>
+<p>有些交易的走势很奇怪。比如日经指数跌了5%，日本小盘价值股当天却莫名上涨。这显然像是某个用了大量杠杆的参与者出了问题。</p>
+<p>类似的交易有很多，平仓之间还会产生连锁反应。本周那些加杠杆做多半导体、同时做空其他资产的人，基本上作为一个群体一起受到了冲击。</p>
+<p>我负责的那部分组合尽量避开了这些波动，整个过程大体打平。Mike和Rodrigo交易得很好，两个人都赚了不少。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>你现在已经有十位组合经理。如果你认为某个方向已经见顶，会把这个判断传达给其他人吗？怎么确保其他子组合的情况不会给整个基金造成问题？</p>
+<p><strong>David Orr</strong></p>
+<p>另外七个人的规模都很小，即便真的作出非常糟糕的交易，对基金的影响也不会太大。</p>
+<p>不过，看到每个人在这次压力测试中的表现，确实让人安心。终于可以看到他们在极端环境下会怎么做。</p>
+<p>基本没有人出现很严重的回撤。我记得表现最差的一位大约跌了8%。考虑到市场波动这么极端，我不会过度解读这8%的损失。好几个人都在盈亏平衡附近。</p>
+<p>所以，我没有看到什么问题。我也尽量安慰大家，这是一个很特别的市场环境，别给自己太大压力。每个人的风险控制看起来都不错，事情还在按计划推进。</p>
+<h4 id="chapter-2">04:36 算力过剩的时点决定股价路径</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>你觉得后面还有多少下跌空间？</p>
+<p><strong>David Orr</strong></p>
+<p>我不确定。目前还没有抄底。不过，之后某个时点，我可能会买半导体ETF，至少做一笔短期交易。</p>
+<p>AI上涨的大部分过程中，我都是坚定的多头。但六月时，我把所有AI股票都卖掉了。</p>
+<p>我现在的看法是，AI最终会出现过剩。我们会拥有太多智能，实体世界可能需要好几年才能追上。</p>
+<p>长期而言，我认为这些投入能发挥作用。智能本身可以找到无限多的用途。但在短期内，你会遇到各种其他瓶颈，算力则可能严重过剩。</p>
+<p>这种情况会在一年或者一年半之后出现吗？如果是，六月很可能已经是股价高点，因为市场会提前反映未来。</p>
+<p>但如果四年以后才出现过剩，AI股票可能先再涨一倍。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>刚才大家还认为算力短缺，怎么这么快就变成算力过剩的共识了？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得是仓位变化，然后价格推动了叙事。发生的基本就是这些。</p>
+<p>基本面并没有在一瞬间突然改变。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>那么，人们现在认为会出现过剩，到底依据哪些基本面？如果你要论证一两年后会明显出现过剩，你现在会看什么？</p>
+<p><strong>David Orr</strong></p>
+<p>看看未来两年、实际上一直到2028年的资本开支数字，它们太庞大了。</p>
+<p>同时，除了软件公司，基本上还没有多少人真正购买这些算力。</p>
+<p>软件公司真的需要比现在更多的算力吗？我感觉，它们正在学习怎么用，学习怎么把AI接进现有业务。等到这些功能已经能够运转时，现有算力可能就显得很多了。</p>
+<p>我知道，只要继续维持如此庞大的资本开支，迟早会有软件公司说，原来我们并不需要这么多。</p>
+<p>然后，它们会开始转售自己预订的容量。一旦转售开始，价格就可能跌到原来的一小部分。</p>
+<p>十月有几条新闻让我特别感兴趣，却没有引起足够讨论。</p>
+<p>一些人说，自己有闲置算力，九月还有人愿意按每算力小时12美元购买，但现在突然没有人再愿意出这个价，只剩每小时4美元左右。</p>
+<p>在我看来，这可能是判断会不会发生大规模崩塌的关键变量之一。不过，这个信号本身也很嘈杂。多数大合同，当然还是与大型公司锁定的。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>这些说自己有闲置算力的人，指的是很小的数据中心、私人机房或者单一经营者吗？</p>
+<p><strong>David Orr</strong></p>
+<p>对，规模比较小的经营者。</p>
+<p>大型公司如果要接入一家小运营商，可能需要费很大工夫，连部署和配置都不值得专门去做。因此，这种价格比较并不完全可比。</p>
+<h4 id="chapter-3">08:13 软件公司的风险与超大云厂商的合同保护</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>那软件这一侧呢？</p>
+<p>今年上半年，有人做多半导体和AI股票，同时做空软件。半导体上涨时，软件就下跌。</p>
+<p>后来大家注意到这种关系，开始把两边都做多，因为它们似乎已经变得不相关，软件也开始表现出强势。</p>
+<p>现在，软件ETF IGV又与费城半导体指数、SMH一起下跌。你觉得“做多AI、做空软件”这种相关关系终于打破了吗？这笔交易也变得拥挤了吗？</p>
+<p><strong>David Orr</strong></p>
+<p>对，我觉得这些交易就是会变得拥挤，也有很大的随机性。有些叙事并没有多少道理。</p>
+<p>从几年后的基本面看，我认为看空多数软件公司是有依据的。如果没有足够好的护城河，很难想象它们的处境还能维持。</p>
+<p>这与AI硬件究竟正相关还是负相关，本身没有直接的逻辑关系。</p>
+<p>如果我的判断正确，那些缺少护城河的软件企业无论如何都会遇到严重问题。护城河宽的公司则很可能受益。所以，AI资本开支的具体方向，对这种区分没有决定性作用。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>那么，你看到了哪些有基本面依据的交易？</p>
+<p><strong>David Orr</strong></p>
+<p>我最喜欢的AI投资方式，就是买超大云厂商，例如Google、Amazon和Microsoft。</p>
+<p>不过，我预料到它们也可能被卖出，所以暂时退出了。以后可能会重新参与。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>是不是因为资本开支放慢反而会帮助它们？它们已经提前完成投入，手里掌握着算力。</p>
+<p><strong>David Orr</strong></p>
+<p>这里有一个比较微妙的地方。</p>
+<p>州长选举结果出来时，它们在盘前下跌。我当时差一点就想抄底，做一笔短线，但最后还是没有下手。</p>
+<p>随后一天，它们确实大涨，再往后一天，整个AI板块又被砸下去。</p>
+<p>前一天上涨，就是你说的那个逻辑。假设政府阻止了95%的新增项目，超大云厂商已经拥有的设施，就会变成非常独特而且优质的资产。</p>
+<p>不过，我认为政府的影响，包括得州州长这件事，本身并没有改变太多。她竞选做得很好，但真正的瓶颈原本就是发电厂。</p>
+<p>无论如何，建设本来就会受到非常严格的限制。你也可以去其他州、其他地方建设。所以，我不觉得那条消息本身有多大影响。</p>
+<p>我喜欢超大云厂商，主要是因为它们的合同安排。在我的估算里，这些项目的资本回报率大约是35%，而且正在建设的容量里，约一半已经锁定了客户。</p>
+<p>把数字算一下，它们的下行风险相当有限。即便行业出现很严重的衰退，只要软件公司没有在很短时间内大批破产，Amazon、Google和Microsoft在坏情景下也不会损失太多钱。</p>
+<p>而在好情景下，假如我错了，未来十年算力始终紧缺，智能仍然供不应求，那么这些资本回报率35%的投资会非常出色。</p>
+<h4 id="chapter-4">11:46 谁来成为新的边际买家</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>显然，现在市场像一台制造叙事的机器，叙事的驱动力非常强。需要发生什么，它才会重新转向？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得还是仓位问题。但从这里往后，谁会成为边际买家？谁会再次对AI感到兴奋？</p>
+<p>我现在并不太确定。大笔资金会从哪里来？短期里，我看不到很明确的来源。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>此前AI交易已经转弱，但整体市场大体保持稳定。昨天似乎是第一次真正扩散到其他板块，指数层面也出现明显抛售。</p>
+<p>你觉得这主要是技术性的，还是投资者开始担心AI以外的市场？</p>
+<p><strong>David Orr</strong></p>
+<p>民主党选举表现很好。假设2028年它们又表现得很好，就可能提高企业所得税率。</p>
+<p>也许市场开始意识到这一点。仅仅这个因素，就可能足以解释市场下跌4%，在基本面上也说得通。</p>
+<p>标普500现在总共也就跌了4%左右。考虑到民主党的强势表现，以及未来税率上升的风险，这个幅度实际上相当合理。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>如果只是取消特朗普的减税，对估值的影响会有多大？你说市场跌了大约4%，似乎还不太够。</p>
+<p><strong>David Orr</strong></p>
+<p>政策可能要延后很多年，假设2030年左右才发生。</p>
+<p>如果确定会发生，4%的确不够。但假设发生的概率只有30%至50%，那么4%就已经不算差太远。也许应当是6%或者7%，我不确定，但方向和数量级大致合理，大部分调整已经完成了。</p>
+<h4 id="chapter-5">13:47 Anthropic上市与流动性吸收</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>说到近期催化剂，Anthropic的IPO预计会在年底前某个时候定价。估值已经稍微下调了一点。</p>
+<p>如果发行价格被大幅下调，会发生什么？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得市场现在本来就有好几个很大的流动性吸收口。</p>
+<p>大型科技公司、七巨头，正在大量发行股票，在债券市场上的融资尤其明显。它们把能够取得的资金，尽可能从市场里吸收过去。</p>
+<p>Anthropic也许会上市，也许不会。如果上市，就又多了一个吸收流动性的主体。</p>
+<p>所以，单从流动性看，现在就多了一条偏空的理由。如果Anthropic真的来融资，市场会再受到一次冲击。</p>
+<h4 id="chapter-6">16:05 选举、税率与反垄断</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>你认为，民主党可能叫停数据中心的威胁，市场反应有些过度。你更重视此前可能已经显现的供给过剩，同时认为企业税率回升是投资者应该认真考虑的风险。</p>
+<p>除了这些，选举结果还会带来哪些需要关注的政策？</p>
+<p><strong>David Orr</strong></p>
+<p>除了税收，我真不觉得政治有多大影响。大多数民主党人相当温和，美国这套制度运转得不错，也经受住了时间检验。</p>
+<p>所以，税率是关键的数字。其他方面也许会有一些小变化，但很难真正改变大局。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>网上已经出现一些调侃硅谷的段子。特朗普第二任期开头，他们几乎全力支持政府，现在又有人开玩笑说，他们要重新转向左边了。</p>
+<p>不少人认为，科技业此前与特朗普政府过于亲近。这会不会引来某种报复？</p>
+<p><strong>David Orr</strong></p>
+<p>也许会加强反垄断。这个问题早就应该处理了。我觉得对世界会是好事，但对股票大概相当不利。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>有意思的是，它们看起来也在自我颠覆。</p>
+<p><strong>David Orr</strong></p>
+<p>我在2023年的投资人信里就写过，AI对它们的垄断利润构成很大威胁。我认为这一点确实成立，不过它与政治无关。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>大型科技公司中，谁最容易受到反垄断的影响？</p>
+<p><strong>David Orr</strong></p>
+<p>大概就是Google。它有太多业务，可以面对更多这类审查。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>确实。它刚经历搜索和广告方面的审查，而这些业务看起来也许已经开始下降。</p>
+<p>不过，我不确定收入是否已经下降。我觉得还没有，应该是增长速度显著放缓。我们很容易直接跳到“已经衰退”的结论，但目前还没到那一步。</p>
+<p>我自己现在很多搜索都在用AI，使用习惯确实改变了。</p>
+<p>假如AI答案里开始出现广告，会不会影响我选择哪一个模型？我们还没有真正跨过这个门槛，尚不知道用户会怎样反应。也许Google能够找到变现办法。</p>
+<h4 id="chapter-7">18:57 搜索广告会怎样变化</h4>
+<p><strong>David Orr</strong></p>
+<p>Google拥有的一些东西，比如整合进去的地图，对它很有利。</p>
+<p>YouTube的广告业务也可能从AI中获益很多。AI可以让一个人制作出更多很好的视频，而YouTube在这个业务上有规模优势。</p>
+<p>但对搜索本身来说，AI是一股逆风。它不会一夜消失，不过某个时候，这项业务会开始收缩。</p>
+<p>有线电视每年大约下降10%。我不认为搜索会糟到这个程度。</p>
+<p>人有习惯，即便手头的办法已经不是最优选择，也会继续使用。Google还可以把自己的AI整合进搜索，让用户继续留下。</p>
+<p>不过，过去那种一整面广告墙的做法，很难继续维持。我认为，其他AI产品也很难这样做。</p>
+<p>对于编程之类要求特别高的用途，最好的模型可以收取高价，它主要靠收费赚钱。</p>
+<p>但普通用户也许只想找一家步行五分钟就能到的好餐馆。几年以后，所有AI都会足以完成这种任务。</p>
+<p>到那时，谁都很难靠特别烦人的广告赚钱，也很难像过去的Google搜索那样，把体验做得不够好，让用户不得不搜索更久。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>那你怎么把这个判断，与你认为超大云厂商会获胜的看法放在一起？</p>
+<p><strong>David Orr</strong></p>
+<p>我看重的是它们经营算力的那部分业务，以及合同安排带来的风险回报关系。</p>
+<p>假如我错了，未来十年智能一直供给紧张，它们就在以35%的资本回报率，投入数千亿美元。</p>
+<p>这本身已经非常出色，甚至足以抵消对其他业务的很多看空理由。</p>
+<h4 id="chapter-8">21:18 普通任务需要多少智能</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>你认为，是什么让我们从算力短缺走到现在这个供需转折点？</p>
+<p>是模型效率提高，让多数任务都可以通过前沿模型以外的选择完成吗？大部分工作不需要智商300，我们实际上并没有在做那么多极其高深的事。</p>
+<p><strong>David Orr</strong></p>
+<p>对，就是这样。</p>
+<p>甚至在编程方面，有些产品花了那么多钱，我都不太理解。某些产品我能理解，但以Windows为例，Windows 7基本上已经很好了。</p>
+<p>此后Windows没有多少实质改善，因为原来已经做得很完善，你很难再想出有什么地方能够明显变得更好。但它们还在持续推出新版本，我也不知道究竟为什么。</p>
+<p>很多东西都有这种情况。Instagram、Netflix之类，业务其实相当简单，支撑它们并不需要大量超级智能。</p>
+<p>我觉得，智能更有可能被用于医学研究之类的事情。但这正是我认为实体瓶颈会更早出现的地方。</p>
+<p>你可能需要实验用猴。怎样把实验用猴的供给扩大100倍？</p>
+<p><strong>Max Wiethe</strong></p>
+<p>药物发现到底需要多少算力？如果我们认为AI可以治愈癌症和其他重大疾病，它可能消耗多少计算资源？</p>
+<p><strong>David Orr</strong></p>
+<p>可以消耗很多，但你可能需要先收集数据。</p>
+<p>没人确切知道它最终会怎样运转。按我的理解，AI会说，这个方向看起来有意思，我们来研究一下。</p>
+<p>接着就需要一组人，或者机器人，真正开展实验、执行研究、收集数据。</p>
+<p>下一轮，AI再提出接下来应该做哪些研究，需要取得哪些新数据。</p>
+<p>从这个角度看，资源投入的上限可以很高，你可以不断增加资源，解决更多问题。</p>
+<p>但把视角拉远，如果实验数量要扩大100倍，就需要把相应的实验室和设施真正建出来。这要花很多年。</p>
+<p>因此，我认为实体建设更可能成为瓶颈。</p>
+<h4 id="chapter-9">24:05 科学突破能否吸收全部算力</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>假设先把实体瓶颈拿掉。</p>
+<p>单单药物发现，或者更广泛的硬科学问题，能否形成足够大的算力需求？</p>
+<p>例如，我们现在还没有足够好的固态电池。假如AI能帮助设计出好的固态电池，类似的难题还有很多。</p>
+<p>技术进步本身，能不能成为足够大的需求来源，吸收这些过剩、或者看起来过剩的算力？</p>
+<p><strong>David Orr</strong></p>
+<p>确实有一种情景，会出现这种情况。</p>
+<p>人类发明创造通常需要很长时间的积累，也往往依赖很多人。Claude Shannon在某些方面或许接近凭个人做出重大突破的例子。</p>
+<p>再看Einstein，他提出了某个范围内的一项或几项重大理论，属于智力极其突出的个体。</p>
+<p>另一个问题是，在过去将近100年里，我们似乎已经很少看到同样的情况了。</p>
+<p>那些特别聪明、只靠坐下来在脑中思考就能解决难题的人，似乎在很久以前就不再以那种方式持续推进前沿。我不想给出一个精确年份，也许是七八十年前。</p>
+<p>因此，如果计算机能变得远比他们聪明，这种进展也许会重新开始。真走上这条路，算力价格就可能涨到非常高。</p>
+<p>但如果事情没有这样发展，我认为更可能先撞上前面说的那些瓶颈。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>现在有很多人，已经投入了很多钱，希望这件事继续推进。银行、大型资产管理机构、硅谷，都是如此。</p>
+<p>对整笔交易而言，能不能出现某种重大突破，似乎已经是关系存亡的问题。</p>
+<p>连用词都在变化。人们开始以治愈癌症，作为Anthropic为什么值得1.5万亿美元的理由。</p>
+<p>讨论越来越转向最终成果，而原先替代劳动的需求叙事在发生变化。</p>
+<p><strong>David Orr</strong></p>
+<p>它们需要找到更多需求。</p>
+<p>它们之所以这样说，也许就是意识到了我之前讲的问题。目前的大客户是软件公司，而这些公司自己很难无限增加算力需求。</p>
+<p>所以，它们需要一个新的大客户，需要把这个愿景推销出去。</p>
+<p>我当然希望它成功，那会是好事。但最终能不能成功，我真的不知道。</p>
+<h4 id="chapter-10">27:14 白领劳动被替代，价值归谁</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>那白领办公室工作呢？如果得到真正广泛的采用，它能形成足够大的需求吗？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得不能。那些工作非常简单，而且按AI现在的进步速度，你可以设想，五年之后这些任务的成本会趋近于零。</p>
+<p>无论是会计还是类似工作，完成它们几乎可以免费，也只需要很少的算力。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>这样一来，AI可以替代非常大一部分人类劳动，最终获利者也许主要是现有公司的股东？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得连股东都未必有多少利润。这可能会是一门很难赚钱的生意。</p>
+<p>比如企业报税，或者个人报税。以一份复杂的个人税表为例，现在你需要一位相当好的私人会计师处理。</p>
+<p>但对机器来说，它可能就不复杂了。既然一台机器能够处理，很可能会出现十套同类系统。</p>
+<p>竞争之下，价格会接近免费。即便开发出了这套系统，也未必能获得利润，但人们大概还是会把它做出来。</p>
+<p>所以，我认为真正的赢家主要是消费者。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我更多想到的是Progressive这样的保险公司。一家大型企业，里面有大量知识工作，而且很多属于行政管理。</p>
+<p>它还需要应对庞大复杂的制度和流程，例如保险监管部门分布在各州。</p>
+<p>这些企业收入很高，但为了赚取相对有限的利润，也要承担很大的成本。保险又有特殊性，如果效率显著提高，利润率甚至可能受到监管约束。</p>
+<p>我想问的是，一家大型全国性、甚至跨国企业，如果有很大比例成本来自人力，AI带来利润提升的逻辑，现在到底还成立多少？</p>
+<p><strong>David Orr</strong></p>
+<p>我认为，大部分这些白领岗位都会消失。</p>
+<p>假设一家企业护城河很宽，规模、网络效应或者其他因素，使竞争者很难复制它。它也许只需要稍微降一点价格，却可以减少几乎全部相关员工，于是就像拥有一台印钞机。</p>
+<p>这就是其中一些企业的看多逻辑。</p>
+<p>但在这种情况下，实际使用AI所需要的算力，仍然可能很少，难以对超大云厂商如此庞大的资本开支形成实质支撑。</p>
+<p>我的基本情景仍然是，那些工作会消失。而如果所在行业竞争很激烈，原来的业务本身很大程度上就是你说的那套庞大的行政组织，情况就会很糟，因为这部分组织能力也失去了价值。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>所以，有些企业可以用AI提高利润率，变成我们说的印钞机。</p>
+<p>但在竞争激烈的行业里，所有企业都能改善成本，于是大家又开始逐底竞争。正如那句老话，你的利润率就是我的市场份额。</p>
+<p><strong>David Orr</strong></p>
+<p>对，其他行业也发生过这种事。可以想想Amazon对整体零售业的影响，或者更早的铁路。铁路肯定也让很多旧企业失去生存空间，最后退出了市场。</p>
+<p>有一个讽刺网站画过一幅漫画，穴居人试图阻止别人使用轮子，因为这会让很多工作消失。看起来很好笑。</p>
+<p>我觉得技术进步是好事。大多数人本来也不喜欢做会计。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我们讨论可能被替代的这些劳动，确实很难说是人类最高层次的追求。</p>
+<p>但如果认为它不会带来社会问题，认为大家突然都能成为画家，这也很难让人信服。</p>
+<p>好像只要不用忙着填那些TPS报告，我们每个人就都能画出传世之作。</p>
+<h4 id="chapter-11">32:09 工作会转向哪里</h4>
+<p><strong>David Orr</strong></p>
+<p>但画家这个例子，恰好有一点类似普赖斯定律。真正能引起关注的，只有极少数人。</p>
+<p>我一直更喜欢拿家具举例。我们今天号称生活在一个极其富裕的社会，但大家买的很多家具都很粗糙，装在盒子里，买回去自己组装。</p>
+<p>没有人真正用心制作，基本就是工厂流水线出来的东西。</p>
+<p>也许以后会有更多人制作高质量家具。我觉得人们可以从事的工作还有很多。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>所以你觉得，主要会是技艺类工作？</p>
+<p><strong>David Orr</strong></p>
+<p>对，我觉得这会是一个很大的方向。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我们会回到工匠行会的时代？</p>
+<p><strong>David Orr</strong></p>
+<p>希望如此。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>如果运气好的话。</p>
+<p>这当然很好。我只是觉得，这会是一个很难解决的问题。</p>
+<h4 id="chapter-12">33:13 垂直AI能否按成果收费</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>你怎么看垂直AI？</p>
+<p>有些人认为，可以为特定行业制作定制工具，按照成果收费。这样的工具可以帮助某家公司或者某个行业节约很多成本，并避免商品化，也可以采用不同于按使用量付费的模式。</p>
+<p>向大型企业提供AI方案，真的有机会形成这种定价权吗？</p>
+<p><strong>David Orr</strong></p>
+<p>我觉得没有。也许最初几年，它看起来会是一门好生意。</p>
+<p>但在我的假设里，那些工作本身很简单，主要是把一些零散的事情、人员和时间连接起来。现在AI可能还不够好，但再过五年，我基本有把握它能够做到。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>你认为，通用AI会把针对特定问题开发定制工具的机会也覆盖掉？</p>
+<p><strong>David Orr</strong></p>
+<p>对。我用自己的公司举例。</p>
+<p>今年我们招聘了几个人，已经在开发工具。我们做了一套内部定制风控系统，运行得很好。现在可能还没有顶级专业系统那么完善，但我自己更喜欢它，觉得很棒。</p>
+<p>我们还做了一个内部终端。</p>
+<p>要把这些东西变成面向公众的产品，还有一些障碍。但我想，最终大概会免费提供。如果用户要使用定制AI界面，就自己支付token费用。</p>
+<p>除此以外，我大概会把它免费开放。我认为这类东西就应该免费。</p>
+<p>也可能最初价格很低，或者开始时稍微高一点，但之后我会非常积极地降价，因为我知道别人也会把同样的东西做出来。</p>
+<p>我的想法是，假设我们有一款把风控系统、终端整合在一起的现代投资组合产品。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>可以直接连接自己的IBKR账户？</p>
+<p><strong>David Orr</strong></p>
+<p>对。</p>
+<p>再假设一两年之后，AI已经好到你什么都不用做，它会自动完成所有设置。</p>
+<p>你把软件打开，它就接上你的组合，告诉你正在承担哪些风险。</p>
+<p>从我的角度，它可以作为一种营销工具。每当有人分享自己的风险报告，或者分享这家公司的产品，某个角落会出现我们很小的品牌标志。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>你可以在顶部一直显示，用户落后Militia多少。</p>
+<p><strong>David Orr</strong></p>
+<p>确实可以。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>告诉他们，还是认输吧，把钱交给David。</p>
+<p>不过，取得数据的问题仍然存在。终端需要的数据，你都能拿到吗？购买数据和对外提供服务，都要花钱吧？</p>
+<h4 id="chapter-13">36:25 数据清洗与终端护城河</h4>
+<p><strong>David Orr</strong></p>
+<p>以年报为例。过去，把原始数据拿进来，其实是工作里比较容易的一部分，大概只占几个百分点。</p>
+<p>彭博过去的护城河，是很多人花了很多年清洗数据，把数据整理到能够正确使用的状态。</p>
+<p>现在，假设我们取得这些公司过去的全部年报，最好能追溯100年，那会很有意思。</p>
+<p>接下来，让AI把它们清理好就行。我认为，再过几年，我甚至会更信任AI整理的数字。</p>
+<p>这样就可以提供一款成本只有原来很小一部分、质量还更好的产品。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>David，你有没有想过，你自己也许是一个行动能力特别强的人？</p>
+<p>你和你的公司能够开发这些工具，主动找报告、清洗数据，这种经验可能并不具有普遍性。</p>
+<p><strong>David Orr</strong></p>
+<p>但我的意思是，我会把它免费提供。</p>
+<p>如果它确实有效，那些过去提供同类服务、每位用户每年收取2.5万或者3.5万美元的公司，就会面对一款更好而且免费的产品。</p>
+<p>所以，并不需要所有人都有特别强的行动能力，都自己去开发和收集数据。</p>
+<p>很可能只需要十个像我这样的人，就会有人把产品免费放出来。</p>
+<h4 id="chapter-14">38:09 软件通缩与实体世界的品质</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>这听起来极其具有通缩性。技术未来主义者讨论了很久的、全自动化而且物质丰裕的社会，就是你看到的未来吗？</p>
+<p><strong>David Orr</strong></p>
+<p>对于软件、信息服务这一侧，我确实是这样看的。</p>
+<p>这样就能让更多聪明、勤奋的人，去做实体世界的事。</p>
+<p>例如住宅建设。现在有很多很平庸的住宅开发商，房子没有被认真思考和设计，也很难说是人们特别喜欢住的地方。</p>
+<p>它们还算体面、现代，风格也跟得上潮流。但也许以后，会有更多人真正用心，为人们建造非常好的住宅。</p>
+<p>我们现在缺少足够多特别好的房子，这种改变当然是好事。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>那确实是好事。</p>
+<p>不过，除了熟练劳动者短缺，材料成本仍然是住宅成本里很大的一部分。</p>
+<p>如果需求突然进一步增加，这些关系似乎并不能自然吻合。到时候谁来买这些房子？</p>
+<p><strong>David Orr</strong></p>
+<p>住宅是个很好的例子，因为我们本来就在建房。房子已经在不断建出来，只是很多地方没有被认真设计。</p>
+<p>开发商有好有坏。去看比较差的开发项目，每栋房子几乎一模一样，连树种在哪里都完全相同。</p>
+<p>那样的社区能住，也够用，但很难说是特别理想的生活环境。</p>
+<p>也许以后这样的地方可以得到改善。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我的看法是，这里面其实有经过思考的设计。开发商选择这种模式，是因为它最容易用现有条件建出尽可能多的住宅。</p>
+<p><strong>David Orr</strong></p>
+<p>对，确实很容易。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>如果你的意思是，将来劳动替代会如此广泛，很多人就会去做这些事，那么由于劳动供给大量增加，他们对自己的劳动也很难有定价权。</p>
+<p>人们可能得真正热爱手工劳动，才愿意去做。</p>
+<p><strong>David Orr</strong></p>
+<p>你未必需要亲手把房子建出来，可以负责设计、思考和优化。</p>
+<p>我有一位有限合伙人，筹划过一个很有意思的酒店项目。因为利率涨得太高，最后没能真正建成，但他已经买好了土地。</p>
+<p>那个项目就在国家公园旁边，构思非常用心。他找到建筑师，让酒店融入周围景观，真正做得美观、有吸引力。</p>
+<p>我认为这种工作还有很多空间。</p>
+<p>而且，连真正从事体力工作的总人数，也可能下降。比如司机岗位都会消失。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>但今天很多漂亮而独特的建筑没有被建出来，原因也许是人们根本负担不起。</p>
+<p>谁都愿意住进美好的地方。即便超高端房地产也越来越标准化，但至少理论上，预算足够高的人，可以请建筑师定制一栋真正漂亮、住起来很好的房子。</p>
+<p>这样的产品已经存在，只是成本高到多数人承受不了。</p>
+<p><strong>David Orr</strong></p>
+<p>在我看来，成本太高恰恰与供给不足有关。真正从事这类工作的人太少。</p>
+<p>现在很多聪明人都在做什么？以Google搜索业务为例，他们在思考怎样尽可能多地获取用户隐私，怎样让搜索更难用、更烦人，好让用户不得不多搜几次，怎样再塞进一条广告。</p>
+<p>我们最优秀、最聪明的人才，很多都在七巨头工作，努力扩大这些企业的护城河。我认为这对大家没有多少好处。</p>
+<p>或者看看大型律师事务所。很多人并不喜欢自己的工作，只是因为收入高才在那里。</p>
+<p>假如这些人转而做真正有用的事情，会怎样？大型律所就是个很好的例子，我觉得那里有很多纯粹无益的工作。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>但我认为这里有阶层因素。</p>
+<p>如果你来自某个较高的社会阶层，就需要靠这样的职业，证明自己的价值和在社会中的位置。</p>
+<p>假如进入大型律所不再是一条可行的圈层身份路径，我不认为木工会自动接替它。</p>
+<p>某种程度上，也许会有类似变化。比如一些科技创始人，会开一家冲浪店，做自己真正喜欢的兴趣项目。</p>
+<p><strong>David Orr</strong></p>
+<p>Charlie Munger就做过类似的事。他喜欢设计各种奇特的建筑，也并不主要是为了赚钱。</p>
+<p>我的意思是，人们可能真正享受这些工作，而且与其他机会相比，收入也还不错。</p>
+<p>参与的人也会覆盖他们的整个同辈群体。可能有数百万人，开始建造人们每天喜欢使用、喜欢置身其中的东西。</p>
+<h4 id="chapter-15">44:33 Meta的网络效应与AI推荐</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>这是一个很美好的愿景，David。不过，对于如果大家突然都失去工作，究竟怎样走到那个未来，我可能与你的看法不同。</p>
+<p>刚才你谈到Google让搜索体验变差，以及AI对它的侵蚀。但七巨头中，Meta的广告业务似乎表现很好。</p>
+<p>你可以说，人们对手机和社交媒体上瘾，对个人有负外部性。</p>
+<p><strong>David Orr</strong></p>
+<p>对，这一点可以讨论。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>但总体上，人们至少主动选择花更多时间。没有人愿意搜索一个问题，却得不到好的答案。</p>
+<p>即便有成瘾因素，用户也确实选择多看手机，多接触社交平台上的赞助内容和广告。</p>
+<p>你认为，Meta算不算七巨头里比较好的生意？</p>
+<p><strong>David Orr</strong></p>
+<p>它可能是一门好生意，但要看情况。</p>
+<p>以前它叫社交媒体，可我觉得它每年都在变得更少“社交”，现在越来越接近单纯的媒体。</p>
+<p>如果最终只剩媒体，它也许就没有多少护城河。当然，过去几年这门媒体生意表现极其出色。</p>
+<p>但再过五年，平台本身也可能商品化。我不知道，我现在只是在列出看空的情景。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>那看多的情景呢？</p>
+<p><strong>David Orr</strong></p>
+<p>看多的情景是，人们继续使用，产品越来越让人上瘾，也越来越有意思，因为AI真正提高了内容质量。</p>
+<p>它甚至可能减少粗制滥造的内容，让产品本身变得更好。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>但这里肯定存在网络效应。</p>
+<p>如果你是一个创作者，希望通过内容赚钱，就会想接入用户已经聚集的平台。</p>
+<p>拿你刚才说的终端比较。彭博在机构用户这一层，还有IB聊天功能。你可以联系经纪商，在聊天里完成交易，而且所有记录都清晰留存，这当然有价值。</p>
+<p>普通用户如果不需要这些，数据从哪里来，可能都差不多。所以，我能理解你为什么认为终端容易被颠覆。</p>
+<p>但在社交媒体这一层，网络效应是存在的。</p>
+<p><strong>David Orr</strong></p>
+<p>对，多对多的连接，通常能形成很宽的护城河。</p>
+<p>不过，直觉上，它已经没有早年Facebook那么强了。</p>
+<p>以前，如果你想看到所有朋友和家人的近况，就必须上Facebook，因为他们不会出现在别的地方。这很好理解。</p>
+<p>但假设有一家新平台，吸引了一群艺术家，或者围绕某个特定兴趣开始发布内容，用户也许就会转过去。</p>
+<p>这种细分兴趣未必一定要放在一个特别庞大的平台里。</p>
+<p>尤其是这些很短的视频，无休止地往下刷。为什么这种体验一定只能由现有平台提供？</p>
+<p>当然，你也可以说，它已经积累了那么多视频，算法又能让人持续沉迷，这本身就是优势，也可能形成很宽的护城河。</p>
+<p>我也不确定。比如我最近就从YouTube转到了Spotify。以前大多数时候，我在YouTube听音乐，现在几乎都用Spotify了。</p>
+<p>不知道具体发生了什么，但YouTube在音乐方面失去了我这个用户。</p>
+<p>所以，也许有人能做出更好的短视频产品。某种意义上，TikTok已经做到了。</p>
+<h4 id="chapter-16">48:43 音乐平台与内容发现为何不同</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>关于音乐，我的看法是这样的。也许在你设想的世界里，这些关系也会改变。</p>
+<p>在各种艺术中，音乐创作能力可能在人群里分布得更广。能够创作出别人感兴趣的音乐，似乎比能够创作出别人感兴趣的视觉艺术更普遍。</p>
+<p>但Spotify这样的音乐服务，反而更接近你说的彭博终端。真正重要的数据来源，大体是明确的。</p>
+<p>世界上当然有数百万音乐人，但主要需求仍集中在相对有限的一群知名艺人身上。你只要选择服务体验更好的平台即可，这与你的终端论证相似。</p>
+<p>另一方面，普通创作者把内容接入平台的方式，与此不同。</p>
+<p>一个还不出名的新人，通常不会觉得，只要把音乐放上Spotify，所有人就会发现自己，音乐事业就开始了。</p>
+<p>他更可能在Instagram、TikTok或者YouTube这类允许创作者主动展示自己的平台被发现。</p>
+<p>而你听音乐时，可能主要是在听自己已经喜欢的东西。到了你现在这个人生阶段，偏好也比较明确。当然，也可能继续发现新艺人，但我认为，这就是Spotify的不同之处。</p>
+<p><strong>David Orr</strong></p>
+<p>对，我觉得Spotify的算法就是更好。</p>
+<p>不过，AI也许会带来变化。我们现在与AI聊天，它会学习我们的偏好。</p>
+<p>也许你可以让它帮忙制作歌单，一边探索，一边告诉它，这首喜欢，那首不喜欢。</p>
+<p>说不定五年以后，AI会非常擅长匹配我真正喜欢的东西。</p>
+<p>TikTok和Instagram现在则把最容易让人沉迷的内容不断推给你。即便你未必真的喜欢，也还是会继续看。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>但它们知道你会喜欢。</p>
+<p><strong>David Orr</strong></p>
+<p>它们知道这些东西很容易让人上瘾。用户是否真的喜欢，是另一个问题。就像海洛因成瘾一样。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>也许这样理解并不合适。</p>
+<h4 id="chapter-17">51:45 当前仓位与2021年的区别</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>快结束了，我想回到眼前的市场。</p>
+<p>你现在会特别考虑净敞口吗？基金整体是净空头吗？什么情况会让你显著改变这一点？</p>
+<p><strong>David Orr</strong></p>
+<p>不知为什么，过去30天的统计显示，基金整体beta是负的。幅度不算很大，但我也不确定这个估计值有多可靠，这种东西很难精确判断。</p>
+<p>我的目标只是保持在零附近，尽量让组合处在市场涨跌都不让我担心的位置。</p>
+<p>这段时间我们表现不错，主要归功于Mike和Rodrigo。我负责的那部分，在这一周极其剧烈的波动里，大体打平。</p>
+<p>我现在主要希望避免押注市场方向。一年以后市场会在哪里，谁都不知道。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我想到2022年，当时你应该有相当大的净空头仓位，对吗？</p>
+<p><strong>David Orr</strong></p>
+<p>当时空头确实不少，但我记得beta实际上仍接近零。</p>
+<p>我做空的是一些非常差的公司，因为2021年给之后的交易创造了非常容易识别的机会。</p>
+<p>当然，这一次AI交易很不一样。AI在基本面上是真实的，也存在真正成立的看多情景。</p>
+<p>但如果是一家很糟糕的公司，以50倍收入、800亿美元估值交易，那做空一篮子类似资产，可能获得非常好的结果。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>所以，尽管你认为存在过剩、建设有些过头，你也没有把它看成2021年那种情况。</p>
+<p><strong>David Orr</strong></p>
+<p>对。看多的情景是真实存在的。</p>
+<p>我可能至少有40%的概率会错，或者大致是这个数量级。这就是为什么我没有直接押注这个判断。</p>
+<p>我更倾向于暂时不参与，这样也就不用为它担心。</p>
+<h4 id="chapter-18">53:43 节目结束</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>David，非常感谢参加。大家在哪里可以关注你？</p>
+<p><strong>David Orr</strong></p>
+<p>我在X上的账号是@orrdavid。</p>
+<p>我们也刚为Militia开了一个Substack，现在可能只有100个关注者。我也许会偶尔发一些东西，Mike和Rodrigo也会开始在上面写。</p>
+<p>第一篇发的是Rodrigo的第三季度投资人信。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>网址是content.militia.com，七天前刚上线。David，我现在已经成为你的新订阅者了，谢谢。</p>
+<p><strong>David Orr</strong></p>
+<p>太好了，谢谢订阅。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

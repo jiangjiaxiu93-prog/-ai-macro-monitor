@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Jeffrey Gundlach谈AI信用评级、私募信贷与债券配置（Yahoo Finance全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl on" href="../market_podcasts.html" aria-current="page" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-13<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../market_podcasts.html">← 返回美股和科技相关</a>
+<div class="card"><article>
+<h2>Jeffrey Gundlach谈AI信用评级、私募信贷与债券配置（Yahoo Finance全文精翻）</h2>
+<div class="metaline">Yahoo Finance Invest · Brian Sozzi、Jeffrey Gundlach · 2026-11-12 · <a href="https://www.youtube.com/watch?v=1m1W3lPMwEc" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI融资；信用评级；私募信贷；保险公司；国债收益率；等权重；久期；通胀</p>
+<p>Jeffrey Gundlach为DoubleLine Capital首席执行官兼首席投资官，主持人为Yahoo Finance执行主编Brian Sozzi。</p>
+<ul><li>Gundlach认为AI相关发行、评级与保险资本之间的安排正在积累信用风险，并以2006年的亲身经历解释其担忧。</li><li>他介绍等权重股票、债券杠铃、实物资产与低久期储备的配置逻辑，同时讨论长端收益率上行及政策干预的可能性。</li></ul>
+<h3>全文精翻</h3>
+<h4 id="chapter-1">00:00 市场发生了什么变化</h4>
+<p><strong>Brian Sozzi</strong></p>
+<p>Yahoo Finance Invest的节目继续。接下来这位嘉宾，我关注他的工作很多年了，我们有一段时间没聊过。很高兴邀请DoubleLine首席执行官Jeffrey Gundlach，一起谈投资。Jeffrey，很高兴见到你，感谢参加。</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>没问题，我很高兴参加。</p>
+<p><strong>Brian Sozzi</strong></p>
+<p>先从你现在看到的市场谈起。直到过去一个半月之前，市场表现一直相当好。随后科技股大幅下跌，债券市场也持续震荡。你怎么看？</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>从大约四月到六七周前，市场一直很平稳。</p>
+<p>六七月时，我开始和投资团队谈一件事。我对以往周期有一种情绪上的记忆。我觉得这是投资行业里非常有价值的一种能力。除了记住数字，还会记住当时是什么感受。很多人可能难以体会，但它对我的职业生涯很重要。</p>
+<p>六七月时，我感觉AI狂热已经到了高点。每次新技术出现，大家都会看它可能带来的好处。那些好处当然存在，但大家的注意力会全部集中在这里，于是市场进入动量非常强的阶段。随后会发生一些变化，原本的叙事开始显露阴暗的一面。</p>
+<p>此前大约两年，AI叙事充满乐观。它将改变每个人的生活，你可以靠AI退休，到塔希提岛海边生活，AI会让你过上奢侈的日子。电影《机器人总动员》很早就预想过这种情况，机器人照顾所有人。</p>
+<p>但六七月时，叙事突然开始转向。人们开始说，它也可能夺走你的工作，让你失去生计，被迫依赖某种补助生活。光是这一点，还不足以让市场大幅动摇，但它标志着方向发生了变化。</p>
+<h4 id="chapter-2">02:28 AI发债、信用评级与保险资本</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>随后，我们开始看到规模庞大的债券发行。年初那轮抛售结束以后，市场原有的平稳状态开始受到这些发行的影响。更重要的是，一些知名AI公司或AI相关企业的债务评级，在我看来明显有问题。</p>
+<p>借贷标准开始显得不够扎实。比如SpaceX获得了BBB评级。它刚上市不久就发行了大量债务，令很多人意外。那些债券虽然被评为BBB，但很快就按照垃圾债的水平交易。现在它们仍然保有BBB评级，交易表现却仍像垃圾债。</p>
+<p>更突出的例子是Oracle。它获得了BBB-评级，让债券市场里经验丰富的分析师都很吃惊。我认为Oracle根本不应该有BBB-评级。</p>
+<p>我之所以能很有把握地这样说，是因为从发行后不久到现在，它的信用利差一直更接近B-级信用债。既然如此，为什么还挂着BBB-的评级？</p>
+<p>我认为原因与SpaceX相同。这个体系似乎在设法让一些债券获得与其风险不相称的投资级评级。为什么要这样做？因为保险公司可以用非常有利的资本计提方式买入这些债券。</p>
+<p>一项实质风险接近B-、评级却处在投资级的资产，可以让保险公司给自己的持仓加上更多杠杆。这些保险公司通常属于私募信贷公司，而私募信贷公司又属于私募股权公司。杠杆加上去以后，可能会形成不健康的风险。</p>
+<p>按照评级确定杠杆和资本要求，本来就是为了约束保险公司的过度冒险，防止它们过度举债，陷入财务困境。现在它们只要愿意，就有了绕过这些约束的办法，而通道就是评级机构。</p>
+<p>很多证券只获得一家机构的评级。这让我想起2006年的次贷市场。</p>
+<p>我们已经看到，高收益债与银行贷款市场开始不再平静。CCC级资产表现很差。CCC级银行贷款的收益率利差已经达到约1200个基点。</p>
+<p>信用利差开始在相当广泛的范围里扩大。和以往一样，最初主要集中在市场最低评级的部分。先是CCC级，然后B级也开始扩大，某些新兴市场的利差也在扩大。信用市场里，几乎各个地方都开始出现这种变化。</p>
+<p>这与另一个现象相互印证。六七月时，信用和股票市场那种无往不胜的气氛，已经开始出现裂缝。</p>
+<h4 id="chapter-3">06:21 政府和AI企业共同增加融资需求</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>这里面有很大一部分与政府债务规模有关。大家都知道，美国国债总额在八月突破了40万亿美元。我记得大约是8月18日。</p>
+<p>此后约11周，借款速度进一步加快。仅仅两个多月，国债总额已经到40.6万亿美元。按目前速度，我们每年大约会形成3万亿美元的赤字。</p>
+<p>截至9月30日结束的2026财年，赤字约为2万亿美元。最近11周的情况，也许包含一些特殊因素，但把这段时间的速度年化，接近3万亿美元，相当于GDP的8%以上。</p>
+<p>政府借款是推高利率的一个因素。同时，超大规模云厂商、AI公司以及AI相关企业，对资金的需求过度旺盛，看起来几乎永无止境。</p>
+<p>因此，从九月左右起，我一直在强调远离这些风险可能波及的范围。</p>
+<h4 id="chapter-4">07:29 等权重股票、债券杠铃与实物资产</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>在这种情况下，我不想持有市值加权的标普500，也不想持有其他市值加权指数基金，因为它们的集中度太高。</p>
+<p>具体比例取决于你采用的统计口径，但市场里大约有一半、甚至接近六成的敞口，与AI或AI相关企业有关。与此同时，标普500和更广泛股票市场的广度已经显著恶化。</p>
+<p>我今天刚听到一个统计。昨天市场大跌之前，标普500中将近60%的股票，也就是十只里有六只，已经下跌超过20%。从市场广度看，我们早已处于调整、甚至熊市之中。</p>
+<p>为了远离这种风险，我一直在做相反方向的配置，买入等权重标普500。这样既能少量持有AI相关公司，也能买入那些已经跌了很多的企业。</p>
+<p>很有意思的是，今年给人的感觉像是风险资产和股票表现都很好，但等权重标普500年初以来明显跑赢纳斯达克。纳指现在年初以来只上涨约5%，等权重标普500上涨约14%，超额表现相当明显。</p>
+<p>在我感觉到市场情绪发生变化、狂热的阴暗面开始显现之后，就转向了这种配置，而且还会保持一段时间。</p>
+<p>无论如何，我的股票仓位相对历史水平都偏低，只有30%。在股票方面，我目前推荐持有的就是等权重标普500。</p>
+<p>我也喜欢债券，但会采取杠铃配置。在我看来，利率仍然太低。名义GDP增长大约6%，也许6.5%，通常可以把它作为判断收益率水平的一个出发点。而债券收益率到现在连5.5%都还没有突破。</p>
+<p>如果让市场自行定价，我认为收益率可能继续上升，尤其是长端。这也是我一直回避的部分。</p>
+<p>债券杠铃的一端，我会放风险很低的组合。例如，我的总回报策略既不持有公司债，也不持有美国以外的债券，整体非常安全。债券组合约一半可以放在这一端。</p>
+<p>另一端则配置风险很高、但此前表现很好的本币计价新兴市场债。我甚至向以美元作为本位币的投资人推荐这种资产，尤其推荐给他们。</p>
+<p>原因是，新兴市场货币整体上一直跑赢美元，这些国家的债券也一直跑赢美国国内债券。你可以同时获得两方面收益。一方面是较高的收益率，另一方面是汇率换算可能继续带来的升值收益。</p>
+<p>此外，我认为投资者应当显著配置实物资产，至少20%。如果你无法直接投资房地产或其他价值较高的实物资产，我建议其中15%配置类似彭博商品指数的资产。</p>
+<p><strong>Brian Sozzi</strong></p>
+<p>明白。</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>另外5%配置黄金。不过，黄金跌破4000美元以后，我会按照一定规则调整。</p>
+<p>我认为，黄金从5500美元回落，这一轮最差可能在3500美元附近见底。现在已经跌破过4000美元，因此我的建议是，金价每下跌100美元，就把总组合的1个百分点从商品指数转到XAU或者金矿股。</p>
+<p>这样，如果金价跌到3500美元，组合就会变成10%黄金相关资产、10%商品指数。</p>
+<p>剩下的一部分，是我今年一直建议保留的20%储备资金。这部分可以采用相对安全的债券组合，继续避开AI风险波及的区域，工具也可以覆盖短期国债以外的资产。</p>
+<p>低久期债券组合就很合适。我最喜欢的是评级非常高、久期较短的商业抵押贷款支持证券。你可以获得约6.5%的收益率，同时久期只有2。</p>
+<p>我们一直在寻找所谓谢尔曼比率较高的资产。这个比率就是收益率除以久期。它当然很粗略，但可以用来近似判断未来的风险调整后回报。</p>
+<p>收益率可以作为未来回报的近似指标，尽管它并不完美。久期则能很好地近似反映波动，至少对利率波动来说如此。</p>
+<p>如果收益率是6.5%、久期为2，谢尔曼比率就超过3。即便利率上升100个基点，你也能应付。即使利率上升200个基点，仍然有收益缓冲。〔这一句涉及与现金比较，英文字幕缺词。〕而且，你还获得了约250个基点的SOFR利差。</p>
+<p>因此，这样组合起来，风险相对较低。面对那些之前远远跑在基本面前面的风险资产开始回落，你仍然可以睡得安稳。</p>
+<h4 id="chapter-5">13:06 科技股还要跌多少，什么估值才值得买</h4>
+<p><strong>Brian Sozzi</strong></p>
+<p>Jeffrey，你肯定是适合回答这个问题的人。你有多担心超大云厂商出现债务违约？听你刚才的说法，这似乎是一种可能。</p>
+<p>从当前水平看，科技股还需要下跌多少？</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>我不知道。过去一个月已经跌了很多，很难判断。如果按回撤20%来定义，英伟达已经进入熊市。市场里很多地方都已经进入调整区间，甚至更深。</p>
+<p>但我真正会感兴趣的时点，要等到市场出现非常彻底的恐惧。我觉得昨天虽然是令人吃惊的大跌日，却还没有吓到太多人。</p>
+<p>在我看来，那更像追加保证金要求导致的卖出。市场真正开始下跌是在美国开盘以后，海外交易时段并没有先发生这样的下跌。</p>
+<p>我认为，一些高杠杆组合触及了特定水平，随后被迫平仓。未来几周，我们可能会看到很多关于损失的报道，甚至可能出现破产。</p>
+<p>这个过程恐怕需要更长时间。因此，我只建议配置30%的股票，而且选择其中一种相对低风险的方式。</p>
+<p>至于什么时候会对股票真正感兴趣，等标普500市盈率低于15倍时，再来找我。</p>
+<p>今年年中，标普500的周期调整市盈率，也就是CAPE，曾达到42.04倍。把这个水平与历史进行对照，此后十年的实际回报从未出现正值。</p>
+<p>事实上，即便CAPE只是超过35倍，此后实际回报为正的历史案例也几乎没有。</p>
+<p>我做的是长期投资。在未来实际回报预期为负的时候，我没有买股票的兴趣。Kevin Warsh坚持说要把通胀降到2%，而从42倍CAPE出发，此后十年的实际回报通常是负6%至负8%。</p>
+<p>这样算下来，名义回报也可能为负。至少这是一种可能性，而且从历史来看，未来十年出现这种结果的可能性相当值得重视。</p>
+<p>所以，我需要看到价格更便宜。</p>
+<p>债券也仍然面临挑战。如果没有大规模扭转操作，考虑GDP和长期债务的发行规模，长端收益率就需要更高。</p>
+<p>今年大部分时间，我们基本都回避债券市场的长端。后来，当收益率升到约5.5%时，我们稍微参与了一点，但长端仓位仍然显著低配。</p>
+<p>很多在这个行业里确实很有经验的人，已经做了15至20年债券，却不理解5%的收益率并不算高。他们整个职业生涯都生活在收益率1%至2%的环境里，3%就已经像便宜货。</p>
+<p>可如果通胀是3.5%或者4%，5%的收益率在估值上很难说有多少吸引力。</p>
+<p>我认为比较好的通胀指标，是进口和出口价格。它们当然会随着进出口构成变化而出现一些特殊的组合效应，但没有季节调整，也没有享乐价格调整之类的处理，反映的就是价格。</p>
+<p>遗憾的是，进口与出口价格取平均，目前同比涨幅达到10%。这个指标发出了非常高的通胀信号。</p>
+<p>从商品价格看，通胀似乎也重新趋于上升。我所在地区的汽油价格虽然每加仑下降了约50美分，但仍然很高。我在加州。〔此处汽油金额的英文字幕记为“$65”，具体金额有歧义。〕</p>
+<p>加州某些地方的柴油已经是每加仑9.99美元，因为加油机的显示位数容不下更多数字。所以，恐怕得有人发明一种新加油机，或者改变计价机制，按夸脱收费。这样至少能容纳每加仑40美元的柴油。</p>
+<p>因为我认为，加州柴油价格的上限会超过10美元。</p>
+<h4 id="chapter-6">18:06 长债收益率与政府压低利率的可能性</h4>
+<p><strong>Brian Sozzi</strong></p>
+<p>你说得有道理，也许该由我来发明那种加油机。</p>
+<p>在这样的背景下，你觉得十年期收益率接下来会怎么走？</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>在自由市场定价的环境里，阻力较小的方向是上行。我认为三十年期国债收益率很容易走向6%，对应十年期可能在5%区间的高位。</p>
+<p>但我一直有一个想法，而且已经琢磨了很久。收益率升到某个水平，政府就会出手压低它。</p>
+<p>Scott Bessent已经明确说过，扭转操作是可以考虑的选项。他们目前做得很少，但我认为是在测试系统和运作机制，为真正启动做准备。</p>
+<p>如果他们真想这么做，收益率可以被压到他们想要的水平，日本此前几十年就这样做过。</p>
+<p>这构成了债券投资真正的两难。自由市场框架下，长端收益率面临上行压力，但政府也意识到利息支出问题非常危险。</p>
+<p>赤字已经如此之高，利息支出很快又会朝2万亿美元靠近。这个数字本身就相当于2026财年的全部预算赤字。</p>
+<p>所以，我认为长端利率会继续上升，而通胀问题也很难迅速消失。商品价格太高了。原油处在100美元左右、甚至更高的水平，它的影响会逐渐传导到整个经济。</p>
+<p>化肥价格会持续高到难以承受。一些农民买不起足够的化肥，单产就会减少。与三年前相比，供给可能出现短缺。</p>
+<p>硫磺等化学品，以及机械使用的高质量、高技术含量润滑油，也有类似的问题。我认为这类压力会持续，它是推高利率的另一个因素。</p>
+<p>遗憾的是，债券市场进入熊市已经快七年了。收益率真正的低点出现在2020年。当时我就说，令人遗憾的是，债券牛市结束了。</p>
+<p>历史上有一种很奇特的现象，债券周期往往持续大约40年。大约1945年，二战结束之后，利率受到压制。当时通过收益率曲线控制，压低战争债务的利息支出。</p>
+<p>此后，债券市场基本一直处在熊市，直到1985年前后。然后进入牛市，延续到2020年。</p>
+<p>因此，我们现在所在的债券市场环境，整体回报非常有限。</p>
+<p>DoubleLine成立快17年了，我们先后推出了大约35种策略，通常每年推出三种左右，所以每种策略的起始日期不同。</p>
+<p>有时回看它们的历史表现，感觉很惊人。我们多数策略跑赢了基准，这很好，但如果年回报只有3%，还是会觉得不怎么样。</p>
+<p>随后再看基准，比如全球债券市场，某些12年区间的回报竟然是零，几乎没有赚到任何钱。</p>
+<p>这就是长期熊市需要面对的环境，而我认为我们正处在这样的环境里。我们仍然必须尽最大努力赚钱，因此会寻找不同的办法，也有一些比较特殊的策略。</p>
+<p>封闭式基金尤其值得一提。它可以使用杠杆，同时通过封闭式结构规避开放赎回产生的流动性风险。在这样的环境里，这类基金实现过接近6%的回报，至少高于通胀。</p>
+<h4 id="chapter-7">22:14 会不会买Anthropic的债</h4>
+<p><strong>Brian Sozzi</strong></p>
+<p>Jeffrey，你会持有Anthropic的债务吗？</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>绝对不会，我不会碰。</p>
+<p>对于这类问题很多的债券，我会等到市场彻底转向按美元价格讨论它，大家连利差都不再谈的时候，再考虑它有没有吸引力。</p>
+<p>Anthropic还没有走到那一步。它本身也没有那么清晰的市场可见度，我说的是这一类公司。</p>
+<p>Anthropic正在争取投资级评级。我认为，如果它真的获得投资级评级，给它这个评级的机构应该接受调查，因为我看不出它有什么理由配得上投资级。</p>
+<p>争取投资级评级的动机，是让保险公司能够购买这些债券，借助对评级机构的套利，承担超出其适当范围的风险。</p>
+<p>现在有七八家机构给公司债评级。以前是三家，再早是两家，后来Fitch出现了，时间相对接近全球金融危机。</p>
+<p>有意思的是，当时Fitch反而做得最好。金融危机之前，标普和穆迪的评级表现非常糟糕。Fitch也有失败，但整体好得多。</p>
+<p>现在有七八家机构，其中很多名字你根本没听说过。有些活动让我非常怀疑。机构的团队很小，却每年给成千上万宗交易评级。</p>
+<p>25个人的团队，怎么可能每年给几千宗交易作评级？每份文件都有大约200页，这在工作量上就很难说得通。</p>
+<p>我不想说得太严厉，但市场繁荣时，总会有一些不良参与者进来分一杯羹。我认为其中一些机构，可能会心照不宣地提供一张评级价目表。</p>
+<p><strong>Brian Sozzi</strong></p>
+<p>是。</p>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>它们直接问你想要什么评级。想要投资级，就需要支付相应的价格。</p>
+<p>我认为，这种情况已经出现在私募信贷，以及那些被要求买入特定资产的保险公司身上。</p>
+<h4 id="chapter-8">24:49 2006年的承销商为什么只与新经理合作</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>这又让我想起2006年。当时我就在结构化融资行业。我们在1990年代末就开始做这类结构，随后一直做到2000年代。现在叫CLO，当时通常叫CDO。</p>
+<p>后来突然间，大家都不愿意和我们做交易了。</p>
+<p>我去见当时排名第一的承销商，找的是那家大公司排名第二的高管。他说自己最大的错误，是发行的CLO还不够多，资产负债表没有充分利用。他希望把发行规模从250亿美元提高到500亿美元。</p>
+<p>我说，这太好了，我们很愿意和你们做些业务。</p>
+<p>后来，那家公司整个CLO团队到圣迭戈参加会议，顺道来洛杉矶，我们一起出去吃饭。我就坐在行业第一大CLO发行团队负责人旁边。</p>
+<p>我问他，究竟怎么回事？我们以前一直做业务，交易表现也很好。你们现在发了这么多，还是第一大承销商，为什么我们一宗合作都没有？</p>
+<p>他非常平静地看着我说，我们以后都不会再和你做交易。</p>
+<p>我问，为什么？</p>
+<p>他说，我们只和刚成立的管理人合作。</p>
+<p>我说，这听上去不像一个好的卖点。你给客户推荐一项交易，却告诉他们，管理人此前根本没有做过这种业务。</p>
+<p>他解释说，道理很简单。你不会按照我们的要求去买东西，而新成立的管理人会把我们让他们买的东西全买下来，因为是我们让他们进入了这个行业。</p>
+<p>实际上，他们把自己库存里的垃圾清出去，塞进这些第一次管理此类资产的人手里。</p>
+<p>他还补充说，而且他们收的管理费也比你低。我们一举两得，既处理了垃圾库存，付的费用还更少。</p>
+<p>几个月后，我回到纽约，又去见了那位希望把资产负债表相关发行规模提高到500亿美元的高管。</p>
+<p>我告诉他，你现在面对一个很大的问题，你正在走向毁灭。你的CLO团队会把公司炸掉。</p>
+<p>他完全无动于衷，仿佛根本没听我说话。我离开时还在想，这到底是怎么回事？</p>
+<p>后来我知道了。三天以后，这个人辞职了。他先拿到了上一年度2.5亿美元的奖金，然后回到亚洲的祖国，让自己很难被追责。</p>
+<p>当事情失去控制，就会出现这种情况。</p>
+<p>我觉得，现在私募股权公司拥有私募信贷公司、私募信贷公司又拥有保险公司的结构，正在发生相似的事情。整个体系最终都由私募股权公司控制，保险公司则必须买入被指定的资产。</p>
+<p>这与我刚才讲的CLO故事有着非常直接的呼应。</p>
+<p>所以，对于那些借助不可靠评级机构进行套利、再被强行放进保险公司组合的债务，我非常警惕。</p>
+<p>我真正担心的是这些保险公司的稳健性。我们已经看到一些大型参与者出现丑闻，原来说关联方交易占比只有3%，后来发现实际上是40%。</p>
+<p>然后他们说，只是计算错误。3%变成40%，这清楚地说明，你已经进入了我所说的“狂野西部”。</p>
+<h4 id="chapter-9">28:18 淘金热如何改变一座小镇</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>想象边疆有一座很好的小镇。镇上都是敬畏上帝、靠土地生活的农民，几乎没有犯罪，可能偶尔发生一起情杀，但人们平时根本不用锁门。</p>
+<p>警长就像《正午》里的Gary Cooper，心地善良，能把一切管理好。</p>
+<p>直到有一天，镇外两英里发现了金矿。机会主义者、想着捞一笔就走的人、骗子和无赖，纷纷涌进来。</p>
+<p>突然之间，到处都是犯罪，甚至各种谋杀。居民需要锁门，还得把门堵起来，因为整个地方已经变了样。</p>
+<p>金融市场里，只要某种新事物出现，激发所有人的想象，而且最初确实有效，就会吸引更多人加入。</p>
+<p>全球金融危机之前的次贷是这样，现在私募信贷、私募股权通过保险公司进行的活动，也在出现相似情况。</p>
+<p>我认为这会成为一个大问题。一旦违约开始发生，影响会很严重。</p>
+<p>Brian，大约一年前，行业里一家非常大的公司，一夜之间把某个私募信贷资产池的估值从100下调到82。</p>
+<p>具体来说，2025年末还按100估值，今年一月就下调到82。到了季度末，又进一步下调到77，总共跌了23个点。</p>
+<p>不做债券的人听到下跌23%，可能觉得没什么，英伟达最近也可以跌24%。</p>
+<p>但这里是由几百笔、甚至几千笔贷款构成的大型组合。推销这类产品时，一直强调这些贷款彼此不相关，按道理就不该同时下跌。</p>
+<p>我相信，它们实际上的跌幅也各不相同。</p>
+<p>尤其是我在报纸上不断看到，这些私募信贷项目的发起人说，一切都很好，危险警报为零，预警信号为零，大部分信号都很积极。那剩下的信号到哪里去了？危险和预警都是零，却只有大部分信号积极，这种说法本身就让我觉得有问题。</p>
+<p>那么，真实情况到底是什么？假设一半贷款仍能按100足额收回，组合的23点损失全部来自另一半，那么那一半的跌幅就是46点。</p>
+<p>设想你是负责向客户解释惨淡业绩的市场人员，你觉得哪种说法更好？全部贷款都跌23点？一半贷款跌46点？还是四分之一贷款跌92点，价格只剩8？</p>
+<p>数学关系摆在那里，实际情况必然落在其中某个位置，或者这些情况之间。</p>
+<p>显然，里面已经有问题。</p>
+<p>看公开债券市场时，CCC级或者C级资产，可以作为私募信贷组合里资产状况的一个相当有用的参照。</p>
+<p>现在银行贷款中的CCC、C类资产价格已经低于65。所以，认为私募信贷里某些同类资产还能一直按面值估值，在我看来很荒唐。</p>
+<h4 id="chapter-10">31:47 账面回报与实际分配</h4>
+<p><strong>Jeffrey Gundlach</strong></p>
+<p>有一位我一直保持交流的女性财务规划师，她的业务很大，有许多高净值客户。</p>
+<p>大约一个月前，她跟我说，她最大的客户之一，投资私募信贷已经14年。这14年平均每年的现金分配只有2%，就这么多。</p>
+<p>还有一只跟踪CLO权益层的ETF，从成立以来14年的年化回报只有1%。</p>
+<p>这些透明、能够查明的市场结果，多少能让人看到实际表现。大家不断宣传回报非常好，但真正看到的结果却很有限。</p>
+<p>价格已经显著下跌。比较诚实的发起人，至少开始反映这些估值下调。很多人还在抵抗，抱着情况会好转的希望。</p>
+<p>我曾质疑一位管理人，为什么某项资产还按面值估值。他说，只要我们认为最后能拿回100，就会继续按100估值，即便目前情况看起来很糟。</p>
+<p>所以，等到最后实在撑不下去，才会出现从100在很短时间内降到82、再降到77的情况。</p>
+<p>我觉得，这是真正的问题，我希望离它越远越好。因此，一想到要买Anthropic的债，我就浑身不自在，简直要起荨麻疹。</p>
+<p><strong>Brian Sozzi</strong></p>
+<p>Jeffrey，我们今天只能聊到这里。过去十年，每一次与你交流之后，我对市场和投资的理解都会加深。谢谢你一直愿意抽时间和我聊，我非常感谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
