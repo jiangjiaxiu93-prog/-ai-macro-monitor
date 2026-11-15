@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Cem Karsan与Noel Smith谈波动率、对冲兑现及美债风险（OPM全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl on" href="../market_podcasts.html" aria-current="page" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../market_podcasts.html">← 返回美股和科技相关</a>
+<div class="card"><article>
+<h2>Cem Karsan与Noel Smith谈波动率、对冲兑现及美债风险（OPM全文精翻）</h2>
+<div class="metaline">Other People’s Money / The Monetary Matters Network · Max Wiethe、Cem Karsan、Noel Smith · 2026-11-09 · <a href="https://www.youtube.com/watch?v=VUIv4gAsYqA" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：波动率；离散度；期权偏斜；Gamma；Vanna；Charm；仓位；通胀；美债；量化宽松</p>
+<p>Cem Karsan与Noel Smith为Kai Asset Management联合首席投资官，Max Wiethe主持。本期11月6日录制、11月9日发布。文中的“昨天”为11月5日，“今天”为11月6日，仓位、市场水平及未来情景均沿用录制时口径。正文按原顺序翻译，删除广告、订阅呼吁及无信息重复。</p>
+<ul><li>两位经理区分市场尾部风险与购买保护的价格，担心脆弱性增加，同时认为冲击后追买隐含波动率的成本已高。</li><li>讨论指数波动压缩、个股分化、期权对冲流，以及通胀和债务压力怎样影响长端利率与联储政策。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00　片头预告</a></li><li><a href="#chapter-2">01:21　选举后的第一轮指数波动</a></li><li><a href="#chapter-3">04:20　暴跌风险与昂贵的保护</a></li><li><a href="#chapter-4">09:52　催化剂、年底窗口与期权偏斜</a></li><li><a href="#chapter-5">12:30　偏斜怎样产生收益交易，也怎样积累尾部风险</a></li><li><a href="#chapter-6">15:14　AI看涨期权与板块轮动</a></li><li><a href="#chapter-7">19:36　看涨价差、看涨蝶式与年底追赶收益</a></li><li><a href="#chapter-8">十二月看跌仓位与短暂的下跌窗口</a></li><li><a href="#chapter-9">27:40　一定需要新闻催化剂吗</a></li><li><a href="#chapter-10">30:12　指数平静与内部剧烈轮动可以并存</a></li><li><a href="#chapter-11">35:58　价值与成长是否迎来长期切换</a></li><li><a href="#chapter-12">44:22　周期与结构性通胀共同决定利率</a></li><li><a href="#chapter-13">48:50　美债危机、政策托底与量化宽松</a></li><li><a href="#chapter-14">52:38　把宏观判断转化为交易</a></li><li><a href="#chapter-15">54:15　催化剂、跨期结构与何时兑现</a></li><li><a href="#chapter-16">57:36　结构性资金流、宏观与政策激励这三条腿</a></li><li><a href="#chapter-17">01:04:04　结尾</a></li></ul></details>
+<h4 id="chapter-1">00:00　片头预告</h4>
+<p><strong>Cem Karsan</strong></p>
+<p>汉克·保尔森突然上彭博，用45分钟不停地说，美债危机要来了，我们需要准备一个工具来托底。这很奇怪。</p>
+<p>我们习惯了他们只是被动应对，直到危机发生才行动。但现在的联储不是这样。直截了当地说，要摆脱这一困境，在当前利率和这股浪潮下，继续维持我们想要、也支撑着市场的增长，只有一个办法，量化宽松。</p>
+<p><strong>Noel Smith</strong></p>
+<p>我完全赞同Cem。哪怕现在听他说，我也完全同意。我们合作的要点，就是有一些观念和力量能够驱动交易。</p>
+<h4 id="chapter-2">01:21　选举后的第一轮指数波动</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>欢迎收听Other People’s Money。今天的嘉宾是Cem Karsan和Noel Smith，两人担任Kai Asset Management联合首席投资官，刚建立了这段合作。</p>
+<p>我们直接谈市场。今天是中期选举后的周五，周四出现了选举后第一次大规模波动事件。2026年此前主要是个股波动和离散度的故事，这次随着VIX上涨，终于在指数层面看到裂缝。是什么让指数也动起来了？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>我认为这只是开始，是第一次警告。</p>
+<p>指数层面的资金流与波动率压缩力量非常大。主要驱动力是相关产品的增长，规模已经连续四年同比增长100%。这是一种很难打破的力量。</p>
+<p>需要很多负面的宏观因素、非常大的逆风，才可能将它打破。我们现在开始看到这些因素，而且其内部作用已经存在一段时间。</p>
+<p>你说的离散度，我们和Noel都谈过。当指数波动被压住时，会迫使各个组成部分彼此分离。再加上基本面中的盈利也在呈现类似分化，就形成了历史性的、真正历史性的离散度。</p>
+<p>整体离散度本来就处在较高水平，在此基础上又走向极端。我认为，某个时点这种分化本身就可能打破整体结构，让波动率脱离压制。我们现在开始看到的就是这个过程。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel，你怎么看？</p>
+<p><strong>Noel Smith</strong></p>
+<p>先为听众解释离散度。想象抓起一把弹珠，撒在大理石地板上，它们会朝不同方向弹开，各走各的，这就是离散。</p>
+<p>反过来，把同样一把弹珠丢进温暖、潮湿的泥里，它们就不太会散开。这可以类比相关性。当市场像鱼群一样整体移动时，相关性很高。昨天那样的集体走势，就是高相关性、低离散度事件。</p>
+<p>此前是各板块各走各的，板块内部个股也各走各的，最后在指数层面相互抵消。正如Cem所说，有结构性产品利用这种情况，卖出指数波动率，同时买入指数成分股的波动率。这笔交易多年来都很好做。</p>
+<p>但昨天这样的行情，会让这些持仓非常痛苦。现在这些水平在离散度上曾处于历史低位——总之，我指的是这笔交易。我认为Cem说得对，从现在的位置看，向上的空间很大，可能高得多。</p>
+<p>［译注：上述末段的英文字幕存在口语改口，未清晰界定“历史低位”所指的具体指标，译文保留其原有指代。］</p>
+<h4 id="chapter-3">04:20　暴跌风险与昂贵的保护</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>这是大家最关心的问题。每次VIX上升，人们都喜欢进场卖波动率，因为权利金看起来很好。但这里又存在反身性。</p>
+<p>先问Cem，你怎么看暴跌风险？现在应该买入昂贵的波动率，还是需要更谨慎？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>当前市场结构越来越窄。指数层面被压得很紧，分布向右偏，但左边有一条非常肥的尾部。</p>
+<p>当指数受到压制时，离散度依然存在，特异性风险也依然存在。一些东西涨或跌，就把另一些东西推向相反方向。整体看，内部波动反而会更高。</p>
+<p>市场本身又被钉得很牢，很难跌下去。选举后就是这样，宏观新闻明明不好，市场却上涨，那就是资金流和压低波动的力量在支撑。</p>
+<p>之后宏观压力压过这些力量，市场跌了。但今天早上又看到了什么？反弹。那还是资金流。因此，即使某一天打破压制，也很难从结构上真正摆脱它。</p>
+<p>我认为最终会打破，只是需要时间。如果出现足够大的跌幅，昨天还不够，我们需要延续。假如今天醒来市场又跌2%，很可能最后会跌5%，因为远端尾部的Gamma效应会被触发，进而激活更大的尾部。</p>
+<p>我必须反复强调，这个市场的尾部非常大。用我自己的比喻，它像两块构造板块。即使表面不动，内部也可能正在积累巨大的压力。看不见运动，不代表不存在势能。</p>
+<p>我们就在这种“相扑市场”、这种板块相互挤压的市场里。只需要合适的时点，一个明斯基时刻，最后一粒沙落下，巨大的尾部就会释放。</p>
+<p>因为市场底下的宏观、基本面和现实情况非常脆弱，只是被巨大的结构性资金流撑在一起。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel，昨天波动率大涨。我们聊过，你说直接买看跌期权已经有些贵。你还说如果今天反弹，VIX会回到22左右。今天开盘市场涨得不错，VIX大概到了23，与你判断非常接近。</p>
+<p>波动回落后，你有没有重新大量买入波动率多头？</p>
+<p><strong>Noel Smith</strong></p>
+<p>明确没有。</p>
+<p>昨天，我卖掉了一些此前已经持有的VIX期权。当前价格绝对不是我愿意买入波动率的价格。</p>
+<p>如果你手上有库存，就意味着可以处理它，货架上有东西可以拿来卖。如果打开储物间，里面什么都没有，那是另一笔交易。</p>
+<p>假如你的公司可能倒掉、你可能失去工作，必须买看跌期权，那是你自身的特殊处境。与此同时，手里本来就有这些工具的人，也可以利用这种需求获利。</p>
+<p>所以，除非你确实非常需要保护，我认为现在是购买波动率的糟糕时点。幸运的是，昨天之前我们就持有一些保护，组合里已有不同的看涨和看跌期权结构。昨天的损失很大一部分被缓冲，这就是建立这类交易的目的。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>接下来怎么做？怎么利用这种行情？会进场卖波动率，还是先从市场退一步？</p>
+<p><strong>Noel Smith</strong></p>
+<p>我直接说自己做了什么，不猜测，也不只讲理论。我卖掉了几乎所有对冲。</p>
+<p>时点是不是完美？我不知道，很希望能回答，但我确实不知道。如果周一VIX上80，我会后悔卖了。我们仍然留了一点，也仍然有可以获得的凸性。</p>
+<p>不过，这些对冲持有了一段时间，收益已经远超它们的成本，所以结果令人满意。</p>
+<p>什么时候兑现，要尝试拆解市场结构及正在发生的事情，其中需要判断。我们看跨资产波动率，看市场怎样买入波动率，看VIX期货，现货VIX相对期货在哪，相关期货期权又怎样定价。</p>
+<p>你要从资金流和市场信息里辨认信号，尤其当你认为只是少数对冲基金被迫平仓时。</p>
+<p>如果有人被抬着从后门退出，这种抛压终会消失，市场随后可能反弹，给你更好的机会重新配置对冲。</p>
+<p>我没有比其他市场参与者更好的信息，只是判断应该兑现大部分对冲。除非被迫，或者机会条件明显改善，我不会把它们重新买回来。</p>
+<h4 id="chapter-4">09:52　催化剂、年底窗口与期权偏斜</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>Cem，回到你这里。明斯基时刻可能由哪些催化剂触发？财报季、中期选举都过去了，眼前还有Anthropic上市定价。还有什么事件可能迫使市场进入这种状态？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>通过资金流及未来结果分布，我们可以判断某些时点更适合广泛做多波动率，正如Noel所说。这里指的不限于持有尾部凸性、再从分布其他部分筹集成本，而是更直接、广泛地持有波动率多头。</p>
+<p>我同意Noel，目前越来越不是那种环境。</p>
+<p>后面我们会谈宏观，以及政府政策激励等前瞻因素，它们不只是资金流。我认为，最高概率的窗口在年底至明年初。</p>
+<p>所以，我们现在希望持有凸性，同时寻找在这几轮期权到期之后，更广泛增加隐含波动率多头的机会。到了年底、明年初，支撑市场的那第三条腿，也就是资金流，更有可能消散。</p>
+<p>但这只是展望，仍然需要催化剂。</p>
+<p>过去大约十年，这么高的期权偏斜只出现过三段时期。第一次是2019年末，大致九月、十月。第二次是2021年七月、八月、九月。第三次就是现在。</p>
+<p>共同点是什么？它们都发生在大跌之前，大概再过六个月，重大跌势开始。我要强调的是“提前”，并非前一天、前一周或前一个月。</p>
+<p>当机构为将来风险配置对冲时，会产生反身性。机构担心有其原因，但这些担忧本身带来的对冲、偏斜和波动压缩，会创造Vanna与Charm相关资金流，形成结构性支撑，也形成市场所说的“忧虑之墙”。</p>
+<p>在宏观现实真正发挥作用前，往往要先把那些拿不住仓位的人震出去。</p>
+<h4 id="chapter-5">12:30　偏斜怎样产生收益交易，也怎样积累尾部风险</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>请为听众解释一下偏斜。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>可以把下行期权看作市场的下跌保险。比如还有30至60天到期、虚值10%的看跌期权，再与虚值5%至10%的看涨期权比较。</p>
+<p>二者的定价关系现在非常极端，看跌的隐含波动很高，看涨的很低。举例，看涨隐含波动可能只有12%，看跌可能按35%定价。</p>
+<p>归根到底，这是世界上最大的收益套息交易。相对实际实现的波动，下跌保险的隐含价格非常贵。</p>
+<p>为什么？因为人们需要保险，而且人人都有多头。他们不会买上涨保险，他们买下跌保险，甚至会卖掉上涨保险，把上行隐含波动进一步压低。</p>
+<p>这种偏斜和对冲需求意味着，市场不动，你就能赚取收益。你可以卖出虚值15%的某种保护，用同样的权利金买入虚值只有5%至6%的看涨期权。</p>
+<p>这里有巨大的不平衡，也是一笔利润丰厚的交易。这些保险风险由做市商、银行及基金承接。</p>
+<p>和其他套息交易一样，它会产生大量资金流。外汇套息交易中，资金流向相关货币，货币价格必须对此作出反应。标普或股票市场里，对应的就是Vanna、Charm资金流。</p>
+<p>每天过去，这笔交易都可能赚钱，参与者因此要降低部分对冲、重新调整相关头寸，再建立新的对冲。</p>
+<p>但也和所有套息交易一样，它有非常巨大的尾部。之所以存在这种结构性交易，是因为需求单边，所有人都在交易的一侧，所以远端肥尾会比以往更大。</p>
+<p>结构性产品、对冲等持续增长，总有人要把这些风险放在自己资产负债表上。市场一旦恶化，那个人没有顺畅的出口。门很小，而且比以前更小。</p>
+<p>但尾部事件发生之前，每天又都有反身性资金流回来支撑它，让交易继续盈利、继续扩张。</p>
+<h4 id="chapter-6">15:14　AI看涨期权与板块轮动</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>个股层面，情况却不完全一样。比如内存股票，有很多看涨期权买盘，今年某些时点正好反过来。我不确定究竟是谁在大量买入、推高这些看涨期权，但变化非常大。</p>
+<p>如果市场在这里稳定，是否有可能重新吸引大家进场买看涨期权？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>当然。我想强调，部分个股的看涨期权仓位，与指数的巨大下行偏斜之间的差异，正是离散度的重要驱动。</p>
+<p>今年早些时候，我们看到AI板块一侧的Gamma挤压。指数被钉住，但AI上涨，就迫使很多偏价值的资产大跌、严重跑输。数学上，要同时满足指数被压住和这些股票上涨，就得通过这种过程。</p>
+<p>后来发生了什么？我们五月就提示过，市场上涨，看涨期权大涨，隐含波动越来越高，大家继续涌入，觉得Gamma挤压很好，要买更多。但最终几乎不可能跟上这种变化速度。</p>
+<p>夏天到来，其他成交量下降。做市商此前卖空这些看涨期权，同时持有股票。我们五月就说，要留意夏天出现大规模反向离散度行情。</p>
+<p>后来正好出现反向变化。Vanna、Charm资金流进入指数，也流向交易另一端，把整个夏天推成一场巨大轮动。那是在波动高度压缩期间，资金流主导的结果。</p>
+<p>夏天资金流容易占主导，十一月、十二月也一样，因为人们度假、离开市场。因此，你指出的现象非常关键。观察并理解它，是预测轮动方向的最重要因素之一。</p>
+<p>但核心是，如果指数继续受到压制，轮动就必须发生，而压制主要来自不断进入市场的结构性产品资金。</p>
+<p>直接回答你的问题，看涨买盘会回来。当市场再次向上挤压时，它就会回来。至于什么时候，就得开始考虑宏观和内部其他变化。</p>
+<p><strong>Cem Karsan，续</strong></p>
+<p>在我看来，要重新启动、重新刺激这一轮上涨，可能需要先经历一次较大的风险偏好收缩，然后再通胀。我认为这很可能就是接下来会发生的事。</p>
+<h4 id="chapter-7">19:36　看涨价差、看涨蝶式与年底追赶收益</h4>
+<p><strong>Noel Smith</strong></p>
+<p>接着刚才关于看涨期权的问题。市场上有很多备兑策略等产品，结构性地卖出30天左右期限的波动率。它们卖给谁？做市商。</p>
+<p>做市商买下这些期权，价格上涨时，要让这些期限附近的Delta保持相对平衡。如果市场继续大涨，就可能需要追着调整。尤其年底，大家可能开始追赶业绩。</p>
+<p>所以我认为，看涨价差、看涨蝶式，比闭眼买入Delta、直接买QQQ或SPY更好。蝶式就是买一份、卖两份，再在更高行权价买一份。</p>
+<p>直接买股票或指数基金，上下行大致是一比一。期权则可以构造成对你有利的非对称性，这正是我们在寻找的。我们希望在给定情景里，潜在赚的钱比可能亏的钱更多。</p>
+<p>与直接买看涨期权相比，这样观察市场更有洞察力。如果你按32%的隐含波动率买看涨期权，市场涨60基点，期权隐含波动却从32%降至22%，你仍然可能亏钱。</p>
+<p>这种交易很难受。持有看涨期权，市场涨了，自己却亏了。问我为什么知道就明白了。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>听起来是亲身经历。你谈到年底追赶收益，但眼下似乎正相反，大家在防守。昨天可能有十条新闻，分别说某家基金整体清算，或关闭部分业务。很多对冲基金都处于防守状态。</p>
+<p>你应该经历过几次这种阶段。通常一天的新闻之后就结束了吗？在这一轮结束前，会不会有更多机构倒下？</p>
+<p><strong>Noel Smith</strong></p>
+<p>如果说周一就会完全反弹、回到此前所有水平，我会非常谨慎看待。这似乎不太可能。但我也给你讲另一面。</p>
+<p>基金退出、投资团队被裁、客户赎回资金，这些冲击可能是阶段性的。</p>
+<p>另一边，波动率控制基金昨天遇到的是很大的波动。昨天是T，今天T+1，周一T+2，以此类推。这次大波动还会留在它们的样本里大约20天。</p>
+<p>负面信号已经进入数据，无法消失，限制它们重新扩大仓位。要等大约一个月之后，这些信号才可能明显恢复。因此有充分理由认为，周一不会一下全部弹回去。</p>
+<p>这完全是机械层面的判断，与我对Anthropic IPO或其他事情的看法无关。它是结构性的，是Cem和我一直讨论的事情，就像二加二等于四。</p>
+<h4 id="chapter-8">十二月看跌仓位与短暂的下跌窗口</h4>
+<p><strong>Cem Karsan</strong></p>
+<p>我想再加入一个角度，看资金流对应的未来分布。暂时把宏观拿掉。</p>
+<p>市场上最大的未平仓量，远远领先其他，是十二月看跌期权。投资者整体持有十二月看跌多头、卖出十二月看涨期权。</p>
+<p>未来七周，这种偏斜和波动结构只会越来越重要。每次季度到期都比上一次更大，而十二月会是最大的一次，因为还有已经存在很久的长期期权，以及季度合约等。这些期权到期相关的资金流非常庞大。</p>
+<p>记住，我说过，这样的仓位制造了一个向右偏、但左边有肥尾的市场。要触发肥尾，跌势必须延续，而且必须很快。</p>
+<p>做市商通常能够管理这些仓位。昨天那样的跌幅，对他们并不是无法应付。只要市场像现在这样慢下来，没有形成暴跌，他们就能调仓、移动风险、提前准备。</p>
+<p>所以，要延续下跌并激活尾部，未来几天就得继续。必须持续给持仓者，以及那些承接偏斜风险、难以退出的人施压。</p>
+<p>但如Noel所说，目前看起来并不像会发生。如果周末因为轰炸伊朗，或者发生市场意料之外的事件，压力又被激活，就可能持续触发这些头寸，发展为真正的延续下跌。</p>
+<p>这不是高概率情景，是低概率。今天早上的概率甚至低于昨天收盘，因为已经有一些修复，人们重新调整了仓位，做市商也获得准备时间。</p>
+<p>从现在到下周二收盘，留给这类行情的时间其实不多。如果周五、周一继续下跌，就能把压力推进曲线那一段，可能越滚越大。但就我们此刻所处位置，这似乎不太可能。</p>
+<p>如果短期内没有发生，做市商知道时间窗口正在关闭，这也是市场仍处于这些水平的原因。没有坏消息，相关资金流就会开始发挥作用。</p>
+<p>随后很快来到感恩节，假期使一切更受压缩。再往后是十二月一日，离重要到期只剩两周，留给启动大跌的时间越来越少。</p>
+<p>因此，从资金流角度，除非压力现在就启动，年底结构中的下跌机会正在每分每秒消散，向右偏的分布更有可能发挥作用。</p>
+<p>市场也会抢跑。我不是唯一知道这一点的人。所以我认为，如果下周二、周三之前没有延续下跌，市场很快就可能回到历史高点。</p>
+<p>现在市场喜欢迅速移动，因为信号很清楚，先快速调整，再消化，之后波动压缩重新发挥作用。</p>
+<p>我们正处于一个重要临界点，发生概率不高，但发生后的影响很大，尾部很肥，窗口又很短。</p>
+<p>以上全部还没加入宏观等其他因素，只是作为基线的市场结构及自然资金流。这些力量在夏季、年底尤其重要、尤其占主导。</p>
+<p>当然，如果特朗普向伊朗投核弹，市场会有反应。那时，我前面说的肥尾会变得非常肥。</p>
+<h4 id="chapter-9">27:40　一定需要新闻催化剂吗</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>我的问题是，一定需要“核弹”吗？我说的不是实际的核弹。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>根据我们听到的情况，实际使用的可能性也没有那么低。也许是1%或2%，而通常应该是0.001%。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我想问的是，你说下跌延续存在这样一个短窗口。中东军事行动当然可能打击市场，但它是必要条件吗？</p>
+<p>假如大家从根本上放弃AI交易，每次反弹都卖出、退出仓位，这本身能不能推动下周初继续下跌，而不必再有某条新闻？</p>
+<p><strong>Noel Smith</strong></p>
+<p>我觉得这一区分没有实质差别。市场一个无处不在的特点是，资金总会寻找阻力最小的方向。</p>
+<p>人们只是突然觉得不喜欢AI，于是抛弃AI交易，我不同意。</p>
+<p>民主党大胜，部分当选者可能更不支持数据中心，融资会难一点，IPO估值受到挤压、上市时间或推迟一两天。再比如，英伟达财报恰好在VIX期权到期前。这些都是真实催化剂。</p>
+<p>但说大家只是厌倦了在英伟达上赚钱，我不这么看。我知道英伟达已经不在上周的价位。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>我倒是厌倦了在英伟达上亏钱。</p>
+<p><strong>Noel Smith</strong></p>
+<p>对。你也许会说，所有人都想锁住之前有效因子的利润，但我也不觉得这会普遍发生，概率也很小。</p>
+<p>最可能的情况还是有某个催化剂。你与别人是否把它理解为同一件事，可以讨论。但人们采取行动，总有原因。</p>
+<h4 id="chapter-10">30:12　指数平静与内部剧烈轮动可以并存</h4>
+<p><strong>Cem Karsan</strong></p>
+<p>市场结构会改变概率分布。在没有其他因素时，它对基线结果有直接影响。但还有别的力量也在改变分布，它们相互作用。</p>
+<p>结构上，这是一个向右偏、左边有肥尾的市场。在没有催化剂时，尤其随着未来几天时间推进，它越来越倾向于形成正面的、压低波动的结构。</p>
+<p>但那是指数层面。Max，你一直在问AI尾部与整个市场。我想非常清楚地说，两者不能等同。</p>
+<p>今年我们多次看到市场某些部分真正暴跌，只能这么形容。看看现在的半导体，而整个市场却几乎没去哪里。这可以继续发生。</p>
+<p>我说的市场支撑与波动压缩，指的是指数层面。它甚至会迫使离散度进一步扩大。</p>
+<p>五月我就说过，如果十一月、十二月指数继续被压住、继续上涨，就要预期大规模分化。偏弱的东西可能继续更弱，其他领域开始取得领导地位。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>说到领导板块，你不认为轮动资金已经耗尽，其他领域仍然可能继续……</p>
+<p><strong>Cem Karsan</strong></p>
+<p>也可能反向翻转。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>对。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>但这与一个所有东西同涨同跌、Beta为1的行情不同。今年已经反复发生，科技股大涨，指数没怎么动。夏季科技股又崩跌，之后再涨，然后又跌，就是反复切换。</p>
+<p>它可能再发生。我觉得不是概率最高的情况，但有可能。</p>
+<p><strong>Noel Smith</strong></p>
+<p>Cem完全正确。看看医疗保健，表现不错。住宅建筑商也不错。再看黄金、公用事业的期权偏斜及动态，并不那么贵，相对科技尤其如此，科技的定价已经高到天上。</p>
+<p>内部完全可以发生变化，而整体装置没有明显改变。我完全同意。结构可以重新组合，指数层面不忙，底下却有大量活动。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>离散度会放大这个过程，但宏观因素也在推动。</p>
+<p>2000年，相关资金流连现在的一小部分都不到。它们也存在，只是规模远不及今天。</p>
+<p>当时纳指最初跌了50%，标普500只跌15%，市场中大约一半股票反而涨20%至30%。标普整体跌15%，内部却发生这么大的轮动，那就是科技泡沫破裂时的情形。</p>
+<p>所以，我们讨论市场、年底及资金流时，我说的“市场方向”主要是标普500，以及影响其方向的资金流。这些力量甚至会强化、加速离散。</p>
+<p>更难的问题，是分化会朝哪边发展。考虑宏观压力及其他影响概率分布的因素，我最倾向的判断是，压力和当前轮动会延续到年底。除非未来两三天尾部被触发，指数本身很可能维持得还不错。</p>
+<h4 id="chapter-11">35:58　价值与成长是否迎来长期切换</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>2000年的分化，后来开启了价值因子持续六年跑赢的阶段。那段时期很多对冲基金传奇人物都是价值投资者。</p>
+<p>你应该也看过《指环王》的搞笑图，说“兽人的时代来了”，现在变成“价值因子的时代来了”。你认为我们进入了更结构性的制度转换吗？价值跑赢成长，或者这些板块轮动，能维持多年吗？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>我对此看法非常明确。2000至2006年的价值行情，从更长历史看，其实只是很短的窗口。</p>
+<p>观察125年历史，会看到成长跑赢四十年、三十年，价值跑赢二十五年这样长的周期。</p>
+<p>2000年确实存在泡沫破裂的时刻。但更根本的事实是，我们过去44年实行供给侧经济政策，这正是成长因子长期大幅跑赢的原因。</p>
+<p>利率从20%降到零，每次危机都用这一方向的政策应对。</p>
+<p>大约2020年开始，政策转向更民粹的方向。特朗普2.0试图给出更偏右翼的民粹答案，但本质上又回到了供给侧经济，只是通过“特朗普账户”等安排，试图给普通人一些零碎好处。</p>
+<p>所以，它仍然是一种高度供给侧的政策反应。回答你的问题，关键取决于一点。这次对特朗普的否定，会不会重新释放2020年已经开始的那种民粹转向？</p>
+<p><strong>Cem Karsan，续</strong></p>
+<p>如果政策重新走向更强的民粹主义，那么价值因子会在未来二十年跑赢。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>为什么？民粹政治为什么有利于价值？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>那就得展开说。民粹政策意味着向富人征税，把钱给穷人。钱给穷人，他们会消费。钱给富人或资本，无论通过降息还是QE，他们会投资。</p>
+<p>这两种刺激的效果非常不同。我们过去四十年，是把钱送到我所谓的“帕洛阿尔托星球”，送给公司。公司回送Uber、亚马逊、特斯拉，并没有同等地回送需求，因此这种安排具有通缩性。</p>
+<p>面对通缩，我们下一步又做更多货币刺激，先获得短期提振，随后走向更多通缩。这就是自由市场、供给侧经济，也是过去四十年的做法。</p>
+<p>美联储有两项任务，大致是最大化GDP，名义上叫就业，但在我看来实质是最大化GDP，以及价格稳定。货币政策通过低通胀实现这一点，形成通缩式结构，同时持续推动增长。</p>
+<p>但任务里没有什么？没有不平等。</p>
+<p>这一过程带来了四十年的严重不平等，也总会走到这一步。然后出现一代人，认为不公平，买不起房，还不起大学贷款。美国18至36岁的人中，35%仍与父母同住。</p>
+<p>千禧一代因此愤怒，要求体系优先考虑中位数结果，而原来的体系更关注平均结果。</p>
+<p>就这么一点区别，也意味着更高的利率。钱给普通人，他们消费，推动通胀，同时推动民粹保护主义、全球冲突，以及因商品被分割和囤积而上升的大宗商品价格。</p>
+<p>历史上一再发生，所以才有大周期。Neil Howe的《第四次转折》等讨论，根本上都与代际经验有关。</p>
+<p>如果你1982年出生，经历的是全球化不断加深、不平等不断增加、技术持续进步，终于厌倦了这一切。而这一代人正在取得政治主导权。</p>
+<p>所以，为什么价值会跑赢？货币价格，也就是利率上升，对久期很不利。融资会变难。</p>
+<p>想一想亚马逊、Uber等企业。如果利率更高，它们未必能存在，因为很难筹到足够资金。有些企业二十年都不赚钱。历史上很少有其他时期，允许企业长年不盈利，却靠梦想、市场份额和构想继续融资。</p>
+<p>它们也受益于廉价劳动力，以及供给侧模式附带的其他条件。</p>
+<p>转向需求侧，最终是把钱交给普通人，更公平、更平等，但自然对应更高利率。它对成长、风险投资很不利。你需要靠现金流真正支撑正在做的事。</p>
+<p>如果你是一家有现金流的价值企业，你就能收购成长、为成长融资。你可能拥有更多增长，因为融资竞争减少了，自己产生的资金也更值钱。</p>
+<p>很多人问，为什么成长大幅跑赢，价值因子是不是死了？在需求侧经济重新回来以前，价值难以发挥。但现在我们正处于巨大的民粹浪潮中。</p>
+<p>看看法国，甚至卢浮宫都遭到纵火。这不是巧合。钟摆总会摆回来，只是看能把它压在一端多久，人们要愤怒到什么程度才会把体系烧掉。</p>
+<p>所以，如果问我时点，就告诉我决定政策方向的这个因素会怎样。看看Lula带来的意外浪潮、法国发生的事情，以及刚刚的中期选举，它们相互联系。我们已经谈了一段时间。</p>
+<p>政治人物两年、四年就要再选，时间很短，会努力维持局面。继续供给侧办法，是他们让盘子继续转的手段。但政治压力会持续推动变化。千禧一代到2036年达到政治主导，还有十年，这些压力只会更大。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel，这样的判断怎样转化成有凸性的机会？</p>
+<p><strong>Noel Smith</strong></p>
+<p>做空QQQ，做多SPY，就这么简单。</p>
+<p>我是在开玩笑，但也不完全是。Cem说的很准确。买一套100万美元的房子，利率20%和零利率，按揭付款会差很多。</p>
+<p>把它换成想成立一家VC基金、想做一家超大云，或者任何需要融资的想法，无论是异想天开还是好主意，如果利率负担不起，就得另找方案。</p>
+<p>QQQ偏成长，SPY也有很多成长，但相对少一些。所以我才半开玩笑地说，空QQQ、多SPY。作为相对价值交易，基本上就是他刚才的观点。</p>
+<p>利率更高，会惩罚久期，因此按单位风险衡量，价值可能跑赢成长。</p>
+<p>久期在这里意味着，你开一家初创公司，五年没有正现金流。这五年里要付账、发工资、买保险，都需要钱。如果没有现金流，没有当下能卖出的产品，那就只能祝你好运。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>AI交易平仓，有多少就是这个过程？企业前景未必变了，但利率已经上升，未来现金流的价值比年初低得多，而大量投资计划是在此前制定的。</p>
+<p>当然，资本开支预计额年内一直上调，但方向上，至少2026年大部分时间大家都预期到这种变化。它是不是这场行情的核心原因？</p>
+<p><strong>Noel Smith</strong></p>
+<p>看ZQ，也就是联邦基金期货。几周前，到2027年九月大致计入三次、具体2.86次加息，之后降至不到两次，昨天只剩一次。今天早上的就业数据又让十二月合约的加息定价回升一点。</p>
+<p>市场并不清楚自己究竟想押什么，这些东西正在被重新定价，并传导到一切利率敏感资产。</p>
+<p>住宅建筑商股票周二表现不错，因为当时利率下降，利率敏感资产因此受益。</p>
+<p>Cem的意思是，钱的价格支撑着一切，是经济与整个体系的基础。如果它波动、变得不确定，结果会体现在股票及股票波动中。</p>
+<p>因此，我们观察跨资产波动，包括原油、黄金，黄金也有货币替代属性，以及真正的外汇、债券。曲线哪里波动最高，哪里偏斜最大？我们用这些信息寻找能产生实际用途的信号。</p>
+<h4 id="chapter-12">44:22　周期与结构性通胀共同决定利率</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>Cem，你怎么看利率路径？市场仍预期十二月加息。现在的动荡，足以让联储改变方向吗？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>理解利率，必须看两个巨大因素。过去四十年，人们习惯了只看其中一个，直到两三年前还是如此。</p>
+<p>大多数债券交易员盯的是周期性、商业周期。我交谈过的许多交易员错过变化，是因为他们仍在做过去四十年同一笔交易。这曾经就是债券交易的整个游戏。</p>
+<p>但另一个因素，是我四五年前就开始讲、很多人一直忽略的供给侧与需求侧之间的结构变化，也就是结构性通胀。</p>
+<p>通胀已经68个月没有低于2%。发生了什么？财政投资带来基础设施相关通胀，全球冲突本身及相应支出增加通胀，保护主义和供应链断裂增加成本。商品被分隔，贸易和全球化不再扩张，商品成本也升高。</p>
+<p>第一，是结构性通胀。第二，国际投资者不再像以前那么愿意买美国债务。美国不再只是过去四十年那种传播企业利润、扩大全球化的国家，而越来越强调本国人、民粹主义和保护。</p>
+<p>因此，国际买盘减少，同时结构性通胀更高。接下来还有两个特别大的因素。</p>
+<p>所有人在2020、2021年都再融资过。2021年形成的债务，平均期限大约五至七年，无论主权、公司还是市政债。</p>
+<p>这些债都要再融资。原来以1%融资的人，现在必须决定，是否接受6%、7%。如果7%不划算，是不是要卖掉原先靠1%借款买的资产？这是一股单向的、巨大的融资浪潮。</p>
+<p>政府知道这一点，所以才有相关比率调整、稳定币法案，试图管理非常困难的单向供需压力。</p>
+<p>［译注：此处英文自动字幕把第一项政策记为“Strategic Loan Ratio Act”，后文又写作“strategic loan ratios”。按上下文可能涉及SLR相关调整，但字幕不足以确认具体法规名称，译文保留为相关比率调整。］</p>
+<p>再往上叠一层。在利率上升、融资存在困难时，为了继续维持局面，就要让那些现金最多的公司推动资本开支。政府确实这么做了。</p>
+<p>还记得去年九月，所有人围坐一桌，逐个说未来两年准备花多少资本开支？扎克伯格坐在特朗普旁边，麦克风收到了那句，我给的数字对吗，6000亿美元是不是太多？</p>
+<p>这是一种由政府推动、通过企业执行的巨额资本开支，本质上是借超大云实施产业政策。</p>
+<p>后来它们烧掉现金，转向巨额债务。某个时点，政府就不能只鼓励公司这样做，还得提供托底。否则，那些建立在债务上的增长、盈利增长和资本开支就无法继续。</p>
+<p>我们开始看到这一点，信用违约互换价格大涨。同时企业债务挤出主权融资，而主权也正面临再融资浪潮，钱不够。</p>
+<p>所以，你问利率去哪儿，长话说完，答案是更高，结构性基线更高。</p>
+<p>这不意味着每一两个月都上行。但我恰好认为接下来一两个月也可能更高，因为市场如果上涨，会推动再通胀，周期性因素重新发挥作用，大家追赶业绩，年底又有现金紧张。这是另一个话题。</p>
+<h4 id="chapter-13">48:50　美债危机、政策托底与量化宽松</h4>
+<p><strong>Cem Karsan</strong></p>
+<p>结构性方向，我认为向上。汉克·保尔森四月出来讲话，人们大概只注意了12小时。他可能已经四年没接受金融媒体采访，突然上彭博，连续45分钟说美债危机要来了，必须准备托底工具。</p>
+<p>这很奇怪。有人也觉得奇怪吗？你认为他只是突然出现，向世界宣布危机要来，得准备某个工具吗？</p>
+<p>从四月到现在，我们看到了什么？利率越来越高，结构性力量持续推动。财政部回购干预曲线长端，贝森特干预日元，这些都是某种温和的托底措施。</p>
+<p>在当前利率和再融资浪潮下，要继续维持支撑市场的增长，出路只有QE。</p>
+<p>联储必须参与，在长端印钞，或者为这轮建设形成的债务提供托底。就是这样。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>这与沃什主席公开提出的资产负债表目标直接冲突。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>这不是很有意思吗？在我看来，那都是“歌舞伎表演”。如果要大规模印钞，需要有人坐在屋子里说，我们是负责任的管理者，否则看起来就像治理失序的国家。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>奇怪之处在于，一方面需要托底来建立信心，另一方面托底也是承认问题存在。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>未必。中国过去二十年由国家主导投资光伏、电动车、稀土、核电，它们是为利润，还是为战略布局？竞争在结构上就可能是这个样子。</p>
+<p>中国二十年前宣布转向“中国特色的自由市场经济”。美国现在在走向“美国特色的共产主义”，双方会在中间相遇。</p>
+<p>我们会推动国家大规模购买股票、印钞。日本已经做了二十多年，日本持有日经指数约8%。</p>
+<p>在更高利率下，美国这团债务没有容易的出路，他们知道。要解决民粹压力，又需要通过主权财富基金、“特朗普账户”等办法，替普通人买股票。</p>
+<p>这个市场已经大到不能倒。按我这里说的规模，股票资产约200万亿至300万亿美元，涨20%就是50万亿美元，从今年四五月约250万亿变成300万亿。这意味着50万亿美元新增抵押品。</p>
+<p>［译注：本段资产规模沿用嘉宾口述。原话未明确“250万亿至300万亿美元”具体涵盖美股、全球股票还是更广泛资产，未据外部数据替换该口径。］</p>
+<p>疫情时做了多少QE？10万亿美元。市场已经大到不能倒，他们知道。</p>
+<p>所以财政部长是对冲基金经理，联储负责人也是对冲基金经理。市场才是核心。</p>
+<p>要与中国竞争、支撑这个大到不能倒的市场、将债务货币化，同时运行右翼民粹主义，在我看来没有其他出路。</p>
+<p>告诉我激励是什么，我就能告诉你结果。这正在到来，而且会在未来六个月到来。</p>
+<h4 id="chapter-14">52:38　把宏观判断转化为交易</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel，你们刚刚合作，认识也有一段时间，想必交换过不少观点。听到Cem对市场方向的整体判断，你在哪些方面与他一致？这段合作怎样运作？</p>
+<p><strong>Noel Smith</strong></p>
+<p>我完全赞同。现在听他讲，也完全同意。</p>
+<p>他能把复杂的经济、政府及地缘力量，连同人的行为，提炼成一个框架，再把想法和行为转化为交易。最后这一步，就是我加入的地方。</p>
+<p>有些观念和力量会驱动交易，我们合作的目的，就是把想法落到执行，希望获得比各自单独操作更有利的风险调整后结果。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>我完全同意。最好的结果需要团队和专业分工。</p>
+<p>我能描述哪些压力在推动概率分布，我们共同建模未来可能出现的结果。但要设计最适合那个分布的交易，还需要另一种专长。我有一些，Noel在这方面非常出色，所以合作很有力量。</p>
+<h4 id="chapter-15">54:15　催化剂、跨期结构与何时兑现</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel，眼下你会采用什么结构，应对这些宏观力量？</p>
+<p><strong>Noel Smith</strong></p>
+<p>这正是期权的优势。你想把判断放到更具体的条件和时间上，同时限制敞口，避免判断错误就大幅回撤，期权很适合。</p>
+<p>接下来有几个重要催化剂。英伟达财报很关键，而且它与VIX到期相近，随后是十一月期权到期、十二月九日利率决定，再到十二月期权到期。</p>
+<p>这些事件会让很多期权从盘面上消失。之后市场活动更能自由展开，就会为波动率打开一个机会窗口。我们的判断是，尝试以非对称方式利用它。</p>
+<p>人人都说非对称，其实搭建本身没那么难，难的是何时兑现。</p>
+<p>回到前面卖掉对冲这件事，我不知道时点是否完美，并不比别人知道得多。我希望它完美，但我知道，兑现利润不会让我们破产。</p>
+<p>把交易结构拆掉、兑现、让收益落袋，是我有信心认为有利于整体业务的事情。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>关键如Noel所说，期权几乎就是为这种任务设计的。</p>
+<p>我刚才没有向你说得足够清楚，但在别处讲过。我的看法是，要推行前面这套政策方案，需要先出现一轮下跌；如果没有那种政策回应，自然演变也会走向下跌。</p>
+<p>我们预计它会在明年六月以前的某个时候出现，到明年十二月前后得到解决，激励结构指向那里。</p>
+<p>假设市场眼下存在结构性支撑，而下跌更可能在十二月或一月到期附近开始，自然就会考虑卖出近期十二月期限的保护，买入次年六月附近，再卖出次年年底十二月期限。</p>
+<p>所以，看跌期权的跨期蝶式，是我们在研究的结构之一。</p>
+<p>但也可能更早启动，那样这个跨期结构未必赚得到钱。因此我们也考虑风险逆转结构。我们认为短期上涨空间有限，同时需要保留一点尾部。</p>
+<p>这不是单纯的波动率多头交易。整个组合的净权利金大致持平、很少。非对称性来自时点，来自理解概率分布的哪一部分有价值、哪一部分价格太高。</p>
+<p>这些是结构层面正在安排的东西。这还是指数层面。要不要更多放在纳指上？要，因为我们认为更容易在那里发生破裂。当然还有其他细节，但大体是这些结构。</p>
+<p>它们是覆盖未来一年至一年半的大型长期安排。同时，Noel前面说的兑现尾部，也是他每天、每小时、每分钟坐在那里管理、兑现及优化的原因，具体做法要随着条件变化。</p>
+<h4 id="chapter-16">57:36　结构性资金流、宏观与政策激励这三条腿</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>你说激励结构，是指有意制造某个事件，让新一轮再融资能够发生吗？</p>
+<p><strong>Cem Karsan</strong></p>
+<p>用“制造”这个词过于简单，会忽略影响分布的所有压力。</p>
+<p>它本质上是三条腿的凳子。</p>
+<p>第一条，是期权资金流，也不只是期权，而是更广泛的结构性资金流，前面已经谈过。</p>
+<p>第二条，是宏观。它们相互作用，因为市场比过去任何时候都大。股市跌20%会怎样？信用收缩，宏观下降加快，所有因素一起作用。</p>
+<p>我们已经来到这样一个点，推动这一部分市场和经济增长的动力，达到了自身可融资能力的上限。如果没有政府支持，就无法维持，所以宏观增长有一个上限。</p>
+<p>同时，霍尔木兹海峡问题通过汽油价格，结构性地压低消费者需求，其他经济部分已经在转弱。这又是一股宏观压力。</p>
+<p>当然，如果能够再通胀，市场从现在到年底再涨5%或10%，就会创造更多流动性，让盘子再转一会儿。</p>
+<p>第三条，是政府、财政部和联储在市场上的行动。</p>
+<p>它们调整相关比率，推出稳定币法案，回购不同期限的国债，实施干预，告诉我们再过两周就有协议、问题就会解决。这些动作都能在市场下跌时推动挤压和反弹。</p>
+<p>很难否认，掌权者正在主动管理市场。如果看不到这一点，就是没在观察。</p>
+<p>这并不等于存在一个宏大阴谋。你不可能完全不考虑联储。交易员三十年来可能最常说的一句话，就是“不要与联储作对”。我们究竟应该忽略它，还是认真观察它？</p>
+<p>所以，理解财政部和联储的激励非常关键，它们是尾部的一大部分。</p>
+<p>我们习惯它们被动应对，直到危机发生再行动。眼下的联储与政府却非常主动。</p>
+<p>我的问题是，这些主动作为此前维持局面、推动资本开支、让增长延续到中期选举，那么未来七八个月，它们的激励又是什么？</p>
+<p>这是凳子的三条腿之一，不关注它，是对自己不利。</p>
+<p>贝森特最近很安静。你多久没听到他说话了？</p>
+<p><strong>Max Wiethe</strong></p>
+<p>确实。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>上次是什么时候？回想三周前，一天五次，耳边都是贝森特、特朗普。这不是巧合。</p>
+<p>昨天听到特朗普说什么？他说，如果民主党赢得中期选举，我们就会进入大萧条。语气已经明显改变。</p>
+<p>我刚才说的大部分事情其实是在讨论激励与结果，大家却喜欢把它政治化。</p>
+<p>如果希望股市继续、经济继续增长，就需要更主动的货币政策，为AI这一部分的增长托底。在我的判断里，它是唯一仍在增长的部分。</p>
+<p>实现它需要大规模干预，而要进行这样的干预，又需要一场危机。</p>
+<p><strong>Noel Smith</strong></p>
+<p>人们说那是阴谋论。但利益趋同时，并不需要阴谋。</p>
+<p>比如，一个社区认为有人要把数据中心建在他们的游乐场中央，不需要秘密集团组织反对。所有人都不愿意，大家自然会形成行动。</p>
+<p>因此，股市上涨对某些掌握权力的人政治上有利，这个判断不是阴谋论，而是符合他们的利益。</p>
+<p>我想把某种邪恶计划的说法，与人们维护自身利益、为自己持仓说话区分开来，后者是简单得多的解释。</p>
+<p>回到我们合作，最想传达的是，我们尝试同时优化想法和执行。Kai Asset Management所做的，是围绕复杂、不断变化的叙事设计交易，把它们转化为非对称、经过风险调整的押注。我们希望结果比没有彼此时更好。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>在一个利率持续下降、采用供给侧经济政策的世界里，被动投资、60/40组合、成长投资都表现出色。对风险不必太担心，因为即使发生2008年、科技泡沫这类过去四十多年短暂的例外，也会得到更多货币政策回应。</p>
+<p>如果没有民粹浪潮，没有关注不平等的压力，那一直就是有效的交易。</p>
+<p>但一旦必须处理其他压力，世界会完全不同。变化不止持续两年、四年、五年，而可能延续几十年。</p>
+<p>这种世界需要理解风险、仓位，优化风险调整后回报，并拥有相应工具和能力。工具已经存在，但大多数投资者还没有采用。</p>
+<p>我们希望提供这些服务，帮助大家渡过将会非常颠簸的水域。</p>
+<h4 id="chapter-17">01:04:04　结尾</h4>
+<p><strong>Max Wiethe</strong></p>
+<p>大家可以在哪里关注两位？Cem先来。</p>
+<p><strong>Cem Karsan</strong></p>
+<p>可以通过kaiwealth.com、kaiassetmanagement.com了解我们。我们有多家族办公室和注册投资顾问架构，提供更广泛的资产配置服务，资管业务也有专门产品，适合希望自己操作、或需要帮助的顾问及投资者。感兴趣可以预约与Noel或我交流。</p>
+<p>也可以在X关注我，账号是@jam_croissant，继续了解我们的想法。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>Noel呢？</p>
+<p><strong>Noel Smith</strong></p>
+<p>我的X账号就是@NoelSmith，也可以通过Kai Asset Management官网找到我们。</p>
+<p><strong>Max Wiethe</strong></p>
+<p>非常好，谢谢两位。</p>
+<p><strong>Cem Karsan、Noel Smith</strong></p>
+<p>谢谢，很好的交流。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Steve Hou谈GPU涨租、token降价与AI利润分配（Full Signal全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-15<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Steve Hou谈GPU涨租、token降价与AI利润分配（Full Signal全文精翻）</h2>
+<div class="metaline">Full Signal · Phil Rosen、Steve Hou · 2026-11-12 · <a href="https://www.youtube.com/watch?v=4aRFntYQAWA" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：GPU租金；token定价；模型组合；AI利润率；资本开支；GPU折旧；需求扩散；融资</p>
+<p>Steve Hou为Silicon Data研究负责人、量化投资策略师，Phil Rosen主持。节目11月12日发布，以下判断及市场数据沿用嘉宾受访时口径。正文按原顺序翻译，删除广告、订阅呼吁和无信息重复。</p>
+<ul><li>token售价与算力成本之间的价差，需要结合销量、模型组合和单位GPU产出判断。</li><li>GPU公允价值数字来自租金、利用率及衰减假设下的估算，需求能否扩散至AI产业以外是后续观察重点。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">00:00　AI产业基本面与价格、成本之间的关系</a></li><li><a href="#chapter-2">02:17　GPU即期租价与长期合约、机会成本</a></li><li><a href="#chapter-3">04:01　前沿模型与便宜模型，为什么均价下降未必意味着生意缩小</a></li><li><a href="#chapter-4">07:18　使用量加权的token价格指数</a></li><li><a href="#chapter-5">09:20　杰文斯悖论与需求弹性</a></li><li><a href="#chapter-6">10:36　模型实验室的利润与开放模型的真实采用</a></li><li><a href="#chapter-7">16:04　基本面怎样进入股票估值</a></li><li><a href="#chapter-8">18:39　估值、Anthropic披露与需求接力</a></li><li><a href="#chapter-9">21:05　价值链利润会流向哪里</a></li><li><a href="#chapter-10">25:20　GPU涨租是否足以看多英伟达</a></li><li><a href="#chapter-11">26:49　GPU折旧、租金现金流与融资</a></li><li><a href="#chapter-12">30:48　需求数量之外，还要观察需求质量</a></li><li><a href="#chapter-13">33:41　怎样理解AI泡沫问题</a></li><li><a href="#chapter-14">36:07　结尾</a></li></ul></details>
+<h4 id="chapter-1">00:00　AI产业基本面与价格、成本之间的关系</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>Steve，大多数投资者通过股价观察AI交易，但你追踪算力、GPU租价，以及很多人接触不到的变量。你认为我们现在处在AI周期的什么阶段？</p>
+<p><strong>Steve Hou</strong></p>
+<p>谢谢你再次邀请我。Silicon Data追踪GPU租赁价格，以及token使用量和价格。我们几乎把它们看作AI的基本面。</p>
+<p>最近几个月，市场真正关心、也为之紧张的，是AI企业的经济性。具体来看，一边是AI实验室，以及通过后训练开放模型提供token的推理平台。另一边是所谓新云和云服务商，提供算力，让用户、实验室及推理平台租用GPU。</p>
+<p>这些边界似乎也在变化。新云尝试直接提供token，推理平台和模型实验室则尝试拥有自己的算力。</p>
+<p>无论如何，值得注意的是一张Silicon Data经常发布的图，我们也准备就此推出新博客。它展示token能卖多少钱，与租GPU需要花多少钱之间的价差。你几乎可以把它类比为传统宏观经济中CPI与PPI之间的挤压。</p>
+<p>从技术角度看，AI是非常复杂的问题。但从商业角度看，也许没那么复杂，就是价格减成本。一门生意好不好，根本上取决于能否拥有良好、可持续的利润空间，同时创造额外需求。当你把价格减成本，再乘以数量，最后能否得到更大的数字？</p>
+<h4 id="chapter-2">02:17　GPU即期租价与长期合约、机会成本</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>顺着你刚才说的，GPU租价接近纪录高位，而且全年都在上升。从投资者角度，该怎样理解？</p>
+<p><strong>Steve Hou</strong></p>
+<p>要看你是哪类投资者。你投的是新云，还是以私募方式投资模型实验室、所谓新实验室，或推理平台？</p>
+<p>我们发布的按需租赁指数，未来还准备推出相应期货合约，须经美国商品期货交易委员会批准。这些指数衡量的是按需租赁成本，也就是现在到市场上按浮动价格租GPU，需要付多少钱。</p>
+<p>它与过去几年提前锁定三年、五年算力的成本并不对应。你当时锁下来的价格，可能显著低于现在的按需价格。</p>
+<p>不过，即使锁定了价格，甚至拥有自有算力，也仍然要考虑机会成本。如果你是拥有大量算力的云厂商，或超大云厂商，做某件事可以赚1000美元，而把算力租出去可以赚5000美元，那么选择赚1000美元的那项工作，实际上意味着放弃4000美元。</p>
+<p>这种选择必须在长期战略上值得。也许你想发展前沿模型、提高能力，最终形成另一种业务。但从投资者角度看，算力成本飙升始终需要与更广泛的经济性放在一起比较，包括token卖什么价格，以及一个尤其关键的问题，实际使用的是怎样的模型组合。</p>
+<h4 id="chapter-3">04:01　前沿模型与便宜模型，为什么均价下降未必意味着生意缩小</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>“实际使用的模型组合”是什么意思？</p>
+<p><strong>Steve Hou</strong></p>
+<p>意思是，人们主要使用最前沿的模型，比如Fable、Opus这一类，还是主要使用价格低得多、速度快得多的Flash类模型？这里可能有很大的取舍。</p>
+<p>大多数人不容易对AI模型形成直观感受，所以我喜欢用汽车类比。假设我们处于汽车刚被发明的年代，第一年卖出10辆奔驰，每辆5万美元，利润率35%。第一年的汽车平均售价就是5万美元。</p>
+<p>到第二年，汽车突然普及，人人都想买来代步，总共卖出1万辆，其中1000辆是奔驰。奔驰销量由10辆变为1000辆，增长100倍。</p>
+<p>同时，还有9000辆丰田卡罗拉，每辆1万美元，毛利率可能15%。第二年的汽车平均售价更低，平均利润率也更低。按某些指标看，这门生意似乎变差了。但按任何合理的绝对规模指标，它都比原来大得多。</p>
+<p>我认为，观察前沿AI实验室时应当带着这个类比。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>这里类比的就是token？</p>
+<p><strong>Steve Hou</strong></p>
+<p>对，token销售。如果你是Anthropic或OpenAI这样的前沿实验室，你卖的不止一个模型，而是很多类型。既有最前沿的模型，也有价格便宜得多的非前沿模型，还有Flash模型。</p>
+<p>你希望客户买哪种模型？因为在另一端，你仍然要运行GPU来生产所有这些token，所以存在取舍。大家不断评估这个夹在中间的关系，什么类型的token，以什么利润率卖出去，投入端的成本又是多少。</p>
+<h4 id="chapter-4">07:18　使用量加权的token价格指数</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>我这里有一张你们Silicon Data的图，显示token价格大幅下降，大约从今年五月开始像断崖一样下去。同一时期，GPU租价不断上升。</p>
+<p><strong>Steve Hou</strong></p>
+<p>是的。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>请解释token成本下降、租价上升之间的关系，以及它对整个AI经济意味着什么。</p>
+<p><strong>Steve Hou</strong></p>
+<p>这张图确实在市场上引起很多关注，也被误读了不少。正如前面说的，它并非一个简单的价格图，而是以使用量加权、统一到每百万token口径的价格指数。</p>
+<p>做一个思想实验。假设五月份所有人都只使用当时的最前沿模型，无论当时最前沿的是哪一个，姑且说是Mythos或Fable。现在大家变为只使用最便宜的Flash、Haiku类模型。这样，每百万token的有效价格自然会大幅下降。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>这对消费者有利。</p>
+<p><strong>Steve Hou</strong></p>
+<p>好坏我不确定，这涉及偏好。开便宜汽车是好事还是坏事？有人就喜欢便宜、省油、能把事情办好的车，开着它到处去。有人喜欢耗油的大车。所以其中存在个人偏好。</p>
+<p>但从商业角度，如果你是token卖方，也就是AI实验室，你当然会在意卖出哪种模型。如果便宜模型的token能卖出大得多的数量，你也不会介意卖很多便宜模型。</p>
+<p>假设有两个模型，其中一个价格只有另一个一半，但用户对便宜模型的消耗是100倍，你最后赚的钱仍然多得多。</p>
+<p>因此，这张图没有显示出来的部分，是数量能否补偿价格变化。现在“杰文斯悖论”这个词已经有些被说滥了，本质上就是一个关于价格变化后，需求数量会如何反应的判断。</p>
+<h4 id="chapter-5">09:20　杰文斯悖论与需求弹性</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>能用普通语言解释一下吗？</p>
+<p><strong>Steve Hou</strong></p>
+<p>需求曲线向下倾斜，价格降低，人们会消费更多，这很容易理解。问题是，会多消费多少？</p>
+<p>如果价格减半，需求只增加50%，我的收入会减少。如果价格减半，需求增加100倍，我就会赚更多钱。</p>
+<p>这两种情景之间的争论，就是弹性。价格变动1%，需求数量相应变动百分之几？杰文斯悖论所表达的是，数量反应对应的弹性远大于1，足以补偿价格或单位利润的下降。整个争论就在这里。</p>
+<h4 id="chapter-6">10:36　模型实验室的利润与开放模型的真实采用</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>根据你展示的数据，如果概括一下AI实验室当前的生意，你会怎么说？</p>
+<p><strong>Steve Hou</strong></p>
+<p>如果做一个减法，把每GPU小时生产的token能卖多少钱，减去租GPU的边际成本，得到的数字变小了。Don Wilson把它称为“算力加工价差”，也就是crunch spread。你在计算、在生产模型输出。</p>
+<p>换句话说，你得更努力才能赚回成本。为了收回GPU租金所需达到的盈亏平衡吞吐量，也就是必须生产的token数量，提高了。门槛变高了。</p>
+<p>有意思的是，我们看到一些证据，也正在尝试自行测量。尤其在B300等新一代芯片上，租价上涨的一部分原因，恰恰是实验室和推理平台通过各种算法改进，能够生产更多token，足以抵消单位利润的压缩。</p>
+<p>因此，它们实际上在强化杰文斯悖论，让它变得更加“矛盾”。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>我还有一张图，请你谈谈。大约四分之三的token数量已经转向开放权重模型，一年前几乎还没有。这说明什么？对Anthropic或OpenAI这样的商业模式又意味着什么？我的直觉是，这不可能是好事。</p>
+<p><strong>Steve Hou</strong></p>
+<p>首先，我们许多数据来自公开可观察的使用。我们观察若干推理平台的使用量，但它们不能呈现整个市场，只覆盖其中一部分。</p>
+<p>比如OpenRouter、Baseten这样可以切换模型的平台，用户往往是独立开发者、小公司和中小企业。它们也越来越多接触大客户，例如Baseten服务Harvey，Harvey又服务律师事务所。</p>
+<p>但总体上，如果你考虑一家普通的知名大企业、蓝筹公司，它很可能直接向Anthropic、OpenAI，或者同时向两家购买token。这部分使用我们看不到。它们也可能通过超大云厂商购买，我们同样看不到。</p>
+<p>所以，这个图很可能高估了开放模型的总体采用率。我会说，美国消费者和企业目前实际上还没有使用那么多开放模型。那仍然是一项需要验证的判断。人们经常谈能力、跑分等，但实际使用又是另一回事。</p>
+<p>我打赌，你自己之前应该没用过中国的开放模型。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>也许没有。</p>
+<p><strong>Steve Hou</strong></p>
+<p>我猜是没有。而且我怀疑你认识的人里也未必有谁用过。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>我得特意去寻找，还是企业会把这些模型整合到自己的产品里？</p>
+<p><strong>Steve Hou</strong></p>
+<p>你需要主动去找。不过，我们也不能完全知道。现在有一些面向消费者的代理，像Instinct这样的产品［英文字幕转写，名称待核］，你实际上不清楚它们背后用什么模型。也可能用了。</p>
+<p>但如果说直接接触，也就是主动选择一个模型来用，今天大部分使用还是这样，比如到Claude、OpenAI等产品上操作，我认为开放模型的实际使用率并没有那么高。</p>
+<p>尽管如此，这张图反映了一种倾向，可以作为领先指标。五月底、六月初，我曾引用我们的token指数发文，认为那种一味追求消耗更多token的“token最大化”做法可能接近尾声。人们会变得更成熟，至少更懂得权衡质量与成本。这也是指数大幅下降的原因。</p>
+<p>其中有一部分确实来自转用开放模型，但即使没有开放模型，也会出现类似效果。指数最近大部分跌幅，实际上来自Anthropic、尤其OpenAI等闭源实验室推出新一代模型时自己降价。</p>
+<p>它们相互竞争，内部模型之间也存在自我蚕食。有时，很多日常任务的能力需求已经被满足。我很少使用Fable，并非不喜欢它，而是我日常使用的5.5版模型已经足以满足我的需求［该处英文字幕写作“open 5.5”，具体模型名未清晰识别］。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>前沿模型消耗的token太多。</p>
+<p><strong>Steve Hou</strong></p>
+<p>token太多，速度更慢，诸如此类。绝大多数日常任务，我确实没有必要用它。这就是内部蚕食的一种形式。</p>
+<h4 id="chapter-7">16:04　基本面怎样进入股票估值</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>我们暂时跳出数据。租价和token成本，当前怎样传导到股价与股票估值？你看到投资者在关注什么？</p>
+<p><strong>Steve Hou</strong></p>
+<p>刚才描述的利润空间压缩、竞争，以及对AI实验室、两家前沿实验室可持续经济性的担忧，我认为正是股票市场焦虑的重要原因。</p>
+<p>AI相关股票出现过阶段性高点。整体指数还在高位附近，距离高点可能只有几个百分点。但观察AI个股，特别是半导体，离高点就远得多，最近反弹之前，中位数股票可能已经跌了50%左右。</p>
+<p>这说明股票定价看的是二阶变化，也就是增长的变化。我们并没有说AI支出或基础设施建设停止增长，它们仍在大幅增长。只是市场可能在预期，再过几年，比如2028年以后，增长不会继续加速。</p>
+<p>资产价格总是在告诉你，哪些假设和预期已经被计入。内存股票跌得很重，SanDisk等存储股票也被大幅抛售，预期市盈率进入个位数、甚至低个位数，说明此前计入了很多未来预期。</p>
+<p>几个月下来，我会认为，现在很多过度的部分已经被清洗掉了。我来之前看到有人贴图，杠杆ETF的杠杆显著下降。我们也接连听到几轮对冲基金遇到问题的新闻。</p>
+<p>所以，始终要权衡基本面与仓位、预期。AI交易确实正在回来，但它是从过去一个月更低的低点恢复。</p>
+<h4 id="chapter-8">18:39　估值、Anthropic披露与需求接力</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>你认为现在估值有吸引力吗？还是要等待另一个催化剂，或不同价格？</p>
+<p><strong>Steve Hou</strong></p>
+<p>我很难给出这样的投资建议，所以就不尝试了。但如前所述，这一直是基本面与预期、仓位之间的赛跑。</p>
+<p>基本面最近确实开始略有改善。我们一直被回报问题困扰，无论是微观、总量层面，还是实验室能否获得好利润率。</p>
+<p>最近有了Anthropic的S-1及修订版，出现一些很有希望的迹象。它的利润率很好，资金消耗率较低，运营效率很高，甚至有一个季度实现正现金流。还要看看能否持续。</p>
+<p>无论如何，它对应的预期收入倍数可能在20倍左右，甚至十几倍。我认为贵，但没有贵得离谱。看看Palantir、SpaceX等公司的倍数就知道了。</p>
+<p>这可能说明，经济性并没有很多人之前说的那么差。另一个问题则是采用速度。最大的担忧，是采用出现空档，需求增长赶不上供应形成。</p>
+<p>我们大致知道新增容量什么时候会建出来，但需求取决于人们多快采用这些工具。软件工程师、程序员这类较容易渗透的群体，已经差不多覆盖了。下一阶段会不会难得多？</p>
+<p>新模型，以及它们成功拿下很多企业场景，让我觉得这方面也有理由保持乐观。这就是我说的基本面变化。再结合仓位已经没有之前那么极端，局面可能比以前更有利。</p>
+<h4 id="chapter-9">21:05　价值链利润会流向哪里</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>Steve，你观察AI幕后经济性的角度很独特。如果沿价值链看，有超大云、芯片设计商、新云、前沿实验室。假设未来一年，最有利的经济性会集中在哪里？</p>
+<p><strong>Steve Hou</strong></p>
+<p>它一直在变化，这正是有趣也有挑战的地方。我们经历过一个阶段，所有人都说模型商品化，开放模型会席卷一切，Anthropic会倒闭，OpenAI下个季度就会破产。</p>
+<p>然后发现，Anthropic不但没倒，情况还在改善。它拿下了庞大的企业用户，有点像Windows当年对企业市场的占领。我记得S-1披露的留存指标大约有900%。良好的用户体验正在得到回报。</p>
+<p>因此，开放模型扩散以及它们带来的威胁，仍然是假说。当前基准假设仍可以是，美国本土、有品牌、价格合适的闭源模型会继续存在。</p>
+<p>长期怎样还要观察。Alex Karp认为企业在意自己的知识产权，因此最终会整体采用后训练的开放模型。我们会看到这是否发生。所以，对实验室的担忧现在略有消退。</p>
+<p>另一边，硬件正在承受预期调整。我们有多种理由预计AI建设会放慢，最新因素包括中期选举及地方对扩建的民粹反对。</p>
+<p>我预计建设会继续，但新增数据中心的建设速度可能变慢，每兆瓦成本可能更高。因为你需要补偿当地社区，可能缴更多税、获得更少税收返还。</p>
+<p>这意味着，即使美元资本开支增长额相同，也买不到同样多兆瓦的算力。它会影响下游供应商，包括芯片商、测试设备、内存等。</p>
+<p>还有竞争问题。英伟达长期凭CUDA占据主导，这个市场一直由它掌控，也始终存在竞争的可能。AMD等厂商努力很久，CUDA此前确实是很强的护城河。</p>
+<p>但Anthropic最新申报，以及OpenAI的讨论显示，AI正在让开发者更容易从一种芯片转向另一种，因为AI能帮助重写代码。</p>
+<p>我记得Anthropic明确提到AMD，以及使用Mythos后，脱离CUDA所需时间从一年缩到几天。这个变化很惊人，具体时间长度我也可能记得不完全准确，但直觉就是如此。</p>
+<p>如果这成立，经济租金会不会从硬件重新向实验室和软件层移动？还需要观察。这也解释了为什么相较几年前，AI交易现在更波动、更难做。</p>
+<h4 id="chapter-10">25:20　GPU涨租是否足以看多英伟达</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>也许我的理解太简单。如果前面的图显示GPU租价一直上涨，这对英伟达岂不是极大利好，我们干脆忽略其他事情就好？</p>
+<p><strong>Steve Hou</strong></p>
+<p>我们前面说过，股票市场定价的是未来，特别是增长的二阶变化。是在加速增长，还是继续增长但速度放缓？这还需要看。</p>
+<p>英伟达及任何硬件供应商始终面对竞争。到目前为止，英伟达守住了地位，有时甚至强化了竞争力。但往后仍待观察，因为它几乎每个大客户都有自己的定制ASIC。</p>
+<p>比如Google的TPU、亚马逊的Trainium，以及Cerebras等快速推理加速器。竞争正在到来。再结合AI的编程能力，潜在的硬件切换可能容易得多。</p>
+<h4 id="chapter-11">26:49　GPU折旧、租金现金流与融资</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>谈到折旧，如果个人投资者想选择AI股票，应怎样把它纳入判断？</p>
+<p><strong>Steve Hou</strong></p>
+<p>为什么折旧如此重要，为什么总被提起？普通投资者不太会主动思考这个问题，所以可能有些困惑。</p>
+<p>最直接的一点，对购买GPU的公司，比如超大云厂商，折旧会减少利润。你挣了一大笔钱，如果很快就必须扔掉机器，那实际生意就没那么好，利润会很薄。</p>
+<p>有意思的是，我们的数据发现，对快速折旧的恐惧被夸大了。除了今天的按需租价，还可以观察远期曲线、市场隐含长期租金曲线，再对利用率，也就是任一时点有多少芯片在使用，以及价值衰减作一些保守假设，就能估算合理公允价值。</p>
+<p>即使到现在，A100的估算价值仍大约是原价22%。这是一款六年前的芯片，如果按三年直线折旧，账面上早该折完。它2020年五月首次发布，之后大规模供应，现在六年多过去，仍能获得相当可观的租金。</p>
+<p>再看图中的H100及B200。H100估值约为原销售价格50%至60%，也已经四五年。B200估算公允价值则超过原价，接近200%，我记得估算约180%。</p>
+<p>这意味着需求非常强、租金很高，以至于按现金流估算的公允价值显著高于原始售价。从评估折旧角度，这个数据很有意思。我们可能不该假定它们在两三年里按直线方式失去全部价值。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>这令人鼓舞。</p>
+<p><strong>Steve Hou</strong></p>
+<p>对。从英伟达及其客户角度，这当然是好消息，GPU能运行很久，持续生产token、创造收入，经济性也更好。</p>
+<p>这又关系到融资，也是最近折旧被反复讨论的另一个原因。眼下瓶颈越来越落在资本上。利率更高、通胀更高，争夺资金的用途很多，政府就是其中一个重要需求方。</p>
+<p>过去几年已经有大量贷款流向AI，业务前景又不确定，贷款人越来越谨慎。此时要到哪里寻找资金？</p>
+<p>我们试图做的一件事，是通过数据让大家理解联网GPU这种能产生收入的资本资产的经济性。也许可以把GPU作为抵押品提供贷款，就像住房按揭里，一部分贷款建立在房屋本身的抵押价值上一样。</p>
+<h4 id="chapter-12">30:48　需求数量之外，还要观察需求质量</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>你现在观察到什么，认为投资者应该更加担心？</p>
+<p><strong>Steve Hou</strong></p>
+<p>还是刚才那些担忧。有趣的地方在于，必须持续观察，因为我们不知道会向哪边走。稍微推介一下，我们的数据能提供每日、高频的观察。</p>
+<p>一个问题是需求空档。AI需求增长够不够快，能否支持新增供应，甚至支持需求长期超过供应的预期？</p>
+<p>还有一个我们目前尚未直接回答的问题，是需求质量。今天很多AI需求确实来自AI产业内部或相关产业。实验室购买算力，也消费很多token，比如Anthropic本身就是其token的大用户，用它们开发模型。</p>
+<p>另一边是得到VC支持的推理平台、AI初创公司。VC可能早期投资Anthropic或OpenAI赚了很多钱，因此能够募集新基金、资助新公司。新公司拿到钱，再去买算力。</p>
+<p>这就是为什么有人开始谈循环融资，并把它理解成看空论据。我的个人看法是，建设这样的新产业，尤其技术高度资本密集时，这在某种程度上是正常周期的一部分。最初资本会来自集中来源，某种程度的循环不可避免。</p>
+<p>问题在于，它会不会扩散？会不会开始看到非AI企业，在各种AI产品上真正花有规模的钱，因为它们从中获得价值，看到单个员工生产率提高，或收入增长加速，因而愿意增加AI预算？核心问题在这里。</p>
+<p>我的朋友Ara在Ramp工作，他有很多图，一直指出从已经发生的数据往回看，支出非常集中在前1%的公司，很多也与AI有关。时间会告诉我们，它是否向外扩散。而且，改变这一格局也未必需要特别大的变化。</p>
+<h4 id="chapter-13">33:41　怎样理解AI泡沫问题</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>你的数据和研究给我的一个印象是，没有什么必然在闪烁“泡沫”信号。也可能是我没读对，你怎么看持续不断的泡沫争论？</p>
+<p><strong>Steve Hou</strong></p>
+<p>我觉得“泡沫”有些让人疲倦，也过于简单。所谓泡沫，基本就是担心过度建设，某天醒来发现这么多多余算力，没人需要。</p>
+<p>人们想到互联网时期的闲置光纤，建了大量硬件，却没人使用。今天显然还不是这种情况，GPU都在被使用。看看按需租价，最近几周已经像垂直向上，仿佛GPU都快烧熔了。</p>
+<p>当然，我们刚讨论过需求质量与构成，暂且把它放到一边。也许应该担心的是，未来某个时刻，突然出现神奇的算法改进，让模型采用完全不同的计算方式，不再需要矩阵乘法，很多算力因此不再必要。</p>
+<p>我们也并非没看到算法改进。混合专家、多头注意力，以及来自DeepSeek、中国其他团队和美国实验室的改进，都带来效率提升，内存使用已经高效得多。</p>
+<p>但我们一次次看到，微观层面的杰文斯悖论到处出现。当内存使用更有效率，人们反而用更多内存，对话更长，在同一个会话里持续互动，希望得到更好的输出。</p>
+<p>你应该也体验过，一次次回到同一会话。回想一年多前，模型还做不到，会撞到上限。今天可以继续。但即便如此，我做一些研究时，仍然会用完上下文空间。所以，更多算法改进当然是欢迎的。</p>
+<h4 id="chapter-14">36:07　结尾</h4>
+<p><strong>Phil Rosen</strong></p>
+<p>Steve，你有很多知识，对AI经济性的研究也很深入。大家可以在哪里找到你的工作？</p>
+<p><strong>Steve Hou</strong></p>
+<p>可以到Silicon Data官网。我们的博客系列准备更频繁更新，目标大约每周一次。也可以关注Silicon Data官方账号，以及我的个人账号，后者也有很多我对AI及其他问题的个人观点。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>这已经是你第三次还是第四次来节目了？</p>
+<p><strong>Steve Hou</strong></p>
+<p>可能第四次。</p>
+<p><strong>Phil Rosen</strong></p>
+<p>第四次。每次录制，我都努力跟上你的思路。谢谢你的时间，我们下次再聊。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
