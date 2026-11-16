@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>CoreWeave第三季度电话会纪要｜预付款、担保融资、旧GPU续约与资本开支弹性</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-16<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>CoreWeave第三季度电话会纪要｜预付款、担保融资、旧GPU续约与资本开支弹性</h2>
+<div class="metaline">CoreWeave Q3 2026 Earnings Call · 公司官网完整逐字稿 · 2026-11-10 · <a href="https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文电话会纪要</div>
+<p class="kw">关键词：AI资本开支；融资估值；单位经济；算力采购；CoreWeave；DDTL</p>
+<ul><li>公司预计未来三个月收到约90亿美元预付款及押金，其中超过30亿美元来自已偿清相关债务的存量设备；下一笔担保贷款仍处筹划阶段。</li><li>管理层用合同现金流、资产级债务和存量设备续约解释融资能力，同时保留根据需求、许可与资金成本调整2027年新增投资的选择。</li></ul>
+<h3>会议口径</h3>
+<p>本次电话会于2026年11月10日举行，CEO Mike Intrator及CFO Nitin Agrawal参会。公司使用GAAP和非GAAP指标，调节表见正式业绩材料。前瞻陈述基于会议当日假设，存在业绩公告及10-Q所列风险，公司不承诺因后续信息自动更新。本纪要依据公司投资者关系网站完整逐字稿，包含正式结束语。</p>
+<h3>Mike Intrator的管理层陈述</h3>
+<h4 id="chapter-1">收入、利润与已投产容量</h4>
+<p>第三季收入约37亿美元，同比增长168%，超过指引上限，环比增加超过10亿美元。调整后经营利润3.79亿美元，高于此前2亿至2.6亿美元指引，经营利润率提前一季进入两位数。收入订单积压约1330亿美元，已投入运营电力容量超过1.7GW，比年初翻倍。</p>
+<p>管理层认为，新增合同盈利能力、客户需求及原有设备续约表现强于早期投资假设。客户通过AI进行生物研究、患者服务、自动驾驶和教育，公司的任务是以可靠算力及有吸引力的成本支持应用，并对资本获得回报。</p>
+<p>客户长期承诺支持融资，投资纪律支持平台扩张。公司在如何融资、收费及建设速度之间，逐笔选择经济性更好的方案。</p>
+<h4 id="chapter-2">资产级贷款与母公司融资</h4>
+<p>季度末全公司加权平均债务成本7.9%，同比降低250基点。管理层表示，当前收益率水平下不会通过无担保债市场融资，预计也不必依赖该市场。</p>
+<p>为交付已签订单而需要的剩余资本开支，大部分预计使用与特定客户合同匹配的延迟提款定期贷款DDTL。至2027年，已承诺资本开支超过75%面向投资级及企业客户，其余面向主要AI实验室及AI原生企业。</p>
+<p>这类贷款可覆盖相关资本开支的70%至100%。IPO以来，其利差为SOFR上方225至550基点，优质投资级客户在低端，AI实验室在高端。按当时利率，高端总成本仍低于10%。资金随设备采购和交付提取，合同现金流支付利息、在合同期内偿还本金，同时为公司产生额外现金。</p>
+<p>公司通过该机制已偿还超过40亿美元债务，包括最初两笔、成本最高DDTL的接近一半。对于支持长期合同的贷款，客户合同结束时，相关债务偿清，基础设施完全归CoreWeave持有。</p>
+<p>已偿债设备本身开始成为资金来源。每年更多存量设备合同到期后可再次产生收入，无须重新购买设备或建设机房，因此随规模扩大，存量部分的资本强度降低。</p>
+<h4 id="chapter-3">预付款、内生现金流及OEM融资</h4>
+<p>公司在预付款给予客户的定价优惠，与其他融资成本之间作经济比较。过去某些时期无担保债更有利，当前预付款更有吸引力。</p>
+<p>本年70%的交易收取客户预付款，部分交易的预付款可达到合同总额100%。未来三个月预计从已签合同收到约90亿美元预付款及押金，其中超过30亿美元对应以明显高于初始合同价格续约的现有云基础设施。</p>
+<p>公司预计2027年EBITDA减利息超过翻倍，这一指标排除了预付款增长的收益。OEM融资则支持额外部署，尤其短期合同容量。管理层预计，这些渠道合计覆盖至2027年绝大部分资本需求，母公司层面仅需有限增量资金。</p>
+<h4 id="chapter-4">投资纪律、提价与GPU续约</h4>
+<p>已承诺合同之外，公司可根据客户需求、供应约束、监管及资本市场，调整投资速度。大部分资本只有在合同和基础设施落实后才承诺。</p>
+<p>随着先前投入的基础设施上线，收入对应已发生的投资，每次新增部署占整体业务的比例降低，形成经营杠杆。调整后经营利润率从第一季约1%、第二季5%，升至第三季超过10%。</p>
+<p>七月各SKU价格上调约25%，季度稍后再提高约10%，第四季价格继续上升，超过成本涨幅。公司也把更多容量分配给高价短约，部分短约每MW年收入超过4000万美元；新基础设施四年、五年合同的每MW年收入升至2000万至2500万美元。</p>
+<p>长期合同提供建设可见性，短期合同提供更高价格和回报。公司逐笔比较收入、运营成本及融资成本，决定容量配置。</p>
+<p>Ampere和Hopper旧代设备价格第三季环比上涨30%至50%，高于原始合同价格。不同负载需要不同的性能与成本组合，可靠、规模化云平台里的旧设备仍有吸引力。部分续约年限超过设备会计折旧年限，后期折旧减少可提高利润率。</p>
+<p>2027年有超过13万张GPU原合同到期，2028年另有约17万张。按当时价格，2027年续约机会对应接近40亿美元新增年化收入，合计2028年续约后接近100亿美元，无须额外资本开支。</p>
+<p>管理层指出，若全行业建设放慢，存量算力会更稀缺，租价可能高位维持更久，公司较早投入、已偿债设备可能受益。但公司经营计划依据已签需求、投资纪律及正在签署的合同，不以供给延误为前提。</p>
+<h4 id="chapter-5">软件平台、推理及客户需求</h4>
+<p>训练、推理、评估、改进正在形成持续循环。应用投入生产后，产生关于效果和不足的信息，开发者据此调整、测试并重新部署。这个循环需要软件及可靠云基础设施。</p>
+<p>CoreWeave整合网络、冷却、调度与可观测性，令数十万张GPU协同运作。九月推出Forge，把与头部AI实验室共同开发的工具及服务向企业开放。</p>
+<p>本季新增云客户中70%已是Forge客户。Wayve先使用软件工具实验、评估模型，随后使用CoreWeave Cloud训练自动驾驶世界模型。Chan Zuckerberg Initiative进行计算生物学研究，Hippocratic AI训练并部署患者沟通和就医导航代理。日产及Aston Martin Aramco F1合作涉及缩短测试周期、减少达到精度目标所需数据。MasterClass通过Forge评估教学代理对话，再于云上运行学习体验。</p>
+<p>本年新增客户超过一半来自AI实验室及科技行业以外，财富500强企业中10%已为客户。对CoreWeave Cloud承诺超过1亿美元的客户组织数量同比增长超过2.5倍。</p>
+<p>至2027年底，符合公司筛选条件的需求约为可用容量十倍；2028年尚未正式全面推市的容量，也已有数倍于可供容量的需求。公司预计年底已运营容量超过1.85GW，并认为已获完整许可、正在施工的项目使2027年交付不存在重大风险。</p>
+<p>已签约电力容量4.6GW，其中超过1.3GW位于美国以外，包括加拿大、欧洲和亚洲。第三季进入印度、印尼，并扩大丹麦、西班牙布局。全球网络骨干连接各区域，向客户提供一致的性能、软件及可靠性。</p>
+<p>管理层总结，业务在经营层面开始形成规模利润，融资继续与客户承诺匹配，投资速度将根据需求、监管和资本市场调整。</p>
+<h3>Nitin Agrawal的财务陈述</h3>
+<h4 id="chapter-6">经营杠杆及平台收入</h4>
+<p>季度新增可用容量、需求与提价，以及客户采用更多产品，共同推动增长。扩大的运营网络也增加公司承接高价短期需求的灵活性。</p>
+<p>年内推出的托管推理业务，已签订单对应的ARR超过2.5亿美元，增长主要受可分配给该业务的容量限制。CFO认为，客户从实验走向生产、测得AI投入回报，是需求来源。</p>
+<p>每份合同的承保评估包含GPU、机房、电力及总部费用。公司重申，预计既有客户承诺产生的合同现金流，足以服务和偿还当前全部债务，以及为交付这些合同预计新增的债务，涵盖资产级担保债和母公司无担保债，且尚未计入续约。这属于管理层对未来现金流的判断。</p>
+<h4 id="chapter-7">第三季财务</h4>
+<p>收入约37亿美元、增长168%，订单积压约1330亿美元、增长138%。超过50%的订单积压对应预计在当年年底前开始向客户交付的合同。</p>
+<p>经营费用约35亿美元，包含1.6亿美元股权薪酬。费用增加主要来自扩展已运营容量、将订单转化为收入所需的收入成本和技术基础设施支出。销售营销支持客户多元化及多产品采用，管理费用支持业务规模，但增速低于收入。</p>
+<p>调整后经营利润3.79亿美元、利润率10%，第二季5%、第一季1%。提前一季达到低两位数，来源包括执行、需求、定价及规模杠杆。长期、短期和平台产品的组合亦有贡献。</p>
+<p>调整后EBITDA23亿美元，上年同期8.38亿美元，同比增长169%、环比增长49%；利润率62%，为五季最高。季度经营现金流20亿美元，公司预计内生现金流将成为更重要的资金来源。</p>
+<p>净亏损7.09亿美元，上年亏损1.10亿美元。利息费用8.46亿美元，上年3.10亿美元。调整后经营利润环比接近三倍，利息费用增长约三分之一，管理层将此描述为走向盈利的路径。</p>
+<p>调整后净亏损5.29亿美元，上年4100万美元。虽然净亏损，公司仍计提所得税费用，原因是递延所得税净资产的估值备抵。除重大单独事项或情况变化外，预计2026年税率口径大体一致。</p>
+<h4 id="chapter-8">资本开支、资产负债表及资金渠道</h4>
+<p>季度资本开支145亿美元，超过指引上端，原因是把部分第四季交付提前。随着设施上线，在建工程由上季119亿美元降至93亿美元。年内累计上线超过850MW，已运营容量超过1.7GW，三季内比2025年底翻倍。</p>
+<p>九月底现金、现金等价物、受限现金及可出售证券合计65亿美元，已承诺DDTL尚未提款额度近50亿美元。未来三个月另预计收取90亿美元预付款及押金，其中超过30亿美元涉及无需新增资本开支的已有设备。</p>
+<p>公司区分以合同现金流和基础设施支持的资产级债务，与依靠母公司现金流偿付的总部债务。过去使用无担保债，是因为当时定价有利。按当前收益率，公司至2027年不计划再发行母公司无担保债。</p>
+<p>资产级担保贷款市场仍稳定，现有贷款价格接近面值，贷款人可直接观察合同现金流。公司预计未来几周推出下一笔DDTL，评级机构初步指示高投资级评级。按早期讨论及当前SOFR，预期收益率7%至7.5%，覆盖相关资本开支超过90%。贷款尚未完成。</p>
+<p>2027年剩余已承诺、尚未匹配既有DDTL的资本开支中，超过75%面向这类投资级及企业客户。其余订单预计同样结合DDTL、客户预付款和OEM融资。</p>
+<p>CoreWeave Omni将平台延伸至客户自有的第三方基础设施，可在不自行购买底层资产的情况下增加收入、降低资本强度。首位客户已签约，其他客户也表达兴趣。</p>
+<h4 id="chapter-9">全年及2027至2028年展望</h4>
+<p>2026年收入指引上调至130亿至133亿美元，调整后经营利润12.75亿至13.75亿美元，中点上调26%。年底已运营电力容量目标仍超过1.85GW。</p>
+<p>资本开支370亿至390亿美元，原区间350亿至390亿美元，下端提高源于较早部署和交付。第四季利息费用预计10.5亿至11.5亿美元。年底年化收入运行率指引上调至200亿至210亿美元。</p>
+<p>公司预计2027年调整后净亏损明显减少，2028年上半年及2028年全年实现调整后净利润为正。</p>
+<p>2027年只在需求充分、融资条款有吸引力、回报达到门槛时投入。公司称，未来承诺可按市况调整，不影响交付现有客户承诺，也不影响显著超过2027年ARR目标的能力。</p>
+<p>若只执行已承诺订单，公司预计2027年资本开支可大体维持2026年水平，同时收入及EBITDA显著增长。所需设施中，已有约90亿美元在建工程列于资产负债表，已筹DDTL近50亿美元可提款，再结合未来三个月90亿美元预付款、EBITDA现金流增长及拟发行资产融资。综合这些来源，预计至2027年母公司层面新增资本需求低于50亿美元。</p>
+<h3>分析师问答</h3>
+<h4 id="chapter-10">1. Gabriela Borges，Goldman Sachs</h4>
+<p><strong>提问。</strong> 行业未来一两年有大量供应上线，而需求发展不完全可见。若进入供需正常化或过剩阶段，对公司模式意味着什么？</p>
+<p><strong>Intrator回答。</strong> 供应将超过需求的观点存在多年，但他看到算力需求增长持续快于交付能力，新增合同利润率也在提高。基础设施确实大量增加，但技术向整个经济扩散更快。</p>
+<p>公司至2027年基本售罄。他先称2028年也售罄，随后更正，2028年尚未整体售罄，而已推出市场的基础设施均售出，仍有显著需求可承接未来容量。</p>
+<p><strong>Agrawal补充。</strong> 需求转化为定价能力，长约四至五年每MW年收入2000万至2500万美元，短约可达4000万美元。公司因此认为能为较高质量基础设施和平台提取利润。</p>
+<p><strong>Intrator再补充。</strong> 公司可以把现有容量都卖给排队客户，但选择等待，较接近上线时再推市，争取更好的经济结果。</p>
+<p><strong>追问。</strong> 客户合同收入价格先锁定，后续建设及运营成本可能变化，如何管理时间差？</p>
+<p><strong>Agrawal回答。</strong> 签客户合同的同时下相应采购订单、锁定价格，且已确定部署机房，理解机房及运营成本，使从签约至投产的经济性保持相对锁定。</p>
+<h4 id="chapter-11">2. Brad Zelnick，Deutsche Bank</h4>
+<p><strong>提问。</strong> 信用市场担忧是否改变2027年以后的签约策略，包括取得电力的时间、客户类型、期限及融资安排？</p>
+<p><strong>Intrator回答。</strong> 尚未全面推出2028年容量，希望等待条件更成熟。公司通过多种杠杆让电力和容量路线与需求同步，避免在太远端锁定电力。</p>
+<p>多元客户提供更准确的需求信息，涵盖实验室、机器人、标普500客户等，使公司能判断谁在何时需要多少算力，再安排后续电力合同。</p>
+<p><strong>追问。</strong> 较小新云面临成长困难，是否带来客户迁移、整合及更高定价机会？</p>
+<p><strong>Intrator回答。</strong> AI云同时需要软件层及基础设施。公司认为软件有竞争力，硬件则是规模游戏，需要达到足够大规模。长期合同与多元买家支持其扩张，现有软件及可供硬件让公司能更有选择地接客户。他未披露具体收购、整合或迁移交易。</p>
+<h4 id="chapter-12">3. Samik Chatterjee，JPMorgan</h4>
+<p><strong>提问。</strong> 三季利润率改善及下季指引中，短期合同贡献多少，与提前投产等执行贡献怎样区分？</p>
+<p><strong>Agrawal回答。</strong> 执行、需求及价格环境、较高价值产品三方面共同贡献，近期仍预计有利，但没有提供各项量化拆分。</p>
+<p><strong>Intrator补充。</strong> 长约带来稳定，短约增加利润，托管推理也在增长。依靠长期合同形成的规模，公司才能向短约及托管推理配置更多容量，未来继续在三类机会间优化分配。</p>
+<p><strong>追问。</strong> 选举后监管变化对2030年约8GW等长期规划有什么影响，海外扩张起何作用？</p>
+<p><strong>Intrator回答。</strong> 按现有订单所对应机房的许可和施工状态，公司不预计重大影响。管理层将变化理解为要求更负责任地建设，强调及早与社区合作。</p>
+<p>公司已把全球扩张列为重点，美国以外超过1.3GW覆盖印度、印尼、西班牙、丹麦及加拿大，以客户需求和欢迎项目的社区来分散基础设施。</p>
+<h4 id="chapter-13">4. Karl Keirstead，UBS</h4>
+<p><strong>提问。</strong> 实验室希望自建或自持更多算力，公司如何加快向非实验室企业分配新增容量？第三季订单增量客户结构如何？</p>
+<p><strong>Intrator回答。</strong> 公司一直希望分散客户及机房集中度。财富500强中10%为客户，金融服务贡献订单积压的10%，本年新增客户超过一半来自AI领域以外。</p>
+<p>公司预计与AI实验室、超大云及社交媒体公司保持长期关系，同时把服务扩展到需要AI基础设施和Forge工具的长尾企业。没有披露本季新增订单各客户组的精确比例。</p>
+<p><strong>Agrawal补充。</strong> Forge是企业客户入口，本季70%的新云客户此前已是Forge客户，软件使用有助于引导算力部署。</p>
+<h4 id="chapter-14">5. Ben Reitzes，Melius Research</h4>
+<p><strong>提问。</strong> 致信得州当选州长后交流如何，公司在得州的敞口及认定不延误的依据是什么？</p>
+<p><strong>Intrator回答。</strong> 得州绝大部分电力容量已上线，或已获完整许可并施工，因此公司认为已售订单对应的机房不会受到影响。</p>
+<p>致信是希望像以往一样与新州长、监管者建立关系，表明公司不分党派、愿意继续建设，且愿与当地社区合作。没有量化得州容量，也没有披露当选州长已经给予额外承诺。</p>
+<p><strong>追问。</strong> Vera Rubin及独立Vera CPU机架交付进展怎样，对近期和明年ARR上调有多重要？</p>
+<p><strong>Intrator回答。</strong> 公司称自己是首家把Vera Rubin上线并交付生产的云，首位客户Cognition已使用。独立Vera CPU也会部署，被视为未来几年快速增长的重要基础设施。</p>
+<p><strong>Agrawal补充。</strong> 上调表现及指引仍由签约容量快速转为运营容量、需求与价格改善、跨行业平台产品采用共同驱动，未单独披露Vera Rubin或CPU的收入贡献。</p>
+<h4 id="chapter-15">6. Amit Daryanani，Evercore ISI</h4>
+<p><strong>提问。</strong> 同样硬件及利用率下，短约每MW年收入4000万美元、长约2000万至2500万美元，扣除融资成本后回报有何不同？公司愿意把多少容量放在短约？</p>
+<p><strong>Agrawal回答。</strong> 公司在长期稳定现金流、托管推理等高层服务、短期合同三类业务间，根据各自回报、融资成本和需求分配容量。</p>
+<p>按当时价格，短约回收资本开支约需6至18个月，长期客户合同回收硬件资本开支约需一至两年。他没有提供统一的融资后回报率或短约容量占比目标。</p>
+<p><strong>Intrator补充。</strong> 2027年13万张、2028年17万张GPU原合同到期，是投入短期市场的重要资源。原始合同结束时相关债务已偿清，能对现金流产生明显贡献。</p>
+<p><strong>追问。</strong> 2027年约40亿美元、2028年约100亿美元，是全部续约收入还是增量提升？是否已经续约？</p>
+<p><strong>Agrawal回答。</strong> 它们不在当前订单积压中。当前订单对应已签容量，这些数字是在现有价格下，对存量设备重新签约后可能形成的年化收入机会，无需新增资本开支。</p>
+<p><strong>Intrator进一步澄清。</strong> 未来三个月90亿美元预付款及押金里，超过30亿美元确为已有基础设施的预付款，对应设备已在初始DDTL及合同周期内完成偿债，这部分流入无需再偿付相关设备债务。</p>
+<h3>结束陈述</h3>
+<p>Intrator感谢员工、客户及伙伴，重申继续建设AI云平台。会议在上述六组问答后正式结束。公司对融资、交付、续约及盈利时间表的表述均为11月10日时点的管理层判断，具体条件保留于相应段落。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
