@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Ali Ghodsi谈模型降本、代理黏性与企业AI价值分配（Newcomer全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-17<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>Ali Ghodsi谈模型降本、代理黏性与企业AI价值分配（Newcomer全文精翻）</h2>
+<div class="metaline">Newcomer · Eric Newcomer、Ali Ghodsi · 2026-11-16 · <a href="https://www.youtube.com/watch?v=KQrNszUNrDE" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：Databricks；Ali Ghodsi；模型路由；开源；单位经济；Genie；企业采用；软件价值；IPO</p>
+<ul><li>Ghodsi认为，客户对模型的切换意愿较高，操作环境与使用习惯形成的黏性更强。</li><li>智能路由把部分请求转向便宜模型，管理层称退出比例约为1%或更低。</li><li>Genie让组织信息更多横向流动，他仍亲自审核代理起草的邮件，再决定发送。</li></ul>
+<h3>片头</h3>
+<p><strong>Ali Ghodsi</strong></p>
+<p>英伟达会很好，会继续发展。你看到股价只跌大约5%，意味着市场认为它总体没问题。</p>
+<p>可以大幅降低成本，也可以把模型专门化，我们就在专门化很多模型。我还认为，美国会出现更多很好的开源模型。</p>
+<p>我的生活变了。我现在当CEO的能力比一年前好十倍，而这并不是我自己进步了十倍。</p>
+<h3>黄仁勋离任与英伟达生态</h3>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我们应该事先准备一下问题，这样我就知道接下来会问什么。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>我试过，你说不用，直接问。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>完全没问题，我很高兴。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>黄仁勋一直把自己放在开源支持者的位置上，这也是你非常重视的事情。他收购和资助专注开源的公司，也一直是它们最重要的支持者。我们在这个舞台上也听到过，刚才Igor似乎还提起了他。这件事对开源AI运动是不是一个打击？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>是的。我认为，除了直接竞争对手，它对整个领域以及几乎所有参与者都是打击。直接竞争对手当然会受益。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你指芯片制造商？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>对。如果你在造芯片，我相信你认识他，也像我们一样难过。但一个拥有标志性CEO的优秀公司，突然由其他人担任CEO，对直接竞争对手来说，在某些层面上是好事。</p>
+<p>对其他参与者，这对整个生态、开源和新云公司都不利，几乎人人都会受影响。英伟达相当于生态的骨干，支持这些公司。有些公司需要出售时，也能在英伟达找到归宿。因此整体上，我觉得这是很糟糕的事情。</p>
+<p>不过，开发这些芯片需要两三年。我们今天购买的芯片，是他们两三年前开始研发的。因此，我认为英伟达未来两三年会很好，甚至不会受到影响。三年以后会怎样，我也不知道。他已经建立了一家非常出色的公司，我认为它会继续发展。</p>
+<p>为什么这么说？比尔·盖茨曾经几乎就是微软，两者似乎无法分开，后来还是分开了。但他对竞争、战略和产品捆绑的思考方式，在之后很多年都延续下来。Travis与Uber的关系也是类似的，相关文化继续存在。</p>
+<p>一家公司的文化，在很大程度上体现了长期CEO的个性。随着时间推移，新的CEO可以改变它，乔布斯与苹果就能说明这一点。未来会变化，也取决于下一任是谁，但总体上还是会延续。公司每天大量细微的决策、运营方式和思考方式，都是黄仁勋在几十年间建立起来的，这些还会继续。</p>
+<h3>Anthropic估值与Databricks上市</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>你之前公开说过，今年会是很糟糕的上市年份。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我因为那句话被很多人批评。之后马上就有很多人来找我，说为什么要这么讲，别这样，聚会正进行着，你这不是扫兴吗？</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>现在你很庆幸自己没有上市吗？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>是的，我仍然坚持当时的判断，我认为自己说对了。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>对Anthropic有什么建议？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>Anthropic是一家非常出色的公司，做得很好。我相信它的IPO会很好。按现在的定价方式，如果上市后没有大涨，我反倒会吃惊。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你觉得会超过2万亿美元？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我不会惊讶。即使到了2.5万亿美元，我也不会觉得不可思议。当然，最终会在某个水平稳定下来。OpenAI同样是非常好的合作伙伴。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你认为Anthropic今天值多少钱？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我不知道。市场有涨有跌，会受到稀缺性、流通盘和交易等因素影响。但过一段时间，就像人们常说的，短期是选美，长期是衡量未来现金流折现价值的秤。</p>
+<p>最终它会稳定。SpaceX就是这样，先大涨，然后下跌，跌得还很厉害，现在似乎稳定在一个有道理的水平。我认为Anthropic会经历类似过程，希望OpenAI也一样。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>Databricks呢？你们什么时候上市？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我们也会。就像我说过的，不会让大家失望，到某个时点我们也会上市。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你不认同Stripe这种永久保持私营的想法？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我不认同。我不想点名，但确实有朋友更赞成长久保持私营，我自己不这么想。</p>
+<p>每年我们都要给员工提供流动性机会，要为大约1.2万人安排。实际上，更接近1.4万人，因为也包含离职员工。我们几乎得自己模拟一整个市场，安排买方、卖方和价格，财务部门每年都要做大量工作，才能让这些人获得流动性。</p>
+<p>而公开市场已经被发明出来，可以很好地完成这件事。所以最终我们会上市，确实会做。但现在Databricks员工没有那么在意，因为已经能获得流动性机会。</p>
+<h3>模型路由、成本与客户选择</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>说说Databricks。你们采取了对模型保持中立的方式，客户反应怎样？</p>
+<p>现在似乎已经过了追求最大token消耗的阶段，人们开始重视成本。但另一方面，我自己都在办AI大会，也未必专业到能判断，一项任务究竟需要Anthropic的哪个版本。要求客户自己作决定，其实不容易。</p>
+<p>你们会替客户作多少决定？怎样看在不同模型之间切换？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我们将发布Databricks AI Index，大家可以看到这些情况。我们运营着规模最大的路由服务之一，经过我们的token超过4千万亿。通过我们可以使用OpenAI、Anthropic、Gemini、Grok以及各种开源模型，因此能看到整个市场的横截面。</p>
+<p>从今年夏天以来，开源使用量大幅增长。我们推出智能路由，自动判断一个问题是否足够简单，可以交给更简单、更便宜的开放模型处理，从而大幅节省成本。</p>
+<p>我们允许退出。如果你怀疑智能路由让自己的服务打了折扣，可以选择停用。退出的比例大约是1%或者更低。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>他们想退出，是因为担心你们为了节省成本，把请求交给了……</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>可能有人会说，等一下，我问的是个很复杂的问题，结果得到一个很蠢的回答，是不是把我的请求路由到了能力不够的便宜模型？</p>
+<p>这种糟糕情况基本没有出现。从数据看，退出的人约为1%，甚至不到1%。所以，我们确实能把很多问题交给更便宜的模型，并大幅压低成本。Databricks AI Index出来后，大家可以看看。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>什么时候发布？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>很快，我们正在做。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你们自己的员工呢？你们毕竟是一家技术先进的公司，会不会觉得必须使用最先进的模型？特别是程序员，对最好模型的需求有多强？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我刚才说的也是，退出很少。我们已经向员工说明，也在两组之间做了A/B测试，大家都觉得很好。</p>
+<p>要考虑成本环境。使用模型的这些企业，成本呈指数增长，但收入没有同步指数增长，必须作出调整，所以他们非常希望压低成本。</p>
+<p>这种多模型使用已经很普遍。从我们的数据看，多数客户使用三种以上模型。客户的选择很灵活，模型本身没有那么强的黏性。更有黏性的是harness，也就是代理的工作环境。</p>
+<h3>操作环境的黏性与软件利润</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>你们自己也在开发这种环境吗？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我们公布了Omnigent，一个可以使用现有harness的通用工作环境。可以使用Codex、Claude Code、Pi、OpenCode，然后在它们之间切换。</p>
+<p>我们看到，人一旦习惯某个工作环境，就不愿意改变。模型的情况不同，用户会觉得，反正每次给的答案也不完全相同，那就用更便宜或者更聪明的。这个选择变化很快。</p>
+<p>但工作环境里有键盘快捷键、记忆、行为方式和人体工学体验，人一旦习惯，就会产生黏性。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>这会不会只是因为它们现在不贵？大家会愿意为这种环境支付很多钱吗？还是说，如果它作为另一项服务的免费功能提供，人们只是懒得换？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>想想过去40年，软件为什么拥有那么高的毛利率？很多软件公司的护城河，就在于人习惯了一套界面后，很难再改变。我们人类适应这类变化的速度并没有那么快。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>比如Bloomberg终端，大家学会了一整套快捷操作。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>对，你学会Bloomberg终端的快捷键，就不愿意换。Android与iPhone、Windows与Mac也是一样。harness拥有这种特征。</p>
+<p>模型则主要是你用英语提问，它再用英语给出答案，而且每次都可能不同。因此两者之间有很大差异。我们推出Omnigent，就是为了让人能在这些环境之间切换使用。</p>
+<h3>小团队、自动化与创业的时间尺度</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>你们在我们今天发布的AI 100榜单上似乎排第三。对于新一代创业者，你有什么建议？</p>
+<p>在组建公司和团队时，他们应不应该尝试用十人团队经营十亿美元规模的公司，还是仍然要积极招募最优秀的人才？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我认为应该朝那个方向努力。</p>
+<p>创业时，似乎一切都在和你作对，所有事情都很艰难，总是坏消息，很少有好消息。与此同时，你看到新闻里其他人都特别成功，各项指标一路向上，就会觉得自己很差，这件事永远做不成。随后开董事会，又被批评。</p>
+<p>我们在Databricks大概有三四年就是这种生活。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>有一段时间，你们好像是什么都没弄明白的笨蛋，等成功了又突然成了天才。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>对，突然大家就说，这些人显然从第一天起就什么都做对了。</p>
+<p>想击败大公司，就应该押注这种长期变化，建设一家高度自动化、做事方式与大公司完全不同的企业。以前还没有人真正建立过只有十个人、却有数十亿美元收入的公司，但你们应该努力朝这个方向做，有些人会成功。</p>
+<p>你需要作出这样的非对称押注，让别人觉得这是坏主意、太傻、根本做不到，不可能有十个人却创造数十亿美元收入的公司。然后你去证明他们想错了。</p>
+<p>大公司最初会忽视你，说这种战略太傻，靠AI做不到。但你需要作这种非对称押注，再证明他们想错了，这样才有机会成为伟大的公司。我相信在座有些人能够做到。有些人会失败，那就再试。对多数人而言，成功的公司也不是第一次创业。</p>
+<p>我最初创办的公司也不是Databricks，之前还有一家，结果不太好。一次又一次尝试，最终会找到机会，这需要很多年。</p>
+<p>即使我们刚才讲的那三年，也不是全部过程。整家公司建立在Spark开源项目上，我们2009年就开始做Spark。到2016年才真正起飞，大家开始觉得也许有点东西。2017年，大家才觉得商业模式确实成立。这已经是第八年了。</p>
+<h3>Genie如何改变一家1.2万人公司的信息流</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>你自己是不是已经全面接受代理了？会让很多代理代表你与人互动吗？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>是的。我们做了Agent Bricks等代理软件，Genie三四年前就推出了。昨天又发布了Genie的新版本，也就是第二代。它完全自主地在后台运行。</p>
+<p>最重要的是，它建立公司组织架构、人员及他们正在从事工作的本体结构。它能访问邮件、Slack以及各种文档。我就是用它来管理整家公司。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你会让它代表你主动联系别人吗？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我用它管理整家公司。我的生活变了，我现在当CEO的能力比一年前好十倍，而这并不是我自己进步了十倍。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>但如果有人问，这是真正的Ali，还是Ali的代理，怎么办？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>首先，它能访问我所有邮件，所以知道我的语气，写出来都是我的表达方式。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你会点击批准，还是它自己就发送了？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我的使用方式是草稿模式。它把东西放进待发送草稿里，我看过之后再发出去。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>明白。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>它已经帮我把这些都准备好、处理好了。但最惊人的还不是这个。</p>
+<p>公司有组织架构，所有信息都要沿着组织层级上下传递。我们有1.2万人，这会让决策耗费很长时间。</p>
+<p>Databricks或者任何公司的实际业务，主要是横向流动。客户向产品经理反馈，产品经理交给工程团队，工程团队做出来，交给营销放到网站上，再交给销售去卖。业务横向开展，决策却必须上下传递，所以非常慢。</p>
+<p>Genie建立了这样的本体结构后，我们可以让更多事情直接横向推进，速度快得多。因此，我现在以完全不同的方式管理公司，财务、工程，各个部门都在用Genie，变化非常大。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>这有没有削弱高管地位的风险？比如，你直接调出某个部门的信息，知道了过去只有那位高管掌握的事实。你怎么看这种关系变化？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>他们也在做同样的事。</p>
+<p>有一次，我需要一个准确数字，想知道公司对财富500强的客户渗透率。我问销售部门负责这个数据的人，她说抱歉，正在飞机上，没法登录Genie。</p>
+<p>我就想，原来你也只是去Genie里拿数据？那我自己也能去。我有点着急，又给CFO Dave发信息，让他帮我找财富500强的客户渗透率。他发回来一张Genie截图。</p>
+<p>所以，大家都在用，公司里人人都在做类似事情。每个人都能获取这些信息，我认为这是很好的信息普及方式。信息已经摆在那里，个人很难再靠囤积和守住信息当关口。</p>
+<p>当然，它遵循公司的访问控制，机密信息也会受到相应限制。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你能看到一切？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>几乎所有，但还有边界。比如，我们刚做了一个一万人的文化调查，我就不知道每个人具体回答了什么。</p>
+<h3>开源模型、蒸馏与前沿能力的成本</h3>
+<p><strong>Eric Newcomer</strong></p>
+<p>你怎么看当前美国开源模型的表现？</p>
+<p>你们自己曾投资开源模型，后来意识到继续做下去要投入无穷无尽的钱，于是停了下来。很多中国公司会蒸馏美国公司的模型，通过美国推理提供商或者直接访问来完成。现在又有一轮资金流向美国最前沿的开源初创公司，部分来自英伟达。</p>
+<p>你对这些努力乐观吗？还是说，开源主要由中国推动，我们再来使用？你怎么看开源模型本身？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>黄仁勋这件事显然对开源是坏消息。但我看好开源，也看好美国开源模型。</p>
+<p>我同样认为专有模型会持续存在。Anthropic会非常出色，OpenAI等公司也会做出很好的东西，同时开源会占有一席之地。</p>
+<p>蒸馏非常强大，效果非常好。最初的模型，本身也相当于从互联网全部信息里提炼而来。对推理轨迹等内容进行蒸馏，效果甚至更好。而且，要阻止蒸馏几乎不可能，因为很难辨别用途。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>他们觉得能阻止别人蒸馏。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>我认为完全阻止在现实中是不可能的。你怎么判断别人向模型提出的问题，是不是以后会拿来做蒸馏？其中一些就是正常使用，信息也会流出去。</p>
+<p>因此，对特定场景开展强化学习，并压低那些反复重复的工作成本，效率会非常高。经济中大部分工作都属于这一类。</p>
+<p>当然，有些任务需要尽可能最新、最好的智能，比如研发新药、治疗疾病、设计金融模型等。这些需求会继续存在，我们也会使用前沿模型。</p>
+<p>同时，刚才的智能路由说明，我们可以显著降本，也可以把模型专门化。我们就在专门化很多模型。我还认为，美国会出现更多很好的开源模型。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>但你们已经退出训练模型的竞争了？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>目前是，未来谁知道呢？</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>你可能改变想法？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>问题是，要参与这个领域，你需要把公司市值的多大比例花在GPU上。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>这个比例下降了吗？</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>已经下降，但还没降到让我觉得现在应该重新做的程度。</p>
+<p>要么Databricks市值上升得非常快，要么训练这些模型的成本下降，或者两者同时发生，到时候我们可能改变想法。</p>
+<p>不过，我仍然看好美国开源。会有很好的模型出现，我们会使用它们，也会继续使用最前沿的专有模型。</p>
+<p><strong>Eric Newcomer</strong></p>
+<p>Ali，非常高兴你来，谢谢参加。</p>
+<p><strong>Ali Ghodsi</strong></p>
+<p>谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
