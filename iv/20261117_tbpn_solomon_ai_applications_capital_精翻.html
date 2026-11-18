@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>David Solomon谈AI应用价值、资本形成与再工业化（TBPN全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-18<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>David Solomon谈AI应用价值、资本形成与再工业化（TBPN全文精翻）</h2>
+<div class="metaline">TBPN · David Solomon · 30分06秒 · 2026-11-17 · <a href="https://www.youtube.com/watch?v=N-4Se6Nlg-g" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业采用；生产率；融资估值；AI资本开支；高盛；David Solomon</p>
+<ul><li>Solomon认为AI的重要价值创造将来自应用层，流程效率可以重新投入增长和客户覆盖。</li><li>他讨论高盛收入结构、网络基础设施、IPO与AI生态融资，并强调在事实不完整时审慎判断。</li></ul>
+<h3>着装、客户关系与高盛的业务变化</h3>
+<p><strong>主持人：</strong> David Solomon，欢迎来到TBPN，谢谢抽时间和我们聊聊。</p>
+<p><strong>David Solomon：</strong> 没问题，这里看起来很棒，我喜欢这身半拉链上衣。</p>
+<p><strong>主持人：</strong> 穿个西装能要你的命吗？这身打扮很好。</p>
+<p><strong>Solomon：</strong> 四十多年里，我大多数日子都穿西装。现在这一身，差不多像换上了牛仔靴。</p>
+<p><strong>主持人：</strong> 有个传闻说，华尔街、或者至少高盛的穿着变得随意，是你推动的，真的吗？</p>
+<p><strong>Solomon：</strong> 我想主要还是整个社会变得更随意了。很多报道写过，我刚当CEO不久，有天走进纽约办公室，环顾四周，发现只有我穿西装。</p>
+<p>我问：“我们有着装规定吗？”他们拿来一份文件，几十年不断累积，长了很多页。我说，我们需要清楚一点：根据当天的安排，以及要见的客户，选择合适的穿着。</p>
+<p>那可能是西装领带，也可能像现在这样。</p>
+<p><strong>主持人：</strong> 所以你撕掉了那500页？</p>
+<p><strong>Solomon：</strong> 我把它放到架子上，现在大概属于“高盛博物馆”，可以当历史文物看。</p>
+<p>世界确实更随意了。我从业大约43年，前35年，每天起床只要决定白衬衫还是蓝衬衫、红领带还是蓝领带。</p>
+<p>现在却得先看日历：见谁，穿什么合适，要不要中午换一身？也许先见政府官员，再见年轻创业者，后者会更喜欢我现在这身。反而复杂多了。</p>
+<p><strong>主持人：</strong> Lululemon IPO那个故事是真的吗？</p>
+<p><strong>Solomon：</strong> 那是真的。我们到波士顿参加承销推介，当时公司由私募股权机构Advent持有。</p>
+<p>这个主意不属于我，是团队的。我被请去参与推介，团队说，大家都穿Lululemon，从头到脚都穿。</p>
+<p>我记不清当时是在负责整个资本市场，还是投资银行，但已经是比较资深的人，也是现场级别最高的。全队穿着Lululemon进去，管理层和Advent的反应非常好。</p>
+<p>我最喜欢的反应却发生在出来以后：一家竞争机构正在会议室外等着进去，全都西装领带。他们看见我们，脸上仿佛写着：“糟了，这单已经输了。”</p>
+<p><strong>主持人：</strong> 这是你为了赢业务干过最疯狂的事吗？</p>
+<p><strong>Solomon：</strong> 我不知道，还干过不少类似花样，包括定制交易纪念品。</p>
+<p>不过有一点很有意思：无论世界上有多少技术，我们这门生意仍然建立在人与人的联系上，这不会改变。技术工具让我们更有能力连接彼此，但人际联系本身不会变。</p>
+<p>赢业务靠的是建立关系、赢得信任。花时间做一件事，让对方知道你了解他们、关心他们的企业和真正重要的东西，就是很好的起点。</p>
+<p><strong>主持人：</strong> 技术是基本门槛，品牌总在发展变化，真正的忠诚最终落在具体的人身上。</p>
+<p><strong>Solomon：</strong> 对，人和人之间。高盛的力量就在这里。我很幸运能带领这个组织，也很幸运，这里聚集了一群非常优秀、动力很强、激励很充分的人，想把事情做好。</p>
+<p>人会与人建立信任。我个人认为，不管技术怎样发展，这都不会改变。</p>
+<p><strong>主持人：</strong> 业务组合有什么变化？我听你在CNBC说，高盛越来越多收入更持续、周期性更低，也更少依赖一笔笔交易。能解释这些年公司的变化吗？</p>
+<p><strong>Solomon：</strong> 过去八年，这届领导团队的一项战略目标，是在保留原有优秀业务的同时，围绕那些更依赖交易、买卖活动的业务，建立收入更稳定的业务。</p>
+<p><strong>主持人：</strong> 最有代表性的例子是什么？</p>
+<p><strong>Solomon：</strong> 资产与财富管理。以前有好几块不同的业务，我们把它们整合成一个大平台，如今可能是全球第五或第六大的主动资产管理平台，管理资产略高于4万亿美元。</p>
+<p>开始整合时，这些业务一年合计管理费大约45亿美元；上个季度，单季就是36亿美元，目前增长超过10%。按年看，资产与财富管理的管理费收入已大约150亿美元。</p>
+<p>全球银行与市场业务方面，我们向客户提供更多贷款和融资。过去高盛并不是一家大规模贷款机构，而贷款收入通常更稳定。</p>
+<p>因此，按不同定义，大约60%的公司收入现在可以算作更具持续性的收入，比八年前提高很多，而且这部分还在增长。</p>
+<p>我们对外表示，资产与财富管理的持续性收入基础，大约可以每年增长8%—9%。实际做得更好，但这是公开给出的预期。</p>
+<p>我们仍然是一家出色的交易机构，同时围绕这门规模庞大的业务建立更持久的业务。</p>
+<p><strong>主持人：</strong> AI，以及保持人与人关系的想法，会不会让你们服务更多客户、向更大众的市场拓展？还是品牌需要继续保持高端？未来十年，高盛的客户群会怎样改变？</p>
+<p><strong>Solomon：</strong> 公司主要有两大业务。全球银行与市场包括投资银行、固定收益与股票交易，这是我们一直以来最出名的部分。我当然有偏见，但我认为这些业务的客户基础是全球最好的。</p>
+<p>另一块是资产与财富管理。几分钟前我在台上也说过，我们的财富管理是超高净值业务。</p>
+<p>除了45000名左右的超高净值客户，整体基本上是一家机构业务，服务政府、企业和大型机构。未来五到十年，我不觉得这种定位会发生实质变化。</p>
+<p>资产管理有很强的产品制造能力，其他财富渠道的客户也会感兴趣，所以我们通过别人的财富渠道销售，与大型经纪机构和广泛的财富产品分销商合作，让普通投资者也能获得产品。</p>
+<p>但我们和那些终端客户没有直接客户关系，我不觉得会改变。我们会继续定位为机构业务公司。</p>
+<p><strong>主持人：</strong> 明白。</p>
+<p><strong>Solomon：</strong> 目前会继续服务政府、企业、机构和非常富裕的个人。</p>
+<p>技术让我们重新设计内部流程，提高效率。你可以把效率收益直接变成更高利润率；但我们本来就是一家很赚钱的企业，也可以把额外利润重新投入增长，扩大覆盖范围。</p>
+<p>还有许多富裕人士、机构和企业我们尚未服务到，在技术不断演变的生态里，也有很多重要的新兴企业。所以未来五到十年，客户类型未必改变，但覆盖范围会扩大。</p>
+<h3>AI、网络攻击与基础设施可靠性</h3>
+<p><strong>主持人：</strong> 想谈谈这周的话题，其中一个是网络安全。过去一个月，我聊过的每家重要企业的CEO，不论社交媒体还是推理服务商，都在遭到攻击。这是个可怕的时期。你在公司内部、和其他CEO之间怎样讨论不断升高的风险？</p>
+<p><strong>Solomon：</strong> 假设一年前、两年前、三年甚至五年前，我们坐在这里，你问我什么让我睡不着，我都会回答网络安全。</p>
+<p><strong>主持人：</strong> 那你现在就完全不睡了。</p>
+<p><strong>Solomon：</strong> 现实是，我很担心。</p>
+<p><strong>主持人：</strong> 你职业生涯中，有过微软整整一个工作日都不能用的经历吗？</p>
+<p><strong>Solomon：</strong> 上周发生的事确实前所未有，但前所未有的事会发生。现在是个棘手阶段。</p>
+<p>当很多事情同时发生，我总会问为什么。大家当然容易往最阴暗的方向想。目前没有证据显示原因属于那种最坏情形，但也不能百分之百确定。</p>
+<p>正在发生的一件事是，这些技术和工具让想做坏事的人更快变强；但不太被谈到的是，它们也让好人更快建立防线。高盛就从中受益。</p>
+<p>过去七八个月，最强模型基本刚能用时我们就能接触到。现在每天运行数千、数万次扫描，每周七天、每天24小时，查漏洞、打补丁。</p>
+<p>不是说我们没有漏洞，每个网络、每套系统都有。但我可以直接告诉你，高盛今天比七个月前更安全。这不等于不可能出问题，只是工具确实让我们持续增强。</p>
+<p>大家都在高速扫描、修补，没处理准确时，就会给系统带来波动。我觉得这也是眼下部分问题的原因：修得很快，新漏洞不断出现。好处是发现之后能再修正。</p>
+<p>在各家公司不断加固网络、增加AI容量、把AI接入系统的这个阶段，应该预期会出现这种颠簸，值得谨慎，恐怕还会更多。</p>
+<p>我希望不要出现重大网络事件，但如果真发生，并且削弱信心、拖慢经济，我不会意外。到现在还没有特别大的事故，我们算幸运。</p>
+<p>但无论上周的情况，还是FAA的事情，都能看到经济影响。Teams瘫痪一整天，或者人们无法抵达目的地，损失很难衡量，却肯定不小。</p>
+<p><strong>主持人：</strong> 我猜你们可能与上万家独立供应商合作。怎样保证软件供应链安全？你们能扫描的主要还是内部设施。</p>
+<p><strong>Solomon：</strong> 这些对我们和各地企业都是很大的脆弱点，我们很担心。</p>
+<p>大家必须改变向外部供应商开放信息的方式，重新思考边界；把供应商软件、开源组件接入内部网络时，也要明确对方应达到什么要求。</p>
+<p>我愿意相信高盛标准很高，但我们仍有风险。普通公司没有大型金融机构这样的资源和专业能力。</p>
+<p>因此需要建立激励，让这些能力与信息下沉，覆盖更广泛的企业。一个很大的、也很明显的想法是，怎样集中足够资源，可能通过公私合作，把整个生态的软件都扫描、修补一遍。</p>
+<p>作为企业界、政府和社会，我们要推进所有软件的扫描、修补和升级。历史技术债太多，会很难、很耗时、很昂贵，但从整体看，是做得到的。</p>
+<p>我们应该真正开始讨论。我正在与CEO和政府官员交流，其他人也在谈：怎样推动更新整个经济赖以运行的软件基础设施？</p>
+<p>如果能做到，可以想象几年后，系统比现在更安全。网络风险永远不会消失，但它可能不再是这么严重的问题。</p>
+<p>过程中会出错，会有真问题，但我能够想象五到七年后，在这个层面上世界更稳定、更持久。</p>
+<h3>大型IPO中高盛领导层的角色</h3>
+<p><strong>主持人：</strong> 谈IPO吧。今年规模很大，看起来还会继续。你本人在大型IPO里做什么？交给银行家处理，还是亲自参与？</p>
+<p>如果我过来说，希望高盛把公司带上市，我能找到你本人吗？还是你只负责换一身衣服？</p>
+<p><strong>Solomon：</strong> 我不想干预得太重。</p>
+<p><strong>主持人：</strong> 不，不是那个意思。</p>
+<p><strong>Solomon：</strong> 先说我的个人理念，而且不只是我。总裁John Waldron、全球银行与市场联席负责人之一Dan Dees，还有银行业务领导Kim Posnett、Matt McClure、Anthony Gutman等很资深的人，都相信同一件事：</p>
+<p>CEO在做上市这种战略性极强的事情时，希望认识承销机构的高层，能够交流，能够联系到他们。</p>
+<p>所以我们作为领导团队，会一起安排，让每家公司都能接触到我们的高层。</p>
+<p><strong>Solomon：</strong> 每个星期，我都会给不同CEO打几十通电话，问我们的团队做得怎样，我们想支持你们，还有什么能做？我们一直让公司能够接触高盛的高级管理层，我认为这会给正在准备上市的管理团队信心。</p>
+<p>从文化上，我们深信自己的职责是给出最好的建议，始终考虑客户公司的长期利益，做到平衡、审慎。高层也努力以身作则。</p>
+<p>我们希望这种参与能帮助我们拿到想要的角色。我们想主导这些重要公司的大型IPO。到目前很幸运，团队做得不错。</p>
+<p>但这是一项团队运动，要大家一起上，建立信任，就是刚才说的那些。包括我在内的高层在其中扮演重要角色。</p>
+<h3>2027年私募市场与AI生态融资</h3>
+<p><strong>主持人：</strong> 你怎么看2027年私募市场？黄仁勋离开了他过去一年扮演的那个角色。很多私募公司估值达到几百亿美元，但收入规模、负利润率等方面，距离能成为上市公司还很远。</p>
+<p>黄仁勋往往提前很远就投资，当然有他的理由。我不想叫他最后投资人，但某些时候，只有他愿意站出来，拿10亿、20亿美元给这些公司。</p>
+<p>所以即便底层技术继续大幅进步，我仍觉得2027年私募市场会很动荡。</p>
+<p><strong>Solomon：</strong> 首先，你说的是私募市场里比较窄的一部分，即技术、AI基础设施建设及其周边未上市公司。</p>
+<p>更广泛的私募资本市场仍在增长。在整个私募资本形成与增长方面，我们还处在早期。</p>
+<p>就你关注的AI建设和生态公司而言，黄仁勋无疑在支持、投资很多有意思的初创企业上发挥了很强的作用。</p>
+<p>但有一点：你不知道Colette会怎样做。现在所有人都在假设。我想强调，她是非常能干的高管。依我所见，大多数事情上，她和黄仁勋都是紧密合作的。</p>
+<p><strong>主持人：</strong> 确实很难判断。有报道说他们存在分歧，但显然同意的事情更多，否则不会一起做那么多交易。</p>
+<p><strong>Solomon：</strong> 对事实不了解，就推断接下来会怎样，我会非常谨慎。</p>
+<p>Colette是一位新CEO，也是一位有能力的高管，应该给她机会和时间，说明自己会怎样处理这些事。我相信有些事情会和过去不同，没什么问题。</p>
+<p>整个生态远大于一个人、一家公司。世界上有很多资本，最好的公司仍然会获得融资。</p>
+<p>增长速度可能慢一些。市场现在传达的是，增长和资本形成的预期速度下降了，这也许是健康的。</p>
+<p><strong>主持人：</strong> 更多传统对冲基金会不会被迫成为跨公开与私募市场的投资者？</p>
+<p>回看今年，一些既提前抓住上涨、也提前避开抛售的优秀投资人，之所以能做到，是因为他们对私募公司有很多敞口，提前看到了一点未来。</p>
+<p>私募公司根据经营表现更新股权估值，而外部世界所能看到的信息与之脱节。</p>
+<p><strong>Solomon：</strong> 过去这些年，单纯投资公开股票，也有很多很好的结果。</p>
+<p>我观察各类对冲基金，以及管理较小资本池的资产管理人，经验是：真正建立了深度资本配置能力的人，无论投公开证券、私募证券、早期、科技还是成长企业，通常都能做得不错。他们有好周期、坏周期，但总体不错。</p>
+<p>出问题的是跟风，却没有形成真正核心投资能力的人。周期推进时，这些人更容易被潮水带走。</p>
+<p>如果一个对冲基金平台来问我，我总会说，先决定你想在哪些地方参与，要把哪些能力练到非常好。成功投资、持续取得更好的相对表现，需要真正的能力。</p>
+<p><strong>主持人：</strong> 信息套利？</p>
+<p><strong>Solomon：</strong> 不，你参与的每个领域，都需要很强的能力。信息套利也许某一年能成功，判断对一次；但想多年、几十年持续做下去，在你选择配置资本的领域必须真正非常出色。</p>
+<h3>再工业化与美国的三项优势</h3>
+<p><strong>主持人：</strong> 你怎样看再工业化，以及高盛的角色？</p>
+<p>我们每天和一些企业交流，它们想做新制造、无人机电机工厂、国防技术、能源。能源有很大机会，还会有连带效应。即使不谈AI和数据中心，便宜能源显然也对所有人有益。高盛怎样参与？</p>
+<p><strong>Solomon：</strong> 我们为很多这样的企业提供建议和融资。作为资产管理人，我们也带来资本、直接投资。</p>
+<p>在美国技术与商业创新生态里，我们处在很有影响力的位置，同时是顾问、资本组织者、分销者和投资者，因此见到很多，也参与很多。</p>
+<p>我喜欢再工业化这个方向。美国经济是世界上最领先的经济体，而且领先幅度很大。有三件事值得强调，当然还有其他因素。</p>
+<p>第一，技术创新、创业精神与冒险文化，几乎无与伦比。</p>
+<p><strong>主持人：</strong> 没有那种见不得别人出头的“大树招风”心态。</p>
+<p><strong>Solomon：</strong> 对。这创造出很好的公司与业务。美国再工业化应该围绕技术创新，让关键产业更多留在这里。也可以是药物发现，它同样依靠技术。</p>
+<p>把这些关键产业更多带回来，是美国经济很好的增长方向。</p>
+<p>第二，我们有世界上最好的资本市场和金融体系，优势不是一点，而是很多。</p>
+<p>资本是否可得、人们愿不愿承担风险、市场广度、银行体系强度，都非常重要。这让美国与其他地方不同。</p>
+<p><strong>Solomon：</strong> 第三，全世界很多聪明人想来这里。</p>
+<p>我们当然应该有牢固的边境，但也要有好的政策，让聪明、能创造价值、愿意参与我们的生活方式并创新的人进来。要让他们与美国人共同推动经济，也要让更多美国人参与这台经济引擎。</p>
+<p>与其他经济体相比，这三件事让我们拉开了距离。回看二十世纪，美国经济更大，其他经济体也增长，大家的轨迹相对线性。但过去十五到二十年，美国以很多人没预期到的方式明显加速。</p>
+<p>这三点发挥了作用，我们必须继续投资，把它们做好，不能视为理所当然。</p>
+<h3>AI价值会在哪一层产生</h3>
+<p><strong>主持人：</strong> 你把AI看成普通技术，还是更大的东西？</p>
+<p>过去几年，黄仁勋虽然是AI潜力最大的推广者之一，但行事方式很像把AI视作互联网那样的普通技术：它会影响经济，因此要尽可能广泛地分发。</p>
+<p><strong>Solomon：</strong> 从这个角度，我同意。他希望像互联网一样，让技术尽可能普及，让人们参与。</p>
+<p>但我不喜欢“普通”这种词。有人说“前所未有”，我会说，也许并不是。它是技术。</p>
+<p>还是回到开头：人重要，关系重要，判断重要，品牌重要。这种技术可以让这些东西更强。</p>
+<p>我见过无数“我们正在打造AI原生高盛”这样的说法。我会觉得，好吧，这恰恰说明你不了解高盛。那些因素都重要，将来也仍会重要。</p>
+<p>这次是不是比某些技术革命更快？是的，我觉得快一些。但要过十年、二十年、三十年，才真正知道什么叫正常。</p>
+<p>我刚才在台上说过，一大块非常重要的价值创造，我认为不会主要发生在基础设施建设、大语言模型或超大云厂商，而会发生在未来几十年建立起来的应用层。</p>
+<p>会有很多今天无法想象的新公司、新想法、新平台。想想健康、保健、食品、供应链，这是极其庞大的机会，非常令人兴奋。那会变成我们的正常世界。</p>
+<p>到那时，我仍然非常相信，人、关系、判断、努力、卓越，以及认真到场做事，仍然重要。</p>
+<h3>社交媒体的短期影响与长期投资</h3>
+<p><strong>主持人：</strong> 你怎样看X？</p>
+<p>这个活动能举行，一部分原因可能就在于，台下有些人，虽然匿名、头像是一只动物，但只要发一篇观点就能推动市场。</p>
+<p>现在任何人在任何时候，只要观点够有说服力，都可能影响市场。像你们这样的公司怎样适应这种媒体环境？</p>
+<p><strong>Solomon：</strong> 我偶尔也发X。前几天火箭被接住，我转发了Elon的帖子，觉得太酷、太不可思议，真得去现场看一次。这是个很强大的平台。</p>
+<p>但谈到推动市场，我会谨慎一些。我不是活在每个瞬间的人，更习惯把事情放到长时间里思考。</p>
+<p>有人说句话，股票涨2%或跌2%，我不太关心。我关心的是两年、五年、十年之后，股价在哪里。</p>
+<p>一个人也许能说点什么，让短期交易受到影响。</p>
+<p><strong>主持人：</strong> 有意思的是，Culper Research大约六个月前发过英伟达做空报告，当时没有多少人注意，影响也不大，后来《华尔街日报》才写了它。</p>
+<p>说到《华尔街日报》，黄仁勋刚发布一份声明，是突发消息，想听你的反应：“如果董事会认为，让我回归符合股东、员工、公司和美国的最佳利益，我将荣幸地回任CEO。”</p>
+<p>你怎么看？</p>
+<p><strong>Solomon：</strong> 我也是刚听你读。我还是会重复刚才在台上说过的话。</p>
+<p>我看到了Gavin和Brad的信，建议董事会慢一些、审慎一些。有很多事情，我当然不知道全部事实。</p>
+<p>董事会需要慢下来、仔细考虑，确保了解所有事实，再为公司和股东作最好的决定。现在外界掌握的信息，还不足以让我对具体结果作出回应。</p>
+<p><strong>主持人：</strong> 完全同意，变化太快了。感谢你参加节目。</p>
+<p><strong>Solomon：</strong> 我的荣幸，很高兴和你们聊。祝后面的节目顺利。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
