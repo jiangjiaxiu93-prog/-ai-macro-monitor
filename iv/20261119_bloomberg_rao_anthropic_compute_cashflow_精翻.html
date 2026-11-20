@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Anthropic CFO Krishna Rao谈上市资金、算力承诺与现金流（Bloomberg Talks全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-20<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Anthropic CFO Krishna Rao谈上市资金、算力承诺与现金流（Bloomberg Talks全文精翻）</h2>
+<div class="metaline">Bloomberg Podcasts · Bloomberg Talks · Krishna Rao，Anthropic首席财务官；主持Ed Ludlow · 约18分钟 · 2026-11-19 · <a href="https://www.youtube.com/watch?v=3oD4KuRfbjI" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；融资估值；前沿实验室；研发效率；Anthropic；Claude</p>
+<ul><li>Rao拆解约9000亿美元长期算力承诺：约一半容量在2030年后上线，未来一年支付额约700亿美元。</li><li>讨论四种加速器、Anthropic Direct与研发算力，并保留主持人对现金储备、利润率和IPO资金用途的追问。</li></ul>
+<h3>上市之日与三年多的收入增长</h3>
+<p><strong>演播室主持人：</strong> 下面把画面交给Ed Ludlow，他正与Anthropic首席财务官Krishna Rao在一起。Ed，交给你。</p>
+<p><strong>Ed Ludlow：</strong> 今天对纳斯达克来说意义重大。不只是因为这是规模创纪录的IPO，也不只是因为第一次有前沿模型实验室上市，还因为接下来将发生的事情。很高兴请到Anthropic首席财务官Krishna Rao。</p>
+<p><strong>Krishna Rao：</strong> 很高兴来到这里。</p>
+<p><strong>Ludlow：</strong> 首先，对你、公司和创始团队来说，今天意味着什么？</p>
+<p><strong>Rao：</strong> 公司在很短的时间里走过了一段不可思议的历程。回头看，我们成立还不到六年，直到2023年第一季度才拿到第一笔收入。而从那时到上个月，并没有过去多久，我们的年化收入运行率已经超过810亿美元。在如此短的时间里，增长速度非常惊人。</p>
+<h3>为什么选择IPO</h3>
+<p><strong>Ludlow：</strong> 接下来这个问题可能有点奇怪：你们为什么要上市？坦率地说，为什么需要用这种方式筹集资本？这是唯一可用的融资方式吗？</p>
+<p><strong>Rao：</strong> 当然不是。作为一家私营公司，我们已经筹集了大量资本。</p>
+<p><strong>Ludlow：</strong> 我想说的正是这一点。</p>
+<p><strong>Rao：</strong> 有几个原因。首先，除了能否获得资本，还有资本成本的问题。我们的资本使用效率一直非常高，作出投资时也一直非常有纪律。但在技术前沿开展研发，本来就是一项资本密集的事业。为了继续处于前沿，我们会作出相应投入。</p>
+<p>除了融资渠道和资本成本，我们也希望更多人有机会持有公司的股票。这一点很重要，因为我们认为前面还有很长的路，希望更多人能够分享这段发展，而不是只有私募市场中的参与者。</p>
+<p>第三点是透明度。无论在公司内部，还是与外界沟通，我们都非常重视透明。我认为，这与成为上市公司能够形成很好的相互促进。</p>
+<h3>现金储备与不确定性范围</h3>
+<p><strong>Ludlow：</strong> 稍后我们会谈公司的创立原则，以及现在的公益公司架构、长期利益信托等安排。不过，我想先从现金的角度看。IPO之后，你们拥有2330亿美元现金及短期投资。这能让你们做哪些以前做不了的事情？或者说，资产负债表上有了这笔现金，你们的行为会有什么不同？</p>
+<p><strong>Rao：</strong> 有一点很重要。公司创始人离开另一家实验室创立Anthropic时，必须从头招募研究团队。我们相信，自己已经组建了世界上最好的研究团队。除此之外，他们当时也没有算力，必须在这段时间里获得大量算力，并且高效地使用。</p>
+<p>因此，无论是使用算力，还是考虑资本，我们一直把效率放在核心位置。</p>
+<p>现在展望未来，我们会想到一个逐渐扩大的不确定性范围。我们处在一条指数增长的曲线上。</p>
+<p><strong>Ludlow：</strong> 这个不确定性范围，也关系到训练和推理之间的安排？</p>
+<p><strong>Rao：</strong> 对。它涉及业务需求、收入，也涉及模型能力。基本上，看得越远，这个范围就越宽。</p>
+<p>因此，我们希望作出的投资能够让公司在这样的不确定性范围内处于有利位置，同时保留灵活性。随着我们看到更多业务结果、看到模型能力进一步发展，还能够继续投入。</p>
+<h3>四种加速器与Anthropic Direct</h3>
+<p><strong>Ludlow：</strong> 有了这笔现金，你们会在多大程度上主动出击，或者更积极地寻找机会？你们的算力模式与一些同行不同，过去可以称为相对轻资产，更多依靠第三方。未来这套战略会有什么变化？</p>
+<p><strong>Rao：</strong> 我们会继续大量投资算力，但正如你所说，我们的算力资源和采购战略是多元化的。目前使用四种不同的加速器平台。</p>
+<p>我们通过云合作伙伴采购大量算力，也越来越多地采用一种叫作Anthropic Direct的方式：直接租赁数据中心，再单独租赁芯片。</p>
+<p>因此，我们能够非常灵活地调度和使用整个算力池。这也增强了我们面对各种市场环境的韧性。我们可以按照符合自身业务效率要求的方式获得算力。</p>
+<p><strong>Ludlow：</strong> 如果新云运营商，或者更广泛的数据中心市场出现困境资产，你们会直接收购吗？</p>
+<p><strong>Rao：</strong> 无论看资产负债表，还是看把资本投向所需领域的能力，我们目前的位置都很好。</p>
+<p>我们的理念一直是：在那个不确定性范围内，对算力作出较为前瞻、积极的安排，但在资产负债表上始终保持保守。</p>
+<p>这也是为什么本次发行之前，我们的资产负债表上就已经有超过1300亿美元现金。到了今天，我们又筹集了接近1200亿美元。我们认为，无论市场状况如何，这都让我们处于很好的位置。不管波动更大还是更小，如果需要，我们有能力把握机会。</p>
+<h3>9010亿美元承诺如何与需求匹配</h3>
+<p><strong>Ludlow：</strong> 你应该能想到，我一直在认真研究招股书。目前披露的未来算力基础设施承诺约为9010亿美元。其中，截至2027年9月的十二个月里，大约有710亿美元。</p>
+<p>你们的联合创始人、首席执行官Dario Amodei今天早些时候说，如果把收入考虑进去，这笔钱其实没有看起来那么多。</p>
+<p>Krishna，在整个IPO过程中，大家一直想弄懂你们的商业模式：怎样把推理端看到的需求与这些算力承诺匹配起来？这些容量究竟能否承接需求，总体上是否足够？</p>
+<p><strong>Rao：</strong> 考虑这大约9000亿美元算力承诺时，要记住它们分布在很多年里。约有一半所对应的算力要到2030年之后才会上线。你刚才提到，未来一年大约是700亿美元。与我们的收入和资产负债表上的现金相比，这个安排是有支撑的。</p>
+<p>我们一直很有纪律地作出这些算力投资。其中有一些云服务采购承诺，也有一些长达十五至二十年的数据中心租约。</p>
+<p>但很重要的一点是，我们把有效容量看成物理算力与算力使用效率的乘积。我们相信，自己的算力使用效率是世界上最高的，这让我们能够把每一单位算力分配给最能发挥价值的用途。这种意识已经融入公司的运作方式，也构成了我们的竞争优势。</p>
+<h3>训练推理分配与75%的研发算力</h3>
+<p><strong>Ludlow：</strong> 回到不确定性范围这个问题。对你来说，既要管理内部训练任务的需求，又要考虑通过推理取得收入的优先级，工作并不容易。面向未来，你们是否已经找到了一套决策公式？</p>
+<p><strong>Rao：</strong> 我和联合创始人Tom Brown，以及我们各自的团队，会花很多时间讨论算力分配，每周都会讨论多次。</p>
+<p><strong>Ludlow：</strong> 大家说，你是一位能说工程师语言的CFO。</p>
+<p><strong>Rao：</strong> 我在努力。不过，要理解这项业务，就必须理解算力。算力非常复杂。想要把它买好、分配好，最终高效地使用，就必须理解它怎样运行、怎样组合，以及我们怎样使用它。</p>
+<p>我想强调的是，目前我们有75%的算力容量用于研发。研发并不是一项单一的工作。它包括模型能力和安全方面的研究，寻找我们所说的算力效率倍增方法，也包括模型训练、预训练、后训练，以及我们内部使用Claude。自1月1日以来，内部Claude使用量已经增加到原来的约250倍。</p>
+<p>正是算力效率，让我们能够把绝大部分算力资源投入研发，同时仍然满足增长非常强劲的客户需求。</p>
+<h3>利润率与再投资</h3>
+<p><strong>Ludlow：</strong> 这也是今年很有意思的地方，对吧？有些时候，利润率让人感到意外，可能没有完全按照原先的计划发展，也有过产生自由现金流的阶段。我理解，你还要求团队想一想自己的产出。</p>
+<p>我想替现有投资者，以及外界关心这家公司的人问：正如你在前半段所讲的，外部环境不断变化。在这种情况下，你可以接受的利润率底线是什么？</p>
+<p><strong>Rao：</strong> 我们在为长期建设这项业务。今年前九个月的表现，已经体现了业务本身以及单位经济的实力。</p>
+<p><strong>Ludlow：</strong> 但未来不一定会一直保持目前的单位经济水平。</p>
+<p><strong>Rao：</strong> 如果看看我们是怎样走到今天的：2025年前九个月，毛利率是29%；今年前九个月，毛利率是85%，调整后营业利润率为12%，自由现金流为正。</p>
+<p>这使我们有条件投资未来。我们会同时从增长和盈利两个维度，为长期建设这项业务。短期内，我们看到的投资机会非常有吸引力，所以会继续作出这些投资。</p>
+<h3>英伟达关系与跨芯片调度</h3>
+<p><strong>Ludlow：</strong> 英伟达通过这次私募配售，再向Anthropic投资100亿美元。它是一家关键供应商，也是合作伙伴。黄仁勋离任之后，我必须问一下，这段关系现在怎么样？实际上，即使在他掌舵时，你们的关系具体又是怎样的？</p>
+<p><strong>Rao：</strong> 英伟达一直是很好的合作伙伴。我们是它的大客户，与它密切合作，它的技术也是我们算力资源的一部分。无论在资本方面，还是在继续建设算力方面，能够与它合作，我们都觉得很幸运。</p>
+<p>未来我们仍然需要大量算力。但与其他一些实验室相比，我们的一个区别是：会同时使用很多平台，包括亚马逊Trainium、谷歌TPU、英伟达GPU和AMD GPU。</p>
+<p>这让我们能够把每一单位算力匹配到最适合的工作负载，无论是客户的任务，还是内部任务。</p>
+<p>为此，我们在公司内部建立了一套调度层。把这套系统建起来、做好，花了很长时间。但现在，我们能够灵活地跨这些平台使用算力。我们认为，这是一个实实在在的优势。</p>
+<h3>未来发债与Nscale采购案例</h3>
+<p><strong>Ludlow：</strong> 今年我们在资本市场上看到，一些大型IPO完成后，公司很快又回到市场融资，债务融资变得很受关注。</p>
+<p>这是一个比较技术性的问题：如果你们未来进入债券市场，对Anthropic可能获得怎样的信用评级，有没有大致判断？</p>
+<p><strong>Rao：</strong> 正如刚才所说，我们上市是为了扩大资本来源、降低资本成本。无论是资产负债表上的现金、尚未动用的循环信贷额度，还是这次IPO募集的资金，我们都很满意。还有很重要的一点，就是我们的收入和业务模式的效率。</p>
+<p>这些因素让我们对未来抱有信心。我们保持了保守的资产负债表，因此有能力作出所需的投资。至于其他融资方式……你看，我们的股票甚至都还没开始交易。</p>
+<p><strong>Ludlow：</strong> 我确实问得有点超前，但你也能理解原因。最后，我想用一个具体案例来理解基础设施与资产负债表的关系。你们对Nscale有一笔大约450亿美元的承诺，地点在西弗吉尼亚州。那里的容量对你们很重要。</p>
+<p>你会怎样解释这笔交易？为什么用这种方式获得算力是一个好的选择？</p>
+<p><strong>Rao：</strong> 当我们考虑作出算力承诺时，会向前看六个月、十二个月、二十四个月，预测业务可能怎样发展。这就是我们所说的不确定性范围的一部分。</p>
+<p>我们会考虑：到时候收入会有多少，算力效率会达到什么水平，为了留在技术前沿，需要怎样的研发投入，以及怎样继续利用效率改善。</p>
+<p>然后，我们会把相应时间段里可以获得的算力，按性能与价格的关系排序，再据此采购。评估不同选择时，我们一直非常有纪律。</p>
+<p>这也是拥有可灵活调度的算力资源的好处：采购时有很多选择，可以结合整个算力组合，选取最合适的方案。</p>
+<h3>公益使命与企业客户</h3>
+<p><strong>Ludlow：</strong> 这里是彭博电视和彭博电台直播。我正在采访Anthropic CFO Krishna Rao。这次IPO定价为每股83美元，我上次看到的指示性开盘价大约是105美元。这是规模创纪录的IPO，也是前沿模型实验室第一次进入公开市场。</p>
+<p>我们来谈谈公司的创立原则，以及你作为CFO怎样管理这些原则。你们的架构允许使命与安全拥有优先地位，但这与商业增长、股东回报之间，也存在需要处理的张力。</p>
+<p><strong>Rao：</strong> 我其实不太会把它称为张力。我们一直同时推进安全与能力建设。这是公司的创立原则，也融入了公司的运作方式。</p>
+<p>再看我们的业务重点：企业。截至第三季度末，我们有11,900家企业客户，几乎是年初的八倍。这里面有世界上规模很大、业务很复杂、要求很高的公司。</p>
+<p>它们需要的不只是最强的能力，也包括安全性和与自身目标的一致性。因为这项技术的部署会接触员工、客户和数据。只有一个能力强的模型或产品还不够，你还必须建立信任。</p>
+<p>这既是我们使命的核心，也与企业客户的需求高度契合。随着模型能力继续提高，我们还会在这方面持续投入。</p>
+<h3>为何没有立即全面推出Mythos</h3>
+<p><strong>Ludlow：</strong> 核心问题是：你作为上市公司CFO，与管理团队和创始人一道，会在什么情况下采取你们认为安全上正确的行动，即使这意味着放弃实际收入，或者影响股价？</p>
+<p><strong>Rao：</strong> 一个很好的例子，是今年早些时候的Mythos级别模型。我们内部使用它时，发现它非常强大，而且不只是在网络安全领域，各方面都是如此。但网络安全特别引起了我们的注意。</p>
+<p>我们希望，当能力再向前跨出一大步时，能够确保模型得到安全部署。因此，我们建立了Project Glasswing，先让网络防御人员获得模型、收集反馈、建立防护措施，再让这些技术逐步传导到Opus、Sonnet、Haiku等其他模型中。我们就是这样做的。</p>
+<p>如果只想最大化当时的收入，也许应该直接把模型向全世界开放，再看看会发生什么。但我不认为那对世界有益，也不认为对客户有益。从这个角度看，安全与商业目标实际上很好地配合在了一起。</p>
+<p>现在我们有网络安全验证计划，也有生命科学验证计划。模型能力提升得太快，这些都是必须采取的措施。</p>
+<h3>IPO是长期旅程中的一站</h3>
+<p><strong>Ludlow：</strong> 社会上仍有焦虑，包括公众，甚至一些现在或过去在Anthropic工作的员工。但你们还是继续推进IPO。Krishna，这背后的权衡是什么？</p>
+<p><strong>Rao：</strong> 我把这次IPO看作旅程中的一站。我们在为长期建设这项业务。今天是值得庆祝的一天，但终究只是其中一站。</p>
+<p>我们的最终目标，是让公司实现它的使命。为此，我们需要商业上的成功。我们建设什么很重要，怎样建设同样重要。这两件事必须一起做好。</p>
+<p><strong>Ludlow：</strong> 一切发生得这么快。你刚才也回顾了这段历程。你加入公司时，年化经常性收入大约只有2.5亿美元。</p>
+<p><strong>Rao：</strong> 对，大致如此。</p>
+<p><strong>Ludlow：</strong> 到十月，年化收入运行率是810亿美元。</p>
+<p><strong>Rao：</strong> 自我两年半多前加入以来，增长已经超过320倍。</p>
+<h3>企业渗透率与接下来的市场空间</h3>
+<p><strong>Ludlow：</strong> 接下来会怎样？</p>
+<p><strong>Rao：</strong> 我们认为，一切才刚刚开始。以今天已经达到的规模而言，这句话听起来或许有些不可思议。但看看《财富》500强客户：其中大约一半已经是我们的企业客户。</p>
+<p>再看这些客户，它们在Claude上的支出，平均还不到总费用的0.1%。即便看其中支出最多的十家，也不到总费用的1%。</p>
+<p><strong>Ludlow：</strong> 所以，你认为绝大部分潜在市场还没有被触及。</p>
+<p><strong>Rao：</strong> 没错。无论是编程、知识工作，还是生命科学、机器人，我们都还处在早期。</p>
+<p>这让我们感到兴奋。即使已经到了今天的规模，前面的机会仍然非常广阔。我们构建有用的智能，把它交给客户。客户从中看到价值，就愿意与我们一起继续投入，同时取得很好的投资回报。</p>
+<p>我们认为，AI会在所有这些领域产生重大影响。我们也会持续投入，并用正确的方式把它们建起来。</p>
+<h3>指示性开盘价与长期经营</h3>
+<p><strong>Ludlow：</strong> Krishna，最后还有三十秒。目前指示性开盘价是每股105美元。你怎么看？</p>
+<p><strong>Rao：</strong> 我们是在为长期建设这家公司。股价每天都会波动，未来也一定如此。</p>
+<p>但我们真正关心的，是这项业务在很长时间以后会走到哪里。这也将继续是公司和投资者关注的重点。</p>
+<p><strong>Ludlow：</strong> 这是一个真正懂工程师语言的CFO会给出的回答。非常感谢你花这么多时间接受采访，也祝贺你。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

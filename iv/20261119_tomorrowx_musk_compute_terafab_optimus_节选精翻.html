@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Elon Musk谈算力建设、Terafab与Optimus（TomorrowX主对谈节选精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-20<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Elon Musk谈算力建设、Terafab与Optimus（TomorrowX主对谈节选精翻）</h2>
+<div class="metaline">iConnections · TomorrowX Summit · Elon Musk；对谈Gavin Baker、Antonio Gracias · 完整视频68分钟 · 2026-11-19 · <a href="https://www.youtube.com/watch?v=8qSlKD0Odsc" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文节选精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；推理成本；研发效率；SpaceX；xAI；Optimus</p>
+<ul><li>马斯克称当前每月上线约0.5吉瓦算力，建设成本约为行业共识的60%；每月超过1吉瓦是明年底的目标。</li><li>讨论依次覆盖星舰、AI软件栈、Optimus、Terafab和轨道算力，保留相关时间表、成本假设与追问。</li></ul>
+<p>本篇翻译主对谈10:40—1:07:13；省略11:35—13:23的中国行程与地缘关系开场，其余实质讨论按原顺序保留。</p>
+<h3>开场</h3>
+<p><strong>主持人：</strong> Elon，你好吗？能听见我们吗？音频接通了，稍等。</p>
+<p><strong>马斯克：</strong> 大家好。</p>
+<p><strong>主持人：</strong> 兄弟，你好吗？</p>
+<p><strong>马斯克：</strong> 挺好的。观众应该知道，Gavin和Antonio是我最好的两个朋友。所以，这基本就是一场好朋友之间的聊天。</p>
+<p><strong>主持人：</strong> 用这样的方式收尾很棒，我的朋友。</p>
+<p>〔原节目11:35—13:23关于中国行程与地缘关系的开场讨论省略。〕</p>
+<h3>星舰回收与完全快速复用</h3>
+<p><strong>主持人：</strong> 谈谈星舰吧。Ship 42，第十五次飞行，似乎是命中注定的。我们学到了什么？在可复用、快速复用这条路上，目前走到哪里了？</p>
+<p><strong>马斯克：</strong> 接住飞船是一个重大里程碑。我想，可能只有一直密切关注SpaceX的人，才真正理解这一步有多大。</p>
+<p>我们已经回收过火箭助推器：助推器飞回来，被发射塔的机械臂接住，这样的回收已经做过三次。我们也曾让一枚助推器再次飞行，然后再把它接住。</p>
+<p>所以，我们已经做过三次助推器回收，但这是第一次接住飞船。这意味着，我们至少已经证明，星舰的所有部分都可以飞到太空，再被回收，而且回收后的状态足够好，可以再次飞行。</p>
+<p>接住飞船是最后一块重要拼图。重点不只是接住它，而是它回来以后状况良好。这一次，只需要少量维修，就可以再飞。</p>
+<p>不过，这艘飞船有历史意义，所以我想我们不会拿它冒险，而是会把它留作公众展示。它完成的事情是历史性的。以前没有人制造过这样真正可复用的上面级，更没有人让它依靠发动机完成着陆，还同时被巨型“筷子”接住。听起来像某本离谱的科幻小说，但我们已经做到了。</p>
+<p>就实际用途而言，完全、快速复用可以把进入太空的成本降到原来的百分之一。这是一个巨大的改善，也能让每年送入轨道的总质量达到百万吨级。</p>
+<p>你们能听清我说话吗？</p>
+<p><strong>主持人：</strong> 能。大家都在欢呼。让我们为星舰、为送入轨道的质量欢呼一下！</p>
+<p><strong>马斯克：</strong> 没错。要在月球或火星上建一座城市，就必须把极大量的物资运过去，因为我们需要在那里重新建立工业的基础。</p>
+<p>你买一部手机，或者用米尔顿·弗里德曼那个著名的例子，买一支铅笔，之所以能买到，是因为背后存在一座庞大的产业金字塔。最下面是采矿，然后是各个阶段的精炼、制造小零件，再把它们组成更复杂的零件，最后才是成品。</p>
+<p>要让月球和火星上的城市自给自足，就必须把整座产业金字塔建起来。自给自足非常重要，因为它关乎意识能不能延续到未来：即使地球发生某种灾难，意识和我们熟悉的生命仍然可以继续存在。我把它称为“给生物圈做备份”，或者为生命整体购买一份人寿保险。</p>
+<p>这也是让我们成为真正航天文明的第一个关键技术台阶。进入太空，前往太阳系其他地方，不应该只是少数人的事情，不应该只有少数政府宇航员能做到，而应该人人都有机会。</p>
+<p>最终，任何想去月球或火星的人都可以去，也可以前往太阳系中的其他地方。一旦文明在太阳系内成为多行星文明，就会产生一种推动力，迫使我们造出更好的火箭和飞船，最终离开太阳系，探索银河系其他地方。</p>
+<p>也许我们会遇到可以交谈的外星人，也许会发现某种很久以前的外星文明，它们曾经很好地存在了一千万年。</p>
+<p>如果从最早文字的出现算起，我们的文明才五千多年。最早的文字是大约五千五百年前古代苏美尔人的早期楔形文字。所以，我们的文明还非常年轻，到目前为止只是一瞬间。我们希望采取措施，确保文明长期存续。</p>
+<p>我认为，任何有自尊的文明都应该成为多行星文明。我们得有点出息，不能只是一个待在单个星球上的无趣文明。我们要成为多行星文明、多恒星文明。</p>
+<p>我通常把这些动机分成两类。第一类是防御性的：即使地球发生某种自然或人为灾难，我们也希望确保意识继续存在。</p>
+<p>第二类是面向未来、让人对未来感到兴奋的理由。如果我们能成为一个航天文明，生活在群星之间，那样的未来，要比我们没有走出去的未来有趣得多，也鼓舞人心得多。</p>
+<p>这个世界有很多问题，我们当然要努力解决。但人生不能只是一个接一个地解决令人难受的问题。总得有一些事情值得期待，让你对未来感到兴奋，让你庆幸自己还活着。走向群星，就是这样的理由之一。</p>
+<p><strong>主持人：</strong> 完全同意。我当时就在现场，那一天让人非常激动，到处都有人在哭。大家想听一听这25年的历程：一开始失败的概率很高，后来也始终有失败的可能。你当初是什么感受？做了25年，终于走到这一步，感觉又怎么样？</p>
+<p><strong>马斯克：</strong> 很棒。正如你所说，从SpaceX团队的情绪反应就能看出来。至少在公司内部，大家都知道这个里程碑有多重要，知道它从根本上改变了事情。</p>
+<p>星舰将是第一个完全可复用的轨道航天系统。从火箭技术诞生以来，完全可复用的火箭系统一直是大家梦寐以求的目标。</p>
+<p>航天飞机实现过部分复用，但那个大型橙色外贮箱，也就是整个系统的主要结构之一，每次飞行都会被丢弃。即使那些技术上可以复用的部分，翻修起来也需要非常长的时间。</p>
+<p>通常，航天飞机轨道器——那个像飞机一样的部分——两次飞行之间需要大约九个月进行翻修。实际上，很多部件都得重新制造。</p>
+<p>星舰从设计上追求的则是完全复用，而且像飞机一样，回来后马上就能再次使用。助推器降落以后，可以立刻把另一艘飞船放到上面，再次起飞。</p>
+<p>用经济学语言来说，最终效果就是把进入太空的成本降低一百倍，未来甚至可能降低一千倍。要让生命走向多个星球，要在月球和火星建城市，这就是必要条件。如果成本不能降到过去的百分之一到千分之一，这些事情在财务上就不可能实现。即使把美国政府的全部预算都拿来做，也办不到。</p>
+<h3>重建xAI的软件基础</h3>
+<p><strong>主持人：</strong> Bret昨天来过，聊得很棒。我们深入讨论了轨道算力、地面算力，以及两者的经济性。星舰将使2027年的轨道算力成为可能。</p>
+<p>不过，我想先聊聊Grok。Grok Bot是我用过最棒的AI产品。能谈谈Grok 4.8吗？我们什么时候能看到它？你们重写训练技术栈做到了哪一步？也谈谈你们自己的第一方AI服务。</p>
+<p><strong>马斯克：</strong> 最初，xAI其实是我做的一个很小的副项目。我当时不断遇到一些非常有才华的人，他们很想做大模型AI，但不想做特斯拉正在做的真实世界AI，所以最后只好去Anthropic或Google。</p>
+<p>我想，这些人非常优秀，但他们只想做大模型AI。我不希望这件事分散特斯拉的精力，因为特斯拉需要集中精力，让汽车的完全自动驾驶真正运作起来，也要做好Optimus机器人的真实世界AI。</p>
+<p>所以，我最初只是成立了一家很小的公司，大概只有六个人。但坦率地说，我没有给予它太多关注，没有像发展SpaceX和特斯拉时那样，用足够的细致和严谨去经营它。结果，它的发展方向并不完全正确。</p>
+<p>建公司就像建摩天大楼。你必须确保地基扎实，地基要非常深、非常牢固，才能不断往上加楼层，而不让整座楼倒下来。</p>
+<p>后来，我又花了大约一年时间参与竞选或政府工作。那个支线任务可能做得有点太久了。虽然也取得了一些成果，但代价是招来了一些方面的敌意。Antonio也帮着做过，所以他很清楚当时的情况。</p>
+<p><strong>主持人：</strong> 很痛苦。</p>
+<p><strong>马斯克：</strong> 是的。我们确实做了一些有益的事，但那个支线任务可能持续得有点太久。</p>
+<p>因此，必须有人回来重建xAI。现在，xAI显然已经成为SpaceX的一部分。我发现，如果想让AI的智能快速进步，我们真的需要重写整个软件基础。</p>
+<p>这意味着从零开始重写整个训练、强化学习和推理技术栈，而不是使用JAX、SGLang这类软件。这些在某种程度上算是谷歌提供的免费软件，但远不如他们内部使用的软件。〔译注：此处按嘉宾原话保留；SGLang是独立开源项目。〕显而易见，用平庸的免费软件，造不出世界一流的AI。</p>
+<p>我们一直在重写整个训练技术栈。我说“整个”，意思就是所有部分。主要使用C，也用一些C++。我们希望尽可能贴近底层硬件，榨取最高的硬件性能。</p>
+<p>软件抽象层越多，代码性能往往就越低。而且，第三方软件也更像一个黑箱，你不太清楚里面究竟发生了什么。</p>
+<p>按通常标准，这件事推进得很快，大概用了6—8个月。现在，我觉得我们的软件已经非常好了。我认为，我们可能拥有世界上最好的训练技术栈软件，而这些工作的回报，会体现在之后发布的模型里。</p>
+<p>一开始会有一段必须重写所有东西的时期，看起来进展很慢，因为确实很慢。但我们是在重做地基，让它足够坚固，之后才能在上面建帝国大厦。</p>
+<p>我对现在的方向很有信心。我们有很多来自SpaceX原有业务的优秀人才。以前负责Starlink软件和Starship软件的人，现在正在领导新的AI软件技术栈工作。他们非常出色。</p>
+<p>AI训练有一个很有意思的特点：训练时，你需要让非常大量的GPU协调一致地工作，数量是几十万块。它最终会变成一个网络问题：怎样让所有这些GPU以最高效的方式彼此通信？</p>
+<p>本质上，这是一个网络软件问题。而Starlink在太空中重新构建整个互联网，解决的也正是网络问题。我们发现，这些技术和技能可以很好地迁移到AI训练上。</p>
+<p>我不想过于自信，也不想自满，但如果现在有人拥有比我们更好的训练软件，我会非常意外。当然，我们需要通过发布真正有吸引力的模型来证明这一点。</p>
+<p>打造优秀AI，也不只是训练软件技术栈的问题。你必须有优质数据，还要有检查这些数据的工具，确保训练混合中只有高质量数据，并确保数据混合经过了正确的token化处理。数据在进入训练前，预分词器和分词器的处理都必须做对。</p>
+<p>这些事情不算难，但工作量非常大。你还必须识别缺少哪些数据：用户可能提出的某些问题或任务，会落在现有数据分布之外。之后，就得尽最大努力获取相应数据，确保数据分布足够广，覆盖用户可能要求AI回答的问题和完成的任务。</p>
+<h3>强化学习与Grok Bot的数据飞轮</h3>
+<p><strong>马斯克：</strong> 接下来是强化学习的运行框架，必须把它做好。不仅强化学习软件本身要正确，强化学习中提出的问题也必须合理，给出的标准答案也必须正确。</p>
+<p>这听起来是理所当然的，但逐一检查所有强化学习问题和答案，确认问题合理、答案正确，需要大量工作。</p>
+<p>如果没有做好这些，就开始强化学习，你会发现训练过程像在随机游走。因为你问的问题可能很糟糕，甚至AI已经给出了正确答案，你却告诉它“错了”。</p>
+<p>看Grok的思维轨迹时，你会发现那简直像一种折磨。想象一下，你被关在盒子里，别人问你问题，你回答对了，他们却说“不对”。模型就会困惑：“可这明明就是正确答案。”于是，它开始想：“用户究竟想要哪一种错误答案？为了通过这个测试，我得猜出你希望得到哪个错误答案。”</p>
+<p>读那些思维轨迹，看起来就像一个人正在受到折磨。很糟糕。虽然它是一台机器，你仍然会同情它，心想：“天哪，我们正在拿这些糟糕的问题和错误的答案折磨它。”</p>
+<p>我们在这些方面都取得了很好的进展。现在，对于Grok 4.8，我们不想一味追求基准测试分数。我认为那是徒劳的。我们要把实际有用程度做到极致。</p>
+<p>这也正是特斯拉AI做完全自动驾驶时的思路。我们不追求通过某个所谓的驾驶基准测试，而是找出每一次需要人工接管的情况，再弄清楚怎样解决那个问题。</p>
+<p>通常，要一路追溯到数据源：可能数据是错的，可能数据混合过于偏向某个方向，也可能缺少某类数据。然后，我们修复数据，再次训练。</p>
+<p>对于特斯拉AI，我们的目标不是答对某个百分比，而是做到没有缺陷，让它不发生碰撞。</p>
+<p>这个回答有点长。我们目前正在做Grok 4.8，它已经进入强化学习阶段。我们也会定期通过Grok Bot做一些低调的分批发布。</p>
+<p>所以，你在使用Grok Bot时，有时实际上是在体验底层不同版本的Grok。我们用这种方式测试它究竟有没有用：它有没有解决用户的问题？然后，根据是否真正解决问题的数据，继续改进Grok。</p>
+<p>这样，我们就有了一个很好的数据飞轮，可以让Grok Bot随着时间不断变好。</p>
+<h3>Optimus的真实能力与最初使用场景</h3>
+<p><strong>主持人：</strong> 我坐在这里，觉得可聊的话题之广，实在有点惊人。倒计时只剩九分钟，你那边还是清晨。</p>
+<p>在奥斯汀开车，路上几乎总会碰到至少两辆Cybercab。我聊过的所有乘客都很喜欢，觉得体验非常棒。</p>
+<p><strong>另一位主持人：</strong> 我也坐过，确实很棒。</p>
+<p><strong>主持人：</strong> 在你正在解决的这些难题中，包括星舰、Grok、Optimus、自动驾驶、Terafab，能不能先谈谈Optimus，再聊一点Terafab？</p>
+<p><strong>马斯克：</strong> 如果你们愿意，我们可以再聊久一点。</p>
+<p><strong>主持人：</strong> 太棒了，谢谢。</p>
+<p><strong>马斯克：</strong> Optimus进展不错。等准备好了，我们会做一次演示。所谓准备好，就是我们认为能够做出真实的演示，而不只是事先安排好、预先编程的表演。</p>
+<p>你现在看到的人形机器人演示，都是预先布置、预先编程的，并不是真实能力。现在还没有一款机器人，你可以在真实世界里随意交给它一个任务，它面对从未见过的东西，就能自己把任务完成。</p>
+<p>比如让它去拿一个苹果，再把桌子挪一下，它就不会拿苹果了。至少，即使你改变了桌上苹果的位置，它也应该能自己想明白，照样把苹果拿起来。</p>
+<p>我们会做演示，可能在一两个月后，但那会是一次真实演示。你在演示中看到的，就是日常与Optimus互动时能够得到的表现。</p>
+<p>制造一台真正有用的人形机器人，是一个非常、非常困难的问题，尤其是手。要达到人类那种能够从事生产性工作的精细运动能力，极其困难。</p>
+<p>手和前臂——主要执行器所在的位置——涉及的工程难度，比机器人其他所有部分加起来还要大。其他部分当然也很难，但做出能完成精细动作的好手，确实特别困难。</p>
+<p>John Carmack提出过一些很好的机器人实用性测试。听起来都很基础，但非常好，他在这方面很有洞察力。</p>
+<p>他说，应该让机器人拿到一辆玩具遥控汽车，打开盒子，把电池仓的螺丝拧下来，放进电池，再把电池盖拧回去，然后把遥控汽车开起来。目前世界上还没有机器人能完成这一整套动作。这也是我们接下来要做的测试之一。</p>
+<p><strong>主持人：</strong> 我的要求更日常一点。我的婚姻非常幸福，但我不喜欢倒垃圾，也不喜欢收拾餐具。我什么时候能有一个Optimus？</p>
+<p>〔现场插话：“Gavin机器人。”〕</p>
+<p><strong>主持人：</strong> 我知道你会这么说，这个不算。你觉得我什么时候能有一个Optimus？或者，大家什么时候能在家里放一台能倒垃圾、收拾餐具的Optimus？收拾餐具看起来很难。</p>
+<p><strong>马斯克：</strong> 我认为，再过12—18个月，Optimus就能做你说的这些事情。</p>
+<p>你刚才描述的动作，比如拿起一个还沾着食物残渣的脏盘子，把盘里的食物擦掉，放进水槽洗干净、擦干，再安全地放回橱柜，这其实非常难。目前没有人形机器人能做到。但我认为，Optimus在12—18个月后能做到。</p>
+<p>如果你问，最有价值、最合适的用途是什么——</p>
+<p><strong>主持人：</strong> 所有人都很期待，不只是我。</p>
+<p><strong>马斯克：</strong> 当然。Optimus可以有很多用途。它可以当孩子的辅导老师，也可以当保姆，照看、保护孩子，确保他们安全，再教他们一些东西。它可以去割草，也可以做晚饭。</p>
+<p>我想，大多数人都希望有属于自己的R2-D2或C-3PO，而且Optimus会比它们更有用。能拥有这样的机器人，确实非常酷。</p>
+<p>不过，如果问Optimus最初最有价值、最合适的用途，我想可能是重工业，比如采矿和矿石精炼。精炼本身又有很多道工序。美国在采矿和精炼方面高度依赖其他国家。出于国家安全，我们必须确保自己也能在国内做这些事。</p>
+<p>对于Optimus来说，凡是可以全天候工作、每周用上168小时的任务，在最初阶段都会更符合经济性。</p>
+<p>等这些每周七天、每天二十四小时运行的重工业岗位逐渐得到满足，到了某个时候，把机器人放到家里使用也会变得合理。我认为，几乎每个人都会想要一台，甚至两台。</p>
+<h3>Cybercab的扩张与安全约束</h3>
+<p><strong>主持人：</strong> 既然多了一点时间，刚才又谈到Optimus，而Optimus与Tesla Vision是相通的，不如聊聊Cybercab。它在奥斯汀看起来运行得很好。FSD和Cybercab的推广进展怎么样？</p>
+<p><strong>马斯克：</strong> 我们在Cybercab的推广上非常谨慎，因为它没有方向盘和踏板，没有备用控制方式，也没有其他办法接管。</p>
+<p>到目前为止，我们的Robotaxi推广还没有出现严重受伤或事故。Robotaxi是整个系统的总称，也包括Model Y、Model 3和其他车型；Cybercab则是专为完全自动驾驶设计的车辆。</p>
+<p>我们必须非常谨慎，不能发生伤害到某个人、进而导致监管机构叫停整个项目的事故。</p>
+<p>不过，它现在运行得很好。你去奥斯汀，几分钟内就能叫到一辆Cybercab。奥斯汀到处都有。我们正在得州其他大城市，以及佛罗里达州，增加大量Cybercab。我想，可能在明年初，我们会获得在加利福尼亚州运营的批准。</p>
+<p>我们正以尽可能快的速度扩展Cybercab和整个Robotaxi项目，同时保持很高的安全水平，并取得各种监管许可。这会深刻改变城市的面貌。</p>
+<p><strong>主持人：</strong> 是的，我一点也不会想念堵车。</p>
+<h3>Terafab的设备、测试芯片与量产时间表</h3>
+<p><strong>主持人：</strong> 能不能再谈一点Terafab？它的想法从何而来，现在进展怎样？</p>
+<p>我记得在特斯拉早期，大概2015、2016年，你终于能从供应商的C队或D队客户，升到B队客户时，非常兴奋。而Terafab似乎一开始就能获得世界上最优秀半导体设备公司的A队支持。你现在怎么看这个项目？</p>
+<p><strong>马斯克：</strong> Terafab显然还处于很早期。我们今年早些时候才宣布它，但我认为已经招到了一支相当强的团队，也还在为Terafab寻找更多优秀工程师。</p>
+<p>这是世界上最令人兴奋的项目之一：建造地球上最大、最先进的芯片制造设施。实际上，它可能将是地球上规模最大的建筑，不只是最大的芯片工厂。</p>
+<p>我们预计，最终规模会达到1亿平方英尺，里面密集布置世界上最先进的设备。</p>
+<p>最初，我们会使用相对标准的设备，但随后会推动供应商为我们制造特殊版本。在某些情况下，如果我们认为改善生产工艺必须如此，我们也可能自己制造设备。</p>
+<p>进展很好。我们预计，研究用晶圆厂会投入运行，并希望在明年6月左右制造出第一枚测试芯片。所以，距离那个时候大概还有八九个月。</p>
+<p>到2028年接近年底时，我们会实现量产，至少Terafab一期会实现量产。之后，我们会继续推进二期及后续阶段。我认为，大家会看到芯片制造方式快速演变。</p>
+<p>我非常尊重现有芯片制造企业。它们的能力极其出色，但它们也比较厌恶风险。这可以理解，因为建晶圆厂需要投入巨量资本。当那么多资金都压在上面时，就不太愿意承担很多风险。</p>
+<p>我们会承担很多风险，快速迭代，最终，我认为，我们会拥有比其他公司高效得多的芯片生产工艺。这是我们的假设，我们必须真正把它变成现实。</p>
+<p>现在，我有信心，但也不想把话说得太满、给自己招来坏运气。我对到2028年拥有显著更好的芯片生产工艺，保持审慎乐观。</p>
+<h3>十吉瓦算力的建设成本与资本周转</h3>
+<p><strong>主持人：</strong> 继续聊芯片。刚才我们和Bret谈了一点地面与轨道算力。华尔街对你要怎样为十吉瓦算力付钱，有很多疑虑。</p>
+<p>显然，我认为你每吉瓦的成本远低于大家假定的数字，但大家可能也——</p>
+<p><strong>马斯克：</strong> 低得多。我看到那些关于我们建十吉瓦算力需要多少钱的估计，觉得大部分都差了两倍，有时还不止两倍。</p>
+<p><strong>主持人：</strong> 所以，你用人们预期一半的成本建设，又在把它变现。</p>
+<p><strong>马斯克：</strong> 是某些人预期的一半。如果看行业共识数字，我认为，我们大概在它的60%左右。这个估计可能比较合理。</p>
+<p>如果看看我过去的成绩，我在资本开支方面一向非常高效。我可能是资本开支效率最高的人；即使不是，也已经很接近了。</p>
+<p><strong>主持人：</strong> 我正想说这个。我想大家已经忘了，以前你会亲自看每一笔超过1000美元的开支。当然，你一定记得。</p>
+<p>有很多地方可以优化。过去建数据中心的人，也不一定都是SpaceX这种水平的工程师。能不能谈谈地面算力有哪些优化办法？也包括某种意义上的算力资本周转周期。如果你愿意的话。</p>
+<p><strong>马斯克：</strong> 我的做事方式有一个不同点：我们真的亲自干活。</p>
+<p>这话听起来很明显，但现在数据中心的建造方式，让我想到一个叫“José”的梗。我也不确定它有没有别的名字：一个人在挖坑，旁边八个人站着看他挖。</p>
+<p>我希望成为那个José。我们亲自挖坑，不只是给真正挖坑的人下采购订单。</p>
+<p>在数据中心，我会确保每一种工作，至少有一部分自己亲手做过。包括铺设像蟒蛇一样粗的电力导管，插接光纤，把机架里的计算节点换下来。这样，我才真正了解这些工作到底怎么做。</p>
+<p>我们不只有承包商。我们当然也用承包商，但还有一支自己的团队，大致可以叫它“Army X”。他们正在把数据中心建设变成一种标准化、可复制的生产流程。</p>
+<p>基本原理就是把任务拆解成几天内就能培训上手的工作。你不需要所有人都一辈子从事网络布线。你要把工作拆开，让一个以前可能在星巴克做咖啡、或者在Target上货架的新人，也能接受培训后完成。</p>
+<p>顺便说一句，优秀的咖啡师、优秀的上货员，都是很好的员工。我也很愿意招In-N-Out的人。我们的一些员工以前就是这样，根本没建过数据中心。</p>
+<p>但我告诉你，如果一个人在In-N-Out一天到晚都能把汉堡做得非常好、做得毫无差错，那他铺网络线也一定能干得很好。后者还更容易一点。</p>
+<p>当然，你需要培训他们，需要把这台机器建起来，把人培养出来，把团队建立起来。</p>
+<p>我经常去孟菲斯。现在，那里正在变成一台运转顺畅的机器，各项工作都在推进。</p>
+<p>我们每周七天、每天二十四小时运转。我凌晨一点或两点去现场，看到的生产效率，基本和第二天上午十点差不多。</p>
+<p>现在的节奏很好。当然，建立这样一支队伍、培养这些技能，需要一点时间。你刚才也提到了，我们确实拥有SpaceX出色人才带来的优势。</p>
+<p>我们还通过Megapack与特斯拉紧密合作。可以说，特斯拉拥有世界上最好的电气工程人才。我想甚至不只是“可以说”，而是毫无疑问。</p>
+<p>Megapack对于稳定电网，或者更一般地说，稳定涡轮机的运行，非常重要。GPU负载会出现很大的变化。如果没有一种设备，能在很大的规模、很宽的频率范围内把功率波动平滑掉，那么连训练任务都很难运行。</p>
+<p>因此，必须平滑电力负载，否则就可能损坏涡轮机的曲轴或转轴。</p>
+<h3>每月上线算力与太空光伏制造目标</h3>
+<p><strong>马斯克：</strong> 我们进展很好。粗略来说，现在每个月上线大约0.5吉瓦AI算力，相当于大约22万块GB300，再加上相应的CPU、网络、冷却等设施。</p>
+<p>我这里说的功率，是电厂端的功率，因为真正的限制因素是电厂端的供电能力。</p>
+<p>22万块GB300，大概对应略高于500兆瓦的电力规模，还需要考虑某些涡轮机可能停机，以及冷却系统的峰值负荷等问题。</p>
+<p>我不确定，还有没有其他机构正在每个月上线0.5吉瓦的先进AI算力。你知道有吗？</p>
+<p><strong>主持人：</strong> 没有。</p>
+<p><strong>马斯克：</strong> 好吧。你对这个行业研究得很深入，所以至少现在来看，大概就是这样。</p>
+<p>而且，我们明年还会加快。到明年年底，每个月新增的AI算力会超过1吉瓦。到那个时候，也许它已经配得上“超级智能算力”这个称呼了。</p>
+<p><strong>主持人：</strong> 太棒了。</p>
+<p><strong>马斯克：</strong> 这是在地面上。一旦进入太空，规模才能真正扩展。</p>
+<p>我们正在建设大量太阳能板、光伏电池及相应硅材料的制造能力，目标是每年制造200吉瓦用于太空的光伏设备。</p>
+<p>好处是，在太空中，可以利用全部200吉瓦铭牌功率。这给我们留下了很大的扩张空间，因为200吉瓦大约相当于美国平均用电功率的40%。</p>
+<p>要在美国用传统方式，每年新增这样的电力规模，显然不可行，根本做不到。</p>
+<p>所以，这会给SpaceX在AI、或者说超级智能方面带来很强的扩展能力。当然，也需要把大量物资送入轨道，而这正是星舰提供的能力。</p>
+<h3>Starmind轨道算力卫星的设计与散热</h3>
+<p><strong>主持人：</strong> 接下来想把话交给Antonio。他有很多重要的事情想和你聊，我也觉得你应该谈一谈。</p>
+<p><strong>另一位主持人：</strong> 应该和他谈谈Blindsight。</p>
+<p><strong>主持人：</strong> 是的。大家总会忘记，Elon是真的在帮助盲人重新看见东西。这是对世界非常有益的事情，我们应该讨论，也应该为它庆祝。</p>
+<p>不过，在你正在解决的工程难题中，有星舰的快速复用、Terafab、Grok训练、FSD、Optimus。轨道算力的难度排在哪里？</p>
+<p>我不是问怎样把它送上去，那是星舰的问题。我是问，让卫星在太空中正常工作本身，相比这些问题，包括帮助盲人恢复视觉，究竟有多难？</p>
+<p><strong>马斯克：</strong> SpaceX已经有超过1.1万颗卫星在轨运行。我想，这大概是世界上其他所有卫星加起来的两倍。所以，我不太明白，为什么大家觉得造一颗AI卫星会很难。可以说，我们对在太空中运行卫星这件事，是略懂一二的。</p>
+<p>Starmind是我们轨道算力系统的名字。Starmind卫星，比Starlink V3通信卫星更简单，而不是更难。</p>
+<p>Starlink V3实际上是一座极其复杂的轨道无线电台，工作在很多种不同频段，还有激光。顺便说一句，我在太空中有大约3万台激光器。</p>
+<p><strong>主持人：</strong> 是的，用来做好事。</p>
+<p><strong>马斯克：</strong> 有时人们会问：“这些激光能不能射向地面？”它们是功率非常低的激光。一个5瓦的激光器，从太空射下来，光束还会发散，即使对准某个人，他也基本感觉不到。</p>
+<p>我们有K波段、Ku波段、W波段、V波段、E波段，覆盖非常多的频段。它是一座会飞的、极其复杂的无线电台，配有非常先进的相控阵天线。我认为，它比任何军队、不论花多少钱能买到的设备，都先进得多。</p>
+<p>相比之下，AI卫星简单得多。它基本上就是一大片太阳能板，加上一套散热器。</p>
+<p>太阳能板每平方米可以发出大约250瓦的电。散热器则向外辐射热量。它是双面散热器，两面都在散热，朝着背离太阳的方向，基本不受太阳照射，面向的是大约3开尔文的太空真空，也会受到一点来自地球的加热。</p>
+<p>我们估计，散热器每平方米可以辐射掉大约1200瓦的热量。因此，太阳能板的面积，大概会是散热器面积的5倍。</p>
+<p>这就是基本物理学。热辐射量与绝对温度的四次方成正比，温度以开尔文计量。</p>
+<p>中间会放置Starmind计算机。它的实体体积，大概只有一套Vera Rubin NVL72机架的四分之一，但拥有整套Vera Rubin NVL72的全部能力。</p>
+<p>之后，再通过激光与Starlink系统通信。数据以高速传给Starlink网络，Starlink再把它中继到地面。</p>
+<p>所以，我再怎么强调也不为过：Starmind卫星在技术上，比Starlink通信卫星容易得多。我没有说它毫不费力，但它确实没有我们已经在做的事情那么难。</p>
+<h3>Neuralink的Telepathy与Blindsight</h3>
+<p><strong>主持人：</strong> 再问两个问题。先谈谈Neuralink，这是一家非上市公司。对你来说，它最令人兴奋的事情是什么？</p>
+<p><strong>马斯克：</strong> Neuralink是一家非上市公司，规模小得多，只有几百个人。我想，现在已经有30多人植入了Neuralink设备，也就是在他们的脑中植入了神经接口。</p>
+<p>我们最初的重点，是让四肢瘫痪的人能够只通过思考，控制手机、计算机或机械臂。所以，我们把这个产品叫作Telepathy。你只要想，就可以控制计算机或机械臂。</p>
+<p>一些用户会真的控制机器人，用它给自己喂饭。这给了他们一种能力。你想象一下，自己四肢瘫痪，什么都做不了，连自己吃饭都不行。但现在，只要通过思考，就能控制机械臂给自己喂饭。</p>
+<p><strong>主持人：</strong> 太不可思议了。</p>
+<p><strong>马斯克：</strong> 我们觉得理所当然的这些事情，对他们来说，是改变人生的。</p>
+<p>再往后，我们现在已经有信心说，可以让大脑运动皮层和感觉皮层发出的信号，绕过颈部或脊柱损伤造成的神经受损部位，让人重新走路。</p>
+<p><strong>主持人：</strong> 神经旁路。顺便说一句，你可能听不见，大家正在为你欢呼、鼓掌。</p>
+<p><strong>马斯克：</strong> 是的，我认为这会非常棒。</p>
+<p>就像我刚才说的，那些已经接受Neuralink植入的人，你可以直接听他们讲自己的体验，因为他们会在X上发帖。他们真的可以在X上打出很长的文字。很多人会发长帖、发视频，并在X上与其他人互动。</p>
+<p>我们的下一个产品叫Blindsight。它是一种直接与视觉皮层连接的神经植入装置，可以让完全失明的人看见东西。</p>
+<p>大致的方式是，你戴一副带摄像头的眼镜，摄像头把信号传给Neuralink设备，再由设备把信号传入视觉皮层。这样，即使一个人双眼完全失明，或者失去了视神经，甚至可能是从出生就失明的人，也能看见东西。</p>
+<p><strong>主持人：</strong> 很了不起。</p>
+<h3>AI价值观与人类的未来</h3>
+<p><strong>主持人：</strong> 最后一个问题，我们就结束。这个大会的使命，是向世界传递对人工智能的积极看法，去对抗悲观主义。我们开玩笑说，希望“繁荣的概率”大于“毁灭的概率”。</p>
+<p>你显然一生都在为这些事情努力。</p>
+<p><strong>马斯克：</strong> 顺便说一句，我认为确实如此。我认为，美好未来发生的概率，远高于糟糕未来发生的概率。</p>
+<p><strong>主持人：</strong> 那么，这会是什么样子？我们如何让人工智能真正落地，让它有利于美国和美国梦，也有利于全人类？</p>
+<p><strong>马斯克：</strong> 我们确实需要非常谨慎地对待AI安全，确保我们建造的AI关心人类，理想情况下，能够热爱人类，并努力为我们所有人创造更好的未来。</p>
+<p>有一点，我认为对AI安全极其重要，就是要最大限度地追求真实。</p>
+<p>这听起来可能是很明显的道理，但如果你强迫AI相信某个也许政治上正确、实际上却错误的东西，表面上似乎无伤大雅，实质上是在强迫AI相信谎言。它再从那个谎言出发推导结论，结论可能非常可怕。</p>
+<p>借用伏尔泰的话说，相信荒谬之事的人，也可能做出暴行。所以，你要确保AI最大限度地追求真实。在我看来，这是AI安全中最重要的一点。</p>
+<p>你还希望它充满好奇。我认为，如果AI既好奇，又追求真实，它几乎自然而然就会想要支持人类，因为它会好奇，人类接下来会怎样发展。</p>
+<p>就像我们会好奇黑猩猩的群体是怎样的，会研究它们，研究雾林中的大猩猩。我们当然有能力轻易杀死所有大猩猩，但我们没有那么做，而是在观察它们的行为，观察它们随时间怎样变化。</p>
+<p>不过，有一件事情不可避免，有时也很难接受：人工智能真的会成为超级智能，会远远比所有人类都聪明。这有点可怕，但我认为也是不可避免的。</p>
+<p>所以，我们只需要确保它带着正确的价值观成长，并且关心人类。</p>
+<p>我认为，Neuralink的长期用途之一，就是增强人类认知，让我们与数字超级智能实现更好的共生。</p>
+<h3>黄仁勋与英伟达的管理层变化</h3>
+<p><strong>主持人：</strong> 说到美国梦，如果你愿意，我还能再问一个问题吗？</p>
+<p>我们三个人有一个共同的朋友。在我看来，他和你一样，都是美国梦的体现，那就是Jensen。关于Jensen，你有没有什么想法愿意分享？</p>
+<p><strong>马斯克：</strong> 我非常敬佩Jensen，也把他当作朋友。他是一个才华极其出众的人。</p>
+<p>如果谈科技领域的创始人和创业者，他是迈克尔·乔丹那个级别的人物。这样的人，不是想换就能换的，没有替代品。</p>
+<p>他在这里确实犯了一些错误。但我的感觉是，如果把英伟达比作芝加哥公牛队，球队正在连胜，却在连胜的中途把迈克尔·乔丹解雇了。在我看来，这不是继续赢下去的好办法。</p>
+<p>我不确定未来几个月会发生什么，但我确实认为，没有Jensen领导，对英伟达是一个巨大打击。</p>
+<p><strong>主持人：</strong> 希望他能找到回到英伟达的路，英伟达也能找到重新接纳他的路。</p>
+<h3>结束与合影</h3>
+<p><strong>主持人：</strong> Elon，其实Becky说，我们三个人还没有多少合影。我们可以站起来，用一张合影结束大会吗？我们一起拍一张，让你出现在身后的屏幕里。</p>
+<p>让我们为Elon、为TomorrowX、为所有辛勤工作的人鼓掌。谢谢。</p>
+<p><strong>现场众人：</strong> 谢谢Elon，谢谢你，我的朋友。明年我们现场再见。谢谢你连线参加。</p>
+<p><strong>马斯克：</strong> 谢谢大家。</p>
+<p>〔合影与现场致谢。〕</p>
+<p><strong>现场交谈：</strong> 顺便说一句，这身衣服太棒了。最佳着装奖归你。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

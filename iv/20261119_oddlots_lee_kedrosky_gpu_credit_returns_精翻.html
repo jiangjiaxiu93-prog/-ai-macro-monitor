@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Stanley Lee与Paul Kedrosky谈GPU租价、信用链与AI投资回报（Odd Lots全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-20<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Stanley Lee与Paul Kedrosky谈GPU租价、信用链与AI投资回报（Odd Lots全文精翻）</h2>
+<div class="metaline">Bloomberg Podcasts · Odd Lots · Stanley Lee、Paul Kedrosky；主持Joe Weisenthal、Tracy Alloway · 71分28秒 · 2026-11-19 · <a href="https://www.youtube.com/watch?v=j6lvUm1hn40" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；融资估值；单位经济；token需求；英伟达；CoreWeave</p>
+<ul><li>Lee解释租价上涨与信用收紧为何可能同时发生：贷款LTV由夏季约80%下降至50%—60%，部分承购合同无法支持融资。</li><li>Kedrosky追问资本回报与收入来源，讨论循环融资、政府支持，以及AI为何会重定价其自身的收入空间。</li></ul>
+<h3>开场 AI交易中的租价图与融资问题</h3>
+<p><strong>Joe Weisenthal：</strong> 欢迎收听新一期Odd Lots，我是Joe Weisenthal。</p>
+<p><strong>Tracy Alloway：</strong> 我是Tracy Alloway。</p>
+<p><strong>主持人：</strong> Tracy，我们录制这期节目时是11月18日早上9点34分。可以说，我们正处在AI产业迄今最重要的两三天当中。</p>
+<p><strong>主持人：</strong> 没错。上周爆出了英伟达风波，现在感觉已经像很久以前的事。英伟达刚公布财报，而明天周四，也就是希望这期节目发布的那一天，Anthropic将要上市。</p>
+<p><strong>主持人：</strong> 据我们目前了解，Anthropic明天会开始交易，届时再看。英伟达财报、Anthropic上市，这几天的事情非常多。而在这些事情发生前，市场就已经走弱了。所以，即便先不考虑那些风波——</p>
+<p><strong>主持人：</strong> 我还忘了提中期选举。</p>
+<p><strong>主持人：</strong> 对，还有中期选举。但在这些尾部风险出现之前，人们所说的AI交易在六月就已经见顶。我们在节目里多次谈到CoreWeave信用利差等问题，市场本来就存在脆弱性。不过，多头始终拿出一张图作为论据。</p>
+<p>最近转发这张图的是Michael Dell，但很多人都在用它：GPU租赁价格。你会觉得，这是衡量AI需求一个非常直接的指标，而价格一直在上涨。因此，虽然市场波动很大，投资回报也受到质疑，GPU租价仍在往上走。</p>
+<p><strong>主持人：</strong> 没错。甚至在中期选举之后，我们还看到租价小幅跳升。多头的论点是，GPU需求仍然非常强劲；如果数据中心建设放缓，现有算力甚至可能变得更加昂贵。不过——</p>
+<p><strong>主持人：</strong> 不过，对于这张图，一个很大的问题是：它究竟显示了什么？除了GPU本身值多少钱，它是不是还包含了取得这些GPU所需付出的资本成本等因素？</p>
+<p><strong>主持人：</strong> 完全是这样。毕竟，从生产率数据看，我们还没有看到企业普遍从AI中获得显著生产率提升的证据。如果GPU需求要持续健康发展，本来应该能看到这种变化。</p>
+<p><strong>主持人：</strong> 打断一下，我突然想到，如果第四季度因为《侠盗猎车手6》发布，生产率大幅下降，结果把AI交易打垮，那会多有意思。</p>
+<p><strong>主持人：</strong> 那可真是讽刺。我不觉得会发生这种事。</p>
+<p><strong>主持人：</strong> 影响大概没那么大。不过，《侠盗猎车手》的发布确实也是这几天的大事。</p>
+<p>我们今天安排了多段对谈，来讨论这个重要时点。首先要谈的这位嘉宾非常合适：他既理解GPU融资市场，也理解更广泛的信用市场。遗憾的是，科技行业有很多人过去根本不关心信用市场，现在才不得不第一次学习信用是怎么回事。</p>
+<p><strong>主持人：</strong> 两边存在很大的隔阂。硅谷很多人把AI看成纯粹的技术故事；在华尔街，我认为在其他许多地方，人们首先看到的则是融资故事。</p>
+<p><strong>主持人：</strong> 这是不是有点像当年的页岩油繁荣？</p>
+<p><strong>主持人：</strong> 是的。我个人更喜欢用2015年高收益债市场出现断裂来类比眼下的情况。我们可以和嘉宾进一步展开。</p>
+<p><strong>主持人：</strong> 我很高兴请到Stanley Lee，他是Liquid Compute的首席产品官，职业经历横跨科技和信用市场。Stanley，感谢你来到Odd Lots演播室。先简单介绍一下，Liquid Compute做什么？你又是怎样走到这里的？</p>
+<h3>Stanley Lee 算力交易本身就是信用生态</h3>
+<p><strong>Stanley Lee：</strong> 谢谢邀请。现在讨论这些问题，确实非常应景。</p>
+<p>Liquid Compute是一家初创公司，专注于为算力领域建设金融基础设施。我们搭建买卖算力容量的市场；未来如果出现违约，这个市场也可以用于重新出租相应容量。我们还维护GPU租赁价格指数，并和贷款人合作，研究潜在对冲工具以及转移残值风险的方法。几个月前，几乎没人觉得自己需要这些东西；现在大家开始觉得有必要了。我们也为这些买方、卖方提供融资方面的服务。</p>
+<p>给我感触最深的一点是，GPU市场并不只是一个买方和卖方交易的市场。它本质上是一个信用与融资生态。看那些投资级以下的算力买卖双方，买方实际上是高收益债和杠杆融资贷款人需要承保的、潜在具有信用资质的承购方；运营商则是潜在借款人。它们可能正在为这一批集群借钱；如果这批部署做得好，下一批集群还会继续借钱。</p>
+<p>我的背景是信用。我在巴克莱做过五年高收益债和信用违约互换交易，后来去了买方，最近一段是在Point72做高收益债及困境债交易。今年早些时候，我转到了这里。尽管我很喜欢高收益债市场，但算力绝对是我见过最有意思的信用市场之一。</p>
+<p><strong>主持人：</strong> AI行业的人理解这里面的融资问题吗？感觉2026年是他们必须醒过来、面对这个问题的一年。我们甚至开始看到大型云厂商，那些现金非常充裕、过去不太需要在市场借钱的公司，也开始贷款、发债、发行新股。大家开始意识到融资这一面了吗？</p>
+<p><strong>Lee：</strong> 绝对开始了。在市场顶端，作为一个国家和社会，我们形成了一种双轨经济：AI资本开支支撑了美国GDP增长中非常大的一部分，你们以前也谈过。现在，这种情况正在向中型市场传导。</p>
+<p>其中很多钱来自风险投资股权融资，而私募信贷则为大量中型市场GPU贷款提供了资金。科技和硅谷的人以前确实不太关心信用。信用很无聊，是一种负凸性的资产，做创新的人过去不用管它。现在，他们当然开始关注了。</p>
+<h3>一笔GPU贷款 如何由客户预付款补足资本金</h3>
+<p><strong>主持人：</strong> 你说中型市场运营商借钱买GPU，能不能举一个最普通的例子？参与者是谁，买来干什么，找哪种贷款人，交易怎么完成？</p>
+<p><strong>Lee：</strong> 交易有很多种。对于一个十二到十八个月前还不存在的市场，很难说哪种结构已经算标准化。不过，最接近普通交易的，大概是几亿美元、三年期、全额摊销的贷款，借给一家中型新云运营商。它可能是初创企业，也可能是一家市值只有几十亿美元的新云公司。</p>
+<p><strong>主持人：</strong> 不用说你的客户名字，但能否给我们一个能在网上搜索到的中型新云运营商的概念？</p>
+<p><strong>Lee：</strong> 小的一端，很多是由加密货币、比特币矿商转型而来的非上市公司，有的真的只有几个人。稍后我们可以讨论，中型新云发生洗牌、困境增多时，这些运营商为什么会比较难熬。</p>
+<p>大的一端，你可以筛选市值在几十亿美元或以下的新云公司。夏天签订这些贷款时，最普通的结构大概就是70%的贷款价值比，三年内全额摊销。</p>
+<p><strong>主持人：</strong> 等等，70%的贷款价值比，也就是你买价值1000美元的算力，自己出300美元股本，再借700美元。</p>
+<p><strong>Lee：</strong> 而且这300美元还不一定是它自己的股本。很多中型新云甚至不用投入自己的资金，而是向大型推理服务商收取客户预付款，用这些钱补足资本金。这也是为什么硅谷对不断上升的预付款要求如此不满，而且这个趋势只会继续。</p>
+<p>看看CoreWeave上周做了什么，公开市场因此奖励了它，而且我认为理应如此。它做了两件事：一是要求客户支付更高的预付款，把更多前期成本转给客户；二是重新向信用资质更高的客户靠拢。它目前在推介的延迟提款定期贷款，又回到了投资级承购方。上一笔贷款对应的客户组合则包括Anthropic、HRT和Jane Street，信用特征更接近较高的双B级。</p>
+<p>同样的变化正在传到中型市场。私募信贷贷款人也要求更低的贷款价值比、更高的前期付款。它们会说：“我们不想再给估值五亿美元或十亿美元的公司融资，还是只做那五六家估值达到200亿美元的推理公司吧。”</p>
+<p>这也是现货、按需和短期租价仍然这么高的原因。它们不仅反映底层需求，也反映买方的资本成本。很多买现货、按需或短期算力的人，其实希望签长期合约，但签不到。</p>
+<p><strong>主持人：</strong> 这里说的长期，是指希望一次性买到更长时间的算力。</p>
+<p><strong>Lee：</strong> 对。他们希望支付30%的首付，以每GPU每小时4.30美元的价格锁定B300，但办不到。六周前可能还能做到，现在新云越来越难卖给他们这种合同，因为新云拿着这些承购方的合同去找贷款人，已经融不到资了。</p>
+<p>所以，现在现货和短期市场的定价，同样取决于资本成本。我甚至认为，眼下资本成本的影响更大。</p>
+<h3>承购方之外 贷款人开始审查运营商履约能力</h3>
+<p><strong>主持人：</strong> 这正是我接下来想问的。我的理解是，贷款怎么定价，很大程度取决于租户、也就是承购方的信用资质。但如果承购方也得持续从风险投资那里融资，才付得起欠数据中心运营商的钱，那么在VC可能对整个生态越来越紧张的时候，这是不是很大的风险？</p>
+<p><strong>Lee：</strong> 是的。这里有两件事，正在融资和新云市场同时发生。</p>
+<p>第一，在这个市场刚起步时，所有人只关心承购方是谁。大家把这些贷款看成一层包裹了承购方信用的工具。借款人主要是CoreWeave或其他大型新云，大家不太担心它们的执行风险。</p>
+<p>但现在有几百家更小的新云，贷款人开始越来越多地审查运营商自身。承购方签了照付不议协议，也只有在它确实负有付款义务时，这份协议才有价值。而它是否必须付款，取决于新云有没有做好自己的工作，例如保持运行时间、达到服务水平协议等。</p>
+<p>我接触的很多私募信贷贷款人，一周会看到五到十笔贷款，对应的承购方却总是那几家。上周，一位大型私募信贷机构的人直接对我说：“Stanley，我不想再看运营商第一次或第二次部署的项目了，只给我看有经验的运营商。”六个月前，大家百分之百看承购方；现在，关注点已经明显分成了两部分。</p>
+<p>第二，你说的风险完全存在。市场顶端的CoreWeave能要求客户多预付，是因为那些客户能以低成本获得资本，可以继续发行投资级债。大型云厂商持续发债，这一点大家都看到了。</p>
+<p>但中型市场的这些大型推理公司，本来就已经在以极快速度融资，以至于很多VC的资金投放得过多。股权融资的资本成本再上升，就会很棘手。</p>
+<p>我认为真正会推动新云整合的是，贷款人会对新云说：“这笔贷款我可以做，利率在百分之十几的中高区间，但我要50%的贷款价值比。”</p>
+<p>新云只有两条路：向承购方收取更高的预付款，它们已经开始这样做；或者投入自己的股本。问题是承购方的钱并不是无限的，那些钱来自风险投资。我接触的一些新云已经在控股公司层面筹集越来越多股权资金，再把钱投入项目，降低贷款价值比。</p>
+<p>那些最小的新云，可能只是几个由比特币挖矿转型过来的人，靠客户预付款补那30%的资本金。它们会越来越难。最直接的说法就是：在中型市场，能否获得债务融资，将取决于能否获得股权融资。</p>
+<h3>租价上涨背后 支付意愿与支付能力</h3>
+<p><strong>主持人：</strong> 你刚才提到一点很有意思：像Anthropic这样的公司，以前大部分算力账单靠融资支付，现在算力支出占营收的比例下降了。它开始有大量收入，情况也更可持续。</p>
+<p>我们来看Silicon Data这张图，我把它切换到B200指数，也就是比较新的芯片。价格还在上涨，已经到了每小时7.10美元。八月还在五美元多。你看到这张图时，看到了什么？</p>
+<p><strong>Lee：</strong> 我看到的是几种因素的组合。首先，确实有需求。VC今年持续投了很多钱，大家都知道。不过，第三季度的VC投资比第一季度少了大约25%，这也呼应了你刚才说的，随着时间推移，这部分市场可能承受压力。另外，人们希望这些大型IPO能逐步带回一些流动性。</p>
+<p>所以，一部分是需求，但很大一部分是资本成本。我认为，资本成本占了非常重要的部分。</p>
+<p><strong>主持人：</strong> 但要说清楚，你说这里有需求，当然某种意义上确实是需求。可这份需求来自VC给企业开出的大额股权融资支票，企业再用股权资金买算力；而Anthropic的情况是拿营收再买算力。两者似乎差别很大。</p>
+<p><strong>Lee：</strong> 差别非常大。我认为，残值假设的脆弱性就在这里。</p>
+<p>退一步看，影响残值的变量可能有三十个：新芯片发布、新供给上线、回到市场重新出租的容量，等等。但眼下，就像你在租价上看到的，残值主要取决于需求，而需求又取决于两件事：买方愿不愿意付钱，以及它有没有能力付钱。</p>
+<p>目前，我们不用太担心这些买方的付款意愿；问题是，它们的付款能力来自风险投资股权融资。如果越来越多企业不能像Anthropic那样，逐步从股权资金支付算力，转为营业收入支付算力，事情就会出问题。</p>
+<p>此外，这个市场很薄。它和石油等其他商品类似，全部采购和交易的算力中，只有很小一部分通过现货市场成交，但我们用作参照的价格恰恰来自那里。因此，这套机制确实非常脆弱。</p>
+<h3>违约之后 贷款人能否接管并重新出租算力</h3>
+<p><strong>主持人：</strong> 这让我开始有点紧张。我不太愿意总把次贷危机搬出来，但我想到当时的相关性问题：所有人原本都以为违约彼此比较孤立，后来才发现，整个经济和融资交易中，有那么多东西都建立在同一份住房敞口上，彼此紧密相连。</p>
+<p>风险投资的钱很大程度上也来自对AI交易的热情，随后又被投入AI交易。这里的联系和风险，似乎看得到了。</p>
+<p>不过，我想问问收回资产的问题。如果一家运营商真的倒闭了——未来一年左右，这可能是一个现实风险——会发生什么？运营商倒闭后，贷款人有没有权利把租户赶走、取得抵押资产，再把它卖出去？</p>
+<p><strong>Lee：</strong> 这是非常重要的问题。我们与私募信贷伙伴合作时，正在尽可能推动中型市场贷款的标准化。我会给这个领域所有贷款人的最重要建议是：一定确保你有这种权利，并且算力合同必须可以转移、可以转让。</p>
+<p><strong>主持人：</strong> 也就是说，有些合同没有这种安排，除非在条款里明确写出来？</p>
+<p><strong>Lee：</strong> 正确。不能说完全没有标准化，但标准化确实非常有限。贷款人现在越来越关注这一点，作为算力买家的推理公司，也越来越关注与相关贷款人签订不干扰协议。</p>
+<p>它们担心的是：“如果运营商倒闭，我一年前签的合同是每GPU每小时付3.80美元，如今市场价到了4.30美元，贷款人可能不认我的旧合同，直接把算力重新租给别人。”</p>
+<p>实际把算力重新放回市场、重新出租，倒没有许多其他商品那么复杂，因为不必把GPU运到别的地方，只要转移SSH密钥。比如，我们可以在几分钟内完成。当然，大规模项目可能需要更久。</p>
+<p>这个生态正在形成的两个观念，六到十二个月前都还没有。第一，算力资产的回收方式，是把容量重新出租。从工程角度看，重新出租并不难；真正更难的是运营和法律安排，你必须在贷款条款中就把法律结构设好。</p>
+<p>第二，通过金融市场、衍生品和潜在的对冲工具，可以把一部分残值风险转移出去。</p>
+<p>没有哪个历史类比是完美的，但我觉得飞机融资很值得参考。2008年前后，航空公司需要向波音、空客这类制造商支付大额预付款。危机后，大家都觉得这个资产类别很难融资。后来，是流动性更好的再出租市场、定期估值等金融基础设施，让它重新变得可融资。</p>
+<p>我们在算力领域想建设的，正是这样的金融基础设施。</p>
+<p>我确实认为，硅谷应该接受这次信贷收紧。现在当然令人沮丧，也很难受，但回头看其他历史性建设周期，没有哪一个会一路线性向上。</p>
+<p>正因为我们相信AI具有非常深刻的变革潜力，过去十二到十八个月资本市场才会如此慷慨地支持建设。修正和倒退总会出现，这一次先发生在新云市场。</p>
+<h3>Sun Microsystems的类比 VC资金如何推高设备需求</h3>
+<p><strong>主持人：</strong> 大家谈GPU繁荣时，经常拿电信建设潮做例子。一个朋友提醒我，同一时期还有一个不太常被讨论的例子：Sun Microsystems，它出售服务器。</p>
+<p>我正在看Waverly Advisors的一段分析：Sun是互联网繁荣时期的宠儿，为互联网企业提供服务器。从Pets.com到TheGlobe，各家公司都在买它的设备。也就是说，VC资金可以把某一种设备的需求繁荣抬得很高。</p>
+<p>能不能再谈谈，整个AI交易与VC环境的相关程度？这些机构自己筹巨额资金，给企业开巨额支票，一些初创公司从零迅速变成十亿美元、百亿美元公司。随后，这些风险资本又形成了对算力的巨大需求。</p>
+<p><strong>Lee：</strong> 相关性非常高。我认为，最终取决于两件事。第一，AI带来的生产率提升，能够在多大程度上渗透到整个经济。</p>
+<p><strong>主持人：</strong> 到目前为止，程度还很有限。</p>
+<p><strong>Lee：</strong> 是的，目前还很有限。第二，我们需要看到，越来越多企业确实能产生收入，用收入购买算力，不再依赖股权资金。</p>
+<p>正因为你刚才说的这些问题，现在出现怀疑、信用投资人往后退一步，是很健康、很自然的，尤其是公开市场也开始调整的时候。</p>
+<p>站在VC的角度，你应该想：华尔街正在做它该做的事，它们管理的是别人的钱，必须给风险正确地定价。我们应该集中投资金融基础设施。这样，如果AI真像我们相信的那样具有变革性，当证据逐渐出现时，能够支持后续建设的融资体系也已经准备好了。</p>
+<p>眼下，不能说完全如此，但这个市场确实在很大程度上依赖于向外界证明：今天由股权资金购买的算力，将来能产生足够收入，继续购买算力。</p>
+<p><strong>主持人：</strong> 我刚想到Sun Microsystems首席执行官那段有名的话，大意是他对彭博说，你不需要那么透明地了解我们的销售数字。</p>
+<p><strong>主持人：</strong> 他真这么说过？</p>
+<p><strong>主持人：</strong> 大概是这个意思。</p>
+<p><strong>主持人：</strong> 现在回头看，其实当时已有一些信号。</p>
+<p><strong>主持人：</strong> 是的，事后看是有信号。</p>
+<h3>对冲残值风险 为什么贷款人需要GPU指数看跌期权</h3>
+<p><strong>主持人：</strong> 你提到需要让这个市场进一步金融化。很多人一直抱怨缺少对冲工具，我们也和不少正在尝试建设算力敞口对冲工具的公司聊过。</p>
+<p>我并不是想不断提2008年，因为我真不觉得两者是完美类比。但我记得，推动次贷市场繁荣的一件事，恰恰就是CDS这种对冲工具的发明。所以，我多少会有些担心。大家为什么需要这种对冲？它又会如何影响市场增长？</p>
+<p><strong>Lee：</strong> 这种对冲需求是很自然的。信用归根结底是一种负凸性的产品，相当于在卖出看跌期权，因此你必须确保自己得到了足够补偿。</p>
+<p>这也是为什么靠现货经营的公司很难获得债务融资：现货价格上涨带来的价值增量归股东所有。对债权人来说，能够给回收价值设定下限的对冲就很有吸引力。本质上，它是在合成一项和英伟达兜底类似的安排。</p>
+<p>当然，你必须信任指数，并尽量降低基差风险。但CDS刚出现时，基差风险也很大，现在债券与CDS之间依然存在基差。</p>
+<p>我们也是在尝试做这种对冲的公司之一，因为我们和贷款人合作得很紧密。我确实收到了很多私募信贷机构的需求。产品可能是一组基于我们指数的看跌期权，通常是B300指数。</p>
+<p>逻辑也很直接：如果你相信违约后的回收方式是重新出租容量，而不是出售设备，那么你就应该对冲再出租所能获得的回收价值。只承保GPU报废、残料价值的保险，就没有那么有用。</p>
+<p>过去六个月，我一直和这些贷款人交流，之前几乎没人关心这类对冲。但最近两周，我们每天至少会收到两三家大型私募信贷公司的询价，问B300看跌期权的指示性报价。</p>
+<p>我认为这很合理。任何能给回收价值设定下限的工具，都会直接增加债权人的价值，这也是英伟达的兜底此前那么重要的原因。</p>
+<h3>英伟达如果收缩支持 会怎样影响新云整合</h3>
+<p><strong>主持人：</strong> 那我们就来谈谈这一点。我们还不知道，英伟达今后会如何为新云等公司融资，如何为购买自家芯片的需求提供资金支持，但疑问显然很多。</p>
+<p>假设英伟达的新管理层，无论最后由谁领导，采取比黄仁勋及其家人更保守的立场，会发生什么？</p>
+<p><strong>Lee：</strong> 这是整个生态现在面临的一个万亿美元问题。显然，没有人知道答案，我也预测不了它们会怎么做。</p>
+<p>但如果市场融资条件变得更加保守——这种变化已经发生——同时英伟达也越来越保守，就会对生态构成很大的压力。因为英伟达在等式两边都起着重要的融资作用：它为不少新实验室的股权融资提供支持并直接投资，同时也在债务一端给债权人提供兜底。</p>
+<p>由于GPU残值一直很高，这些兜底目前还没有带来实际损失，但未来存在触发的可能。</p>
+<p>不过，如果我是英伟达，现在恰恰是稳定中型市场的时候。这并不意味着一定要动用自己的资产负债表；它应该有动力与那些能看见中型新云困境的参与者合作。有些运营商会失败，完全正常，而且健康。真正不希望看到的是整个生态自由落体、重新投放市场和重新出租的容量完全失去控制。</p>
+<p>我们希望整合以有组织、健康的方式发生。无论如何，整合都会发生。我担心的是，英伟达完全退后，整个中型市场无人管理，变成任其自生自灭的局面。</p>
+<p>过去十二个月，这个资产类别越来越能获得私募信贷融资，一个关键原因就是你刚才那张B200租价不断向右上方走的图：人们相信，这些芯片还能继续赚更多钱。</p>
+<p>如果大量新云四处违约，大批容量被重新推回市场，情况就可能改变。我已经接到较大新云的电话，它们对我说：“如果你看到小公司的困境采购订单，我想买，要便宜地买。”</p>
+<p>一旦出现越来越多可能改变那张图走势的数据点，哪怕仅仅是困境容量、也有人愿意接，只要《华尔街日报》发一篇GPU残值下跌的文章，私募信贷机构就可能说：“等等，我们先退一步，重新评估原来的假设，GPU残值到底该怎么看？”</p>
+<p><strong>主持人：</strong> 但如果GPU抵押品价格下降，贷款人实际需要多频繁地重新定价？</p>
+<p><strong>Lee：</strong> 与其说这是抵押品价格下降的问题，更主要的问题是，中型新云越来越难获得融资。</p>
+<p><strong>主持人：</strong> 明白。只要它们还在重新审视原来的判断，那应该还好。</p>
+<p>另一种来自云计算圈的观点是，这根本不重要。Anthropic，以及很可能还有OpenAI，对算力会有如此大的需求，即便一批较小推理公司消失，也无所谓，因为大型AI实验室有近乎无限的需求。它们能否在任何价位，为GPU或芯片价格提供一个下限？</p>
+<p><strong>Lee：</strong> 需求一定会有，而且会有很多后续需求。大型云厂商也会有需求，尽管它们同时还在大举投入自己的资本开支、自建容量。</p>
+<p>但我不认为这些需求足以压过负面情绪。毕竟，Anthropic目前被视为较高的双B级公司，市场情绪也会影响它的资本成本。因此，即使Anthropic要买下很多算力，它愿意付出的价格，也取决于中型市场的整体融资情绪。</p>
+<h3>现货市场有多薄 贷款条款又在怎样收紧</h3>
+<p><strong>主持人：</strong> 再回到B100、H100这些租价图。那些经常在现货市场买算力的人，无法签下长期合约，这种现象对图表的影响有多大？我们看到的持续需求，究竟有多少是由这个因素造成的？</p>
+<p><strong>Lee：</strong> 影响非常大。如果这些图表做得有意义，大多会排除大型云厂商的定价，观察的是大量新云的报价和真实成交。</p>
+<p>这就出现一个很有意思的情况：如果曲线向右上走，原因是信贷越来越难获得，那并不是健康、可持续的环境。一旦触及临界点，企业开始没钱，价格底部就可能突然掉下去。</p>
+<p>现货市场非常薄。一家大型私募信贷机构问过我一个好问题：“在这些价格图表中，要打掉多少个买盘，价格底部才会崩掉？”答案很可能是，比人们想的少得多。</p>
+<p><strong>主持人：</strong> 那么，标准贷款条款有哪些？有没有一些触发点，一旦碰到，借款人就必须重新谈贷款，或者开始把东西交还贷款人？</p>
+<p><strong>Lee：</strong> 在中型市场，重点未必是那些财务约束条款。真正重要的是，你对硬件有留置权，能够取得这些硬件，并且与数据中心签有三方协议，使你可以把合同对应的容量重新出租。但违约就是违约，触发原因可能来自——</p>
+<p><strong>主持人：</strong> 比如贷款价值比之类的指标？</p>
+<p><strong>Lee：</strong> 我们已经看到贷款价值比在下降。夏天还有80%的LTV贷款在定价；美国劳工节之后，更多是70%；现在贷款人要求50%到60%。</p>
+<p>另一个变化是，一些中型新云正寻求紧急救助、过桥融资，因此更苛刻的约束条款开始出现。站在贷款人一边，当然要保护自己。这些交易本身可能很有吸引力，但条款极其严格：如果三到六个月内没有后续融资把这笔过桥贷款接走，贷款人就会执行担保、收回设备。而所谓的后续融资，最终又依赖未来私募信贷资金。</p>
+<h3>融资文化的变化 企业开始更珍惜现金</h3>
+<p><strong>主持人：</strong> 最后一个比较宏观的问题。我最近一直在问朋友，现在旧金山的氛围，和两周前相比，到底有多不一样？黄仁勋事件之前和之后，是不是已经变成了另一个世界？</p>
+<p><strong>Lee：</strong> 是另一个世界。而且，即便没有黄仁勋这件事，我认为世界也已经变了；这件事只是加剧了变化。</p>
+<p>我和很多人聊，它们都在问：“为什么我的新云服务商要求的预付款越来越多？”</p>
+<p>举个例子，也能说明大家现在有多看重资产负债表上的现金、自己的股本。我们给一个人看一笔交易，可以按每GPU每小时4.40美元的价格租三年B300，预付30%；也可以一分钱不预付，但租价要五美元多，接近六美元。</p>
+<p>它们会选不预付、五美元多的那种方案。不是在给自己做什么套利，而是太重视资本成本。</p>
+<p><strong>主持人：</strong> 那个价差，相当于为了把资本留在手里。</p>
+<p><strong>Lee：</strong> 完全正确，把钱留在资产负债表上。</p>
+<p>还有一层：如果你是这类公司，怎么让自己增长更快？采购更多算力。怎样先采购算力，再回头向VC筹更多钱？签下更多算力合同。</p>
+<p>因此，哪怕合同总额更高，签下的照付不议承诺远超过账上现金，只要低预付合同签得足够多，你就能采购更多算力，收入继续向右上方增长，再拿着这条增长曲线去找VC融资。这又回到你说的，真正值得盯着的变量是VC股权资金。</p>
+<p><strong>主持人：</strong> 这里面很多问题，似乎来自一种文化上的误解。硅谷关心的是不断向右上方走的图，信用市场关心凸性，关心那些倾斜、往下走的图。</p>
+<p><strong>Lee：</strong> 我完全同意。你们一开始问，硅谷的人有多理解、多关心信用。对我这样多年做高收益债的人来说，现在简直像超级碗。以前很长时间没人关心高收益债，现在所有人都关心了。</p>
+<p>但你说得完全对。两边存在错位，也存在一种沮丧：大家觉得信用市场、融资不足正在扼杀美国的初创企业和创新。</p>
+<p>站在硅谷的角度，应该想的是，资本市场此前对我们如此慷慨，现在往后退一步很自然。我们应该去证明，用股权资金支付的算力可以转为由收入支付，并且投资于让这类资产能够获得融资的金融基础设施。</p>
+<p>如果AI真的像我们相信的那样具有变革性——我确实相信——结果最终会说明一切。这些公司会做出业绩。当它们表现出来，而我们也审查出更强的新云运营商时，今天投资建设的金融基础设施，就已经在那里，准备好支持下一阶段建设。</p>
+<p><strong>主持人：</strong> 最后再说一点。大家都在说“英伟达是AI的中央银行”，类似的图已经有无数张，我相信其中一部分是对的。但这次谈话给我最大的启发是，核心其实是VC开出的支票有多大、LP给VC的支票有多大，以及像Cursor这样的公司，从零迅速变成百亿乃至千亿美元公司的速度。这些钱究竟把GPU租价推高了多少。</p>
+<p><strong>Lee：</strong> 是的。如果你在VC行业，解决办法就是让这些公司真正交付，让经济更有生产力，让生产率提升由收入驱动。它们需要签下更多企业客户，而不只是更多AI应用公司。这才是走出这个问题的方法。</p>
+<p><strong>主持人：</strong> Stanley，非常感谢你来参加节目，这次讨论非常棒。</p>
+<p><strong>Lee：</strong> 谢谢。</p>
+<h3>Paul Kedrosky 租价曲线与投资回报是两个问题</h3>
+<p><strong>主持人：</strong> Tracy，我们刚结束对GPU问题的讨论，但除此之外，还有许多关于整体算术的问题。这些公司的估值依然非常高，尤其是那些尚未上市、即将上市，或者等节目发布时可能已经上市的企业。</p>
+<p><strong>主持人：</strong> 对。现在大家预计Anthropic估值会达到1.4万亿美元。到了万亿美元这个量级，数字已经大到我很难形成直观概念。之前甚至还谈过两万亿美元。</p>
+<p>我们录制时是11月18日，预计这期节目播出时，Anthropic会开始交易。问题是，这些数字到底讲不讲得通、算不算得过来？你也看到过一些说法，比如，到2030年，数据中心业主需要取得相当于美国GDP约10%的收入，之类的数字。有没有可能做到？</p>
+<p>很高兴，我们请到了非常合适的嘉宾。他长期写作、讨论并投资科技行业。</p>
+<p><strong>Paul Kedrosky：</strong> 时间太长了。</p>
+<p><strong>主持人：</strong> 他已经自己承认了。这是我们的老朋友，SK Ventures合伙人、Oxford-Man量化金融与AI研究所研究员Paul Kedrosky。</p>
+<p>Paul，先从刚才的话题开始。B100、A100、H200之类的指数，都在向右上方走。英伟达在周二晚上的电话会上也说，token价格下降，让大家更愿意花钱买GPU。我不确定这是否完全讲得通。</p>
+<p>当你看到这些租价曲线上涨时，怎么看？表面看很利好，好像意味着AI有需求、残值也更高。</p>
+<p><strong>Kedrosky：</strong> 我看到的是同一回事。人们一直把“数字向右上方走”，与企业能否持续经营、能否偿还底层融资混为一谈。这是两个非常不同的问题。</p>
+<p>如果你说，考虑建设所需的资本开支、回报门槛、利润率等因素，要产生足够收入来支撑这一切的难度很大，大家马上就会以为你在说另一件事：“AI没用，你们都是傻子。”</p>
+<p>当然，这并不是问题所在。AI确实有用，但底层的算术非常难，就像你们开头说的。于是，人们只好抓住各种替代指标。最喜欢的一个就是：“看，由这些指数代表的数据中心GPU租价不但没跌，还在上涨。”</p>
+<p>可它上涨的原因有很多。这在我看来，就像一个醉汉在路灯下面找钥匙，因为那里比较容易找，尽管钥匙其实丢在田野里。这是可得性偏差。</p>
+<h3>到2032年 需要多少收入才能支撑建设投入</h3>
+<p><strong>主持人：</strong> 到底是哪一部分算术不成立？我大体同意你的看法：一项技术可以具有突破性，却无法在当前估值下满足经济回报要求。但具体展开，哪一道算术题有问题？</p>
+<p><strong>Kedrosky：</strong> 很直接。已经有好几种测算，我做过，哥伦比亚商学院的一些人也做过，还有一份贝恩的研究在流传。</p>
+<p>我们最后采取的都是同一种方法：先估算到2030年、2032年左右，这一轮数据中心建设总共要花多少资本开支，再问它必须达到什么回报门槛、取得什么毛利率和利润率。随后把算式倒过来，看看作为一项项目融资，它需要多少收入才能支撑这些支出。</p>
+<p>这就是最基础的MBA财务题。建一家工厂，也会这样算。区别只是，我们现在说的是十万亿美元，而不是一家小汽车工厂。</p>
+<p>算出来的数字非常惊人。根据你对利润率和回报门槛的假设，如果你仍然属于那些乐观到认为投资应该获得合理回报的人，那么到2032年前后，可能需要每年三万亿至六万亿美元的收入。</p>
+<p>再把这些数字放进背景里看。Tracy，你开头也提到过，它可能相当于全球白领工作总值的18%，或者比整个全球软件产业还大。我们可以反复做这种对照，但现实是，数字就是非常大，而钱到底从哪里来，并不清楚。</p>
+<p>讨论常常从这里开始，也在这里结束。</p>
+<p><strong>主持人：</strong> 这简直是把一切都当成了潜在市场。</p>
+<p><strong>Kedrosky：</strong> 对，什么都算进去。</p>
+<h3>白领工作的市场规模 会因AI自身的进入而改变</h3>
+<p><strong>Kedrosky：</strong> 我常开玩笑说，既然要玩总潜在市场，也就是TAM这套游戏——最早带头这样算的是高盛——那不如把人拆成基本元素，为什么只停在白领劳动的TAM？干脆把人分解成原子，算算人类这些原材料值多少钱。</p>
+<p><strong>主持人：</strong> 比如碳元素？</p>
+<p><strong>Kedrosky：</strong> 是啊，为什么不干脆一路算到底？</p>
+<p>真正的问题在于，你们经常讨论大宗商品，应该很清楚：只要你重定价某个商品市场的一角，例如铜，假设你重定价了15%的铜市场，你改变的并不只是这15%，而是整个铜市场，因为商品市场就是这样运作的。</p>
+<p>如果你的基本假设是，把白领劳动当成一个TAM，并通过AI重定价其中很大的一部分，那实际上等于要重定价全部白领工作。能不能做到，可以争论。但只要你接受自己要拿下相当大一块市场的前提，就不能再用原来的市场规模去算了。</p>
+<p>你已经把整个市场重新定价，它不再有原来那么大。于是，要实现同样的收入，你又必须拿下更大份额，依此类推。算术就是这样开始出问题的。</p>
+<h3>开发者不是所有用户 企业和消费者会怎样付费</h3>
+<p><strong>主持人：</strong> 那我们来谈收入怎么实现。顺便说到铜，今天铜也跌得很惨，跌了大约5%。把铜期货或者铜矿股的走势图叠在纳斯达克上，形状很像；和半导体叠在一起，也几乎一样。它在某种程度上成了这轮交易的大宗商品代理。</p>
+<p>我们之前和巴克莱的Alexander Altmann做过一期节目，尝试把这笔账算清楚。他的基本看法是，即便企业大量采用AI，确实获得了一些ROI，愿意付多少钱也有上限。而且，除了工程部门，仍不清楚有没有大型企业在其他地方真正做出正回报。</p>
+<p>他认为，仅靠这些还不够。如果消费者不付费，收入很难达到所需规模。现在看，多数消费者似乎满足于Gemini摘要和谷歌搜索；这和一个家庭觉得自己必须每月花200美元购买ChatGPT Pro，是两回事。你同意吗？</p>
+<p><strong>Kedrosky：</strong> 完全同意。后面那种情况永远不会发生。因此，整个故事必须建立在企业端。我认为，没有企业这个故事，就根本不可能达到那些数字。</p>
+<p>这也就是Anthropic的故事。看好Anthropic的全部核心逻辑，就是它是企业市场的参与者。</p>
+<p>只有假设Anthropic深入企业、在大量工作中实现替代，才可能走到所需收入规模。创造收入只有两种途径：替代我们原来已经在做的事；或者为原有工作提供补充，使生产率提高到足以把整块蛋糕做大。</p>
+<p>但在早期，你们也提到了，目前我们看到替代与生产率效应的地方，主要还是编程、软件工程。这一点非常重要。</p>
+<p>风险投资有一个基本原则：早期客户和后来的客户，往往完全不是同一类人。如果拿产品的早期采用者来外推整个企业，你会犯很大的错误。</p>
+<p>对于大语言模型，最早、最热情、痴迷于始终站在性能前沿、愿意付任何价格、拼命消耗token、通过氛围编程一口气做出一万个健身应用的，都是软件工程师、程序员。</p>
+<p><strong>主持人：</strong> 是的。</p>
+<p><strong>Kedrosky：</strong> Joe，普通人完全不是这样。他们并不追求技术前沿，够用就可以了。</p>
+<p>有些程序员听到别人用Meta Muse，简直无法理解：“你不知道那个模型很差吗？”普通人根本不在乎，它给我订到餐厅就行。</p>
+<p><strong>主持人：</strong> Meta Muse告诉你，有两封邮件都说你明天下午三点要去某个地方，你可能需要注意一下。这就是完全合理的用途。我不需要Fable 5.2来告诉我，两封邮件里的预订发生冲突。</p>
+<p><strong>Kedrosky：</strong> 正是如此。而且，还有一个更深的问题。软件很特殊，有一种比较紧密的梯度下降机制。无论是递归自我改进，还是更普通地改进一些旧金融代码，你都可以让模型自行工作，因为有一个真实、可验证的标准：软件能跑，或者不能跑。所以，它可以根据结果反馈，继续改进自己。</p>
+<p>但你把这个办法放到大多数白领工作里试试。给模型一份PowerPoint，让它自己跑十二小时，再说“我赌它回来时一定做得更好”，我不信。它不会更好。不是因为模型很差，而是因为这里没有客观真实的标准。谁知道这个情境里“更好”到底是什么意思？</p>
+<p>让模型在没有真实标准的事情上反复循环，得到的是不断放大的错误，不是更好的产品。从程序员走向普通用户时，这是一个根本问题，而我们现在恰恰正在经历这个转变。</p>
+<h3>漏洞发现 故障和网络风险的受益者</h3>
+<p><strong>主持人：</strong> 其实，就算在编程领域，我也在想这个问题。早期大家对AI写代码的能力非常兴奋，但这一周发生那么多系统故障。如果你做的只是不断制造新漏洞，然后再不停修复，那还是生产率提升吗？可能未必。</p>
+<p><strong>Kedrosky：</strong> 是的，而且数字非常惊人。不知道你们有没有看过严重漏洞的数据。我回忆一下数字，大概是：有史以来发现的严重软件漏洞中，约8%是在十月前三周发现的；有史以来发现的严重软件错误、漏洞中，约50%是在今年上半年发现的。</p>
+<p>而这个速度还在加快。这对Palo Alto、CrowdStrike以及很多其他网络安全公司，确实是一场巨大商机。但从生产率的角度，对其他人就未必是好事。</p>
+<p>过去几天，我甚至觉得，是不是应该把所有设备的插头都拔了？我现在连自己的烤面包机里面是不是也出了什么状况，都不确定。</p>
+<p>问题就在这里：我们看到的生产率提升，集中在那些能够迅速利用这些工具、寻找其他系统漏洞的人身上。这是一个深刻的问题。</p>
+<p>再往前推一步，毕竟这是一个金融节目，除了勒索软件提供者，谁从中受益？再保险公司。如果你去和它们聊，会发现它们现在几乎想报什么价就报什么价。</p>
+<p>原因是风险根本没法正确计价。Anthropic在S-1里也说了，它无法给这类风险定价，风险规模甚至可能超过全球保险市场。我记得是在风险因素部分。</p>
+<p><strong>主持人：</strong> 对，没错。</p>
+<p><strong>Kedrosky：</strong> 所以，你去问瑞士再保险、慕尼黑再保险这些公司，它们会一边高兴地搓手，一边告诉你：“现在我们想定什么价格都行。”对再保险公司来说，这是一个极其兴旺的时期。受益的是这些人，而不是我们所谈的生产率。</p>
+<p><strong>主持人：</strong> 我觉得AI的保险问题非常有意思，以后我们肯定会多做几期。</p>
+<p><strong>主持人：</strong> 昨晚又发生了一次故障。我看到一篇报道说，这不是网络攻击，而是为了赶着给漏洞打补丁。然后我就想，那有区别吗？</p>
+<p><strong>Kedrosky：</strong> 对网络攻击者来说，这简直太好了。它们甚至不用动手，就能让关键系统停摆。从结果上看，效果差不多。</p>
+<p><strong>主持人：</strong> 好，回到Anthropic上市。</p>
+<p><strong>Kedrosky：</strong> 在转过去之前，还有一件不那么好笑、其实相当糟糕的事。这些问题和英伟达的交集很值得注意。</p>
+<p>就在今天早上，有一家针对英伟达的勒索软件团伙——不能说“提供商”吧，总之是一家勒索软件组织——</p>
+<p><strong>主持人：</strong> 勒索软件即服务。</p>
+<p><strong>Kedrosky：</strong> 是的。它们声称拿到了英伟达客户的数据，包括出货数据。现在这些事情开始交汇：转运和英伟达本来就是重要话题，而这些世界又突然连在了一起。</p>
+<h3>Anthropic的前沿溢价 与走向垂直应用的压力</h3>
+<p><strong>主持人：</strong> 按我们的预计，这期节目播出几小时后，Anthropic就会开始交易。目前已经有一些上市AI公司，但都在中国，股价表现很差。</p>
+<p>看好Anthropic的人会说，区别是，那些不是前沿模型公司，本身没有大量算力来提供推理，数据中心也还不够多。它们提供的是落后于前沿、真正已经商品化的智能。</p>
+<p>Anthropic的多头逻辑则是：它可以以正的单位利润出售大量算力，它在技术前沿，能把前沿能力货币化，做到那些落后六个月的模型做不到的事。因此，它作为企业，与那些公司根本不同。你目前怎么看Anthropic这门生意？</p>
+<p><strong>Kedrosky：</strong> 我对Anthropic一直以来的看法是，它越早停止为保持前沿而激进训练模型，转而主要做推理，单位经济就会越快改善。我开过一阵玩笑：第一个停止训练模型的前沿模型公司，才是赢家。</p>
+<p>前几天我做演讲，给别人展示过：过去十八到二十四个月里，Anthropic推出的垂直产品，实际上比模型更新还多。很多人忽略了这一点，但它非常有意思，恰恰说明了我说的问题。</p>
+<p>它没有彻底停止模型训练，但正在非常快地向更高层的业务走。它在法律、金融、医疗等领域推出产品，垂直应用的发布次数已经多于模型更新。与此同时，Epoch的能力指数等指标，显示能力进展有些趋平。这就是它的未来方向。</p>
+<p>但接下来就产生了很深的矛盾：你开始直接和那些为你提供分发渠道的公司竞争。Anthropic推出办公产品时，我们已经看到了这一点。它近48%的销售是通过微软等平台的市场完成的，现在又要和投资人竞争。</p>
+<p>于是，对方会问：“既然你直接和我竞争，我为什么还要给你分发产品？”</p>
+<p>这又迫使它再往前走一步。Anthropic已经在S-1里暗示了这一点，也和你问的未来单位经济有关：它们必须减少对云租赁和这些分发渠道的依赖。它没说明原因，但我们知道，是因为它正在与自己的供应商竞争。</p>
+<p>所以，它必须更直接地承担更多数据中心建设责任。某种意义上，这份S-1描述的还是Anthropic 1.0。它已经告诉你，随着应用越来越多、不再单纯依赖前沿模型，它必须向更高层的业务发展。</p>
+<p>这会直接影响资本开支建设，也会改变未来义务的形态：可能更接近8000亿美元，而不再只是原来以租赁为基础的那些承诺。</p>
+<h3>供给收紧与供给充裕 不能永远都算利好</h3>
+<p><strong>主持人：</strong> 我想把问题稍微放大一点。最近AI交易回撤，一些多头会说，这是一次健康的市场调整。老生常谈，但他们也会指出，新云之间开始出现分化。</p>
+<p>我看过一些数据中心贷款的价格，2025年发放的贷款，表现明显弱于2026年的。有人据此说，2026年贷款承保做得更好了，市场正在开始区分不同风险。你怎么看？</p>
+<p>还有另一种观点：中期选举后，数据中心建设可能放缓，算力因此会更加值钱，已经拥有算力的人，处境可能比三四周前更好。</p>
+<p><strong>Kedrosky：</strong> 尤其是后面这个说法，我实在很难接受。这是一种非常犬儒的论证：好消息是好消息，坏消息也是好消息。</p>
+<p><strong>主持人：</strong> 有个梗图，画的是某个毛发旺盛的大块头投资人，我就不说名字了。他站在世界末日面前，仍然说：“你知道吗，这对我们也是好事。”</p>
+<p><strong>Kedrosky：</strong> 问题就在这里。一旦你开始解释为什么供给紧张对你好、供给极为充裕也对你好，你做的就已经是神学，而不是论证。你先有了一个信仰，然后所有数据都支持它。</p>
+<p>真正需要直面的是，Tracy你刚才提到的，2026年以前那些贷款中，越来越多已经在至少轻度受损的价格交易。与此同时，国会又在推进类似“了解你的客户”的要求，这些要求已经开始体现在贷款条款里。</p>
+<p>今天早上好像是彭博有篇文章，谈贷款条款中要求了解客户身份的问题。不只美国发放的贷款如此，东南亚的贷款也开始出现美国式的客户审查要求，这很不寻常。</p>
+<p>想想后果。我不想碰这类贷款，因为在云计算环境里，我根本无法完整了解客户。于是，贷款会更难获得、更贵，信用利差会扩大，而这对新云提供商显然很不利。</p>
+<h3>VC支票 代币消耗和没有人使用的应用</h3>
+<p><strong>主持人：</strong> 刚才说得非常好。能不能再讲讲VC世界？</p>
+<p>我知道SK Ventures更偏种子阶段，所以这种情况未必适用于你。但VC行业现在到处是巨额支票、巨大估值、飞速长大的公司。例如Cursor，成立总共大概三年，已经筹了将近50亿美元，随后以大约600亿美元的价格卖给SpaceX。短时间内出现这些数字，令人难以置信。</p>
+<p>这在多大程度上又回到了那张GPU图？LP、VC、被投企业、算力提供商之间，一层层都是巨额支票。这些钱一路往下传，是不是把所有人的营收数字都推得很好看？</p>
+<p><strong>Kedrosky：</strong> 完全是这样，Ramp的数据已经显示了这种现象。Ramp是大家经常使用的一种支出数据来源。你看人均支出，花钱最多的那些企业，几乎都是VC支持的企业。按每名员工支出排名靠前的公司，大约80%都有风险资本支持。</p>
+<p>风险资本变成企业支出，再变成购买前沿模型的支出。而前沿模型在推理token层面，正是最贵、利润率最高的模型。</p>
+<p>但这毕竟是一场游戏，而且你已经能看到没有产生回报时会发生什么。Cursor是规模比较大的例子，还有无数别的案例：拼命消耗token的冒险，并没有变成人们真正关心的产品。</p>
+<p>美国国家经济研究局有一些很好的数据：应用生产数量急剧上升，但每个应用获得的评分数量却大幅崩落。两边脱节了。某种意义上，到处都是低质量内容，其中一些背后还有惊人的资本支持。可是，如果没有创造价值，那些资本很大一部分最终可能得减记。</p>
+<p>这才是深层问题。所有这些投资，Tracy，一切都很好，只是没有生产率提升、没有价值，还有很多网络攻击。除此之外，一切都好。</p>
+<h3>政府支持的私营部门刺激计划</h3>
+<p><strong>主持人：</strong> 这让我想到，AI资本开支之所以变得这么庞大，一个原因是，整件事总被放在生死存亡的叙事里。大型云厂商必须花很多钱，因为谁先到达前沿，谁就赢得一切；美国政府必须支持这个行业，因为美国正在与中国进行一场技术上的生死竞争。因此，开支总是只有不断向上的冲动。</p>
+<p>我在想该怎么问。你能否谈谈，现在特朗普政府对AI的支持是什么状态？一方面，英伟达风波让人觉得，它们此前可能对向中国销售芯片睁一只眼闭一只眼；但中期选举后，随着各种头条出现，对华强硬派又占了上风。</p>
+<p>这会怎样影响资本开支，尤其是得到政府认可、支持的资本开支？你已经就这个问题写过很多。</p>
+<p><strong>Kedrosky：</strong> 我的看法是，我们实际上在运行一个由联邦政府协助、扶持的私营部门刺激计划。这是美国历史上规模最大的刺激计划之一，但执行者是私营部门，而政策在背后推动、协助它。</p>
+<p>政策可以从很多角度来看。现在已经有十多项行政命令，以各种方式，让建设数据中心、连接电网更容易，或者让企业能够绕开环保局关于二氧化硫排放等方面的规定。联邦政府出台的一系列措施，方向几乎一致，都在把这一轮建设继续往前推。</p>
+<p>我过去一度觉得，它们可能有些天真，并没有真正意识到正在发生什么。但英伟达事件背景下后来出现的报道，已经很清楚地说明，白宫不仅知道，而且非常害怕这一切结束。</p>
+<p>它们知道，推动资本市场、增加人们401(k)退休账户财富的重要力量之一，是AI资本开支。白宫很喜欢谈退休账户。我以前一直以为，它们并不知道自己在做什么，只是无意中推动了这个过程。现在看，不，这是完全有意的。</p>
+<p>这就是深层矛盾：政府通过代理方式运行这项私营部门刺激计划，带来各种后果。与此同时，过去四年市场涨幅中，大约50%又与“七巨头”有关。所有这些事情之间，存在很深的张力。</p>
+<p>中期选举之后，这一切开始改变。你可以选自己最喜欢的一个数据点，我最喜欢的例子是：如果得州是一个主权国家——</p>
+<p><strong>主持人：</strong> 很多得州人可能希望这句话到这里就结束。</p>
+<p><strong>Kedrosky：</strong> 没错，我们干脆就停在这里。不过，如果按数据中心建设支出看，它会是全球第三大建设者。第一是去掉得州后的美国，其次是中国，再来就是得州。</p>
+<p><strong>主持人：</strong> 太惊人了。</p>
+<p><strong>Kedrosky：</strong> 数字非常惊人。可就在这个全球第三大的“准主权国家”，一位倾向于放慢建设步伐的新州长即将上任。即便只是放慢，影响也会很大。</p>
+<p>这只是一个例子，其他地方也有类似情况。但它给我的印象最深：这种变化直接触及政府正在执行的那项事实上的政策，也就是州和联邦政策共同扶持的私营部门刺激计划。所以，从这里开始，一切都在变。</p>
+<p><strong>主持人：</strong> 德意志银行本周早些时候有一份很好的报告，谈到许多算力支出最终又回流美国股票，类似过去石油美元回流美国国债。</p>
+<p><strong>Kedrosky：</strong> 完全是。全球半导体贸易规模，现在实际上已经超过了石油和天然气。人们并没有意识到，这一切已经大到了什么程度。你说的这种循环回流，已经成了资本市场运作的基础环节。</p>
+<h3>明星CEO崇拜 与英伟达的融资角色</h3>
+<p><strong>主持人：</strong> 在这一轮周期里，你一直保持着冷静，这很难得。但黄仁勋风波之后，我脑子里总出现一个说法：清晨冰冷的现实。</p>
+<p>你通宵派对、玩得很开心，然后某天早上七点醒过来，双手捂着脸，突然意识到：“天啊，昨晚太糟糕了。”现在就有点这种感觉。</p>
+<p>你接触的那些VC，真的也有这种感觉吗？</p>
+<p><strong>Kedrosky：</strong> 没有，他们更像被甩了的男朋友，想让女朋友回来。</p>
+<p><strong>主持人：</strong> “回来吧，让我们回到昨晚。”</p>
+<p><strong>Kedrosky：</strong> 对。我前几天还开玩笑，说他们该开始寄Indigo Girls的混音带了，说不定一切就能恢复。</p>
+<p>你能明显看出，人们对现在发生的事有很强的情绪反应。金融文献里有很多关于超级明星CEO及其影响的研究，包括为什么他们能获得超额薪酬。</p>
+<p>在风险投资行业，这种想象一直是穿着黑色毛衣的Steve Jobs，始终没有变，不断重复。所以，大家从这个视角看事情，几乎一致认为，只要黄仁勋回来，一切就好了。当然，别忘了给他寄一盘Indigo Girls的混音带。</p>
+<p><strong>主持人：</strong> 我看过Reddit上一些论坛，比如英伟达的版面，确实如此。</p>
+<p>说到这里，我很想听你解释，很多人用不同方式把英伟达称作“AI的中央银行”。你能非常清楚地讲技术细节，能不能解释一下，这到底意味着什么？以及，现在这些英伟达融资安排会怎样？</p>
+<p><strong>Kedrosky：</strong> 我自己也用了这个比喻很久。你可以这样理解：某种意义上，英伟达可以“印钱”。它利用自己的资产负债表，在另一端创造出资金，类似美联储所做的事情。</p>
+<p>它向这些公司提供信用，让它们像银行一样，能够凭空创造购买力，甚至不需要当期付款；这些公司随后又回头购买英伟达的产品，而且往往还可以延迟付款。</p>
+<p>这个过程不断循环，因为它会吸引风险资本、吸引更多新云建设。循环的放大又不只是一比一，而是带着很高杠杆。所以，它像一个部分准备金银行体系。</p>
+<p>循环融资本身就带有这种特征，类似美国的影子银行体系，也类似十八个月前的私募信贷。现在，单独一家企业就在做这件事。2026年的这套部分准备金体系，是英伟达。</p>
+<p>这些循环的“存款”创造了大量新增支出。我们也知道，一旦部分准备金体系开始逆转，它同样不会线性倒退，而会以几何式速度收缩，因为资金都会回到核心。</p>
+<p>在英伟达前天晚上的电话会上，你已经能看到一点影子。新任临时CEO Colette Kress谈到对新云的影响，有两句话让我印象很深：第一，我们仍然非常支持新云；第二，顺便说一句，我们今后会更加审慎地选择。</p>
+<p><strong>主持人：</strong> 对。</p>
+<p><strong>Kedrosky：</strong> 问题是，你一旦开始对新云更加挑剔，可能最后就没什么新云可做了。这就是部分准备金体系开始逆转。</p>
+<p><strong>主持人：</strong> 电话会上还有一句。我们本周末的嘉宾Stacy Rasgon当时也在会上。他提问，大意是英伟达在声明或事先准备的稿子里说，只有新云真正动工、开始建设之后，资金才会给到它们。这是一项新政策，还是以前就有、现在才告诉我们？</p>
+<p>公司回答：“不，我们一直都是这样做的。只是现在特别想让你们知道，在能够确认相关进展前，我们不会直接把现金交出去。”它们显然觉得，现在非常有必要把这一点向市场讲清楚。</p>
+<h3>前沿实验室进入应用 企业为何开始保护自己的数据</h3>
+<p><strong>主持人：</strong> 最后一个问题，你刚才已经有所涉及。有一种观点认为，Anthropic，可能也包括OpenAI，不会永远只做出售token的生意。它们可能用高端智能进入其他垂直领域，医疗是明显的一类，法律也可能是，真正的钱会在那里赚到。</p>
+<p>作为投资人，也作为经常和其他投资人交流的人，你们现在怎么看买公司、投公司的问题？</p>
+<p>有个流行的说法。Gavin Baker在一档播客里说：“Dario觉得，世界最后只会剩下一家公司，就是Anthropic。到时候就只有Anthropic和美国政府。”</p>
+<p>这个说法听起来很夸张，但Anthropic直接进入更多垂直领域，似乎并不夸张。你写支票时，会考虑什么类型的公司？如果未来可能直接和主要前沿实验室的产品竞争，这件事会怎样影响你的判断？</p>
+<p><strong>Kedrosky：</strong> 这百分之百是眼下的问题。我常做的类比是，微软那些黑暗的日子：它看到你在自己的平台上卖某种东西，觉得收入不错，就自己做一个，再把它整合进操作系统。</p>
+<p>当年，它因为要推出Internet Explorer，曾经有名地威胁要切断网景的氧气供应。现在是同一种现象，只是规模大得多。</p>
+<p>当然，问题在于，Anthropic进入这些垂直领域之后能做得有多好，取决于它能拿到多少数据。</p>
+<p>现在的情况有点像《奇爱博士》：炸弹还没造出来，别先告诉别人你要造炸弹。它们已经告诉大家：“我们要进入你所在的垂直领域。”</p>
+<p>于是，我和越来越多人聊天时发现，大家开始不愿意把所有数据都分享给Anthropic，甚至对各种合作方式都更加犹豫。因为它们害怕，这家公司像《大白鲨》里那样爬上船，一边上来，一边把沿途一切都吃掉。</p>
+<p>但它们没法凭空做成这件事，必须拿到大家的数据。</p>
+<h3>IPO超额认购 到底说明了什么</h3>
+<p><strong>主持人：</strong> 我们总是听说IPO获得超额认购，这到底意味着什么？</p>
+<p><strong>Kedrosky：</strong> 意味着承销商和银行家把营销工作做好了。那完全是胡扯。</p>
+<p>超额认购没什么意义，因为它只是机构投资人的一个不具约束力的承诺：“在完美情况下，我愿意买这么多股票。我知道自己不会获配这么多，那就报一个巨大的数字，反正最后只会分到其中一小部分。”</p>
+<p>然后，银行家转头就把消息放出去：“看，这个IPO需求太强了，超额认购五倍、六倍。”完全没有意义。今年夏天中国股市泡沫最热的时候，有些IPO超额认购8000倍，随后股价却跌了50%。</p>
+<p>它什么也说明不了。媒体还不断复述这种说法，让我难以置信。你们是在给承销商抬轿子，应该收佣金。</p>
+<p><strong>主持人：</strong> 我发过关于超额认购的推文，那我去申请佣金了。我真不该发。</p>
+<p><strong>主持人：</strong> 债券市场的配售也是一样。</p>
+<p>Paul Kedrosky，很高兴再次和你聊。现在录制时还是周三，但等节目播出的那天，我们会盯着Anthropic怎么交易，终于要有这样一家上市公司了。非常感谢你来到Odd Lots。</p>
+<p><strong>Kedrosky：</strong> 谢谢你们。</p>
+<h3>结束讨论 看算力账单究竟由什么资金支付</h3>
+<p><strong>主持人：</strong> 这次聊得很有意思。这个星期真让人兴奋，新闻太多了。我很期待看到Anthropic会在哪里交易。</p>
+<p><strong>主持人：</strong> 等这期节目发布时，可能已经有些答案了。但我认为，AI的信贷收紧——这确实就是信贷收紧——大概是眼下最重要的故事。</p>
+<p><strong>主持人：</strong> 是的。</p>
+<p><strong>主持人：</strong> 如果把AI视为融资故事，Anthropic能够筹到一笔股权资金，当然很好，但另外许多参与者却正越来越难筹到钱。</p>
+<p>我觉得“收入与算力”的关系非常值得看。这些公司中，很多距离实现利润、甚至按公认会计准则计算的利润，还差得很远。在此期间，无论看整个行业还是某一家企业，我们都应该追踪一个指标：它有多少算力是由股权资金购买，又有多少是由收入购买。</p>
+<p><strong>主持人：</strong> 我们知道，像Anthropic这样比较成功的公司，正在把大量收入重新投入算力。比起必须不断、大举进入股权市场筹钱，只为了买到芯片，这至少更健康一些。</p>
+<p><strong>主持人：</strong> 但到了某个时候，你总得找到真正为这些算力付钱的人。而且，就像Paul说的，你还得设法跳下那架跑步机：除了提供算力，所有钱还不断花在训练下一代模型上。否则，现金流到底在哪里？</p>
+<p><strong>主持人：</strong> 我觉得真正的问题就在这里。对于仍要维持前沿能力的大型参与者，研发方面似乎没有退出这场比赛的按钮。</p>
+<p><strong>主持人：</strong> 这也是我们本周早些时候那次对谈提到的：一场没有终点的比赛，一场西西弗斯式的马拉松。</p>
+<p><strong>主持人：</strong> 那我们就说到这里？</p>
+<p><strong>主持人：</strong> 就到这里。</p>
+<p><strong>主持人：</strong> 以上是本期Odd Lots。谢谢大家收听。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

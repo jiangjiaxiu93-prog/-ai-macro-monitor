@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Andrew Feldman与Gavin Baker谈高速token、分离式推理和现金流（TomorrowX全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-20<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Andrew Feldman与Gavin Baker谈高速token、分离式推理和现金流（TomorrowX全文精翻）</h2>
+<div class="metaline">iConnections · TomorrowX Summit · Andrew Feldman，Cerebras联合创始人兼CEO；Gavin Baker，Atreides创始人兼CIO · 35分34秒 · 2026-11-19 · <a href="https://www.youtube.com/watch?v=AzJE-JfSVDQ" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：推理成本；单位经济；token需求；算力采购；AI资本开支；Cerebras；Gavin Baker</p>
+<ul><li>Feldman解释高速前沿token的溢价，称分离式推理在相同速度下可使数据中心token产出增至约5倍。</li><li>从OpenAI交付、芯片路线图讲到硬件与云服务现金流，保留16—18个月回收期等判断的条件。</li></ul>
+<h3>OpenAI关系与客户需求</h3>
+<p><strong>Gavin Baker：</strong> 好，我很期待这场对话。关于外界的一些叙事，我有时确实感到很恼火，今天得努力控制一下。不过我会尽量克制。</p>
+<p>Andrew，我们直接进入正题，先谈OpenAI的关系。OpenAI管理层发生变动之后，外界写了很多东西。你能说说，你们与OpenAI的合作现在究竟是什么状态吗？</p>
+<p><strong>Andrew Feldman：</strong> 很高兴见到你，Gavin。</p>
+<p><strong>Baker：</strong> 我也是，老朋友。</p>
+<p><strong>Feldman：</strong> 感谢大家邀请我来。OpenAI是我们最重要的客户之一，也是我们最大的客户。我认为，你在X上看到的关于我们这位合作伙伴实际情况的信息，很少是真的。除了我、Sam，以及极少数几个人，其他人很难真正掌握内情。因此，外界出现了大量错误信息。</p>
+<p>我们正一大批一大批地向他们交付算力容量。他们的使用方式很有意思，既服务一些客户，也服务一些尚未公布的客户，还用于一些很有意思的内部场景。我们非常高兴，也很自豪能与他们合作。对于Twitter和各种传闻圈里闹出的动静，我们有些难以理解。因此，我们就是埋头做事，继续一起建设。</p>
+<p><strong>Baker：</strong> 你刚才说，来自OpenAI的收入从第二季度到第三季度环比增长，第四季度还会再增长。</p>
+<p><strong>Feldman：</strong> 会的。</p>
+<p><strong>Baker：</strong> 然后整个2027年还会继续增长。</p>
+<p><strong>Feldman：</strong> 我们相信会如此。</p>
+<p><strong>Baker：</strong> 会的。</p>
+<p><strong>Feldman：</strong> 是。</p>
+<h3>高速前沿token为什么能卖出溢价</h3>
+<p><strong>Baker：</strong> Andrew，我看到一篇报道，很感兴趣。你说，他们正在把你们的算力用于一些很有意思的外部客户场景。华尔街很多人认为，每瓦能产生50或60美元收入，也就是每吉瓦500亿至600亿美元，差不多就是上限了。</p>
+<p>但我看到报道说，OpenAI把基于Cerebras的算力卖给一些特定客户，价格能达到每瓦200美元，也就是每吉瓦2000亿美元。对此，你有什么想说的，朋友？</p>
+<p><strong>Feldman：</strong> 不深入谈我客户具体在做什么，但这是真的。</p>
+<p>重要的是，高速token加上前沿智能，会创造极大的价值。闭源模型如此，开源模型也如此。无论你是前沿实验室，还是你之前对谈过的Fireworks的Lin Qiao，或者我们的其他合作伙伴，前沿模型上的高速token，就是你能够出售的、利润最丰厚的token，毫无疑问。</p>
+<p>它们给卖方带来的毛利率最高，因为它们对买方的价值最大。OpenAI如此，其他每一家云服务商也是如此。所以，过去六个月，我们先后签下了AWS、微软和甲骨文。这样的六个月相当不错。</p>
+<p>他们全都想转售这些高速token，因为它们价值高，毛利率也高。</p>
+<p><strong>Baker：</strong> 我觉得，X上那些围绕OpenAI的风波有时很可笑，还有一个原因。作为股东，我心里想：要是OpenAI真的退出，那可太好了。他们当初签合同时，拿到的价格真的很好。当然，那笔交易对你们也很好。</p>
+<p><strong>Feldman：</strong> 是的。</p>
+<p><strong>Baker：</strong> 但从那以后，很多算力的价格已经大幅上涨。当然，我们很感谢OpenAI成为你们第一个真正大规模的前沿实验室客户，也知道他们是你们最重要的合作伙伴。不过，能不能大致说说：OpenAI当时拿到了那么优惠的价格，现在把token卖给其他客户，相对那份合约，大约能收多少溢价？</p>
+<h3>新容量价格与既有合约的差别</h3>
+<p><strong>Feldman：</strong> 我们与OpenAI是在2025年12月底签约的。如果看现在整个市场的情况，token……我们还是先回到电力和机房空间上来说。电力和空间的价格大约已经上涨40%。</p>
+<p>与此同时，模型变得更聪明了。电力和空间变贵了，而由于模型更聪明，高速token的价值也更高了。所以，相对当时卖给OpenAI的价格，这大概只是我们今天出售新容量时能够取得的溢价下限。</p>
+<p><strong>Baker：</strong> 也就是说，相比那年12月，涨了50%左右。</p>
+<p><strong>Feldman：</strong> 40%或50%左右，这是一个下限。</p>
+<p><strong>Baker：</strong> 是下限。</p>
+<p><strong>Feldman：</strong> 那已经是我们愿意接受的最低水平。我们给出的多数报价会高得多。</p>
+<p><strong>Baker：</strong> 很好。那么那250亿美元的剩余履约义务，也就是RPO，粗略算一下，如果按今天的价格重新签，可能就是370亿、375亿美元。</p>
+<p><strong>Feldman：</strong> 如果按今天的价格签，金额会大得多。</p>
+<p><strong>Baker：</strong> 大得多。我说370亿，你说大得多，差不多一个意思吧。</p>
+<p>还有一个问题，我想把你们的业务拆开来看。在云业务里，你们本质上是在出售token，按token收费。你们通过这种方式，把电力和自己的硬件变现。那么能否谈谈分离式推理？它现在已经落地到什么程度？对每瓦电力能够支持的token吞吐量，又会产生什么影响？</p>
+<h3>分离式推理与五倍token产出</h3>
+<p><strong>Feldman：</strong> 当然。在计算领域，随着一种工作负载逐渐成熟，我们会找到更高效的处理方式。通常，做法就是把任务拆成几个部分，再分别用不同硬件处理。这是一种分而治之的方法。</p>
+<p>推理工作负载现在已经更加成熟。我们能够把它分成两部分。一部分叫预填充，也就是prefill——这个行业就是喜欢把名字起得复杂。其实它就是处理你的输入，处理提示词。另一部分叫解码，也就是decode，就是生成答案。</p>
+<p>如果沿着这条界线，把任务清楚地分开，就可以用一种硬件做预填充，另一种硬件做解码。我们的机器两项都很出色，但在解码上的优势尤其明显。因此，用GPU做预填充，用我们的机器做解码，就能够在同样的速度下，生成五倍的token。</p>
+<p>举个例子，一座10兆瓦的数据中心，规模不算大。假设一周前它能生成X数量的token，改成分离式推理以后，就可以生成五倍的token。</p>
+<p>现在，我们已经把全球首个此类分离式推理部署投入生产：AMD做预填充，Cerebras做解码。随着我们把它推广到整个算力集群，可生成的token数量会大幅增加。</p>
+<p>正如你刚才所说，我们卖的是token。因此，这提高了我们能够出售的容量，非常重要。这也是整个行业的重要进展。它相当于让我们多了更多数据中心，让我们能够生产、出售更多token。</p>
+<p><strong>Baker：</strong> 很好。你提到了AMD。那么，是否存在任何技术或运营原因，导致你们不能与英伟达GPU做分离式推理？</p>
+<p><strong>Feldman：</strong> 完全没有。而且，我们已经有合作伙伴正在做这件事。</p>
+<p><strong>Baker：</strong> 很好。</p>
+<p><strong>Feldman：</strong> 我们开发了一层软件集成，可以与任何GPU协作。它可以与AWS的Trainium协作，也可以与英伟达GPU，以及其他厂商的GPU协作。〔此处还列举了一种GPU，英文自动字幕记作“ARM GPU”，名称未核清。〕</p>
+<p>这意味着，我们不仅能够进入新建的数据中心，在那里配上我们选择的GPU，也能把我们的设备装进已有的GPU数据中心，改造现有设施。这样，我们就同时能够进入新建和存量数据中心。</p>
+<h3>为什么从晶圆级计算重新设计架构</h3>
+<p><strong>Baker：</strong> 好，前几个问题总算让我把憋着的那股气释放了一些。</p>
+<p><strong>Feldman：</strong> 也向大家解释一下，每次财报电话会结束后，我都会收到一个评分：准备得怎么样？问答是不是足够犀利？这些都会被打分。因此，今天结束后，我大概也会收到一个分数。</p>
+<p><strong>Baker：</strong> Andrew拿过“进步最大奖”。</p>
+<p><strong>Feldman：</strong> 我确实拿过。但我觉得，这等于是在说，他认为我第一次电话会表现很差。</p>
+<p><strong>Baker：</strong> 我们都希望自己不断进步。</p>
+<p><strong>Feldman：</strong> 得更好一些。</p>
+<p><strong>Baker：</strong> 少差一点，少差一点。</p>
+<p>那么，回到Cerebras最根本的技术押注。它究竟独特在哪里？你们又准备沿着怎样的技术路线继续迭代？</p>
+<p>我们共同的朋友Eric Vishria今天早些时候也和我在台上聊过。他说，软件确实正在变得更容易，把这些模型放到不同架构上运行，也越来越容易。</p>
+<p>放眼整个市场，有很多公司想从根本上挑战英伟达。但它们用的是相同的制程节点，都用HBM DRAM，可能只是在这里、那里做些调整。在我看来，这相当于以一个更高的成本基础，去挑战占据主导地位的现有厂商。因为你从台积电采购晶圆，每片付的钱更多，采购每单位HBM DRAM的价格也更高。</p>
+<p>而且，就算你能击败英伟达，还得击败AMD、Trainium和TPU。它们的架构都在向相近的方向收敛。</p>
+<p>你们用晶圆级计算做了不同、独特的事情。能不能先谈谈这个，然后我们再说CS-5、CS-6？</p>
+<p><strong>Feldman：</strong> 创办一家公司时，你会面对一系列选择。我们从心底相信，只比现有龙头好一点，并不是成功的路径。你不能只是稍微快一点、稍微便宜一点。这是第一点。</p>
+<p>第二点是，你不能只是改进对方的架构，然后用它来攻击对方。如果已经有一种占据主导地位的架构，做些调整、略微改一改，并不能把你带到想去的位置。它买晶圆的价格更低，买内存的价格更低，买制造产能的价格更低。而且，它还卖其他东西，可以随时打包销售：它卖CPU，也卖交换机。这不是一家初创公司成就伟大事业的路径。</p>
+<p>因此，在2015年底、2016年初，我们坐下来思考AI会带来怎样一场计算革命时，第一个问题并不是：我们能不能造一颗类似GPU的芯片？</p>
+<p>我们问的是：假如从一张白纸开始，没有过去二十年图形计算的历史包袱，完全从第一性原理出发，我们会造什么？</p>
+<p>答案是，如果你相信AI将成为一种主导性的工作负载，而推理将成为其中的基础环节，那就应该造一颗巨大的芯片。这个行业过去尝试过很多次，也失败过很多次。你应该造一颗很大的芯片，再把一种与其他厂商不同的内存尽可能塞进去：SRAM。</p>
+<p>我们提出这个想法时，很多人说：“你们疯了，这绝不可能成功。”但我们最终造出来了。它是计算机行业历史上最大的芯片，比此前制造过的任何芯片都大56倍。这使我们能够做到比其他方案快15倍、20倍、30倍。</p>
+<p>当然，过程中有大量技术难题需要解决。做一种新的架构，也意味着很多人不理解你做出的取舍。我们现在花了大量时间解释，为什么衡量GPU的方法，与衡量我们的方法不一样。</p>
+<p>想象一下，你开着特斯拉去找一位老修车师傅。他问：“排气歧管在哪里？我该怎么测尾气、怎么测排放？”你没法这样测，因为它是另一种架构，不能套用同一种思路。它的排放发生在发电厂，整个机制根本不同。</p>
+<p>当我们把产品造出来、推向市场，解决了这些困难的技术问题之后，仍然有人来问：“那这个问题怎么办？”但那些问题未必适用。</p>
+<p>“这么大的模型，你怎么装进去？”我们会用与GPU不同的方式把它拆开。</p>
+<p>“你怎么解决良率？”我们之所以能做出来，就是因为解决了此前别人没有解决过的技术问题。</p>
+<p>因此，真正做开创性工作的挑战，一部分是发明它，另一部分是向世界解释：人们许多现有的思维模型，原本是为其他东西建立的。我们的性能优势，来自一系列根本不同的工程取舍。与其他架构相比，我们会擅长不同的事情，也会在不同的地方有弱点。这正是计算机架构所要做的事。</p>
+<h3>SRAM、带宽与能连接多少GPU</h3>
+<p><strong>Baker：</strong> 广义上说，设计芯片时，眼下大家都在台积电晶圆的固定约束下工作。</p>
+<p>我们也希望，为了美国，英特尔能加入这一竞争。那会非常好。我想明天陈立武也会来。所以，我希望选择不只有台积电。但眼下，我们都面对这些基本约束。</p>
+<p>你可以像GPU那样，把晶圆切成一颗颗芯片；也可以像你们这样做。如果选择把它切开，再配上HBM，就进入了大约十家公司混战的领域。</p>
+<p><strong>Feldman：</strong> 对。</p>
+<p><strong>Baker：</strong> 你必须在计算能力、存储容量和内存带宽之间做取舍。Andrew，你们围绕这片晶圆做出的取舍，是把内存带宽优化到了一个非常独特、非常难以复制的程度。“永远不会有人超过”是一个太长的时间判断，但对我来说，如果有人能在内存带宽上做得比你们更好，我会感到意外。</p>
+<p><strong>Feldman：</strong> 那会非常困难。我们确实做出了一系列取舍。简单来说，有两类内存：一类能存很多东西，但速度较慢；另一类每平方毫米存不了那么多东西，但速度很快。</p>
+<p>在图形计算发展的绝大部分历史里，以及进入AI之后，GPU选择的都是“存得多、但较慢”这条路。我们做了不同的选择，采用SRAM这种架构。它每平方毫米能够存下的东西不多，但能很快取出来。</p>
+<p>一旦做出这个选择，我们就需要更多这样的内存。我们不能让它每平方毫米再存更多东西，也不能靠那种办法进一步提速，所以我们需要的是更多平方毫米。我们必须把芯片做大，做到晶圆级。</p>
+<p>因为做得足够大，我们就能采用这种不同的内存。它让我们在推理所面对的那个确切问题上有了优势：你能够多快地取得模型权重，再把权重送到计算单元。在这一点上，我们是世界上做得最好的，而且领先幅度很大。这就是把我们带上这条路的架构洞察。</p>
+<p><strong>Baker：</strong> 如果向前看，英伟达是一家很出色的公司。在台积电先进制程加HBM DRAM的世界里，它是占据主导地位的现有厂商，但也有很多挑战者。</p>
+<p>从根本上说，在分离式架构下，把你们的晶圆接到这些系统上，是不是都能让它们变得更好？假如往后看三四年，你们不再受到供应限制，你觉得自己能够连接到这些GPU或加速器中的多大比例？</p>
+<p><strong>Feldman：</strong> 大多数。</p>
+<p><strong>Baker：</strong> 大多数。朋友，哪怕你只说10%，那也是数百亿美元的收入。</p>
+<p><strong>Feldman：</strong> 分离式策略是针对推理的，不是针对训练的。</p>
+<p><strong>Baker：</strong> 当然。所以，我们先把训练市场放到一边，在训练中你们不能这样连接。</p>
+<p><strong>Feldman：</strong> 但针对推理做分离，从各方面看都是一个更好的解决方案。</p>
+<h3>CS-4、CS-5与CS-6的路线图</h3>
+<p><strong>Baker：</strong> 好。我们再谈谈你们的业务和收入……其实，我们本来还剩六分钟，但好在这是我办的会议，可以稍微超时一点。</p>
+<p>从技术路线图看，CS-4会带来什么变化？紧接着的CS-5，以及CS-6，为什么每一代都重要？</p>
+<p><strong>Feldman：</strong> 我们是一家AI计算速度全世界最快的公司。CS-4现在刚开始发货，速度是CS-3的两倍。CS-5将在夏季发货，速度再翻一倍。CS-6将在2028年夏季发货，速度至少再翻一倍。</p>
+<p>也就是说，在很短的时间里，我们会连续三次把速度翻倍。这会让我们保持在比市场上其他方案快10倍到30倍的区间内。</p>
+<p>从最根本的层面看，计算就是三件事：进行运算，存储运算结果，再把结果移到有用的地方。这就是我们在计算领域做的事情。</p>
+<p>我们正围绕这三方面中的每一方面创新：怎样更快地进行运算？怎样更快地存储、从内存中取出信息？怎样更快地把数据从芯片移到需要它的地方，移到你的家里、口袋里的设备、电脑上？</p>
+<p>这就是一家计算公司的基本路线图。我们必须在三个方面都实现大的进步。我们对微小的、渐进式的改进没有兴趣，那不是我们做事的方式。我们感兴趣的是重大的创新进展，去做别人不敢做、做不到，或认为不可能做到的事情。</p>
+<h3>OpenAI大单如何逐步转化为收入</h3>
+<p><strong>Baker：</strong> 那么，再来谈谈财务数据会怎样发展，然后把你们两种业务模式串起来。</p>
+<p>签下那份巨大的OpenAI合约后，你们在12月增加晶圆订单。拿到晶圆大概是4月，到6月可能就做成服务器了。但让它们真正通电、上线，可能比原先想的花了更长时间。因此，第三季度才第一次开始有一小部分来自OpenAI的收入。</p>
+<p>现在，按指引区间的中点，第四季度业务会环比增长40%。这就是因为，你们终于开始看到那份OpenAI合约的影响，对吗？</p>
+<p><strong>Feldman：</strong> 可以这样理解：2025年12月，你拿到了一份两百多亿美元的合约。在我们这个行业，接下来该做的事情，是第二天就订机票飞台湾。</p>
+<p>你去找台积电，说：“我的业务比原先预测的多了。我们能不能一起想办法解决？”他们会说：“很高兴见到你，Andrew。没问题，我们会提高你的预测，但要过几个月才能开始增加供应。”</p>
+<p>所以，等到按新的规模拿到芯片，已经是5月、6月了。</p>
+<p><strong>Baker：</strong> 我刚才算得太乐观了。</p>
+<p><strong>Feldman：</strong> 那次出差花了两周。我们挨个去见最主要的供应商，与排名前十、前十五的供应商当面谈，告诉他们：“我们的业务在增长。实际业务会远远超过原来的预测，大得多。为了拿到这些部件，我们该怎样合作？”</p>
+<p>与此同时，我们开始签数据中心。你也知道，数据中心很难找。2026年1月就很难找，现在更难了。许多原本承诺第三季度上线的数据中心，如今已经推迟到第四季度，甚至第一季度。</p>
+<p>因此，我们拿到了供应，提高了制造能力，现在才开始交付这些算力容量。第四季度会交付一部分，大部分会在明年第一、第二、第三季度交付。</p>
+<p><strong>Baker：</strong> 如果把这个过程翻译成季度业绩，那就是说，这次40%的环比增长只是开始，第一季度应该还会看到差不多的增长。</p>
+<p><strong>Feldman：</strong> 我们对第一季度寄予很高的期望。</p>
+<h3>硬件销售和云服务的现金流差别</h3>
+<p><strong>Baker：</strong> 你们实际上有两种业务模式。公开市场到目前为止看到的，主要是你们的云业务：一个垂直整合的云，优势是资本开支投在自己的硬件上，不需要再为别人的硬件利润付费，而且你们提供了独特的价值。这就是我们在第四季度和第一季度看到的东西。</p>
+<p>那么，能否谈谈甲骨文和微软的合约？当你把硬件卖出去，而不是把硬件作为资本开支投入一个持续产生收入的云业务时，差别有多大？可能从明年第二季度开始，这会怎样影响你们的业务？</p>
+<p><strong>Feldman：</strong> 卖硬件是一门很美妙的生意。你把设备发出去，确认收入，然后收到钱。这很美好。</p>
+<p>缺点是，它不平滑。当你进入一个新的季度，一切都从零开始。这对CEO的婚姻、体重、血压都不太友好，因为每个季度都得从零开始。</p>
+<p>另一方面，云业务很好的一点，是你有多年期合约。进入一个季度时，你手上已经有积压订单，可以直接开展业务。但它也是资本密集型业务。你必须为数据中心付钱，把自己的设备放进去。即便拿到了不错的多年期合约，设备的资本回收期可能也有16到18个月。这个过程中，你会消耗大量资本，花掉很多钱。</p>
+<p>这就是两种选择。还要考虑一点：卖硬件时，客户得有数据中心来放设备。整个行业交付数据中心都在延期时，硬件客户也会面对“设备放在哪里”的问题。</p>
+<p>因此，我们把它看作同一门业务、两种销售方式。如果你想要算力，想要世界上最快的AI算力，你可以直接向我们购买。我们把设备运到你的数据中心，安装好机架，再把钥匙交给你。这是一种方式。</p>
+<p>另一种方式，是通过我们的云，在我们的数据中心里租用算力。</p>
+<p>随着时间推移，两者的毛利率会相近，但对现金流的影响显然不同。到目前为止，大家看到的主要是云这一边。现在刚开始体现的，是我们赢下的一些客户自己拥有数据中心的交易。</p>
+<p>例如，甲骨文的设备会部署在甲骨文的数据中心，AWS的设备会部署在AWS的数据中心。这部分业务会带来一大块一大块的收入增长，因为你交付的是大批硬件，相应也是成批地确认收入。</p>
+<p><strong>Baker：</strong> 能不能说一下甲骨文、微软和AWS的规模？不用说具体金额，谈相对规模就好。</p>
+<p><strong>Feldman：</strong> 在起步阶段，甲骨文的机会规模是AWS和微软那些机会的两倍以上。</p>
+<p><strong>Baker：</strong> 那部分什么时候开始？</p>
+<p><strong>Feldman：</strong> 明年第二季度。</p>
+<p><strong>Baker：</strong> 那么，你觉得明年会不会有一个季度，硬件收入比云收入还高？</p>
+<p><strong>Feldman：</strong> 我认为会有好几个季度。</p>
+<p><strong>Baker：</strong> 在那些季度里，这会怎样改变你们的现金流？因为华尔街……我上次看市场一致预期时，预期你们明年会消耗25亿美元现金。</p>
+<p><strong>Feldman：</strong> 卖硬件对现金流非常好。</p>
+<p><strong>Baker：</strong> 是的。</p>
+<p><strong>Feldman：</strong> 请大家把这句话记下来：卖硬件对现金流非常好。</p>
+<p><strong>Baker：</strong> 但我上次看到的一致预期，是明年要烧掉25亿美元现金。如果有些季度硬件收入会超过云收入，我觉得，你们就不至于烧掉25亿美元。</p>
+<p><strong>Feldman：</strong> 我认为，只有一种情况下我们才会消耗那么多现金，那就是继续加快数据中心部署。</p>
+<p><strong>Baker：</strong> 如果是那样……</p>
+<p><strong>Feldman：</strong> 我们就会增长得更快，收入也会增长。</p>
+<p><strong>Baker：</strong> 那样的话，云业务收入就会大得多。</p>
+<p><strong>Feldman：</strong> 云收入会快速增长。</p>
+<p><strong>Baker：</strong> 云收入会飞快增长。</p>
+<h3>黄仁勋、竞争与合作伙伴</h3>
+<p><strong>Baker：</strong> Andrew，我第一次见到你是在2017年或2018年，所以认识你也快十年了。我认识Jensen已经快三十年了。你我曾经多次聊起Jensen。一个月前，所有人都在赞扬他。现在你在台上，我也想给你一个机会，谈谈Jensen。</p>
+<p><strong>Feldman：</strong> 站在创业者的角度，当你创办一家公司时，梦想的就是Jensen所完成的事情。你梦想着创办公司，经过长时间的建设，把它做成全世界市值最高的公司。</p>
+<p>每个创业者开始创业时，想的都是这些。你去寻求A轮风险投资，心中所期待、所梦想的，向妻子或丈夫讲的，向兄弟讲的，都是这件事。你的兄弟还可能会说：“你这都是胡扯。”但你想证明，自己能做到。</p>
+<p>在我有生以来看到的创业历程里，那是最成功的一次。除此之外，过去十五、二十年，他还是最成功、最出色的CEO。不仅在我们这个行业，在任何行业都是如此。</p>
+<p>其他事情我不评论。但从创业者、从CEO的角度看，他就是这个领域最出色的人。另一点也很有意思：我不觉得这件事存在什么争议。大家都知道，他就是最出色的那一个。</p>
+<p><strong>Baker：</strong> 我可能对Andrew说过，也可能没说过：“朋友，当你是NBA新秀时，头一件事，就是和迈克尔·乔丹说话。”〔该句字幕可能缺词，按现有字幕直译。〕我可能说过，也可能没说过。不过，Andrew是一个竞争心很强的人，我很欣赏这一点。</p>
+<p><strong>Feldman：</strong> 从我们的角度看，我们想凭产品取胜，其他那些事情，我们不在乎。</p>
+<p><strong>Baker：</strong> 对。</p>
+<p><strong>Feldman：</strong> 这是真的。你要走出去，用产品赢得竞争。如果做不到，我们就应该输。</p>
+<p>我们自己相信，我们的客户也相信，而且我认为所有测试过的人都知道，我们的速度最快。快速推理现在正成为人们需要推理服务的一个根本原因。这种需求非常大，所以我们的需求远远超过能够提供的供应。</p>
+<p><strong>Baker：</strong> 同时，你们也能成为Trainium、AMD和英伟达的出色合作伙伴。</p>
+<p><strong>Feldman：</strong> 我们希望如此。没有理由做不到。过去二十年、二十五年里，一个很有意思的变化，就是你必须有能力与合作伙伴同时竞争。</p>
+<p>我认为，思科很早就表现出了这种关系。Salesforce也是如此。Salesforce必须与微软合作，虽然两家公司有许多业务相互重叠。你必须能够这样做。这也是我一直在学习的一课。</p>
+<p><strong>Baker：</strong> 你学得很快。谢谢你，Andrew。</p>
+<h3>AI今天如何改善普通人的生活</h3>
+<p><strong>Baker：</strong> 我们给所有人都准备了同样的三个问题。来一轮快问快答：今天，AI正以哪一种具体方式，让普通美国人的生活变得更好？</p>
+<p><strong>Feldman：</strong> 我关心教育。这个话题一直与我关系很深。</p>
+<p>两千多年来，我们其实一直知道怎样教育孩子，只是因为成本高，选择不这样做。亚历山大大帝的父母希望他聪明，就请亚里士多德来做导师，每天陪他坐上很多个小时。</p>
+<p>我们知道，孩子就是这样教出来的。不是所有孩子都用同一种方法教，也不是把他们放进一个三十人、四十人、五十人的班级，而是给他们专注的一对一个别辅导。历史上最富有、最有权势的人一直这样做，因为它有效。</p>
+<p>现在，看看ChatGPT或者Claude能给一个八岁孩子带来什么。这个孩子可能不理解带余数的长除法，也可能不知道怎么解出X。AI可以用八种、十种、十二种、十五种不同的方式给他解释。你只需要输入：“我还是不懂，你能换一种方式解释吗？”</p>
+<p>它能给所有孩子提供的，是历史上只有最富有、最精英的孩子才享有的私人导师式教育。对我来说，重要的是，它对每一个人都可获得，而且可以免费获得。</p>
+<p><strong>Baker：</strong> 别只说亚里士多德了。它甚至会比亚里士多德聪明得多。</p>
+<p><strong>Feldman：</strong> 没错。亚里士多德在他那个时代很不错。</p>
+<p><strong>Baker：</strong> 比亚里士多德还好。</p>
+<h3>数据中心怎样成为社区的好邻居</h3>
+<p><strong>Baker：</strong> Cerebras正在做什么，来确保AI给美国人带来积极影响？</p>
+<p><strong>Feldman：</strong> 我们并不是数据中心开发商，我们是租户。但即使如此，我们仍在与美国各地社区里的数据中心开发商合作。</p>
+<p>没有任何理由，数据中心不能成为一个好邻居。说做不到，那只是一个误解。第一波数据中心开发商试图不透明、遮遮掩掩、偷偷摸摸，最后遭到了非常严重的反噬。</p>
+<p>这件事并不难。我们正在参与一个数据中心项目，距离这里大约两小时。我给市长打电话，说：“如果你们不想让镇上有数据中心，就告诉我们。我们可以把它建到别处去。”</p>
+<p>然后，我们一起讨论镇上需要什么。你们的高中需要一个橄榄球场吗？或者，未来十年学校的电费由我们来付，怎么样？</p>
+<p>这些是几十亿美元的项目。一座新的橄榄球场，那点钱只是个尾数；高中的电费，也只是个尾数。你完全可以来这里建设数据中心，同时成为一个非常好的邻居。这一直是我们的强项，不仅在美国，在我们去过的其他地方也一样。其他公司也没有理由做不到。</p>
+<p>微软把这件事正式写成了一份很漂亮的文件，核心意思其实就是：别做一个糟糕的邻居。来这里，建设数据中心，保持尊重，做一个好邻居，提高当地的税基，创造本地就业，创造价值高、规模大的建筑工作岗位。做个好邻居，并没有那么难。</p>
+<p>虽然我们不是开发商，只是租户，但这一直是我们在努力做的事情。</p>
+<h3>三年后的企业与结束问答</h3>
+<p><strong>Baker：</strong> 三年以后，AI还会给普通美国人带来哪些很棒的能力？</p>
+<p><strong>Feldman：</strong> 我认为，现在去想三年之后，已经有点超出想象了。经营一家企业的含义，将发生根本变化。你会管理一群代理，财务关账会由代理完成。</p>
+<p>我们脑海中关于一个组织应该是什么样子的模型，会被打破。组织会变成一种不同的东西。</p>
+<p><strong>Baker：</strong> 最后一个问题。你在这次会上见到那位朋友了吗？你们合影了吗？〔这里的人名或账号，英文自动字幕记作“a rational analysis”，拼写未核清。〕</p>
+<p><strong>Feldman：</strong> 没有，但我想见见。如果他在这里，我会先揍他一下，然后我们再像朋友一样合影。</p>
+<p><strong>Baker：</strong> 好，这位朋友，如果你想坐下来和Andrew聊聊，我可以安排。</p>
+<p><strong>Feldman：</strong> 我们很乐意一直进行技术讨论，聊到油漆都干了也没关系，我们就喜欢这个。</p>
+<p><strong>Baker：</strong> 你可以尽情谈参数良率。</p>
+<p><strong>Feldman：</strong> 我答应过，今天在台上不谈这个，因为会把大家无聊得想哭。</p>
+<p><strong>Baker：</strong> 好。谢谢大家。Andrew，表现很好，A+。</p>
+<p><strong>Feldman：</strong> 谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
