@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>20261121隔夜海外市场总结</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl on" href="../daily.html" aria-current="page" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-21<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../daily.html">← 返回每日复盘</a>
+<div class="card"><article>
+<h2>20261121隔夜海外市场总结</h2>
+<div class="metaline">已完成的海外市场每日复盘 · 美东2026-11-20收盘 · 2026-11-21</div>
+<h3>市场扫描</h3>
+<p>英伟达会计调查消息加剧人工智能股抛售，标普跌3.70%，美债收益率回落</p>
+<p>北京11月21日，覆盖美东11月20日周五收盘，盘后消息及报价截至17:56。人工智能投资回报、融资成本与治理风险共同压低科技股估值，午后英伟达会计调查消息令卖压加重。国债获得避险买盘，黄金和白银继续下跌；必需消费与部分医保股上涨，防御轮动仍在发生。</p>
+<h4>隔夜要点</h4>
+<ul><li>芯片与算力股集中下跌。纳指综合跌5.28%，费半跌10.73%，英伟达跌14.01%；标普与道指较各自年内收盘峰值回落均超过10%。</li></ul>
+<ul><li>融资压力传入信用市场。甲骨文和新云服务商的债务保护成本上升，数据中心贷款转售遇阻；高盛估算趋势策略过去一个月卖出570亿美元股票。</li></ul>
+<ul><li>中短端美债领涨。五年期收益率降15bp至4.71%，十年期降12bp至4.92%；市场削减明年加息预期，十一月消费者一年通胀预期降至3.7%。</li></ul>
+<h3>宏观、利率与外汇</h3>
+<h4>避险买盘压低收益率，远期加息预期回撤</h4>
+<p><strong>国债上涨，中段表现突出。</strong>财政部CMT两年期降13bp至4.63%，五年期降15bp至4.71%，十年期降12bp至4.92%，三十年期降9bp至5.31%；2s10s由28bp扩大至29bp，曲线小幅牛陡。本周四个期限分别下降25、27、23、16bp。十年期实际CMT收益率当日降11bp至2.77%，表明名义收益率回落包含实际利率下降。股票和金属下跌引发对人工智能投资及增长前景的担忧，支撑国债需求。</p>
+<p><strong>近期仍定价加息，更远期路径明显下移。</strong>十二月联邦基金期货结算95.960，以有效联邦基金利率3.88%、12月9日议息及当月9天旧利率、22天新利率加权，在不变或加息25bp的二元假设下，自算加息25bp概率约90.2%。这是期货估算，非官方CME概率。2027年六月、九月合约隐含月均利率分别为4.440%、4.465%，较前日下调16.5bp、19.5bp；九月隐含水平仍高于当前有效利率58.5bp。市场基本撤去十二月加息50bp的押注，同时保留未来继续收紧的预期。</p>
+<p><strong>消费者通胀预期下降，家庭感受分化。</strong>密歇根大学十一月消费者信心终值51.5，高于十月48.0；一年通胀预期由4.7%降至3.7%，长期预期由3.5%降至3.3%。调查覆盖10月20日至11月16日：汽油降价改善低财富家庭的财务感受，持股较多家庭的财务评价下降。后者与股票市场调整的时间一致，整体信心仍较二月低约9%。</p>
+<p><strong>联储官员继续强调通胀约束。</strong>库克认为推迟加息可能迫使未来采取更多、更大幅度的收紧，并重申十月应加息25bp的立场。保尔森认可利率还需提高，也愿意讨论连续会议加息，但主张有节制地推进，为家庭、企业和银行留出调整时间；她没有承诺每次或隔次会议加息。官员的通胀判断与市场对增长风险的重新定价并存。</p>
+<p><strong>美元小跌，下周看数据与供给。</strong>DXY在美东17:00附近为103.84，按两日16:55同截点计算跌0.10%。下周一关注十一月采购经理指数初值，周三关注十月PCE及三季度GDP第二次估计。财政部周一、周二、周三分别拍卖690亿美元两年期、700亿美元五年期、440亿美元七年期国债。WSJ Tradeweb收盘2Y、10Y、30Y分别为4.611%、4.909%、5.301%，较CMT低1.9、1.1、0.9bp。</p>
+<h3>权益市场</h3>
+<h4>科技权重领跌，防御板块仍有买盘</h4>
+<p><strong>指数下跌加速。</strong>标普500跌3.70%，纳指综合跌5.28%，纳指100跌5.61%，道指跌1.93%，罗素2000跌2.76%，费半跌10.73%，VIX涨26.20%。标普连续第七个交易日下跌，较十月收盘峰值回撤11.62%；纳指100回撤19.84%，纳指综合年内跌2.69%。本周标普跌8.61%、纳指综合跌10.02%、纳指100跌10.43%、道指跌8.02%、费半跌17.13%。</p>
+<p><strong>早盘回升后再度走弱。</strong>美股开盘下跌，早盘短暂回升，随后科技股卖压扩大；午后证券监管机构调查英伟达会计处理的消息进一步压低相关股票。等权重标普跌2.04%，较市值加权指数少跌1.66个百分点。494只有效成分股中124涨、367跌、3平，涨跌幅中位数为-1.41%；上涨家数高于周四的36只。跌幅集中于科技权重，市场同时保留防御轮动。</p>
+<p><strong>芯片、存储和新云同步承压。</strong>英伟达跌14.01%、AMD跌13.25%、博通跌12.19%、美光跌13.89%、闪迪跌16.06%、英特尔跌7.97%；CoreWeave跌12.02%、Nebius跌16.11%、IREN跌17.97%、甲骨文跌8.48%。权重股中Meta跌5.93%、亚马逊跌4.10%、微软跌2.77%、Alphabet跌2.70%、苹果跌1.90%、特斯拉跌7.64%。英伟达本周跌22.92%，财报增长和指引上调仍未消除市场对融资、治理及投资回报的疑虑。</p>
+<p><strong>趋势策略减仓构成持续压力。</strong>高盛估算，趋势策略过去一个月卖出570亿美元股票，美股净仓位转为190亿美元空头；其模型预测，未来一周市场横盘、上涨、下跌三种情景下，可能分别卖出658亿、286亿、806亿美元股票。这些是条件性预测。高盛恐慌指标升至9/10；CBOE则指出，当日VIX升幅逾80%来自股价下跌对期权定价的机械影响。两者衡量的对象不同。</p>
+<p><strong>必需消费收涨，财报表现分化。</strong>信息技术跌7.11%、可选消费跌3.50%、工业跌3.13%、通信服务跌3.12%、材料跌2.38%、金融跌1.77%；必需消费涨0.68%，医疗仅跌0.18%。沃尔玛涨1.52%、好市多涨0.76%、通用磨坊涨3.65%、味好美涨3.43%；获评级上调的联合健康和Humana分别涨2.84%、2.63%。Gap业绩后涨11.44%，Ross Stores因下一季指引偏弱跌2.92%。BJ’s跌5.35%，其上调指引包含诉讼和解收益，促销压低商品毛利率170bp，盈利质量受到关注。</p>
+<p><strong>全球科技股同步调整。</strong>日经225跌5.06%，韩国KOSPI跌5.21%，欧洲斯托克600跌2.00%，德国DAX跌2.60%，英国富时100跌1.02%。下周需观察科技股反弹时的成交与广度、信用利差能否收窄，以及Anthropic期权预计周一开始交易后的对冲需求；周四美股因感恩节休市，周五提前收市。</p>
+<h3>大宗商品</h3>
+<h4>原油当日反弹，金银铜继续下跌</h4>
+<p><strong>原油结算上涨，周度仍回落。</strong>WTI十二月合约在到期日结算83.98美元，涨0.93%，本周跌5.17%；布伦特一月合约结算92.57美元，涨0.64%，本周跌3.41%。两个基准均连续第三周下跌。WTI已转为一月合约主力，后续比较需保持同一合约口径；本期十二月到期结算不与一月报价混算。</p>
+<p><strong>中东供应恢复抑制风险溢价。</strong>霍尔木兹海峡货流恢复、中东产量回升和供应宽松预期继续压低周度油价。特朗普周四表示不急于决定对伊朗采取进一步行动；局部交火及油轮袭击仍使运输存在风险。11月20日公布的周度持仓数据显示，欧洲柴油期货基金净多头减少3419手至50611手，反映交易者对柴油紧张程度缓解的判断。</p>
+<p><strong>固定合约下金银铜均收跌。</strong>COMEX十二月黄金结算3515.40美元，跌4.62%；十二月白银41.070美元，跌7.41%；十二月铜5.4850美元/磅，跌2.64%。同合约周度跌幅分别为9.54%、16.39%、9.94%。黄金在美债收益率当日下降时仍下跌，显示持有成本、减风险交易及买方退缩共同影响价格。</p>
+<p><strong>资金证据需要区分。</strong>德银金属策略师指出，黄金价格大跌伴随的可见资金流出有限，买盘退缩使市场对交易更敏感；盛宝银行则强调跨资产亏损增加现金需求、投资者削减商品敞口。铜价反映对人工智能资本开支和未来需求的担忧，同时部分现货市场仍存在供应紧张，期货下跌与现货升水可以并存。</p>
+<h3>地缘政治与政策</h3>
+<h4>数据中心政策同时面临本土化与供电约束</h4>
+<p><strong>海外建设税负仍属政策表态。</strong>特朗普周五表示，要对美国企业在海外建设数据中心征收高额税负，鼓励项目留在国内。具体税率、法律授权和实施安排尚未公布。对已经在全球布局算力的云公司，这增加了项目选址和资本开支安排的不确定性。</p>
+<p><strong>许可改革迈过参议院一关。</strong>参议院周四以62票对33票通过跨党派许可改革法案，拟加快环境审批并调整输电规则，同时要求大型云企业承担电网升级费用。法案还需众议院通过及总统签署。新增输电能力有利于接纳发电和数据中心负荷，成本分担条款也将影响项目经济性。</p>
+<p><strong>建设成本和接电周期继续制约落地。</strong>Turner &amp; Townsend覆盖62个市场、超过500个项目的研究显示，美国数据中心建设成本在2026年上升13%，超过全球增速两倍；全球受访者中56%将电力视为交付的重要障碍，超过一半称电网连接通常需要一至两年，近三分之一需要两年以上。项目公告、融资完成与实际可用算力之间仍存在建设周期。</p>
+<h3>科技与AI</h3>
+<h4>融资规模扩大，市场更关注现金回报与信用成本</h4>
+<p><strong>Anthropic完成募资，股价第二日跌8.50%。</strong>承销商已全额行使1.47亿股超额配售权，IPO总毛规模约935亿美元，其中公司获得约916亿美元；加上260亿美元同步私募，公司毛募集资金约1176亿美元。含售股股东所得的总发行规模约1195亿美元。路透指出，摩根士丹利通过向公司购股完成超额配售回补后，该头寸后续可形成的二级市场稳定买盘随之减少。机构订单超过5000亿美元、散户认购意向约1150亿至1200亿美元，是一级市场需求口径；二级市场继续要求企业证明盈利兑现能力。</p>
+<p><strong>信用风险定价同步转弱。</strong>投资级CDX利差盘中一度扩大2.9bp至65.5bp；甲骨文五年期CDS一度升17.7bp至341.5bp，CoreWeave一度升100.5bp至1256.8bp，Alphabet一度升约5bp至94.9bp。CoreWeave的2031年到期、票息9%债券在美东16:12附近下跌约3.6美分至每美元面值78.4美分。国债上涨与人工智能相关信用利差走阔并存，企业的融资条件仍受信用风险溢价约束。</p>
+<p><strong>贷款转售与银行存量承销债务遇阻。</strong>ING约5亿美元数据中心贷款竞价未得到足够需求，转向与买方逐笔协商，其中包括2500万美元Project Jupiter贷款份额。摩根大通拟出售的近20亿美元Qualtrics高收益债收到每美元面值70多美分的报价，低于此前约85美分的试探水平；报价尚未成为成交。后者属于银行此前承担的并购融资转售，其困难主要体现在银行回收价格和市场承接能力。</p>
+<p><strong>Intuit出现应用入口迁移压力。</strong>股价跌12.77%。公司第一财季营收44亿美元、增长12%，但Credit Karma收入增长9%，低于内部预期；管理层在完整问答中同时指出高利率压低金融产品需求，以及消费者更快转向大模型寻找金融服务。全年公司收入指引降至230.81亿至233.65亿美元，调整仅源于Credit Karma；调整后每股收益指引22.88至23.12美元维持。QuickBooks在线生态仍增长20%，AI连接用户的服务使用增加。现行指引仍含Mailchimp，出售完成后将更新，现金所得拟用于回购。</p>
+<p><strong>应用层融资仍有新增需求。</strong>编程代理公司Cognition正洽谈按750亿美元估值融资至少20亿美元，条款仍可能变化；公司九月刚按480亿美元估值融资逾20亿美元。其九月提出年化收入达到10亿美元的目标，该目标的实现需后续经营数据验证。软件应用融资与基础设施信用压力呈现分化。</p>
+<p><strong>盘后网络安全并购洽谈引发分化。</strong>收盘后出现CrowdStrike商谈收购Zscaler的消息，交易仍在讨论、尚未达成协议。截至美东17:56，Zscaler盘后涨16.26%，CrowdStrike盘后跌5.72%；英伟达同期盘后反弹2.91%。下周除并购进展外，关注惠普企业、戴尔、Workday、Autodesk等财报对企业需求和人工智能投入回报的指引。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
