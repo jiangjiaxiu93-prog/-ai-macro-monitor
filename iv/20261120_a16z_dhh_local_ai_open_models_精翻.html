@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>DHH谈本地AI、代理、软件价值与开放模型（a16z全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-21<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>DHH谈本地AI、代理、软件价值与开放模型（a16z全文精翻）</h2>
+<div class="metaline">a16z · David Heinemeier Hansson，Ruby on Rails创建者、37signals联合创始人；Martin Casado、Anish Acharya · 52分15秒 · 2026-11-20 · <a href="https://www.youtube.com/watch?v=TtOoLanFzGw" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：DHH；Omarchy；本地AI；开源；代理；软件护城河；品味；就业</p>
+<ul><li>从Omarchy开发和本地模型讨论代理如何改变操作系统、应用与软件开发，保留关于最后打磨和游戏护城河的反问。</li><li>完整呈现对开放权重、用户控制权与前沿实验室竞争的立场，以及成本、就业、社区和个人创造力的讨论。</li></ul>
+<h3>从Rails与Basecamp，到为代理时代设计Linux</h3>
+<p><strong>主持人：</strong> David，非常感谢你来。我们今天会聊公司建设、AI、软件等等。大家都知道你，我们也很了解你，非常欣赏你的工作。不过，能不能请你先大致介绍一下经历？从Ruby on Rails、Basecamp、HEY，到你目前的项目。</p>
+<p><strong>David Heinemeier Hansson（DHH）：</strong> 当然。我是David Hansson，为互联网构建软件，大概已经有三十年了。其中二十四年——不对，应该是二十三年——在做Basecamp。</p>
+<p>它是最早的一批项目管理工具，在“SaaS”这个说法出现之前，就已经在做SaaS。它上线的日子，大概是Facebook上线前一天或后一天，所以差不多就是这么久。</p>
+<p><strong>主持人：</strong> 太棒了。</p>
+<p><strong>DHH：</strong> Basecamp后来成为Ruby on Rails的起点。Rails是从Basecamp里面提炼出来的，之后被用来开发Twitter、GitHub、Shopify、Airbnb、Coinbase，以及无数其他应用。</p>
+<p>从那以后，这两个项目我一直在做。Basecamp仍然在销售，现在已经到第五版了；Rails到了第八版。五年前，我们又推出了电子邮件服务hey.com。</p>
+<p>这二十五年左右，我还写了四本书，包括《Rework》《Remote》和《It Doesn't Have to Be Crazy at Work》等。我逐步形成了对一些问题的看法，既包括怎样经营公司，也包括我怎么看技术。现在，我每天都会把其中许多想法发到X上。</p>
+<p>这大致就是我的经历。哦，还有现在在做什么：我正在做一个叫Omarchy的Linux发行版，为代理时代原生打造的操作系统。</p>
+<p><strong>主持人：</strong> 我喜欢这个说法。</p>
+<p><strong>DHH：</strong> 做这件事很有意思。我们正在让数十万人从Windows和Mac转到Linux系统，让那句已经说了二十五年的预言终于成真：“今年就是Linux桌面之年。”</p>
+<p><strong>主持人：</strong> 你最早用的Linux发行版是什么？</p>
+<p><strong>DHH：</strong> 如果说桌面，是Ubuntu，而且只是两年半以前。我从上世纪九十年代就开始在服务器上用Linux，但桌面不是。我从2001年起一直是Mac拥趸，当时好像是从OS X的Beta 4开始用的，随后一直留在那个生态。</p>
+<p>直到苹果偏离正轨，沉迷于轻松赚取服务收入：从别人的生意里拿走30%。这当然是一门好生意，你甚至都不用创新。你可以花十年开发一辆从来没卖给任何人的汽车，也可以推出一副彻底失败的“滑雪面罩”，没人会在意。只要能从别人的业务里抽30%，你就稳了。</p>
+<p>不那么美好的，是它与开发者的关系。我就是那些替苹果宣传了几十年的开发者之一。突然有一天，我终于受够了，于是转向Linux。</p>
+<p><strong>主持人：</strong> 这就是Linux桌面“为什么是现在”的主要原因吗？到底有多少来自苹果、Windows等平台把自己的生态搞得越来越糟，又有多少来自AI以及让你能修改操作系统的新技术？</p>
+<p>我昨天晚上还试过，非常惊人。你只需要告诉代理：“修改我现在正在使用的操作系统。”它就真改了，而且能够工作，实在太神奇。</p>
+<p><strong>DHH：</strong> 后者才是会让Linux大规模起来的原因。像我对苹果不善待开发者的不满，这些其他动机，只有一部分开发者在意，甚至不是所有开发者。很多人继续忍受，因为你没办法。如果销售商业软件，你必须上应用商店。所以我不认为，这些事情本来就能让大批人转向Linux。</p>
+<p>但代理时代，绝对会。</p>
+<p>今天又有一个消息，苹果让在macOS上使用代理变得更困难了，出现更多吓人的弹窗，告诉你不该让Claude访问文件。可是，如果它无法访问你的文件，它又能做什么？</p>
+<p>我们走的是完全不同的方向，是全力拥抱。整个操作系统，过去五个月左右，甚至可能六个月，一直在用代理开发。我没有亲手为Omarchy写过一行代码，但通过代理写出了几十万行。</p>
+<p>我们用它来加速Omarchy自身的开发，正在以一种连我自己都几乎无法相信的速度创造东西，然后把同样的能力交到用户手里。</p>
+<p>就像你刚才的体验一样，任何人一旦体验到：整个操作系统都是可塑的，你能改变任何东西，改变任何元素的工作方式——想要新开始菜单，想挪动时钟，想换日历，或者给现有的操作系统功能加一点东西，只需要提示就可以做到；有时几秒钟，最多几分钟，它就真的发生了——这会让人深深着迷。</p>
+<p>我不觉得，认真沉浸在这种体验里五分钟的人，还会再回去。因此，我非常看好这个判断：macOS和Windows，都不适合代理时代。而我认为，用不了多久，代理时代就会成为这些计算机唯一重要的事情。</p>
+<p>我们正在全力贯彻这个理念：过去四十年围绕鼠标和点击设计的操作系统，不适合代理时代。</p>
+<p>举一个最基本的例子：如果想在macOS中，重新映射切换工作区的快捷键，只有一种办法：手动打开设置，点一个输入框，填新的快捷键，再点下一个输入框，再填。你不能直接让代理完成。好吧，也许可以用“计算机操作”功能去点击，但那实在很笨，也很可笑。</p>
+<p>Linux这边则恰好相反。过去让Linux难用的每一件事——“它太依赖终端了”“它有一堆弄不明白的配置文件”“它的错误信息晦涩难懂”——正是代理最喜欢的三件事。</p>
+<p>它们希望所有东西都有命令行接口，希望有可预测、可以直接编辑更新的配置文件，也希望错误消息提供所有细节。</p>
+<p>所以，就在今年，Linux历史上的这些缺点，反而变成了你想在计算机上使用Linux的理由。如果你喜欢代理，喜欢AI——到了现在，还在创造东西的人，有谁不喜欢代理、不喜欢AI呢？</p>
+<p>我认为，苹果现在面临着变成代理时代AOL的风险：“我们提供一个围墙花园，这里有Genmoji。你不需要真正前沿实验室的真正代理。给我们个机会，我们会给你一个稀释过、保护起来的版本。”</p>
+<p>但大多数人想要的不是AOL，而是开放的互联网。这就是我们想通过Omarchy交给他们的东西。</p>
+<h3>第三个移动生态的窗口，以及应用锁定的消失</h3>
+<p><strong>主持人：</strong> 在这个世界里，移动设备会怎样？</p>
+<p><strong>DHH：</strong> 移动设备也必须以同样的方式改变。这也是为什么，我首先对桌面上的代理时代这么兴奋：二十五年来，第三个操作系统的机会窗口，第一次重新打开了。</p>
+<p>上一次有这样的机会，是2001年的OS X。那是最后一次有人推出新的操作系统，并对全球市场份额产生实质影响。之后，什么都没有，窗口关闭了。今年，窗口重新打开，Linux突然又有了机会，这在过去二十五年里没有发生过。</p>
+<p>移动领域一直困在同样的格局中。双头垄断，Google和苹果把从别人业务里抽走的那30%丰厚收入分掉了。你能怎么办？微软试过，花了好几十亿美元，想让Windows成为移动操作系统，但没有成功。很大一个原因，就是没有应用。用不了Instagram，谁愿意换Windows手机？所以，它还没长起来就死了。</p>
+<p>现在，这一点正在改变。我们已经在Linux上看到了。</p>
+<p>Omarchy社区里有个人，把我唯一还需要留一台Mac来运行的应用重写了：Adobe Lightroom。因为里面有我的插件和相机预设，我不想放弃，所以一直为它保留一台Mac。</p>
+<p>一个人，用大约两周，把Lightroom整个复制了出来。而且不只是复制，做得还更好。Adobe在这个东西上花了大概十五年，投入几千万美元，甚至更多。</p>
+<p>把这个变化应用到手机、应用到移动设备上的操作系统：你突然可以拥有任何想要的应用，因为如果还没有，就会有人把它做出来，五分钟“氛围编程”就能写出来。这完全改变了游戏。</p>
+<p>这些生态系统的锁定，全部建立在应用是否可用上。而在代理时代，软件开发无论价格还是难度，都已经降到零。任何人，甚至不必是开发者，只要能够驾驭这些代理，都能复制出与Adobe、与其他任何人一样好的东西。</p>
+<p>整个竞争场地被重置了，这就是为什么这件事能发生。所以，我现在的口号是：先拿下曼哈顿——桌面；再拿下柏林——移动。</p>
+<p><strong>主持人：</strong> 的确很有意思。五年前，建立第三个移动生态这个想法，几乎注定失败，难得令人望而却步。现在，投入一些token预算，就能把排名前一万、十万的应用复制出来。而很多应用甚至不必复制，因为代理可以直接完成你原本要交给应用的工作。</p>
+<p><strong>DHH：</strong> 对，这完全已经是可以讨论的现实。</p>
+<h3>应用可能被绕过，软件则会现场变形</h3>
+<p><strong>DHH：</strong> 还有一点也很有意思。复制Lightroom、Photoshop是一回事。过去的经典说法是：Linux永远不会成功，因为缺那么三款应用，没有Microsoft Word，没有Adobe Photoshop，还有另外一两样。</p>
+<p>但首先，我上一次打开文字处理软件是什么时候？现在，我直接让代理起草合同，用Markdown审阅，满意后让它生成PDF，效果非常好。</p>
+<p>我正在设立Omarchy背后的非营利基金会Omacom Foundation。我们募集了大约2300万美元的token和捐赠，需要制作很多合同。每一份合同，都是代理做的，没有用到文字处理软件。</p>
+<p>我甚至不再亲自给文件签名。我看一遍，说：“可以了，签吧。”代理有我的签名，会把它放到文件上，再寄出去。所以，我不再经过文字处理软件，也不再需要Word。</p>
+<p>照片也是一样。你想修改照片，让它好看一点，难道还要花几十个小时、几百个小时，学习Photoshop那些复杂细节？没人会那么做。他们会让代理来，代理会做得非常出色，返回一张很好看的照片。</p>
+<p>或者，想删掉照片里的某个人，只需要说：“把左边那个蠢货去掉，我只想看这两个人。”啪，就好了。</p>
+<p>我认为，代理会消灭一整类、一整类的应用。因为从历史上看，这些应用，尤其是Photoshop这样的东西，不只是一个应用，还是一门职业。你必须学习，有时花上几年，才能熟练。</p>
+<p>这当然很好，但代理现在已经把那些能力接了过去，可以不经过那个应用就完成。</p>
+<p>即使你仍然需要应用，我也已经在社区里看到：只要需要一点Word的东西，或者一点Photoshop的东西，基本都能临时做出来。</p>
+<p>我们现在看到的，是AI一个奇怪的早期形态。它大概每秒运行50个token；打开“ultra fast”，就是120。这个速度还不足以让东西感觉像活的一样。</p>
+<p>Fireworks两周前在自己的大会上，演示了每秒1500个token。他们用游戏举例：从提示“给我做一个俄罗斯方块”，到游戏运行，只花四秒。然后又做另一个游戏：“做一个横版卷轴射击游戏。”游戏就出现在屏幕上，开始运行。</p>
+<p>演示者接着直接给它提示：“加激光。”“很好，加炸弹。”“不，怪物再大一点。”一切都在实时变化。这真的是未来软件的预演：所有东西都可以实时变形。</p>
+<p>这只是每秒1500个token，我们今天已经能做到。明年会怎样？两年后，如果模型每秒运行十万个token、一百万个token，会怎样？</p>
+<p>方向上看，过去阻挡人们推出新生态、让新生态成功的障碍，都会消失。因为不只是应用容易做，生态本身也更容易创造。</p>
+<p>我们现在这个版本，是我和项目主要伙伴Ryan Hughes，大概花两个半月的兼职时间做出来的。就是这个版本，后来变成了现在疯狂起飞的这个东西。</p>
+<p>我们竞争的对手，是微软成千上万名程序员，是世界各地大公司里成千上万名程序员。突然间，这里寥寥几个人，就能做出不只是有竞争力、甚至更优秀的东西。以前闻所未闻，根本不可能。</p>
+<p>再看风险投资。过去二十年左右，资金不断涌向开发者，因为你需要开发者把产品做出来，也需要给他们几年时间的资金跑道。</p>
+<p>现在，这一切都在压缩到几天、几周，最差也就是几个月。而这只是我们现在手里的模型。</p>
+<p>就在我开发Omarchy这段时间里，我开始这一阶段时，用的大概是Opus 4.8，当时已经不错了；然后有了Sol，现在又有了Opus 5.5。4.8到5.5之间的差距，实在太大。</p>
+<p><strong>主持人：</strong> 对。</p>
+<p><strong>DHH：</strong> 圣诞节之前，还会再发一个吗？很可能。就算没有，也会在明年年初。这些跃迁正在加速。</p>
+<p>所以，任何人如果还认为源代码里存在护城河，哪怕有几百万行；或者认为那些代码能保护自己的生态，那就是在自欺欺人。</p>
+<h3>主持人的反问：代码之外的品位，才是护城河吗</h3>
+<p><strong>主持人：</strong> 听你这么说，对我而言很有意思，因为我一直把你看作一个工匠。你的设计审美、交互的人体工学都非常出色，你是这个领域的传奇人物。</p>
+<p>说来有点好笑，我还在玩《星际争霸》，我五十岁了，还在玩。他们最近又出了一个补丁，调整了幽灵兵的数值。这个兵种已经存在二十年了，现在还在做非常细微的调整。</p>
+<p>所以，从某个层面说，我理解我们可以“氛围编程”——也不一定是氛围编程，就是让大模型很快写点东西。但另一方面，我看你做过的事情，也看《星际争霸》这样的游戏，会意识到，软件其实是这些与代码行数相对独立的、非常细微的调整。随着时间推移，真正构成软件的，就是这些东西，而不是多少行代码。</p>
+<p>在我看来，那才像护城河。真正使用或者处理这些东西时，那些长尾设计选择，才是核心。</p>
+<p>那么，有没有可能，变化其实没有那么大？我们仍然需要热爱软件的人，以同样的方式，把自己的东西注入其中，只不过不再需要逐行写代码了？</p>
+<p><strong>DHH：</strong> 正是如此。我感觉，自己现在可以把更多品位、更多愿景、更多完美主义，放进软件里面。</p>
+<p>因为从“我发现有个地方不太对，几个像素偏了一点”，到“我想把它改过来”，这之间的障碍已经崩塌了。我太喜欢这种感觉。现在，我看到任何问题，任何不完美的软件，都会认为有机会一直提示、一直改，直到完美。</p>
+<p>这也是我现在每天工作十六个小时的原因。以前，我写过一整本书，叫《It Doesn't Have to Be Crazy at Work》。</p>
+<p><strong>主持人：</strong> 对，这简直就是你的宣言的一部分：工作不该疯狂。</p>
+<p><strong>DHH：</strong> 但现在，工作简直他妈的疯狂。</p>
+<p>它这么疯狂，是因为如果你像我这样，完全是个完美主义者，是那种喜欢不断打磨、不断削去多余部分的工匠，你突然获得了超能力。这种感觉令人着迷，甚至可能直接危害健康和睡眠，至少在一段时间里是这样。</p>
+<p>我觉得，我们正处在这个时刻。你说得完全正确，任何人都可以做这件事；很多事情，长久以来任何人都可能去做，但他们并没有去做。仍然需要某种愿景，仍然需要用心，需要愿意把所有零件组合起来，并且有决心做到底。</p>
+<p>我们看到的很多“氛围编程”项目，开头还挺有希望，然后做的人失去了兴趣。他们只做最令人满足的部分。对一些人，也许大多数人来说，最满足的是前80%：“我先把前80%做出来。”剩下20%有些别扭，不太对，有些bug，诸如此类，然后他们就没兴趣了。</p>
+<p>不知道为什么，我恰恰是在最后2%才得到全部多巴胺回报。前98%我真的不在乎，我想要最后那2%。那才是我开发软件的满足感所在。</p>
+<p>如果你是那种不断添加、不断努力，直到它真的完美的人，现在就是历史上一个极其令人上瘾的时刻。至少暂时，仍然需要一个人驾驭代理。我还没找到那种正确的循环或设置，能一次提示，就让设计完美、一切完美。目前，还需要人的眼光。</p>
+<p>你提供这份眼光，然后感觉自己下面有一整支军队，而且没有协调成本。</p>
+<p>我以前就说过，我绝不想把37signals这家大概六十人的公司，换成一家六千人，或者六万人的公司。当然可以做更多东西，但那样就必须和六万人打交道，听着就很悲惨。</p>
+<p><strong>主持人：</strong> 绝对是痛苦和折磨。</p>
+<p><strong>DHH：</strong> 是。但如果通过代理，获得六万人的生产潜力，那我就有兴趣了。</p>
+<p>没有争论，没有HR，没有委员会会议。只有我，通过高带宽与一支代理舰队沟通，执行一个提炼清楚的愿景：一台完美的计算机，应该是什么样子。我的天。</p>
+<p>Tobi Lütke说，他周末这样工作，然后回到那家有七千人的公司办公室，就像退出超空间航行。只有你和代理的时候，你在超高速里，一切顺得不得了。然后，急刹车，进办公室，开始处理HR、团队、进度更新、报告，以及经营公司时所有其他乱七八糟的事。</p>
+<p>如果换一种做法，你就不必经历这些，而且可以获得类似，甚至更好的结果。这是当前这个时刻最令人震惊的地方。</p>
+<h3>三个订阅，以及人的作用可能只是短暂窗口</h3>
+<p><strong>DHH：</strong> 更惊人的，是它这么便宜。</p>
+<p>大概一个月前，我在X上开过一个玩笑：我的token是无限的。因为我已经工作二十年了，现在有钱，想买多少token就能买多少。</p>
+<p>那你知道，我实际买了多少吗？三个Claude订阅，仅此而已。过去三个月，我记得只有两周，真的把这些订阅用满，或者接近用满。大多数星期，我只用一个200美元、20倍额度的订阅，就能做完所有事情。</p>
+<p>所以，别告诉我，这个时刻只属于那些钱真的无限多的人，完全不是。我们说的还是前沿模型，甚至还没谈开放权重模型、更便宜的模型、用Luna运行，或者任何优化。我就是直接：“Opus 5.5，把所有东西修好。”然后就好了。</p>
+<blockquote>译注：此处工具名自动字幕为Luna，未能独立核准，按字幕保留。</blockquote>
+<p>就我能往前推进的事情而言，已经饱和了，而我们正在以闪电般的速度前进。</p>
+<p>因此，是的，我认为人类现在仍有位置。但我也没自负到认为，这必然永远持续下去。完全有可能，到明年，我们就会拥有真正的超级智能，在所有事情上都比人类更强，甚至比我更会打磨一台完美的计算机。</p>
+<p>到时候，你只要说：“给我做一台好用的计算机。”唰，它就为你量身定制Linux内核，以及其他一切，然后就完了。</p>
+<p>所以，我很珍惜这一刻。也许只有一眨眼的时间，人类仍然能够给过程增加价值，同时又拥有如此惊人的能力。</p>
+<p>再往后，我不知道。也许到明年年底，我们就都死了。所以，好好享受吧。</p>
+<h3>怎样判断超级智能来了：软件与机器人可能有不同时间表</h3>
+<p><strong>主持人：</strong> 我必须问一下，你脑子里有没有一个“David的超级智能测试”？每个新模型出来，你都会拿来测一次？</p>
+<p>举个例子，我的测试是：每次有新模型，我就让它去购买使自己获得实体所需的一切。我家一直不断收到机器人零件，真的没开玩笑。我会给它两万美元预算，说：“去，把你的机器人造出来。”</p>
+<p>然后，各种东西寄到我家，OLED显示器，还有其他东西。但现在，它连接近做到都谈不上。这就是我的ASI测试：等到一个能行走、自主行动的机器人，是它自己买零件、自己造出来的，我就知道到了。</p>
+<p>所以我想问，你有没有类似的测试？做到某件事，你就知道它来了。</p>
+<p><strong>DHH：</strong> 没有。也许我应该有，但我的感觉是，在软件开发上，我们已经拥有超级智能。</p>
+<p><strong>主持人：</strong> 那当然。</p>
+<p><strong>DHH：</strong> 如果看能力的广度，AI比我认识的任何程序员都好。在某些单独领域，我认识的个别超级程序员，仍能在很窄的范围里胜过代理。但把整件事放在一起，再考虑它们完成工作的速度，我们已经拥有超级智能了。</p>
+<p>我只需要提示、稍微引导，就能构建任何东西，真的是任何我想要的东西。</p>
+<p>不过，你的机器人例子很有意思。我大概两周前刚去过中国，参观了Unitree，还有另一家公司。与宇树的人聊时，他们的看法，与我在硅谷听到的非常不同。</p>
+<p>我刚看过一次访谈，受访者说，也许明年就会有超级智能，可能快速起飞。宇树的人则说：“不好说，四年、五年，也许十年。”</p>
+<blockquote>译注：前述访谈的采访者姓名在字幕中识别为Doress，无法可靠恢复，未另补姓名。</blockquote>
+<p>这里有一种很奇怪的反差：做软件的人觉得，“天哪，这马上就要发生了”；做执行器、机械等等的人，则说，“不好说，也许剥个洋葱，实际上都挺难的”。</p>
+<p><strong>主持人：</strong> 就目前而言，我的Grok机器人认为，在我家实现AI的正确方式，基本就是家庭自动化。所以它一直往我家订购家庭自动化设备。</p>
+<p>我觉得，在真正的机器人之前，至少我会先得到《星际迷航》式的东西：墙上一个显示屏，有张能说话的脸，控制整个房子。其实我觉得，它这样非常务实。</p>
+<p>顺便说，这是它自己决定的，不是我决定的。</p>
+<p><strong>DHH：</strong> 顺便说，如果不小心，你就是这样变成回形针的。</p>
+<p><strong>主持人：</strong> 你说：“给你一个模糊目标，优化人类幸福。”然后，砰，你就完了。</p>
+<p><strong>主持人：</strong> 我们得让Martin跟上前沿，拜托，Martin。</p>
+<p>你刚才提到了开源。我一直觉得，你很特立独行，对于权力集中也有很强的看法，刚刚已经谈到了一些。那么，你怎样看前沿实验室与开源之间的关系？</p>
+<h3>需要前沿突破，也需要开放权重约束双头垄断</h3>
+<p><strong>DHH：</strong> 我认为，我们绝对必须拥有开源和开放权重，才能让整个游戏保持诚实，必须有竞争。</p>
+<p>我的职业生涯里，有两个阶段，都对双头垄断瓜分一切深感失望。互联网只给过我们短暂的避难所，大约从2000年到2009年。那是一个辉煌的时代，最重要的平台完全开放、完全免费，任何人都可以创造任何东西，不需要先请示任何人。</p>
+<p>然后，移动平台来了，游戏结束了。突然又回到一个苛刻的经济格局：你必须乞求许可，应用才能存在，因此，你的生意才能存在。我个人完全无法忍受。</p>
+<p>所以，无论我多么欣赏Opus 5.5、多么欣赏OpenAI正在做的事，如果最后又形成双头垄断，尤其还是由政府以强力保障的双头垄断，那会是噩梦。对我们极其不利。</p>
+<p>这个行业在九十年代的加密战争里，经历过类似的事情。我们曾经非常接近禁止公钥加密，因为NSA等机构说：“那我们怎么监听所有东西？”</p>
+<p>想象一下，如果没有加密，互联网会走向哪里？怎么进行商业交易？怎么通信？那会给世界经济、世界发展、网络本身，带来巨大的伤害。</p>
+<p>我认为，AI现在也处在这样的悬崖边。我不停听到许多聪明人说：“也许政府应该直接接管。”我的天。</p>
+<p>就算没有政府接管，只是在商业上形成两家实验室看起来把市场分掉的局面，也会是灾难。我们必须避免。</p>
+<p>好消息是，现在闭源模型领域的竞争，比我观察过的计算机行业其他任何领域、任何阶段都更强。不只有那两家领先实验室，SpaceX的xAI也已经很接近；Google则好像这一刻还在场上，下一刻却又跑到某座岛上，抽什么奇奇怪怪的东西去了。但至少有潜力。除此之外，还有几家实验室，也在一点点蚕食这个市场。这非常重要。</p>
+<p>不过，更重要的是，开放权重模型也变得非常好了。</p>
+<p>它们到底落后多少，我不知道怎样精确量化。GLM 5.3、DeepSeek Flash，大概落后六七个月，有些任务上甚至没落后那么多。</p>
+<p>这里有很多针对跑分的过度优化，我不太买账。他们放出一个基准，说：“看，和Opus 4.8一样好。”我一试，觉得：“不好说，在你那个基准上也许是，在现实世界里不是。”</p>
+<p>但那又怎样？它们已经在场上，已经参与竞争。这些模型有用，而且可以在你自己的本地硬件上运行。这一点让我非常震惊。</p>
+<p>大概六个月前，我写过一篇文章，说这太蠢了，为什么有人要买性能很强的个人电脑？当时能在本地运行的模型太差，什么都做不了，推动不了任何重要的事情。</p>
+<p>谢天谢地，我完全错了。甚至还没到同一年年底，DGX Spark就已经能运行真正有用的模型。Qwen3.8 Flash Next，是一个完全可以使用的模型。</p>
+<p>你可以花几千美元，买到一盒能放在自己桌上的智能。这太不可思议了，而且我们迫切需要它。</p>
+<p>但我想要的是全部。有些开源社区的人非常强硬，不开源就不要。我完全不认同。我为美国拥有这两家前沿实验室、为它们保持领先而欢呼，因为我们随后就能使用这些成果来构建东西。只要它们受到竞争约束，我认为这很棒。</p>
+<p>前提是，它们不能拥有一个无限刷钱的漏洞：没有竞争，就把token价格提到每百万500美元之类。因为我们会付钱，绝对会付。</p>
+<p>我们已经看过这个故事。社交媒体和网络整体起飞后，被两家公司分掉：Google和Meta。它们吸走了网络广告价值链中99%的价值，因为每个人都愿意，只为自己花出去的每一美元，多拿回额外一美分。</p>
+<p>在我看来，这很扭曲。虽然我在一定程度、一些领域里，欣赏它们作出的贡献，但如果你拿走了所创造价值的99%，那就是反乌托邦。</p>
+<p>如果不受制约，实验室也绝对会这么做，因为资本主义就是这样运转的。事实上，我认为多数时候，这算一个功能，而不是一个缺陷，因为这正是激励所有这些投资的东西。每个人都希望最后拥有这样一家公司，都想持有下一家Google、Meta，或者现在的Anthropic、OpenAI的股份。</p>
+<p>但这些想法，我们必须同时装在脑子里：我们需要开放权重，也可以为前沿的进展欢呼。如果两者都有，一切都会对所有人变得更好，我们就能生活在那种极度充裕、人人繁荣的局面里。</p>
+<h3>野心膨胀：从一台更好的电脑，到超越Mac</h3>
+<p><strong>主持人：</strong> David，我注意到，随着模型越来越有能力，我们每个人都在沿着野心的阶梯往上爬。</p>
+<p>这也是为什么，我觉得就算那些在软件前10%就能得到多巴胺的人，也必须不断提高野心，才能继续得到那种满足。你做出了一个五年前会让人觉得是魔法的东西，现在却觉得“这有点不怎么样”。</p>
+<p><strong>DHH：</strong> 你想在X上得到一个赞。</p>
+<p><strong>主持人：</strong> 是啊。你做了个3D的东西，或者做了一个能自我修改、拥有各种神奇功能的游戏，结果就四十个赞。你会想，我到底在干什么？</p>
+<p>所以，我觉得这也很酷。我们正在讨论，你通过这个发行版引领的新桌面Linux革命。那么，你的野心再往上一级，会是什么样？有没有什么是过去从来没想过自己能做，却可能在未来十二到二十四个月做出来的东西？</p>
+<p><strong>DHH：</strong> 我已经承认，这个项目上正在发生“野心通胀”。</p>
+<p>我去年才开始，最初居然还是手写，用自己的十根粗手指写一点Bash脚本，一边骂Bash，一边受到各种限制。</p>
+<p>我当时只是想：如果能给自己做一台更舒服的电脑，一个可以待着、命运不由苹果掌控的地方，我就很开心。就为我自己、我的五个朋友，以及网上几个人来做。</p>
+<p>我们做了，而且进展不错，有几万人用。我想，很好，一个不错的小开源项目，我自己也有了一台更好的电脑，太好了。</p>
+<p>然后，代理来了。我的想法从“做一台稍微好一点的电脑”，变成“我的天，我们真的可以做一台完美的电脑”。</p>
+<p>我用了四十年计算机，这四十年里，对计算机的所有愿望，现在差不多都能靠我自己实现。当然，与朋友一起做更有趣，所以我邀请了几十万人一起。但即使靠我自己，我也能做出那台完美的电脑。</p>
+<p>你不只是知道它有可能，而是真的看到它发生，看到人们体验Linux时，不再只是把它当成macOS的替代品、Windows的替代品，而是认为它远远更好。这种满足感太强了，当然会让人产生宏伟的妄想。</p>
+<p>我目前这个宏伟妄想是：大概三年内，我们会比macOS更大。</p>
+<p>世界上只有1.8亿macOS用户。Mac没那么大。我知道，在美国、尤其走在硅谷街头，好像所有人都用Mac，但离开这里，它很小。1.8亿用户，连一个三流互联网服务都算不上。最大的互联网服务有几十亿用户，我们当然能让Linux超过它，当然可以。</p>
+<p>听起来很妄想，因为Linux的人过去二十五年，一直在重复“让Linux在桌面上成功”的预言。但现在我们真的到了，而且正在加速，正在发生。</p>
+<p>这就是过去四五个月，甚至可能还没这么久，我的野心阶梯怎样上升的。我们最新的Quattro版本，全面拥抱代理，用代理来开发，再把代理交到所有人手里。看到几十万人开始使用，我就想：好吧，三年，这是那个妄想。</p>
+<p>那不如十二个月后再看看？有没有可能十二个月内，就把Mac挤下去？</p>
+<p>苹果花了大概二十年建立macOS这个位置，更早之前，它是一家诞生于七十年代的公司，几十年的谱系才走到这里。但我认为，这完全有可能。</p>
+<p>我不会给“未来十二个月就实现”超过一半的概率，但也不会排除它。既然实验室里有聪明人认为，我们只剩十二个月，然后递归式自我改进就会带来AI的超级神明，那我们把世界排名第二的操作系统挤下去，总是可以的吧？</p>
+<p>不过，这只是我在自己的小圈子、自己的关注范围内发挥野心。我其实不太擅长宏观尺度上的雄心，那留给Elon那样的人。让我们殖民所有行星，听着真棒，给我一张去火星的Starship船票，我很乐意去。但那不是我。</p>
+<p>我想在这个狭窄范围里，抱着极其凶猛的野心，把全部精力投进去。</p>
+<h3>“AI欣快”与“AI精神病”：把注意力放在今天能做的事上</h3>
+<p><strong>DHH：</strong> 另外，我也尽量不去想十二个月后会是什么样，因为我发现，那是患上严重“AI精神病”的最快方法。</p>
+<p><strong>主持人：</strong> 是。</p>
+<p><strong>DHH：</strong> 我更喜欢“AI欣快”，是温和得多的版本：你对未来非常兴奋、非常乐观，因为关注的是现在可能做到什么，今天手里的工具是什么样，今天正在做什么。</p>
+<p>如果试图想象再往前两次、三次、四次模型跃迁，你就会发疯。因为到时候，为什么还需要任何人？人类为什么还需要存在？我们是不是都会变成回形针？我认为，那是一条很糟糕的路。</p>
+<p>这也是为什么，那么多AI安全人士最后变得疯狂，因为他们整天做的就是这个：坐着想，未来十二个月，如果所有最坏的事情都发生，会怎样？是不是很糟？是啊，当然会很糟。</p>
+<p>如果1944年，你坐在奥本海默旁边说：“天哪，这东西做出来以后，你能想象五年后会怎样吗？整个星球都荒废了，到处是核废料。”结果发生了什么？</p>
+<p>在我看来，原子弹是世界和平遭遇过的最好的事情。我们真的得到了五十年美好的冷战，没有发生彻底的核毁灭。</p>
+<p>所以，预测未来太难了，我尽量远离这种事。我唯一喜欢的未来预测，是William Gibson那句话：“未来已经在这里，只是分布还不均匀。”</p>
+<p>因此，当我使用这个系统，看到眼前这个未来时，我很愿意作出一些预测：如果所有人都能做到我现在做的事，都能看到可能性，那么GDP每年加速增长3%、4%、5%，甚至10%，都属于可能的范围。</p>
+<p>这种事情似乎更容易预测。但一年后，模型会到哪里？摇一摇魔法八号球，再问一次吧。</p>
+<h3>资深开发者为什么拥抱AI，又怎样看职业焦虑</h3>
+<p><strong>主持人：</strong> David，采访前，Anish和我刚聊过，这一轮AI浪潮里，有一个非常出乎意料、也非常美好的现象：我们成长过程中所仰望的许多高手，又站出来了，帮助大家指路。</p>
+<p>现在有很多困惑，也有很多恐惧。你在这里，Eric Raymond也回来了，太棒了；还有John Carmack。这些都是过去三十年的中坚人物。</p>
+<p>首先，感谢你做过的一切。顺便说，你那次演讲，说“软件结束了，现在我们都是建设者”，我一个人听的时候，直接喊：“就是这样！”我觉得，你正在带领一代人走过一个非常令人困惑的时代，谢谢你。</p>
+<p>其次，你在做这些事情的时候，会看向谁？谁是你的指路明灯？你认为，谁对这件事的判断是对的？接下来我们应该更多关注谁？</p>
+<p>我觉得，我们正处在极度困惑的状态。不是所有人都像我们一样，经历过互联网、大衰退、移动互联网的混乱和共享经济。我觉得，你讲的事情对人们很有帮助，而你所尊敬的那些人，也可能提供类似的指引。</p>
+<p><strong>DHH：</strong> 有件事非常有意思。我因为编程实力而深深尊敬的人，100%现在都已经完全入坑，彻底投入。</p>
+<p>这很自然。凡是曾经用艰难的方式做出过东西、并有所成就的人，都无法否认，这些工具能加速他们的工作，无论是什么工作。</p>
+<p>也许很多情况下，因为已经成功，他们不会感到受威胁。但我们中间有一群人，处在不太舒服的位置。</p>
+<p>不知道该不该说是不幸，反正事实就是：大多数地方的大多数程序员，还没有达到财务独立、衣食无忧的状态。他们处于职业生涯中的某个阶段，觉得自己经过大量艰苦劳动，掌握了很多技能，终于赢得了一个位置。然后突然开始焦虑：如果明天一切都没了呢？</p>
+<p>如果我们都不再是程序员，只是“创造者”了，那我是一个好的创造者吗？我不知道。</p>
+<p>我认为，我们必须对此抱有同情。就像你应该同情七十年代底特律的汽车工人，也应该同情卢德派、英国那些最初的织工。许多人在自己的职业中，切身承受了即将到来的颠覆，都值得同情。</p>
+<p>但你可以一边抱有这种同理心，一边说：是的，我不想回到前工业时代。我不想拿着锄头、牵着牛，在那里自给自足种地，那不是我想回去的世界。</p>
+<p>我甚至不想回到那种装配线世界：底特律的汽车工人，可以靠手工、单调地把零件拼起来，获得不错的生活。我们不应该回去，应该向前，应该找到把所有人带上来的办法。</p>
+<p>其中一部分是氛围，真的有一部分就是氛围。现在，正在发生一场氛围之争。</p>
+<p>在这场争夺里，有一群人，因为种种原因，也许是他们自己非常真实的焦虑，有时也是找到了一个受众，决定：“我就来当反AI的那个人。”而且不是一个，简直有十亿个。整个社区都开始对这种东西上瘾。</p>
+<p>如果你画一个维恩图，一边是那些最让人受不了、染蓝头发的“觉醒派”，另一边是反AI的人，画出来就是同一个圆。</p>
+<p>所以，从某种意义上说，我们又在重演上一轮，重演以前的每一场争斗，因为阵营现在就是这样划分的。</p>
+<p>对他们来说，不幸的事情是：他们不喜欢的那些人，先拥抱了AI，结果给他们留下的唯一位置，就是站在反面。因此，他们就必须变成反AI的人。</p>
+<p>这里当然有一种美妙的讽刺：那些让人受不了的人，对未来有一点焦虑，我倒是不介意。五年前，当他们看起来掌握着全部文化权力，随时随地都能取消任何人时，其他很多人对未来也很焦虑。现在，形势有一点反过来了，不是吗？</p>
+<p>但事情并非全部如此。我们也不该陷入那个陷阱：一切都只是部落对立，只有这一边、那一边；也不该认为，每一个对AI感到不适的人，都是染蓝头发的白痴。只是每一个染蓝头发的白痴，也恰好都反AI。</p>
+<p>不管你对此有什么感受，我们要把他们带进来，帮助他们认识到：前面只有一条路，就是穿过去。我们不会回去了。</p>
+<p>没有人会自愿放弃这项技术，永远不会。除非最后我们真的变成了某个AI仓库里堆着的回形针，否则我们不会放弃。</p>
+<p>它已经在这里，世界已经不同。以前也发生过很多次这样的变化。莱特兄弟飞起来之后，世界就不一样了，我们不会再把所有东西都装船运输。所以，我们有义务继续向前。</p>
+<h3>匿名黑客的回归，与重新属于个人的前沿</h3>
+<p><strong>DHH：</strong> 那我会看向谁？首先，是与我同行的人。你提到的Carmack，还有Tim Sweeney、Mitchell Hashimoto，以及许多我深深尊敬的人。他们做的软件产品，我整个职业生涯都在使用。他们100%都已经投入，都入坑了。</p>
+<p>另外，我还在关注Linux和AI世界里，一个特别有意思的现象：化名黑客回来了。</p>
+<p>安全领域一直有这种传统，但现在，它开始进入主流。Omarchy核心团队，以及Omacom Foundation的工作人员名单里，就有两位使用化名的人。</p>
+<p>一位是outfoxxed，Quickshell的作者。我们所有桌面交互，都使用这个可塑的桌面外壳。另一位是里面的艺术家，Handcore。</p>
+<p>对我而言，这完全是在重现九十年代：电话飞客文化、精英留言板，以及那些东西。我太喜欢了。</p>
+<p>我喜欢计算机重新拥有了八九十年代那样的能量：黑客、实验者，突然又站在一切的最前沿。</p>
+<p>互联网也许曾短暂如此，但后来，互联网商业化了，被接管了。我们有了平台，有了社交媒体，那种东西就死了，不再存在。那种自由精神并没有持续很久。</p>
+<p>本地AI也有许多类似的例子。比如0xSero，是我们通过Omacom Foundation赞助的人；还有Mia's AI Lab。他们都使用化名。0xSero的真实身份，我想其实是已知的，只是用一个网名。</p>
+<p>我喜欢这种能量。因为有了AI的力量，个人现在真的能在整个行业前进的过程中，发挥关键作用。</p>
+<p>正如我刚才说的，互联网被装进瓶子、商业化之后，许多推动前沿的工作，就被大公司吞掉了。Google做了Chrome，然后它成了几乎唯一的浏览器，再造一个浏览器，基本不可能。</p>
+<p>除了Linux内核，浏览器引擎是人类创造过的最复杂的软件。所以，我们关闭了这些领域，把计算机里真正重要的部分，留给世界上最大的公司，只有它们能参与。</p>
+<p>现在，我们正在重新让它民主化，还给黑客文化，还给真正能推动事情的个人。</p>
+<p>所以，我会关注这些人。基本上，网上任何一个用化名、正在做很酷的东西的人，我都会想：喂，我得关注这个人，这里有事情在发生。我喜欢这个。</p>
+<p>这是反LinkedIn文化，完全相反。</p>
+<p>其中很大一部分，是X注入的活力。对整场革命，X起到了巨大的连接组织作用：艺术家、化名黑客、本地AI运动，都通过X连接起来。</p>
+<p>如果Elon买下它之前，那些蓝头发的家伙以某种方式继续控制着它，我们可能根本不会得到这一切，最后也许全都变成LinkedIn式的人类废话。</p>
+<h3>Demoscene回来了：让计算机重新有性格</h3>
+<p><strong>主持人：</strong> 我还想非常快地回顾另一件我很喜欢的事：你还记得九十年代的demo文化吗？</p>
+<p><strong>DHH：</strong> 我的天，当然记得。</p>
+<p><strong>主持人：</strong> 它在创造力这一面，真的回来了，太棒了。有些最复杂、最精妙的演示，来自一些随机冒出来的艺术家。他们对做生意根本没兴趣，纯粹出于对艺术的热爱。</p>
+<p>我都不记得，上一次看到这种运动是什么时候了，非常棒。</p>
+<p><strong>DHH：</strong> 我想把这一切都带进Omarchy。</p>
+<p>不知道你有没有试过Omarchy，它一个标志性的视觉效果，就是屏幕保护程序。那真的是ASCII艺术，配合四十种demo效果，看上去完全像1995年demo聚会里的开场动画。</p>
+<p>我们把所有那些效果带进来，保留终端的审美。这与macOS、Windows的审美完全不同。</p>
+<p>过去很多Linux发行版，似乎都觉得：只要我们做一个Temu版Windows，大家就会爱我们。不，没人想要一个本来就没多好东西的廉价复制品。人们想要量身定制、想要独特的东西。</p>
+<p>Omarchy的审美，完全就是九十年代的demo文化，那正是我想营造的感觉。</p>
+<p>实际上，参加这次通话之前，我还在处理怎么让用户在自己机器上配置本地AI的问题。本地模型启动可能需要一点时间，几秒钟，有些情况甚至几分钟。</p>
+<p>所以，在加载的时候，我塞进了另一个ASCII效果：很酷的字符在屏幕上飘来飘去。有什么功能吗？没有，绝对没有。它就是为了让你觉得：“我正在用一台酷毙了的计算机。”</p>
+<p>这就是九十年代和demo文化当年给我的感觉。</p>
+<p>我那时候也很喜欢盗版游戏。那些游戏都会有开场动画，写着“Razor 1911破解”，或者其他组织的名字，文字在屏幕上旋转。我只要看到那个，当天就觉得自己更酷了一点。</p>
+<p><strong>主持人：</strong> BBS也是那样。</p>
+<p><strong>DHH：</strong> 即便你的工作，只是挪动一个Excel表格，至少在Omarchy做这些效果的那一小会儿，你能感觉自己还活着。</p>
+<p><strong>主持人：</strong> 是啊，BBS文化也是这样。那些协议，你还记得吗？Xmodem、Ymodem、Zmodem、Kermit。为什么叫Kermit？没人知道，但听着就很厉害。</p>
+<p><strong>DHH：</strong> 我十四岁时，就在卧室运行过一个精英BBS，接了三条电话线。</p>
+<p>我可以告诉你，当丹麦那家垄断电信公司的安装人员，来装第三条线，看到这个十四岁小孩的时候，他的表情就是：“这到底怎么回事？这肯定违法。”</p>
+<p>他完全正确，这确实违法，也确实酷得不得了。</p>
+<p>我到现在，还能听见US Robotics调制解调器以33.6K连接时的声音。那是多么标志性的声音，我们应该拥有更多这样的东西。</p>
+<p>计算机应该有一点神秘，应该非常酷，不应该被打磨得那么光滑。</p>
+<p>虽然我很喜欢苹果，但我认为，在这方面，Jony Ive基本上用铝和抛光，把计算机的一切性格都磨掉了。也许有一段时间，那很好，但那个时代已经结束。</p>
+<p>我们他妈的要让黑客回来。</p>
+<h3>收尾：商业软件带来的办公室</h3>
+<p><strong>主持人：</strong> David，你真的是传奇。我们非常感谢你现在做的、以及过去做过的一切，也非常感谢你来，这次对话太愉快了。</p>
+<p><strong>DHH：</strong> 谢谢。聊九十年代的demo文化、黑客，以及很酷的东西，总是很开心。</p>
+<p><strong>主持人：</strong> 我们以后多一起做些事情，真是太高兴了。你现在主要在哪里？下次我们线下见。</p>
+<p>顺便问一句，你那个办公室是真的吗？照片里视野特别漂亮的那个办公室，是真实的吗？</p>
+<p><strong>DHH：</strong> 完全是真的。我现在没在那里，不然就把摄像头转过去给你看。那个办公室在Malibu。</p>
+<p><strong>主持人：</strong> 太漂亮了。</p>
+<p><strong>DHH：</strong> 永远看不厌。我之所以一直发那张照片，也是为了自己满足一下：“我简直不敢相信，我在这里工作。”这算是资本主义的一项战利品。</p>
+<p><strong>主持人：</strong> 这个办公室，由商业软件赞助。</p>
+<p><strong>DHH：</strong> 谢天谢地。</p>
+<p><strong>主持人：</strong> 非常感谢，也谢谢你花时间。</p>
+<p><strong>DHH：</strong> 谢谢邀请。下次线下再来一次。</p>
+<p><strong>主持人：</strong> 好，保重，再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

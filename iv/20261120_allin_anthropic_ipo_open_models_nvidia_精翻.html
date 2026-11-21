@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>All-In谈Anthropic上市、AI超级企业、开源政策与英伟达（整期全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-21<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>All-In谈Anthropic上市、AI超级企业、开源政策与英伟达（整期全文精翻）</h2>
+<div class="metaline">All-In Podcast · Jason Calacanis、Chamath Palihapitiya、David Friedberg；David Sacks本期缺席 · 76分41秒 · 2026-11-19录制 · 2026-11-20 · <a href="https://www.youtube.com/watch?v=G5w7EyF-aFQ" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：Anthropic；自由现金流；开源；AI政策；英伟达；股市估值；资本开支</p>
+<ul><li>围绕从土地、电力到模型与应用的纵向整合，三位参与者争论自由现金流、回购和并购，以及AI前景能否推出股市见底。</li><li>开源披露与政策争论延伸至模型控制权和融资激励，并讨论英伟达治理与市场风险。</li></ul>
+<h3>1. 开场：从应用一直到土地的AI巨头</h3>
+<p><strong>Jason：</strong> 欢迎大家回来，我们又是全球第一的播客了，已经连续七周。没错，我们把它变成现实了。这周的话题很多。Sacks这周来不了。Chamath，你在群聊里火力很猛，有一些理论和想法，交给你。</p>
+<p><strong>Chamath：</strong> 我有一个理论。</p>
+<p><strong>Jason：</strong> 就一个，但很重要。展开说说。</p>
+<p><strong>Chamath：</strong> 我认为，未来十年，AI会催生九到十家超级企业。每一家都会从应用层一直做到最底下的土地。</p>
+<p>为什么这样说？Palo Alto Networks昨天那笔交易把事情挑明了，我认为很聪明。它买了什么？一批做开源模型的聪明人。一家安全公司，照过去的想法应该只在安全领域活动，为什么市场会奖励它收购AI公司，股价一度涨了8%或9%？Nikesh在新闻稿里说，这是他们第一次大举走出安全领域。市场的反应是：“谢天谢地。”</p>
+<p>接下来会怎样？它将拥有模型，最终还会拥有土地，把数据中心整合进来，再向上做应用。Anthropic拿到那么多钱，正在往土地这一端走，也往应用栈走。OpenAI在做同样的事，SpaceX也一样。它拥有Cursor这样一款顶尖应用，也一直做到最底下的土地。Meta同样从土地一直拥有到应用。</p>
+<p>AI正在把企业分成拥有者和没有这些资产的人。拥有者掌握关键资产，可以把它们紧密地纵向整合起来。我认为最终会有大约十家这样的企业，同时仍会有丰富的应用生态、许多开源模型和一些闭源模型，使用各种不同的芯片。</p>
+<p>我认为，这也是英伟达下跌的原因：市场意识到，它赚取超额利润的时代可能结束了。这一点与Jensen无关。实现所需计算的形态和方式会越来越多，而土地与电力将成为关键约束。</p>
+<p>Jason，从这个角度看，最后会形成八到十家综合企业。市场现在押注的是，谁能成为其中一家，谁不能。这比其他事情更能解释过去几周，甚至过去一年的资金流向。</p>
+<p><strong>Jason：</strong> 有意思。</p>
+<p><strong>Chamath：</strong> 谁现在处于被动，必须想办法？那些已经成熟、拥有大量自由现金流，却不准备进入模型或数据中心业务的公司。我认为市场会惩罚它们。市场不会直接说这些股票不好，而是卖出它们，买入愿意承担这些风险的公司。</p>
+<p><strong>参与者：</strong> 你需要更有雄心。微软显然也会需要一个前沿模型。</p>
+<h3>2. Anthropic上市：软件与服务的标签还重要吗</h3>
+<p><strong>Jason：</strong> 那已经不意味着什么了。当你可以随时启动一万亿个代理，让它们造出任何你想要的东西时，“做一个产品”到底意味着什么？产品是什么？如果能以Anthropic现在这样的速度增加功能，这确实是一个值得问的问题。</p>
+<p>说到超级企业，Anthropic今天上市了。Friedberg，它刚扩大了IPO规模，需求巨大，估值达到2万亿美元，募集超过1070亿美元，绿鞋也填满了。据说再来一百个绿鞋也能填满。它超过了SpaceX那次850亿美元的IPO。今天其他公司似乎都弱一些，人们在调仓进入Anthropic。散户大概也很想分到一点，热度很高，而且大家理解这个产品。</p>
+<p>我们一直在等AI交易、AI革命中很大一块业务见到阳光：token、token销售、前沿模型。现在这些都会暴露在公开市场的光线下。加上SpaceX、AWS、Azure，以及今天也要谈的英伟达芯片销售、Cerebras芯片销售，我们终于补齐缺失的一块，能够看见全貌。</p>
+<p>你怎么看这次规模空前的IPO？也谈谈Chamath的新理论：八到十家超级企业，什么都得做。既然AI能马上造出软件，软件本身就没有多少价值或护城河了。这个“从土地到服务”的综合企业理论，你怎么看？</p>
+<p><strong>Chamath：</strong> 从土地到应用。</p>
+<p><strong>Jason：</strong> 对。你没有把服务算进去？像前线部署工程师这样的服务，似乎也——</p>
+<p><strong>Chamath：</strong> 你提到一个很重要的点。把软件和服务这样区分，是过去那些抵制变化的人才会坚持的东西。</p>
+<p>变化发生时，有些人会非常焦虑，于是只能抓住过去。他们觉得过去更舒服，靠过去的东西安抚自己。</p>
+<p><strong>参与者：</strong> 就像安抚奶嘴。</p>
+<p><strong>Chamath：</strong> 公开市场里对应的做法，就是过去给公司分门别类的方式。我还要再提那篇很有名的备忘录：当你没法报告自由现金流时，你会去报告什么？</p>
+<p>你到底是软件公司还是服务公司，真的有人应该在意吗？不应该。执着于这个的人是蠢货。你该关心的是自由现金流。假如我能卖给你一家服务企业，毛利率99%，自由现金流利润率70%，你买吗？当然买。你会买它，而不是任何一家产品公司，因为它的财务结构就是更好。</p>
+<p>AI将冲击一切，你想持有什么？我宁愿持有现金流。</p>
+<p>因此，Jason，我认为大家会逐渐不再从商业模式的标签判断你是什么公司，而会更关注数字上你究竟是什么公司。毛利率高、自由现金流转换率高，市场就会奖励你。没有这些，你做的到底是什么都救不了你，你会被打得很惨。</p>
+<p><strong>Jason：</strong> 所以现在市场会感到困惑。AI正在把整个水晶球摇得乱七八糟。对于仍活在旧范式里的人，既有业务和垂直行业很难分类。他们还在说：这是服务公司，这是软件公司，这是基础设施公司。现在这些可能变成一个整体。</p>
+<p>SpaceX把这些拼在一起，某种程度上推动了这个变化。如果再把Tesla和SpaceX放在一起，就成了一家综合企业。谷歌显然已经如此：一边是Waymo，一边有云，还有广告业务。亚马逊也有综合企业的感觉。微软和苹果相对没有那么明显，它们更守着自己的领域：苹果做消费硬件，微软做企业软件，另外有一个时不时威胁要拆出去的Xbox业务。</p>
+<p>Friedberg，你怎么看？每个人进入每一条业务线，最后只看末端产出什么。你可以调各种旋钮：硬件少赚一点，服务多赚一点，软件免费，靠土地和基础设施赚钱，调整不同部分之间的利润分配。</p>
+<p>你后面的背景是《模拟蚂蚁》吗？1991年的那个？好。</p>
+<h3>3. 数字智能会重新改写行业边界</h3>
+<p><strong>Friedberg：</strong> 曾经有一个阶段，互联网仿佛在对所有人说：你得重新设计公司的运转方式，如何交易、如何创造价值、如何管理、由谁做什么。一切都被数字化了。</p>
+<p>数字化也许从上世纪六七十年代的计算革命就开始了，后来数据又互相连接，于是每个企业都得变成数字化、互联的企业。AI时代则是数字智能的时代，会有一次彻底的重新创造。</p>
+<p>真正花钱买Anthropic服务的公司居然还那么少，每天主动使用AI工具的人也那么少，或许只占人口的1%左右。这也解释了为什么人们仍然悲观：他们还没真正理解它。</p>
+<p>但我认为，数字智能会重新创造商业的每一个门类。我做农业，每天都能观察到过去沿用的办法。在今天这个时代，从第一性原理出发看，许多做法根本没有道理。就像当年人人都要根据互联网重新思考每个行业，现在也要根据数字智能重新思考。</p>
+<p>你很快会发现，需要进化的不只是企业，连行业本身都会被改写。今天的供应链划分、某个行业价值链中价值落在哪里，都未必继续成立。一家公司可以压缩整条价值链，也可以跨越多个垂直领域。甚至今天的一个个行业，可能都会以全新的方式重组，原来的界限不复存在。</p>
+<p>所以，我认为你大概是对的。现在是一片狂野的西部。</p>
+<h3>4. 回购、并购与基础设施：自由现金流该花在哪里</h3>
+<p><strong>参与者：</strong> 有一件事不会那么有价值：拿自由现金流去回购股票。</p>
+<p><strong>Jason：</strong> 这很能说明你不知道该把钱投在哪里。英伟达就是个不错的例子。</p>
+<p><strong>Chamath：</strong> 没错。你说“我要回购”，露出的信号基本就是：我毫无头绪。</p>
+<p><strong>Jason：</strong> 你要么没有勇气去收购，要么没有勇气自己建，而这原本是另外两种大笔花钱的选择。过去这些年，苹果受到的一个大批评，就是Tim Cook对公司的管理很大程度上靠减少流通股，拿走了大约一半的股票，大规模回购、大规模分红。</p>
+<p>看看英伟达。首席财务官又提了回购——CFO通常都会这样。9月、Jensen离任之前，他们又批准了1500亿美元回购，回购总额达到2350亿美元。CFO说：“现在正是时候，这是首要任务。”</p>
+<p><strong>Chamath：</strong> 我并不是专门针对英伟达，但过去很多年，股市里很大一部分每股盈利增长，靠的就是这套玩法。有时因为利率低，有时因为公司赚钱，于是拿自由现金流尽可能回购股票，抵消给员工发股票带来的稀释，提高每股收益。大家都在这样玩，而且大多得到了奖励。</p>
+<p>这给自己的股票创造了一个天然买盘，股价就一路向上。作为股东，你知道公司每年会买掉一部分流通股，股价大体上就能每年涨5%到10%，这套游戏可以一直玩。</p>
+<p>但这套游戏结束了。Jason，原因正是你说的：这是一个信号，信号就是“我不知道该买什么，不知道该建什么，不知道该投什么”。</p>
+<p>颠覆程度低的时候，这没问题。颠覆程度高的时候，收购反而会得到奖励，因为它告诉既有投资者：你在努力保卫已有的护城河，建立新的护城河。</p>
+<p>所以，Nikesh做了一笔45亿美元收购，股价就上涨。市场已经投票了。我怎么看并不重要。我看到的是，市场在说：“多做这样的事。”</p>
+<p><strong>Jason：</strong> Friedberg，还要考虑眼下的比赛规则。某些政府反对大型综合企业。我也讨厌所有话题最后都回到政治，但我们又说到这里了。拜登时期，大型并购做不了，这条路被堵住。特朗普任内，它又回来了。假如大家认为2028年民主党会重新执政，那么这个窗口也许再过六个月又会关上。你得按照场上的规则打比赛。</p>
+<p>Chamath，我认为回购的时机，是自己的股票被严重低估的时候。或者你发现一项收购机会，就应该问：这家公司能带来足够的增益吗？我们能让它增长多少？收购之后有没有增长战略？我们已有的东西能帮助它加速，两家公司放在一起的结果，会不会比回购自己的股票更好？</p>
+<p><strong>Chamath：</strong> 你用了一个我不同意的词。</p>
+<p><strong>Jason：</strong> 好。</p>
+<p><strong>Chamath：</strong> 不过，我确实认为很多人就是这样思考的。我不喜欢的词是“增厚”。一群玩电子表格的人坐进会议室，计算它今天能给公司的价值增加多少，却没有从战略上思考：进入今天没有涉足的业务之后，未来若干年会怎样增加公司的价值？</p>
+<p>我认为你必须站在后一种思路里。如果你受制于一个不允许你这样做的股票市场，那处境就很复杂，因为它也不会再奖励回购，不会再奖励分红。除了靠投资突围，你还能拿这些钱做什么？</p>
+<p>奇怪的是，这些公司的所有者似乎不明白，一场颠覆的海啸就要来了，企业必须同时进攻和防守，最后提供一套完整的全栈方案。这是唯一的解法，没有别的路。</p>
+<p><strong>参与者：</strong> 看看我们这个行业过去十年发生的事。苹果的股数减少了34%，Alphabet少了12%，Meta少了11%。Meta确实做过一些很好的收购，但这就是大家过去选择如何使用自己储备的资金。</p>
+<p>另一种选择，是我也挺喜欢的基础设施建设。刚才我们谈过，Meta、亚马逊、Alphabet建设基础设施，拥有一个能够创造智能的平台，看起来也是很明智的投资。Chamath，你觉得呢？</p>
+<p><strong>Chamath：</strong> 我认为这些公司可能失败的地方，是它们未必理解下一代应用栈究竟该是什么样。这个部分需要靠收购。因为更可能的情况，是一小群人从这些大公司或前沿实验室离开，去做真正的新事物。他们理解得更好，这没有问题。</p>
+<p>重点是，你到终点时必须有一套方案。我觉得更简单的做法，就是说：“我要通过收购到达那里。”这实际上是一种安全的选择。</p>
+<p>假如我持有一家公司的股票，CEO在投资者电话会上说：“各位，颠覆正在到来，最终会有十家超级企业，我要成为其中一家。我要积极收购，用现金流确保我们不会输。”比起其他还在照着很多年前那本赞美诗唱歌的公司，我会买更多这家公司的股票。</p>
+<p><strong>Jason：</strong> 对，别再只谈回购和分红了。任何看得见技术发展速度的人，Friedberg，现在都明白，该挥棒尝试了。</p>
+<h3>5. Anthropic的增长、自然垄断与IPO后的估值</h3>
+<p><strong>Jason：</strong> 你怎么看Anthropic的IPO，以及这家公司的未来？收入800亿美元、1000亿美元，百分比增速显然会放缓。如果估值现在是2万亿美元，那就是20倍收入。</p>
+<p>它会不会横盘几年，靠增长消化这个估值？你是做多还是做空？我知道你上周不喜欢这个问题，但听众想知道：IPO之后，我们对Anthropic到底看多、看空，还是中性？</p>
+<p>尤其在现在这么动荡的环境下，能够上市当然很好，能走出这一步值得肯定，我认为很明智。但Friedberg，你现在怎么看公司本身？</p>
+<p><strong>Friedberg：</strong> 据我从一些人那里听到的情况，它的增长已经超过内部预期，看起来轻轻松松就在通往1000亿美元收入的轨道上，而且还有很长的跑道。</p>
+<p>我们说过，在那些每年可以花10万美元以上的潜在客户里，它的渗透率可能还不到1%。空间非常大。它绝对拥有目前最好的企业产品，比谷歌好，也比OpenAI好。</p>
+<p>我觉得谷歌过去两周发布了四次模型。很多人在议论，谷歌似乎已经进入递归自我改进、不断加速的循环。如果谷歌做到了，我认为Anthropic大概也到了那里，或者只是时间问题。</p>
+<p>现在对于安全显然仍有很大顾虑，所以被留在内部、没有放出来的能力，可能比人们以为的多得多。模型进步的速度，很可能已经超过人类能够完成安全评估的速度。</p>
+<p>因此，谷歌的迹象，对Anthropic可能也已实现某种定义上的递归自我改进，是一个正面信号。所谓RSI，就是模型改进自己，变得越来越好，最终进入一条近乎指数式的曲线。一个看法是，每花一美元能得到多少智能。</p>
+<p>如果每美元对应的智能量正在如此大规模地增长，系统不断改进自己、提供更多能力，那么天空才是极限。对这样的公司，整个经济就是它的上限。</p>
+<p>像上周提过的，我听说它们路演做得很好，让投资者相信业务中几乎存在一种真正的自然垄断优势。递归自我改进及其带来的成本下降，让单位智能成本大幅降低，形成别人追不上的护城河。</p>
+<p>最大的风险是开源。它可能侵蚀一部分业务，但我不认为能吃掉全部业务。归根结底，如果在高级应用上，它每花一美元所能提供的智能最多，人们始终会选择它。现在看，这场比赛大概就在Anthropic、OpenAI和谷歌之间。</p>
+<p>真正的问题，是订单簿填满之后，还有多少需求没有得到满足；以及今天大约1000亿美元股票购买中，有多少人会很快卖出，有多少想长期持有。假设是一半，那么真正的流通规模大约500亿美元，而当前价格上的需求，可能是数千亿美元。</p>
+<p>价格当然有弹性。价格上去，需求会下来，市场会告诉我们边界在哪里。但考虑增长率和潜力，这个故事非常出色。如果愿意买入并持有五年以上，从今天这个进入价格出发，回报可能是好几倍。Anthropic如此，SpaceX如此，甚至此刻的谷歌也可能如此。</p>
+<p>随着整个经济围绕AI重写，上行空间非常大。</p>
+<p><strong>Jason：</strong> Chamath，它以2万亿美元估值上市，大约是收入运行率的30倍，你具体怎么看这家公司？</p>
+<p>Friedberg提到一边是开源风险。我们稍后也会谈，有报道说政府内部的一部分人想限制开源，给使用开源模型的人贴标签、做标记，这很阴暗。</p>
+<p>不过我们现在录制时，是周四的上市首日，大家周五收听。你认为它会跑赢市场吗？会成为不可阻挡的巨头？还是三四年之后，我们坐在这里，它仍在消化今天的估值？</p>
+<p><strong>Chamath：</strong> 我认为它肯定会成为那十家超级企业之一。它们在做的事都对。这家企业原本让我最担心的是资产负债表，是钱够不够，现在我认为这个风险已经降低了。</p>
+<p>估值本身，我不确定。它的首日交易表现与SpaceX正好相反，当然这本身不说明什么。SpaceX当时往上涨，临近收盘才回落一些；Anthropic是一开始就高开，随后往下走。只凭首日表现很难推断。</p>
+<p>它是一家好公司，是一家长期来看很好的企业。它在做正确的事，从土地一直做到应用，所有这些都说得通。</p>
+<p>问题是，未来三四个月Anthropic的估值，大部分可能与Anthropic自身没有关系。看看那些赚得盆满钵满的公司，英伟达就是完美例子。我们从来没见过这样的季度，结果股价仍然下跌，而且从财报日以来跌了不少。</p>
+<p>为什么？我当然可能改变看法，但现在看，市场好像是在靠意志逼自己上涨。</p>
+<h3>6. 企业前景与股票见底，是同一个问题吗</h3>
+<p><strong>Chamath：</strong> 问题在于，通胀很顽固。包括战争在内的各种外部因素都没有解决。总体上，人们很不安，觉得市场已经涨了很久。现在更可能出现的是降低风险，而不是增加风险。</p>
+<p>我认为你会有各种机会，以便宜得多的价格买东西。Jason，除此之外，我们现在还看到一种很奇怪的现象：时不时突然出现非常剧烈的波动。</p>
+<p>就在我们录制时，AMD跌了10%或12%，原因是有人发了一份做空报告，说它在向中国卖芯片。我不知道这是真的还是假的，但对一家万亿美元市值的公司来说，10%到12%的单日变化，波动率非常惊人。</p>
+<p>我知道的是，十年期收益率不幸还在往上走，这对股票不利。波动率高，对股票不利。通胀顽固，也不利。即使Kevin Warsh想降息，我认为他的空间也很小，甚至反而会加息，这对股票不利。参众两院换了掌权者，增加了不确定性，也不利。</p>
+<p><strong>参与者：</strong> 现在这堵“担忧之墙”简直离谱。</p>
+<p><strong>Chamath：</strong> 也许你不能做空，我不知道，因为市场仍可能猛涨，把空头打得很惨。但在这里大举做多，很难解释。你到底在期待什么？什么样的环境，会让标普从这里去8000点，而不是6500点？我不理解。</p>
+<h3>7. 为什么看多AI，并不自动等于股市已经见底</h3>
+<p><strong>Jason：</strong> 我来试着回答，因为我是做多的。我认为我们正在底部来回震荡，除非再出现疫情那样疯狂的黑天鹅事件。你刚才把那堵“忧虑之墙”说得很准确：利率、债务、通胀、战争，还有政治权力更替。即将上台的那些人讨厌AI、科技巨头和资本主义，会主张拆分科技巨头。如果Chamath的判断正确，我们正走向超级企业时代，两三年后，AOC、伯尼·桑德斯以及他们代表的那批人可能会说：“不，我们不允许这样发展，我们要反其道而行，让你们拆分这些公司。”</p>
+<p>但我看到的多头逻辑是：大公司现在只有10%或20%的员工在用这项技术。我每年投100家初创公司，我看得到他们怎么用。他们整天都在用，一个普通员工每天用五、六、七个小时，也就是说，他们和AI一起工作的时间，比和人一起工作的时间还长。初创公司在做的事，大公司最终也会做，只是需要两三年。初创企业采用云、采用WeWork，因为那更高效，然后大公司果然也跟上。我正在场边看着这场比赛。</p>
+<p>我认为，组织里使用AI的人数显然会增长五倍、六倍、七倍，因为现在用的人还很少。更重要的是，他们会从每天用几分钟、也许一小时，变成每天用六、七、八个小时。尤其是在美国企业里，这会成为工作的主要方式：你会与智能体一起工作，协调十个虚拟员工。这显然会发生。我为什么说显然？因为我在自己的风投公司、媒体公司和投过的600家初创企业里，都看得到。</p>
+<p>这意味着token使用量至少会增长500倍。接下来的问题才是：这些token由谁提供？Anthropic、SpaceX、OpenAI还是AWS？我认为答案是这些公司都会提供。三四年后我们再坐在这里，人们回看此刻，会非常像回看互联网时代：当时有人说，这一切炒作过头了，是泡沫。人们已经看不清美国企业内部究竟在发生什么，也看不清个人怎么用它。</p>
+<p>个人一旦开始使用机器人技术，明白如何建立循环、如何把这些工具用到最好，就不会停下来。他们不会停，生产率会冲上天，增长十倍、二十倍。</p>
+<p><strong>Chamath：</strong> 我不明白，你怎么从这件事推导出股票已经见底？</p>
+<p><strong>Jason：</strong> 我认为，股票的底部与利率、通胀、整个经济的逆风，以及政治动荡有关。大家觉得这东西过热了，我觉得它受到的重视远远不够。这只是我的判断。如果看产品、管理团队和市场，市场会扩大500倍，对这类产品的需求会增长500倍。而这些公司的管理层，先不谈黄仁勋被赶下台，确实不可思议。团队做出来的产品实在出色。</p>
+<p>逆风是监管、禁用、拆分公司，这些都有可能发生。但现在这种产品迭代速度，以及人们接受这项技术的程度，Chamath，我干了四十年，从没见过。</p>
+<p><strong>Chamath：</strong> 你已经说服我，我也同意：现在的使用程度平平，离充分发挥能力还差得远。这一点你说服我了。但你没有说服我，为什么股市已经见底。正如我说的，我认为十年期收益率到5.5%或者6%，比到4.5%更有可能。这在数学上会影响所有股票。</p>
+<p><strong>Jason：</strong> 我喜欢这个反驳。假设你经营一家公司，有200名知识工作者，他们从每月20美元的套餐转到200美元套餐，工作效率提高五倍、十倍。然后他们问：“我能不能从200美元的套餐升到800美元？”你会说：“当然可以。”我自己公司就有人来问我，我亲眼在看。</p>
+<p><strong>Chamath：</strong> 你是说，这家公司的收入会增长50倍？五倍？</p>
+<p><strong>Jason：</strong> 也许。你能够开发更多产品和服务，以更高的人均收入和人均利润交付。</p>
+<p><strong>Chamath：</strong> 你说的是虚拟产品，不是实物产品。实物产品仍有投入成本，而那些成本在涨。</p>
+<p><strong>Jason：</strong> 我说的是软件、服务、知识工作。这些业务的人均收入会从50万或100万美元，升到300万、500万美元，甚至1000万美元。比如微软，我记得以前人均收入大约90万美元，现在正在向200万美元走。这个趋势会每三年出现一次，你会看到人均收入翻倍。</p>
+<p>人均收入翻倍，效率提高到那个程度，你就不在乎软件支出增长十倍，因为软件原本一年只占总成本的1万美元或5000美元。即使涨到2.5万美元，你也不在乎。你会说：“太好了，你在这家公司里简直是超级英雄。”</p>
+<p><strong>Chamath：</strong> 希望你是对的。但我认为，市场现在的态度是：“拿证据给我看。”</p>
+<p><strong>Jason：</strong> 当然，你必须证明。</p>
+<p><strong>Chamath：</strong> 我不认为市场已经接受那套说法。</p>
+<p><strong>Jason：</strong> 现在敢在150、160美元买英伟达，需要有胆量。我买了。你现在想买某些股票，确实得有胆量。</p>
+<p><strong>Chamath：</strong> 为什么要说“有胆量”？这只是经过风险调整的预期价值计算，不是拍胸脯比谁勇敢。</p>
+<p><strong>Jason：</strong> 不，我确实认为你需要有信念，因为你必须相信。我不认为消费量增长500倍是数学上确定的事，这是我根据亲眼所见形成的判断。很多人做数学计算，说这根本不可能，因为他们看不到技术的变革性有多强。我在看的是：它究竟能带来多大改变？人们愿意为它花多少钱？我认为，这些都被严重低估了。</p>
+<p>Friedberg，你一直在听。对于多空两边的逻辑、这项技术的部署，你有什么看法？在Ohalo内部，你有没有看到人们把使用量提高十倍？</p>
+<p><strong>Chamath：</strong> 问题是，收入有没有增长十倍？</p>
+<p><strong>Jason：</strong> 这正是我要问的第二部分：你有没有看到token消费、效率和收入都成倍增长，还是你在预测未来会如此？因为达到那个状态确实需要投入。</p>
+<h3>8. AI最大的回报，是创造此前做不到的事情</h3>
+<p><strong>Friedberg：</strong> 我再重复一下以前说过的话。我认为，AI最大的机会在前沿，也就是企业和个人可以去做以前从来做不到的事：为非常困难的工程问题、科学问题，以及过去无法解决的问题创造解决方案。我认为，这会把前沿扩展100倍、1000倍。</p>
+<p>这与用AI对现有业务流程做小幅迭代、节省成本、提高效率不同。人们本能地先想到后者，因为大多数人并不在前沿工作，也没有推动可能性的边界。他们总是问：“这会怎样改变我的工作？”然后马上担心工作会被重塑。</p>
+<p>事实上，那不是我们最典型的用法。我们投入时间、消耗token，通常是为了做从未做过的事，想清楚如何解决那些真正困难的问题，如何快速、高效地解决。这意味着，人类整体可以扩展自己的前沿、自己的视野。这是我看到的，我依然相信。</p>
+<p>我们都过度纠结于改造现有企业、节约成本之类的破事。如果花钱买token只是为了生产相同的东西，回报只是一个相对小的数字；如果用来生产人类从未生产过的东西，比如一种新的抗癌药，或者一种新的材料科学成果，回报就大得多。我认为，随着这些能力真正实现，人们会把时间和金钱投入到那里。</p>
+<p><strong>参与者：</strong> 这说得非常好。</p>
+<p><strong>参与者：</strong> 这种说法很聪明，完全正确。把token投入现有业务，你的回报能有多少？50%、60%？照你这么说，还不如投向新东西。</p>
+<p><strong>Jason：</strong> 当然也会有渐进改进。Friedberg，你说得很好：任何工作都可以逐步改进。</p>
+<p><strong>Friedberg：</strong> 这也是为什么“工作会消失”“每个人最后都要靠福利生活”“政府必须出面发全民基本收入”这些叙事都是扯淡。和人类历史上其他拓展前沿的时刻一样，新工作、新产业会在旧工作失去意义以前被创造出来，因此两者之间有桥梁，也有需求把人向前拉。</p>
+<p>为什么旧金山一度成为美国人口第二多的城市？因为在那短短几年的淘金热里，大家都被拉向前沿，纷纷坐火车去那里。你在旧金山能创造的价值，远远超过在东海岸工厂里工作，所以大家向前跃迁。历史上，旧金山一直是一个技术发生飞跃的有趣地方。我们都经历过很多次，人们总是来到这里。</p>
+<p><strong>参与者：</strong> 我们管这叫“季节”。</p>
+<p><strong>Friedberg：</strong> 对，旧金山的繁荣与萧条时刻。所有人奔向下一个前沿、下一波浪潮，而那发生在旧浪潮被重塑、被关闭以前。这就是我们没有看到失业率上升的原因：新事物涌现得太快，而且发生得更早。把时间、金钱、人才和资金投入新东西，远比先去改造旧东西更有吸引力。</p>
+<p>同时戴上资本家的帽子，我宁可发明一种治愈癌症的方法，追逐一个万亿美元市场，也不愿琢磨怎样优化东海岸某家制造业工厂的供应链。因此，新前沿对就业和资本的需求，远大于旧世界失去的工作。我认为，我们把这件事看错了，或者说媒体的叙事很不对。这就是我们没有看到就业末日，也没有看到所有人争着要全民基本收入的原因。</p>
+<p>不过，K形经济的问题仍然存在：不是每个人都能跟上、受益、乘上前沿浪潮。这是此刻更根本的一种脱节，甚至可能因为反弹而阻止新前沿出现。人们看到它在发生，却没有参与，不是其中的一部分，也不在里面。</p>
+<p><strong>参与者：</strong> 所以反弹就变成：“对吧，你们还想让我支持建设？”</p>
+<p><strong>Friedberg：</strong> 很多人就是觉得：“如果没有我的份，我宁愿看到它被关掉。”</p>
+<h3>9. 开源模型披露规则，会产生什么影响</h3>
+<p><strong>Jason：</strong> 好，我想谈谈这种反弹，Chamath。我们现在面对两股反弹，分别来自美国摆脱不了的两大政党内部。左边，我们谈过反对数据中心，我认为很快会延伸到反对自动驾驶、反对资本主义，以及征收财富税，可以放在同一个篮子里。右边，显然有就业和移民方面的“美国优先”顾虑，但现在又来了一件新事。</p>
+<p>据报道，白宫正在讨论一项新的开源披露规则，要对使用开源模型的人“点名示众”。路透说，企业可能很快会被要求在自己的网站上披露：是否使用中国开源AI模型。现在还不知道具体会怎么执行。谁在推动？显然是财政部的贝森特，他似乎正在成为对华鹰派的领头人。白宫内部这场内战正在实时发生。</p>
+<p>此外还有白宫科技政策办公室的Michael Kratsios。Friedberg，我记得你采访过他，不知道是不是和Chamath一起采访的。</p>
+<p><strong>参与者：</strong> 对，对。</p>
+<p><strong>Jason：</strong> 路透还说，现在华盛顿有更多人呼吁对中国采取更强硬立场，给了对华鹰派更大影响力。显然，另一边有卢特尼克，还有特朗普本人。今年，Airbnb、DoorDash和Cursor都因为使用开放模型，收到众议院中国问题特别委员会成员的来信。Airbnb的说法是：“对，我们在客户支持中使用一些开源模型。”</p>
+<p>Chamath，突发新闻：我也在用MacBook Pro。不知道这个播客是不是也该贴个标签，说我们使用中国硬件制作。现在还没有任何决定，但这似乎是一场更广泛的打压。你怎么看？为什么是现在？为什么现在泄露出来？黄仁勋被赶下台、Anthropic上市、开源运动，这些是协调行动，还是只是时间上非常有趣地赶到了一起？</p>
+<p><strong>Chamath：</strong> 我能不能先回答你的第一个问题：如果网站上放一个声明，说自己使用开源模型，会怎样？什么也不会发生。只会意味着你不是个傻子。</p>
+<p><strong>Jason：</strong> 明白了，这是“不是傻子”的标志。</p>
+<p><strong>Chamath：</strong> 想想市场到底要什么。市场希望你聪明、控制预算、重视投资回报，拥有自己的技术，不要把自己的超额收益来源泄露出去。</p>
+<p><strong>Jason：</strong> 在这档节目里，我们把它概括为“AI主权”。</p>
+<p><strong>Chamath：</strong> 这正是市场想要的，否则为什么持有你的股票？另一种选择是什么？你说：“我并不在乎成本，有什么模型就用什么。我把所有追踪记录、调用链路都喂给它们。通过我使用它们的产品，它们可能学会怎么与我竞争。它们说，有零数据留存政策，所以不会这么做，我信任它们。就这样吧。”市场会觉得你是傻子。</p>
+<p>市场为什么会觉得你是傻子？因为你实际上就是个傻子。这会证明，你缺乏技术认知，团队里连一个懂点技术的人都没有，甚至没能力请一位顾问，来解释到底会发生什么。给Alex Karp打个电话，他会派来一大批前线部署工程师——优秀的工程师——告诉你风险在哪里，然后你再作决定。</p>
+<p>如果选择是：在网站上放一个根本没人会看的声明，或者破产，我会选择披露，而不是破产。</p>
+<p><strong>Jason：</strong> 你可以做自己最喜欢的配对交易，买聪明公司、空愚蠢公司。</p>
+<p><strong>Chamath：</strong> 所以，也许真正的意思就是：那就披露呗，谁在乎？这真正说明的是，华盛顿内部需要一些技术能力极强的人，解释这些事实际的技术含义。我认为，那个提议是一个试探气球。如果把使用这些东西意味着什么、不意味着什么逐项讲清楚，最后会得出结论：“等一下，不使用更便宜的开源替代方案来保住竞争优势，才更损害美国企业。难道我们实际要的是相反的披露，要求企业声明自己不用开源，或者干脆不用模型？”我只是觉得，这些东西还没被弄明白。</p>
+<p><strong>Jason：</strong> Friedberg，如果看开源，这说明提议者根本不懂开源怎么运作。你不是从中国人那里购买它，它在GitHub上，在一个网站上，你拿过来、分叉，部署到自己的服务器，由你使用、由你控制，没有后门。如果有后门，立刻就会有一千个人工智能把它指出来。这有点荒谬。</p>
+<p>如果说“我在使用华为技术”，那你也许可以说：“这个人正在用某种基于硬件的东西。”但对这个奇怪的泄露，你怎么看？为什么现在泄露，为什么提出这个东西，为什么要给Airbnb发信？想出这个概念的人，似乎完全无能。</p>
+<p><strong>Friedberg：</strong> 今年早些时候，他们给Airbnb发了什么？</p>
+<p><strong>Jason：</strong> 发了一封信。现在路透的报道才披露这封信。DoorDash和Cursor也收到过。这些是众议院中国问题特别委员会寄给美国企业的信，因为它们使用源自中国的开源模型。我猜是DeepSeek、GLM-5.2之类。</p>
+<p><strong>Friedberg：</strong> 我认为，这仍然是在走向暴政。任何试图遏制开源、限制开源、给开源贴标签，通过这些反开源行动，让政府获得工具、实质上建立受监管垄断的做法，都会限制人类繁荣、限制个人自由、创造一个奥威尔式国家，而且根本违反言论自由。</p>
+<p>我不认为开源软件的原产地应该重要。有些人可能不同意。但当你从一个代码仓库，也就是储存这些东西、任何人都能取得副本的网站，下载开放权重、开源的模型以后，你可以把它部署到自己的服务器、自己的电脑上，在后台运行，可以改写、复用。</p>
+<p>Apache基金会开发开源服务器工具，让我们拥有开放互联网；Mozilla基金会和Firefox提供开放浏览器，让Netscape和微软不能限制人们访问互联网。我们有了免费的开源版本，后来大家又做出许多分叉、许多版本。谷歌开发Android也一样：它为手机创造开源操作系统，找到硬件公司，把它作为默认预装的软件，所以今天全球70%的手机可以不受阻碍地访问互联网。</p>
+<p>在这之前，闭源软件公司会试图控制你能在手机上装什么应用、访问什么网站，一切都被监视、被控制。现在，开源AI面临的抉择，与以前那些技术一样。我们需要允许、坦率说还应该鼓励开源广泛传播。</p>
+<p>如果不这样做，最终会出现专制团体。他们最初并不一定想要专制，但任何团体只要有权控制人们能看到什么、能做什么、能接触什么、能怎样使用东西，能控制对所谓“历史事实”、所谓“已经证实的科学”、所谓“真相”赋予哪些特定权重，就会走向专制。他们有自己的意见，认为自己是对的；一旦拥有权力，就会按那个意见行动，最终获得支配更广大人群的专制力量。如果限制AI开源软件的传播，就会发生这种事。</p>
+<p>我以前说过，现在再说一遍：对于人们使用软件所产生的结果，你可以监管、限制、控制，可以提起诉讼、施加刑事惩罚。但限制软件本身、给软件贴标签，把它变成限制和控制的对象，就会为现有闭源产品创造受监管的垄断。如果这些企业最后与某些政府机构结盟，那些机构和企业就能控制你这个个体，决定你能做什么、不能做什么，地球上每一家企业都无法再自由经营。无论政治立场如何，我们都不应该想要这种结果。</p>
+<h3>10. 谁来为真正有竞争力的开放模型出钱</h3>
+<p><strong>Jason：</strong> 你会不会支持这些现金充裕的上市公司，在公司内部建立一批开源模型项目？你会怎么看？</p>
+<p><strong>Friedberg：</strong> 百分之百支持，很棒。我认为Meta应该做，这就是Meta该走的路。</p>
+<p><strong>参与者：</strong> Meta已经在做，谷歌也在做，但不是用最前沿的模型。</p>
+<p><strong>Friedberg：</strong> 那些模型被削弱了。Meta的开源模型被削弱很久了，并不好。</p>
+<p>还有一点需要注意：你说给某个东西贴上“中国”的标签。在匿名的互联网上，人们可以在Hugging Face上发布一个新的开源模型，不一定需要注明来源。假设有人发布一个新模型，我们都看到了，这是有史以来最好的开源模型，但它没说来自哪个“国家”。它在某个地方训练、某个地方构建，由一群工程师编写，发布以后，全世界都能使用。你怎么办？怎么分类？</p>
+<p>对于开放权重、开源模型，为什么原产国会那么重要？正因为它开放，任何人都可以进入里面查看。</p>
+<p><strong>参与者：</strong> 这些人就是不懂它怎么运作。</p>
+<p><strong>Friedberg：</strong> 美国国家安全局也可以进去测试，任何人都可以查看。你能看到，里面没有运行时软件。明确地说，开源、开放权重并不是一个可以直接执行的应用程序，不是下载以后就在电脑上运行。你需要一个环境，才能运行那些开放权重。</p>
+<p>这不是某种藏着暗招、藏着工具，会破坏你的电脑、入侵并接管电脑的软件。技术上不是这样。我认为大家缺少这种理解，却想围绕“你不知道中国人在做什么”制定规则。但实际上，我们知道。开放模型中，一切都摆在那里，你可以看见。</p>
+<p><strong>参与者：</strong> 它不是可执行文件，而是一组数据、一块数据，就是一个装着一堆内容的CSV文件，仅此而已。</p>
+<p><strong>Friedberg：</strong> 接下来，是你决定如何把那些数据拿来构建自己的应用、自己的软件。作为软件开发者，你能决定怎么使用。所以，“我们其实不知道里面是什么”这种误解是不对的。我们知道，可以查看、判断、审计、测试，完成一切想做的安全检查。</p>
+<p>事实上，如果不这样做，每个人都会面临责任。你拿来一个不能正常工作的东西，产品就会很烂，你可能违法，可能发生各种坏事。判断开源软件是否完成该做的工作，是你的职责。开源就是这么运作的。</p>
+<p>所以，政府突然跑来，提出他们那种天才补丁、创可贴式的主意，告诉别人什么要贴标签、什么不要贴标签，愚蠢程度完全符合我对美国国会工程能力不足的预期。顺便说一句，这不是政治观点，而是事实。</p>
+<p><strong>Jason：</strong> 但Chamath，这里确实有政治上的事情在发生。黄仁勋来节目、或者我们去他的大会时，讨论过Nemotron，之后他开始收购一些开源资产。现在，一连串对华鹰派相关的事，以及支持开源的运动，都在同一时间发生。</p>
+<p>“没有巧合”，我认为这是我们很多人采用的一条判断准则，我肯定如此。我不认为这一切只是随机巧合。很明显，黄仁勋原本将成为开源的捍卫者。你提到，从土地到应用层乃至更上层的综合企业，他就在建设这个东西。他正在建设，却突然被赶下台。</p>
+<p>接着，又说要给Airbnb和DoorDash“点名示众”，因为它们使用开源；这与Anthropic上市发生在同一时间。感觉像是一场巨大的内部战争，一场围绕开源与前沿模型、以及谁替它们代言的全球冲突。</p>
+<p><strong>Chamath：</strong> 我不认为事情有那么复杂。我认为更多是权力、控制和意识形态。</p>
+<p><strong>Jason：</strong> 好，展开讲讲。</p>
+<p><strong>Chamath：</strong> 意识形态在于：你是否相信这会让中国人获益。认为会，有很强的理由；认为不会，同样有很强的理由。你在新保守主义意识形态上扎根多深，就会向某一边倾斜。</p>
+<p>现实是，事后看当然人人都聪明，但原本可以做一些事，让开源真正达到逃逸速度。回头看，真是遗憾：美国本土企业有那么多钱，我们为什么没找到办法，拿出其中一部分，让一个真正的美国开源替代方案达到逃逸速度？这是一个值得追问的重要问题。为什么真正好用的开源替代方案全是中国的？为什么？</p>
+<p><strong>Jason：</strong> 我认为可能与人才有关。人才有两个非常好的选择，还有第三、第四个选择：去做专有模型，个人就能赚几亿美元、几十亿美元。所以人才去了OpenAI，离开了对AI可能没有给予足够重视的谷歌。这两个大机会能让人攫取巨额财富，人才都流向它们，当然还有xAI。</p>
+<p><strong>Chamath：</strong> 但那不对。Meta有很优秀的人，谷歌有很优秀的人，英伟达也有很优秀的人。问题是，我们花出去的现金有一万亿美元，为什么不能拿出500亿、1000亿美元，做出一个真正好的免费替代方案？</p>
+<p><strong>参与者：</strong> 真是悲剧。</p>
+<p><strong>Jason：</strong> 因为前沿模型能赚太多钱。是激励的问题。告诉我激励是什么，我就能告诉你结果。</p>
+<p><strong>Friedberg：</strong> 不只是能赚到钱，还有能募集到资本。过去几年，以一家私营前沿模型公司的身份融资，要比出去说“我要建一家开源AI公司”容易得多。后者很难吸引资本。</p>
+<p>你说：“我要做模型。”你想成为前沿实验室，召集一群天才，说：“我们来建立一个新的前沿实验室。”面前有两个商业计划：一个是开源。“怎么赚钱？”“不知道，以后再想，为了人类福祉吧，我也不知道。”另一个是闭源，按标准商业模式赚钱。风险资本会流向哪边？</p>
+<p><strong>Chamath：</strong> 你是说，风投扭曲了激励？</p>
+<p><strong>Friedberg：</strong> 对，广义上的资本家，对吧？他们创造了一个系统，让你能往里面投入大量资金。而对中国人来说，博弈完全不同。</p>
+<p><strong>Jason：</strong> 对他们来说，是怎么扰乱美国资本主义、扰乱美国AI生态，创造一个替代来源，避免美国控制世界，诸如此类。所以，对中国人而言，让开放模型广泛传播是非常理性的选择。</p>
+<h3>11. 落后者为什么没有更早把模型变成商品</h3>
+<p><strong>Chamath：</strong> 等等。如果你是英伟达、Facebook或者亚马逊，为什么不应该采用相同的博弈策略？</p>
+<p><strong>Jason：</strong> 你落后了。我认为你说得完全正确，而且我们原本已经走到这一步的边缘，但过去一周，一切都被打爆了。</p>
+<p><strong>Friedberg：</strong> 对，所以英伟达才收购了那些开源资源。这反过来确实与你最初的理论相符。</p>
+<p><strong>Jason：</strong> 当你落后时，就会走开源路线，试图杀死现有的商业化方案。Android对iOS就是这样，英伟达现在也在这么做。他们真的买下了那些开源产品。</p>
+<p><strong>Chamath：</strong> 但那些东西都不是模型本身，而是托管模型的工具。那都很好，但你本可以给Nemotron更多算力。</p>
+<p><strong>Jason：</strong> 他原本就在这么做，刚开始这个过程。</p>
+<p><strong>Chamath：</strong> 看看Nemotron的检查点，很遗憾，它们落后了。不知道是什么原因，是算力受限，还是人才受限。模型不错，但并不出色。GLM和其他中国模型比“不错”更好一点，但也还算不上出色，最前沿的那些显然才是出色的。</p>
+<p>我的问题是，你们刚刚讨论的那个边界条件，一年前成立，再往前一年也成立。为什么那时不花钱？为什么我们没有得分——如果是我来做的话？</p>
+<p><strong>Jason：</strong> 因为能赚的钱太多，资本实在太多。看看今天发生的事：今天刚发生了人类历史上规模最大的融资。Anthropic一天就募集了8500万美元。〔此处原字幕及另一份独立转写均作“85 million”，与本期早段融资口径不一致。〕</p>
+<p><strong>Chamath：</strong> 我知道，我知道。我说的是一家私人企业……</p>
+<p><strong>参与者：</strong> 跟着钱走。</p>
+<p><strong>Chamath：</strong> 如果我负责Meta的AI，两年前我就会说：“你知道我要干什么吗？我要直接焦土作战。如果我要花10亿美元去请Andrew Tulloch……”</p>
+<p><strong>Jason：</strong> 他们试过。他们确实试过。我认为你是对的，他们也做了，只是没做到。</p>
+<p><strong>参与者：</strong> 对，英伟达也是，模型就是很烂。</p>
+<p><strong>Jason：</strong> 不，他们正在追上来，需要时间。他们晚了两年。你把理论解释得很完美，却没有走到结论：对，人们意识到自己落后，也看到了机会。然后黄仁勋去收购——这可能正是他倒台的原因——他收购Hugging Face和Poolside，在这两家公司上花了200亿美元。他说：“对，我们要加倍、加三倍押注。”Meta和扎克伯格也说：“我们也要这么做。”</p>
+<p>你说模型被削弱了。好，确实没做成，但意图在那里，过程正在进行。我相信，这正是黄仁勋出事的核心所在。</p>
+<p><strong>Jason：</strong> 你有不同于我们两人的理论吗？</p>
+<p><strong>Chamath：</strong> 我有一个还在形成中的版本。</p>
+<p><strong>Jason：</strong> 好，我们一起琢磨，讲吧。我们来这里就是干这个的，没有错误，没有坏主意。</p>
+<p><strong>Chamath：</strong> 我真的很困惑。如果是我——当然事后人人都聪明，我们也确实讨论过这件事——假如两年前，我是一个拥有这种规模、这种资产负债表的进入者，而且远远落后，又不是一家原生模型公司，那么让模型商品化非常合理。</p>
+<p><strong>参与者：</strong> 对。</p>
+<p><strong>Chamath：</strong> 你在应用、芯片、其他环节赚钱，不需要在模型上赚钱。这似乎显而易见。所以你付出一大笔钱，尝试做一个模型，最后学到了什么？它比你想的难得多。</p>
+<p>但我还是想不通，这不就是钱和招聘的问题吗？你们说，风投创造了激励，让人们可以说：“我们要做闭源前沿模型”，或者“我们要做应用公司”，然后就能融很多钱。我不知道。我当时唯一的理论是，他们没有盯紧球，注意力被别的破事分散了。等一下，让我说完。他们被其他东西分散了注意力。你得先把自己该做的事做完。</p>
+<p><strong>Jason：</strong> 你说得对，事后看，如果你是一位出色的战略家，就该拿出250亿美元，在微软、谷歌、苹果，或者落后的Meta内部，设立一个开源项目，把它作为自己的开源战略。我认为，有两家公司正是这么做的：扎克伯格和黄仁勋。</p>
+<p>但看钱和激励，Friedberg，一个去OpenAI或者Anthropic工作的普通计算机科学家，薪酬包是什么样？这些人收到的报价，我正在和一个人聊天，他孩子刚从学校毕业，Claude给的股权是每年1000万美元、持续四年。这是一个很优秀的计算机本科生，拿到了4000万美元的薪酬包。我们这个行业历史上从未发生过这种事。</p>
+<p>还记得扎克伯格当时想用10亿美元薪酬包挖人，疯狂出价吗？</p>
+<p><strong>参与者：</strong> Andrew，对。</p>
+<p><strong>Jason：</strong> 对。所以，在那种环境里，他们就跳过去了。Friedberg说得完全正确：一家开源公司怎么竞争？它没有那么多钱，没有那么高市值去买下所有人才。</p>
+<p>但我认为，我们现在大概会看到Muse Spark、Nemotron和Reflection的Beam。它们三个紧跟在Kimi、DeepSeek、GLM-5.3后面。然后法国还有一家奇奇怪怪的Mistral，挺有意思。法国这一家正好处在三个落后的美国模型与三个领先的中国模型之间。一年后我们再坐在这里，美国模型会处于DeepSeek和Kimi之间的某个位置。</p>
+<p><strong>Chamath：</strong> 我再给一个不同理论。这件事现在可能发生，因为你看到这些站在前沿的人几乎正在分裂。你们看到那篇叫“Misanthropic”的东西了吗？是一份有很多人签名的公开信，是一群有效利他主义者发生了分裂。</p>
+<p>可能出现这样一种情况：模型公司里非常聪明的人，已经赚了很多钱，现在开始离开。他们觉得：“有一些开源替代方案，可能很重要。”于是他们以更接近非营利的方式做这些事。他们已经有钱，本来也带着一点不那么资本主义的倾向。所以，这可能会发生。</p>
+<p><strong>Jason：</strong> 我认为这是很有意思的洞察。许多观众可能看过《纽约时报》那篇关于Dustin Moskovitz的长篇报道，讲到他早期投资Anthropic和OpenAI，以及他对这些事感到不安。我确实认为，这些人聚到一起，构建一种替代专有模型的方案，概率不是零。</p>
+<h3>12. 英伟达财报、黄仁勋与“英伟达银行”</h3>
+<p><strong>Jason：</strong> 最后谈英伟达。过去30天，它的市值蒸发了2万亿美元，下跌35%；黄仁勋被背后捅刀的两周以来，又跌了20%。首席财务官兼代理首席执行官Colette Kress第一次财报电话会的表现，并没有特别提振信心，但财报本身极其出色。</p>
+<p>英伟达收入和利润都超预期。收入与净利润在已经大得离谱的基数上，又都翻了一倍。对，翻倍，分别达到1160亿美元和650亿美元。想想看，650亿美元利润。股市里大多数上市公司的整个市值，都没有英伟达这个季度赚的利润多。即便如此，股价还是跌了。</p>
+<p>网上正在拿这件事大做文章。这是Kress上Jim Cramer的《Mad Money》时，那段传遍网络的视频。</p>
+<p><strong>Colette Kress，视频片段：</strong> 黄仁勋辞去了在英伟达的职务，董事会接受了他的辞职。董事会已经决定，不会让黄仁勋复任。这就是我们的声明，也是董事会作出的决定。</p>
+<p><strong>Jason：</strong> 很明显，网上都在议论。除了这家公司的董事会，看上去所有人都很支持黄仁勋。另一个信息是，以后不能再这样大手大脚撒钱了。Kress说，对新云的新增融资，他们会“更加自律、更有选择性”。</p>
+<p>显然，黄仁勋喜欢投资初创企业、投资那些在建设未来的公司。但现在，“黄仁勋银行”关门了。她还终止了对中国的H200销售。H200显然是比旗舰H100更强的版本。英伟达原本获准向中国销售H200，商务部在一月批准了。各位，我知道这很复杂，但按新闻的说法，这是公司主动选择。她就是在说：“我们不想再沾这件事了。”</p>
+<p>最强的Rubin和Blackwell GPU显然禁止向中国销售。董事会又一再说，黄仁勋不能回来。黄仁勋说，他愿意谦卑地回来。似乎有一群人正在一定程度上推动他的回归，我们再看。</p>
+<p>相关新闻是，英伟达面临越来越多法律问题。Chamath，你预测过这一点：SEC调查、集体诉讼，两者都针对可能向投资者作出的误导性陈述。司法部显然也在继续调查它与Megaspeed的关系。</p>
+<p>另一个大问题是人才。一批员工在签请愿书。节目朋友Travis Kalanick，对被赶下台也不陌生，他说员工应该罢工。这是他和另一位好友Antonio Gracias的片段。那天大家都穿着皮夹克支持黄仁勋，“皮夹克抗议”还在继续。</p>
+<p><strong>Travis Kalanick，视频片段：</strong> 我显然亲身经历过这个。我倒台之前，经历了六个月的各种操作。我拼命撑着，但最后实在撑不下去了。关于那段经历，如果我能给黄仁勋、给他身边那些最终会奋力帮助他回归的人提供任何智慧，那就是我愿意带来的东西，因为这件事太重要了。</p>
+<p>有人问：“请愿有用吗？”老兄，我给黄仁勋发了当年有人为我发起请愿的那些报道截图。我说：“请愿，很好。罢工，更好。”</p>
+<p><strong>参与者，视频片段：</strong> 对。</p>
+<p><strong>Travis Kalanick，视频片段：</strong> 我没收到回复。但我愿意拿着一个镶满晶圆的扩音器，去英伟达总部，和大批愿意罢工的员工、大批相信我刚才那些话的CEO和创始人一起去。他们相信这一点，不想要一个AI霸主。我们为正确的事战斗吧。至于结果，我们控制不了。</p>
+<p><strong>参与者，视频片段：</strong> 好，兄弟。</p>
+<p><strong>Travis Kalanick，视频片段：</strong> 但我们要战斗。</p>
+<p><strong>Jason：</strong> 就是这样，整个行业在黄仁勋身后站队。为黄仁勋举起皮夹克，“Jackets for Jensen”。我期待下周大家全都穿皮夹克来。</p>
+<p>Chamath，你怎么看英伟达目前的情况？然后再请Friedberg说。</p>
+<p><strong>Chamath：</strong> 我认为，除了下面这些判断，事情仍然太复杂，没法形成确定意见。他是一位杰出、传奇的创始人和CEO，建立了世界上最重要行业里最重要的一家公司。他的优秀简直是《圣经》级别的。</p>
+<p>他也犯了一些错误，严重程度目前还不知道。问题在于，一家上市公司已经毁掉了这么多市值，你不能就这样让这种情况的人复任，否则就把治理彻底扔出了窗外，让所有人、包括公司本身，都处于风险中。所以这不会发生，他们也必须这样表态。</p>
+<p>不幸的是，我认为Colette很优秀，却被放到一个尴尬位置，必须由她传达这个信息。然后网上的喷子就跑来刁难她。这不该由她承受，她只是传递信息的人。</p>
+<p>他很出色，那家公司很出色。但他们现在处于一个非常特殊的时刻，在所有国会听证结束以前，不能作任何决定。我再说一遍，不能作决定。我必须强调，他们要在12月1日和2日应对三个不同委员会：特别委员会、众议院情报委员会，还有另一个委员会。你们觉得容易吗？有人觉得，他们接下来要花时间应对的只是枕边闲聊吗？</p>
+<p>所有人都需要冷静。他会高度专注于12月1日。希望最后证明“这里没有任何问题”。但我敢保证，只要出现一丝“这里确实有问题”的迹象，就会泄露出去，再引发一轮风波，因为赌注太高了。</p>
+<p>这里有互联网暴民、对华鹰派，还有谁知道的各种其他参与者。我不知道。所以，正如我说过的，这实在属于“太难判断”的那一类。人们越对这些肤浅的破事喋喋不休，实际上越让他难以回归。</p>
+<p>所以，我会他妈的闭嘴，让他去准备，希望他能把这件事处理得漂亮，明确证明根本没有问题。然后，你们才能开始有条理地讨论。但所有这些愚蠢的、自下而上的抗议，恰恰暴露出不理解正在发生什么：那是有正式记录的国会闭门听证，可能让他、其他人以及公司，滑向一些真正危险的局面。在结束以前，谁都不该发表意见。</p>
+<h3>13. 没有第一手事实时，播客应该怎样讨论</h3>
+<p><strong>Jason：</strong> 好，Friedberg，Chamath刚刚告诫所有人不该有意见，那么你有什么意见？我想知道你对此的看法，对创始人被赶走这些事，你有什么感受？</p>
+<p><strong>Friedberg：</strong> 已经发生的事就是发生了，我们不能回头改变他已经辞职这个事实。我们不知道，他辞职是因为向中国出售芯片的顾虑，是否涉及间谍活动，还是因为婚外情、违反行为准则。我们不知道。</p>
+<p>公司没有发布明确声明，黄仁勋没有提供事实性的声明，政府也没有提供事实性声明或正式说明。政府没有针对公司提起民事或刑事案件，监管机构也没有对公司提起这样的案件。所以，我们所有人都只是在对媒体报道作反应，而我们一直在说，媒体在骗我们。</p>
+<p>我不知道该信什么，不知道哪些是真的、哪些不是。公司、政府、监管机构、黄仁勋，对这件事的事实都没有发布正式说明。</p>
+<p><strong>Jason：</strong> 但我们知道有一份报告。有些东西是知道的，卢比奥改写过一份报告，我们知道……</p>
+<p><strong>Friedberg：</strong> 再说一遍，Jason，那是媒体报道。你引用的是一篇说了某件事的报道。我不再对媒体作反应了。</p>
+<p><strong>Jason：</strong> 好吧。</p>
+<p><strong>Friedberg：</strong> 我不知道什么是真的。我只知道，真正相关的第一手当事方——政府监管机构、政府部门、黄仁勋、公司——没有一个提供正式的数据、证据或说明。</p>
+<p><strong>参与者：</strong> 一切都来自媒体。</p>
+<p><strong>Friedberg：</strong> 而我不相信那些东西，所以我不知道该怎么想。</p>
+<p><strong>Chamath：</strong> 我同意Friedberg。各位，如果你们希望他回来，引用Dave Chappelle的话，你们可以直接他妈的闭嘴。</p>
+<p><strong>Jason：</strong> 我不会。即便那是你最好的建议，我还是会表达意见。综合全部报道，进行交叉判断，再结合我对销售人员的了解——已经有报道说，某些服务器和云服务商给中国公司开了一条使用部分硬件的后门。这种事一直会发生：产品卖出去，被转手，最后提供给其他人。</p>
+<p>我敢打赌，最后会发现，一些不受管束的销售人员在灰色地带活动，转售商套着转售商，把这些东西卖了出去……</p>
+<p><strong>Chamath：</strong> 也许应该在12月1日把你叫去当特别证人，‘诺查卡尼斯’。</p>
+<p><strong>参与者：</strong> 也许就像你做的那样……‘诺查卡尼斯’可以来。</p>
+<p>〔‘诺查卡尼斯’（Nostracanis）是把Calacanis与预言家Nostradamus拼在一起的调侃称呼。〕</p>
+<p><strong>Jason：</strong> 但这是一档播客，Chamath。播客在世界上的作用是什么？</p>
+<p><strong>Chamath：</strong> 你能往自己那个脏兮兮、装满破烂的牛皮纸袋里看，然后看见未来。真棒。我什么都他妈不知道，所以我选择闭嘴。</p>
+<p><strong>Jason：</strong> 那是一个很好的选择。我选择在播客上推测，这是我作为美国人的权利。如果这些年让我们学到了什么……</p>
+<p><strong>Chamath：</strong> 那就是播客的目标吗？你知道我过去几周意识到了什么吗？这是一件值得意识到的重要事情。</p>
+<p><strong>Jason：</strong> 好，来了。</p>
+<p><strong>Chamath：</strong> 我认为，努力说对很重要。你知道时，就说；你不知道时，可以猜。但如果每一边都有那么多东西，就像Friedberg说的，明显到你根本不可能知道，有时候最好就是……</p>
+<p><strong>Jason：</strong> 两周前谈中期选举时，你就说过。你当时承认：“是我的错，听着，我全弄错了。”大家对那个时刻反响很大。</p>
+<p><strong>Chamath：</strong> 我弄错了，彻底弄错了。但这件事，我没有意见，因为真相时刻还没有到来，还要几周。</p>
+<p><strong>Jason：</strong> 对。</p>
+<p><strong>Chamath：</strong> 所以，其他所有人做的那些，就是在网上表演道德姿态的胡扯。</p>
+<p><strong>Jason：</strong> 或者是推测。大家在推测，不一定是道德表演。</p>
+<p><strong>Chamath：</strong> 就是道德表演。Friedberg说得完全正确，真正身在其中的人，没有一个在正式记录中讲过什么，一个都没有。所以，这不过是一群站在场外的傻瓜发表意见。</p>
+<p><strong>Jason：</strong> 对，你刚才描述的，就是整个行业正在做的事：推测。</p>
+<p><strong>Chamath：</strong> 我没在推测。听着，我希望……</p>
+<p><strong>Friedberg：</strong> 我告诉你，我在推测什么。我在推测，我们正在看到一场大规模、并非有意识协调的行动，要垄断人工智能——人类历史上最伟大的技术进步。</p>
+<p>如果我们不一起为开源运动、为竞争而战，那么最不应该想要的，就是AI变成寡头统治或寡头垄断。我认为，无论民主党、共和党，无论政治立场，无论你在K形经济中的哪个位置，都不应该想要这个结果。这项技术会发展、会向前，你阻止不了。所以，要允许它广泛传播，努力避免它变成寡头垄断。</p>
+<h3>14. 最后一轮交锋：技术前景与市场风险</h3>
+<p><strong>Chamath：</strong> 这里是数字上的证据。今天，就在我们说话的此刻，现在是11点42分，标普500下跌1.39%，VIX波动率指数上涨10.83%，Anthropic较IPO发行价上涨18%。</p>
+<p>你知道现在唯一另一家大涨的公司是谁吗？Palo Alto Networks，涨5.86%，因为它在开源上下了重注。Friedberg是对的，市场会奖赏你。我认为，市场在说：这既是理念上正确的，也是数学上正确的。在今天这样的日子，这是一个非常重要的信号。</p>
+<p><strong>Jason：</strong> 各位，今天市场真是一场血洗。这里是……</p>
+<p><strong>Chamath：</strong> 请吧，‘诺查卡尼斯’。往你的牛皮纸袋里看看。</p>
+<p><strong>Jason：</strong> 我这次更多是在看市场热力图。</p>
+<p><strong>Chamath：</strong> 我等不及了，真等不及想看。</p>
+<p><strong>Jason：</strong> 你以为这档播客为什么排第一？就是因为我们会推测。你摸了热炉子，烫伤了。我当时告诉过你：“炉子很烫，Chamath，别离政治太近，小心点。”你把手烫了，现在突然要审慎起来。收听率会崩的。</p>
+<p><strong>Chamath：</strong> 我不是那个意思。我一直在下注、做推测性的交易。我的意思是，我现在在降低风险敞口，因为我告诉你，目前市场运动的合力向下，而非向上。</p>
+<p>我也足够聪明，会看市场在奖励什么。市场奖励的是打造十家超级企业中的一家。我们会有“十巨头”，现在知道其中四五家，这家公司加入以后就是六家。今天，在VIX上涨、大家害怕、总体避险的市场里，它得到了奖赏。</p>
+<p>市场也奖励Friedberg说的那一点：现在，下重注非常重要。动用现金流，动用股票，加入比赛，穿上护具，走上球场，撞倒一个人。我很高兴能看到这个。我认为，这对Nikesh非常好，他做得极其聪明。未来十年，他很有机会把公司建设成一家万亿美元企业。太棒了，我祝他一切顺利。</p>
+<p>我原则上是在降低风险敞口，因为我认为，后面还有很多事。我把它放在三个篮子里。经济层面，还有很多尚未发生，尤其是AI交易。我们连一阶效应都还不知道，因为国会听证还没举行。等听证过去，才会知道，如果把“英伟达银行”的那根线抽出来，会发生什么。我们不知道“英伟达银行”关门的后果。我认为，它究竟关得多紧、还开着多少，听证之后才会更清楚，不是在之前，也不是过程中。</p>
+<p>第三，我们正处在这样一种局面里：似乎所有东西都在出问题，每天都遭遇网络攻击，什么都停摆，还被告知要为三天的应急情况作准备。你居然不觉得风险的天平向下？你的纸袋告诉你，还会涨？</p>
+<p><strong>Jason：</strong> 不，不是纸袋。我是在看公司的基本面。</p>
+<p><strong>Chamath：</strong> 你的塑料垃圾袋告诉你，东西会涨？</p>
+<p><strong>Jason：</strong> 不，不，不，那是路易威登的袋子。</p>
+<p><strong>参与者：</strong> ‘诺查卡尼斯’用什么看未来？</p>
+<p><strong>Jason：</strong> 我告诉你，我看三件事：产品、管理团队、市场。我就是这样下注的。</p>
+<p><strong>参与者：</strong> ‘诺查卡尼斯’和他的塑料袋。</p>
+<p><strong>Chamath：</strong> 你有一个脏兮兮的牛皮纸午餐袋。</p>
+<p><strong>参与者：</strong> 牛皮纸袋？我能摇一摇吗？</p>
+<p><strong>Jason：</strong> 不，相信我，‘诺查卡尼斯’看得到未来。未来就是：谁在交付出色的产品。</p>
+<p><strong>Chamath：</strong> 你他妈什么都看不到。</p>
+<p><strong>Jason：</strong> 我全看得到。</p>
+<p><strong>Chamath：</strong> 你他妈什么都看不到，你他妈什么都看不到。</p>
+<p><strong>Jason：</strong> 我在150美元买英伟达。这不是投资建议。我等不及在拉斯维加斯见到你了。我等不及在拉斯维加斯见到大家了。爱你们，好友们，再见！</p>
+<p><strong>参与者：</strong> 爱你们，兄弟们，再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
