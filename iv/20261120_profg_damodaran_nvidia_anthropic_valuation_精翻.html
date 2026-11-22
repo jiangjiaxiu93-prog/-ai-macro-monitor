@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Aswath Damodaran谈英伟达估值、Anthropic万亿美元收入假设与2027风险（Prof G全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Aswath Damodaran谈英伟达估值、Anthropic万亿美元收入假设与2027风险（Prof G全文精翻）</h2>
+<div class="metaline">Prof G Markets · Ed Elson主持；Aswath Damodaran（纽约大学Stern商学院金融学教授） · 62分28秒 · 2026-11-20 · <a href="https://www.youtube.com/watch?v=IgvDUUn3uuE" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；单位经济；算力采购；token需求；英伟达；Anthropic</p>
+<ul><li>把CEO更替、监管风险、未来利润率与分散配置分别纳入英伟达估值，不把低市盈率直接等同便宜。</li><li>Anthropic估值依赖十年内1万亿美元收入、27.5%利润率及企业粘性；完整保留主持人的反驳、算力承诺与治理风险。</li><li>讨论AI资本开支放缓、存量折旧上升及2027年盈利和经济的传导。</li></ul>
+<p><strong>节目时点：</strong>本期2026年11月20日发布，录于Anthropic挂牌前，未覆盖周五交易。正文按完整视频版本，音频版时长因广告版本不同而异。</p>
+<h3>精翻正文</h3>
+<h3>CEO更替与监管调查，必须分开估值</h3>
+<p><strong>Ed Elson：</strong>欢迎收听Prof G Markets。这是很久以来商业新闻最疯狂的一周之一。黄仁勋离任英伟达CEO后，我们终于听到他的表态，他明确愿意回归，但董事会在财报会上说他不会回来。与此同时，备受期待的Anthropic IPO又给这一周增加了一件大事。这也是年底前最后一次与今天的嘉宾交流，我们会谈这些变化、2026年的教训，以及进入2027年需要关注什么。</p>
+<p>今天的嘉宾是纽约大学斯特恩商学院金融学教授、Kerschner家族金融教育讲席教授Aswath Damodaran。很高兴见到你。先从所有人都在谈的英伟达说起，方向很多，我开放地问：你怎么看？</p>
+<p><strong>Aswath Damodaran：</strong>这个故事有多个维度。如果只是黄仁勋个人的过失，比如与员工发生关系、违反公司规定而被撤换，事情会小得多。我们可以讨论谁接任、做法有什么不同、他还能怎样与继任者合作。</p>
+<p>对英伟达投资者更危险的，是中国这一条线，也就是另一层事件。事实还不清楚，我不作判断，但它显然让事情扩大了。即使找到完美的新CEO，这个问题也不会消失。</p>
+<p>上周日我刚写完一篇关于怎样给CEO估值的文章，幸好没发，因为过去四天变化太多。CEO究竟带来多少价值？我的一般前提是，CEO对年轻、增长中的公司，比对成熟公司更重要，因为成熟企业的CEO能改变价值的空间小得多。</p>
+<p>那么英伟达处在生命周期哪里？规模非常大，但增长轨迹像年轻创业公司。这个阶段CEO显然重要，尤其当他还是创始人、按照自己的形象塑造了整家公司。</p>
+<p>你可以同时接受两个判断：黄仁勋是极出色的CEO，建立了世界上最伟大的公司之一；他也是人，会犯错，而且有些重大错误让他本人和公司同时付出代价。有些人因为他现在做的事，就倒过来说他过去也不是好CEO。我认为要把两件事分开。</p>
+<p>现在又有新的不确定性：他究竟真的离开，还是会回来？这层不确定性不会帮助投资者。我认为他很可能回不来，从这种事情中回归太困难。但无论他是否回归，公司价值究竟损伤多少，仍是问题。中国这一条线可能有持久影响。</p>
+<p>我认为国会举行听证几乎是必然，还可能进一步审查究竟发生了什么。最后，英伟达也许需要放弃一部分经营价值，才能重新获得认可。例如放弃对中国的销售。即使现有架构下，它仍有对华销售。如果一半或三分之二消失，会怎样影响价值？还可能影响它与亚洲公司的关系，进而影响利润率和价值。</p>
+<p>所以，无论谁掌舵，中国问题都会延续。未来几周会逐渐看清，多少是真的，多少是人们过早下判断。</p>
+<p><strong>Ed Elson：</strong>很高兴这件事发生时能请到你，因为你的很多研究都在给那些重要、却无形的企业因素估值。我记得你写过，怎样评估一家公司位于火山附近的风险，怎样给它数字、反映进价格。</p>
+<p>现在世界最有价值的公司之一，恰好面临这类问题：黄仁勋作为CEO值多少？会不会受刑事审判？国会调查会怎样？国会会怎样处理英伟达及其可能存在、也可能不存在的中国联系？</p>
+<p>我先聚焦CEO，因为这件事非常牵动投资者。很多人认为，没有黄仁勋就完了，至少大部分价值会消失，所以才有几十万人签请愿书，希望他回来。我对此怀疑。你估计他今天对公司有多少价值？</p>
+<p><strong>Aswath Damodaran：</strong>先把中国问题放在一边，只看CEO替换，我认为影响较小。假设确实更换，有三件事：新CEO会来，可能是现在或过去在英伟达工作的人；如果双方不是敌对关系，黄仁勋仍可能在周围，为新CEO提供战略帮助；第三，他建立的管理团队究竟有多强？</p>
+<p>如果在2005年问，贝索斯对亚马逊有多重要，你会说，没了他公司活不下去，他就是公司。但他后来离开，你看到他在法国游艇上穿着泳裤，公司照样继续。这正是优秀创始人会做的：建立能接棒的第二层管理团队。我们现在会发现，英伟达的第二层是什么样。</p>
+<p>尽管有这些坏消息，我对英伟达的感觉是，它有一批能干的管理者，很多人能继续保持经营效率和能力。可能失去的，是黄仁勋驱动的那种寻找大市场的文化。</p>
+<p>过去二十年，我称英伟达为善于捕捉机会的芯片公司。大市场刚起步，它似乎总能发现，并在增长时占据独特有利位置：游戏、加密、AI，都是如此。第一次可以叫幸运，第二次特别幸运，第三次就必须承认，公司DNA里有东西，让它比别人更早发现新市场。我认为很大一部分来自黄仁勋。</p>
+<p>换人后，主要失去的就是这个。影响多大？比它只有1000亿美元规模时小。到了4万亿美元，你谈的已不是让价值翻四倍的机会；基数更大，增量影响就小。</p>
+<p>所以可以有较温和的情景：影响短期，新管理层接任，黄仁勋留下提供战略方向，员工没有因他离开而流失，第二层管理团队完成本职工作。不是毫无影响，但我做了表格，让大家从两个维度自行判断：是短期还是长期？如果短期，价值影响大约3%至5%。</p>
+<p>如果长期，我会追问，影响出现在哪里？收入增速更低？利润率更低？没有他的联系，需要更多再投资？表格允许你开关这些假设。如果收入增长下降10%、利润率下降5%，价值影响就大得多。我们要追踪的正是这些渠道。</p>
+<p>因此，如果只是个人过失，即使违反公司规定，影响也小得多。真正的未知数是中国问题。这不由任何CEO、第二层管理层，或黄仁勋与新CEO怎样合作决定。即使不进入刑事法庭，也可能进入监管程序，出现限制，规定你不能做什么，从而影响公司价值。作为英伟达投资者，我会担心这个。</p>
+<p>而且我要强调，让黄仁勋回来，并不会让中国问题消失，甚至可能更糟。我认为董事会正在权衡这个。所以，必须把事件拆成两部分：一是违反公司规定的公司治理事件；二是可能规避本该遵循的法律和限制。后者在我看来破坏性更大。</p>
+<p><strong>Ed Elson：</strong>投资者怎样给失去黄仁勋、以及Megaspeed之外可能涉及的调查风险定价？法院还没有证明任何事情，但按报道看，似乎是这样。市场基本上给出了1.5万亿美元的损失。</p>
+<p><strong>Aswath Damodaran：</strong>今天英伟达市值大约3.5万亿，不久前是4.8万亿，事件开始时约4.5万亿。投资者显然认为事情不会轻易过去，我认为他们是对的。</p>
+<p>中国问题就是那个未知数。如果最后不了了之，证明没什么实质内容，那我认为市场反应过度了。现在投资英伟达，很大程度是在押注你怎么看中国事件、认为会持续多久。它可以解释1万亿美元的市值下降；仅仅换CEO，对我而言解释不了。</p>
+<h3>11倍远期市盈率为什么仍可能有风险</h3>
+<p><strong>Ed Elson：</strong>英伟达现在过去十二个月市盈率约20倍，远期约11倍，明显低于可口可乐的29倍、沃尔玛的46倍。这些按你公司生命周期框架看已进入中年的传统企业，反而有更高估值，处在AI前沿的英伟达落后很多。这是否构成买入机会或错价？</p>
+<p><strong>Aswath Damodaran：</strong>关键区别是，可口可乐很无聊，但商业模式已定型，利润率稳定。告诉我今年利润率，我基本能预测未来十年。</p>
+<p>英伟达的模式惊人。在它出现之前，如果我向你描述这样的模式，你会说不可能：自己设计芯片，让台积电制造，没有制造工厂；再加价800%至900%，卖给Meta、Alphabet和微软。</p>
+<p>这个模式两端都充满张力。台积电会问，为什么让英伟达拿走这么多上行？Meta、Alphabet、微软会问，为什么接受这样的加价？现在的答案是，大家迫切需要建数据中心，又认定只有英伟达芯片能实现，于是接受这种商业模式。即使在它最辉煌的时候，也一直如此。问题不是利润率会不会收敛，而是什么力量会使它更早收敛。</p>
+<p>所以，这个模式注定会随时间出现利润率下降，不是说会崩溃。典型芯片公司的营业利润率约40%，英伟达是70%，非常惊人，这也是我们给它溢价的原因。但70%不可能永远是70%，因为两端都在施压。Meta和微软在做自研芯片，想免付溢价；台积电也一定在争取更好的条件，因为没有它，芯片就造不出来。</p>
+<p>这时私人联系可能很重要。英伟达和台积电的关系可以追溯三十年。你读过英伟达还是小公司时怎样联系台积电的故事。台积电管理层的私人关系，不只是与英伟达管理团队，而是与黄仁勋本人建立的。问题是，他离开后，这些关系会不会更早承压？</p>
+<p>你说得对，看起来便宜，但它建在一个需要不断追问的、并不稳固的商业模式上。我记得Anthropic有一段内容，不确定是在正式招股书里，还是有些夸大的说法：他们找到办法，让Claude把传统的非英伟达芯片用出英伟达芯片的功能。这个想法很可怕。如果AI能够自我推进，用便宜得多的芯片替代英伟达，它的商业模式就会受损。</p>
+<p>所以，英伟达从增长和利润率看是惊人的公司，但你总在屏息问：什么会让这个模式内爆？市场现在正是如此。11倍盈利看起来便宜，前提是不发生崩解。你需要把某种风险反映进盈利；如果假设商业模式受损，所谓11倍可能就变成25倍。</p>
+<p><strong>Ed Elson：</strong>这也是当前股价的问题：问题太多，而且每个都很重要，没有人知道答案，也不可能知道。作为投资者，你怎样对待这种股票？会不会因为太多问题无法回答，就不能投资？</p>
+<p><strong>Aswath Damodaran：</strong>不是。真正危险的是在这种股票上集中押注。即使英伟达最辉煌时，我也一直说，无论你觉得公司多好，都不要把三分之一或一半的钱放进去。</p>
+<p>它充满不确定性，你可以作最好的估计，但也知道自己百分之百会估错。你可以说服我它便宜；如果要求我把全部资金放进去，我绝不会做，未知因素太多，会回来咬你。</p>
+<p>但如果把它加入一个30家公司的组合，不确定性的影响就小了，因为你让大数法则帮助自己。我确实下了英伟达限价买单，在140美元。过去两年，我把2018年买的英伟达全部卖掉了。但在140美元，我愿意接受这些不确定性，因为我认为商业模式剩余的力量足以让我收回投资并赚更多。</p>
+<p>这是因为我的组合分散。如果押注英伟达，就别让它成为组合的30%或40%。这样会减少上行，但你能承受下行。至少短期内，必须活得过下跌，才能等到赚钱。</p>
+<h3>Anthropic：发行价83美元，怎样得到估值</h3>
+<p><strong>Ed Elson：</strong>接下来谈Anthropic，刚刚把IPO定价为每股83美元。我们是在股票开始交易之前录制，节目播出时它就会交易了。目前知道，上市市值大约1.5万亿美元。你此前给它的估值略低，为1.475万亿美元。请带我们走一遍估值过程，再谈未来十二个月可能怎样交易。</p>
+<p><strong>Aswath Damodaran：</strong>我在11月2日、中期选举前一天给Anthropic估值1.475万亿美元。你会说，只过去三周，不算久。但对Anthropic和AI来说，这三周事情太多了。</p>
+<p>选举带来一个对数据中心、对AI技术都更不友好的国会。建数据中心会更贵。我的模型里，有一项输入就是：Anthropic为了得到收入，需要额外投入多少算力。我讲了一个非常乐观的故事，让它达到1万亿美元收入。作为参照，今天地球上没有公司收入超过8000亿美元，最接近的是亚马逊和沃尔玛，而我给它1万亿。</p>
+<p>我给的利润率反映AI市场中的溢价定价，同时扣除一定监管拖累，最后为27.5%。也假设它能继续增加算力，即使不轻松，至少与今天差不多的速度。这样得到1.475万亿。</p>
+<p>上节目大约二十分钟前，我重估了一次，改了两点：一是至少短期内，数据中心和算力建设更贵，每投入一美元能获得的收入更少；二是监管拖累更大，虽然不知道具体形式，但成本会上升、利润率会下降。稍多一点监管拖累，稍多一点再投资，让股权总价值下降约1000亿美元，来到约1.35万亿。“万亿”这个词真难说出口，平时太不常用。</p>
+<p>这次我也算了每股价值。11月2日还不行，因为招股书没把股数写全。现在有A类、N类、D类、E类，还有著名的创始人股。我加入更新股数，以及大量未行权期权，得到每股77美元。上节目五分钟前才算出来。</p>
+<p>我当时还没看到83美元，因为定价刚刚才公布，是83，对吗？</p>
+<p><strong>Ed Elson：</strong>对。</p>
+<p><strong>Aswath Damodaran：</strong>这让我害怕，我居然和银行家的价格这么接近。差远一点我反而更舒服。</p>
+<p>不过，回头看银行家的定价轨迹，上周初还在瞄准1.15万亿至1.25万亿。</p>
+<p><strong>Ed Elson：</strong>从2万亿降到1.1万亿，现在又来到中间。</p>
+<p><strong>Aswath Damodaran：</strong>回到1.5万亿。究竟变了什么？人们以为银行家坐在小隔间，用商业模型给Anthropic估值。实际变化是，他们周一、周二把1.1万亿至1.25万亿放出去，听了大量机构投资者反馈，发现热情太高，于是重新定价。这是定价游戏。</p>
+<p>银行在这次IPO里只有一个工作：把发行价定在一个明天开盘能跳涨10%至15%的位置。如果做对，我预期会开在90或95美元。能不能站住则是另一回事，因为Anthropic从第一天就有解禁，有些持有人获准卖出。想套现的人和想买入的人会同时施压。</p>
+<p>出口和入口会非常拥挤，而且其实是同一扇门，有人进、有人出。所以，不只是开盘，全天怎么走都值得看。我会拿明晚收盘价和我的77美元比较，发行价不重要，开盘价也不重要。如果明晚收在71或72美元——可能发生——对银行很糟，但对我开始有吸引力。</p>
+<h3>创始人股：控制权保护也可能成为目标</h3>
+<p><strong>Aswath Damodaran：</strong>不过，价格要低很多我才会买，因为这个治理结构，对股东简直像在地狱里设计的。</p>
+<p>从谷歌以来，有投票权股、无投票权股，大家已经习惯。但这里是七名创始人持有的一股，拥有50.01%的投票权。最接近的比较，是20世纪80、90年代政府私有化企业时发行的黄金股，撒切尔夫人在英国部分私有化中引入过。</p>
+<p>黄金股只有一股，却让政府能否决收购、进入新地区等重大决策。Anthropic的创始人股，权力甚至更大。我不想给政府和监管者出主意，但不知道创始人有没有想清楚。</p>
+<p>假设有一个积极干预的监管者，在某个时点认定AI的做法不符合公共利益——未来会有丑闻、会有故障——然后说，要征收这股创始人股，按A类股的市场价格付钱。那一股本来可能值几千亿美元，但监管者说它不交易，就按一股A类股支付。当然，创始人可以上法庭，合理地主张这是征收。</p>
+<p>但我会担心，你给了积极干预的政府或监管者一个靶子。大家谈把AI变成公用事业，最容易的办法就是买下那股创始人股，政府就控制了公司重大决策。</p>
+<p>我不知道为什么这么设计，肯定有原因，但从外部看，我看到的是一个目标，可能让这股成为政府和监管者觊觎的东西。</p>
+<p><strong>Ed Elson：</strong>很有意思。我本以为目的是集中、保护权力，但按你说的，反而可能让他们更容易失去权力。</p>
+<h3>巨额算力承诺与融资期限错配</h3>
+<p><strong>Ed Elson：</strong>回到业务和估值，我一直很关注一个风险：公司说未来几年要在算力和基础设施上花约9000亿美元，其中2030年前、也就是未来三年，大约4000亿至5000亿美元。很多支出不能退出，至少合同上已经确定。</p>
+<p>要花几千亿美元，与今天每年花几百亿美元，完全是两种业务。上半年本来大概要花90亿美元，也许还会更多。整个现金流轮廓即将彻底改变，我们会看到一家不同的公司。</p>
+<p>它要么继续从资本市场筹几千亿美元，暴露于有时很烦、情绪又多变的投资者；要么像你说的，创造1万亿美元收入。我没那么确定，也还没被说服。你怎么看这些风险？</p>
+<p><strong>Aswath Damodaran：</strong>分开两个问题。算力承诺确实有问题，因为存在错配。什么错配？年轻、还不赚钱的公司，不应该借钱，这是公司金融第一条原则。Anthropic在没有盈利支持的情况下签订合同承诺，实际上违反了这个原则。这会让大多数年轻公司倒闭。</p>
+<p>但有两件事能缓冲风险。第一，IPO之后，现金余额应有约2000亿美元，未来两三年的主要支出是算力承诺，接下来三年大致能覆盖。这提供了喘息空间，但前提是收入很快增长。十年达到1万亿美元，意味着至少近期基本上每年都要翻倍。</p>
+<p>如果收入上升，就不是问题；如果不上升，当然会被挤压。不是承诺本身单独有问题，而是无法取得足以证明这些承诺合理的收入。</p>
+<p>不过，我理解它为什么这样做。在AI行业，算力可能成为稀缺资源。一年前，它锁定的算力远落后于OpenAI，大约只有后者三分之一。通过这些承诺，它已经追上并超过。它是在说，赛道已经铺好，等业务增长，算力就在那里。否则即使有需求，也可能因为算力短缺而交付不了增长。所以，这是它往前看、认为必须提前锁定算力的反映，但仍是公司风险。</p>
+<p>事实上，我把租约折算成接近5000亿美元债务价值，并从股权价值中扣掉。因此，1.475万亿美元股权估值，是扣除这5000亿美元之后的结果。</p>
+<p>你说得对，关键是假设。我把估值模型开放，让大家选择自己的故事，并指出最不同意的输入。很多人竟把焦点放在我用9.74%的资本成本上，让我意外。坦白说，这甚至进不了我最担心的前十名。</p>
+<p>这大约处于美国公司第90百分位，它确实有风险。但很多人凭直觉，认为风险公司就该用14%、15%、16%。直觉不等于现实，你必须生活在当前世界。在这个世界，10%资本成本已在第90百分位，我给的已经相当高。</p>
+<p>真正驱动估值、我最关注的核心输入，是收入。只要能接近1万亿美元收入，其他事情会跟上：利润会来，算力承诺能支付，资本成本保持低位，违约风险消失。如果收入没有开始兑现，其他一切都会散架。</p>
+<p>所以，公司几乎完全取决于：AI产品和服务、Claude、世界各地的Claude智能体，是否有足够大市场，让收入未来五年每年继续翻倍，最终达到1万亿。以后财报里所有数字中，我最关注它，因为它驱动其他所有估值因素。</p>
+<h3>收入放缓、降价竞争与“足够好”的模型</h3>
+<p><strong>Ed Elson：</strong>完全同意，所以我看到增速放缓才担心。忘了第一季度具体多高，但当时非常惊人，后来降到47%，当然仍很高，却是明显减速。现在看第四季度可能降到15%至25%，还要观察。如果能持续，明年大概翻倍，这不错，但假设增速不会继续下降。它难道不需要实质改变一些东西，才能把数字重新拉上去？</p>
+<p><strong>Aswath Damodaran：</strong>问Anthropic，它会说，是算力用完了，再加上OpenAI定价更低，算力变得稀缺。我认为两者可能都是真的。</p>
+<p>OpenAI会继续在那里。如果持续压价，你就必须降价匹配，这会成为问题。还没说另一个竞争来源：能力稍弱、但效果一样够用的开源模型。大多数企业即使要内部部署AI，做自己的工作也不需要Claude，太过头了。</p>
+<p>Anthropic需要学习的，可能是别总造最前沿、配置拉满的模型，像造一辆把所有选配都装上的汽车。人们只是想要四个轮子、一辆能开的车。模型要足够强，但不必过强；不需要的能力，为什么还要增加、为什么再推高算力需求？</p>
+<p>还有一个很有意思、我也没完全看清的支线：Anthropic除了向企业提供AI智能体和工具，还打算亲自进入某些行业经营。比如药物业务，不只是提供智能体，而是做药企、或药企上游公司的工作。圣迭戈有很多年轻生技和制药公司，研发一种药，再卖给辉瑞、默沙东或其他大企业。</p>
+<p>Anthropic似乎相信，自己能做年轻药企做的事，从中获得收入。因为此时你不再只是工具，不再按替代工具收费，而是为实际完成的东西收费。</p>
+<p>但问题是，如果它说自己要成为制药行业参与者，那么作为咨询公司，我还愿意把Claude请进来吗？如果我是麦肯锡，用了Claude，会不会担心它学到足够多咨询资源，最后出现Anthropic咨询、Anthropic银行？这反而妨碍它向世界其他企业推销。怎样平衡，我不知道。</p>
+<p>很多Anthropic多头最兴奋的故事，是AI会更快治愈癌症，而Anthropic将获取收益。即使前半句是真的，AI可以整合数据、做人类难以做到的事，更快找到疾病疗法，也不代表价值一定归Anthropic。</p>
+<p>也许我们所有人都因此受益，成为消费者剩余；也许整个制药业反而利润更低，因为出现成本更低、愿意压价的新玩家。人们从“创造很多价值”跳到“Anthropic拿走这些价值”，跳得太快。会有很多参与者要求分享，到最后，AI创造的价值有多少真正归AI公司，我并不确定。</p>
+<p><strong>Ed Elson：</strong>我完全同意。所以，你居然能看到它实现1万亿美元收入的路径，让我很感兴趣。按当前增速、你列出的风险、以及这么多算力支出，它显然得进入我们从未见过的新业务。企业要剧烈改变，进入许多业务、解决许多问题，要有太多条件同时满足，商业计划才能成立。这是相当大胆的推介。你的模型里，这些条件怎样同时对上？</p>
+<h3>两三家巨头与企业粘性，是乐观估值的前提</h3>
+<p><strong>Aswath Damodaran：</strong>最终，我认为这是一个由两三家大型玩家主导的巨大行业，Anthropic会是其中之一。它是AI公司里最专注的一家：明确为企业构建产品，不是Zoom上的有趣小功能或附加项。</p>
+<p>我感觉，一旦进入企业就有粘性。比如销售替代银行家的智能体，高盛邀请你进去，训练时让智能体接触银行数据和银行家，从他们身上学习。这样业务会很粘。率先进入，是我给Anthropic的故事中隐含的优势。</p>
+<p>我可能大错特错。也许企业只是用智能体，并不开放专有数据。但这个模型需要粘性，我假设粘性会形成。一方面，后来者很难靠降价进入，因为你已深嵌客户；类似Palantir与政府，一旦成为系统的一部分，很难再想怎么切换。因此，我的直觉是最后有两家、也许三家公司，模型都很有粘性。</p>
+<p>途中仍有许多风险，尤其是被颠覆的风险。所以，1.475万亿美元意味着我牢牢戴着乐观帽子，而且必须一直戴着，估值才成立。</p>
+<p>这也是我担心治理的原因。即使最好的情景里，你也会走错路，需要愿意适应、改变、换路径。治理的作用就在这里，有人反对、要求改变。但按Anthropic的结构，我担心管理者愿不愿意改。动力是什么？他们不想改时，你怎样让他们改？</p>
+<p>最后可能只剩市场价格下跌，才能让他们听进去。但这是很钝的工具。看Facebook，为了让扎克伯格放弃元宇宙，要造成多少损伤？在AI里，可能要乘以十，才能学到同样教训。</p>
+<p>所以，如果你的组合只打算放五只股票，这不是合适的投资。但如果价格相对1.475万亿美元有折扣，作为这个领域的一家公司，我愿意考虑。AI哪怕只兑现一半承诺，也会是一门很大的生意。</p>
+<p>目前AI领域其余公司，要么建数据中心，要么给数据中心供应东西，相当于都在建工厂。Anthropic是第一家真正大型、纯粹做AI产品和服务的公司。考虑到投资者担心错过整个领域，这里先上市也有优势。明年OpenAI上市，会重新定价、会有更多比较，但现在没有直接可比对象。</p>
+<p>你说SpaceX呢？它显然越来越像建设者，而不是产品公司，因为xAI几乎所有收入都来自把算力空间租给Anthropic和Alphabet，而不是独立大模型自身产生的收入。</p>
+<h3>AI大跌而大盘仍涨：美国市场的韧性与极限</h3>
+<p><strong>Ed Elson：</strong>没错，它给本应与自己竞争的Anthropic供算力，看起来正在退出那场竞争。拉远一点看股市，快到年底了，标普今年仍涨约7%。AI经历这么惊人的抛售之后，这很值得注意。</p>
+<p>大家还在问泡沫何时破、什么时候调整。但我看AI发生的事，泡沫已经破了：英伟达损失超过三分之一价值，新云和很多AI股被打得很惨。真正惊人的是，股市整体却还不错。</p>
+<p><strong>Aswath Damodaran：</strong>这是过去十年里最令我印象深刻的一年，包括那些涨25%的年份。年初的故事是，“七巨头怎样，市场就怎样”。今年七巨头基本持平，实际上还跌了，市场却涨。以前说科技决定市场，今年市场仍设法上涨。</p>
+<p>我们谈的时候数字还在变：四天前涨10%，现在涨7%。AI继续卖下去，当然会溢出到别处。但市场能撑到现在非常了不起，投资者从科技轮动到其他业务，其他业务能吸收五六家公司损失几万亿美元的痛苦，并靠上涨抵消。</p>
+<p>坦白说，我没想到能做到。如果年初告诉我AI和科技会这样表现，再问大盘怎样，我会猜跌10%。如今仍涨7%，说明美国经济不只有AI。过去五年我们谈AI太多，忘了美国经济能通过多种业务创造价值。</p>
+<p>想看科技崩落摧毁市场的例子，就看韩国KOSPI：市场高度集中于科技，一跌就没有其他部分吸收冲击。美国做到了。但能月复一月这样继续吗？很难。科技和AI必须见底，市场才能重新站稳。年底剩下几周，市场会受到考验。</p>
+<p><strong>Ed Elson：</strong>看今年跑赢的板块，必需消费涨16%，医疗涨18%，最强的能源接近40%。能源可以说也有AI交易的一面，同时某种程度上防御。医疗和必需消费则几乎相反。看起来资金从AI转向防御，解释了大盘韧性。</p>
+<p>两个问题：这种惊人韧性怎样解释？防御股已经从轮动中获得这么多推动，进入2027年还有什么防御空间？这似乎是风险。</p>
+<p><strong>Aswath Damodaran：</strong>问美国有多少上市公司，人们常常低估到实际的三分之一、四分之一、五分之一。美国约有6000家上市公司，跨越各行业，没有其他市场有这么广的上市业务分布。这是韧性的一部分。</p>
+<p>另一部分是，AI尽管有问题，确实让某些行业和地区经济繁荣，那些人有钱消费，会买必需消费品。医疗更是必须花，不是可有可无，也是医疗体系问题的一部分。医疗涨18%未必是好消息，可能反映体系正在出现裂缝。</p>
+<p>AI也确实支撑经济。有人估计，过去四年每年实际GDP增长里约1个百分点来自AI繁荣。人们有钱花，其他企业就能分享到繁荣。</p>
+<p>但不能一直这样。如果科技每季度再跌10%，AI不断出现昨天或两周前周四那种跌法，市场无法承受持续那么大的卖压。2万亿、3万亿、4万亿美元市值消失，要连续抵消非常困难。</p>
+<p>因此，作为投资者，我们要找的是：科技与AI的调整何时见底？这会主导今年余下时间和明年的市场讨论。</p>
+<p><strong>Ed Elson：</strong>那你有答案吗，觉得什么时候会见底？</p>
+<p><strong>Aswath Damodaran：</strong>我认为比一个半月、两个月前更接近底部。但无法告诉你准确时点。等精确底部，通常是徒劳的练习，最后什么也没抓住。</p>
+<p>如果你一直觉得七巨头太贵，从来没投过AI和科技，而且过去二十年都这样看，组合大概已经为此付出代价。现在是开始加入的机会，价格比两三四年前你能买到的条件更好。</p>
+<p>人们必须愿意越过坏新闻，说现在愿意投入一部分钱。不是全部，只是一部分，进入科技和AI。未必是Anthropic，也可以是Palantir、Constellation Energy、建设者、供应商。选一个你认为定价合理的环节；如果从未参与，就找办法逐步进入。</p>
+<h3>单位数回报的一年，仍可能非常痛苦</h3>
+<p><strong>Ed Elson：</strong>我对2026年的预测，是回报平平，个位数，还可以。我记得你也差不多。目前超过预期，年底12月会怎样还要看。</p>
+<p><strong>Aswath Damodaran：</strong>我年初也说，平平的一年是好事。个位数回报年有两个好处：第一，让投资者整理一下、反思做了什么；第二，让大家学习风险真正意味着什么。</p>
+<p>风险不是一个词，只有亲历下跌才知道。四周前持有英伟达的人，现在不需要我描述风险，因为已经看见它怎样影响组合。这个提醒有益：别过度冒险，今天看起来很好，两年后怎样？</p>
+<p>不过还剩五六周，先看吧。按现在变化的速度，很快既可能变成两位数回报，也可能全年转负。但肯定不像过去几年。我们此前连续三四年有15%、20%的回报，三年连起来，在历史上也属于最好的时期之一。市场该喘口气了，2026年确实缓了一缓。AI和科技跌得那么厉害，它还能喘息而没有内爆，值得肯定。</p>
+<p><strong>Ed Elson：</strong>但整体仍然有一定涨幅。进入2027年，问题是，上次真正全面的调整是什么时候？大概2022年。我们已经连续四年有相当好的回报。</p>
+<p><strong>Aswath Damodaran：</strong>那是如果你投指数基金，或者分散组合。</p>
+<p><strong>Ed Elson：</strong>是，对标普、对大盘而言。</p>
+<p><strong>Aswath Damodaran：</strong>但现实世界的人并不都这么投。你分散了，可能觉得这一年相对不痛；很多投资者却极其痛苦。科技长期表现太好，导致有人整个组合都是科技或七巨头，对他们今年不仅不好，甚至损伤很大。</p>
+<p>大盘的一些重要部分可以遭到很深的损伤。虽然指数涨7%，我敢打赌，今年80%的投资者会跑输，甚至全年负回报。一个迹象是，一个月前指数还涨11%、12%，仍有52%的股票年内下跌。不是所有股票都在涨。行业、个股不同，你的回报可能与整体指数非常不同。</p>
+<h3>2027：资本开支放缓、折旧上升与盈利增长</h3>
+<p><strong>Ed Elson：</strong>现在预测有点早，但进入2027年，你对大盘、对标普有什么预期？有人很担心。例如Paul Tudor Jones，我记不清他的原话，但他说，未来资本市场还要筹几千亿美元，不只是Anthropic、OpenAI，大科技也要继续融资建数据中心。考虑这些，你预期市场怎样？</p>
+<p><strong>Aswath Damodaran：</strong>尽管今年AI投资者遭遇崩塌，AI仍是驱动经济和市场的大故事。如果数据中心建设放慢、供应放慢，产品和服务又没起飞，就会冲击整体经济，并带来市场调整。</p>
+<p>所以，一切仍回到AI。我们想躲开，说它没以前那么重要，没有它也还不错，但AI仍是经济与市场下面的暗流。2027年的问题是，它还能继续支撑吗？还是AI明显放缓，会因人们收入下降，造成衰退和更广泛的市场调整？</p>
+<p>这会是悬在2027年头上的大问题。因为放缓终究会发生，AI的盈利推动会消退。突然之间，哪怕股市没有涨，市盈率也可能上升，因为盈利吐回部分增长。</p>
+<p>今年标普总体盈利增速，我认为是我过去四十年见过最高的，大约56%，非常惊人。但很大部分来自AI：有人花资本开支，另一些公司就把它报告为收入和盈利。</p>
+<p>这个过程一旦放慢，不是完全停止建数据中心，而是速度慢下来，后果开始追上来：既有AI资本开支的折旧会上升，新增AI资本开支带来的收入收益会下降，盈利推动会消退。</p>
+<p>问题是，56%的增长，明年会变成什么？肯定不会还是56%。是4%或5%，还是15%或20%？我认为这个数字最终会决定明年市场怎样走。</p>
+<p><strong>Ed Elson：</strong>Aswath Damodaran是纽约大学斯特恩商学院金融学教授、Kerschner家族金融教育讲席教授，教授公司金融与估值。他的研究可在博客Musings on Markets阅读。非常感谢参加节目。</p>
+<p><strong>Aswath Damodaran：</strong>谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

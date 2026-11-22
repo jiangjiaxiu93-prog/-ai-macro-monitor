@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Jordi Visser谈AI估值压缩、去杠杆、比特币与年末痛苦交易（Pomp全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl on" href="../model_returns.html" aria-current="page" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../model_returns.html">← 返回大模型公司的回报</a>
+<div class="card"><article>
+<h2>Jordi Visser谈AI估值压缩、去杠杆、比特币与年末痛苦交易（Pomp全文精翻）</h2>
+<div class="metaline">The Pomp Podcast · Anthony Pompliano主持；Jordi Visser（资深宏观投资人、VisserLabs作者） · 55分03秒 · 2026-11-21 · <a href="https://www.youtube.com/watch?v=WjnmZ8_tHn4" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；单位经济；算力采购；token需求；英伟达；Anthropic</p>
+<ul><li>从长期现金流与护城河的不确定性，讨论AI进步、估值压缩和机构去杠杆为何可以并存。</li><li>区分货币供应、杠杆和流动性，保留200日均线纪律、广度信号及联储缓和与美元走弱的条件。</li></ul>
+<p><strong>节目时点：</strong>本期2026年11月21日发布，录制内容截至周五早段，未覆盖11月20日完整收盘。</p>
+<h3>精翻正文</h3>
+<h3>AI如何改变长期投资与职业路径</h3>
+<p><strong>Anthony Pompliano：</strong>本周AI交易发生了很多事：英伟达财报、Anthropic上市，但股市仍大幅下跌。人们有些恐慌，试图弄清究竟发生了什么。你怎样从噪音里找信号？</p>
+<p><strong>Jordi Visser：</strong>这样的星期很难。我本周大概和五家机构聊过，和个人聊得更多。机构被打得很惨，我不确定自己以前是否见过机构管理人如此沮丧。这符合我此前谈过的一个更大主题：AI正在摧毁资本主义。本周有点像让那些长期管理资金的人开始面对现实——游戏已经变了。</p>
+<p>到目前为止，基本面其实没什么变化，经济也没什么变化。英伟达等公司的新闻当然制造了不确定性，还有其他各种事情。但我说机构被打垮，更重要的原因是他们不知道该怎么办。快到明年年初了，市场经历了一轮大规模去杠杆。每次发生这种事，有些基金就准备关门，有些基金在盘算还会不会遭到更多赎回、业务还能不能维持、员工会不会离职。</p>
+<p>总体而言，对冲基金行业没问题，今年回报的离散度非常大。但从交谈中我能感到，很多人很消沉，不相信情况会改变。所以，我以前说资本主义会死于AI，我确实相信，因为它制造了太多不确定性。本周尤其如此：你是在和幽灵作战。</p>
+<p>我认为，人们低估了黑客事件及其不确定性对长期投资者心理的影响。机构管理人要根据未来两三四年的盈利作决定，还要判断某季度盈利公布后股价会如何反应。今年这些方法都失灵了，基本面却没有改变。真正改变的，是人们对AI力量的恐惧：它不只破坏你估算未来价值的能力，也让你难以安稳度过一周，总担心会不会又来一条让股市下跌的新闻。</p>
+<p>截至昨天，大盘较高点只跌了8.5%；按今天早上的开盘，可能更接近10%。对大盘来说这是正常调整，AI板块更不寻常一点，但它此前也涨得更多。这对机构造成的惊吓，比在家看盘的人可能意识到的严重得多。</p>
+<p><strong>Anthony Pompliano：</strong>我想深入问你刚才的两个判断。AI摧毁资本主义，究竟是什么意思？</p>
+<p><strong>Jordi Visser：</strong>可以用毕业生作比喻。失业率接近历史低位，尽管大家一直说AI毁掉就业，整体上这并没有发生。某些公司确实裁员，但企业新设立的速度也很快。</p>
+<p>假设你原先的设想是：投入全部时间，努力学习，上大学，成为班上最优秀的人，毕业找到工作，再沿着公司阶梯往上爬。这个设想包含很多会被AI打破的假设：公司未来会怎样？它会不会用AI替代我？即使我在学校很努力，我对AI的了解够不够？劳动力市场的变化更多是情绪和预期的变化：我如何通过这条路得到回报，原先的预期消失了。</p>
+<p>资本这一端也是企业经营的问题。创业者创办企业时，不是想做一家只存续一年的公司，而是希望它先增长几年，再加速增长，建立护城河，最后上市。我认为AI竞争让整个过程都加速了。</p>
+<p>从9月中旬起，特别是过去两周真正动手之后，我亲身看到每种模型都能帮我做很多事。Astra、Opus 5.5，甚至本周的Gemini Neon，都让我震惊。模型发布速度如此快，任何想法面临的竞争几乎无限。本周我在洛杉矶一家餐厅坐着，几秒钟就把自己的视频转换成中文，带上字幕。一个想法很难再获得足够时间，慢慢建立护城河。</p>
+<p>竞争本来就是资本主义的一部分，但当竞争快成这样、又不需要招人时，在我看来，创业精神和资本主义就不是同一回事了。“上学、成长为高管、二十年后回顾自己怎么走到这里”——以黄仁勋的故事为例——这样的时代，我认为不再存在。创办一家公司、十年后仍在经营同一业务的能力，也未必还存在。你会把一切都看成一条收入流。这更像不断创业，而不是传统资本主义。</p>
+<p><strong>Anthony Pompliano：</strong>当一切都是收入流，十年后个人的生活会是什么样？</p>
+<p><strong>Jordi Visser：</strong>我谈过自己的儿子。四个孩子里，他选择了创业这条路。创业者需要韧性，愿意失败，敢冒风险，也要有远见。他们使用模型，想出新点子。一旦点子开始奏效，就得预期它很快被商品化，接着转向下一个，再下一个。</p>
+<p>目标不是想出唯一最好的点子，而是让20%的想法能够变成某种可货币化的收入流。好的一面是，这个世界会有很强的通缩力量。我们现在处在调整期，每个人都在摸索如何在越来越有破坏性的AI时代生存。</p>
+<p>还有一点：现在到处流传的黑客和网络安全故事，8月以前并不突出。我觉得Hugging Face的新闻大概在那时开始真正让人害怕。这是新事物，我认为这也是市场承压的原因。每天越来越多投资者醒来会问：我的银行账户安全吗？这个世界安全吗？航空出行安全吗？一旦开始这样想，世界就充满焦虑，我认为这正反映在股价上。</p>
+<h3>“与幽灵作战”：网络攻击、系统升级与安全焦虑</h3>
+<p><strong>Anthony Pompliano：</strong>说到与幽灵作战，确实让人感觉有种威胁。越来越多平时很普通的朋友在谈准备物资，或者电网瘫痪时需要什么。我有位朋友，夫妻俩都是白领，她说丈夫本周上班时在口袋里放了一个卫星无线电，以防电网出问题。这完全不是我平时会想到做这种事的人，让我很震惊。你怎么看这些网络攻击？与AI有关吗？还是如我们听到的解释，源于升级的复杂性？</p>
+<p><strong>Jordi Visser：</strong>谁说这些与AI无关，我觉得简直不可理喻。不过让我重新表述一下：我不是说所有故障都是黑客把系统打下来了。但当你看到攻击、于是忙着打补丁时，也可能暴露出更多攻击入口。现在发生的，要么是因为我们落后于模型、正在准备防护，要么就是真正的攻击。</p>
+<p>我大半辈子待在金融行业，知道保护系统要花多少钱，因为数据就是这个行业的命脉。发生了这么多攻击，令人害怕。Binance的事情出来以后，大家过分聚焦于“加密”。我反复说，人们真正该担心的主要风险，是那些不上链的东西。谁说加密没有变得更重要，我仍然会不同意。密码学比三个月前更重要了。</p>
+<p>怎样让一切上链、为什么这很重要，还需要时间，因为大多数人还不相信。但大家相信必须保护数据、钱、自己多年挣来的一切，以及身份。本周我在X上看过很多视频，我以为自己看过《宋飞正传》的每一集，后来才发现那一集是AI生成的仿作。我们已经进入非常超现实的时期，像是在和幽灵作战。</p>
+<p>我们越经常应对这些幽灵，它们的冲击会越小。听到有人为未知风险准备物资，我不觉得他们都疯了。那些怀疑AI、甚至没意识到这些与AI有关的人，可能难以理解，但确实有些事情值得担心。事情发生，你可能一天、两天都无能为力。微软的中断是真实发生的。FAA能在四小时内恢复上线，我都觉得惊讶。想想若所有飞机一段时间都飞不了，会给经济造成多大损失。</p>
+<p>所以，在家放些东西以备万一，和飓风来临前准备物资、防止洪水导致中断一样，至少有一定理性。我不认为这对市场有利。我们正在适应AI开始产生影响的时期。资本主义依赖长期思考、长期投资、长期护城河，什么都讲长期。我认为，现在很难再保持那种长期视野。</p>
+<p><strong>Anthony Pompliano：</strong>有趣的是，让你我列出最近的故障，我们会想到FAA全国停飞、微软Outlook，也许还能再说四五个。但我今天早上问Grok：“过去一周有哪些网络安全事件？”它列了大概15件，没有一件是我在主流媒体看过的。有零日漏洞、医疗机构，甚至伦敦交通局照片卡客户个人数据泄露这种很具体的事件。有的我未必在意，因为我没有那张卡，但还有VMware vCenter身份验证绕过漏洞被利用这样的底层风险。</p>
+<p>主流媒体像一道过滤器，只报道我们都能理解的事。所有飞机停飞，会登上全国新闻；很多核心系统的漏洞和风险却上不了主流新闻。因此，也许人们不是反应过度，而是根本还不知道大多数威胁。</p>
+<p><strong>Jordi Visser：</strong>一方面市场确实跌了，另一方面今年仍算相当平静。我周末视频会展示不同衡量调整的方法。体感比实际更糟，是因为AI股跌了30%、40%、50%，英伟达从240跌到145。人们看自己的账户，感受自然强烈。即使很多人主要持ETF，我也听过太多人说自己在英伟达上赚了多少钱。从240点左右吐回近100点、股价从高位调整约35%，确实会造成损伤。</p>
+<p>如果人们知道本周银行出了多少问题，也会吃惊。把问题改成“本周全国银行发生了哪些网络安全事件”，Grok给出的数量惊人。Karoline Leavitt上电视时也明确说，她不想担心自己的银行账户，希望政府更公开地讨论这些。我坦白说，也不知道能公开讨论什么：究竟怎么发生的？为什么？我们知道，凡人写的软件都有被攻破的可能，没有一个完全安全。对付智能体群，只能有另一群智能体来防御。遗憾的是，我们还没准备好。</p>
+<p>所以Mythos一直没有发布。我们没谈过这个，但它本来要发布，后来因为风险没有放出来，而是加上防护。还有完全没公开的模型，能力是现在的两倍。你可以想象，他们正努力给企业时间打补丁、测试软件。可当他们这么做时，智能体群已经在外面自动运行，试着侵入各种东西。</p>
+<p>你提到欧洲，再查查日本，这已经持续几周了，当地也有严重攻击。这是全球性问题，会继续发生，并给持股的投资者制造不确定性，表现为估值倍数压缩。我很想看看银行存款会不会开始成为问题，因为这又直接联系到加密资产。</p>
+<p>当一周之内出现Costco的水和发电机被抢购、银行发生小规模挤兑和ATM处理问题、苹果和微软出现故障，别以为我们离央行需要建立某种支持机制还很远。不是为了市场，市场本身尚未造成系统性扰动，但与此同时联储还在收紧。我觉得我们越来越接近那个时点。在情绪变化如此大、存在这种恐慌、核心CPI为2.6%的情况下，还在讨论加息，简直让我难以想象。我认为这方面即将转变，那会给市场一些稳定性。</p>
+<p>不过，真正帮助市场的是经济仍在增长。人坐在家里可能担心，但如果经济继续向前、盈利继续增长、人们仍有工作，相信我，市场终究会重新找到上涨的路。</p>
+<h3>跌幅很大，是否就代表基本面与价格脱节</h3>
+<p><strong>Anthony Pompliano：</strong>看看跌得最重的AI股：IREN跌75%至80%，Applied Digital跌72%，Nebius跌65%，CoreWeave跌65%至70%，Arm跌60%，超微电脑跌54%，Vertiv跌50%，美光跌45%，英伟达跌40%。这些都是相当大的公司，价格却收缩得如此厉害。与此同时，盈利和收入仍在增长，指引仍在上调。价格究竟能和看起来很强的基本面脱节到什么程度？</p>
+<p><strong>Jordi Visser：</strong>我没有把它们全部放在眼前，但我敢打赌，你列出的公司里，除了英伟达，大部分今年以来仍然上涨。任意挑一个起点算跌幅的问题，是忽略了我5、6月谈过的事情：人们太亢奋，把未来外推得太远。AI终究会走到让人开始怀疑未来的时点，这是现实。</p>
+<p>还有政治因素，民主党这一波胜势，参议院现在是多少，56席？夏天大家还觉得共和党与民主党谁拿下参议院难分胜负，如今却成了56比44，当时很难想象。</p>
+<p>我认为，人们又一次没有正确估计这样一种冲击：你连一年后的东西都估不准，而过去一年才发生的创新，现在一个月就发生了。我也想请大家想想：你我已经几个月没从积极角度聊谷歌Gemini了。我上次真正使用谷歌，除了事实核查、作为AI工作流程一环，大概还是5月，距今六个月。它此前似乎约七个月没发模型，现在一个月里发了四次，而且非常出色，变化惊人。</p>
+<p>从对话角度看，我认为Gemini比OpenAI和Anthropic更有独特性。不是说模型一定更好。即使这两天我已经比过去多用很多Gemini，我主要仍在用Claude和Astra。但它是另一种声音，有些对话显得更聪明，似乎限制更少，不那么一味迎合，更像交流。</p>
+<p>我提这个，是因为你刚才列出的那些公司的飞轮仍在：AI进步，应用改善，采用增加，于是需要更多算力。飞轮还在转。</p>
+<p>但这种环境并非短期现象。人们必须适应：如果把现金流折现估值里第五年到第二十年的那一段削掉，估值倍数就会发生很大变化。以英伟达为例，13倍与10倍的差别是什么？按照增长率等某些指标，它已经便宜了。但如果黄仁勋不在，使2030年的增长变慢，让别人追上来，因为创新减少、决策改成委员会、所有事情都慢下来，那么在AI领域，只要你跑得不够快，就应该拿更低倍数。</p>
+<p>如果开始像委员会一样运转，像乔布斯去世后的苹果，那也不是说它就不好。但应该值10倍、20倍，还是15倍？听到“估值倍数”这个词时，已经没有简单的套利，因为你不知道未来会是什么样。</p>
+<p><strong>Anthony Pompliano：</strong>确实，变化很快。说到Gemini，本周我把一段视频放进Grok，想做一个类似《侠盗猎车手》美术风格的版本，让它给提示词。它写了一长段。我再问，现在哪个大模型最擅长生成视频？排第一的是谷歌Gemini Omni 1.2 Flash。我本来根本想不到它，于是去试。第二是阿里巴巴的Wan 3.0，第三是字节跳动的Seedance 2.5。</p>
+<p>你会突然意识到，所谓最好的AI模型，OpenAI居然在名单底部，前面有两个谷歌模型，Anthropic根本不在视频名单上。一是变化非常快；二是开源确实构成压力；三是消费者偏好和习惯——“这件事我一直用ChatGPT，那件事一直用Grok”——几乎都得抛开。公司也一样，一个威胁可能在同一季度变成顺风，再变回威胁。我觉得这就是投资者每天如此困惑的原因。</p>
+<p><strong>Jordi Visser：</strong>是，而且不会改变。关税问题不一样。“解放日”发生以后，大家知道，只要他说“开玩笑的，关税没事了”，市场就能反弹。但机构投资者最希望得到的“警报解除”，现在怎么可能让人放心？</p>
+<p>联储将来很可能会更宽松，哪怕仅仅因为股市这样跌，随后大概会看到更弱的数据。我用来观察的花旗经济意外指数，本周已经明显掉头，这意味着美元会转弱，也意味着此前被两年期实际收益率打击的资产会开始改变。我认为明年总体会更好。</p>
+<p>但假设明年标普涨15%，今年最终涨10%；现在总回报大约涨7%，或者5%——不，含股息可能是7%。即使今年涨10%、明年涨15%，途中还是有一堆10%的调整，还有很多充满不确定性的星期。我不愿让大家以为，会有一个明确的“警报解除”。AI只会更有破坏性。</p>
+<p>我此前说、现在仍然说，礼来会成为全球最大公司，从这个角度看也没那么离谱。它顺应的是人们愿意花钱延长生命的趋势。相较之下，无论卖算力还是做其他业务，模型的能力都越来越强。我周末会谈谷歌这边的递归自我改进，以及模型能够与黄仁勋的业务竞争后会怎样。模型设计、物理问题，你想解决什么问题都可以。既然能攻破各种系统，也能解决世界上最困难的问题，我们正越来越接近。</p>
+<p>读Anthropic的S-1，看看它的业务重点。有人问，它最终会卖给小企业吗？不，它会向礼来、向那些解决世界重大问题的公司，出售价值数十亿美元的智能。为什么礼来仍有护城河？因为还要通过FDA，还要经历漫长的药品制造和上市流程。这些壁垒会让某些公司更容易受益。</p>
+<p>好的一面，是应用端很多公司会从模型中获益，算力公司也会因为盈利增长而产生回报；但你不知道终点在哪里。一只股票涨30%，接着可能从那里跌20%。回报可预测性已经降得很低。</p>
+<p>回到机构管理人，我开始看到他们真正面对现实。今年很难，你在基本面上判断正确，美光各方面都没出错。本周奥斯汀的TomorrowX峰会，每一家上台的公司都说，算力需求大于供应。可正如你说的，有些算力股跌了50%、60%。过去根本不必担心的事情，现在突然成为风险，你该怎么管理资金？这是一次现实检验。</p>
+<h3>Anthropic上市：首日股价与季度透明度</h3>
+<p><strong>Anthony Pompliano：</strong>Anthropic本周上市，先有典型的IPO跳涨，接着猛烈回落。发行价大约83或86美元，随后到115、120美元，最后收在九十多美元。虽然首日仍上涨，我觉得大家相当消极，并没有给市场期待的那种热情或信心。你怎么看？</p>
+<p><strong>Jordi Visser：</strong>但它仍然成功了。回头看一个半月前Hyperliquid或Liquid Trading上开始交易时的IPO价格，比后来达到的峰值还低。尽管市场已经下跌，首日交易估值仍接近2万亿美元。相对预期而言，这是一个很大的正面因素。</p>
+<p>但再问我，我仍然不知道未来一年如何给Anthropic估值。好消息是，过去我们一直担心的一件事，是这家增长速度可能史无前例的公司，却没有详细财务数据。现在每季度都要公布业绩，我们能看到更细、更具体的信息。不确定性会伤人，至少在收入这一侧，信息会更充分，这是好事。</p>
+<p>9月中旬以来科技股表现很差，本月标普也终于加入下跌，大家因此容易全盘悲观。但我认为，市场上已经少了一层不确定性。如果你真认为Anthropic收入快到顶、要转头向下，现在可以实时观察。我不认为会发生。它的业务很兴旺，模型很好，甚至可以说仍是最优秀、最聪明的模型，正在与更大公司签约，开始自己的研究、引进工程师。</p>
+<p>Druckenmiller在TomorrowX峰会上谈应用时，我认为最有意思的一句是：我们正在从token，走向完成的任务。我觉得这些企业正往那里走。如果如此，生产率繁荣就会开始出现，也会限制股市能跌多深。</p>
+<p>如果《财富》500强开始真正使用AI，先别管超大规模云厂商花多少钱，它们会开始看到生产率收益。生产率改善意味着利润率留在历史高位；利润率维持高位，盈利就会继续增长。即使不是30%的盈利增长，我完全预期明年有15%的盈利增长。</p>
+<p><strong>Anthony Pompliano：</strong>Adam Kobeissi发了一条信息，说美国科技股估值在这轮调整中跌至2020年3月以来最低。标普信息技术指数市盈率也是同期最低，现在16倍。整个科技行业都是这样，会让你冲进去买，还是躲开科技、转到指数里的其他地方？</p>
+<h3>长期配置与交易纪律是两回事</h3>
+<p><strong>Jordi Visser：</strong>这两种反应我现在都没有。我在寻找机会，本周也给订阅者多录了几次周中视频。作为在市场待了很久的人，我这样看自己的组合：有长期权重的固定收益类资产，目前主要是货币市场基金；有股票；有自己居住的房产；还有加密资产。基本就是这四个桶。</p>
+<p>我现在不做私人股权之类的投资，资金都放在流动性资产里，这是我对体系应该如何运作的信念。可能有战术调整，但不多。股票只是增长桶的一部分，整个桶希望每年获得10%以上回报，我会在内部调整。</p>
+<p>另外我也做交易。本周当SPY、QQQ、IWM都收在200日均线以下，银行指数同时也在200日均线以下时，我会对自己说：“Jordi，别交易。”也就是把已有交易仓位基本平掉。之后可能在看似反转的日子试探抄底。第一次是11月5日，我谈过。很有意思，截至周四收盘，我们还没跌破11月5日的低点。但美光、Marvell、英伟达那些仓位此前已经跌下去，我早已止损出局。</p>
+<p>我仍会试探，准备好想买的清单。在这种时刻，市盈率与我的入场决定没什么关系，因为最终观点没变：估值倍数会压缩很长时间。在我看到的那个世界里，连标普降到个位数市盈率都不能排除。我谈过，没人愿意听。我今年第一次说这个时提到，到2030年，上市公司可能不再有增长；即使有，也只集中在少数有护城河、别人无法竞争的公司，例如礼来、SpaceX。</p>
+<p>如果人们足够恐惧，标普市盈率为什么不能到9倍？我无法排除。但盈利仍会增长，所以未必通过股市崩盘实现，更像股市在逆流游泳，而河流就是持续下降的估值倍数。未来的不确定性会让这股水流继续向下。</p>
+<h3>比特币的宏观变量、代币化与200日均线</h3>
+<p><strong>Anthony Pompliano：</strong>来谈比特币。你做了一段视频《为什么比特币仍然重要》。我们录制时，比特币约60000美元，大家担心还会不会更低。你现在怎样看这种资产？</p>
+<p><strong>Jordi Visser：</strong>那个视频我投入了很多时间，也等了一阵才发布。标题首先是向Marc Andreessen致敬，他让我能把比特币的宏观意义和创新联系起来。理解宏观，对我理解比特币为什么重要，非常关键。从目前发生的一切看，我仍相信它重要。</p>
+<p>我称比特币为最纯粹的AI交易。相信AI、却怀疑这一点的人，现在正看到AI的负面：上市股票的估值压缩、黑客攻击。我的论点之一就是，等我们经历这一切，人们会意识到——我问你，比特币本身曾被攻破吗？</p>
+<p><strong>Anthony Pompliano：</strong>没有。</p>
+<p><strong>Jordi Visser：</strong>好。美国的每家公司，NSA、FAA，过去一周所有人都遭到攻击。如果你是这个体系的一部分——我们都是——这才刚开始，没办法阻止。因此，密码学以及比特币白皮书采用的方法，非常重要。我致敬的是Marc Andreessen在2014年1月写的《为什么比特币重要》，我经常引用它。</p>
+<p>视频里我做了几件事。第一，解释比特币今年为什么这样走。虽然很痛苦，但它与黄金同向，与美元反向，与两年期实际利率直接联动。我展示了自2014年以来，适合持有比特币的时期，就是两年期实际利率下降的时候。</p>
+<p>所谓实际利率，就是两年期名义利率减去市场实时交易的通胀预期。联储不断暗示可能加50个基点，而且已经加息，两年期名义利率现在大约5%。用互换利率衡量的通胀预期，则在年内最低或接近最低，大约2.30%；两年期名义利率约4.90%，差额就是2.6%。名义利率比通胀预期高2.6个百分点，对黄金、比特币、通常也对股票估值倍数不利。</p>
+<p>从这个角度看，联储和Kevin Warsh影响很大，伊朗战争影响很大，很多事情都变了。我想强调，有时加密圈里的人和怀疑者都觉得，比特币像风中的东西，因为无法估值，所以随意涨跌。不是这样，它绝对有宏观估值因素。相信我，量化策略正在大量做空它。一旦这些关系开始松动，情况就会变。</p>
+<p>散户已经被打得很惨，我们在熊市里很久了，五年回报没什么变化，大家都沮丧。所以，第一点是让人理解宏观因素，而我认为这股逆风即将出现拐点。</p>
+<p>第二，解释我为什么长期相信它，为什么完全不怀疑它的重要性。这又回到上市股票和估值倍数：倍数已成为很大的负面，股票的确定性下降。全球资产投资约900万亿美元，其中约250万亿美元在公开股票和债券里，现在可能接近300万亿。不管多少，如果那个桶不再增长，资金就会去增长的地方。我认为，代币化最终会让资金流向发生转变。</p>
+<p>我会反复说，我们可以把这段留着，一年后再看：世界最重要的变化，是通过代币化，把法币资产与密码学、最终与比特币连接起来。代币化会发生，不可避免，也必须发生。一旦发生，钱包会被打开。我在视频里逐一说明，它会在哪些地方改变事情。</p>
+<p>我交易过足够多市场，知道情绪差到这个程度、人们开始怀疑创新，开始怀疑那些我认识、在做重要事情的创业者，甚至怀疑智能体商务时，就应该重新听听积极的一面。所以我做了约45分钟视频，投入很多心血，放了大量图，解释全部理由。这不是无条件看多，而是我一直相信它的原因：代币化、智能体商务将到来，两年期实际利率的上行接近结束。为什么说接近结束？因为AI现在正在带来生产率和通缩压力，智能体群就是证据，这些最终都指向那里。</p>
+<p>但有一件事，我纪律非常严格：比特币没有重新站上200日均线之前，我刚才说的一切都不影响交易。避免麻烦的办法，就是不急着买。当时我觉得“这一波可能来了”，是因为它突破了200日均线，Situational Awareness的交易正在平仓，联储似乎开始有转向可能；更重要的是，智能体商务启动、代币化越来越多、Robinhood链推进，这些小信号同时出现。</p>
+<p>现在又跌破200日均线了。重新站回去以前，这些对我的交易都不重要。等它站回去，你们会再次听到我非常明确地推荐它。</p>
+<p><strong>Anthony Pompliano：</strong>如果你是长期积累比特币的人，难道不应该在200日均线下方买入？</p>
+<p><strong>Jordi Visser：</strong>我的观点很简单：生活里总要有一个承认自己错了的纪律点。我用技术分析。现在200日均线大约在72000至73000美元。</p>
+<p>我谈“为什么比特币仍然重要”，不是在说它会到120000美元，也不参与那些100万美元的梦想和价格预测。我谈的是创新价值，相对现有传统法币体系的价值，也相对上市股票和大家组合的估值。</p>
+<p>我们已经走过那些阶段，银行都参与了。如果你相信它会到100万美元，60000还是73000买，究竟有什么关系？根本不重要。如果你只相信到120000，那买便宜一点当然差很多。我也不是说均线以下一枚都不买。大概6月跌到60000时我买过，卖掉美光后也投入过一点钱，白银也一样。我轮动时会往不同资产放钱。</p>
+<p>但如果问，什么时候我真正重视、什么时候人们可以对“大事情正在发生”更有信心，那么在200日均线以下要非常小心。我说过，比特币、IWM、SPY、QQQ都跌破了，这很直接地告诉你，市场有麻烦。你可以试着抄底，但我认为至少部分资金应该等重新站回去。</p>
+<p>我本周视频会展示，在某些信用、股票、相关性同时出现如此广泛风险的阶段，历史样本是11次全中：比特币重新站上200日均线后，往后120天的表现，11次都成功。因此，我会等200日均线。到那时，我甚至可能使用期权，去交易更大的上涨空间。</p>
+<h3>ETF持有人在增长，价格却仍在熊市</h3>
+<p><strong>Anthony Pompliano：</strong>Galaxy本周做了一项研究，根据13F申报，把现货比特币ETP持有者分类。研究负责人Alex Thorn指出，投资顾问和财富管理平台是增长最快的持有者类别。按图大概看，它们占持仓的比例，自2024年一季度以来约增至三倍，而且逐季持续增长。这会不会让你安心一些？有模型组合、目标配置比例的人，不管价格如何都在积累。还是说，你更看重价格？</p>
+<p><strong>Jordi Visser：</strong>资金流对我很重要。现货ETF大概在2024年推出。IBIT的流通份额接近历史高位，数字资产储备公司买入也接近高位，财富管理机构、银行等才刚开始更多参与。我们处在一个很奇怪的位置，慢慢能看到轮动发生。</p>
+<p>我们说比特币在60000美元，这与7月、Situational Awareness那段时期差不多，但科技股已经低得多。看比特币相对AI交易、相对纳指100、相对黄金，自6月30日以来其实表现很好。</p>
+<p>我想传达的是，与其只想它是什么，也想想它不是什么。大家知道它不是债券，说法币在贬值，知道它不是美元；它也不是上市股票。如果大家只记住一点，那就是：今年的主题是怀疑上市股票，原因是AI。你不会听到策略师这么说，也不会看到摩根士丹利财富管理这样写，但现实是，英伟达盈利还在增长，估值却较不到三个月、甚至不到两个月前折价40%，你怎么能对某只股票未来价格有信心？</p>
+<p>回头看，AI泡沫期间它不久前还是70倍，现在接近10倍。如果英伟达都能这样，每家公司为什么不能？苹果现在接近50倍，为什么苹果50倍，美光却更低？我坦白认为，因为截至现在，苹果还没有面临破坏，它是一家无聊但高质量的公司。这就是我们看到的情况。</p>
+<p>所以，你和我喜欢的Alex的研究都在提示，钱确实正慢慢流入。如果熊市里已经如此，牛市时会怎样？我认为，在这个充满攻击的世界里，上链越来越重要。我可能完全错了，但我觉得真实性、安全、密码学，相对我们现在看到那些基于代码搭建的系统，仍是更安全的方向。</p>
+<p>再提醒大家：要做比特币交易，就等重新站上200日均线。我会在YouTube每周展示短期观察，我们已经看到一些背离。但要耐心，均线之下不要过度进取。</p>
+<h3>货币供应、杠杆与市场对现金的需求</h3>
+<p><strong>Anthony Pompliano：</strong>你建立了一个跨资产价格的流动性监测模型。本周也有很多人在看流动性数据。X上的Holar说，美国净流动性远低于2021年高点，纳指100却大涨；流动性薄弱让科技股脆弱，SpaceX、Anthropic等大型IPO还可能增加压力，因为投资者要卖现有股票，筹钱配置新股。你在全球流动性上看到什么？怎样纳入分析？</p>
+<p><strong>Jordi Visser：</strong>这很重要。我公开说过，不能再仅仅贴一张M2图，就说纳指和比特币会怎样。我们把流动性、杠杆和货币供应分开讲。</p>
+<p>全球货币供应、硬通货大约120万亿美元，资产总值却有900万亿美元，为什么？如果像硅谷银行那样，所有人突然说要把900万亿资产全部换成现金，一起到市场卖，就会出问题，因为这里面有杠杆。</p>
+<p>我此前谈对冲基金杠杆见顶、总体杠杆见顶，我相信现在处于平仓阶段。如果如此，资产与货币供应的相关性会失效；不会失效的，是资产与流动性的关系。按我的衡量方法，资产价格本身就是流动性的体现，这也是监测器在做的事。</p>
+<p>如果所有人都到市场卖信用、卖股票，买VIX和对冲，退出比特币、退出商品，就能看出问题。过去一个月商品跌得非常厉害，大家可能只看到了油，但不只是油，还有铜、银、金，甚至无铅汽油和柴油，都在跌。这说明正在去杠杆。</p>
+<p>我建立的流动性监测器有六个支柱、34个指标，观察它随时间的变化，基本回溯到2014年。我周末会展示，以后每次都会发报告。它能帮助交易，因为对比特币最有价值的，是识别历史上市场要求流动性、要求现金的时点。</p>
+<p>美元上涨，就是现金需求；信用疲弱，也是现金需求；股票疲弱、人们在因子上转向高质量、退出高贝塔，同样是现金需求。大家要现金，比特币就下跌。但这也意味着我们更接近这一过程的底部。一旦这些东西稳定，害怕的人已经积累了大量现金，随后就有很多资金可以重新投入。我们越来越接近那个时点，这才是我关注的。</p>
+<p>我先把它提供给机构，但本周订阅者看到一份报告后，我决定每周都发布。人们和交易员可以拿来用，上传到Claude，告诉它当前的场地是什么样：流动性弱，还是强。当你听Michael Howell等人在播客上开始说流动性快不够了，往往也接近联储支持市场、货币政策变化，或者财政部介入的时点。</p>
+<p>我们显然越来越接近。甚至不需要真正投放资金，眼下只要思路改变就够了。联储官员还在说50个基点，市场不断下跌；如果有人说25个基点够了，可能已经差不多了，接下来会暂停一段，那就是一个有利的流动性信号。若市场对此反应良好，而外面又有大量现金，通常好事就会发生。</p>
+<h3>年末的痛苦交易可能是上涨，但要等待广度信号</h3>
+<p><strong>Anthony Pompliano：</strong>接下来两周，你看什么？下周是假期周，你主要关注哪些事情？</p>
+<p><strong>Jordi Visser：</strong>说起来有点好笑，我现在没有交易仓位，也没有兴趣立刻建立。从投资角度，任何持仓都有止损。如果开始看到稳定，我可能把一部分固定收益转成股票，略微提高股票配置。</p>
+<p>但眼下最重要的触发点，是一个强劲的广度推进信号。也就是某一天，几乎说不清原因，或者受到新闻推动，市场突然大幅反弹，而且90%的股票都上涨。</p>
+<p>在如此超卖、机构如此消沉时，我会盯着这个信号。Costco排队排到门外，X上在谈银行挤兑，还有这么多故障，说明人们害怕，也意味着可能出现赚钱机会。如果市场突然走好，原因只是此前对冲太多、空头太多，这通常是底部信号，让我有一个可以依靠的点。</p>
+<p>假如标普涨2%，90%的股票当天上涨，不管是好消息还是猜测，如果又碰上联储态度变化，我会提醒大家：我多年管理过几百名交易员和组合经理，年末这种情景里，人们已经吐回很多收益。6月时他们原本觉得自己有这么多钱，可以买这个买那个；11月到了家庭假期前，却被打成这样。最痛苦的交易，往往是市场一路大涨到年底。</p>
+<p>因为没人愿意追。很多人已经作出决定，很多基金只剩一线生机。你会惊讶，最大的痛苦可能是一场没人参与的年末反弹。然后明年重新开始，而不确定性一点也没消失。我认为市场最可能这样运行。</p>
+<p>所以如果一定要猜，我认为从这里某个位置，会有一轮相当猛烈的反弹。起点是一个强广度上涨日，同时联储有所退让、美元走弱——美元已经稍有迹象。这些才是大家应该注意的信号。</p>
+<p><strong>Anthony Pompliano：</strong>痛苦交易在上方，这很适合作为结尾。大家可以在YouTube搜索Jordi Visser，他每周日发视频，也可以通过22V Research订阅他的研究。我们下周再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

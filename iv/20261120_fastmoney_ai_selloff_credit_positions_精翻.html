@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Fast Money复盘周五暴跌：AI融资、信用风险与交易员仓位（整期全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Fast Money复盘周五暴跌：AI融资、信用风险与交易员仓位（整期全文精翻）</h2>
+<div class="metaline">CNBC Fast Money · Melissa Lee主持；Tim Seymour、Karen Finerman、Dan Nathan、Steve Grasso圆桌，Ed Zitron、Carter Braxton Worth、Jared Holz等嘉宾 · 43分45秒 · 2026-11-20 · <a href="https://podcasts.apple.com/us/podcast/nvidia-sinks-to-cap-worst-week-since-2008-and-nasdaq/id215529509?i=1000803214061" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；融资估值；单位经济；算力采购；token需求；英伟达；Anthropic</p>
+<ul><li>圆桌保留对AI融资、信用风险、联储收紧与负财富效应的分歧，以及各自持仓和对冲披露。</li><li>逐段讨论黄金、铜、原油、中国科技、比特币、技术面与医疗板块，最后给出下周交易计划。</li></ul>
+<p><strong>节目时点：</strong>节目于2026年11月20日美股收盘后播出，包含当日收盘行情与盘后消息。</p>
+<h3>精翻正文</h3>
+<h3>周五收盘：英伟达、会计调查与恐慌卖出</h3>
+<p><strong>Melissa Lee：</strong>这里是纽约时代广场纳斯达克市场中心的《Fast Money》。今晚我们讨论市场剧烈下跌：标普进入回调区间，自四月以来首次跌破7000点；纳指今年的涨幅已经全部回吐，英伟达今天又跌14%。我们还会谈黄金下跌、中国科技股、医疗板块能否避险，以及波动是否带来机会。经历这一周的痛苦之后，交易员也在整理感恩节短交易周的买入清单。</p>
+<p>我是Melissa Lee，今晚圆桌有Tim Seymour、Karen Finerman、Dan Nathan和Steve Grasso。</p>
+<p>这一周以一场大幅抛售结束。纳指跌逾5%，抹去全年涨幅并转为负收益。标普和道指也进入回调区间，较各自收盘高点下跌超过10%。波动率升破37，是“解放日”关税冲击以来的高位。纳指和道指录得2020年以来最差的一周，标普所有板块本周均下跌。</p>
+<p>原本被寄望为市场清理不确定性的事件，却让局面更模糊。Anthropic上市第二天跌近9%，一度只比83美元发行价高5美分。科技板块领跌，SMH半导体ETF录得2001年以来最差的一周。英伟达本周跌22%，连续下跌周数追平2008年的纪录；较峰值损失2.7万亿美元市值，今天市值跌到Alphabet之下，并接近跌破3万亿美元。</p>
+<p>尾盘还有新消息：美国证监会正在调查英伟达的会计处理。股价收跌近14%，为2025年一月以来最大单日跌幅。Seema Mody带来最新情况。</p>
+<p><strong>Seema Mody：</strong>这次证监会调查又增加了英伟达的法律问题。路透称，调查具体涉及会计处理，目前不清楚是否与海外收入确认有关。就在一天前，加州司法部长刚对英伟达、前CEO黄仁勋与中国的关系，以及向中国出售先进芯片展开调查。</p>
+<p>现在量化这些调查的财务影响还早。DA Davidson初步估计，可能涉及数亿美元至低个位数十亿美元。Gil Luria认为，更大的风险是英伟达无法向中国及更广泛亚洲地区销售。</p>
+<p>黄仁勋定于12月1日出席众议院小组委员会听证；英伟达同一天在华盛顿启动GTC会议，我了解到主题将侧重安全和保障。除了调查，公司没有永久CEO继任者，也仍是我们接触的投资人关注的核心。一位消息人士说，英伟达已经聘用高管猎头公司海德思哲。</p>
+<p><strong>Melissa：</strong>更复杂的是，当时的CFO现在就是临时CEO。公司在过去发生的事情和未来之间，并没有划出清楚界线。</p>
+<p><strong>Seema：</strong>对，我们还需要这次被报道的证监会调查的更多细节。如果会计出了问题，谁在什么时间知道？Kress在公司很久了，我记得从2013年开始。她作为CFO，每个季度都在电话会上发挥重要作用。</p>
+<p><strong>Melissa：</strong>谢谢。你们怎么看这轮卖出？</p>
+<p><strong>交易员：</strong>从图形看，股价回到了2024年六月向上涨到120多美元时的位置。那时我们可能都还不知道超级智能是什么——也许知道，但你明白我的意思。这次跌幅很大，股票上方的不确定性也更重。</p>
+<p>如果按市场对2028年全年盈利的预期，现在大约只有七倍市盈率。今天的问题已经不只是倍数，而是散户和那些积累了很大长期收益的人，把股票扔出去，不愿再看它下跌。整个市场都有这种情况。</p>
+<p><strong>Melissa：</strong>你自己做了什么？</p>
+<p><strong>交易员：</strong>我持有英伟达，也有领口式期权对冲。我把这些结构的执行价往下移，相当于小步增加多头敞口，从155美元附近移到135、140美元附近。</p>
+<p>现在没有哪条捷径能迅速让事情清楚，这恰恰是我希望看到的。会计问题可能很轻微，也可能严重得多。Colette仍在公司的情况，让我想到那句老话，宁愿把骆驼留在帐篷里，朝外面吐口水——也许原话还不是吐口水。</p>
+<p><strong>另一位交易员：</strong>这话我可听过太多回了。</p>
+<p><strong>交易员：</strong>总之，要把事情清理干净会更难。你问股票便不便宜，如果盈利真是市场预测的那个水平，那非常便宜。但“如果”才是关键。</p>
+<p><strong>Melissa：</strong>既然如此，为什么还持有？未来盈利到底是多少，这似乎是很重要的问题。</p>
+<p><strong>交易员：</strong>仓位肯定变小了，既因为股价下跌，也因为有对冲。但我仍觉得它是一家关键公司。假设盈利预期偏高了三分之一，那会是非常大的偏差，经营杠杆也会因此恶化，这是坏事。得到清楚答案当然有帮助，只是现在还没有。</p>
+<p>我回看过去25年一些问题非常严重的公司。比如BP深水地平线事故，事情一度越来越坏；还有Equifax，本来负责保护数据，却发生大规模数据泄露。问题都很严重，但股价总会先于问题本身见底。因此，如果我现在完全没有持仓，下周会不会买一点？会。</p>
+<p><strong>另一位交易员：</strong>我们上周谈过，美联储金融稳定报告的变化，Ben Emmons也提过。通胀和银行稳定性已经不再是最前面的两项担忧，报告增加了AI投资热潮和市场波动。结合我们一直讨论的财富效应，这很有意义。</p>
+<p>房地产市场已经锁住。过去几年，持有英伟达的人感觉非常好；持仓集中于标普或纳指的人，也看到资产持续上涨。现在很多个股从高点跌了一半。上涨时，无论谁提出疑虑，总有人会说，你没看懂这个、没看懂那个，然后股价继续涨。</p>
+<p>如今的悲观程度，就像六个月前的亢奋程度。你没能准确抓到顶部，也很难准确抓到底部。我们还会经历很多涨一天、跌两天的行情。</p>
+<p><strong>交易员：</strong>这种状态可能持续到英伟达和资本开支更清楚、或者Anthropic没有演变成全面灾难之类的情景出现为止。银行股也值得看，高盛就是例子。公布二季度业绩时，股价在历史高位，我记得当时一天涨了约6%。现在却跌了30%。它先后参与SpaceX和Anthropic的联合主承销，股价却损失三成。</p>
+<p>上涨时我们冲过头，下跌时也可能冲过头。也许今天收盘就是那个时刻，谁知道？面对这种波动，以及那些曾让人兴奋、推动经济增长的东西，我会去看等权重标普RSP的相对表现。</p>
+<p>买QQQ或SPY，也许能抓到更剧烈的反弹。但如果想真正投资、逐步投入一个更像正常市场的组合，而不是过去一年、一年半那样的狂热市场，等权重标普现在对我更有吸引力。</p>
+<p><strong>另一位交易员：</strong>我觉得资本开支回落最终会利好市场。市场已经告诉我们，超大规模云公司的资本开支降下来，会给它们带来顺风。我认为资本开支将下降。</p>
+<p>Karen提到，股价常常先于问题解决而上涨，这是很好的观察，因为有人提前知道、提前买入。所以Carter和技术分析者才会说，技术分析比基本面更重要：它包含基本面，还包含市场尚不知道的信息，总有人先知道一些事。</p>
+<p>但不要指望选举结束就一切清楚。我们知道谁将执政，却不知道具体如何施政，也不知道这些公司未来到底赚多少，资本开支和循环融资又有多少推动了此前异常强的盈利。</p>
+<p>我认为超大规模云公司会重新受到欢迎，英伟达的事情也会更清楚，只是这颗洋葱现在还在一层层剥。包括美国总统在内，很多人都希望股价表现好。这是他任内的证监会，但我不是说他会操纵什么。</p>
+<p>如果事情只是Megaspeed、新加坡以及相关信息披露问题，我认为和凭空捏造业务的恶性情况还有区别。但基于你前面说的，我不认为Colette应该继续领导公司，因为事情发生时她一直在场。真要有制衡，参与问题时期的人就不应该原封不动地留下。</p>
+<p>总结我的交易判断：下周是假日周，季节性可能很强。不要做空沉闷的市场，希望下周就能沉闷一点。我期待底部先横着走，也许周一、周二、周三消化，然后向年末反弹。</p>
+<h3>联储会不会在AI放缓时继续加息？</h3>
+<p><strong>Melissa：</strong>再加一层复杂性，美联储看起来仍想加息，这会怎样影响局面？</p>
+<p><strong>交易员：</strong>它以前想加，但过去两周情况变了。</p>
+<p><strong>另一位交易员：</strong>沃勒这周还讲话了。</p>
+<p><strong>交易员：</strong>他是一位，而且偏激进；也有Beth Hammack等其他鹰派。但看看商品，今天铜又跌了约3%，波动非常大。债券也在给出不同信号，两年期收益率今天降了。</p>
+<p><strong>另一位交易员：</strong>所以也许就是加25个基点，再把后面的决定往后放一放。</p>
+<p><strong>交易员：</strong>也许。我理解这个说法，但美联储调整得未必有市场那么快。我担心它可能行动太迟、力度又太大。铜和油上涨时，他们也没有那么听这些价格的信号，为什么下跌时就一定会听？</p>
+<p>下次决议前还有一些通胀数据，也有就业报告，可以看看。</p>
+<p><strong>另一位交易员：</strong>但负财富效应，加上资本开支回落，会压低经济增长。看十年期收益率，几周前我记得大约4.8%，现在4.95%，而眼下的走势感觉又在回落。</p>
+<p><strong>Melissa：</strong>你们的意思是，财富效应的逆转，短期内已经在替联储做紧缩工作，担忧AI放缓也有类似作用？</p>
+<p><strong>交易员：</strong>对。如果在AI放缓的时候加息，衰退至少会开始进入讨论，最低限度也有政策失误的风险。</p>
+<p><strong>另一位交易员：</strong>但我们还是在假设联储会按我们希望的方向行动。经济接近充分就业，通胀仍在。过去两三周，市场和金融条件发生了很大变化，AI可能突然踩了刹车，可通胀已经连续五年高于联储的PCE目标。</p>
+<p><strong>交易员：</strong>但目前这些通胀因素，加息未必能触及。</p>
+<p><strong>另一位交易员：</strong>我想说的是，这届联储试图与以前不同，有点像沃尔克时代。它很在意通胀预期，认为只要消费者相信物价会继续涨、有定价能力的人也照着涨，通胀就会固化。它希望打断这种心理。</p>
+<h3>Ed Zitron：循环融资与资金来源</h3>
+<p><strong>Melissa：</strong>下面请EZ Primary Research CEO Ed Zitron，继续讨论AI交易和芯片抛售。Ed一直对AI很怀疑。以后回头看，我们会不会觉得Anthropic的IPO标志着这一轮交易结束？</p>
+<p><strong>Ed Zitron：</strong>我觉得会。大家都绕着那个大问题说话。Anthropic上市后，价格大概只到发行价的1.15、1.2倍，这还是锁定期解除之前。</p>
+<p>问题是，OpenAI现在怎么上市？它下一步怎么办？刚在非公开市场以1.25万亿美元估值融了110亿美元，然后呢？</p>
+<p>甲骨文刚发帖说，不要担心，听到的那些故事不是真的，别相信；我们的OpenAI数据中心项目资金充足。事情很奇怪。现在又有英伟达的证监会调查，即使你觉得特朗普任内的证监会没那么强硬，这也不是小事。我觉得情况还会进一步恶化。英伟达似乎对循环融资有极大的依赖，其规模可能尚未被我们真正认识。</p>
+<p><strong>Melissa：</strong>具体指什么？从投资人可能面对的坏情景出发，我们已经深入讨论了很多条路径，股价也因此跌了这么多。</p>
+<p><strong>Ed：</strong>但我认为，还有更多路径需要考虑。</p>
+<p><strong>Ed Zitron：</strong>甲骨文发了一条推文：“别担心，我们有很多钱，一切都很好。”一般来说，恰恰是情况不好、钱不够的人才会这么说。甲骨文的未来又依赖OpenAI。我们还没怎么谈新云，它们对利率极其敏感，现在已经在说可以收客户预付款。问题在于，如果预付款不够覆盖建设，它们到底从哪里拿钱来维持业务运营？Nebius、CoreWeave、IREN这些新云又完全依赖英伟达。还有Nscale和Lambda等几家新云可能要IPO。它们要在这样的市场上市？我非常怀疑。</p>
+<p><strong>Melissa Lee：</strong>Ed，你花了很多时间研究这件事。刚才谈的是融资，这是整个故事的一根支柱。需求这一侧呢？如果新云和甲骨文建了这么多，却没有需求，那么它们融来的钱就用得非常糟糕。过去一年大家一直在谈这一点。你怎么看需求？</p>
+<p><strong>Ed Zitron：</strong>我很担心。就在一周前，连Sam Altman自己都说，大部分AI算力需求来自Anthropic和OpenAI。我记得Anthropic有9100亿美元的承诺，现在账上有2000亿美元现金，很好。但OpenAI有多少现金？彭博关于它融到110亿美元的报道有一个非常奇怪的细节，特意说钱已经汇出了。我看过几百篇融资报道，从没见过这样写。问题是，OpenAI怎么撑过未来六个月？如果没有OpenAI，我们可能看到全部算力需求的40%到50%消失。没有别的大型参与者了，就是这两家。另外，假如Anthropic有一天付不起SpaceX的费用，那涉及的是SpaceX上季度约33%的收入。再加上，据Ramp的数据，OpenAI和Anthropic收入的80%来自1%的客户，而这些客户是有风投资金支持、但全部还在亏损的创业公司。整个东西像一颗玻璃洋葱：看起来又大又漂亮，似乎能带动股市，里面却没有多少东西。</p>
+<p><strong>Melissa Lee：</strong>已经出现的跌幅只是冰山一角吗？是市场开始意识到你说的这些问题，还是在消化你提出的各种情景？</p>
+<p><strong>Ed Zitron：</strong>我不愿这么说，但我认为接下来还会继续下跌。我不知道跌多少，也不知道会跌得多猛烈。甲骨文那条帖文真的让我担心，Altman说需求基本上只来自他们和Anthropic，也非常令人担忧。现在让人担心的信号已经够多了，市场本来就对AI有些惊慌。还有SEC的调查，让我觉得坏消息会越来越多。我想，市场可能庆幸这件事发生在感恩节前，正好有个喘息机会。Anthropic的IPO也让我不安，因为它基本上就是提供退出流动性。他们把它包装成下一个谷歌，实际上却是让不知情的散户接下风投持有的资产。很遗憾，这就是一次流动性退出事件。</p>
+<p><strong>Melissa Lee：</strong>按惯例确认一下，你在市场上有持仓吗？</p>
+<p><strong>Ed Zitron：</strong>没有。</p>
+<p><strong>Melissa Lee：</strong>你没有持仓。好的。谢谢你接受采访。</p>
+<h3>银行股是否在提示尚未显现的信用问题</h3>
+<p><strong>Melissa Lee：</strong>你可能没有他那么悲观，但你确实认为我们会经历某种增长担忧，听起来形势对你而言也不太好。</p>
+<p><strong>交易员：</strong>是。我无法真正看清这些交叉联系和资金要求。但回到本周银行股的表现，它们交易的似乎不只是IPO管线流失。市场的定价更像是：银行此前都在争着腾出资产负债表，给这笔交易中的某些环节融资。在AI交易的一些部分，银行当时非常愿意互相竞争，提供资产负债表支持。因此我认为，这最终可能带来信用方面的担忧。</p>
+<p>其中一些只是承诺，可能根本还没变成贷款，至少只停留在讨论阶段。所以问题更多在于今后做不成的项目，而不是已经做成的项目。但我认为银行股正在讲述一个我们尚未看见的故事，不只是银行业务本身的周期性。</p>
+<p><strong>Melissa Lee：</strong>Karen，你现在怎么看银行股？它们是在预告前面的麻烦吗？</p>
+<p><strong>Karen Finerman：</strong>我确实这么认为。IPO市场和投行业务方面，交易难以完成，融资也难以完成。股权资本市场的业务量可能还不错，但债务资本市场会比较困难。IPO虽然能一次性带来大笔收入，市场给这些收入的估值倍数却远低于银行那些日常、稳定的业务。总体来说，艰难的市场环境通常对银行都不利。</p>
+<h3>黄金、铜和原油：避险资产还是融资来源</h3>
+<p><strong>Melissa Lee：</strong>商品也没能躲过抛售。黄金今天跌4.6%，录得3月以来最差单周表现，结算价略高于每盎司3500美元，为2025年9月初以来最低。矿业股受到的冲击更大：GDX今天跌5%，本周跌16%，ETF里的每家公司本周都下跌。现在应该回避，还是买入？</p>
+<p><strong>交易员：</strong>取决于你判断美元往哪里走。美元和商品之间有反向关系。我们前面谈过，油价大跌，铜价跌了15%。数据中心建设要消耗大量铜，而铜是增长的脉搏。如果你认为增长会一层层往下走，铜就会遭到抛售。此前是铜供应不足，现在大家开始担心，因为增长正在走弱，反而会供应过剩。</p>
+<p>按理说，现在应该是黄金上涨的时候，但它没有涨。我们基本上处于一场热战中，虽说不是每天都有导弹飞来飞去，却仍然是热战。油价却在崩，说明战争溢价正在从石油中退出；增长溢价正在从铜中退出。黄金已经有一段时间不是避险交易了，我认为现在它是一笔融资交易。此前黄金涨过、积累了利润，人们可能在卖掉盈利的黄金来应付追加保证金要求。</p>
+<p><strong>另一位交易员：</strong>大家知道我一直持有黄金，涨的时候看多，跌的时候也看多。不过，最近这一段跌势让我意外，因为我觉得仓位已经非常轻了。很大一部分可能由期货推动。黄金的方向当然不简单，但Steve提到的许多因素确实存在：美元强、联储鹰派、市场规避风险。这个资产此前的交易情绪也相当亢奋。</p>
+<p>我认为各国央行会开始买入，只是它们没必要在这种波动中立刻出手。价格下降反而能激活实物黄金市场。如果联储漏看了某个问题，或者收紧过头，我们现在谈的这些，恰恰都是你想买黄金的理由。因此，即使有增长担忧，在我可能卖出的各种资产里，黄金也不在首位。毫不意外，你会听到我说：现在应该买黄金，而不是卖黄金。</p>
+<h3>中国科技股：芯片限制、政策风险与税损收割</h3>
+<p><strong>Melissa Lee：</strong>欢迎回到Fast Money。美国商务部限制向中国销售AI芯片的最新行动，正在打击海外科技股。中国互联网ETF KWEB今天再跌3%，来到四年多低位；百度、腾讯、京东是今天跌幅最大的几只。想象一下，算力供应被切断会怎么样。《日经》也报道，英伟达的服务器合作伙伴不再在东南亚建设更多项目。这条路似乎被堵上了，对最终用户有什么影响？</p>
+<p><strong>交易员：</strong>我更担心的是，一直左右这些股票价格和估值的，是它们与美国政府的关系，以及来自美国的监管逆风。我倒不是特别担心它们在国内取得芯片的能力。至少我们此前了解到、听到的说法是，阿里巴巴过去曾通过壳公司购买芯片，可能还有Megaspeed，那部分留给别人去查。</p>
+<p>对我来说，投资这些公司有很多逆风。从历史经验看，也许这恰恰是应该买入的位置，但我还没准备这么做。如果说我在做什么，那就是为了税损收割，卖掉KWEB、买一些阿里巴巴，或者反过来。两者都出现了很大亏损，这笔交易做得不好。</p>
+<p><strong>Melissa Lee：</strong>我们对中国、对科技行业的态度，会不会进入一个更对抗的阶段，甚至让这些公司从美国退市？</p>
+<p><strong>交易员：</strong>关系会更对立。具体会发生什么，我不知道。</p>
+<p><strong>另一位交易员：</strong>但真的会吗？总统刚去了深圳，这些事并没有提出来。真要说的话，他反而在试着让中国企业更容易获得这些芯片。商务部和不少国会议员在做这些事，但据说总统访问时没有谈。</p>
+<p>撇开这些，想想中国的创新能力。回到2025年1月，DeepSeek的报道出来时，大家谈它的创新，以及它怎样缩小与我们前沿模型的差距。英伟达现在的股价，正好回到当时DeepSeek消息冲击后那天的收盘位置。想想其间发生了多少事情。即便那个模型是用部分H100之类的芯片训练出来的，现在它们已经走得很远。</p>
+<p>训练意味着把地球上能取得的信息都吸收进模型。之后不断迭代、调整、改进，再进入推理阶段。从许多方面说，它们可能并没有那么在意。它们已经提炼了整个互联网，用我们的芯片走到一定阶段，明确聚焦开源、开放权重，现在正把模型推广到世界各地。所以这些事情很多可能只是干扰，我相信它们很乐意让局面这样继续下去。</p>
+<p><strong>另一位交易员：</strong>不过，中国的情况本来也不算好，对吧？</p>
+<p><strong>交易员：</strong>没错。从整体市场和经济看也是如此，这件事显然不会带来帮助。</p>
+<p><strong>Karen Finerman：</strong>Tim，我喜欢你那个税损收割的想法。它们会一起波动，至少从损失中拿回一点好处。</p>
+<p><strong>Tim Seymour：</strong>对，就是这样。这是一对互相替代的标的。</p>
+<p><strong>交易员：</strong>新一届国会1月3日就任。华盛顿通常什么事情都有两面，但反华立场在这里恐怕是两党共识。1月10日贸易休战期又要结束，事情很多。股价传递的信息是：不能轻易买，因为它们更依赖政策，而不是利润。</p>
+<h3>比特币跌破59000美元：离场者与长期持有者</h3>
+<p><strong>Melissa Lee：</strong>比特币今天下跌，目前低于59000美元，日内低位是2024年9月以来未见的水平。本周跌了15%，相较去年10月纪录高点已经腰斩有余。Steve，你怎么看？</p>
+<p><strong>Steve Grasso：</strong>我能理解，网络攻击事件会让人担心加密资产也被黑。如果你参与这个领域，应该把钱包放在冷存储里。现在比特币跌，黄金跌，大家投进去的东西都在跌。你不能说黄金属于风险资产那一篮子，但比特币是。如果发生网络攻击，或者市场认为发生了网络攻击，我认为这可以构成卖出加密资产的理由。</p>
+<p>另一个问题是没有《CLARITY法案》。如果比特币的规则没有清晰度，你就容易从长期持有者变成过客。我的参与方式是ETF，我在上周初卖掉了灰度的比特币和以太坊迷你ETF。通常卖完以后，我会担心它马上反弹，但它一直疲弱。我随时可以买回来，只是到现在还没买。</p>
+<p><strong>另一位交易员：</strong>我同意Steve说的。所谓清晰度，现在《CLARITY法案》本身都没有清晰度，法案似乎已经停滞，这不是好事。它是一种很典型的风险偏好交易，也是一种动量交易，与黄金有相似之处。要如何衡量它的价值主张——这个词可能也不太准确——总之，目前没有什么特别吸引我的地方。</p>
+<p>我仍然持有。过去几年卖过一部分，但最后这一部分已经拿了几年，我会继续持有。</p>
+<h3>技术面：指数进入调整区，沃尔玛逆势上涨</h3>
+<p><strong>Melissa Lee：</strong>本周最后一个交易日，股票继续下挫。道指下跌950点，标普跌近4%，这两个指数也和纳指一起进入调整区间。科技股占比较高的纳指跌逾5%，今年以来转为下跌。沃尔玛却躲过今天的抛售，上涨1.5%。公司昨天公布的第三季度业绩高于预期。</p>
+<p><strong>Melissa Lee：</strong>沃尔玛上调全年展望，得益于电商业务增长。网络安全股盘后也有大幅波动：有报道称CrowdStrike正洽谈收购Zscaler，后者涨约17%，CrowdStrike则跌约5.5%。市场在这一轮抛售中测试关键点位。请Carter Braxton Worth从技术面谈谈下一步。</p>
+<p><strong>Carter Braxton Worth：</strong>原则上，我认为后面还有下跌，虽然随时都可能出现急剧反弹。放在历史上所有超过10%的回撤中看，这次回撤还相当小。我们一起看图找参考点。</p>
+<p>目前已经跌破美国与伊朗冲突前的高点。下一个参考点，是当时市场认为冲突可能得到解决、指数从低点弹起时留下的一个未回补缺口。如果继续往下到那里，还有约5%的空间，相当于从最高点下跌16%。但我认为真正的参考点、最终可能去的地方，是2021年1月的高点，也就是后来那轮约21%的关税抛售前的高点。那会把指数带到6000点附近。对于一个积累了这么多过热因素的市场，我认为那才是合适的重置。</p>
+<p>再看其他部分。必需消费很受欢迎，但按我在图上的标注，这次反弹已经过头。更重要的是相对表现：把必需消费除以大盘，这次反弹已经碰上一条很清楚的下降趋势线。这意味着确实有资金流入、有轮动，但按我的分析，幅度已经太大。我会反向交易这次必需消费的上涨。</p>
+<p>再看波动更大、也更吓人的费半。它今年仍有可观涨幅，别忘了，整个指数从3月30日到6月22日居然翻了一倍。现在还没把涨幅全部吐回去，我认为回到那一带会有支撑。同一张图用另一组线来看，对应从高点跌约45%，我们正在接近，那里会开始出现比较认真的买盘。</p>
+<p>最后看英伟达，这个曾经的领头羊。今天略微跌破趋势线。我的直觉是，剩余下行空间不大，虽然图形损伤严重，捏着鼻子买入可能是对的。</p>
+<p><strong>Melissa Lee：</strong>所以相对而言，英伟达比费半看起来更好，是这个结论吗？</p>
+<p><strong>Carter Braxton Worth：</strong>英伟达此前表现差得多。我认为，相对费半而言，它已经差到反而有机会了。</p>
+<p><strong>Melissa Lee：</strong>Karen，这大概能让你松口气。</p>
+<p><strong>Karen Finerman：</strong>稍微松一点。它看起来确实越来越像一根被压紧的弹簧。再看VIX：过去五年，新冠疫情时到过80，日元套息交易平仓时到40，“解放日”时到50，今天又碰到40。这个水平已经相当高了。</p>
+<h3>医疗板块：估值、内部差异与并购催化</h3>
+<p><strong>Melissa Lee：</strong>医疗本周也没有提供避风港，周一以来跌6%，主要子行业都承压。不过，今年仍涨14%，在各板块中仅次于能源与必需消费，排第三。现在还能放心把钱放在这里吗？请瑞穗医疗行业专家Jared Holz谈谈。你此前一直觉得估值有些偏高，现在跌到可以买的位置了吗？</p>
+<p><strong>Jared Holz：</strong>我认为还没有。过去八到十周，基本上只有这一周表现糟糕。大型药企刚开始稍微回落，管理式医疗本周明显承压，生命科学工具公司跌了几个百分点，但仍接近52周或历史高位。我觉得还会继续调整。</p>
+<p><strong>交易员：</strong>与过去约十年的平均估值比，是高很多，还是仍在区间内？今天我看必需消费，例如高乐氏和高露洁，虽然涨了很多，远期估值仍在十年均值附近甚至以下，这让我很吃惊。</p>
+<p><strong>Jared Holz：</strong>医疗不是这种情况。大型药企大致15至20倍，也有少数稍低；工具公司在二十多倍的中段，接近高位，虽说不一定是历史最高。管理式医疗与历史交易水平大致一致。因此，我肯定不会说医疗有折价。如果拿仍远低于十年平均估值的必需消费作比较，医疗显然不是这样。</p>
+<p><strong>交易员：</strong>我用最宏观、最简单的方式看XLV、IBB、XBI：IBB今年涨18%，另外两个约涨15%。我要找的是生技季节性吗？还是担心每年90亿美元、持续十年的压力打击管理式医疗？究竟什么催化会给我交易这个板块的顺风或逆风？</p>
+<p><strong>Jared Holz：</strong>XBI现在很奇怪，里面有Moderna，还有很多并非纯粹生技公司的诊断企业。深入看内部，剔除这些特殊个股，生技实际表现差得多。</p>
+<p>至于什么能带来修复、为什么现在可能看多，一部分是纯粹的均值回归。一些质量更高、已经商业化的公司被打得最重；直到几天前传出收购传闻之前，Insmed就是一个例子。很多优质公司，因为没有明确催化，买方暂时决定先放在一边。它们有可能均值回归。另一个动力是并购。我认为年底到明年，并购周期会明显提速。今年上半年非常活跃，最近暂停了一下，并购会成为推动行情的第二条腿。</p>
+<p>所以，看生技有不同角度：指数总体撑住了，但很多中小市值公司已经被打得面目全非。</p>
+<p><strong>Melissa Lee：</strong>继续谈并购，你觉得哪些公司或子行业更可能发生交易？</p>
+<p><strong>Jared Holz：</strong>生技总会是其中之一，因为它最分散。大型药企必须做交易，才不至于让收入增速掉到零以下。整个板块的关键就是：收入能不能持续增长？生技能提供这一点。</p>
+<p><strong>Jared Holz：</strong>可能被收购的公司有几百家。刚才说的Insmed当然有可能。另一个领域是医疗器械，这里的交易活跃程度可能没有得到充分讨论：有不少战略收购，也有一些私募股权交易。</p>
+<p>说到估值，医疗器械确实低于历史平均。有时器械板块的估值会高于生命科学和诊断，但现在关系倒了过来，差距大概800至900个基点。因此，如果中市值器械公司继续表现落后，这里也可能出现一些交易。</p>
+<p><strong>Melissa Lee：</strong>谢谢Jared。你还持有辉瑞和强生，对吧？</p>
+<p><strong>交易员：</strong>对，我两端都有：有表现落后的，也有跑赢的。辉瑞相对自身历史可能便宜，强生相对自身历史则贵，但我不会卖强生。</p>
+<p><strong>另一位交易员：</strong>我很赞同Jared。这段其实也可以放进刚才Carter的讨论里。XLV和XLP一直是人们躲进去的地方，但到某个时点也会出问题。事实上，本周它们已经开始掉头，所以这些股票要小心。</p>
+<h3>下周如何交易：大科技、减能源、兑现对冲与反弹卖出</h3>
+<p><strong>Melissa Lee：</strong>这个艰难的星期终于结束了。我们想问问各位，买入清单上有没有什么标的。Tim先来。</p>
+<p><strong>Tim Seymour：</strong>首先回头检查组合，把科技仓位加总，看看相对你自己的配置目标、相对市场处在什么位置。当然，这取决于你想持有什么、你的风险承受能力。我会回到那些超大市值科技公司：在这个世界还没有如此充满AI时，它们似乎反而更赚钱、自由现金流更多。我指的是Meta、谷歌、亚马逊、微软，这些是我会关注的名字。</p>
+<p>另外，虽然整体上我是能源多头，但这里可能需要减一些。能源已经有很好的涨幅，商品也是，甚至可以说最佳卖点已经过去。我仍然认为能源应该保持市场权重，也许略微超配。但我此前超配很多，现在有空间再减一些。</p>
+<p><strong>Melissa Lee：</strong>Karen呢？</p>
+<p><strong>Karen Finerman：</strong>我肯定会买一些东西。刚才说过VIX，我喜欢价格按整数一截一截往下跳的时候。我总说，街上流血就该买，即使流的是你自己的血。这次很大程度就是我的，因为我一直有多头。</p>
+<p>但第一步还是看组合：哪些对冲已经完成任务？先把它们平掉。某些股票大幅反弹并不会让人意外，届时这些保护的价值就会下降。英伟达的保护结构可以往下移，Meta也是，我正准备这样做。如果你不喜欢这些操作，直接买一些QQQ也可以。</p>
+<p><strong>Dan Nathan：</strong>看看SMH。Guy已经说了一段时间，要回补4月7日那个缺口。过去几个月他大概提过十几次，我当时还想，那得跌很多才行。结果今天真的补上了，而且守住了。</p>
+<p>所以，我在英伟达的技术形态上有点同意Carter和Karen。SMH里25%是英伟达和台积电，它们联系很紧。如果周一早上能守住，我认为有可能出现相当猛烈的反弹。不过，我仍认为要卖出逆势反弹，因为后面还没跌完。情绪确实糟透了，上行方向会有很好的交易机会。</p>
+<p><strong>Steve Grasso：</strong>我相信下周会反弹，原因就是开头说的：下周会是比较清淡的市场，很多人要出门旅行。人坐在电脑前时，按卖出键的频率更高，假期周则可能让仓位顺其自然。</p>
+<p><strong>Melissa Lee：</strong>可他们在旅行，难道会按买入键吗？</p>
+<p><strong>Steve Grasso：</strong>他们不用买，我只是希望他们别卖。再想想Anthropic的IPO，参与者需要调整组合，于是卖掉了很多本来就承压的同类股票。我认为会反弹，同意Karen，下周周二或那几天的中段可能看到反弹。</p>
+<h3>最后一笔交易</h3>
+<p><strong>Melissa Lee：</strong>Tim？</p>
+<p><strong>Tim Seymour：</strong>我们刚谈了医药和生技。GILD——我说的是吉利德，不是黄金。我会卖一些，而且已经卖了一些。</p>
+<p><strong>Karen Finerman：</strong>艰难的一周，很高兴熬过来了，希望下周好些。我会看周一或周二，最好在波动率再冲高时买QQQ。</p>
+<p><strong>Dan Nathan：</strong>我不反对。不过，如果看中期，我更倾向于等权重标普500，也就是RSP。</p>
+<p><strong>Steve Grasso：</strong>我在等科技股和英伟达反弹。请用止损来保护下行风险。</p>
+<p><strong>Melissa Lee：</strong>周末愉快，谢谢收看。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
