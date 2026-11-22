@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Kush Bavaria谈GPU租价、算力期货与新云信用风险（20VC全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-22<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Kush Bavaria谈GPU租价、算力期货与新云信用风险（20VC全文精翻）</h2>
+<div class="metaline">20VC with Harry Stebbings · Kush Bavaria（Ornn联合创始人兼CEO） · 72分50秒 · 2026-11-21 · <a href="https://www.youtube.com/watch?v=3ZkDiDrxDeY" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；融资估值；单位经济；token需求；Ornn；CoreWeave</p>
+<ul><li>把GPU租价、客户信用与合同后的残值放在一起看，讨论算力指数、期货和融资期限错配。</li><li>主持人追问新云缺少护城河、应用无法变现和债务风险；嘉宾保留看多判断，并说明相应反面情景。</li><li>他认为旧GPU仍能承接小模型推理，推理市场会按速度、成本与专业领域分化。</li></ul>
+<h3>精翻正文</h3>
+<h3>从MIT项目到算力数据生意</h3>
+<p><strong>Harry Stebbings：</strong>Kush，很高兴今天能和你聊。Thrive的Miles给我发消息，说我一定得认识你，说你是非常出色的创始人。我觉得他和Pat Grady都是风险投资里很聪明的人。听他这么说，我立刻请他介绍。我们聊过后，我发现你确实像他说的那样出色，很高兴你能来录这期节目。</p>
+<p><strong>Kush Bavaria：</strong>谢谢邀请，我也很期待。</p>
+<p><strong>Harry：</strong>进入正题前，先让大家认识一下你。你身上有不少有意思的经历。你在大学里做过一个很受欢迎的体育博彩平台？</p>
+<p><strong>Kush：</strong>我和Wayne当时特别想去Novig实习。</p>
+<p><strong>Harry：</strong>Jacob那家公司。</p>
+<p><strong>Kush：</strong>对。我们那时是MIT大一、大二的学生，他们没让我们去。我们就想，行，那我们自己做。当时我们唯一擅长的就是写代码，商业、法律和其他事情都很差，也不知道事情有多难。</p>
+<p>我们做了一个可以买卖体育比赛相关合约的应用，类似如今Novig、Collabstr、Polymarket这类应用，可以押球员的数据。我们和MIT的兄弟会合作，大家可以买卖不同球员或赔率相关的合约。它没能真正扩展到MIT之外，但在校内还挺受欢迎。</p>
+<p><strong>Harry：</strong>你告诉过Jacob或Novig吗？</p>
+<p><strong>Kush：</strong>没有。我觉得他们可能根本没听说过，因为除了开发应用，我们在市场推广等方面实在太差，最后也没做起来。</p>
+<p><strong>Harry：</strong>我得把这一段发给他。你的投资人和队友还告诉我，你很推崇Travis。你常问自己“TK会怎么做”，这是怎么回事？</p>
+<p><strong>Kush：</strong>我非常欣赏Travis Kalanick。《财富》有位记者问我怎么看他，我说，他是我们这一代的Steve Jobs。我们的媒体团队听了很不高兴。但我觉得，前辈创业者经历过这些事情，有很多值得学的地方。遇到问题时，我就想，Travis会怎么处理？</p>
+<p><strong>Harry：</strong>这会让你更强硬，还是更有野心？</p>
+<p><strong>Kush：</strong>两者都会，而且幅度很大。我不够有野心、不够强硬，这是我比较差的地方。我这个人比较温和，需要反击、坚持或顶回去时，也常常不这么做。Travis恰好相反，所以我可以向他学。</p>
+<p><strong>Harry：</strong>具体哪件事，你回头看会觉得应该更强硬？</p>
+<p><strong>Kush：</strong>很多早期商业协议。我们一开始把大量数据卖给大型对冲基金、交易公司和做市商。那些人就像鲨鱼，工作的全部目标就是赚钱，而我们很不擅长谈这些。我们每个月只收5000或1万美元，对方立刻就答应，我开始怀疑，是不是我们吃亏了。后来才发现，他们愿意付每月10万甚至50万美元。我们的定价低得离谱。</p>
+<p><strong>Harry：</strong>你说自己不够强硬，听着都快像欧洲人了，欢迎来伦敦。不过你也挺疯狂的：好几个投资人都跟我说，你没训练就去跑了马拉松。</p>
+<p><strong>Kush：</strong>我在大学跑过一些步，但不算很强。朋友说我跑不了超过一英里，我就跑了半马。后来还在学校时，又跑过全马。再后来，我报名另一场马拉松时，还不知道自己会创业。我七月报了名，九月开始创业。</p>
+<p>创业以后，公司就是你的全部生活。马拉松训练一天得花两个小时：跑一小时，再换鞋、洗澡，时间就没了。我根本挤不出这两个小时，所以确实没有为那一场训练。</p>
+<p>到了比赛那天，我还是决定得去，不能当个半途退出的人。那段时间我看了一期黄仁勋的播客，里面的话也成了我给自己鼓劲的东西。最后我跑完了，非常痛苦，不过成绩不算太差，大概三小时三十分。成绩还行，体验糟糕。</p>
+<p><strong>Harry：</strong>我认真训练了很久，还跑了三小时四十五分。好了，背景够了。我想直接进入上次聊时提到的一个判断：AI可能成功，基础设施投资人却可能亏钱。你怎么看？</p>
+<h3>AI需求、机房租金与供需风险</h3>
+<p><strong>Kush：</strong>首先，我不觉得基础设施投资人最后会输。我们把他们看成出租公寓的房东。数据中心就是公寓楼，有人出钱买下这栋楼；真正承担GPU使用安排的人，则是在楼里租房。Fireworks、Modal、fal、Baseten这些推理服务商都是这样的角色，OpenAI和Anthropic在一些交易结构中也类似。</p>
+<p>只要还有租户愿意住，基础设施投资人就可以一直收租。如果整座城市不景气——这里的“城市”就是AI——想租房的人自然会减少。也可能大家都想直接买房，也就是自己建设数据中心。有很多种情况，但我不觉得基础设施投资人最终会输。</p>
+<p><strong>Harry：</strong>可很多大企业仍会说，投资回报和成本问题还没有解决。如果企业需求出现裂缝，会先影响服务商，接着影响基础设施投资人。</p>
+<p><strong>Kush：</strong>会的，这点肯定成立。还是租房的逻辑：经济差了，租金会跌；GPU需求不足，每GPU小时的价格也会下降。归根结底，这是供需关系。如果企业需求下降，算力供给就显得更多，因为没有足够的token需求、训练需求或其他需求把它消化掉。</p>
+<p><strong>Harry：</strong>考虑这些项目的建设周期，现在供应短缺到什么程度？</p>
+<p><strong>Kush：</strong>非常短缺。现在去找CoreWeave买算力，对方给你的时间可能已经是2027年四季度、2028年一季度。如果自己建设，向设备厂商买芯片，他们通常会把交货说得比实际更早。我觉得真正拿到芯片要20—22周，安装再加两三周。这还只是小规模部署，自己做也得大约半年。</p>
+<p><strong>Harry：</strong>你担心支撑这些基础设施的债务周期吗？</p>
+<p><strong>Kush：</strong>不太担心，因为今天已经能看到真实的token需求，而且AI的产出有用。公开市场太害怕“AI没用”这件事。你用过ChatGPT、用过这些产品吗？它们显然有应用场景。既然技术有用，支撑它的数据中心和芯片就会在很长时间里有用途。</p>
+<p>而且价格在上涨。H100，甚至B200、B300，现在的价格都远高于刚开始的时候。</p>
+<p><strong>Harry：</strong>Gavin Baker好像说，过去大约60天每天都在涨。</p>
+<p><strong>Kush：</strong>是的。AI需求持续增加，甚至呈指数增长，你看到的公司收入曲线都是往上冲。它们做什么？卖token。要卖更多token，要么更高效地生产，要么拿到更多算力，实际会两方面都做。而要拿到更多，就得开始比其他人出更高的价钱。</p>
+<p><strong>Harry：</strong>站在你的特殊位置，你看到了哪些别人没看到的芯片定价变化？</p>
+<p><strong>Kush：</strong>最明显的是价格持续上涨。也许大家都看到了。但我们创业时，很多人觉得GPU价格的远期曲线会向下倾斜，三年、五年后的每GPU小时价格会更低。</p>
+<p>早期协议里，人们常免费送续租选择权，比如三年后还想续两年，就可以按2.50美元续租，当时觉得谁会行使这种权利。现在如果你提出，三年后能否按今天的价格续租，没人会免费给你这个权利。市场开始觉得，三年后租价可能比现在更高。Rubin如果达到每GPU小时20或30美元，我不会意外。</p>
+<p><strong>Harry：</strong>现在大概是多少？</p>
+<p><strong>Kush：</strong>我印象里，五年期安排大约是7或8美元。需求真的很旺盛。从不同角度看，它有好处也有坏处，归根结底还是供需和市场。</p>
+<p><strong>Harry：</strong>那为什么大家这么不看好Nebius、CoreWeave这些新云公司？为什么它们的债券融资成本那么高？</p>
+<p><strong>Kush：</strong>因为它们加了杠杆，而杠杆建立在这样一个信念上：芯片残值和AI的价值会随着时间继续存在、继续发展。市场觉得这是泡沫、不真实，这些担忧又相互强化。</p>
+<p>但看数据，每GPU小时价格仍在涨，所以我不太理解，为什么大家说要做空CoreWeave或Nebius。这里也有信用问题：CoreWeave的租户能不能付GPU的租金？租户就是AI公司，所以最终仍是AI的问题。</p>
+<p><strong>Harry：</strong>也就是创始人和这些公司的基础租户。</p>
+<p><strong>Kush：</strong>对，它们能否一直向CoreWeave付租？</p>
+<p><strong>Harry：</strong>这么说，你会买CoreWeave？</p>
+<p><strong>Kush：</strong>会，我会做多。我不能自己投资上市股票，但如果可以，我会很看多它。</p>
+<p><strong>Harry：</strong>我喜欢这种清晰的判断：你相信AI需求会继续增长，也会产生一系列连锁效应。但我们已经听到多头理由了，空头情景是什么？</p>
+<p><strong>Kush：</strong>AI需求不再增长。人们不再买token，企业发现AI并没有真正改善或帮助自己的业务。这在今天也部分成立。咨询公司的研究里就有这些问题。我以前在BCG，所以可以引用它们的研究。</p>
+<p><strong>Harry：</strong>你还在BCG待过？</p>
+<p><strong>Kush：</strong>我很不喜欢，这也是创业的原因之一，不想做公司职员。但看这些研究，大企业真正部署AI、真正用出效果了吗？目前很多公司的答案还没有。也许是实施问题。现在需求仍在增加，所以还没成为问题。</p>
+<p>但假设情况没有按预期发展，可口可乐、麦当劳或其他大型企业发现，AI对自己的业务大部分没有什么改变，那么之前买的芯片和算力就可能买多了。你必须在知道需求是否存在之前先购买。一旦做不成，租户付不起租金，开始违约，债权人拿着这些芯片，它们还值多少？是里面金属的价值，还是别的价值？可能已经失去通电使用时所对应的经济价值。</p>
+<p><strong>Harry：</strong>你怎么建议创始人预测算力采购？我之前问过Eric。</p>
+<p><strong>Kush：</strong>我看了那期，他说提前18—20周采购。我觉得现在可能要提前22—26周，所有东西的交付周期都在延长。</p>
+<p>我们做这个公司的一部分目标，就是解决这个问题。你得在知道未来会怎样之前下单，就需要对冲。今天购买时，并不知道22或26周后的价格。可能更高，也可能更低，谁知道？那是相当长的一段时间。</p>
+<p>但如果手里有钱，特别是那些大型企业，已经决定投资AI，我真会建议它们去买芯片、建机房，先做起来。我认为价格会继续上升，拖着就会一次比一次付得更多。买来用不完，也可以像Elon那样做。我们可以帮助出租；即使不通过我们，也可以做他在SpaceX做的事：有多余芯片，就让Anthropic等公司按某个价格来租。你有钱、有信用，也可以成为一家新云公司，自己为芯片定价。</p>
+<p><strong>Harry：</strong>Elon做新云业务这么好，我都惊讶他还花那么多时间做Grokbot和别的东西。</p>
+<p><strong>Kush：</strong>它们的模型也很好。我们大量使用Cursor、Grokbot这些应用。我可以介绍一下我们团队的工具组合。日常任务我都用Grokbot，没有助理，靠它处理。</p>
+<h3>工具成本、旧GPU与推理市场分工</h3>
+<p><strong>Harry：</strong>好用吗？</p>
+<p><strong>Kush：</strong>非常好用，你试过吗？</p>
+<p><strong>Harry：</strong>没有。我每天都很依赖Instinct。</p>
+<p><strong>Kush：</strong>Instinct也很棒，我的联合创始人在用它。</p>
+<p><strong>Harry：</strong>确实很好用。</p>
+<p><strong>Kush：</strong>这些工具有些地方相似。也许我应该换一下，不过我已经在付Grokbot的钱。除了Grokbot，我们用Cursor，最近大家又开始用Factory写代码。Factory很好的一点是允许带自己的API密钥。作为初创公司，我们从Claude、OpenAI和投资人那里拿到不少额度，所以可以直接用，帮助很大。它每月200美元的方案基本上提供不限量token。</p>
+<p><strong>Harry：</strong>Matan和Eno都很出色。</p>
+<p><strong>Kush：</strong>我也觉得应用本身更好。之前我们用了一阵Cognition的Devin，问题是太贵了。我不知道具体原因，但同样花费，Factory能用的token最后大概是Devin的十倍。两家是竞争产品，我想问Devin，为什么用你们这么贵？Factory便宜得多，我觉得它底层的代理运行框架也更好。</p>
+<p><strong>Harry：</strong>作为Factory的投资人，听到这话我很开心，我完全同意。</p>
+<p><strong>Kush：</strong>我这就给它们做了广告。</p>
+<p><strong>Harry：</strong>换个话题。你说旧GPU不一定过时。大家对芯片折旧还没有理解什么？</p>
+<p><strong>Kush：</strong>CoreWeave也说过，A100仍能租出去三年，H100也能签很长的租期。去年问大家，可能会觉得这些芯片明天就要折旧完、立刻没用了。现在却发现，H100已经用了好几年，仍然能再租三年。我想H100大概四年了，A100大概六年，它们还在出租，所以寿命可能比原来以为的更长。</p>
+<p>老芯片除了训练前沿模型，也可以做规模较小、模型较小的推理。如果你相信推理市场会分成快速、慢速和专业化类别，就更容易理解这件事。</p>
+<p><strong>Harry：</strong>快速、慢速、专业化分别是什么意思？</p>
+<p><strong>Kush：</strong>快速推理就是尽快给用户答案，每秒token数越高越好。会有公司专门做最快的推理，也会有人专做便宜但慢一些的推理，还有公司做生物学等特殊领域的推理。fal的视频、图像生成就是专业化推理的一种。</p>
+<p><strong>Harry：</strong>所以你觉得最后不会是Fireworks、Modal这样的横向平台胜出？</p>
+<p><strong>Kush：</strong>我认为会专业化。</p>
+<p><strong>Harry：</strong>真的？</p>
+<p><strong>Kush：</strong>对。也许Modal既擅长快速推理，又擅长图像生成，那就占据这两个垂直领域。但各家公司主要会把其中一块做好。</p>
+<p><strong>Harry：</strong>除图像、视频，还有什么模态需要专业化？</p>
+<p><strong>Kush：</strong>生物学、物理学。输入输出不一定是文本到文本，可能是DNA、蛋白质，或从一种化学式到另一种化学式。</p>
+<p><strong>Harry：</strong>长期看，推理市场会是三四家大公司，是Uber和Lyft那样，还是AWS、GCP那样？</p>
+<p><strong>Kush：</strong>会有一个横向供应商，把基础推理做得很好，成为普通用户默认的推理公司。但同时会有上百家不同的专业推理公司。网上开玩笑说，现在有上千家公司做推理。我觉得它们都有机会活下来，只是各自专攻某个领域。现在大家还在找位置，都说自己做某种推理。</p>
+<p><strong>Harry：</strong>你不觉得这只是周期中的某个阶段吗？大量新公司进入、增长很快，之后市场整合，玩家数量下降。</p>
+<p><strong>Kush：</strong>数量会下降，但同时会变得垂直化。也许我错了，最后没有垂直化，但这是我的判断。</p>
+<h3>融资热度与物理基础设施的机会</h3>
+<p><strong>Harry：</strong>你怎么看AI后期的动量投资？作为VC，我没见过这么两极化的市场。我昨晚还发帖说，一轮融资要么两小时完成，要么根本做不成。</p>
+<p><strong>Kush：</strong>这里面有很多炒作。如果两小时就能完成，除了领投者，其他人显然根本没弄明白、没认真研究。很多投资来自恐惧。也许不适用于每个投资人，但许多人当初没有早早投进OpenAI或Anthropic，现在看到它们要以1.5万亿、2万亿美元之类的估值上市，就害怕再错过下一家。</p>
+<p>大家尽可能把钱投进去，怕错过下一个巨头。确实是FOMO，害怕错失机会。这还不只是看到一家一线VC领投、其他VC跟着抢，而是看到公开市场的规模后觉得，自己必须参与。</p>
+<p><strong>Harry：</strong>VC真的能创造价值吗？</p>
+<p><strong>Kush：</strong>有的能，有的不能，但确实有能创造价值的。</p>
+<p><strong>Harry：</strong>回答得很漂亮。哪些领域已经过热？对我来说，客服赛道就很夸张，已经有十五家供应商。</p>
+<p><strong>Kush：</strong>客服可能是一个。还有很多人说，我们要做某个领域的Rogo，或某个领域的Harvey。我觉得这些容易想到的类别已经有人占住了。我和Gabe聊过几次，Rogo做得很好，Harvey、Legora也是。</p>
+<p>你很难再直接与Rogo竞争，也很难在法律领域击败Harvey。也许最终是OpenAI或Anthropic打败它们，但如果你相信这些应用会专业化，那些既定位置已经没有多少空间了。</p>
+<p><strong>Harry：</strong>那哪些地方关注还不够？假设今天你是20VC的普通合伙人，你会投什么？</p>
+<p><strong>Kush：</strong>尽可能多地投能源和物理AI技术栈。现在这甚至不算激进观点，已经挺主流了。</p>
+<p><strong>Harry：</strong>具体一点。</p>
+<p><strong>Kush：</strong>数据中心。可能因为我就在这个行业，但我发现，为新云和基础设施建设者提供产品的人还不够。Crusoe很出色，因为它建设电力设施，做变压器，纵向整合得很好。如果有一家初创公司说，明天就能做出更好的变压器，我会投资。</p>
+<p><strong>Harry：</strong>常见吗？</p>
+<p><strong>Kush：</strong>不常见，可能因为看起来无聊，或者大家没意识到市场规模。有些非常专业的产品和工具，单看现有市场好像不大，比如变压器能有多大？但如果数据中心最终是一个7万亿美元的市场，其中很大一部分就得花在这些实物构件上。</p>
+<h3>团队、创业经历与算力市场的形成</h3>
+<p><strong>Harry：</strong>不在硅谷，会不会错过机会？</p>
+<p><strong>Kush：</strong>不会，我觉得纽约好得多。</p>
+<p><strong>Harry：</strong>为什么？</p>
+<p><strong>Kush：</strong>我们有个看法：硅谷的人像投币就能启动的机器。研究员多拿10万美元，就去另一家公司；多给50个基点的股权，也会跳槽。纽约更讲忠诚，对共事的人、对团队有更强的情感和伙伴关系。你觉得是这样吗？</p>
+<p><strong>Harry：</strong>我觉得硅谷的从众思维比纽约多，圈子很封闭，互相纠缠。人们说自己先去某家基金、再去Bessemer，好像什么都围绕品牌和交易。我这么说可能会惹麻烦，但我确实不太喜欢那种一切都是交易的做生意方式。我想和尊重的人一起做出好东西。</p>
+<p><strong>Kush：</strong>我们也不喜欢一切都变成交易。有时也不一定马上就能赚到钱。</p>
+<p>我们创业当然发现了一个市场，但同样重要的是，我每天可以和学校里四个最好的朋友一起工作。我们一起上大学、在同一个兄弟会。对我来说，没有什么生活比和这些人一起做事更好了。不同人创业有不同原因，而我找不到另一个可以和四个最好的朋友天天共事的地方。</p>
+<p><strong>Harry：</strong>我觉得这很美好。那为什么是Ornn？是什么让你觉得非做不可？</p>
+<p><strong>Kush：</strong>大学时如果问朋友、投资人或认识我的人，他们都会觉得我以后一定会创业。我做过一些工作，但真正触发我的是在BCG的那个暑假。我在私募股权团队，学到很多东西。那时ChatGPT刚出来，我发现它很会生成Excel公式。</p>
+<p>董事总经理让我整理文件，我就交给ChatGPT，让它写公式，复制进Excel就完成了。我比副总裁或更资深的人还快，大家觉得我很厉害。其实是我擅长让ChatGPT帮我处理代码和公式。我本科学计算机，也会写Python，团队里其他人都是顾问，觉得这些本事很特别。但我当时就知道，自己不想把这种工作做一辈子。</p>
+<p><strong>Harry：</strong>他们一定很舍不得你。</p>
+<p><strong>Kush：</strong>我后来明确说了不回去。今年三四月，a16z投资我们之后，我回家待几天。周一招聘人员打电话问我为什么不在办公室。我说，什么意思？我两年前就辞了，从没打算回来。对方说系统里写着我会回来。我只好解释，我现在都已经有另一家初创公司了，很好笑。</p>
+<p><strong>Harry：</strong>太有意思了。回到业务，为什么算力需要一个市场？</p>
+<p><strong>Kush：</strong>因为价格由供需决定。很多供应商出售的基本上是同一种商品：英伟达GPU；很多买家也在购买同一种东西，只是参数不同，比如地点不同，或需要三TB内存而不是两TB。总体上仍在同一类商品里。多家供应商供给同一种产品，多家买家需求同一种产品，这就是市场。</p>
+<p><strong>Harry：</strong>如果只是供需，新云公司还有护城河吗？</p>
+<p><strong>Kush：</strong>我不觉得新云本来就有护城河，大家现在都在找。为什么CoreWeave开始说自己做后训练、做token？</p>
+<p><strong>Harry：</strong>它们必须扩展产品，建立护城河。</p>
+<p><strong>Kush：</strong>对，所有人都在做。它们早就意识到原来没有，所以要继续找。</p>
+<p><strong>Harry：</strong>这和你前面说会买、会做多有点矛盾。</p>
+<p><strong>Kush：</strong>我觉得没关系，它们仍是好生意。我想当房东，这是很好的生意。或者换个说法，新云的护城河就是它拥有基础设施。</p>
+<p><strong>Harry：</strong>我们已经有需求和供给，为什么以前没有这样的市场？</p>
+<p><strong>Kush：</strong>部分原因是以前供给方太少。CPU时代主要只有AWS、GCP、Azure，也许再加Oracle。现在有三百家新云。</p>
+<p><strong>Harry：</strong>供给端非常分散，所以没有市场？</p>
+<p><strong>Kush：</strong>恰恰是分散化让市场成为可能，因为供应商足够多。需求端的买家也比CPU时代多了一百倍，大家要的东西相似，都想实现自己的目标。这就形成了竞价。现在新云公司在做什么？拍卖GPU。这已经是市场了。</p>
+<h3>像石油一样交易算力，需要什么标准？</h3>
+<p><strong>Harry：</strong>和传统石油市场相比，要让算力像石油一样交易，还需要发生什么？</p>
+<p><strong>Kush：</strong>我觉得今天就可以交易。我们做算力指数，而为了建立指数，会经营实物市场，从里面获得数据。看北海布伦特原油，它实际只占全球石油产量很小的一部分。我印象中大约是0.7%或0.8%。</p>
+<p>算力也有不同类型，就像原油有不同品质，B300也可以看成其中一类。关键是盯住一种非常具体的算力，把它变成指数和默认参考价格。你不用涵盖全部，只需要一个明确标准，让所有人可以引用它。</p>
+<p>Eric前几天说，算力类型很多，我完全同意。但我们不用把所有类型都标准化。沙特原油和委内瑞拉原油不一样，交易时仍会引用布伦特或WTI。</p>
+<p><strong>Harry：</strong>所以重点是挑出一种具体算力，把它标准化？</p>
+<p><strong>Kush：</strong>对，选定非常具体的一类，让这一类先标准化。</p>
+<p><strong>Harry：</strong>这个过程有多少依赖信任和关系？</p>
+<p><strong>Kush：</strong>交易部分很大程度上就是信任和关系。</p>
+<p><strong>Harry：</strong>可你前面又说，这是供需、数字和竞拍。</p>
+<p><strong>Kush：</strong>这两个方面都有。标普的护城河是什么？穆迪的护城河是什么？就是信任和长期经营建立的关系。</p>
+<p><strong>Harry：</strong>你们和标普、穆迪有什么不同？</p>
+<p><strong>Kush：</strong>我们进入的是不同的市场，时间更早、变化更快，也更有冲劲。我们常这么说。真正的目标是成为算力领域的标普，甚至做到更大，因为我认为算力市场会超过过去一百、一百五十年里石油或其他大宗商品的市场。</p>
+<p>我们想用类似的路径发展：经营实物交易市场，用数据建立指数，在指数之上开发数据产品，再做评级及其他服务。</p>
+<p><strong>Harry：</strong>等等，你已经在扩展产品线了。怎么决定从哪里开始，之后又做什么？</p>
+<p><strong>Kush：</strong>先做指数，因为我们认为算力需要在公开市场交易，GPU之上应该有期货、期权和其他金融衍生品。</p>
+<p><strong>Harry：</strong>所以第一个产品是GPU指数。</p>
+<p><strong>Kush：</strong>对。为了得到数据，又必须经营实物交易市场，相当于建立算力版的北海布伦特现货市场。我们把它做出来，就得解决从哪里拿芯片的问题。</p>
+<p>我们没有那么多钱，所以不去自己建一家新云，而是让其他人投资芯片，再由我们帮他们把芯片变现，类似Airbnb的模式。可以用售后回租等不同融资安排：最终我们控制和运营芯片，但由别人投资芯片或数据中心项目。</p>
+<p><strong>Harry：</strong>哪件事出乎你的意料，后来才发现很难？</p>
+<p><strong>Kush：</strong>没想到要做得这么深，一直做到芯片层面。原来以为只是软件和数据公司。</p>
+<p><strong>Harry：</strong>为什么非得做到芯片层面？</p>
+<p><strong>Kush：</strong>不会有人主动把数据交给你，也不会替你标准化。要编指数，要么去找新云公司，请它们把真实成交价格给你；要么自己做。你觉得CoreWeave会交出来吗？它们会说，这是自己最有价值的东西，不能给。</p>
+<p>我们试了大约六个月，也确实有些公司愿意提供。但要建立稳健的市场，需要对应数十亿美元交易的数据。要拿到这么大规模的算力数据，要么找新云，要么自己干。我们相信，没人会来救我们，得自己解决。一年前我没想到会做到这一步，但现在确实得做。</p>
+<p><strong>Harry：</strong>这会拖慢扩张吗？</p>
+<p><strong>Kush：</strong>不会，因为可以让别人投资。很多人想投数据中心，但不知道怎么变现、怎么运营。我们可以解释：把钱投进来，内部收益率大概怎样、如何获得回报；芯片由我控制、管理和运营，你提供资金。对方觉得很好。讲起来简单，实际有很多复杂细节，但最简单的解释就是这样。</p>
+<h3>贷款人为何需要算力期货？</h3>
+<p><strong>Harry：</strong>最早的大型算力期货交易者会是谁？</p>
+<p><strong>Kush：</strong>很多会是暴露于算力价格的人。他们往往也承担买家的信用风险。</p>
+<p>举个例子，一家初创公司刚融了1亿美元，却要购买2.5亿美元算力。我作为资金提供方，实际上在押注：这个团队会继续融到风险资本，并把钱付到这里。很多新模型实验室现在不赚钱，无法靠已经产生的收入或利润覆盖支出。另一种押注是，算力价格上涨，新云当初买得便宜，之后可以更贵地卖出，再还钱。</p>
+<p>所以你承担的是借款公司本身的风险。它违约，我就得把算力拿到市场出售，价格可能低于原来，也可能更高。这是第一类风险。</p>
+<p>第二类是折旧周期里的GPU小时成本。三年之后，每GPU小时成本是什么？贷款可能要四年、五年才能还完，但合同只有三年。合同结束时就留下敞口。也可能前三年合同已经覆盖贷款，之后到芯片寿命结束的收入归我。那我也可以现在就把这部分收入锁定。</p>
+<p>这和一百年前农民做期货一样：今天种玉米，之后才收到收入。不知道未来价格，如果亏了，就是白花六个月的时间和资金，所以要提前卖期货。</p>
+<p><strong>Harry：</strong>你前面说，资产质量最终取决于租户。那Meta现在的融资成本是不是太贵？它的基本业务很好。Anthropic那笔债务，我记得黑石是其中的安排或资金提供方，情况也不理想。这些公司的基础业务都不错，融资是不是贵得过头？</p>
+<p><strong>Kush：</strong>Meta的成本是在上升，不过公平地说，CoreWeave比Meta高得多。</p>
+<p><strong>Harry：</strong>但CoreWeave没有同样强的底层业务。</p>
+<p><strong>Kush：</strong>对。Meta的一部分问题是市场有些害怕，也因为投入基础设施的金额增长太快。超大规模云公司几乎把常规业务赚到的每一美元，都直接投进数据中心容量。公开市场投资人以前没见过这么多钱集中投入一个项目。</p>
+<p><strong>Harry：</strong>而且谷歌、Facebook的自由现金流从正转负，这很令人担心。</p>
+<p><strong>Kush：</strong>对。有些在纽约或其他地方的人，并不真正理解AI到底是什么、是否真有这么大的需求，所以开始担心。</p>
+<p><strong>Harry：</strong>有人向我提了个很好的问题，好像也是Miles：指数本身会不会推动算力集群标准化？</p>
+<p><strong>Kush：</strong>会，这是好事。英伟达和Jensen也会说，GPU集群是可替换、可通用的。意思是一个租户退出，另一家可以接同一套集群；它不是给每个人单独造一套完全特殊的东西。</p>
+<p>指数会推动标准化，这对信用市场和贷款人有利。产品标准化，一个客户违约，另一个就可以搬进来。所有公寓配置一样，前一个租客走了，后一个接上，用到的是同样的产品。</p>
+<p><strong>Harry：</strong>这也能减少折价。</p>
+<p><strong>Kush：</strong>对。</p>
+<p><strong>Harry：</strong>以前我没想到这一层。你每天和买卖算力的人接触，你看到哪些别人注意不够的变化？</p>
+<p><strong>Kush：</strong>人们愿意支付的价格，现在高了很多。</p>
+<h3>买家集中、流动性与被低估的信用风险</h3>
+<p><strong>Harry：</strong>买家也在变化吗？</p>
+<p><strong>Kush：</strong>当然。更多算力流向Modal、Fireworks、fal这些公司，也就是手里有钱的人。fal刚融了大约16亿美元，Modal也融了大约8亿美元吧？</p>
+<p><strong>Harry：</strong>我记得是7.5亿美元。</p>
+<p><strong>Kush：</strong>对，7.5亿美元。这些钱都会投向算力，比小初创公司能拿出来的多得多。所以我们的工作一部分是，在服务大客户的同时，确保小公司仍能获得算力。</p>
+<p><strong>Harry：</strong>两件事能兼顾吗？如果Modal直接给你1亿美元，你还有必要顾小客户吗？</p>
+<p><strong>Kush：</strong>有，因为不这样就没有市场。必须培育流动性。如果所有算力都只有Modal一个买家，市场就集中起来，其他人没机会使用。</p>
+<p><strong>Harry：</strong>培育流动性最难的是什么？</p>
+<p><strong>Kush：</strong>有时你必须拒绝Modal、Fireworks、fal。它们愿意给你带来非常多的收入和利润，但为了长期发展，你得拒绝一些眼前的好生意。</p>
+<p><strong>Harry：</strong>一个市场最终值多少钱？看看今天的ICE，再想五年后Ornn成为算力市场，会值多少？</p>
+<p><strong>Kush：</strong>我们首先是数据指数公司，交易市场是其中一部分。现在团队大部分精力在市场上，因为它为指数产品创造数据。网上看起来我们是数据指数公司，这没错，但真正做指数的可能只有五六个人，另外大约三十个人都在确保这些数据能产生。</p>
+<p>ICE是大约1000亿美元的公司，CME大约1200亿美元，标普更大，大概1300亿、1500亿美元的量级。这些千亿美元以上的生意，建立在电力、石油和传统商品上。如果算力会成为更大的商品，那么整个机会可能达到万亿美元量级。</p>
+<p><strong>Harry：</strong>我们走向推理主导的市场后，什么时候是推理而不是训练决定远期价格？</p>
+<p><strong>Kush：</strong>我觉得现在就已经是这样。很多客户买算力，就是为了推理、提供token。推理需求好的地方是，它有现实使用者，对面有人付钱，可能是初创公司，也可能是企业。</p>
+<p>训练更像投机，和生物科技有点像：先花很多钱研发一款药，但不知道最后成不成功。</p>
+<p><strong>Harry：</strong>那今天算力市场中，哪里的风险被错误定价了？</p>
+<p><strong>Kush：</strong>很多新云没有认真看租户的信用。看到一家公司刚融了1亿美元，就说，行，算力给你。提供算力之前，尽调做得不够。</p>
+<p>但初创公司成功率很低，许多新模型实验室最终会失败。今天水涨船高，大家都好像很好；到某个时候，一部分公司做不成，新云就会留下没有对冲手段的风险敞口。</p>
+<p><strong>Harry：</strong>可是需求这么旺，一旦空出来，不就立刻能找到别人接吗？</p>
+<p><strong>Kush：</strong>能，但问题仍是，究竟哪个模型会赢？很多实验室在做同一件事，你得承认，有些能成，有些不能。</p>
+<p><strong>Harry：</strong>什么决定谁能赢？</p>
+<p><strong>Kush：</strong>人才，以及算力。大家使用的工具差不多。算力更多，模型可以更好；人才更强，模型也可以更好。两者结合。甚至可以说，更多算力比更好的人才还重要，它是很大的护城河。</p>
+<p><strong>Harry：</strong>如果只能选更多算力或更好人才，你选什么？</p>
+<p><strong>Kush：</strong>更多算力。</p>
+<p><strong>Harry：</strong>真的？</p>
+<p><strong>Kush：</strong>我觉得模型已经足够好，可以做递归自我改进了，所以只需要算力。或者，再过三个月就能达到那个程度。</p>
+<p><strong>Harry：</strong>市场现在很难做。Shopify财报只稍微差一点，股价就跌15%。大家都不确定五年后是什么样子，很多市场都是如此，定价变得非常困难。</p>
+<p><strong>Kush：</strong>这就是波动率上升。所以甚至可以说，期权可能还太便宜。</p>
+<p><strong>Harry：</strong>你认为未来真会像大家想的那样大变，还是调整会更慢？</p>
+<p><strong>Kush：</strong>企业适应会比大家预期更慢，但它们脚下的世界变化会更快。旧金山这个AI圈子的变化速度，会远超世界其他地方。模型能力可能呈指数式改善，而世界其他部分仍按线性节奏走。可口可乐也许还在想，怎么把AI放进业务？很多企业还没有弄明白。</p>
+<h3>技术前景、评级业务与扩张边界</h3>
+<p><strong>Harry：</strong>你现在相信什么，别人听了觉得很疯狂，但五年后可能很普遍？</p>
+<p><strong>Kush：</strong>我觉得人类会像AI的生物载体。AI会比我们聪明得多，人类的角色可能更多是教它生物性的感受和情绪，像它的父母，而不是控制它。</p>
+<p>还有长寿。我相信生物技术和药物会进步得非常多，可能几年以后，“死亡”都不再像今天这样真实。平均寿命可能从八十多岁延长到一百五十、两百岁，生活质量也会上升。不是八十岁不能站、到一百岁整天睡觉，而是八十岁还能过我现在二十三岁这样的生活。</p>
+<p><strong>Harry：</strong>Bryan Johnson听了会很高兴。你们现在还没有、但五年后可能很重要的收入来源是什么？</p>
+<p><strong>Kush：</strong>也不能说完全没有，不过我觉得数据中心债务评级会很重要。</p>
+<p><strong>Harry：</strong>也就是你们成为认证的债务评级提供方？</p>
+<p><strong>Kush：</strong>做数据中心债务领域的穆迪。</p>
+<p><strong>Harry：</strong>这样贷款人就会把你们当成可信的参考。</p>
+<p><strong>Kush：</strong>对。穆迪真的理解数据中心债务吗？谁知道？它们真的理解比如Modal面对基础设施提供方时的信用风险吗？我不确定。</p>
+<p>我常说做这个领域的穆迪，其实就是做数据中心债务评级。穆迪在评级领域建立了很强的品牌，标普也是。但对我们来说，评级是想尽快进入的方向，现在还没有，但希望很快能做。</p>
+<p><strong>Harry：</strong>这么多方向，会不会很难保持专注？</p>
+<p><strong>Kush：</strong>会，能做的事情太多。很多公司遇到这种情况，就不停招人，进入不同垂直领域。</p>
+<p><strong>Harry：</strong>如果资源完全不受限制，你会做哪些现在还没做的事？</p>
+<p><strong>Kush：</strong>什么都做，尽可能多做。说实话，我们会直接建实体数据中心，去和Crusoe竞争。</p>
+<p><strong>Harry：</strong>Fireworks这类推理服务商也在往产业链上下游扩展，你觉得能成功吗？</p>
+<p><strong>Kush：</strong>能，但会比现有新云慢得多。新云大概已经经历两轮部署：装芯片、学习，再装芯片、再学习。我们自己的公司才经历了半轮。轮次越多，就越有经验。</p>
+<p>关键是比较两种速度：它们进入推理，和你进入芯片基础设施，谁更快？如果一定要选，我会选CoreWeave或Nebius。我觉得它们会先把推理做起来，然后你才把芯片部署做好。</p>
+<p><strong>Harry：</strong>我刚说资源不受限制，其实你们现在现金方面已经挺充裕。你们不缺钱时还融资，为什么？</p>
+<p><strong>Kush：</strong>一部分是为了找到合适的合作伙伴。我们希望像家族企业那样建设公司，一群朋友一起做能延续几代人的生意。不同人有不同创业方式，我们不是打算做五年、卖掉赚一大笔钱，而是要长期做。</p>
+<h3>公司名称与投资人的选择</h3>
+<p><strong>Harry：</strong>为什么叫Ornn？</p>
+<p><strong>Kush：</strong>我以前玩《英雄联盟》，Ornn是里面的角色，而且四个字母的域名很便宜。实话就是这样。</p>
+<p><strong>Harry：</strong>很好，我还以为会是深思熟虑的希腊神话典故，结果是《英雄联盟》。</p>
+<p><strong>Kush：</strong>我发现Anduril、Palantir的名字都来自《指环王》，就去翻各种游戏的人物名单。我以前非常爱玩游戏，所以把那些角色都看了一遍，找最便宜的四字母域名。</p>
+<p>还有研究说，名字短的初创公司成功概率是其他公司的五倍。我就想，得控制在五个字母以内。最后发现这个名字合适，域名也便宜。</p>
+<p><strong>Harry：</strong>你们选了Miles，我也很喜欢他。为什么选他？</p>
+<p><strong>Kush：</strong>第一次见面，前45分钟，他根本没怎么谈生意，只和我们聊我们是什么样的人。我知道他投资时在意业务和想法，但他更关心我们这些人。</p>
+<p><strong>Harry：</strong>这很有意思。我和Vine的人聊过，好像Alex说，他和Adam跟你们吃饭。Adam想和你聊网球，因为你们都打网球，但你似乎没兴趣，后来就说，寒暄够了，谈生意吧。这和刚才的说法有点不一样。</p>
+<p><strong>Kush：</strong>那是因为我的联合创始人Wayne打网球很厉害，他在MIT打过，Adam在哈佛打过。两人聊了十分钟，我和Alex坐在旁边，都不知道怎么加入。</p>
+<p>我之后还约了一家大基金，当时也在和Wayne讨论那家的投资意向书。最初认识Vine，是Alex在LinkedIn私信我，问要不要聊聊。我连Zoom都没约，只打了电话，因为一开始以为不值得花时间。聊完觉得，这个人不错。后来他约在一家餐厅吃饭，离我公寓走路只要一分钟，我就去了。</p>
+<p>那家大基金已经给了意向书，我们原本想，可能就接受它，再去和Vine碰个面。结果Vine也给了同样估值的条款。我和Wayne就讨论，到底怎么选。对大基金，我们可能只占它资金的0.01%、0.001%，很小的一点，它真的会在意我们吗？对Vine，我们可能占基金的3%或5%，相当重要。我们觉得Adam和Alex更关心我们本人，而这笔投资对他们的重要性也高得多。</p>
+<p><strong>Harry：</strong>这和我遇到的很多年轻创始人不同，他们都特别容易被大品牌吸引。</p>
+<p><strong>Kush：</strong>这关乎眼前收益和长期收益，要有纪律去选长期的。</p>
+<p><strong>Harry：</strong>如果我们都是创始人，眼前有一家大型多阶段基金的条款，另一边是一家精品基金，你会怎么建议？</p>
+<p><strong>Kush：</strong>我会选精品基金，因为它们更在意你。我给这些投资人做过很多背景推荐电话。精品基金的成败更直接和你的成败绑定。很多这类机构的合伙人也有创业感，要为自己的基金建立名声，所以会非常努力帮助被投公司。</p>
+<p>我知道这和现在的主流倾向有点相反，也难抗拒大品牌，但我觉得这么选对大家都更好。</p>
+<p><strong>Harry：</strong>然后你们又从Andreessen融了资。</p>
+<p><strong>Kush：</strong>对，后来还是找了大机构。</p>
+<p><strong>Harry：</strong>过程怎么样？</p>
+<p><strong>Kush：</strong>当时在和另一家大型多阶段基金谈，它们推进得特别慢。后来Wayne说，得动起来、去问问别人。我们去和Chris Dixon的团队聊，大约一周拿到意向书，然后就选了它们。</p>
+<p><strong>Harry：</strong>另一家恐怕立刻说，等等，我们也有条款！</p>
+<p><strong>Kush：</strong>后来确实如此。</p>
+<p><strong>Harry：</strong>再后来选Thrive，是因为Miles，还是Thrive品牌？</p>
+<p><strong>Kush：</strong>主要是Miles。Thrive品牌很好，别家也有好品牌，但具体合伙人更重要。我们是重视人的公司。我们还见了他们团队的Nithan，一起吃午饭，我学到很多，是很棒的一顿饭。</p>
+<p>我很年轻，知道自己会犯很多错误。比我年长的创始人，比如Modal的Eric，已经知道某种做法会失败，我还不知道。我以前没真正做过这个行业，所以犯错空间大，得尽量减少。办法之一就是尽可能和有经验的人交流，学习书本和文字里学不到的与人相处、处理事情的能力。</p>
+<p><strong>Harry：</strong>创业到现在，有什么是你希望一开始就知道的？</p>
+<h3>创业压力、生活与团队文化</h3>
+<p><strong>Kush：</strong>心理压力，以及压力到底有多大。人们常说创业很难，但真正进去才知道，它会占据你的全部精神。每天都在想，接下来会发生什么，又会出什么问题。</p>
+<p>刚开始时，我们太天真，觉得这事很容易，还想为什么别人都不做。做了以后才明白，别人没做是因为真的难。它需要非常强的韧性。</p>
+<p><strong>Harry：</strong>而且一天之内情绪就能剧烈波动，先觉得自己天下无敌、一定成功，过一会儿又觉得做不成了、完蛋了。</p>
+<p><strong>Kush：</strong>对，得习惯这种情绪波动，非常难。我觉得，如果每个创始人都能有个心理咨询师，会是很好的事。</p>
+<p><strong>Harry：</strong>你有吗？</p>
+<p><strong>Kush：</strong>没有，但真希望有。如果投资人在看，请帮我找一个。</p>
+<p><strong>Harry：</strong>我送你这个礼物，帮你找一位，就像《亿万》里的Wendy Rhodes。你看过《亿万》吗？</p>
+<p><strong>Kush：</strong>没有。</p>
+<p><strong>Harry：</strong>真的？那剧很好。你平时看电视吗？</p>
+<p><strong>Kush：</strong>不太看。</p>
+<p><strong>Harry：</strong>听说你也不约会？</p>
+<p><strong>Kush：</strong>这里有个玩笑。Vine的人做了些帽子，上面写“B轮之前保持单身”。B轮就是下一轮，已经快到了，我就说，不能B轮一过就不单身吧，要给他们换成“IPO之前保持单身”。所以我的玩笑是，不给投资人赚回钱就不约会。当然不是真正原因，但就这样说吧。</p>
+<p><strong>Harry：</strong>你觉得恋爱真的会分散注意力？</p>
+<p><strong>Kush：</strong>肯定会，会削弱那种拼劲，心里那种不服气、必须把事做成的冲动。但另一方面，也有助于调节情绪。人有情感，需要稳定的东西去平衡波动，让波动慢慢降低。</p>
+<p><strong>Harry：</strong>你在意钱吗？</p>
+<p><strong>Kush：</strong>刚创业时很在意，现在不太在意。哪怕这家公司最后不让我赚钱，我想自己还是会做，因为和这些人一起工作太开心。</p>
+<p><strong>Harry：</strong>所以你到底为什么做？</p>
+<p><strong>Kush：</strong>和朋友一起工作。</p>
+<p><strong>Harry：</strong>就这样？</p>
+<p><strong>Kush：</strong>真的就这样。我现在只要生活过得去就行，这个年龄还没有别人要照顾，只有自己。我还住在六层、没有电梯的公寓里。</p>
+<p><strong>Harry：</strong>六层步梯是什么意思？</p>
+<p><strong>Kush：</strong>就是纽约没有电梯的楼。在我理解里，纽约允许没有电梯的住宅最高就是六层，再高就不能让住户一路爬上去了。我和一起创业的Drew住在那里。</p>
+<p><strong>Harry：</strong>为什么？</p>
+<p><strong>Kush：</strong>找到一套离办公室近的房子，就觉得没什么不好。</p>
+<p><strong>Harry：</strong>条件好吗？</p>
+<p><strong>Kush：</strong>还行，让我们保持拼劲和饥饿感。</p>
+<p><strong>Harry：</strong>倒是不容易有小偷。</p>
+<p><strong>Kush：</strong>对，肯定没人愿意爬上来。</p>
+<p><strong>Harry：</strong>你还和别人合住？</p>
+<p><strong>Kush：</strong>对，两居室。很多人觉得，公司估值这么高，你个人肯定很有钱。实际上没有，我以前也没真正工作、没积蓄。</p>
+<p><strong>Harry：</strong>我懂。但如果我是你和其他联合创始人，现在这么多人想投钱，我会通过老股出售先拿100万美元出来。</p>
+<p><strong>Kush：</strong>也许我们应该考虑。</p>
+<p><strong>Harry：</strong>不是说去买私人飞机，而是有好的健身房、健康食物、好一点的公寓。</p>
+<p><strong>Kush：</strong>这些前两项都有，我们都有健身房会员。</p>
+<p><strong>Harry：</strong>但公寓也可以好一点。</p>
+<p><strong>Kush：</strong>真的会改变什么吗？一天大部分时间都在办公室。周末早上跑步，之后又去办公室，也没什么别的可做。</p>
+<p><strong>Harry：</strong>你觉得公司的文化好吗？</p>
+<p><strong>Kush：</strong>我觉得在初创公司里，我们的文化是最好的。刚创业时，我根本不觉得文化重要，以为找聪明人一起干活就行。后来犯了错、经历了很多事情，才明白文化很重要。</p>
+<p>你每周要和这些人待六十、七十、八十个小时。我和团队里的工程师Will有时一周一起工作一百个小时，处理各种问题，比和家人朋友相处的时间都多。既然如此，就必须喜欢这些共事的人，让你不想去做别的事。</p>
+<p>我们招聘时很重视这点，招进来的人很多是大学运动员，或者从小参加体育运动。我听过一个说法：团队从二十人到五十、再到一百人，丢掉的往往是沟通，开始出现中层管理等隔阂。</p>
+<p>现在我们二十八、二十九人，要扩到一百人，就得想清楚，怎样把团队扩大三倍，同时收入或生产率也能提高三倍。需要找非常善于相互沟通的人。大学运动员这方面很强，因为打球时一直都要沟通。</p>
+<p>第二点是好胜，不喜欢输。你想找的人是，一听竞争对手推出一个功能、我们怎么没有，就会说，明天我们就有。我就想赢，是这种状态。</p>
+<p><strong>Harry：</strong>我为什么喜欢运动员？因为他们能持续做一件没有即时回报的事。特别是健身，你练五次不会立刻练出一身肌肉。常常只能靠自己，等待未来也许才出现的回报。</p>
+<p><strong>Kush：</strong>得愿意牺牲短期，换长期的收益。</p>
+<p><strong>Harry：</strong>而去健身房练大块头，通常要么是对自己不够满意、想更好看，要么特别想得到别人的认可。我不在乎是哪一种，两种我都喜欢。</p>
+<p><strong>Kush：</strong>也可能只是想健康、活久一点。</p>
+<p><strong>Harry：</strong>那就不一定非得练得那么壮。</p>
+<p><strong>Kush：</strong>也对，可能就是多跑步。</p>
+<p><strong>Harry：</strong>多出去运动。还有哪些你们在文化和团队建设上做得不同？</p>
+<p><strong>Kush：</strong>面试时会带候选人吃饭，放到不太熟悉的情境里，看怎么互动。</p>
+<p><strong>Harry：</strong>什么情境？</p>
+<p><strong>Kush：</strong>比如让工程师和市场销售的人吃饭，看能不能融入。我们大概有两轮技术面试，检查能否完成任务。有了AI工具，很多人的技术水平已经够用，我们也不是做前沿AI研究。工作确实有很专门的技术领域，但更重要的是，人要灵活、能找到路，能不能处理不确定性？</p>
+<p><strong>Harry：</strong>下面这题可能有点难。Axios报道过你，我昨天也看到很多关于你的讨论。你很年轻，数字又非常大。我见过有人开始相信外界的追捧，你怎样检查自己有没有飘？</p>
+<p><strong>Kush：</strong>看收入、盈利，打开账本。看看我们的业务到底赚不赚钱。还是前面说的，我们想做长期的家族企业，所以经营数字必须支撑估值。</p>
+<p>我觉得现在是支撑得住的。我们的估值倍数比很多其他公司低，因为融资过程很有纪律、很有结构。即使有更高的报价，我们还是选了Miles。有人给出20亿美元、15亿美元之类很高的估值，我们也拒绝了，选择保持纪律。</p>
+<p><strong>Harry：</strong>一家投资人随手抛出20亿美元的意向书，这件事本身也说明不少问题。</p>
+<p><strong>Kush：</strong>对。</p>
+<h3>快问快答：算力、独立代理框架与观点修正</h3>
+<p><strong>Harry：</strong>开始快问快答。你经历过最好的一次VC会面是什么？</p>
+<p><strong>Kush：</strong>能不能先排除现在的投资人，免得没选谁、谁就不高兴？我17岁时在MIT认识了AIX的Nick Crance。他们后来投了我们最近这一轮。</p>
+<p>我大一时，在MIT旁边Massachusetts Avenue的Flour Bakery咖啡店遇到他，他给了我大约20分钟建议。当时他在Greylock，后来换过两家机构。我上大学时，每隔几个月会和他聊；现在大概每天给他打一次电话。我喜欢的是，他关心我这个人，而不只是公司，这最重要。</p>
+<p><strong>Harry：</strong>我也喜欢他。假设你可以给董事会加一个人——</p>
+<p><strong>Kush：</strong>Travis Kalanick。</p>
+<p><strong>Harry：</strong>回答得真快。你见过他吗？</p>
+<p><strong>Kush：</strong>没有，特别想见，得想办法安排。</p>
+<p><strong>Harry：</strong>怎么还没见？</p>
+<p><strong>Kush：</strong>我也没向谁开口。我有点像粉丝，真见到可能很尴尬。</p>
+<p><strong>Harry：</strong>这期节目播出后，也许就能促成。你会问他一个什么问题？</p>
+<p><strong>Kush：</strong>怎么处理情绪波动。</p>
+<p><strong>Harry：</strong>好问题。接下来，Anthropic估值1.5万亿美元，OpenAI假设1.2万亿美元，你更愿意买哪个？</p>
+<p><strong>Kush：</strong>OpenAI，它的算力更多。</p>
+<p><strong>Harry：</strong>就这么简单？</p>
+<p><strong>Kush：</strong>就这么简单。</p>
+<p><strong>Harry：</strong>但Anthropic有现金，可以去买。</p>
+<p><strong>Kush：</strong>不是有钱就能立刻花出去。你能花到哪里去？</p>
+<p><strong>Harry：</strong>所以Anthropic会受算力瓶颈限制？</p>
+<p><strong>Kush：</strong>对。钱再多，也不能让台积电的晶圆制造产线跑得更快。</p>
+<p><strong>Harry：</strong>结果是无法提供自己想提供的产品？</p>
+<p><strong>Kush：</strong>可能是这样，模型响应更慢，增长比OpenAI慢。至于模型，ChatGPT Soul 6、Fable 5.1、Astra到底谁更好，我不知道具体跑分。也许这个比那个好，但每两周就有新模型，这件事不断改变。</p>
+<p><strong>Harry：</strong>你怎么看Jeff五年后的处境？</p>
+<p><strong>Kush：</strong>我还没用过Jeff，应该去用一下。Diego看到可能会不高兴，我也许回家就试。没用过，所以不知道该怎么答，但团队其他人用过，我尽快给你答案。</p>
+<p><strong>Harry：</strong>我过几周要请他来，也得让自己听起来有点见解。他人挺好。过去十二个月，你改变过什么看法？</p>
+<p><strong>Kush：</strong>以前觉得编程代理框架没什么用，直接用OpenAI、Codex或Claude就行。现在很支持独立框架，看到了Factory和Cognition的价值。</p>
+<p><strong>Harry：</strong>什么让你改了想法？</p>
+<p><strong>Kush：</strong>能非常快地切换模型，为正确的任务找到正确的模型。</p>
+<p><strong>Harry：</strong>所以它从根本上需要独立供应商？</p>
+<p><strong>Kush：</strong>对，不仅独立，它们在上面做的工具和体验也更好。</p>
+<p><strong>Harry：</strong>也就是说，这类独立框架的成立依赖于多模型并存。</p>
+<p><strong>Kush：</strong>对。我自己写代码，也用它做很多其他事情，所以能感受到。</p>
+<p><strong>Harry：</strong>如果所有钱只能投一家公司，你投谁？</p>
+<p><strong>Kush：</strong>上市还是非上市？</p>
+<p><strong>Harry：</strong>随便。</p>
+<p><strong>Kush：</strong>好问题。我创业时用Factory，就跟现在这些投资人说，你们应该把钱都投Factory。后来Cognition出来，给了我们一些token，我改用它三四个月。最近又换回Factory。</p>
+<p>如果有个人资金，我会投Factory。得让Matan允许我进去。</p>
+<p><strong>Harry：</strong>你还没投？</p>
+<p><strong>Kush：</strong>没有，但很想。告诉Matan我想投，产品真的很好。</p>
+<p><strong>Harry：</strong>我和他一起在公园散步时，也很快就觉得他很优秀，像认识你一样。有时几分钟就已经很想投，但还得装作继续讨论，不能马上就说，我投了。</p>
+<p><strong>Kush：</strong>对，我真的想投。业务基本面到底怎样，我其实还不了解。</p>
+<p><strong>Harry：</strong>底层业务也很好。</p>
+<p><strong>Kush：</strong>那就好。我相信它能卖给企业。光产品就让我觉得，有上千个像我一样的人，可能还在用其他工具，没试它；一试就会换过去。我又给它免费做广告了，真应该让我投资。你能帮我进去吗？</p>
+<p><strong>Harry：</strong>最后几题。你对2030年的哪些判断最可能错？</p>
+<p><strong>Kush：</strong>人类成为AI的生物载体。我觉得这个判断不会成真。</p>
+<p><strong>Harry：</strong>那个判断确实很大胆，而且你说的是2030年。</p>
+<p><strong>Kush：</strong>还有人类活到一百五十岁。我很希望是真的，但很多人不相信。</p>
+<p><strong>Harry：</strong>2030年这个时间点确实有点赶。最后，你最期待什么？我喜欢乐观的东西。</p>
+<p><strong>Kush：</strong>从生物层面，人类想尽可能活得久，过得好、过得开心。我觉得AI能帮助做到这些，所以特别期待生物科技与AI，尤其长寿技术的可能性。当然我不在那个领域工作。</p>
+<p>我希望我们做的事——帮助别人获得算力、对冲算力敞口——能让世界拥有更多算力。更多算力可以用于好的事情，帮助人类发展。</p>
+<p><strong>Harry：</strong>你们为生物科技这类了不起的事情提供条件。</p>
+<p><strong>Kush：</strong>对。</p>
+<p><strong>Harry：</strong>Kush，今天聊得很愉快，谢谢你来，能当面录尤其好。</p>
+<p><strong>Kush：</strong>谢谢邀请。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
