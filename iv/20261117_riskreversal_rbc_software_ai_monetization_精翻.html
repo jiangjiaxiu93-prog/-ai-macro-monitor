@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>RBC软件团队谈AI变现、token预算与2027年收入验证（OK Computer全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-23<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>RBC软件团队谈AI变现、token预算与2027年收入验证（OK Computer全文精翻）</h2>
+<div class="metaline">RiskReversal／OK Computer · Rishi Jaluria、Matthew Hedberg、Matthew Swanson（RBC Capital Markets软件股票研究团队）；Dan Nathan主持 · 57分48秒 · 2026-11-17 · <a href="https://www.youtube.com/watch?v=Hc4BWhprhYM" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：企业采用；定价与变现；模型路由；组织变革；微软；Salesforce；ServiceNow</p>
+<ul><li>从微软、网络安全和广告技术的差异，讨论软件如何在AI冲击下保持客户、定价与增长。</li><li>详述token预算、前沿部署工程师、企业AI拥有成本，以及前瞻合同指标何时转成实际收入和回报。</li></ul>
+<p><strong>节目时点：</strong>11月17日发布，实际录于11月16日周一下午，早于11月20日周五抛售。原字幕未明确区分说话人的短接话，以“研究团队成员”标识。</p>
+<h3>精翻正文</h3>
+<h3>软件从“反AI交易”转向同步下跌</h3>
+<p><strong>Dan Nathan：</strong>欢迎收听OK Computer。我是Dan Nathan。今天与RBC Capital Markets的软件股票研究团队对谈。Rishi Jaluria、Matthew Hedberg、Matthew Swanson为全球TMT大会来到纽约，他们分别覆盖网络安全、基础设施软件、与AI数据中心相关的软件等子行业。我们会讨论主要主题：AI带来的冲击，以及哪些公司正在利用AI帮助客户、改善自身流程。</p>
+<p>欢迎各位回来。两位Matt，加上唯一的一位Rishi。大会前，我们想先聊一聊软件行业。接下来会有几十家、也许上百家公司来作展示，举行大量一对一会谈，数百名投资者也会来到纽约。之后或许还会再做一次跟进。</p>
+<p>先谈情绪。我们在周一下午录制，市场又跌了，很多变化都与英伟达有关。硬件一端似乎也在带动应用端。Rishi，先问你，投资者怎么看最近这轮下行波动？科技投资看起来几乎无处可躲。</p>
+<p><strong>Rishi Jaluria：</strong>确实如此。有一段时间，软件、尤其应用软件被视为“反AI交易”。当AI交易，包括基础设施等领域走弱时，反而会帮助这些应用软件股票。</p>
+<p>但现在，AI可能出问题的担忧，又叠加英伟达的事情，让人担心整个科技生态会受到更广泛的经济影响。所以，在获得某种确定性之前，所有东西都在同步波动。过去一年，我们很清楚地看到投资者非常重视确定性。一旦确定性的底部被拿掉，股价就可能不断下跌。</p>
+<p><strong>Dan：</strong>不过有些软件的相对强势也很有意思。看IGV，上周半导体、存储芯片和存储设备都跌得很惨，但IGV全周似乎仍涨了1%至2%。</p>
+<p>Matt，你重点覆盖安全。上周微软的事情、FAA停摆，都说明关键基础设施不缺问题，再加上AI能力，我反而有点意外，为什么一些安全公司的股票没有表现得更好？</p>
+<p><strong>Matthew Hedberg：</strong>谢谢邀请，每次来都很愉快。网络安全今年的走势非常曲折，年初在“SaaS末日”中受挫，之后又强劲反弹。</p>
+<p>很多时候，这些股票是作为一篮子被交易的。但我们仍然认为，企业未来部署AI，安全必须同步跟上。另一个重要事件是几周前的PHP漏洞。随着AI模型越来越聪明，类似漏洞会越来越多。</p>
+<p>股票有时会一起涨跌，但我们仍然认为，一些大型网络安全整合平台的基本面非常强。</p>
+<p><strong>Dan：</strong>那市场情绪呢？比如Palo Alto，它是不是下周公布业绩，还是本周？</p>
+<p><strong>Hedberg：</strong>周三。</p>
+<p><strong>Dan：</strong>投资者想的似乎就是你刚才说的：无论整个经济、全球还是地缘层面，风险都不会少。为什么这些股票失去了上涨动能？是估值问题吗？</p>
+<p>你们各个子行业很多公司的估值都在明显下降。如果相信2027年的预测——现在它们还没公布业绩，我只能这样假设——那这些公司每天都在变便宜，但网络安全过去并不明显如此。</p>
+<p><strong>Hedberg：</strong>从五月初的市场低点起来，一些安全公司涨得非常猛，包括Okta、Palo Alto、CrowdStrike、Cloudflare。有些确实涉及估值。</p>
+<p>我们把AI受益者分成不同梯队，Palo Alto、CrowdStrike和Cloudflare显然属于第一梯队。三季度业绩发布前，有一段时间投资者愿意往下找第二梯队，期待它们也开始获得AI收益。但这些收益实际出现得没有我们预想得快，资金因此又有些回流到增长更快的公司。</p>
+<p>所以，这主要还是估值问题。这些股票虽然离高点有距离，却仍然不便宜，没有整个软件板块那么便宜。</p>
+<p><strong>Dan：</strong>有意思的是，某些公司2027年的增长率也不是特别惊人，大概在百分之十几的高端。考虑到它们的估值倍数，增长到底有多持久，是你们和客户展望2027年时非常关心的问题。</p>
+<h3>广告技术：结果定价与能够算清的回报</h3>
+<p><strong>Dan：</strong>Matthew Swanson，你重点覆盖数字广告，这个领域似乎应该很敏感。SaaS末日期间，Trade Desk、AppLovin这样的广告技术股票受到冲击。另一边，Zeta Global上周公布业绩后，股价却创历史新高。</p>
+<p>先披露一下，Zeta创始人兼CEO David Steinberg是我的好朋友，最近也上过节目。我上周还和他见面，之后公司公布业绩，股价创新高。你们覆盖的领域，现在可不多见这种情况。</p>
+<p><strong>Matthew Swanson：</strong>这是SaaS末日带来的一个很有意思的变化。我们一直讨论，与生成式AI配套的定价模式将怎样演进。其中一个重点，是转向基于结果或用量的定价，真正围绕产品创造的价值。</p>
+<p>过去，SaaS公司有ARR、cRPO、递延收入这些让人感觉很安心的指标，广告技术这种基于消耗的业务却因为收入可见性较低，总被看低一等。</p>
+<p>但到了今天，这些业务本来就是围绕产生结果建立的。你说的Zeta、AppLovin，以及最近上市、刚公布不错季度业绩的Liftoff，都重点服务效果广告支出。</p>
+<p>只要你能够同时对首席营销官和CFO说，向这台机器投入1美元，就能拿回1.2美元，他们就会不断投入，直到无法再获得这种回报。我认为，这些公司现在提供的是非常具体、能够衡量的价值。</p>
+<p><strong>Dan：</strong>具体谈谈AppLovin。它过去涨得太猛了，我记得从2024年到2025年高点，大概涨了500%，对吗？也可能年份记错了。</p>
+<p><strong>Swanson：</strong>朋友之间，差几个小数点有什么关系？</p>
+<p><strong>Dan：</strong>没错。我在一个非公开科技大会上，两次见过这家公司的创始人兼CEO。大会是我的朋友、经营Proem Asset Management的Imran Khan办的，我记得最近一次是在十月初。连续两年，他的演讲都堪称大师课：怎样建立公司、公司文化是什么、早期自力更生时盯着哪些指标，以及怎样抓住行业中出现的动能。</p>
+<p>但股价现在较最近历史高点跌了60%、65%，甚至可能更多。发生了什么？你不用特别具体，我并不是想故意给你设个问题。但这么短时间里发生这样的反转，让我想到历史上一些阶段，感觉可能只是某种变化的开始。</p>
+<p>我想把问题稍微放大一点：这家公司从很小的市值做到了很大的市值，现在又在往回走。</p>
+<p><strong>Swanson：</strong>AppLovin是一个创造需求的平台，所以投资者看这家公司的逻辑，很大程度上取决于它创造收入的能力。</p>
+<p>二季度，公司收入首次低于预期。正如你说的，估值倍数大幅扩张时，会吸引很多新投资者，这些人从未见过它业绩不达预期。我认为，那制造了一种在我看来并不成立的“投资逻辑风险”：大家把一个数据点外推，突然开始说，潜在市场太小，它太成功，已经把整个市场吃完了。</p>
+<p>二季度和三季度之间有很长一段空档，大家的想象力自由发挥。结果到三季度，它交出了公司历史上最大幅度的超预期，也作出了幅度最大的指引上调。正如你说的，股价从700美元跌到250美元，现在又回到400美元。很多原来的议论，确实已经安静下来了。</p>
+<p><strong>Dan：</strong>是的，业绩后一天我看到它涨了30%，之后还有些跟进。但放到整张走势图上，30%的上涨看起来也不过是一个小波动。我不觉得这种价格行为特别偏多。</p>
+<p>Rishi，我想回到微软。今年早些时候，它一度有超过5万亿美元的市值，现在大概又回到了那里。市值竞争变成微软和苹果的双强赛。你们都不覆盖苹果，但这两只股票展现的相对强势，真的让我惊讶。</p>
+<p>微软今年也经历了很大波动，一度较历史高点跌了百分之三十几，现在基本涨回来了。早先的悲观情绪错在什么地方？它是怎样恢复的？相较其他超大云厂商，它对消费者的直接敞口不同，和一些前沿实验室、其他相关公司并不一样。五六个月前，投资者到底看错了什么？</p>
+<h3>微软：Excel、Azure与Office Copilot的三重误判</h3>
+<p><strong>Rishi：</strong>我认为，投资者在三个方面出现了根本性误判。</p>
+<p>第一，我们开播前说过，我很讨厌“SaaS末日”这个词，但既然已经变成通用说法，就用它吧。在这种叙事最强的时候，大家觉得，可以靠自然语言编程给自己写一个Excel。考虑到全球一半经济活动都在Excel上运行，这个想法很糟糕。现在，这种担忧显然消退了。</p>
+<p>第二，Azure增长没有达到竞争对手相同的水平，或者二阶、三阶增速没有同样明显地上翘，于是有人认为微软在超大规模云竞争中落后了。这个判断从一开始就不对。微软只是对资本开支非常审慎，所以它一直保持正现金流，而其他公司大量消耗现金，实际还不得不进入资本市场融资。</p>
+<p>第三，也是我认为下一阶段增长所在，就是Office Copilot。六个月前，仍有一种看法认为它彻底失败了。但现在看看用户参与度、净新增付费用户，以及Office业务已经开始重新加速的事实。非常重要的是，客户对Office Copilot的反馈，比一年前好得多，而这也对应Satya重新深入产品组织。</p>
+<p>这三件事，早先压制微软股价，现在都已经明显向相反方向变化。</p>
+<p><strong>Dan：</strong>Azure也是个大故事，AWS和GCP增长大幅重新加速。我记得Azure同比增长约40%，或者百分之三十几的高端，对吗？GCP规模显然小得多，但增长100%；AWS增速则曾在12%、13%左右见底。</p>
+<p>这种重新加速，在我看来，也验证了它们在基础设施以外的AI策略。今天《The Information》有篇文章，说微软开始减少Copilot对OpenAI的依赖，这个时点似乎也在某种程度上接近股价见底。这里面有关系吗？</p>
+<p><strong>Rishi：</strong>有。我不评论某个具体大模型，但微软从一开始、甚至OpenAI还是唯一选择时，就作了一个很聪明的决定：从多模型角度构建系统，让它能够使用任何大模型，包括开放权重模型。</p>
+<p>随着竞争增加、开放权重模型在基准测试中取得不错表现，微软已经能够同时利用多个模型，既不只是把一个换成另一个，也是在Copilot内部按任务调用。</p>
+<p>这对微软及其他公司是一个重要的看多理由：模型编排。怎样为合适的工作选择合适的模型，并且最高效、最节省成本？这个趋势正在显现。进一步接受未来会同时使用多个大模型的现实，确实是微软很明智的决定。</p>
+<p><strong>Dan：</strong>除了Azure，你也提到Office业务。Office 365全球企业用户约4.5亿，消费者用户接近5000万。最初，大概六个月前你上节目时，大家谈的Copilot采用人数似乎只有1000万，显得很小。但低基数上开始增长，速度就会很好。</p>
+<p>这是不是你看好微软的重要部分？相较更多面向消费者的业务，它是否在一定程度上隔离了其他担忧？目前微软在这个市场里显得很有防御性，帮我理一理。</p>
+<p><strong>Rishi：</strong>完全正确。Office在全球经济中已经渗透得很深，当然在中小企业、一线员工等市场仍有空间。但真正的新故事，开始转向Copilot。</p>
+<p>用户怎样从现有Office套件获得更多价值？怎样取得更好的结果——效率提升、收入结果改善，或者生产率提高？客户愿意为这些东西付费。</p>
+<p>可以是订阅费，也可以包含按消耗收费的部分，微软还在尝试。但我认为，在Azure之外，下一阶段的重要机会，就是对今天约五亿Office付费用户提高每用户收入。这会进一步推动增长向上拐。</p>
+<h3>软件边界模糊，安全能力进入企业平台</h3>
+<p><strong>Dan：</strong>这是一个很好的切入点。我还想谈ServiceNow、Salesforce、Workday，以及Matthew Swanson覆盖、与这些公司互动的其他业务。你们经常协同，怎样划分这些子行业？</p>
+<p>Matt，除了网络安全，ServiceNow这样的公司在你们的覆盖范围里是什么位置？这些公司有很多相似点，但你们对其中一些可能比另一些更悲观。</p>
+<p><strong>Hedberg：</strong>现实是，很多软件类别，乃至互联网与软件之间的边界，都在模糊。什么算互联网公司，什么算软件公司？</p>
+<p><strong>Dan：</strong>对，Brad怎么没来？他在忙什么？也许是FAA的问题，他正在从西海岸过来。</p>
+<p><strong>Hedberg：</strong>回头再弄清楚。对于这些正在模糊的边界，Rishi和我一直觉得，从不同子行业角度观察同一件事，反而很有意思。我覆盖Cloudflare，他覆盖Akamai。对投资者而言，同一类别里有几种视角是有价值的。</p>
+<p>ServiceNow方面，我跟这家公司很久了，经历过过去几任CEO，见证它不断成熟，是很有意思的过程。</p>
+<p>如今所有公司似乎都在做AI，连ServiceNow也在增加网络安全能力。Dan，就在不久之前，Palo Alto和CrowdStrike的市销率还非常高时，我问过投资者最喜欢哪只安全股票，有人回答ServiceNow。我想，好吧，它显然并非典型安全股，但它确实在做更多安全收购。</p>
+<p>Workday也刚收购了一家身份管理厂商。越来越多企业软件公司开始补充网络安全能力。为什么？因为它们明白，客户部署Salesforce、ServiceNow、Workday时，安全必须配套。我预计，这种跨领域融合还会增加。</p>
+<p><strong>Dan：</strong>看ServiceNow的2027年预测，股票似乎真的很便宜，而且2027年的数字还没有明显下调。你怎么看增长持久性？刚才说的小型补强式收购，客户会认可吗？公司能够借此增售，还是主要让客户更有信心留下、不去换供应商？</p>
+<p><strong>Hedberg：</strong>对很多软件供应商而言，特别是充当记录系统，或者像ServiceNow自称的行动系统，防止潜在市场被侵蚀的一部分办法，就是覆盖更多、更广的数据。</p>
+<p>ServiceNow收购了很多资产，我认为是为了拓宽它的数据护城河，其中一部分是安全，一部分是数据。这不仅会是ServiceNow的持续方向，也会是很多公司扩大业务范围的方向。我们已经看到整合趋势，ServiceNow在这样做，Salesforce最近也买了不少公司。</p>
+<p>但问题正如你所说：按表面的数字，ServiceNow在我看来显得便宜。投资者却仍在激烈争论，增长是否持久？市场是不是在提前反映内生增长减速？还是增长可能先稳定，甚至重新加速？</p>
+<p>关于ServiceNow，最后再提一个上季度出现的有趣进展。包括它在内，越来越多公司开始谈“前沿部署工程师”，也就是FDE。</p>
+<p><strong>Dan：</strong>对。</p>
+<p><strong>Hedberg：</strong>在我看来，这说明很多公司已经把一部分客户转到自己的AI套件。但现在，在IT预算受限的环境下，需要更用力地说服客户部署更多AI能力，ServiceNow就是一个例子。</p>
+<p>这是值得关注的趋势。如果它确实能转化成更持久的增长，这只股票就会有意思。</p>
+<h3>FDE：部署成本、客户陪伴与回报验证</h3>
+<p><strong>Dan：</strong>Rishi，说到FDE，我最近问过一位CEO，前期成本怎么办？如果要向几百家、甚至更多客户派驻这些工程师，不是非常昂贵吗？</p>
+<p>他的回答是，这对公司很好，因为它帮助跨过部署门槛，把产品真正放进去，让客户人员熟悉产品，完成集成。你觉得这会成为2027年的重要主题吗？我们总在讨论各种缩写，FDE是否会让投资者更有信心，认为这些企业能够部署自己的产品套件，而且不容易被替换？</p>
+<p><strong>Rishi：</strong>事实是，每一轮新技术浪潮，都需要有人手把手帮助企业渡过。早期SaaS也经历过这些。现在可能很难想象，但Workday专业服务收入占比最高时约35%，ServiceNow曾约30%，今天大概已经低于5%；Veeva过去也曾约45%。</p>
+<p>当时大家认可这种需要，今天发生的事情也一样。企业对如何最大化AI能力仍有很多困惑，特别是大模型像一块空白画布，起点什么都没有。</p>
+<p>所以，这个趋势其实已经出现。我们现在问的，是怎样提升传统专业服务的层次，更深入理解客户的问题，真正进入客户环境完成部署，从而实现投资回报。</p>
+<p>企业AI采用增长很快，支出也很好，但仍存在回报悖论：钱花了这么多，到底有哪些成本节省，能够通过具体指标体现出来？FDE的另一个目标，就是至少在微观层面帮助客户建立这些可衡量的指标，让企业能够证明AI部署合理。</p>
+<p><strong>研究团队成员：</strong>这里还有一个很有意思的问题，我也问过ServiceNow和其他供应商：到了2027年或2028年，会不会由代理直接完成这些工作，不必再派人帮助推动这些交易？</p>
+<p>我不知道ServiceNow现在是否已经具备这种能力，但我猜他们正在开发更多代理能力，希望以更节省成本的方式，加快一些交易落地。</p>
+<h3>Salesforce与前沿实验室：竞争合作与多入口</h3>
+<p><strong>Dan：</strong>我还想谈一下Salesforce。大约一个月前，它公布的季度和指引没有特别鼓舞人心，算是还可以。</p>
+<p>我记得自己当时坐在Fast Money节目桌旁，大概下午5点15分，画面切到Benioff。无论业绩是好是坏、指引怎样，他总会来CNBC露面，这一点我很佩服。他很擅长宣传，也是非常好的销售员，虽然过去一年半可能没那么顺利。</p>
+<p>镜头切过去，他和Dario一起坐在会议室，随后股价不断上涨。我想问，你怎么看这种合作？SaaS公司如何与前沿实验室建立伙伴关系？这会不会在一定程度上给情绪提供底部？看到那些公告时，你怎么想？</p>
+<p><strong>Rishi：</strong>有两个方面。</p>
+<p>第一，公开、明确地展示这些合作，能够减轻一种担忧：AI公司要把Salesforce整个摧毁。比如Dreamforce上，很多前沿实验室的负责人都和Salesforce站在一起，表明这里至少存在某种竞合关系。</p>
+<p>第二，也是非常重要的一点，是顺应客户实际所处的位置。我们可以争论，未来会不会完全没有传统界面，一切都通过聊天或自然语言来编排；还是继续保留容易使用、可以导航的图形界面。我认为会是两者结合。</p>
+<p>Salesforce很早就认识到了这一点，其他公司现在也开始明白：必须有弹性，不能说客户想使用某个AI模型，我们就切断它对Salesforce的访问。必须保留集成，而随着时间推移，再把这种集成变现。</p>
+<h3>IBM：AI、量子计算与传统业务的重新排序</h3>
+<p><strong>Dan：</strong>Matthew Swanson，我们换个话题，谈谈IBM。它在你的覆盖范围里显得很特别。2023年到2024年、再到2025年初，在投资者眼里，它某种程度上是一只不那么显眼的AI概念股，也许与咨询业务有关。</p>
+<p>帮我回顾一下过去两年的IBM。最近一年可以说很狂乱，这可能已经是保守形容。过去六至九个月，这个故事似乎失去了不少支撑。</p>
+<p><strong>Swanson：</strong>回到2025年，我认为投资者喜欢IBM的一点，是不需要判断生成式AI的具体时间表。</p>
+<p>它有基础设施和咨询这些“卖镐卖铲”的业务，有自己的大模型，也有大量治理和合规功能。你不必猜中应用层最终谁赢，仍然可以通过对整个产业作一个广泛押注而受益。</p>
+<p>这也让投资者在2025年开始关注其他S形增长曲线。2025年到2026年初，我接到询问量子计算的电话，比询问Z系列更新的还多。更多人开始问它的开源策略，包括Confluent、HashiCorp，以及Granite系列大模型的路线。</p>
+<p>进入二季度前，公司发布了业绩预告。事情的核心，离那些为新主题而进入IBM的新投资者所看重的逻辑很远，却直接碰到了IBM一贯的核心业务。</p>
+<p>资本开支优先级发生了重新排序。由于客户提前采购内存和存储，服务器交易被推迟，销售周期拉长。情况与前面谈AppLovin二季度收入不达预期很相似：数据公布，股价作出反应，然后出现一个很大的倒推问题——人们先认定某个结论，再往回寻找不同解释。</p>
+<p>这不是说，我们应当总把管理层叙事当作绝对真相。但市场提出了很多关于服务器疲弱的解释，而不只是某些交易因为其他项目优先级上升而暂时推迟。</p>
+<p>到三季度，资本开支相关业务明显改善，软件继续超预期——二季度软件也超预期——咨询也出现了一些重新回暖的迹象，所以整体上是更均衡的一个季度。</p>
+<p>但从交易周期看，四季度又更接近二季度。于是，关于大型机业务持久性的广泛疑问依然存在，我认为，这就是目前股价所反映的。</p>
+<p>从我们的角度看，软件业务比历史上更好，咨询比过去一年半更好。基础设施业务则主要取决于，你是否接受管理层的解释：销售周期推迟期间，价值仍在创造；或者你认为，这期间发生的是价值损毁。</p>
+<p><strong>Dan：</strong>那次业绩预告很有意思。过去经常能看到，现在已经很少。有些公司以前会在季度过去两个月时更新进展，而IBM那次显得很突然，也震动了其他一些公司。</p>
+<p>今年还剩一个半月，仍有一些公司的业绩……</p>
+<p><strong>研究团队成员：</strong>还有一些错开日历季度的财报，年底还有Oracle。</p>
+<p><strong>Dan：</strong>对，Oracle等会儿必须谈。但我想说，IBM这个故事本身就很复杂，有很多同时变化的部分。投资者现在可能没有太多时间处理这种公司，特别是出现延期，需要再等六至九个月的时候。</p>
+<p>你看到那次业绩、看到延期时，它似乎也触及你们覆盖的其他公司的很多方面。Matt，你怎么看？</p>
+<p><strong>Hedberg：</strong>Dan，你说得对。这个环境里，投资者想要简单，不想要复杂、不想听很多解释。</p>
+<p>Cloudflare就是一个例子，季度业绩和指引都非常强，公司本周也会参加我们的大会。这样的故事仍然能引起共鸣，因为在我看来，它就是AI演进方向的一部分。</p>
+<p>但另一边，Dynatrace出现了一些交易延期，ServiceNow也总有交易提前或推迟的问题。回到FDE，现在AI周期到了这样一个阶段：IT资金总量有限，CIO必须真正排出优先级，特别是还有token账单要付。</p>
+<p>所以，无论本周大会，还是展望年底，我们都会关注年底预算集中使用的机会，以及2027年预算怎样安排。现实中会有很多变化，但在这种市场里，需要大量解释的公司很容易受到打击。</p>
+<h3>Token账单、年底预算与现有软件供应商</h3>
+<p><strong>Dan：</strong>以前，年底把预算花出去是一个很常见的话题。但有了token以后，我们已经从“尽量多用token”，走到“少用token、把它最小化”。</p>
+<p>如果还有预算，企业似乎又可以放开限制，重新让工程师大量使用，而且token价格也在大幅下降。我想听听你们覆盖的公司怎么看。尤其私募市场，有些企业为了展示增长，又开始让工程师增加用量。</p>
+<p>他们上半年很快花掉全年预算，已经吸取了教训；上市公司里，Uber是最早公开谈这件事的公司之一。现在价格下降，公司层面看到的token使用情况如何？</p>
+<p><strong>Hedberg：</strong>今年最初看到某些账单时，大家确实受到震动。实际上，所有人都理解代理和模型带来的好处，但最后还是要在使用与回报之间取得平衡。</p>
+<p>我的中期判断，可以借Cloudflare的Matthew Prince所说的一件事来解释。</p>
+<p><strong>Dan：</strong>他真的很厉害。</p>
+<p><strong>Hedberg：</strong>他说，未来五年，非人类流量会在当前基础上增长1000倍。二季度电话会上，他们表示，非人类流量已经相当于人类流量，而Cloudflare能够看到超过20%的互联网流量。</p>
+<p>如果这是真的——我相信他的方向判断——那么网络安全、token使用、应用软件、广告等领域，都会发生深刻变化。</p>
+<p>所以，公司考虑如何部署资本时，知道我们正在朝那个方向走。问题是，哪些技术可以帮助组织在这种非人类流量增长1000倍的新环境中发展？这是一个影响广泛的问题。无论是企业CIO，还是软件供应商，很多决策最后都归结为：怎样利用这一变化？</p>
+<p><strong>Dan：</strong>Rishi，你覆盖的公司怎样应对？</p>
+<p><strong>Rishi：</strong>我同意Matt，再补充几点。</p>
+<p>第一，所有企业都迫切需要弄清楚怎样用AI，但正如前面说的，它们还没能证明回报。一种最大化token预算和AI预算的方式，是更多转向现有软件供应商：让它们决定什么工作用什么模型，怎样优化token。</p>
+<p>把这些工作交给Salesforce、ServiceNow、Workday或微软，我们就多向它们投入一些。这是企业摸索过程中正在出现的一种选择。</p>
+<p>第二，年底集中使用预算的规模，甚至可能比往年更大。我们正在做2027年企业CIO调查，之后会有更准确的认识。但CIO反复告诉我们，很多AI支出是净新增预算，并不是从软件预算里拿走的。</p>
+<p>如果还有大量没花的软件预算，这些公司就可能受益。再加上为来年提前采购AI预算、提前购买token，两种力量可能叠加，这是我们四季度非常密切关注的。</p>
+<p>最后，公司自己也处于一种矛盾中，不知道该如何面对股价。有些股票估值已经创历史低点，只相当于八倍、九倍现金流，但扩大利润率也救不了股价。</p>
+<p>于是问题变成，是不是应该再投资，换取你刚才说的增长持久性？也许没办法让增速一下子提高很多，但如果能在今天的增速上保持一条很长的增长跑道，随着时间推移，特别是AI收入占比不断提高，也许已经足够。这些是我在Matt的观点之外想补充的。</p>
+<p><strong>译注：</strong>上段关于增速上调幅度的原字幕连写为“500,000个基点”，具体断读不清，未将其补写为确定的量化预测。</p>
+<h3>AI原生企业会不会自行替代整套软件</h3>
+<p><strong>Dan：</strong>我坐在这里采访过很多创始人，也经常听到这个话题。如果从头建立一家AI原生公司，它更可能全面采用ServiceNow、Workday、Salesforce，还是使用自己构建、或者由前沿实验室提供的代理工具？</p>
+<p>这些小公司眼下当然影响不了总量，但如果其中出现下一个行业颠覆者呢？展望两年、三年、五年，这是不是应该保持警觉的事情？</p>
+<p><strong>Rishi：</strong>我先说，然后交给Matthew Hedberg。有两点。</p>
+<p>首先，去看那些超高速增长、新闻里不断刷新1亿美元或5亿美元ARR纪录的AI原生公司的技术栈。它们实际上仍然使用很多现有软件解决方案，而且近期没有替换计划，这是第一点。</p>
+<p><strong>Dan：</strong>所以，这种说法有些并不成立？我经常听到，甚至有些VC也在鼓励创业公司这么做，因为从很多方面看，这也有助于他们整个生态。</p>
+<p><strong>Rishi：</strong>对。第二，最初的直觉可能是所有东西都自己做。但一旦把构建、扩展、支持、安全等完整成本加进去，开支可能高到无法承受。</p>
+<p>提前透露一下，明天早上我们有一个重要圆桌，就叫企业AI的真实拥有成本，会有VC和私营公司参加。</p>
+<p>我认为，大家会越来越认识到，如果现有软件商或其他公司能够做出最好的销售营销代理、HR代理或者服务代理，使用它们、把精力集中在自己公司的独特之处，会比从零建立整套所谓AI原生技术栈更好。</p>
+<p>我认为，只有在某个类别今天根本没有好的AI解决方案时，自己从头构建才合理。</p>
+<p><strong>Dan：</strong>Matt，从你覆盖的子行业看，这个问题如何？</p>
+<p><strong>Hedberg：</strong>大家经常把软件一概而论，但很多公司的特征差异很大。</p>
+<p>比如CrowdStrike与一个小型单点安全产品之间，可能存在整合机会。这未必与“AI原生”有关，只是CrowdStrike能替我做更多事，我就多买一些。</p>
+<p>但我同意Rishi。回到SaaS末日、软件消亡的讨论，这些记录系统本身有价值。问题是在没有传统前端的世界里，它可能只是API数据流、数据库，公司愿意为这种服务付费多久？</p>
+<p>这些AI原生企业正在专注解决某个具体问题，并不一定想打造一套还要自己支持、自己运转的最佳CRM系统。所以这会是一个演进过程。</p>
+<p>以我主要覆盖的网络安全、数据基础设施为例，Cloudflare这样的公司，从AI原生企业创立之初就进入了它们的技术栈。</p>
+<p><strong>Dan：</strong>Matt，我们刚提到一些较近期高点跌了70%的公司，但它们此前也涨得极其猛烈。你覆盖的领域内部差异很大。</p>
+<p>2027年对你意味着什么？我知道，你通过调整买入评级等方式取得了一些不错的效果，也可能避开了最糟糕的部分。展望2027年，哪些主题会让你对某些被连同脏水一起倒掉的公司，更有信心？</p>
+<h3>广告市场：注意力、品牌与代理购物</h3>
+<p><strong>Swanson：</strong>我认为，这个问题可以分成两部分，和很多讨论一样：市场增长有多快，市场份额怎样变化？今年大家一直在拆解这两个方面。</p>
+<p>像这个季度，Google搜索和亚马逊广告都略低于市场预期。投资者很难看着开放互联网广告技术栈里的Magnite、PubMatic、Trade Desk，判断：如果Google和亚马逊都没吃饱，这些公司为什么能跑赢？</p>
+<p>我们真正关注的，是消费者把时间花在哪里、生成式搜索怎样改变行为，以及Matt所说的网站机器人流量增长1000倍会带来什么。向机器人展示广告，很难实现变现。</p>
+<p><strong>Dan：</strong>对。</p>
+<p><strong>Swanson：</strong>所以，我们会越来越关注广告形式，并尽量优化一直在讲的两个因素：注意力和可见性。</p>
+<p>联网电视，以及移动应用内部，似乎仍然能够吸引人的目光。这是整个生态的基础：对方根本没在看、没在听，你就卖不了东西。播客当然也是行业的基础组成部分。</p>
+<p>沿着这些类别去看，我们想找有相应形式敞口的公司。之后就会越来越取决于谁拥有数据、谁能做好受众定向，因为代理参与购买也会越来越多。</p>
+<p><strong>Dan：</strong>你提到Google刚公布的季度，亚马逊广告显然也是利润很高的业务。平台把Muse、Instinct之类的代理挡在外面，会不会成为未来一两年的重要主题？</p>
+<p>亚马逊必须保护这门生意。零售本身利润很薄，AWS虽然重新加速，但集中度也从未这么高。它做了不少很好的投资，也在构建小模型，还有Trainium。虽然你们不覆盖亚马逊，但它似乎在很多方向都有布局。广告原本是看多逻辑中非常好的一根支柱，可某个时点，它们大概还是必须让代理进来。</p>
+<p>你提到注意力。过去，Prime会员到亚马逊，不一定只买一件商品；即便最初只想买一件，也很可能顺手添几样。但代理不会去点广告。</p>
+<p><strong>Swanson：</strong>你涉及了很多内容，我尽量回答。亚马逊转向站外，其中一个原因就是这个：需要找到更多广告库存。</p>
+<p>依托电商平台，它已经建立了极强的面向消费者的效果营销工具，之后就开始考虑把这套能力投向别处：让Prime Video转成广告支持模式，进入站外，建立持续把人带回来的生态。</p>
+<p>但大家眼下最大的疑问之一，是这会怎样改变我们寻找商品的方式。亚马逊广告业务最大的一部分，一直本质上是赞助搜索。你在亚马逊输入“割草机”，哪一款排在前面？如果人们不再从这里开始搜索，会怎样？</p>
+<p><strong>Dan：</strong>这和Google那边所谓“Google Zero”的问题一样。</p>
+<p><strong>Swanson：</strong>由此产生了两个很有意思的讨论。</p>
+<p>一是品牌支出会不会重新受到重视。过去，这类支出不如效果广告受欢迎，但如果我一开始输入的是Nike或Adidas，而不是笼统的“网球鞋”，意义就完全不同。因此，品牌需要让我在开始搜索之前，脑子里已经有它。</p>
+<p>另一端则是新的效果触发方式，又回到移动应用内广告。大家大概也注意到，联网电视广告和过去很不一样，正在努力让你当场购买。它们实际上想把整个购物过程前移：在你进入生成式搜索引擎或其他入口之前，就创造一个原本不打算购买、但突然产生购买意愿的时刻。</p>
+<p>这是两个处在光谱不同端点的变化。面对快速演变的环境，大品牌都在重新安排预算。</p>
+<h3>2027年，AI变现何时进入应用软件收入</h3>
+<p><strong>Dan：</strong>时间不多了，我们依次谈谈展望。Rishi，先从你开始。2026年里，你们每个子行业除了少数公司，大多数至少都跑输了主要指数。我记得纳指和标普都涨了大约9%。</p>
+<p>你觉得2027年哪个开关可能被拨动，投资者应该关注什么机会？</p>
+<p><strong>Rishi：</strong>我认为，是AI变现沿着产业链流向应用软件。</p>
+<p>市场显然已经把大多数应用公司的前景看得很差，担忧席位收费模式、商业模式和定价。但某个时点，投资者会突然意识到，有些应用供应商在AI层已经做了很多创新，而且确实能够变现，带来我们一直寻找的增长拐点。</p>
+<p>到时，软件里只有网络安全和某些基础设施公司有效的看法，会扩展到应用软件。我认为2027年会出现这种变化。</p>
+<p><strong>Dan：</strong>你上次来时，微软交易表现不好，明显跑输。那时Google和亚马逊很好，感觉超大云厂商之间接力棒发生了转移。</p>
+<p>2027年有什么因素，可能把微软从现在这个防御性位置上拉下来？</p>
+<p><strong>Rishi：</strong>首先，考虑到业务持续性，我认为它大概仍会保持这个位置。</p>
+<p>但如果问什么会让接力棒交出去，我认为是从单纯的AI基础设施，转向能够真正上线、服务知识工作者，而且不全靠定制开发的AI用例。基础设施这笔交易已经出现一些裂缝。当这类实际用例开始出现，我们就可能看到你说的接力。</p>
+<p><strong>Dan：</strong>好，Matt，轮到你。</p>
+<p><strong>Hedberg：</strong>在我覆盖的五六家公司中，已经能看到清楚的AI领先地位和实际增长加速，比如Datadog、Cloudflare、CrowdStrike、Palo Alto，以及Snowflake。</p>
+<p>但我们也看到很多前瞻指标：ServiceNow说AI年度合同金额ACV不断创新高；Dynatrace说消耗增长超过20%。我的问题是，这些前瞻指标何时真正转化为更好的损益表、更高的收入增长？</p>
+<p>这些产品的开发确实花了时间，但我们需要进入变现阶段。投资者必须看到，前瞻指标正在推动实际收入稳定或者加速。虽然已经有很多个别数据点，大家最终还是要在损益表上看到结果，这才是这些公司接受实际检验的地方。</p>
+<p>在那之前，投资者会继续拥挤到第一梯队AI赢家里，其中有几家在我的覆盖范围。对我而言，前瞻指标向实际业绩转化，是明年很重要的差异来源。</p>
+<p><strong>Dan：</strong>有没有哪些公司，你尤其相信它们能够在2027年前两个季度证明这一点？</p>
+<p><strong>Hedberg：</strong>身份管理方面，我们今年一直喜欢Okta，它的增长正在加速。但有意思的是，这种加速目前完全不是代理能力带来的，我们认为那部分机会还在后面。</p>
+<p>如果非人类流量将增长1000倍，理解这些身份、这些代理究竟在做什么，就至关重要，我们认为Okta的位置很好。</p>
+<p>我会关注Okta，也会根据ServiceNow提出的ACV目标继续观察它，再加上可观测性厂商Dynatrace，这三家比较有意思。</p>
+<p>但随着这个叙事扩展，投资者仍会怀疑，因为要证明这些事情，大概需要连续几个季度，才能让人觉得这是长期投资逻辑，而不只是一笔交易。</p>
+<p><strong>Dan：</strong>你覆盖的一些公司，看起来已经极度超卖，但每次反弹又被卖掉，像是前进一步、退两步。进入2027年，有没有哪些公司或者主题，让你开始更愿意接受？</p>
+<p><strong>Swanson：</strong>以交易量为基础的公司，本来就可能恢复得更快，潮水可以向两个方向变化。</p>
+<p>今年一个更受关注、实际表现也很好的方向，是PubMatic和Magnite，两家公司股价都上涨了略多于80%。过去，在广告技术核心栈中，供应方平台SSP一直有点像次要市场；Trade Desk和需求方平台DSP因为更接近出钱的一方，被视为最持久的环节。</p>
+<p>但现在，买方类型、买方数量发生变化，又加入了更多代理购买能力，复杂度反而让SSP有机会因为自身位置而得到更多认可。</p>
+<p>我们还会越来越多地听到服务器端定向，也就是更接近内容发布商的一端。发布商拥有很好的数据，特别是登录用户的数据；很多买方也有很好的数据。有时，它们需要的主要是有人帮助编排这些数据，而不是替它们作出全部决策。</p>
+<p>所以，这两家公司既有机会受益于市场主题，也可能因为不再被一概当作同质化商品而得到情绪改善。</p>
+<h3>分析师怎样实际使用代理</h3>
+<p><strong>Dan：</strong>最后再依次问一个问题：你们在使用个人代理吗？RBC内部的工具里，有没有代理已经在日常工作中帮助你们？</p>
+<p><strong>研究团队成员：</strong>我在使用个人代理，但还没找到杀手级用例。通常是和儿子一起，查他拆出来的体育卡值多少钱，以便判断我得多快把卡片从他手里收走。</p>
+<p>工作上，我开始找到真正合适的用法：把我们基于判断和观点的知识工作，与基于事实、查找事实的部分区分开，让代理帮助后者。</p>
+<p>开始研究一个新主题时，它像是在提供一份定制的初步研究报告。我们希望自己创造的价值，更多体现在上下文，以及怎样把这些事实融入长期积累的机构知识。</p>
+<p><strong>Dan：</strong>所以，很大一部分可能会变成大家都具备的基础能力。竞争对手、做类似工作的人，也会有代理，处理不同流程。</p>
+<p>Matt，它是否让你更有生产率、更聚焦，有更多机会思考研究成果本身？你们内部到底怎样使用？</p>
+<p><strong>研究团队成员：</strong>RBC已经沿着这个方向做了好几年。我们很早就开始投入，建立了一些非常好的AI技术，每天都在改善我的工作流程。</p>
+<p>内部工具叫Aiden，我每天都用，而且一天用很多次，整个团队都在用。我们的token账单持续上升，但它是一个非常强大的生产率工具。</p>
+<p>我们三个人都承担很多工作，精力被分得很散。如果能够快速总结一份逐字稿，或者在没时间完整尽调一家私营公司时，帮助提出应该问的问题，这些小的效率改善就很了不起。它让我们腾出时间与客户交流，做代理还做不了的事。</p>
+<p>所以对我而言，它确实大幅提高了生产率，我已经无法想象回到没有代理的工作方式。</p>
+<p><strong>Dan：</strong>Rishi，Matt刚才说，这给了你们更多时间和客户交流，而这某种程度上就是你们工作的意义。</p>
+<p>你们经常出差、拜访客户，有些晚上会同时有四家公司公布业绩。我想这些工具会明显简化工作流程。你怎么看？另外，token预算是怎么安排的？</p>
+<p><strong>Rishi：</strong>先回应开头的个人代理问题。个人工具显然不能拿来处理工作，但我确实在生活中使用。</p>
+<p>我们卖方分析师经常坐飞机，总要打开United或Delta的应用，不断刷新座位。让Muse每20分钟替你查看一次，一旦更好的座位空出来立刻通知你，好让旅程更舒服，这是我发现的直接、非常好用的场景。</p>
+<p><strong>Dan：</strong>真正能起作用的比例有多高？真的有帮助吗？</p>
+<p><strong>Rishi：</strong>反正我现在不坐中间座位了。即使很晚才订票，也不会再被迫坐中间。别人升舱、好座位空出来的那一瞬间，我就能跟上。这本身也是一种效率提升。</p>
+<p>至于工作，Matt已经很好地介绍了我们内部的Aiden AI。我举一个团队的杀手级用例：公司举办用户和分析师日，你在房间里坐五个小时，然后花三个小时写一份与同场其他40个人几乎一样的报告。</p>
+<p>利用AI简化这个流程，首先让我们能在大会现场花更多时间与实际合作伙伴交谈，这才是重要的尽调。其次，我们能够多见客户、私营公司、VC，以及自己覆盖的上市公司。第三，对我个人的研究实践而言，可能最重要的是，能够投入更多时间做我们擅长的长篇深度报告。</p>
+<p>仅过去十天，我就完成了一篇很大的实体AI深度研究，今天早上刚发布，还做了另一篇关于AI变革医疗行业的报告。如果没有Aiden AI把很多事情自动化，这两篇之间可能要隔三个月，而不是十天。</p>
+<p><strong>Dan：</strong>你们出了很多主题报告，我觉得这是团队的特色，不仅区别于同行，也能帮助你们在内部思考：未来五年、十年，哪些主题可能成为科技领域最重要的驱动力。</p>
+<h3>反问主持人：消费者代理为何仍未普及</h3>
+<p><strong>研究团队成员：</strong>Dan，你总能问出很好的问题，我也能问你一个吗？</p>
+<p><strong>Dan：</strong>这种评价可难得。也许只是我们坐得太近了。</p>
+<p><strong>研究团队成员：</strong>你看过很多公司、企业家和趋势。就你的视角，对2027年的科技、AI或者其他相关领域，有没有一个比较鲜明的判断？</p>
+<p><strong>Dan：</strong>现在想找防御性领域很难，苹果却让我有点想不明白。我并不是要你们评价苹果。</p>
+<p>在我们生活的新世界里，硬件在我看来有点像基本门槛。我去苹果店看Duo，再穿过马路去Google店看它的折叠机，两款都很好。那差异到底会来自哪里？会来自里面的AI工具。</p>
+<p>Google现在受到冷落，更多是因为搜索和广告，但Gemini嵌入操作系统后的体验很出色。所以，我认为消费者究竟怎样使用这些东西，会经历一次大范围的重新筛选。</p>
+<p>现在看看你生活里那些不从事金融、不从事科技、也不是早期采用者的人，很多根本没在用这些工具。</p>
+<p>讲个对我而言很有意思的例子。大约一个月前，25位大学四年级学生来纳斯达克，参观我在CNBC做的节目。我已经讲过几次，老听众也许听腻了，但这个例子很说明问题。</p>
+<p>他们正接近大四第一学期末，我们讨论如何在学习中使用AI，更重要的是，怎样用来找工作。我说，你们都拿大模型写论文、做作业，大家都会这么做；那接下来很重要的一件事是找工作，你们怎样用代理改善求职流程？</p>
+<p>结果，没有一个人举手。</p>
+<p><strong>研究团队成员：</strong>有意思。</p>
+<p><strong>Dan：</strong>一个都没有。这还是一个月前，也就是Muse推出一个月到一个半月的时候。他们每天在Instagram上花两个小时。我真的很吃惊。</p>
+<p>我后来又在不同场合专门问过几个认识的年轻人：你用过、下载过Muse吗？他们回答，Muse是什么？</p>
+<p><strong>研究团队成员：</strong>哇。</p>
+<p><strong>Dan：</strong>我很震惊。要么这些年轻人不够好奇，没有关注科技变化；要么Meta对它那30亿用户的营销做得很差。这件事让我觉得非常意外。</p>
+<p>所以，消费者代理可能会像元宇宙那样，也可能彻底起飞。Meta公布业绩时给出的Muse数据，并没有特别令人兴奋。它又有点像Copilot最初的采用情况。但说到底，我不知道，很多东西会经过一次大筛选。这么说有道理吗？</p>
+<p><strong>研究团队成员：</strong>听起来，大学需要给这些学生配FDE。</p>
+<p><strong>Dan：</strong>某种程度上是。苹果过去进入教育领域，已经是三十多年前的事情。也许Siri有机会，因为几乎每个大学生都有iPhone，多数不使用Android，这似乎就是它的目标群体。</p>
+<p>小模型与用户不会放弃的硬件结合，也许存在机会。但我不知道，苹果还没有向我们证明。</p>
+<p><strong>研究团队成员：</strong>会很有意思，特别是在新领导层之下。</p>
+<p><strong>Dan：</strong>各位，我们一季度再聊一次，回顾一下年底。大会提供了很好的机会，既和公司交谈，也和投资者交谈，从中间的位置看看双方情绪。</p>
+<p>现在感觉很明显，今年大概不会像过去大约四年那样，纳指每年都上涨20%以上。但做多方面，可能出现很多寻找特殊价值的机会，同时也要避开一些大坑。我这么说有道理吧？</p>
+<p><strong>研究团队成员：</strong>完全有道理。</p>
+<p><strong>研究团队成员：</strong>这就是目标。</p>
+<p><strong>Dan：</strong>谢谢各位，祝接下来几天顺利。我知道大会会像冲刺跑，感谢你们来这里。</p>
+<p><strong>研究团队成员：</strong>谢谢邀请。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

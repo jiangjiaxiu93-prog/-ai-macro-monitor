@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Elon Musk谈SpaceX与Tesla合并、Anthropic算力及政治争议（DealBook全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-23<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Elon Musk谈SpaceX与Tesla合并、Anthropic算力及政治争议（DealBook全文精翻）</h2>
+<div class="metaline">The New York Times／DealBook · Elon Musk（SpaceX创始人兼CEO、Tesla CEO）；Andrew Ross Sorkin主持 · 46分58秒 · 2026-11-18 · <a href="https://www.youtube.com/watch?v=zWeT91uH7LI" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力采购；融资估值；SpaceX；Tesla；Anthropic</p>
+<ul><li>Musk解释Anthropic算力合同的终止条件、他所理解的追加需求，以及两家公司合并须满足的股东价值与表决条件。</li><li>完整保留黄仁勋离任、中期选举、Starlink与Starshield争议、手机直连卫星、Cybercab及个人状态等原有讨论。</li></ul>
+<p><strong>节目时点：</strong>2026年11月18日DealBook对谈，按完整官方视频译写；涉及人物行为、战争经过和未来业务的判断，保留说话人的原有归属与不确定性。</p>
+<h3>精翻正文</h3>
+<h3>黄仁勋离任与董事会的决定</h3>
+<p><strong>Andrew Ross Sorkin：</strong>Elon Musk通过视频来到现场。可以说，他是今年世界上影响最大的私人公民。他推动SpaceX上市，完成了规模空前的公开发行；经营Tesla、SpaceX及其AI业务、Boring Company、Neuralink等公司。他也是本月中期选举中共和党最大的捐款人之一，还建设了名为Terafab的大型芯片工厂。他说，那可能成为地球上最大的建筑。</p>
+<p>就在上周，大家应该都看到了，SpaceX创造历史，从轨道返回后接住了Starship上面级。观看这一幕实在令人赞叹。今天我们会谈他的权力、影响力、未来以及其他各种事情。欢迎他重返DealBook，我想大家也还记得他上一次来这里的情形。Elon，欢迎。</p>
+<p><strong>Elon Musk：</strong>你好，很高兴见到你。</p>
+<p><strong>Sorkin：</strong>我也很高兴。我们没有设置七秒延时，不过考虑到上次的对话，确实认真想过。</p>
+<p><strong>Musk：</strong>怕我又说什么疯狂的话吗？</p>
+<p><strong>Sorkin：</strong>你还记得吗？不记得了？</p>
+<p><strong>Musk：</strong>有一点印象。有时候我会说错话、搬起石头砸自己的脚。有时甚至能同时把两只脚塞进嘴里，整个人悬起来，真是不可思议。</p>
+<p><strong>Sorkin：</strong>有很多事情想谈。你现在正在中国，和总统在一起。但我想先谈一件今天几乎问过所有嘉宾的事。你是他的好朋友，也一直公开发声，就是黄仁勋的事情：是否应该让他回来；如果不能回来，你是否可能亲自聘请他。能谈谈吗？</p>
+<p><strong>Musk：</strong>大家大概都知道，我在网上说话很直接，也经常因此惹麻烦，在X——以前叫Twitter——上尤其如此。但你不会发现我公开说一套、私下说另一套，我两边说的是一样的。</p>
+<p>黄仁勋是我的老朋友。我会把他比作巅峰时期的Michael Jordan：那就是他对这支队伍的意义。作出这样的决定之前，真的要非常慎重。想象芝加哥公牛正处于第二个赛季中段，即将迎来连胜，你却把Michael Jordan踢出了球队。在我看来，这不是明智的决定。</p>
+<p>没有人真正能够替代黄仁勋。他一个人承担了好几个人的工作，包括供应链管理。你会看到他在韩国、台湾和关键供应商一起吃路边小吃，那是几十年建立起来的长期关系。他对技术理解极深，团队非常爱戴他，不少人就是因为他才留下；他们得到过外面更高的报价，也因为对他的个人忠诚而拒绝了。</p>
+<p><strong>Sorkin：</strong>所以你觉得……</p>
+<p><strong>Musk：</strong>所以，把这样的人赶走之前必须想清楚。我知道他犯了一些错误，但我不认为他对美国不忠。我已经明确说过，这就像球队正在连胜时把Michael Jordan踢出去，对股东似乎没有好处。你得权衡一个人做出的贡献、带来的好处，以及他造成的问题。我认为这是一个错误，也已经公开表达过，很多其他人也这么说。</p>
+<p><strong>Sorkin：</strong>你还说过，你愿意聘请他。董事会……</p>
+<p><strong>Musk：</strong>当然，谁不愿意呢？他天赋惊人，是历史上最有才华的企业家和CEO之一。谁不想聘请黄仁勋？当然，他显然不是在找工作。我觉得这些事情仍然让他有点震惊。</p>
+<p>感觉就像一部George R. R. Martin编剧的电影：你已经对一个主要角色投入了很多感情，突然他就没了。实在令人震惊。</p>
+<p><strong>Sorkin：</strong>你觉得从长期看，他会……你和他本人谈过吗？</p>
+<p><strong>Musk：</strong>谈过。</p>
+<p><strong>Sorkin：</strong>他怎么说？你觉得接下来会发生什么？</p>
+<p><strong>Musk：</strong>我不知道。决定权当然在英伟达董事会。再往上的权力层级或许是股东，但这意味着现有董事会要么改变主意，要么股东在股东大会上把董事会投票换掉。后一种情况非常少见。眼下确实是董事会掌管公司。</p>
+<p><strong>Sorkin：</strong>你现在和总统在一起，和他谈过这件事吗？</p>
+<p><strong>Musk：</strong>我们还是别把整场都变成黄仁勋专访了。总统已经公开说过，他认为黄仁勋应该继续担任CEO。我认识的人也都这么想。但归根结底，这是英伟达董事会的决定，我们又不在董事会。</p>
+<h3>中期选举、政治捐款与权力制衡</h3>
+<p><strong>Sorkin：</strong>接下来会谈你的公司、SpaceX、Tesla和其他业务。但开头也提到，你深度参与了美国政治，在中期选举中支持共和党，结果他们输了。你怎么看这场失利？它会怎样影响美国、怎样影响你的企业？得克萨斯州现在也出现了一位民主党州长，这是很久以来的第一次。你怎么看？</p>
+<p><strong>Musk：</strong>首先，我认为这位新州长会相当温和，并不是极左派。根据我听到的关于她的情况，我认为Jane担任州长后，得克萨斯不会有什么问题。</p>
+<p>我也认为，有一定的权力平衡是好事。一般而言，总统、参议院和众议院最好不要全部由同一个党掌握。我在X上其实没有提到，我的目标是让总统、众议院、参议院三者中至少有一个由另一党控制。</p>
+<p>具体而言，我想实现的目标——显然没有实现——是到2029年，让共和党在参议院拥有51席。但共和党在这次选举中惨败。我花了那么多钱，却没看到多少效果，自己也觉得很傻。当然，也可能如果没有那些钱，结果会更糟。</p>
+<p>但这至少说明，美国选举并不只是钱的事情。投入很多钱，影响仍可能很小，这次似乎就是这样。如果能把时钟倒回去，我大概会少花一些钱。我也没有投入太多个人精力，因为重点还是建设SpaceX、Tesla等公司。</p>
+<p><strong>Sorkin：</strong>我之所以问，是想知道你是否担心这会影响企业。你听到监督委员会主席说“准备好律师”，也听到总统说，如果需要赦免你，他就会赦免你。我是在个人层面上问……</p>
+<p><strong>Musk：</strong>顺便说，我不需要赦免，因为我没有犯罪。有些人的说法有点过头了。不少民主党人，包括得州即将上任的众议院多数党领袖，都说应该把我关进监狱。有人追问他，我犯了什么罪，他却说不出罪名，但还是想把我关进去。</p>
+<p>这就像先决定关人，再来找罪名，仿佛在模仿斯大林时代的贝利亚：“给我这个人，我就能给你找出罪名。”拜托，这有点过头了。</p>
+<p>确实有人对我在本次选举中的出资感到不满，但我希望在这个国家，至少仍然需要先实际犯罪，再被送进监狱。理想而言，程序应该如此。</p>
+<p><strong>Sorkin：</strong>你觉得这次经历……</p>
+<p><strong>Musk：</strong>确实应该先犯罪、再坐牢，不能反过来。我们到底生活在什么国家？</p>
+<p><strong>Sorkin：</strong>但这次经历会改变你对参与政治的想法吗？包括给某个党捐款。毕竟，如果你支持的党输了，获胜的一方可能会针对你。大家已经在谈是否举行听证会，是否需要你去华盛顿作证。作为这些企业的领导者，你怎么考虑？</p>
+<p><strong>Musk：</strong>我的动机非常简单：希望到2029年，总统、众议院、参议院三者中，至少有一个由共和党控制，避免在最极端的情况下由民主党获得压倒性的多数。我也不支持共和党拥有压倒性多数，我们需要制衡，仅此而已。</p>
+<p>我认为自己在意识形态上相当温和，并没有什么极端政治观点。你认识我很久了，能想出我有什么极端观点吗？</p>
+<p><strong>Sorkin：</strong>确实认识你很久了。不过，你在X上说过或者转发过一些话。比如你和《经济学人》的Zanny那场很有意思的采访，围绕欧洲发生的事情、移民等问题来回辩论，有人确实认为那些观点偏激。当然，我知道你不这样认为。</p>
+<p><strong>Musk：</strong>对，我不觉得极端。比如哪一个？</p>
+<p><strong>Sorkin：</strong>比如美国有些人会认为，某些MAGA主张很极端；欧洲关于移民等问题的一些说法，也会让人有这种看法。我是因此才问你。</p>
+<p><strong>Musk：</strong>你不能笼统地说“MAGA什么的”。我不是MAGA。至少，我不确定MAGA到底是什么意思。如果它意味着盲目遵循共和党的一整套政策，那我肯定不是。两个党都有优点和缺点。</p>
+<p>政治有很强的部落性。很多人看不到另一个党的任何好处，也看不到自己支持的党的任何坏处。他们把政党当成家乡的球队，那就是自己的队伍，不能接受对方做了好事，也不能接受自己的队伍做了坏事。现实是，两党都有各自的问题。</p>
+<p>移民方面，我说的是，欧洲需要阻止大规模非法移民进入。如今这是否有争议，我不知道，但现状让我觉得很疯狂：小船不断靠岸，船上的人没有经过审查，有些人抵达后会对欧洲居民做出可怕的事情。至少应该有某种审查程序，不能让可能具有危险性的罪犯非法入境。</p>
+<p><strong>Sorkin：</strong>我想问……</p>
+<p><strong>Musk：</strong>如果这被算作右翼观点，那就算吧。但不久之前，这还是一个很正常的立场。Obama和Hillary过去说过完全相同的话，你可以去看他们的演讲。也许他们现在支持，但十年、十五年前，他们确实反对。所以，这并不是什么极端意识形态观点。</p>
+<h3>Starlink、Starshield与乌克兰战争中的决定权</h3>
+<p><strong>Sorkin：</strong>我有另一个地缘政治问题，今天也被提过几次。刚才来这里的Palmer Luckey对你的决定作了一番很有意思的辩护。你在X上谈过，但我想你还没有这样公开解释过。</p>
+<p>关于乌克兰使用Starlink和Starshield，以及限制速度的事情，能否解释你的想法、当时个人的感受，以及究竟发生了什么？公众似乎并不知道完整经过。</p>
+<p><strong>Musk：</strong>多数公众只是相信电视上的人，或者自己读到的文章，对此产生比较表面的反应。但我认为可以准确地说，没有哪个私人公民对乌克兰提供过比我更多的帮助。</p>
+<p>在俄罗斯入侵之前，我就确保Starlink提前在乌克兰部署。俄罗斯入侵时，破坏了通信、手机基站、光纤线路以及各种卫星通信系统。唯独有一个系统他们没能摧毁，就是Starlink。如果没有Starlink，乌克兰整个防线就会因失去通信而崩溃，俄罗斯就会获胜。你觉得这是亲俄罗斯的行为吗？</p>
+<p><strong>Sorkin：</strong>那告诉我们之后发生了什么。</p>
+<p><strong>Musk：</strong>显然不是，这是个反问。即便到了今天，Starlink仍然是乌克兰军方乃至整个乌克兰通信的骨干。如果我们关闭Starlink，乌克兰整条前线都会立刻崩溃。我认为，这种行动只能被形容为极其支持乌克兰。</p>
+<p>但我从一开始就说过，Starlink是民用系统，不是用来实施杀人的进攻性无人机打击。如果要这么做，就需要使用Starshield，那是由美国政府控制的另一个系统。不要要求我这个私人公民来作出杀伤决定，这些决定有时夺走的不只是军人的生命，也包括无辜平民。我不应该处在作这种决定的位置上，但我们一直承受无休止的压力，要求我们这么做。我认为这很过分，也很不妥。</p>
+<p>Starlink系统设有速度限制，取值就是乌克兰最高道路限速，我记得约每小时80英里。你可以开车，进行速度不超过每小时80英里的各种活动，就这样。</p>
+<p>我反复说过，如果要求我们支持的是进攻性军事行动，就必须使用Starshield，由战争部、最终可能由总统作出杀伤决定，而不是由我来作。这就是我们的安排，也是从一开始便已存在、持续多年的规则。现在有人要求我改变，但我不会改。</p>
+<p>我还可以再解释一些。我对这场战争、它的起源和历史有很多了解，可能比绝大多数人知道得多，因为我一直在挣扎，思考怎样做才正确。</p>
+<p>在道德层面，真正困扰我的，是一场无限延续、边界永远不变的冲突，每天都有成千上万的年轻人被送去死。我认为，支持这种状态的人，要么是很糟糕的人，要么没有认真想过问题。我们不仅应当同情正在死去的乌克兰年轻人，也应该同情俄罗斯的年轻人，他们是被征召、被强迫送到前线的。没有人愿意自愿去前线，只为了死在无人机袭击中。</p>
+<p>这些儿子再也见不到父母，这些人的孩子再也见不到父亲。想象那是你的儿子，或者你的父亲。现在“乌克兰好、俄罗斯坏，对俄罗斯人做什么都可以”的说法太多了，这是不仁慈、也很可怕的立场。这个话题我可以说很久。</p>
+<p><strong>Sorkin：</strong>但让我问一个问题，因为……</p>
+<p><strong>Musk：</strong>我先预判你的问题：俄罗斯是侵略者。</p>
+<p><strong>Sorkin：</strong>不，其实我想问的是……</p>
+<p><strong>Musk：</strong>让我花一点时间把这一点说完，好吗？从入侵的角度讲，俄罗斯确实是侵略者。但与此同时，我们美国人曾经策动政变，推翻乌克兰民选的亲俄总统。在我看来，那也是进攻性行动。没有美国国务院及其他机构的帮助，这件事不会发生，显然也具有进攻性。</p>
+<p>完整解释会花太久，我们可以把它写下来、详细阐述。这样说听起来好像我在替俄罗斯找借口，但我没有。看看我的实际行动：SpaceX抢走了联盟号发射业务和俄罗斯商业火箭发射业务，使俄罗斯航天活动缩减了三分之二，也就是规模降至原来的三分之一。我并不是在帮助俄罗斯。我们在俄罗斯没有业务，什么都没有。</p>
+<p><strong>Sorkin：</strong>帮我们澄清一点，或许这样就能讲明白。Zelenskyy总统说，他们使用的是Starshield，也就是美国政府的系统，随后又指称被降低速度的就是这个系统。</p>
+<p><strong>Musk：</strong>这是假的。</p>
+<p><strong>Sorkin：</strong>这正是我想弄清楚的。</p>
+<p><strong>Musk：</strong>我不想让你太震惊，但Zelenskyy并不总是说真话。也许这个事实让人意外。</p>
+<p><strong>Sorkin：</strong>好的。所以……</p>
+<p><strong>Musk：</strong>他并不总是说实话。</p>
+<p><strong>Sorkin：</strong>乌克兰到底有没有获得Starshield这个美国政府系统？美国有没有把它提供给乌克兰？还是他们只在使用名为Starlink的商业系统？也许这里存在混淆。</p>
+<p><strong>Musk：</strong>我认为确实有混淆。这里有两套卫星系统，一套是Starlink商业卫星系统，另一套是Starshield。Starshield由美国政府控制，它的任何行动由政府部门决定。Starlink是商业系统，不是战争武器，本意是帮助人们，是民用基础设施。</p>
+<p><strong>Sorkin：</strong>那么，Zelenskyy总统说自己在用Starshield时，他究竟有没有在用？</p>
+<p><strong>Musk：</strong>他在撒谎。他实际要求的是把Starlink用于进攻性军事行动。</p>
+<p><strong>Sorkin：</strong>你有没有和Trump总统谈过，让乌克兰获得Starshield？美国政府有没有人讨论过向乌克兰提供这个系统，以便让相关决定不由商业一方控制？</p>
+<p><strong>Musk：</strong>Starshield本来就不受商业一方控制。</p>
+<p><strong>Sorkin：</strong>我知道，正因为如此才这样问。我想问的是……</p>
+<p><strong>Musk：</strong>它由美国政府控制。</p>
+<p><strong>Sorkin：</strong>对，我是想问，你或者政府有没有……</p>
+<p><strong>Musk：</strong>他们可以决定怎样使用它。</p>
+<p><strong>Sorkin：</strong>对，我之所以问……</p>
+<p><strong>Musk：</strong>我想告诉你的是，Zelenskyy实际要求的是将Starlink商业卫星用于进攻性军事行动，而我们拒绝了。自这场冲突开始以来，我们始终拒绝这种用途。事情就是这样。</p>
+<p><strong>Sorkin：</strong>有意思的是，我们今天和加拿大总理Mark Carney及其他人谈过。很多人看到这件事，认为在战争期间，一个人——也就是你——不应该拥有开启或者关闭这种服务的权力。他们认为，这集中在单个人手里，权力太大。你也看过这种论点。因此，有人开始讨论减少对Starlink的依赖，或者寻找其他卫星服务。</p>
+<p><strong>Musk：</strong>那就不用Starlink吧。</p>
+<p><strong>Sorkin：</strong>我理解。但我真正想弄清楚的是，大家是否误解了究竟是谁在控制这些卫星……</p>
+<p><strong>Musk：</strong>我认为既有故意说谎，也有误解和不了解情况。但Starlink没有改变：从一开始实行的规则，今天仍然有效。你可以看我在X及以前Twitter上的发言，我一直讲得很清楚，Starlink卫星不得用于进攻性军事行动。</p>
+<p>我不希望商业Starlink成为战争参与方。如果允许它用于进攻性军事行动，我们就会成为参战一方。这正是创建Starshield的原因：其中的杀伤决定应当由战争部作出，而不是由我来作。</p>
+<p>我们也没有关闭Starlink，这种说法是假的。Walter Isaacson的书里有一个错误，他也承认了，你可以去问他。几年前，乌克兰发布了一个错误说法，声称我为了阻止对塞瓦斯托波尔俄罗斯舰队的进攻而关闭Starlink。这完全不属实。</p>
+<p>当时，Starlink在克里米亚的卫星波束本来就没有开启。之所以没开启，是因为俄罗斯受到制裁，没有美国国务院批准，我们在受制裁地区开启波束会违法。</p>
+<p><strong>Sorkin：</strong>我真诚地想问，你怎么看待大家对你权力的看法？人们认为，你拥有非同寻常的权力，眼下这种权力体现在、或者他们认为体现在Starlink上。它远远领先几乎所有竞争对手。亚马逊甚至这个周末还在尝试发射卫星，但运载火箭不幸出了事故。因此，在他们看来，你目前垄断了太空。</p>
+<p><strong>Musk：</strong>我们实际上不去申请那种阻碍别人的专利。SpaceX申请的专利只是防御性专利。我鼓励别人复制我们的火箭和卫星，不会在他们前面布下专利地雷。实际上，我们对工作原理相当开放。</p>
+<p>比如，你可以去看我们的火箭，有一枚就放在Hawthorne总部外的大街上。你可以测量它，然后复制。我也说过，如果有人想这么做，我们不会起诉，尽管去做。</p>
+<p>我们只是做出了比别人更好的系统，并没有采取任何措施阻止其他人做出同样的东西。相反，我们说不会利用专利阻挡技术创新，某种程度上是在帮助他们。Tesla也是如此，我把Tesla全部专利开放给行业使用，就是为了推动电动车发展。</p>
+<h3>手机直连卫星、地面网络与Starship的资金来源</h3>
+<p><strong>Sorkin：</strong>说到Starlink，你计划做的一件事，是建立地面电话服务。大家很关心，这最终对Verizon、T-Mobile、AT&amp;T意味着什么，实现起来有多容易、成本有多高。它在农村显然能起作用，但人口越密集就越复杂。你怎么看？</p>
+<p><strong>Musk：</strong>我们想在通信领域做有用的事情，而这些有用的通信服务，能够为Starship等先进火箭的研发提供资金。</p>
+<p>我们创建Starlink的一个好处，是为世界上尚未获得这类服务的地区提供高带宽、低成本连接。许多农村学校、医院和救援组织因此获得了可负担的高速网络。</p>
+<p>有些人在海上船只将沉、遭遇自然灾害，或者处在其他失联、航空等紧急情况下，Starlink成了唯一的通信手段，救了他们的命。我不知道准确人数，但我想可能有几百条生命因此获救。网上有很多例子，可以搜索看看Starlink带来的好处。它是首个覆盖全球的高带宽系统。</p>
+<p>Starlink还有另一个重要的长期作用：我们需要为火箭研发筹资，让生命、意识走出地球，通过在月球和火星建设能够自给自足的城市，保障人类、意识和我们所知道的生命长期存续。</p>
+<p>因为地球上可能发生坏事，谁也无法预知：核战争、巨型陨石、超级火山，或者某种生物工程病毒。</p>
+<p><strong>Sorkin：</strong>你真的觉得这些会发生吗？推动你的，真的是这种恐惧吗？</p>
+<p><strong>Musk：</strong>只要看一看历史记录，看看已经发生过多少次物种灭绝事件——数量很多——就知道这只是时间问题，是何时发生，而不是是否发生。</p>
+<p>我把这些归为将生命和意识扩展到地球之外的防御性理由。它们很重要：为全部生命提供一个备份，相当于为一切生命买保险。</p>
+<p>但如果你问什么更能激励我，我会说，我希望看到一个让人兴奋的未来。我们去探索新边疆、去新的恒星系统，让科幻不至于永远只是虚构。就像《星际迷航》说的，勇敢地去往前人未至之境。也许会发现早已消亡的外星文明，也许会找到能和我们交流的外星生命。</p>
+<p>生活在群星之间，是一个非常值得期待的未来。你想知道关于未来的某件事到底酷不酷，问问自己的孩子，他们会告诉你。</p>
+<p>这个世界有很多问题和困难需要解决，但人生不能只是一个接一个地解决令人痛苦的问题。也必须有一些关于未来的事情，让你兴奋、受到鼓舞，让你每天早上醒来时高兴，迫不及待想看看接下来会怎样。成为星际文明就是其中之一。</p>
+<p><strong>Sorkin：</strong>回到电信业务，你做这件事的一个原因，是给这些目标筹资。但电信建设成本非常高，我想问，你是否最终会在美国收购一家电信公司？这些公司的股价都跌了，而且它们的利润率、估值倍数都远不及你的公司。我想理解更长期的逻辑。</p>
+<p><strong>Musk：</strong>我们有一个计划，大体上能够让地球上的人随处接入，包括直接通过手机。明年开始，我们将发射SpaceX第二代手机直连卫星星座。我认为，其带宽将达到现有第一代的40倍，总之会是非常大的倍数。</p>
+<p>之后还会有第三代等版本。卫星可以直接连接你的普通手机，不需要给手机增加任何东西。</p>
+<p>但还有一块缺失的拼图：如果你在室内，特别是屋顶是金属的，来自太空的信号会被挡住。所以，我们需要某种地面设施，解决人在建筑物内部、隔着厚屋顶时的连接问题。</p>
+<p><strong>Sorkin：</strong>对。</p>
+<p><strong>Musk：</strong>这就是我们买下的800MHz频段发挥作用的地方。它可以用来建立所谓微型地面基站，组成一个非常小型的基站网络。一种办法是把它们和Starlink终端结合起来。</p>
+<p>也就是说，我们不必到处建设大型通信塔，而是在人口密集地区散布很多微型蜂窝站点。我们已经有了设计，我想明年会投入生产。它会是一种相当有突破性的微型通信塔，可以像Starlink天线一样装在屋顶上，解决连接室内用户的问题。</p>
+<p>顺便说，我不认为这意味着AT&amp;T、Verizon或其他公司会倒闭。它们或许会损失一些收入，但我认为，未来带宽需求会非常巨大，主要由超级智能和机器人推动。</p>
+<p>它们所需的带宽比人类大得多。人类说话的峰值速度也许是每秒100比特，计算机却可以达到每秒一万亿比特。</p>
+<p><strong>Sorkin：</strong>对。</p>
+<p><strong>Musk：</strong>因此，为未来的超级智能和大量机器人提供连接服务，需要比现在高几个数量级的带宽。</p>
+<h3>SpaceX与Tesla是否会走向合并</h3>
+<p><strong>Sorkin：</strong>这件事你可能不能谈太多，但显然，最近的大新闻是SpaceX和Tesla可能合并。我很好奇，如果最后没有合并，你会怎么看？大家似乎都认为，最终会找到实现合并的办法。但如果没有实现，未来继续分开经营这些业务，会增加多少难度？</p>
+<p><strong>Musk：</strong>我认为两条路径都行得通。只是SpaceX与Tesla之间出现了越来越多以前没有的交集。如果五年前问我，两家公司有没有必要合在一起，我会说没有。过去也有人问，我说想不出这样做为什么合理。</p>
+<p>“协同效应”这个词被过度使用，也经常被误用。真正合并以后，新公司价值高于原来两家公司价值总和的案例，其实比较少见。</p>
+<p>现在推动两者趋同的是AI或者超级智能，以及机器人。SpaceX和Tesla都有规模很大的AI软件团队。Tesla主要做现实世界AI，包括自动驾驶和Optimus机器人；SpaceX做的是大模型AI。两家公司也都有先进芯片设计团队。</p>
+<p>再往未来看，真正能够大规模扩展的是轨道算力。未来，太空中的超级智能算力占比，四舍五入会达到100%。记住这句话，因为听起来很荒唐。我认为，超级智能算力〔在地球上的部分〕占比会不到0.4%，所以轨道算力四舍五入就是100%。我认为这个预测并不难，只是何时实现的问题。</p>
+<p><strong>译注：</strong>原英文字幕在0.4%一句中未明说位置限定，方括号依本段地面与轨道算力的对照补明；该数字保留为Musk的预测。</p>
+<p><strong>Sorkin：</strong>你觉得，要做到这件事，两家公司必须合在一起吗？</p>
+<p><strong>Musk：</strong>并不必须。但合在一起会不会更好？</p>
+<p><strong>Sorkin：</strong>对。</p>
+<p><strong>Musk：</strong>大概会。但这不是说无论如何都要合并。至少对于Tesla而言，这需要股东投票，而投票可能通过，也可能不通过。即便我在SpaceX拥有股东表决权，也必须代表其他股东的利益，不能硬把他们拖进一笔不符合经济利益、对他们不利的合并，否则显然会被起诉。</p>
+<p>真正的问题是：SpaceX和Tesla合在一起，是否能执行得更好、创造比分开更多的价值？这个假设经得起检验吗，是否真的成立？最后由股东来决定。但两者确实出现了很多过去没有的趋同领域，对未来的重要性也越来越高。</p>
+<p><strong>Sorkin：</strong>我有个比较尖锐的问题。我们向读者征集问题，有一个被反复提到。Tesla的薪酬奖励与你实现经营目标挂钩，但如果合并发生，按照历史上的安排，你可能获得那部分报酬。</p>
+<p>原本这套安排是为了让你控制Tesla，而你现在已经完全控制SpaceX。读者想问，如果交易完成，你是否认为自己应该获得那部分薪酬？</p>
+<p><strong>Musk：</strong>我不认为，单纯因为完成一次合并，就应该得到任何奖励。那不合理，也不正确。对任何协议，正确的理解都应该回到各方签约时的约定；应该遵守协议、信守承诺。</p>
+<p>如果Tesla股票期权以Tesla的经营执行为条件，我就不应该仅仅因为Tesla与SpaceX合并而得到它们，因为这没有满足原来的约定。原来的约定是，只有Tesla取得相应业绩，我才能获得那些期权，不能只因为发生合并就获得。</p>
+<h3>Cybercab、Model Y L与不同乘坐需求</h3>
+<p><strong>Sorkin：</strong>最近还有一个经常被问到的汽车问题。显然，你们正在逐步退出Cybertruck，以腾出更多产能制造自动驾驶出租车，最终我想还会……</p>
+<p><strong>Musk：</strong>Cybercab，对。</p>
+<p><strong>Sorkin：</strong>最后你们还会继续制造、销售普通汽车吗？顺便说，我刚买了一辆Tesla。准确说，是已经下单，还没有拿到。你们排队时间可真长，Elon。</p>
+<p><strong>Musk：</strong>你订的哪一款？</p>
+<p><strong>Sorkin：</strong>Y L。我们有三个孩子。</p>
+<p><strong>Musk：</strong>那是目前最受欢迎的车型。说真的，我认为或许应该把Model Y的全部产能都转向Y L，因为大多数人似乎想要的就是它。</p>
+<p><strong>Sorkin：</strong>我的问题是，未来你们仍然会销售汽车，还是一旦Cybercab成为主要业务，就只生产Cybercab？</p>
+<p><strong>Musk：</strong>我们仍有必要生产能够乘坐不同人数的汽车。Cybercab是两座车，可以覆盖全部乘客里程的90%。按所有乘客出行里程来算，平均每辆车里只有约1.2个人。</p>
+<p><strong>Sorkin：</strong>对。</p>
+<p><strong>Musk：</strong>所以两座Cybercab可以满足约90%的乘客里程需求。但如果有四个人、六个人，或者一家人一起出行，仍然需要适合这种情况的自动驾驶车辆。</p>
+<p>我们的计划是推出不带方向盘和踏板的自动驾驶版Model Y，适合一次运送六至七个人。</p>
+<h3>Anthropic算力合同的终止条件与追加需求</h3>
+<p><strong>Sorkin：</strong>我知道你得去开会，而且你那里还是清晨。最后还有几个AI问题。你最近说，很多新云公司会成为“小鱼”，其中一些业务的经济性会崩溃。能不能展开谈谈？特别是今晚，Anthropic即将上市，我也很想知道你现在怎么看它。</p>
+<p>有意思的是，你过去一度认为这家公司对西方文明很糟糕，现在它却在向你租用大量算力。</p>
+<p><strong>Musk：</strong>在向他们出租任何算力之前，我去见过Anthropic的很多人，并没有不加考虑就推进交易。实际上，我在OpenAI时期就认识其中不少人。至少对我而言，见到的这些人，没有谁触发我的“邪恶探测器”。</p>
+<p>这些是期限相对较短、双方都可以终止的合同。如果我觉得Anthropic正在做对世界非常糟糕的事，显然会结束合同。同样，Anthropic也可以终止，不同合同要求提前三至六个月通知。</p>
+<p><strong>Sorkin：</strong>你觉得他们会终止吗？外界有一些猜测，据说他们对部分投资者表示过可能这么做。</p>
+<p><strong>Musk：</strong>我认为不太可能。我和Anthropic交谈时，他们告诉我，极有可能继续从SpaceX租用算力，事实上还希望增加很多。</p>
+<p>但他们必须考虑最坏的情景：如果AI或者超级智能能做什么受到极端限制，他们可能就无法使用这些算力。不过，他们告诉我，概率最高的结果，是希望再从SpaceX增加10GW算力。这是一个很大的数字。</p>
+<p>到目前为止，我和Anthropic团队接触的感觉是，他们似乎都是好人，也有原则。每个人都有些古怪之处，他们当然也有，但他们看起来很勤勉，关心未来。说实话，我有点喜欢这些人。</p>
+<p>所以目前看来不错，而且他们确实做出了很好的AI，Opus和Fable都是很好的产品。</p>
+<h3>关于内心的“风暴”</h3>
+<p><strong>Sorkin：</strong>最后也许问两个哲学性的问题。我很好奇你个人现在感觉怎样。上一次在这里，我提到你形容自己的头脑像一场风暴，当时还问，那是不是一场让你不快乐的风暴。现在呢？</p>
+<p><strong>Musk：</strong>也并非一直都是风暴。也许更像天气状况：有时风雨交加，有时不是。现在我不会说特别狂风暴雨，我觉得自己相对平静。</p>
+<p><strong>Sorkin：</strong>你觉得相对平静？</p>
+<p><strong>Musk：</strong>对。</p>
+<p><strong>Sorkin：</strong>谢谢Elon Musk，非常感谢这次对话。也感谢所有观众全天参与、留到最后。期待很快再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
