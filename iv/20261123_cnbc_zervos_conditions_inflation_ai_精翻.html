@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>David Zervos：金融条件收紧、通胀与AI信息披露（CNBC Squawk Box全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl on" href="../ai_macro.html" aria-current="page" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-24<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../ai_macro.html">← 返回经济影响</a>
+<div class="card"><article>
+<h2>David Zervos：金融条件收紧、通胀与AI信息披露（CNBC Squawk Box全文精翻）</h2>
+<div class="metaline">CNBC／Squawk Box · David Zervos（美国财政部长顾问、前Jefferies首席市场策略师） · 15分51秒 · 2026-11-23 · <a href="https://www.youtube.com/watch?v=5OQiolOLM-c" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：财税政策；AI监管；融资估值；David Zervos；英伟达</p>
+<p>嘉宾：David Zervos，美国财政部长顾问、前Jefferies首席市场策略师。采访：Joe Kernen、Becky Quick、Andrew Ross Sorkin。时长：15分51秒。</p>
+<p>2026年11月23日电视完整访谈片段。Zervos并非联储决策委员，下文保留其个人判断和政府顾问身份的表述。按完整英文原字幕顺序翻译；无法仅凭字幕确认的主持人切换使用中性称呼。</p>
+<h3>要点</h3>
+<ul><li>Zervos认为，上周金融条件收紧同时反映联储、科技及政治不确定性，并反对把其影响精确换算成单一基点数。</li><li>他不认同通胀失控的判断，认为能源供给冲击消退后通胀可能下降，关税影响主要是一次性价格抬升。</li><li>他认为市场需要更快取得英伟达会计及商业关系的信息，但未披露政府协调的具体安排。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">上周抛售已经带来多少收紧</a></li><li><a href="#chapter-2">能不能把金融条件换算成137个基点</a></li><li><a href="#chapter-3">主席、前瞻指引与委员会</a></li><li><a href="#chapter-4">英伟达与政府是否协调</a></li><li><a href="#chapter-5">通胀目标、长期平均与关税</a></li></ul></details>
+<h4 id="chapter-1">上周抛售已经带来多少收紧</h4>
+<p><strong>Joe Kernen：</strong> 顽固通胀、上升的借贷成本，仍在考验美国经济韧性。现在请到财政部长顾问David Zervos。谢谢参加。</p>
+<p><strong>David Zervos：</strong> 很高兴来，Joe。</p>
+<p><strong>Joe Kernen：</strong> 我不想突然把所有问题都变成财政部长的话题。你在Jefferies那么多年，我们一直谈美联储，甚至你也曾是联储主席的考虑人选。所以我真正想谈的是政策。</p>
+<p>不过，先问财政部长。他大约一周半前来《Squawk Box》，我当时认为12月加息是板上钉钉，不只是25，甚至可能50个基点。他却连谈加息都很谨慎。我想，也许因为他是政府的人，总统不喜欢高利率。</p>
+<p>后来Waller又偏离原来的步调，发表那些看法，我没明白逻辑，现在看起来他可能有点尴尬。究竟发生了什么？周五，或者上周整轮抛售，已经给金融市场带来了多少收紧？</p>
+<p><strong>David Zervos：</strong> 这是个好的起点。上周金融条件显著收紧，是纳斯达克表现最差的十个星期之一。波动率大涨，信用利差扩大，流动性条件受到一定影响。今天稍有喘息，看看会怎样。</p>
+<p>你说的联储前景混乱，让我想起2018年。当时总统和时任主席Jerome Powell有些公开争执，Powell说“距离中性利率还很远”，大家一下子觉得，还要加很多。</p>
+<p>随后股市接近回调20%，联储才收到信息：过度收紧是大错。到1月，我们又开始谈降息。所以，市场有自己的方式传递信息。</p>
+<p>我不确定上周传递的完全是这个，但肯定有这一部分。我认为是几件事结合：联储，科技故事中的不确定性、尤其核心的英伟达，以及本月第一个周二的选举变化。三件事共同发酵，造成上周的局面，周五尤其像一个关乎存续的冲击。</p>
+<h4 id="chapter-2">能不能把金融条件换算成137个基点</h4>
+<p><strong>Joe Kernen：</strong> Becky经常提Ben Emons。我想听你是否认可他的数字。</p>
+<p>在杰克逊霍尔，明显能看出通胀在联储主席Warsh心中很重要。他说，决定政策的不会只有金融市场，并列举了很多可能需要加息的理由。</p>
+<p>Emons说，截至11月18日的经济数据，支持额外收紧42个基点；而金融条件已经收紧137个基点，几乎意味着连25个基点都不必加。但他的看法是，可能还是会加最后一次，然后结束。</p>
+<p>你认同这些数字吗？我不知道我们是否真已经收紧了137个基点。</p>
+<p><strong>David Zervos：</strong> 数字精确到这种程度，我几乎想笑。</p>
+<p><strong>Joe Kernen：</strong> 不是136，那个不够，得137。</p>
+<p><strong>David Zervos：</strong> 对。遗憾的是，央行和经济学不是科学，更像艺术，必须按艺术对待。</p>
+<p>我会这样看：有一批研究了几十年、很专业的人，完全出于非政治原因反对进一步收紧。他们认为，通胀上升是能源供给冲击造成的，而冲击很可能结束。</p>
+<p>只要假设冲突结束、油价回到今年3月前水平，模拟明年CPI、PCE的走向，整体CPI就会降到1%出头。如果CPI其他部分也下降，还可能更低。</p>
+<p>因此，我非常怀疑“通胀正在失控”的叙事。上周密歇根调查的通胀预期大幅下滑，TIPS市场也一再告诉我们，通胀预期不是问题。</p>
+<p>我不确定过去六个月这种对通胀的执着从哪里来，除非是联储对2021、2022年落后于形势、行动太慢，已经有点惊弓之鸟，不想重蹈覆辙。有点像只看最近过去，再作决定。</p>
+<p>但从历史看，我很难因此紧张到想在这里过度用力，尤其还有刚谈的科技交易不确定性——此前恰恰是科技繁荣使我们免受其他问题冲击——以及政治格局变化。</p>
+<h4 id="chapter-3">主席、前瞻指引与委员会</h4>
+<p><strong>Joe Kernen：</strong> Stan Druckenmiller上周受访说，自己和这位新主席共事15年，对方一直不喜欢联储往体系灌流动性、低利率维持太久的做法。他想说，Kevin Warsh在必要时确实能成为通胀鹰派。</p>
+<p>如果是你获得主席职位，会发表这些前瞻性通胀判断吗，会给很多前瞻指引吗？你是不是批评Warsh指引不够的人？</p>
+<p>我之前说，选举前给指引，选举又可能影响战争政策，战争影响油价。现在又有市场抛售，如果之前给了指引，也会变得没什么用。你会给很多指引，还是希望更多？</p>
+<p><strong>David Zervos：</strong> 我这样说吧：我完全相信Kevin Warsh会做得很好，总统和部长也反复说过。</p>
+<p>就像总统常说，他处境非常困难。任何人，包括我自己，坐进那个位置，处境都会极其困难。委员会还有另外11个人，与政府目标没那么一致，有人甚至会认为，他们有反对政府的政治偏向。</p>
+<p>这就像刚开始说的2018年，联储想强烈反击，因为觉得总统正侵入自己神圣、总统不该进入的领地。</p>
+<p>有时，官员看到行政部门、甚至立法部门的宣布触及联储政策，就会为了反击而走向另一极端，结果同样在相反方向上表现得政治化。2018年就是这样。我担心今天有些理事和地区联储主席也可能如此。市场会注意到，而且不会喜欢。</p>
+<h4 id="chapter-4">英伟达与政府是否协调</h4>
+<p><strong>主持人：</strong> 既然你在，作为贝森特部长的顾问，你们讨论过黄仁勋或英伟达吗？Andrew想问，部长从似乎认为黄仁勋必须离开，到现在说“他已经离开公司”，看上去有些转变。你和他会讨论这些吗，有什么了解？</p>
+<p><strong>David Zervos：</strong> 关于英伟达和黄仁勋，我没有更多可以补充的。它是美国创造过的最不可思议的公司之一，值得庆祝。他把公司带到5.7万亿美元市值。</p>
+<p>接下来如何，取决于董事会，也取决于国会怎样调查，我们会知道。</p>
+<p>我想说，这种公司只有美国才能创造。部长也谈过Anthropic：五年前，七八个人坐在车库里，看看他们创造了什么，短时间内创造多少投资者价值、市场价值、消费者价值。</p>
+<p>有时应该退一步，想想我们拥有的体系多么了不起，能让这样的公司自然成长，创造这些成果。有时公司会跌跤，我们会弄清问题，然后向前走。对我来说，这里没有重大的系统性风险故事。</p>
+<p><strong>Andrew Ross Sorkin：</strong> 作为美国成功故事，Anthropic、英伟达都非常了不起。但问题是，英伟达与AI生态其他部分关系紧密，为整个生态、进而为经济提供这么多动力。像这样的公司跌跤时，政府、甚至本届政府可能在台前幕后发挥什么帮助作用？我们先委婉地这样说。</p>
+<p><strong>David Zervos：</strong> Andrew，我不完全确定具体问题，但我会说，我们将获得大量信息。会有证词，国会会深入调查。</p>
+<p>在我看来，市场真正想要的、上周表达出来的，就是更多信息。从会计，到与中国关系的具体细节，大家都想弄明白。</p>
+<p>那就把信息拿出来，全部摆到桌面上，再让所有人在市场、经济、技术进步的生态里作决定、向前走。我认为我们会到一个不错的位置。</p>
+<p>困难在于，如果信息不够快，事情来回摇摆，大家还是不理解。人们不知道情况，就会退缩。上周很多行为，就是“我不知道这里究竟发生什么，所以先从桌上拿走一些筹码”。这个“筹码”并没有故意双关芯片的意思。</p>
+<h4 id="chapter-5">通胀目标、长期平均与关税</h4>
+<p><strong>Joe Kernen：</strong> 很好，我刚才想问一个问题，现在想起来了。我已经打过带状疱疹疫苗，但偶尔还是忘记自己想说什么。</p>
+<p>你几乎描述了一条回到2%的平稳路径，好像不管联储做什么都在走。你真的相信吗？这会让Kevin Warsh轻松很多，他说自己非常认真地要实现目标。</p>
+<p>按你说的，如果油价和其他方面满足某些条件，一年左右就可能做到？另外，有人担心，如果换一种方式重新实施关税，又会有冲击；也有人说，最后稳定在10%，没什么大不了。你怎么看？</p>
+<p><strong>David Zervos：</strong> 不想太技术化，但自联储2012年设立2%通胀目标以来，平均PCE通胀率是2.38%。过去14年，平均2.38%。</p>
+<p>略高于目标。大约九年半低于目标，五年多高于目标；高于目标期间的超出幅度，比低于目标期间的不足更大，但最终平均是2.38%。</p>
+<p>仅通胀测量误差，可能就有50个基点。从长期通胀的大格局看，我们大体在目标区域附近。也已经从2022年那些让所有人害怕的高点，回到2.5%—3%区间，实现这种反通胀是很好的成就。</p>
+<p>我觉得，去争论通胀预期正在失控、严重脱锚，或现在犯了巨大通胀错误，非常不真诚。</p>
+<p>途中有过小错误，可以谈2022年反应多快，也可以谈更早通胀非常低时，是否宽松不够。但我不理解“红旗都亮了，必须极其……”这种说法。</p>
+<p><strong>Joe Kernen：</strong> 关税呢？我们这里有很多人，从第一天就担心，直到现在仍说所有通胀都来自关税。</p>
+<p><strong>David Zervos：</strong> 我看到的多数研究，认为对PCE的影响大约半个百分点，而且是一次性冲击，仅此而已。可以找到说更多的人，但即使多数联储研究，以及多数可信学术研究，都认为大约半个百分点。</p>
+<p>这是一次性价格冲击，不是持续通胀，而且看起来没有传导到我们所看那些可信的通胀预期指标里。</p>
+<p>除非你要说，关税还会再上一个台阶。也许会，我不知道，但我觉得不太可能。总统把各国带到谈判桌，达成比原来更合作的贸易安排，做得非常好。</p>
+<p>所以，委员会许多人、市场里一些人提出的那些红旗，我看不到。至少通胀上，我没看到。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

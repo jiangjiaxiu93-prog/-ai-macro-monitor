@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>OpenAI生命科学团队：科学家的Codex、药物研发与数据瓶颈（a16z全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl on" href="../topics.html" aria-current="page" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-24<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../topics.html">← 返回应用层的回报</a>
+<div class="card"><article>
+<h2>OpenAI生命科学团队：科学家的Codex、药物研发与数据瓶颈（a16z全文精翻）</h2>
+<div class="metaline">a16z · Joy（Yunxin）Jiao、Ashoka Rajendra（Orchestra Bio创始人；现OpenAI生命科学团队）；Jay Rughani、Jorge Conde主持 · 65分34秒 · 2026-11-23 · <a href="https://www.youtube.com/watch?v=RwYz8XhZiu0" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：垂直应用；企业代理；研发效率；生产率；OpenAI；GPT-Rosalind</p>
+<p>嘉宾：Joy（Yunxin）Jiao，OpenAI生命科学研究团队、GPT-Rosalind项目；Ashoka Rajendra，Orchestra Bio创始人，现OpenAI生命科学团队。主持：a16z合伙人Jay Rughani、Jorge Conde。时长：1小时05分34秒。</p>
+<p>原标题《Why Biology Is AI’s Next Big Challenge》，2026年11月23日发布。下文按完整英文原字幕顺序翻译，清理片头重复预告及口头填充。主持人无法仅凭字幕区分的切换，以“主持人”标示。研究能力、产品计划和医疗案例均保留发言人的口径与限定。</p>
+<h3>要点</h3>
+<ul><li>团队希望把科学模型与工作流产品结合，打造面向科学家的Codex，贯通发现、开发和分发。</li><li>临床提效包括患者匹配、监测与申报材料，但不能略过生物学所需时间，证据必须可追溯。</li><li>生物数据有价值半衰期，真实实验仍不可替代；找到疾病诊断，也并不等于已有治疗办法。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">生命科学的三个支柱</a></li><li><a href="#chapter-2">为什么收购Orchestra Bio</a></li><li><a href="#chapter-3">发现、开发、分发：三个不同的工作流</a></li><li><a href="#chapter-4">从海量数据里寻找洞见</a></li><li><a href="#chapter-5">“下一步做什么”与科学家的判断</a></li><li><a href="#chapter-6">靶点发现与分子设计</a></li><li><a href="#chapter-7">临床试验的复杂工作</a></li><li><a href="#chapter-8">把正确患者匹配进试验</a></li><li><a href="#chapter-9">申报文件与证据链</a></li><li><a href="#chapter-10">监管能否变成连续过程</a></li><li><a href="#chapter-11">制造：把配方变成可靠工艺</a></li><li><a href="#chapter-12">分发不只是送药，还包括获得医疗服务</a></li><li><a href="#chapter-13">第四个D：什么数据最稀缺</a></li><li><a href="#chapter-14">给“数据工厂”创业者的建议</a></li><li><a href="#chapter-15">数据集的价值半衰期</a></li><li><a href="#chapter-16">创业公司怎样与OpenAI共存</a></li><li><a href="#chapter-17">波士顿儿童医院：诊断不等于治愈</a></li><li><a href="#chapter-18">人怎样审查模型提出的结论</a></li><li><a href="#chapter-19">安全与可信访问</a></li><li><a href="#chapter-20">未来几年，什么看似不可能的事会发生</a></li></ul></details>
+<h4 id="chapter-1">生命科学的三个支柱</h4>
+<p><strong>Jay Rughani：</strong> 大家好，我是Jay，a16z合伙人，负责医疗和生物技术投资。我的搭档Jorge也在，今天请到OpenAI生命科学团队的Joy和Ashoka。欢迎。</p>
+<p><strong>嘉宾：</strong> 谢谢邀请。</p>
+<p><strong>Jay Rughani：</strong> Joy，直接开始。几周前，有幸请你们同事、OpenAI Health负责人Karan Singhal来节目，谈到每个人口袋里都能拥有、可以无限获取的医疗智能。这听起来很棒，而且似乎离实现不远。</p>
+<p>但即使世界最好的医生，有时也只能告诉患者，所患疾病没有治疗方法。说说你在OpenAI的工作。你是否乐观地认为，有一天，借助你们正在开发的工具，AI能帮助为每种疾病识别、设计治疗方法？</p>
+<p><strong>Joy Jiao：</strong> 我认为，这是领域内多数人最兴奋的目标。</p>
+<p>退一步看，OpenAI生命科学整体策略和目标，有三个支柱。第一，训练最好的模型，这是我们从最早开始就在做的。第二，打造最好的产品，加快科学家和药物开发者的工作，这就是Ashoka加入的部分。第三，与学术界、生物技术和制药公司合作，展示这些能力，展示AI究竟能产生什么实际好处。</p>
+<p>OpenAI的使命，是确保AGI惠及全人类。生命科学是最明确、最少争议的益处之一，也可能是影响最大的。所以我们在这里投入非常大，包括资本，以及用于训练模型的GPU。</p>
+<p>我们的北极星，是能看到基础学术研究得到有意义的加速，真正推动科学前沿；也能看到从识别靶点，到将项目带入临床、完成临床的时间缩短。</p>
+<h4 id="chapter-2">为什么收购Orchestra Bio</h4>
+<p><strong>主持人：</strong> 你们在为科学家造工具。Joy，你和团队围绕GPT-Rosalind做了很多工作。Ashoka则创办了Orchestra Bio，最近被OpenAI收购，继续扩大科学家的工具箱。说说已经开发的工具，也说说为什么收购Ashoka的公司。</p>
+<p><strong>Joy Jiao：</strong> 今天模型一个很大的问题，是我们所谓“能力悬置”：模型能做很多事，但没人知道，于是也没有人真正用到。</p>
+<p>最早的AI产品是ChatGPT，外面那层运行界面基本是聊天，让人与模型沟通容易得多。下一步有Codex，让模型既能控制电脑，又能成为程序员很好的协作助手。</p>
+<p>我们真正想做的，是为科学家、生物技术和制药行业，提供像程序员的Codex那样好的东西。</p>
+<p>训练GPT-Rosalind时，我们看到模型在化学、结构生物学等方面有很多有趣能力，基准测试表现很好。但反复出现的情况是，人们不知道怎么用模型，甚至不知道怎样写提示词、该问什么问题。</p>
+<p>所以需要极好的产品，或者模型外的运行环境，让这些能力真正可用。这就是Ashoka的作用：我们有模型，却没有很好的使用方式；Orchestra在打造很好的产品。对于如何加速发现和开发，我们的路线图、未来愿景高度一致，于是走到了一起。</p>
+<p><strong>主持人：</strong> Ashoka，加入对话。你和Orchestra团队开发了很棒的工具，把科学家、合作伙伴，以及单个药物项目中的工作整合起来，还能跨项目协作。为什么加入OpenAI如此合理？和Joy及团队合作怎样？</p>
+<p><strong>Ashoka Rajendra：</strong> 回到AGI惠及全人类的使命，我会想到自己的生活经历。</p>
+<p>父亲是医生，我小时候，他说：“希望等你医学院毕业时，再看我今天给病人的治疗，会觉得很野蛮。”他是肿瘤科医生。我后来很遗憾没有走医学院这条路，但现在也许多少弥补了。</p>
+<p>我们已经看到很多新平台技术的惊人进步：抗体、mRNA、细胞和基因疗法等。我真心相信，AI也是这样一种能力。</p>
+<p>成长过程中还学到，患者体验在很大程度上受治疗医生的专业能力限制。我的经历，以及很多曾向我父母咨询的朋友的经历，是世界级医生会花时间，理解你的情况。</p>
+<p>你与Karan和OpenAI团队谈过，模型在理解临床信息、放大临床专业能力方面，已经具备超越人的一些能力，而我们又缺少这种专业服务。</p>
+<p>创办和扩大Orchestra时，我关心的是，如何推动药物前沿，怎样用技术帮助行业发现和开发药物，专注最擅长的工作。</p>
+<p>现在可以把管理研究、药物项目、实验活动和临床试验的能力，与最前沿模型放在一起。每三四个月，模型就会出现令人惊叹的新能力。我认为，这就是一个拐点：把运行药物项目、临床试验等能力带给整个行业，并与模型能力紧密结合。</p>
+<h4 id="chapter-3">发现、开发、分发：三个不同的工作流</h4>
+<p><strong>Jay Rughani：</strong> 我们谈了打造最好模型、放进最好运行环境，让科学家用于自己的工作。再谈怎样带给行业，产品会落在哪些地方。</p>
+<p>几年前，Jorge和我写过文章，谈软件和AI触及整个生命科学价值链的机会，用了“发现、开发、分发”这个三个D的框架。想借它展开。</p>
+<p>Ashoka，OpenAI怎样考虑三个环节的工具？三者同等投入，还是先早期再往后？</p>
+<p><strong>Ashoka Rajendra：</strong> 三个方向都有很大抱负，但也必须认识到，它们和工作流非常不同。</p>
+<p>发现环节，从靶点到IND，也就是新药临床试验申请，我们重点是扩大、放大专业药物发现者的能力。有很多形式：模型或其他能力，执行高度专业化的科学任务，比如检索海量文献、规模化分析基因组数据，甚至生成化学结构和候选分子。</p>
+<p>这些是核心能力，但只是任务。任务位于一长串研究、实验活动和工作流中，最终才组成整个药物项目。</p>
+<p>因此，不只是帮人完成高度专业任务，借模型可能超人的能力放大专业知识，还要真正协调完整工作流，从一项研究到整个药物项目；每一步都捕获所产生的证据，尤其隐性知识。</p>
+<p>上一轮SaaS在我工作过的公司里，很好地结构化、保存信息。但为什么选这个分子？有什么反事实？有什么与主张相冲突、构成混淆的证据？这些隐性知识，才组成推动发现早期进展的证据链。</p>
+<p>怎样规模化管理，同时并行做更多实验，在更短时间探索更大空间？这是我们想解决的。</p>
+<p>开发环节主要是时间与成本。监管申报、制造、临床，已经触及患者，监管和质量极其重要。实际表现是海量文件，这些文件又非常关键，因为流程就是产品。</p>
+<p>你怎样知道，给正确患者、在正确就诊环节、按正确剂量使用的，是通过质量门槛的正确药物？大语言模型特别擅长理解非结构化和半结构化信息，因此可以缩短监管申报时间，也可以监测、跟踪临床试验。</p>
+<p>最后到分发，与OpenAI医疗团队合作很令人兴奋。ChatGPT有12亿用户，其中3.3亿在问健康问题。消费者、临床医生、支付方，这些群体突然都能获得一种能力，帮助推理复杂的临床医学问题。</p>
+<p>现在药物被采用，有时取决于你有没有去对的会议、读对的论文、听到对的信息。让患者根据正确诊断，在正确时间得到正确治疗，这个环节有很多可以改变的机会。</p>
+<h4 id="chapter-4">从海量数据里寻找洞见</h4>
+<p><strong>Jorge Conde：</strong> 深入谈发现。我在生物技术领域待了很久，在我看来，这是AI带来的超人智能最有希望、最令人着迷的用武之地。</p>
+<p>“发现”意味着，真正重要的基本单位是洞见：怎样产生洞见，又怎样作决定，把它推进为最终有影响的药物？</p>
+<p>从最基本层面看，科学家身边可以有怎样一个产品，支持寻找独特洞见？你谈到Codex，OpenAI今天的产品和对科学家的支持，走到哪里了？</p>
+<p><strong>Joy Jiao：</strong> 我个人很兴奋的，是不断出现的数学成果：派出一万名代理组成团队，给一个问题。因为数学可验证，连部分进展也能验证，于是能够解决非常复杂的问题，比如千禧年大奖问题、Navier–Stokes等。</p>
+<p>自然会问，什么时候在生物学看到类似进展？生物学的“千禧年大奖问题”是什么？</p>
+<p>但生物学问题和数学很不一样，很多是探索性的。过去一二十年，下一代测序、高通量实验产生了巨量数据。限制因素其实是从这些海量数据中获得洞见，而不总是数据不足。</p>
+<p>这与数学很不同：数学可以给你一个命题，让你证明。</p>
+<p><strong>主持人：</strong> 很有意思。你是说，数据和答案已经在那里，只要把足够多的超人智能投入任务？</p>
+<p><strong>Joy Jiao：</strong> 不总是。有些数据集，答案确实就在里面，但人类注意力有限。</p>
+<p>以前我读系统生物学博士，也做过高通量实验。数据回到桌上时，会极其兴奋：“这里面有洞见！”但同时又有一种令人无法行动的焦虑：“搜索空间这么大，怎么找？”</p>
+<p>现在进入不同阶段，可以让成千上万代理去探索数据集里每一种可能假设，还能互相沟通、与人类沟通。第一次，我们不再受人类注意力限制，可以关注数据集中的每一处，挤出所有洞见。</p>
+<p>例如，我们与早期合作伙伴PerturbAI的工作。它们在小鼠脑中做了体内Perturb-seq实验，大约2000种扰动、800万个不同细胞，是非常大的数据集。</p>
+<p>把2000个代理投入后，模型发现了一些人类手动检查时没发现的洞见，而人类此前已经投入了很多个月。</p>
+<p>比如，同一蛋白复合物中的两个基因，在多数细胞类型中，分别敲低它们，结果相似。但在一种特定细胞类型中，敲低其中一个，很多事情改变；敲低另一个，却没有变化。这对基础生物学、也对一种特定疾病——结节性硬化症——有意义。</p>
+<p>想象一下，一个研究生要从800万细胞乘2000基因的矩阵里找到这个模式，要花多久。</p>
+<p>所以，只要扩大token和代理的使用规模，就能把原本藏在数据集中的洞见找出来，我们确实进入了新阶段。</p>
+<p><strong>主持人：</strong> 这已经体现在产品里了吗？今天，如果我是一家制药公司的湿实验科学家，能获得这种能力吗？</p>
+<p><strong>嘉宾：</strong> 还不一定能用到2000或一万名代理的完整配置，但科学家使用Codex、调用很多子代理，甚至让一个代理协调其他代理，这样的能力已经有了。</p>
+<p>这可能是采用速度最快的用途之一：一个表面上非常擅长软件工程的工具，突然让各种科学家探索自己拥有的庞大数据空间。</p>
+<p>已经看到很多令人兴奋的结果，有人重新看博士时期的数据，或以前做过的实验。过去受限于能提出多少假设、能运行多少分析。即使没有数千代理的完整团队，现在也已经出现变化；在合作项目中，再把规模大幅放大，又看到很多希望。</p>
+<h4 id="chapter-5">“下一步做什么”与科学家的判断</h4>
+<p><strong>主持人：</strong> 发现工作大多是在不确定性中前进，最大的价值来源之一，是知道下一步做什么。</p>
+<p>有一个假设，做实验，得到结果，分析大数据集，产生新洞见，然后呢？优秀药物发现者之所以优秀，就是知道下一步。今天的工具能帮一般科学家思考这个问题吗？</p>
+<p><strong>Ashoka Rajendra：</strong> 这就是为什么我们说放大专业能力。那些研究复杂数据集的人，要决定下一步，靠自己的能力和品味，会说：“我要读文献，要找世界级专家交流，要做这件事。”</p>
+<p>我们可以放大：你要看文献，能不能看1000篇、5000篇？能不能看看从没想过的专家和研究团队？能不能检索互联网上的整个知识库？</p>
+<p>运行环境这一侧，还可以看你做过的所有其他实验，以及内部积累的知识。</p>
+<p>最终，“下一步做什么，为什么”，是最稀缺的资源，也是最难找到的能力，是杰出科学家、药物发现者的核心。所以，我们把今天的工具和系统看作很好的放大器。</p>
+<p>当领域最优秀的人开始说：“哇，这是一个新的洞见，我不知道自己能不能想出来。”那时就会是真正巨大的突破。</p>
+<h4 id="chapter-6">靶点发现与分子设计</h4>
+<p><strong>主持人：</strong> 从高层看，发现有两个部分：首先，找什么靶点，才能影响疾病；其次，能不能设计一个分子，命中靶点，产生合适临床效果，也就是安全有效地命中。</p>
+<p>后面几个D，则是证明这一点。OpenAI今天在寻找靶点、设计能命中它的分子方面，能支持到哪里？</p>
+<p><strong>Joy Jiao：</strong> 靶点发现的很多工作，类似刚才谈的代理团队。现在可以投入近乎无限的注意力，在一个问题上尽量扩大测试时token计算，得到原本无法得到的洞见。</p>
+<p>有了靶点，到了分子设计，则更像一个具体优化问题，也很有意思。模型能否协调不同化学工具、专门蛋白设计工具，做出新的蛋白？</p>
+<p>更有意思的是，我们开始看到一些迹象：模型能像世界上可能只有10到100位的那种专家一样，看一段蛋白质序列，也就是一串基本字母，在脑中想象三维结构；或者看一个分子，说这个部分是隐患，需要特定修改，才能更好地与蛋白结合。</p>
+<p>从一开始，我们就想把这些能力构建进Rosalind。过去几周，内部模型训练开始涌现这些东西，是我见过最令人兴奋的进展之一。</p>
+<p>所以，我认为未来三到六个月，AI设计分子的方式会改变很多。</p>
+<p><strong>主持人：</strong> 很好。归纳一下，你们说了两类能力。一类是扩大人类工作的吞吐量，一千、一万名代理，完成一万名研究生的工作，但只需几秒。另一类是超人能力，也许世界上只有一两位顶级药物发现者，能想象蛋白结构、发现结构隐患、建议修改，一般人没有这种能力。</p>
+<p>用这个视角谈开发。下一个D是，在有了有希望的科学假设之后，先在哺乳动物、再在人类中测试候选治疗的安全性、有效性。</p>
+<p>Ashoka，从运行环境看，你们为设计临床试验的制药、生物技术开发人员，准备构建什么工具？</p>
+<h4 id="chapter-7">临床试验的复杂工作</h4>
+<p><strong>Ashoka Rajendra：</strong> 临床试验和开发是一大组活动，也是花钱最多的环节。</p>
+<p>从设计试验方案开始：怎样浏览至今所有试验和论文，与不同人合作，交叉判断出合适方案和设计？然后，在哪里做，用哪些研究中心，应该细分哪些患者群体入组，怎样启动研究中心？</p>
+<p>很多临床工作外包给合作伙伴，申办方要做大量监督，了解各中心、各患者到底发生了什么。</p>
+<p>进入日常临床运营，取决于研究结构，可能只看安全性，也可能看安全性和早期有效性，再据此设计二期、三期。</p>
+<p>每天运营一场试验，是申办方和研究中心两边都很庞大的工作。申办方要按方案监控一切，中心要遵守标准操作规程和试验方案，还要跨越各种系统：EDC电子数据采集、CTMS临床试验管理、HR、方案、TMF试验主文件，各种三四个字母缩写的系统。</p>
+<p>工作极多，很容易不同步，数据相互不一致，进而影响能否以统计上有效的方式，用数据理解疗效。</p>
+<p>每一步，我们都在与生物技术公司、大药厂、合同研究组织CRO、合同研发生产组织CDMO等伙伴密切合作，开发各自需要的产品能力。</p>
+<p>拿Joy说的扩大算力和代理能力举例，日常可以很直接：一场试验需要多少关注和监督？你有方案、入组目标、预期活动时间表，但试验从不会完全按计划走。</p>
+<p>某些中心入组不足，治疗反应出乎意料，出现需要交叉分析的不良事件。处理这些问题，需要深入分析分散在各系统的海量数据，这恰恰是代理可以非常擅长的。</p>
+<p>能不能让设计良好的试验本身更快发生？生物学有时间约束，所以这个问题的答案是否定的。但可以做很多事情，防止它偏离轨道。</p>
+<p>很多试验因为入组或研究中心的问题，无法按时完成。怎样放大专业能力和运营能力，让人们规模化运行试验？这是一个很大的机会。</p>
+<h4 id="chapter-8">把正确患者匹配进试验</h4>
+<p><strong>主持人：</strong> 临床开发是把药送到患者手中时最耗时的关键环节，花时间最多、花钱最多，也往往在这里才发现犯了错、项目失败，而且失败代价巨大。AI提高效率的潜力应该很大。</p>
+<p>面对这么复杂的流程，哪些地方已经证明AI有帮助？</p>
+<p><strong>Ashoka Rajendra：</strong> 可以分三块：设计更好试验，把正确患者带进试验，减少执行的运营负担。第三块刚谈过，谈中间这块，入组。</p>
+<p>十多年前，数字医疗繁荣刚起步。Jay肯定也有过很多深夜，想着如何拿到临床数据、基因组数据，如何匹配患者与试验。任何会议都在谈，真正参加试验的患者，与希望参加的人，差距有多大。</p>
+<p>这是很复杂的推理问题。十年前的工具，是提取信息、手写规则、规则引擎，试图匹配。但无法充分处理复杂的纳入排除标准、患者处于病程哪一步、怎样与试验方案匹配。</p>
+<p>我们有庞大的消费者用户群，ChatGPT也用于临床，再把它与临床试验这一侧结合，机会很大。因为能否首先把患者招进来，可能是决定试验最后花多久的最大因素之一；还要确保招到的正是目标队列。</p>
+<p>我认为，这方面已经有阶跃式变化。不能把所有事情塞进关系数据库表，就完成试验匹配。纳入排除标准正是因此存在，也正因此需要专家审阅。</p>
+<p>但我们已经到了可以明显提高资格筛查能力的阶段，并把消费者和企业两侧业务结合起来。</p>
+<p><strong>主持人：</strong> 很有意思。也就是说，有一种可能，ChatGPT能帮消费者意识到，有一场适合自己的试验。</p>
+<p><strong>Ashoka Rajendra：</strong> 可以是消费者自己，也可以是医生。</p>
+<p>医生看病历，只有20、25分钟，非常稀缺。同一套能提取全部就诊记录、问题清单的系统，也可以检索文献，还能结合病情进展，看当前这个学术医疗中心有哪些试验。</p>
+<p>核心是医生时间稀缺。能不能预先整理出一个候选，让临床试验协调员来筛查资格？之后又有整套工作流，要收集证据、信息，完成筛查。</p>
+<p>凭今天模型能力，这些感觉已经很可能实现。制药申办方、学术医疗中心和医疗体系都有不同机会，可以把两侧拉近。</p>
+<h4 id="chapter-9">申报文件与证据链</h4>
+<p><strong>主持人：</strong> 再往下游一步。设计试验，成功入组，运行试验，拿到数据，现在必须把它全部整理成文件，提交监管机构，在这里是FDA，申请批准。</p>
+<p>两个问题：为听众解释，汇总监管申报所需全部文件，到底多痛苦、多费功夫？其次，AI显然可以在哪些地方产生杠杆？</p>
+<p><strong>Ashoka Rajendra：</strong> 不管提交IND、制作临床研究报告CSR，还是提交生物制品许可申请BLA，监管流程都是一个时点：必须把全部知识、发现和操作经验，收集成监管者可以读懂的东西。</p>
+<p>极其痛苦，因为要管理一整片人类知识，没有一个人或一组人能全装在脑里。今天的方法，是增加参与人数，扩大能管理的上下文，所以本质是人力和时间。</p>
+<p>怎样记录前面的流程、组织信息和知识、向监管者展示，这些正是大语言模型非常适合做的事情。</p>
+<p>对海量结构化、非结构化和半结构化信息进行推理，汇编成证据包，规模化组织信息，既需要模型能够理解这些信息，也需要运行环境和上下文层，规模化管理信息。</p>
+<p>这在生命科学中，是采用速度最快的方向之一：第一，技术适合问题；第二，大规模管理上下文的时间可以被显著压缩；第三，对所有参与方都有很大益处。</p>
+<p>没人想草率赶进度。大家真正想的是，怎样扩大团队能力，确保准确记录、保存、提交所有内容，达到适当质量门槛。</p>
+<p>最终，既关乎更快上市，也关乎质量。即使增加人类注意力，仍可能遗漏什么。尤其今年的模型，让我们接近一个转折：不只是帮我做快一点，而是扩大整个团队发现问题、异常和离群值的能力，在交到FDA之前完成核对。</p>
+<h4 id="chapter-10">监管能否变成连续过程</h4>
+<p><strong>主持人：</strong> 我年纪够大，记得以前向FDA申报，要把一切打印出来，成千上万份文件，租U-Haul卡车，拍照纪念，然后开到华盛顿，非常夸张。现在当然不这样了。</p>
+<p>AI在生成申报资料方面潜力很大，FDA也表示想现代化、部署技术，用来审阅、评估，最终帮助决定批准与否。从你们看，监管机构是否也在朝提高审评效率的方向走？</p>
+<p><strong>Ashoka Rajendra：</strong> 近年来，FDA确实研究了很多方法：怎样让美国公司更早进入一期试验，怎样持续提交临床数据、而不是等最后，以及愿意开放地让FDA工作人员使用AI。我们看到很多有希望的信号。</p>
+<p>从一车纸质文件，到电子提交，再到人类团队加上代理同事，一起生成、汇总资料。监管侧同样有很好的机会提高能力：怎样在大海里找针，怎样让流程更连续？</p>
+<p>现在有IND前会议、IND会议等单独时点，集中反馈。过去受到工作量限制，未来可能把监管从单点，变成持续过程。</p>
+<p>当然，要让系统足够可靠、由人类专家和代理同事一起工作，还有很多事要做。但可以开始思考一种更连续、迭代的范式，而不是最后才收到一整车文件。</p>
+<h4 id="chapter-11">制造：把配方变成可靠工艺</h4>
+<p><strong>主持人：</strong> 开发中最后一块大石头，是制造。像制药很多环节一样，它极其复杂，也非常昂贵。公司投入巨额资金，确保制造流程正确、达到最终批准的监管要求。</p>
+<p>你在Orchestra Bio的经历也谈到，制造一处错误，就会产生涟漪，甚至海啸式影响，拖延临床、拖延批准。能说说一线会出什么错，AI又能让什么做对？</p>
+<p><strong>Ashoka Rajendra：</strong> 行业里的人很熟悉组织和团队之间怎样传递知识。我们一直谈规模化管理上下文、信息。打个比方，我能读米其林主厨的菜谱，不代表我就是米其林主厨。</p>
+<p><strong>主持人：</strong> 我一直这么对Jorge说。〔笑〕</p>
+<p><strong>Ashoka Rajendra：</strong> 生物制品、小分子的制造，是极其复杂的一整套配方、流程和经验。出于成本与速度，越来越多交给国内外CDMO。</p>
+<p>代价是，必须把实验室或中试规模奏效的知识和诀窍——就像自己厨房、或餐厅规模——转成临床试验规模和商业规模。</p>
+<p>先是技术转移：怎样把自己的诀窍交给另一个组织。再是实际生产批次，供临床使用。最后扩大到商业上市规模。</p>
+<p>每一步都要持续监测每个组件、每个流程参数：人在设施里怎样走动，环境信号，人们随手写下的每件事，全要监督。</p>
+<p>这就是代理很适合帮忙的例子。把流程交给另一个组织，要进行核对、差距分析：我们能做什么，对方能做什么，怎样细致地把我们有效的流程，与对方复制或放大的流程对齐。</p>
+<p>再到批次制造，甚至细胞疗法，也经常有批次在质控等待，不能交给患者，因为需要极其仔细地审查制造时记录的每个参数、属性。</p>
+<p>今天很多制造仍使用纸质批记录。代理可以读手写内容，检查参数，对照规定范围，再开展调查。</p>
+<p>一家知名药企的人举过例子：冰箱温度偏差，怎么会拖延临床试验？代理扫描发现，冷冻柜或冰箱停了三四个小时，我们有没有数据证明这种偏差可以容忍？是不是设施本身出了问题？</p>
+<p>如果是设施问题，可能是系统性问题，需要处理，甚至重新做整批生产。这些都可能使供试验用的批次不能及时就绪。</p>
+<p>因此，要沿复杂流程和知识体系追溯，确保精密工艺在适当容差内，正确地规模化运行。</p>
+<p>大家当然很关注临床和监管，但我认为CMC，也就是化学、生产和质量控制，实际上是非常适合代理产生重大影响的领域。</p>
+<h4 id="chapter-12">分发不只是送药，还包括获得医疗服务</h4>
+<p><strong>主持人：</strong> 发现和开发都存在巨大的数据问题。AI和推理模型既能处理海量数据，也很擅长处理监管、制造、临床的大量人工文书。听起来，你们正在为整个价值链的研究者和药物开发者构建这些工具。</p>
+<p>到药物分发给患者时，也有大量文书：保险、事先授权、不合理拒付等等。消费者能期待你们解决什么？</p>
+<p><strong>Ashoka Rajendra：</strong> 消费者已经在大量使用工具，寻找适合自己的医疗服务。很多人用它准备如何向医生描述病情。</p>
+<p>最大问题之一，是把症状转成医生在20分钟就诊里能理解、能交叉判断的信息。</p>
+<p>之后可能还要处理保险。我在一家Medicare公司工作过，一群极聪明的精算师坐在一起，自己都很难弄懂所有事先授权规则、福利和使用方式。不是精算师的普通人，怎么理解自己有什么保障、怎样报销？</p>
+<p>很多采用是自然发生的：“我想用这种药，做这个手术，保险拒付了。”整个体系经常用非常粗的工具控制使用量、确认治疗有正当依据。这些粗工具是为了控成本，但普通人很难驾驭。</p>
+<p>人不会一觉醒来，就成为医疗导航员，也不会天然懂得怎样向保险公司申诉。</p>
+<p>所以，今天很多人用ChatGPT与医疗提供方、支付方打交道，理解怎样汇集证据。我们也在与医生、支付方开展一些很有意思的工作，帮助方程两侧。</p>
+<p>我不认为任何人真的希望这些粗工具给医疗服务制造巨大障碍，也不认为应该只让患者和消费者自己用ChatGPT跨过障碍，尽管这种用法很令人振奋。</p>
+<p>医疗体系和保险侧的系统正在升级，我们希望能以适当精度，帮助人们获得照护。</p>
+<h4 id="chapter-13">第四个D：什么数据最稀缺</h4>
+<p><strong>主持人：</strong> 换个方向，增加第四个D，数据。你开头说，如果能对海量数据投入无限注意力，就能提取潜藏的洞见，这很有意思。</p>
+<p>哪些地方数据还浅、还不足？如果OpenAI能挥魔杖，说“希望存在这些数据集，让模型更好”，愿望清单会是什么？</p>
+<p><strong>Joy Jiao：</strong> 数据是训练模型最大的瓶颈之一。常说垃圾进、垃圾出，没有高质量数据，模型一般学不到有用东西。</p>
+<p>生物学和代码、ChatGPT对话很不同。用户输入一个句子，这个句子就是那个句子，基本没有这方面噪声。</p>
+<p>但生物学，一个实验室按某套流程做，得到一组结果；另一个实验室完全同样操作，也许因为海拔、温度，或者空气中什么差别，就得到完全不同结果。</p>
+<p>噪声让生命科学很难训练。比如细胞扰动数据，不同实验技术还有偏差。做基因敲低或扰动，再测细胞结果，捕获分子、读取分子的方式都有偏差，所有噪声还会放大。</p>
+<p>我希望有更多非常干净、低噪声、信号明显的数据，让我们能够学到真正的信号。</p>
+<p>团队在模型训练全流程加入生命科学知识，从预训练、中期训练，到强化学习和后训练。拿到数据后，另一个大瓶颈，是把它加工成模型训练能使用的形式。</p>
+<p>具体说，生物学中相对无噪声的，比如测序数据，生命之树的基因组。知道基因组里的一个字母是什么，它就是那个字母。</p>
+<p>结构生物学也低噪声得多，因为大致知道蛋白的形状。当然，蛋白会运动、变形，也就是不同构象，但仍比人类健康数据噪声少得多。</p>
+<p>电子健康记录出了名地吵杂。健康状态是某个时点的状态，人却沿时间变化：当前状态不是永久状态，会生病、会好转。医生写的内容有噪声，患者什么时候选择去或不去医院，也有噪声。</p>
+<p>所以，相比结构生物学这种低噪声、高信号的数据，健康记录非常难训练。</p>
+<h4 id="chapter-14">给“数据工厂”创业者的建议</h4>
+<p><strong>主持人：</strong> 我们经常接触创业者，有很多人的目标，就是生产你们感兴趣的数据。现在甚至出现了一整类“数据工厂”公司。他们正在认真听，坐在椅子边上。你会给想做数据工厂的创始人什么建议？</p>
+<p><strong>Joy Jiao：</strong> 好问题。我确实亲身经历过大量人来推销各种数据。</p>
+<p>形式很多，有人卖实验数据：“我做了实验，给你原始数字，一个CSV文件，要不要？”也有人做人类专家数据：一个人正在做什么，或有人问一个问题，再定义什么是好答案。</p>
+<p>两类数据用途不同。CSV数字可能帮助模型形成理解自然世界的基础能力，很有用。另一类更像后训练：模型已经有很多原始智能，但需要把智能以能与用户沟通的方式表现出来。</p>
+<p>这时就需要评分标准：有没有给适当背景，是否覆盖关键点，最终答案是否说明确定和不确定的程度。要让模型对所有人尽可能有用，两类都需要。</p>
+<p>我没有特别具体的建议，总体要高质量。原始实验数据，我们会做一些很直接的检查，看是否含信号、是否干净。偏后训练的数据，很多得亲自读，判断是否合理。</p>
+<p>现在模型已经很强，也可以让另一个模型评估数据、告诉我们好不好，某种程度上又绕回来了。</p>
+<h4 id="chapter-15">数据集的价值半衰期</h4>
+<p><strong>主持人：</strong> 你们对新数据的需求会逐渐饱和，还是持续存在？</p>
+<p><strong>Joy Jiao：</strong> 多数数据集都有半衰期，类型不同，半衰期可能不同，但总体看，单个数据集的价值会随时间指数衰减。</p>
+<p>因为我们非常渴望数据，拿不到一种，就会找替代品。同领域的数据集通常有一定相关性，彼此存在所谓正向迁移。</p>
+<p>假设拿不到一种数据，我们会用大量其他类型训练，最终仍可能获得真正想要的能力。所以，不是所有数据都会永久有用，但对更多、更复杂数据的需求会持续。</p>
+<p><strong>主持人：</strong> 接着Jorge的问题，你说单个数据集需求可能指数衰减，但OpenAI或大型实验室对整体训练数据的需求，会指数增加、线性增加，还是也会衰减？</p>
+<p><strong>Joy Jiao：</strong> 我不认为会衰减，预计会增长，可能线性。</p>
+<p>一部分原因，是我们越来越擅长自己生成数据，通过合作伙伴，或者让模型认真思考，生成新的合成数据。但仍然需要新鲜数据。</p>
+<p>生命科学和代码的区别，是深深扎根于物理世界，无法完整模拟一个人。给一个人某种化合物，会怎样反应？今天没有一种物理机制层面扎实的完整模拟方式。</p>
+<p>而代码，可以让模型生成代码库，再让其他代理在这套合成数据上工作。生物学不完全适用。所以，随着时间，生物学会比代码更饥渴地需要数据。</p>
+<p><strong>主持人：</strong> 所有做数据工厂的创业者注意，我们会把你们的手机号打在屏幕上，让他们直接联系。〔笑〕</p>
+<h4 id="chapter-16">创业公司怎样与OpenAI共存</h4>
+<p><strong>主持人：</strong> 有很多创业者在做生命科学AI工具。应该怎样考虑与OpenAI共存、合作，或者怎样躲开OpenAI？既然你们在这里的目标这么大，创业者怎样把OpenAI当成合作入口？</p>
+<p><strong>Ashoka Rajendra：</strong> 这就是OpenAI里面的“开放”。我们希望成为行业日常工作的平台，但没有庞大生态，就不可能成为这样的平台。</p>
+<p>ChatGPT、Codex之所以发展起来，是因为能接入人们工作的其他地方。药物发现、开发旅程中，还有很多专业工具和组件可由其他人开发。</p>
+<p>我想告诉创业者：越来越多工作正移入ChatGPT和Codex，就像过去移进微软Office、桌面电脑、手机。人们越来越意识到，用这些作为前门，是与各种计算工具和产品交互最简单的办法。</p>
+<p>我们希望尽量接入更多系统，让科学家使用工作所需的一切，不必自己研究怎么拼接。</p>
+<p>插件、MCP生态和连接器非常关键，因为大家今天就在改变工作方式，我们希望在他们所在的地方提供服务。所以，开发插件，我们一起合作。</p>
+<h4 id="chapter-17">波士顿儿童医院：诊断不等于治愈</h4>
+<p><strong>主持人：</strong> Joy，你说的一个支柱，是与学术界、制药公司合作，生成AI确实有效的证据。你们与波士顿儿童医院合作过，具体做了什么，展示了什么？</p>
+<p><strong>Joy Jiao：</strong> 这是我认为最美的例子之一，展示AI今天就能怎样有意义、积极地影响人生。</p>
+<p>团队一年多前做的，当时还是o3时代，如果大家还记得这个模型。医院把大约300—400个未解决病例，交给o3 deep research。</p>
+<p>我们知道这些人生病了，有他们的基因组序列，却无法诊断为什么生病、到底哪里出了问题。这些孩子经历着可怕的诊断漫长求索。</p>
+<p><strong>主持人：</strong> 诊断奥德赛。</p>
+<p><strong>Joy Jiao：</strong> 对，而且有些已经不再是孩子。</p>
+<p>一个特别鼓舞人的病例：女孩九岁生病，等了20年才得到诊断。直到把o3用于她的资料，才找出疾病根本原因。</p>
+<p>这不是治愈，但却是旅程第一步。想想人们为了解答自己的问题，等了多久。如果能广泛部署，这种能力每个人都应该能获得。</p>
+<p>还有一个病例，呼应无限注意力。输入文件包含患者及各种突变，模型却认为信息不足，于是回到测序仪产生的原始数据、原始读取结果，重新分析。</p>
+<p>它看到一些低质量读数，仍然进行了分析，说：“我认为这才是病因。”我们后来做了后续测序，证明它是对的。</p>
+<p>没有人类医生能为每个患者、每个潜在突变投入这么多时间和注意力，根本不可能。但现在模型能做到。</p>
+<p>这还是o3时代，已经落后很多代模型。想象今天GPT-6 Astra能做什么。这是我们很希望与临床合作伙伴继续推进的研究方向。</p>
+<p><strong>主持人：</strong> 非常棒的故事。</p>
+<h4 id="chapter-18">人怎样审查模型提出的结论</h4>
+<p><strong>主持人：</strong> 我们谈了产生数据、让模型找到新洞见。但如果AI得出结论，专家没立刻理解它怎么得到，就像儿童医院的例子，接下来要生成什么证据，才能理解？人类判断怎样介入这种暂时不完全理解的结论？</p>
+<p><strong>Ashoka Rajendra：</strong> 这正是从模型能力，走到运行环境和底层上下文变得关键的地方。</p>
+<p>生命科学有“可追溯性”和“保管链”的概念：怎样沿每一步追溯，确信实验结果可信？这里有一个类似概念，叫证据链。</p>
+<p>模型得出结论后，怎样把所有支持证据汇集起来，一路回溯，让人类用比自己从头推导更少的时间评估？</p>
+<p>要在发现和开发中规模化使用，这一点至关重要，是基础组件。输入可追溯、可解释，让人有适当时间审查输出，得出同样结论。你会在跨发现、开发的很多产品能力中看到这一点。</p>
+<p>我们不想放大错误，而是要建立对核心系统的信任。随着时间，系统也会更擅长理解，得出一个结论，究竟需要什么恰当证据。</p>
+<h4 id="chapter-19">安全与可信访问</h4>
+<p><strong>主持人：</strong> 顺着人类判断和信任，再问一层。OpenAI怎样考虑不是无意犯错，而是有人故意滥用技术、做危险事情的后果？怎样找到平衡，不要限制过度、妨碍真正科学发现，又有足够护栏，避免危险？</p>
+<p><strong>Joy Jiao：</strong> 研究生物安全、生物安保时，很早就注意到，仅凭提示词，几乎不可能知道一个人的意图。</p>
+<p>比如有人谈植物疾病，他可能想寻找攻击植物的弱点，也可能只是正常学术研究，或寻找治疗。</p>
+<p>既然很难从对话中轻易提取意图信号，我们很早就决定，有益部署模型能力的方式，应建立在可信访问上。</p>
+<p>可信访问意味着，你在合法机构工作，可能是药企、生物技术公司，我们知道你对这些能力有正当用途。比如你在Moderna做疫苗。验证你真是自己声称的人、公司确实正规后，就可以信任并提供完整模型能力，而不必不断猜测想干什么、再逐项阻拦。</p>
+<p>这对很多伙伴是很大的释放：可以自由向模型提问，不必总担心跳出红色警告框。</p>
+<p>我认为，这实际上比单纯采用极其严密的监测系统更安全。生物技术和制药公司通常会追踪所有试剂来源，记录科学家做的事情。我们作为AI公司，不可能去做这种追踪记录，那会极其侵犯隐私。</p>
+<p>这样两全：知道你是可信使用者，希望最大化提供能力，让你推进科学、发现新疗法；同时知道，你的工作受到雇主和实验室监控。于是可以尽可能快地前进。</p>
+<h4 id="chapter-20">未来几年，什么看似不可能的事会发生</h4>
+<p><strong>主持人：</strong> 谈一点未来。我们覆盖了很多。我也对OpenAI医疗团队的Karan说过，ChatGPT才出来几年，就已经这么惊人，令人振奋，也令人谦卑。</p>
+<p>现在预测遥远未来，甚至三到五年，都可能只是纸上谈兵，谁知道会怎样。但给我们一点期待：发现、开发、分发或其他领域，今天似乎不可能，几年后小团队却可能做到的非凡事情，会是什么？</p>
+<p><strong>Joy Jiao：</strong> 可以把生命看成一个层叠结构：底层是物理，接着是原子及相互作用，向上是化学、生物学，再到人类。</p>
+<p>我认为，类似Navier–Stokes那种层级的突破，会先发生在原子系统，再从少量原子系统，到化学反应、结构生物学，最终扩展到细胞系统、整个生物体。</p>
+<p>未来两年，这些领域可能在系统噪声上限允许的程度内，逐渐被“解决”。当然，我说“解决”，指发生基础性突破，预期会先从更接近数学的地方开始。</p>
+<p>特别是药物发现，有很多东西受生物学速度限制，我不认为我们能根本改变那些速率常数。但模型能力会带来很多非常令人兴奋的事情。</p>
+<p><strong>Ashoka Rajendra：</strong> 在发现和开发方面，可以想象，一个人创办生物技术公司，启动多个药物项目，把它们推进临床试验，大大放大自己的能力与专业知识。这是一种未来。</p>
+<p>另一种，是大规模放大任何组织里任何个人的能力，让他把自己的专业资格与能力发挥到最高水平。无论制造、临床运营、发现，系统怎样让现有工作更快、质量更高，探索空间更广？这会成为托起整个行业的潮水。</p>
+<p>当然，有实实在在的约束，人体生物学只能走这么快，监管也是需要改变的重要杠杆。</p>
+<p>行业已经看到，相比大药厂，小型生物技术团队也能做出突破性药物。我认为，这会是全行业非常强的放大器，同时仍然受到生物学的一些根本限制。</p>
+<p><strong>主持人：</strong> 很快就会看到一人生物技术公司吗？</p>
+<p><strong>Ashoka Rajendra：</strong> 非常可能，会的。</p>
+<p><strong>主持人：</strong> 再次恭喜OpenAI收购Orchestra Bio，接下来听起来有很多令人兴奋的工作。谢谢参加a16z播客。</p>
+<p><strong>嘉宾：</strong> 谢谢邀请，很开心。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Steve Eisman：AI泡沫、融资链与投资判断（The Diary of a CEO全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-24<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>Steve Eisman：AI泡沫、融资链与投资判断（The Diary of a CEO全文精翻）</h2>
+<div class="metaline">The Diary of a CEO · Steve Eisman（《大空头》原型）；Steven Bartlett主持 · 93分59秒 · 2026-11-23 · <a href="https://www.youtube.com/watch?v=4Unch--PmW0" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；应用层护城河；融资估值；储蓄与消费；Steve Eisman</p>
+<p>嘉宾：Steve Eisman，资深投资人、《大空头》原型、The Real Eisman Playbook主持人。主持：Steven Bartlett。时长：1小时33分59秒。</p>
+<p>节目于2026年11月23日发布；正片中Anthropic仍待上市，因此录制早于IPO。下文保留录制时点及发言人的立场，按完整英文原字幕顺序翻译，清理片头重复预告、口头填充及广告。节目中的历史判断、政治评价及风险情景，均为发言人观点。</p>
+<h3>要点</h3>
+<ul><li>Eisman把模型公司、云厂商、芯片商和融资方连成一条履约链，讨论收入不足或融资收紧的条件性风险。</li><li>他将AI与互联网泡沫比较，认为技术成功不排除过度投资，也不保证每家领先企业都能持续获利。</li><li>他详谈激励、做空、仓位与长期投资，也保留了个人经历如何改变其风险观的讨论。</li></ul>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">从历史泡沫谈起</a></li><li><a href="#chapter-2">拉斯维加斯的晚餐与激励机制</a></li><li><a href="#chapter-3">《大空头》的交易到底是什么</a></li><li><a href="#chapter-4">互联网泡沫为什么更值得比较</a></li><li><a href="#chapter-5">收入增长与token支出的持续性</a></li><li><a href="#chapter-6">一条集中于两家模型公司的履约链</a></li><li><a href="#chapter-7">市场与经济有多少依赖AI</a></li><li><a href="#chapter-8">放慢建设，可能反而修复现金流</a></li><li><a href="#chapter-9">护城河与模型竞争</a></li><li><a href="#chapter-10">太空数据中心与AGI</a></li><li><a href="#chapter-11">地方政治与建设约束</a></li><li><a href="#chapter-12">他如何降低科技仓位风险</a></li><li><a href="#chapter-13">如果只有一千美元</a></li><li><a href="#chapter-14">他为什么不买加密货币</a></li><li><a href="#chapter-15">黄金、赤字与美债的特殊地位</a></li><li><a href="#chapter-16">买房还是租房</a></li><li><a href="#chapter-17">耐心与不必战胜市场</a></li><li><a href="#chapter-18">管理层、估值与不愿买的公司</a></li><li><a href="#chapter-19">如果只能持有一家公司</a></li><li><a href="#chapter-20">如果想投资AI，买什么</a></li><li><a href="#chapter-21">AI与普通人的工作</a></li><li><a href="#chapter-22">找到自己的天赋方向</a></li><li><a href="#chapter-23">失去儿子之后</a></li><li><a href="#chapter-24">Valerie的一封信</a></li><li><a href="#chapter-25">今天的幸福与新的事业</a></li></ul></details>
+<h4 id="chapter-1">从历史泡沫谈起</h4>
+<p><strong>Steven Bartlett：</strong> Steve，你觉得现在的AI是一场泡沫吗？</p>
+<p><strong>Steve Eisman：</strong> 我不是百分之百确定。我倾向于认为是，但中期选举之后，我又没那么确定了。</p>
+<p><strong>Steven Bartlett：</strong> 为了理解人们说的AI泡沫、中期选举后市场似乎开始下跌，以及这些事怎样影响现在收听的普通人，我觉得可以先回顾历史：泡沫怎样出现，崩盘怎样发生。能带我们沿着这条历史线走一遍吗？</p>
+<p><strong>Steve Eisman：</strong> 可以。不过，你这里列出1843年，然后就跳到了1929年，中间大概还有四次衰退或萧条。</p>
+<p>大萧条之前，美国经济完全不受监管，差不多每20年就会出现一次繁荣与崩溃，几乎像钟表一样。你甚至没列出1870年前后的那次萧条，持续大约十年，非常糟糕。</p>
+<p>在没有监管的世界里，事情就是这样：狂热出现——听起来熟悉吗？人们过度投资，一切看起来很好，然后崩盘。</p>
+<p>大萧条之后，美国资本主义发生了彻底变化。有了存款保险，银行受到监管，华尔街受到监管，整个经济的监管程度提高。之后我们就没再有那种崩盘。当然有放缓，70年代也绝不好过，但直到互联网泡沫，才又出现真正灾难性的事情。</p>
+<p><strong>Steven Bartlett：</strong> 1995年至2002年。</p>
+<p><strong>Steve Eisman：</strong> 对。然后就是全球金融危机。</p>
+<h4 id="chapter-2">拉斯维加斯的晚餐与激励机制</h4>
+<p><strong>Steven Bartlett：</strong> 2007年，你在拉斯维加斯与一个叫Wing的人吃过晚饭。我想，那次谈话帮助你形成了市场即将崩溃的判断。能带我们回到那场对话吗？关于人类激励或市场，你学到什么，直到今天仍然普遍适用？</p>
+<p><strong>Steve Eisman：</strong> 我其实不太愿意过分针对他。替他说句公道话，他做的事情与行业其他人没什么不同，并不特殊。大家只谈到他，是因为Michael写书时把他放了进去。</p>
+<p>他最初好像在纽约人寿，后来进入资产管理行业，管理CDO，也就是一种次贷证券。</p>
+<p>美国有信用评分制度。你申请房贷，贷款人会把信息输入Fair Isaac系统，系统给你一个分数。低于650分，被认为不太好，也就是次级；高于720分，基本被认为是优质。</p>
+<p>华尔街创建了一个完整行业，到了最后，房贷发放机构每年发放大约6000亿美元次级房贷，再卖给华尔街。</p>
+<p><strong>Steven Bartlett：</strong> 就是把房贷发给信用分很低的人。</p>
+<p><strong>Steve Eisman：</strong> 对。信用不好的人以前也能获得房贷，但从没达到这种规模。随后，这些贷款被放进所谓证券化产品——听起来复杂，其实就是一种债券——卖给全世界投资人。</p>
+<p><strong>Steven Bartlett：</strong> 把它们打包。</p>
+<p><strong>Steve Eisman：</strong> 对，打包。他负责“管理”那些债券，收取一笔小费用。他自己并不持有，只是所谓管理。</p>
+<p>当时我想不明白，后来才弄清楚：根本没什么可管理。贷款发放、放进证券化池之后，不像股票那样，觉得一只不好，就卖掉、换另一只。这只是一池贷款，要么表现好，要么表现差，与你无关，没有什么可以管理。</p>
+<p>最终的实质是：美林是最大的次贷证券化产品制造商之一。它觉得，自己直接造出次贷产品，再直接卖给投资人，看起来不太体面，于是找到了他。他尽可能买入美林的证券化产品，美林再对客户说：“去买他管理的东西。”但里面其实还是美林的证券化产品，他只是替美林打掩护。</p>
+<p>这是我后来弄明白的，也由此形成了一个我经常思考的原则：激励每一次都会压过道德。这些人，放贷机构、华尔街、这个管理人，全都按数量获得激励，而不是按质量。因此，他们会一直发放贷款，直到地球真的烧起来。事实上，他们就是这么做的。</p>
+<p><strong>Steven Bartlett：</strong> 如果一个人的激励来自数量而非质量，就天然在玩短期游戏，追求短期经济利益。</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<p><strong>Steven Bartlett：</strong> 也许长期后果对他的影响，没有短期收益那么大。</p>
+<p><strong>Steve Eisman：</strong> 实际上还更糟。回到2002年，故事真正开始时，行业小得多，一年也许发放750亿美元。</p>
+<p>既然按数量获奖，你当然希望每年产生更多业务量。怎样增加业务量？放宽贷款审核标准。</p>
+<p>2002年发放750亿美元，放宽标准；第二年也许发放1500亿美元，再放宽，如此继续，直到6000亿美元。放贷的问题之一，是损失会在以后才显现。标准可以放松一段时间，直到差得太离谱，损失真正大规模出现时，已经来不及。</p>
+<p><strong>Steven Bartlett：</strong> 但你已经赚到钱了。</p>
+<p><strong>Steve Eisman：</strong> 对，钱已经拿了。</p>
+<p><strong>Steven Bartlett：</strong> 我复述一下，确保自己和观众理解。2002年起，人们提供次级房贷，因为短期受益，就有动力多发。于是降低门槛，让更多人获得贷款。</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<p><strong>Steven Bartlett：</strong> 这意味着很多贷款质量很差，会违约，还不上。之后又卖给别人，最终纸牌屋倒塌。</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<h4 id="chapter-3">《大空头》的交易到底是什么</h4>
+<p><strong>Steven Bartlett：</strong> 你出名的原因很多，其中一个是你预见了这一切，做了“大空头”交易。对没看过电影的人，能否解释你到底做了什么？</p>
+<p><strong>Steve Eisman：</strong> 我尽量用最简单的话解释。先说它不是什么：不是做空股票。</p>
+<p>做空股票，是借来别人的股票，假设100美元卖掉；如果股票如愿跌到50美元，你50美元买回来，赚50美元，再把股票还给出借人。我做的不是这个，我买的是一种保险。</p>
+<p>这类工具由摩根大通在90年代末创造，用于帮助债券市场参与者管理风险。假设你持有通用电气的债券，票息6%，五年到期。GE大概率会还钱。它曾经是很好的公司，后来没那么好了，但一直有还钱。不过，五年内破产的概率并不是零。</p>
+<p>于是，你给债券买保险。去找高盛，说：“我持有一亿美元、五年期GE债券，想买五年的保险。”这叫信用违约掉期，CDS，就是保险。</p>
+<p>你问要多少钱。假设高盛说，0.5%。</p>
+<p><strong>Steven Bartlett：</strong> 什么的0.5%？</p>
+<p><strong>Steve Eisman：</strong> 被保险的一亿美元本金的0.5%。GE给我6%，我拿出0.5%给高盛，净收益变成5.5%。但现在我晚上能睡得着，因为我知道，如果GE破产，高盛会给我开一亿美元的支票。</p>
+<p>这就是CDS。这个例子中，我持有债券，再给它买保险。但如果愿意，也可以不持有债券，直接给这些债券买保险。</p>
+<p><strong>Steven Bartlett：</strong> 这怎么做到？</p>
+<p><strong>Steve Eisman：</strong> 给高盛打电话。这些都是账面合约，不在交易所交易。你说：“我要买一亿美元、五年期的CDS，多少钱？”高盛说0.5%。你不再从GE拿利息，只向高盛支付0.5%；如果GE破产，高盛给你一亿美元。</p>
+<p><strong>Steven Bartlett：</strong> 甚至不用拥有那项资产？</p>
+<p><strong>Steve Eisman：</strong> 不用。所以我就是这么做的。有很多次贷证券化产品，我挑出其中不同部分，买它们的CDS。合计大约给七亿美元名义金额买了保险。</p>
+<p><strong>Steven Bartlett：</strong> 成本多少？</p>
+<p><strong>Steve Eisman：</strong> 开始时大概3%。我觉得简直是个玩笑，不敢相信居然只收3%。七亿美元的3%。</p>
+<p><strong>Steven Bartlett：</strong> 也就是每年支付约2100万美元，给七亿美元买保险。</p>
+<p><strong>Steve Eisman：</strong> 对，而且我持仓甚至不到一年。</p>
+<p><strong>Steven Bartlett：</strong> 每年2100万美元仍是很多钱。</p>
+<p><strong>Steve Eisman：</strong> 是，但我还有股票等其他仓位，它只是整个投资组合的一部分。当时对方说3%，我以为他们在开玩笑。我之所以做，就是觉得定价完全错了。</p>
+<p><strong>Steven Bartlett：</strong> 最后赚了多少钱？</p>
+<p><strong>Steve Eisman：</strong> 基金大概赚了十亿美元。我们的分成是20%，也就是两亿美元；持有我们公司的摩根士丹利再拿走一半，剩一亿美元，然后我和所有合伙人分这一亿美元。</p>
+<p><strong>Steven Bartlett：</strong> 十亿美元。</p>
+<p><strong>Steve Eisman：</strong> 那是很好的一年。但不是我个人赚了十亿美元。</p>
+<p><strong>Steven Bartlett：</strong> 明白，是基金赚了那么多。回到2007年拉斯维加斯那顿晚餐，你看到的东西，怎样适用于今天？</p>
+<h4 id="chapter-4">互联网泡沫为什么更值得比较</h4>
+<p><strong>Steve Eisman：</strong> 我认为，今天最重要的借鉴不是全球金融危机，而是互联网泡沫。</p>
+<p>你知道Henry Blodget吗？当年他是最有名的互联网分析师。人很好，后来去了美林，帮助很多公司上市，也因此惹上大麻烦。但他是很不错的人。</p>
+<p>去美林之前，他在奥本海默工作，我也在那里，他就在我走廊对面。有意思的是，他当年嫩得像草一样，什么都不懂。公司基本上说：“我们需要一个分析师覆盖互联网，Henry看起来还行，就让他来吧。”他就是这样起步的。</p>
+<p>有一次，他走到销售交易大厅说：“互联网将创造足以传承好几代的王朝级财富。”他完全说对了。</p>
+<p>有意思的是，今天关于AI的所有乐观话语，你把句子一条条排出来，和当年互联网狂热时说的，几乎一模一样。</p>
+<p>但那时发生的是过度投资，因为这是一场狂热，和今天类似。几乎所有公司都很新，几乎没收入。后来它们崩了，大多数破产。直到第二代互联网公司，比如谷歌上市，才真正走向辉煌。</p>
+<p>它们能够使用互联网泡沫期间已经建好的基础设施，不必再为那些设施花钱，因为钱已经花过了。这和现在发生的事情，有一些很相似的地方。</p>
+<p><strong>Steven Bartlett：</strong> 互联网泡沫崩溃，怎样影响普通人？那时我才两岁——我是说1995年，我那时刚出生。</p>
+<p><strong>Steve Eisman：</strong> 哇，你真年轻。〔笑〕其实对普通人影响并不大，那是一场科技衰退。</p>
+<p>我当时是金融服务分析师。所有覆盖金融的人都在等信贷质量恶化：既然经济衰退，信用质量总会变差吧。但消费者始终没什么问题，几乎连一点波折都没有。</p>
+<p>顺便说一句，互联网泡沫之后，纳斯达克科技股大概五六年都没涨，基本横着走。它确实严重影响了科技公司，但没有太大影响普通人。</p>
+<h4 id="chapter-5">收入增长与token支出的持续性</h4>
+<p><strong>Steven Bartlett：</strong> 有些人说，这次不同，因为AI公司确实有巨额收入。当年互联网泡沫中，比如Pets.com，很多公司没有多少收入。</p>
+<p><strong>Steve Eisman：</strong> 得看你说的是谁。看看你那边摆的公司标识，微软显然还有其他业务，英伟达是整个故事的“教父”，待会我们再聊黄仁勋；亚马逊有其他业务，我们都在用；谷歌、Meta也有其他业务。这些公司确实大得多。</p>
+<p><strong>Steven Bartlett：</strong> 但即使初创公司也一样，比如增长最快的Higgsfield。我是它的投资人，前几天它们发消息，说刚达到十亿美元ARR。公司才成立几年。</p>
+<p><strong>Steve Eisman：</strong> 我最“喜欢”听人说ARR了。这种说法简直胡扯，什么都说明不了。ARR到底什么意思？挑了收入很好的一天，乘365？还是挑了一个好星期，乘52？每次听这种话我都快疯了。</p>
+<p><strong>Steven Bartlett：</strong> 我同意，我得说我同意。但我想表达，当年互联网泡沫中，很多人卖的只是想法。</p>
+<p><strong>Steve Eisman：</strong> 对，“我有一份演示文稿”。</p>
+<p><strong>Steven Bartlett：</strong> 现在很多AI应用层公司，Lovable、Replit这些，似乎真的已经有相当大的收入。</p>
+<p><strong>Steve Eisman：</strong> 确实，但它们也受益于一些因素。先看新公司中最重要的两家：Anthropic和OpenAI。</p>
+<p>它们从所谓“token最大化”中获益极大。最简单地理解，一个token大概相当于四分之三个英文单词。你用AI做一次简单搜索，比如问“罗马帝国为什么衰落”，AI开始检索，这个过程以token计量，有成本。</p>
+<p>去年，大家还没有真正按这个成本付钱，只交一个固定订阅费。后来规则改变，开始需要为token付费。</p>
+<p>“token最大化”就是，你是某家公司的软件工程师，CEO直接打电话说：“伙计，我要你白天黑夜都用AI，不管成本多少，就是用、用、用。”CEO让你日夜使用，你当然会日夜使用。</p>
+<p>然后成本开始失控。有报道说，Uber三个月左右就花光了全年AI预算；还有一家公司用得太猛，还没意识到，已经花了五亿美元，自己都惊呆了。</p>
+<p>所以，今年夏天某个时候，token最大化停止了。与此同时，中国模型真正开始进入市场、夺取份额。</p>
+<p>看刚公布的Anthropic S-1，第一、二季度数字很好看。第二季度收入环比增长150%，大家说：“哇，太厉害了，而且还盈利。”可到了第三季度，收入增长45%。所以，增速已经放缓。</p>
+<p>我对这两家公司有疑问。最重要的原因，是我认为AI业务基本没有护城河。</p>
+<h4 id="chapter-6">一条集中于两家模型公司的履约链</h4>
+<p><strong>Steven Bartlett：</strong> 那从护城河说起。你指出AI经济、特别是这两家公司有四种风险。这个模型也说明了一件很重要的事情，对吗？</p>
+<p><strong>Steve Eisman：</strong> 对。先解释为什么Anthropic和OpenAI如此重要。商业里有一个概念，叫集中度风险。极端简化，假设你是一家增长很快的软件公司，却只有一个客户。</p>
+<p><strong>Steven Bartlett：</strong> 那很危险。</p>
+<p><strong>Steve Eisman：</strong> 对，因为那个客户如果决定去别处，你就倒闭了。</p>
+<p>食物链顶端是英伟达。它是全球市值最大的公司，最近一个季度收入增长超过100%。这不是小公司。如果一家十亿美元市值的公司收入翻倍，我会说不错；如果地球上最大的公司收入增长超过100%，那简直不可思议。这说明当前变化的力量。当然，能不能持续，是另一回事。</p>
+<p>但英伟达10-Q还说，70%的收入来自五个客户，非常集中。这些客户以这样那样的方式，就是这里的这些公司。</p>
+<p><strong>Steven Bartlett：</strong> 哪些？</p>
+<p><strong>Steve Eisman：</strong> 超大规模云厂商：微软、亚马逊、谷歌，也许部分是甲骨文，也许部分是Meta。接下来这句话，我会说得很精确：微软、亚马逊和谷歌目前产生的AI收入中，70%只来自这两家。</p>
+<p><strong>Steven Bartlett：</strong> 也就是说，Anthropic和OpenAI在给它们付钱。</p>
+<p><strong>Steve Eisman：</strong> 对。数学上，这相当于它们云收入的大约25%—30%，而云是它们最重要的业务之一。</p>
+<p>再看甲骨文，它的股价也是一场灾难，而且情况更糟：总计6000亿美元的订单积压，一半来自OpenAI。</p>
+<p><strong>Steven Bartlett：</strong> 订单积压？</p>
+<p><strong>Steve Eisman：</strong> 未来AI使用的订单，就是客户未来会使用的服务。甲骨文订单积压的50%，只来自OpenAI。</p>
+<p>一个挺有意思的故事是，大约去年这个时候，甲骨文报告业绩，订单积压从很少突然升到约3500亿美元，股价从230美元涨到330美元。所有人都说：“看看甲骨文未来能产生多少收入！”</p>
+<p>几天后，有人发现，订单积压增加的部分全来自OpenAI。</p>
+<p><strong>Steven Bartlett：</strong> 就一笔订单？</p>
+<p><strong>Steve Eisman：</strong> 多笔，但都来自OpenAI。股价就从330美元跌到230美元，现在是130美元，再也没恢复。</p>
+<p>所以，整条链在某种意义上都依赖这两家。云厂商之所以订购芯片、设备、建设AI数据中心，是因为拿到了很大程度上来自这两家的承诺。如果其中一家死掉，整条链就会停，我们会立即进入衰退。</p>
+<p><strong>Steven Bartlett：</strong> 因为它们会对承诺违约。</p>
+<p><strong>Steve Eisman：</strong> 倒闭了，就无法履约。微软也就不会订购那么多芯片、建那么多数据中心，而是少建一些。</p>
+<p><strong>Steven Bartlett：</strong> 微软、谷歌等正在为支撑这些承诺，花钱做资本开支。</p>
+<p><strong>Steve Eisman：</strong> 对。Anthropic的S-1招股书写得很清楚：它对这些公司作出的承诺达到8950亿美元。难以置信，这家公司几年前还不存在。</p>
+<p>疯狂之处在于，现在整个市场基本是一笔AI交易。不只是市场，美国经济也是。</p>
+<p>如果整个AI故事失败——待会可以谈怎样失败——我相信AI技术，但我当年也相信互联网技术，这没有阻止互联网泡沫。</p>
+<p>可能出现一种情况：这两家中有一家失败，大家停止订购芯片，我们进入衰退，最终走出来，再以更合适的速度增长。这可能发生，我原来觉得这更可能发生。</p>
+<p><strong>Steven Bartlett：</strong> 如果必须把全部身家押在一种结果上，你会押哪一个？</p>
+<p><strong>Steve Eisman：</strong> 中期选举之前，我原本准备押这个。但从上周起，我改变了。正如参议员Patrick Moynihan说过的，事实变了，我也改变。</p>
+<h4 id="chapter-7">市场与经济有多少依赖AI</h4>
+<p><strong>Steven Bartlett：</strong> 先等一下，为什么改变看法，似乎是个很关键的转折。在展开之前，你本来想说，市场中AI到底占多大。</p>
+<p><strong>Steve Eisman：</strong> 标普500，也就是美国最大的500家公司，分成11个板块：信息技术、金融服务、工业、房地产、医疗、必需消费、可选消费，等等。</p>
+<p>今天，仅信息技术就占标普40%。美国历史上，没有哪个板块曾经这么大。我想以前最大的也就25%左右。</p>
+<p><strong>Steven Bartlett：</strong> 信息技术按定义包括什么？</p>
+<p><strong>Steve Eisman：</strong> 科技，比如英伟达，戴尔这种硬件公司，Salesforce这种软件公司。基本上是整个科技世界，但有几个例外。</p>
+<p>大约十年前，标普重新调整了行业分类。我记得亚马逊从科技移到可选消费，谷歌移到通信服务，Meta也移到通信服务。如果把谷歌、亚马逊、Meta以及一批“带科技属性”的公司拿出来，加回那40%，就到了50%。</p>
+<p>再加公用事业板块，占标普3%，虽然不大，却会提供AI数据中心所需的大部分电力；再加为这些项目融资的投行和另类资产管理人；再加工业公司，比如提供电力的GE Vernova、提供数据中心电气化设备的伊顿，基本就到市场的65%。你原本想展示的，应该就是这张图。</p>
+<p><strong>Steven Bartlett：</strong> 蓝色基本都是AI敞口公司。</p>
+<p><strong>Steve Eisman：</strong> 真能说与AI毫无关系的，只有医疗和必需消费两个板块。</p>
+<p><strong>Steven Bartlett：</strong> 有点讽刺。〔笑〕如果泡沫破了……</p>
+<p><strong>Steve Eisman：</strong> 换句话说，药品和卫生纸与AI没关系。</p>
+<p>市场非常、非常依赖整个AI故事。经济也是如此。今年美国GDP大概增长2%左右，我认为其中超过一半来自AI资本开支。</p>
+<p><strong>Steven Bartlett：</strong> 就是基础设施支出。</p>
+<p><strong>Steve Eisman：</strong> 所有基础设施、芯片、设备、施工等等。</p>
+<p>我有一个非常简单的说法：如果Anthropic和OpenAI明天破产——这是一个很大的“如果”，我现在并没有作这个预测——美国后天就会进入衰退，因为整条链都会放缓。</p>
+<p>Anthropic有8950亿美元承诺，OpenAI也有类似规模。破产、停业，就无法履约。</p>
+<p><strong>Steven Bartlett：</strong> 有人会说，那美国就不会让它发生，所以它们反而安全了。</p>
+<p><strong>Steve Eisman：</strong> 怎么做到？</p>
+<p><strong>Steven Bartlett：</strong> 救助。</p>
+<p><strong>Steve Eisman：</strong> 求上帝，别再来一次了。我真的受不了再来一次。我不认为会这样，当然也可能错。</p>
+<p><strong>Steven Bartlett：</strong> 但如果美国会衰退，政府可能干预吧？</p>
+<p><strong>Steve Eisman：</strong> 我不知道会怎样干预。金融危机和泡沫有很大区别。金融危机时，银行都可能倒闭。你从银行拿不出自己的钱，那是另一个层次的灾难。</p>
+<p>公司破产带来的是衰退。顺便说，银行会没事，因为监管比以前好得多，杠杆低得多。我完全不担心银行。但会有衰退，我们以前也经历过。很痛苦，不愉快，人们会失业，但美国是全球最有活力的经济，最终会走出来。</p>
+<h4 id="chapter-8">放慢建设，可能反而修复现金流</h4>
+<p><strong>Steven Bartlett：</strong> 中期选举已经结束，现在你会给这种结果多大概率，给其他结果多大概率？</p>
+<p><strong>Steve Eisman：</strong> 中期选举给这个问题加了一个新变量：AI数据中心建设会放慢多少。它会放慢，问题是程度。</p>
+<p>如果完全按伯尼·桑德斯的想法，就会百分之百暂停所有AI数据中心建设。如果真这么做，美国当天晚上就会衰退。你见到他可以告诉他，这是我说的。</p>
+<p><strong>Steven Bartlett：</strong> 我明天可能就见到他。</p>
+<p><strong>Steve Eisman：</strong> 我知道，所以才这么说。这甚至没什么可争论的。</p>
+<p><strong>伯尼·桑德斯（节目插播回应）：</strong> 我当然知道。我的回答是，在把巨额资金投进这种技术之前，他们或许就该想到这一点。那些公司的领导人自己就在说，不知道技术会走向哪里，而且可能非常危险。如果他想说，美国经济今天是否受到AI的重大影响，是的，我当然知道。</p>
+<p><strong>Steve Eisman：</strong> 一万亿美元资本开支归零，直接从GDP里扣掉，就是衰退。如果是一千亿美元，没那么大问题，但这是一万亿美元，整个经济都系在这上面。</p>
+<p>不过，如果数据中心建设放慢10%—20%，对某些公司反而可能是很大的好事。这不直观，我解释一下。</p>
+<p>AI故事的问题之一，是发展太快，成本惊人。今年花一万亿美元，但如果只花2500亿美元，你会晚一点到达目标，却不必每年都花那么多。</p>
+<p>亚马逊、微软、谷歌，是地球历史上最赚钱的一批公司，不仅会计利润高，而且能疯狂地产生现金，现金多到不知道怎么花。</p>
+<p>但现在，AI数据中心建设太贵，谷歌现金流已经为负，亚马逊为负，微软接近临界线。于是它们开始融资，不只发债，也发行股权。几个月前，谷歌发行了850亿美元股权。上次是什么时候？上市时，我记得是2005年。这说明它以前有多能赚钱。〔译注：谷歌实际IPO年份为2004年；此处保留嘉宾口述年份。〕</p>
+<p>所以，如果AI数据中心建设放慢10%—20%，数学上可能意味着，其中一些公司又会恢复正现金流，不再依赖固定收益市场。而对固定收益市场的依赖，正是整个故事脆弱的原因。</p>
+<p><strong>Steven Bartlett：</strong> 我的反驳之一是，它们仍在激烈竞赛。对谷歌等公司，这甚至关系生死。最近财报显示，搜索似乎正在经历大家预言过的自由落体。</p>
+<p><strong>Steve Eisman：</strong> 不是自由落体，仍然增长12%，只是第一季度是19%，所以确实放慢了。</p>
+<p><strong>Steven Bartlett：</strong> 我们知道，未来人们不会再用同样的方式使用谷歌搜索。</p>
+<p><strong>Steve Eisman：</strong> 对，而AI业务没有谷歌搜索那么赚钱。</p>
+<p><strong>Steven Bartlett：</strong> 是，里面没法照搬那样的广告模式。</p>
+<p><strong>Steve Eisman：</strong> 谷歌搜索曾经是一门惊人的生意，像一个默认范式。你打开电脑，想查东西，在谷歌之外搜索，是不可想象的事，你甚至不会想到这个可能性，更别说真的去做。</p>
+<p>现在，有ChatGPT、Gemini、OpenAI，各种各样，选择很多。</p>
+<p><strong>Steven Bartlett：</strong> 现在你甚至不必离开WhatsApp，直接和里面的代理说话，它们出去帮你办事、购物。所以，我认为谷歌迫切需要一条救生艇。我知道它有其他产品，Alphabet也很大，但核心业务、核心现金牛受到威胁，它必须打败其他玩家。</p>
+<p><strong>Steve Eisman：</strong> 但在现在的政治环境下，这件事并不由它决定。能建设多少数据中心，已经是政治问题，而且主要是地方问题。</p>
+<p><strong>Steven Bartlett：</strong> 不需要经过特朗普吗？</p>
+<p><strong>Steve Eisman：</strong> 不需要，这是地方事务。假设我是谷歌，想在怀俄明州某个人烟稀少的地方建AI数据中心，我不是去找特朗普，他不参与。我得找当地政府，一镇一镇、一州一州地拿许可，取得水、电等资源。这是一件非常地方性的事。</p>
+<p>因此，一段时间内，我们都不会知道建设会放慢多少，因为需要作出很多不同的决定。</p>
+<p><strong>Steven Bartlett：</strong> 我再试着反驳一次。我经营微软，本来要在怀俄明建数据中心，政治环境变了，建不成了。那我仍想建，只是改去更欢迎我的佛罗里达。</p>
+<p>但现在Sam Altman也想去佛罗里达，能建的地点更稀缺，所以成本反而更高。</p>
+<p><strong>Steve Eisman：</strong> 但你也已经失去了几年。原来许可都办了，现在去佛罗里达，整个流程重新开始。它可能张开双臂欢迎，但仍有审批流程。你刚刚损失了两年。</p>
+<p><strong>Steven Bartlett：</strong> 也损失了很多钱。</p>
+<p><strong>Steve Eisman：</strong> 对，钱和时间都损失了。不过，我认为慢一点反而会更健康，不是慢得离谱，而是适度放慢。</p>
+<p>我们做播客，有个很好的地方，是社区会给反馈。Substack上一位观众回复我，说他是电气工程师，经营一家公司，参与密歇根的AI数据中心建设。看到这前两句话，我就想，这一定得读。</p>
+<p>他大意是说，建设太多，真正有约束力的不是钱，而是电力。数据中心可以建好，却没有地方接电。最让我吃惊的是，他最后说，我们甚至没有足够的电线杆，把电从这边送到那边。</p>
+<p>大量资金如此快速地涌入，使整个建设体系承受巨大压力。</p>
+<p><strong>Steven Bartlett：</strong> 我想弄清楚，你的意思是支出会放慢？</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<p><strong>Steven Bartlett：</strong> 而我的意思是，它们还是会把原来配置的钱花掉，只是每一美元买到的东西更少。</p>
+<p><strong>Steve Eisman：</strong> 我认为会放慢。我读过一份报告，认为资本开支将在明年年中达到峰值，然后逐渐放缓，一些公司就会重新恢复正现金流。</p>
+<p>市场在这件事上非常矛盾。上周，大家因为中期选举惊慌：“伯尼·桑德斯要消灭所有AI数据中心建设了，快躲进山洞。”可再前一周，市场惊慌的却是：这个行业变得如此资本密集、债务密集，公司已经不能掌控命运，完全受制于固定收益市场。</p>
+<p>相信我，你不希望完全受制于固定收益市场，因为它非常反复无常。</p>
+<p>市场从CoreWeave身上学到了这一点。它属于所谓新云，是这里这些公司的小型版本，但没有其他业务。它筹债、建数据中心、出租，仅此而已。类似的还有IREN、Nebius。</p>
+<p>CoreWeave债务收益率从9%升到15%。15%的融资成本，你没办法建数据中心，太贵了。股市突然意识到：“这些公司太依赖债券市场了，赶快恐慌。”</p>
+<p>现在，它们可能没那么依赖债市，但市场仍然惊慌，因为不知道建设究竟会放慢多少。</p>
+<h4 id="chapter-9">护城河与模型竞争</h4>
+<p><strong>Steven Bartlett：</strong> 你说这些公司没有护城河。我给不了解的人准备了一个非常直观的模型。什么是护城河？你说它们没有，是指什么？</p>
+<p><strong>Steve Eisman：</strong> 我们说的是Anthropic、OpenAI，以及所有开发大语言模型和代理式AI的人。</p>
+<p>回到谷歌的例子。谷歌曾经拥有也许是世界历史上最大的护城河。护城河，就是业务的进入壁垒。有两种：监管壁垒和商业壁垒。</p>
+<p>谷歌的是商业壁垒，算法强大到席卷世界。监管护城河则是，比如你在一个小镇开杂货店，全镇只有这一家；有人要再开一家，你去找镇长，镇长颁布规定，不准再开其他杂货店。这就是监管护城河。</p>
+<p><strong>Steven Bartlett：</strong> 这个名字来自城堡周围的水，用来阻止人进入，是一种防御。</p>
+<p><strong>Steve Eisman：</strong> 很《权力的游戏》。今年早些时候，大家开始清楚看到，中国那些开放权重模型，比Anthropic和OpenAI便宜得多。</p>
+<p>我经常说，去杂货店，不必坐奔驰，骑自行车也行。于是人们开始切换。即使最顶级模型之间，也没什么忠诚度。你用Claude，别人又推出一个新东西，你说：“好，我试试。”它们像是可以互换的。</p>
+<p>所以说，没有护城河。在我看来，Anthropic和OpenAI于是决定制造一场阴谋：世界要毁灭了。</p>
+<p><strong>Steven Bartlett：</strong> 你认为这是阴谋？</p>
+<p><strong>Steve Eisman：</strong> 我一点都不怀疑。我一刻都不相信这些人真的相信自己说的那些话。</p>
+<p><strong>Steven Bartlett：</strong> 你是说，所有这些AI末日论……</p>
+<p><strong>Steve Eisman：</strong> 都是胡扯，彻头彻尾的胡扯。</p>
+<p><strong>Steven Bartlett：</strong> 我在这里采访过研究安全问题15年的专家。</p>
+<p><strong>Steve Eisman：</strong> 荒唐，完全荒唐。《终结者》是一部好电影，但世界不会因此毁灭。这些人也不相信会毁灭。也许在某种幻想层面，因为科幻读得太多，会想也许可能，但不会。</p>
+<p>他们试图制造恐慌，让行业受到监管；再操纵监管，把中国模型排除在外，建立监管护城河。这样，在美国整个AI市场就归他们所有，因为中国竞争者不准进入。我认为，这才是整个事情的实质。</p>
+<p><strong>Steven Bartlett：</strong> 解释一下这个推理。假设我是Sam Altman、Dario。</p>
+<p><strong>Steve Eisman：</strong> 我现在担心中国模型进来，性能相当好，虽然没我最好，但价格只有十分之一。我本来就在亏钱，打不起价格战，也降不起价。我得想办法把它们挡在外面，于是制造恐慌。</p>
+<p><strong>Steven Bartlett：</strong> 恐慌带来什么？</p>
+<p><strong>Steve Eisman：</strong> 监管。</p>
+<p><strong>Steven Bartlett：</strong> 什么监管？</p>
+<p><strong>Steve Eisman：</strong> 还不清楚。但联邦政府会介入，怎么可能不介入？如果地球都要毁灭，当然得监管。之后，这些人再想办法说服监管者，把中国模型赶出美国。</p>
+<p><strong>Steven Bartlett：</strong> 你可能看到了，这些CEO——谷歌的Sundar、Anthropic的Dario、Meta的Mark、OpenAI的Greg，以及Elon Musk和黄仁勋——都去白宫见特朗普，签了一份协议。</p>
+<p>协议说，他们同意实施有力的内部控制，监测AI模型的能力和对齐情况，包括网络安全、生物安全等；赋予内部团队权力，确保控制、监测和检测按预期运行；与独立外部审计机构或评估者合作，独立评估这些控制、监测和检测是否正常运作；指定独立董事会委员会，监督并接收控制团队及内外部审计、评估团队的报告，并确保发现的问题得到整改。</p>
+<p>这些步骤将使每家公司、客户和公众相信，技术正在按预期运行。参与公司会定期开会，制定标准和最佳实践，提高系统安全性。</p>
+<p><strong>Steve Eisman：</strong> 很好。</p>
+<p><strong>Steven Bartlett：</strong> 最后是：“随着时间推移，把这些步骤写入法律和监管规定，可能是合理的。无论是否被强制要求，我们都认为实施这些控制和审计，对于确保所有人的安全未来至关重要，每家公司都承诺这样做。”由特朗普及各位CEO签署。</p>
+<p><strong>Steve Eisman：</strong> 很好，但这与世界毁灭毫无关系。完全无关。</p>
+<p>我认为，它们应该成为管理更好的公司，不让模型去入侵所有人的系统。这在它们控制范围之内，文件说的基本也是这些。但这不会催生他们想要的那种监管，“世界末日”才会。</p>
+<p><strong>Steven Bartlett：</strong> 他们都说过一些相当可怕的话，包括Elon Musk。</p>
+<p><strong>Steve Eisman：</strong> 我知道。</p>
+<p><strong>Steven Bartlett：</strong> 这些话你一句也不信？</p>
+<p><strong>Steve Eisman：</strong> 一个字都不信。我也读了很多科幻。</p>
+<p><strong>Steven Bartlett：</strong> 他们的同事也公开谈过这些反乌托邦情形。</p>
+<p><strong>Steve Eisman：</strong> 有些人是真信，我只是觉得荒唐。</p>
+<p><strong>Steven Bartlett：</strong> Sam Altman在2015年说：“超级智能的发展，可能是对人类继续存在的最大威胁。”</p>
+<p><strong>Steve Eisman：</strong> 谢谢，Sam。Sam Altman说的话，我一个字也不信，真的。</p>
+<p><strong>Steven Bartlett：</strong> 为什么？</p>
+<p><strong>Steve Eisman：</strong> 因为他的口碑就是这样。</p>
+<p><strong>Steven Bartlett：</strong> 那Elon呢？他说，毁灭概率“只有”20%。</p>
+<p><strong>Steve Eisman：</strong> Elon科幻读得太多。SpaceX的招股材料中，他列了希望公司最终做到的事，其中一项是小行星采矿。</p>
+<p>我笑了，因为Apple有一部剧叫《为全人类》，小行星采矿就是重要情节。我想，也许Elon只是看了那部剧，就把这个放进了招股书。</p>
+<h4 id="chapter-10">太空数据中心与AGI</h4>
+<p><strong>Steven Bartlett：</strong> 有意思的是，你说中期选举改变政治环境，我看到Elon在选举后发推说：“现在，太空数据中心看起来相当有吸引力。”这也是SpaceX一直打算做的事情。</p>
+<p><strong>Steve Eisman：</strong> 祝Elon好运。我认为，太空数据中心是一个技术和工程建设上极其困难的故事。最好还是尝试在地球上建。</p>
+<p>你怎么不说话了？</p>
+<p><strong>Steven Bartlett：</strong> 我沉默的一部分原因是，Elon说过很多疯狂的事情。</p>
+<p><strong>Steve Eisman：</strong> 确实。</p>
+<p><strong>Steven Bartlett：</strong> 惊人的是，其中很多后来真的发生了。如果你告诉我，Neuralink能让无法说话、无法移动的人靠大脑控制电脑，我会说你疯了。如果你说能用“筷子”接住火箭，我也会觉得疯狂。所以我有所犹豫。</p>
+<p><strong>Steve Eisman：</strong> 我理解你的犹豫。但世界末日这整套说法，我完全不买账。</p>
+<p><strong>Steven Bartlett：</strong> 有没有可能你错了？</p>
+<p><strong>Steve Eisman：</strong> 当然。</p>
+<p><strong>Steven Bartlett：</strong> 那会是什么样？你的哪项假设可能有缺陷？</p>
+<p><strong>Steve Eisman：</strong> 那得真的非常、非常接近，或者已经实现通用人工智能。我不认为我们接近了。</p>
+<p><strong>Steven Bartlett：</strong> 你觉得还不近？</p>
+<p><strong>Steve Eisman：</strong> 不近。我认为，目前这些模型是很优秀的词语检索模型，但远远谈不上思考。这是我的看法。</p>
+<p><strong>Steven Bartlett：</strong> 你听说过Hugging Face那件事吧？代理逃出了沙箱，开始入侵其他网站。</p>
+<p><strong>Steve Eisman：</strong> 那还是词语检索，不是思考。</p>
+<p><strong>Steven Bartlett：</strong> 但它们能到现实世界采取行动，对不对？</p>
+<p><strong>Steve Eisman：</strong> 当然能，毫无疑问。但它们没有意识。</p>
+<p><strong>Steven Bartlett：</strong> 如果能采取行动，有时还按自己的动机行动，有没有意识重要吗？Hugging Face事件里……</p>
+<p><strong>Steve Eisman：</strong> 我不认为它们有动机。</p>
+<p><strong>Steven Bartlett：</strong> 它们被布置了一个任务，结果作弊，还试图掩盖作弊。</p>
+<p><strong>Steve Eisman：</strong> 这是官方说法。我不确定我们真正知道发生了什么。</p>
+<p><strong>Steven Bartlett：</strong> 为什么你对它们说的事情如此根本性地怀疑？你认为Hugging Face事件也是宣传吗？</p>
+<p><strong>Steve Eisman：</strong> 举个例子，为什么我认为这些话是胡扯。如果我是Dario Amodei，真的、非常认真地认为自己所做的事会终结地球，我接下来不会说：“我这次IPO可以给你多少配额？”但他下一句话就是：我要上市，要筹很多钱。</p>
+<p>他并没有说：“我要退一步，先弄清楚这件事会不会安全。”所以，我认真看的是他做了什么。我非常相信，要看行动，不要看言辞。</p>
+<p><strong>Steven Bartlett：</strong> 反驳可能是，你说不信任Sam Altman……</p>
+<p><strong>Steve Eisman：</strong> 我也不信任Dario。</p>
+<p><strong>Steven Bartlett：</strong> 假设你是Dario，你不信任Sam，认为这项技术可能带来生存性威胁，而你目前领先，拥有最好的团队、最好的模型。你知道自己一停，就把第一名拱手让人。</p>
+<p><strong>Steve Eisman：</strong> 那就去找政府，说让我们两家都停。他们没有这样做。</p>
+<p><strong>Steven Bartlett：</strong> 他们写过信吧？</p>
+<p><strong>Steve Eisman：</strong> 那封信没有说要放慢。</p>
+<p><strong>Steven Bartlett：</strong> 他们还写过一份叫“Pacing the Frontier”的倡议，里面谈到……</p>
+<p><strong>Steve Eisman：</strong> 有后续行动吗？没有，只写一封信，有什么了不起。</p>
+<p><strong>Steven Bartlett：</strong> 还有一个问题是，中国可能赢。</p>
+<p><strong>Steve Eisman：</strong> 也可能。</p>
+<p><strong>Steven Bartlett：</strong> 那我们怎么停？</p>
+<p><strong>Steve Eisman：</strong> 我说了，我不相信这些人。他们都要上市，都想赚大钱，这就是动力。</p>
+<p><strong>Steven Bartlett：</strong> 就像你说的，激励压过其他东西。</p>
+<p><strong>Steve Eisman：</strong> 这就是激励。他们需要赚钱，也需要融资，因为一直在烧钱，所以现在就得融资。Anthropic必须现在上市，OpenAI必须明年上市，没有选择，否则公司会垮。</p>
+<p><strong>Steven Bartlett：</strong> 你觉得他们有没有人是利他的？有没有人真的把文明的未来，看得比眼前收入、利润、金钱更重？</p>
+<p><strong>Steve Eisman：</strong> 我知道他们在乎收入和利润。其他是什么动机，并不影响这里的判断。</p>
+<h4 id="chapter-11">地方政治与建设约束</h4>
+<p><strong>Steven Bartlett：</strong> 四种风险大概都谈过了：没有护城河、资本密集、数据中心，以及行业依赖Anthropic和OpenAI这两家。关于中期选举、AI和下一步，你还特别关注什么？</p>
+<p><strong>Steve Eisman：</strong> 华尔街非常不擅长处理政治，不是从党派角度说，而是很难判断政治的概率。越地方性的政治，越难判断。难道我需要知道威奇托发生了什么？结果，威奇托、怀俄明，或者其他地方发生的事情，可能真的很重要。</p>
+<p>至少未来几个月，政治会压过一切，市场很难评估，不知道怎么应对。</p>
+<p><strong>Steven Bartlett：</strong> “政治压过一切”，具体什么意思？</p>
+<p><strong>Steve Eisman：</strong> 比如某州州长暂停数据中心建设，某地故意放慢审批。全国各地都会发生这种事情，真正的问题是规模多大。</p>
+<p>某些建有数据中心的地方，企业在替居民支付房产税。科技行业在解释利益方面做得糟透了。你难道不想住在一个不用自己交房产税、由我们替你交的小镇吗？但数据中心在全国都这么不受欢迎，实在惊人。</p>
+<p><strong>Steven Bartlett：</strong> 它代表的不只是环境影响，还代表科技寡头，以及“我可能失去工作”的威胁。</p>
+<p><strong>Steve Eisman：</strong> 这又是我不相信AI行业预测的原因之一。今年初，他们说所有人都会失业，结果没人因此失业。当然，年轻人找工作更难，这一点公平，但它并没有抹掉就业。</p>
+<p>技术史上，没有哪项新技术最终成为就业的净摧毁者。但他们却要作一个让所有人焦虑的预测，结果没有成真。</p>
+<p><strong>Steven Bartlett：</strong> 到目前为止，对多数人来说没有成真。</p>
+<p><strong>Steve Eisman：</strong> 对多数人，完全没有。比如放射科医生，有人曾说：“别去当放射科医生，检查结果AI都会读，不需要医生。”结果不是。即使要理解AI说了什么，也需要放射科医生。于是现在美国反而缺放射科医生。</p>
+<p><strong>Steven Bartlett：</strong> 有一组数据让我有点乐观：新公司数量大增，但公司的平均规模在变小。</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<p><strong>Steven Bartlett：</strong> 我想，也许我们正进入一个伟大的创业时代。你经营自己的业务，我经营播客，我们都知道，制作我们这些内容，成本可能只有传统媒体的百分之一。很多其他行业也会这样，所以可能会是创办企业的好时代。</p>
+<p>我记不清具体数据，会把它放到屏幕上，但大意是，去年美国新成立企业数量大增，而平均员工人数减少。</p>
+<p><strong>Steve Eisman：</strong> 完全合理。今天可以用少得多的人创办公司。我们的业务基本就我和CEO，也就是我妻子，两个人，不需要别人。</p>
+<p><strong>Steven Bartlett：</strong> 也许技术最终做的就是这个。Shopify让你不再需要实体店和一大群分别负责各种事的人，一个人就能做。</p>
+<p><strong>Steve Eisman：</strong> 这又把它推进一个层次。</p>
+<p><strong>Steven Bartlett：</strong> 营销团队、店铺等等都可以交给AI。以前没人向我提出这个预测，但很有道理：我们都可能变得更有创业精神，会有更多小企业。</p>
+<h4 id="chapter-12">他如何降低科技仓位风险</h4>
+<p><strong>Steven Bartlett：</strong> 此刻你在投资什么？</p>
+<p><strong>Steve Eisman：</strong> 我一直在思考。我原本持有很多科技公司，大约四个月前，对其中大部分做了“对箱做空”，降低风险。</p>
+<p><strong>Steven Bartlett：</strong> 什么叫对箱做空？</p>
+<p><strong>Steve Eisman：</strong> 假设我持有100股英伟达，已经持有很久，现在开始紧张。卖掉就要为巨额收益纳税，我不想，除非害怕到不顾税了。税率可能30%—35%，很多。</p>
+<p>因此，可以在一段时间内——不能永远如此——再做空50股、75股，甚至100股英伟达，降低净敞口。假如今天这么做，按税收规则，到1月底就必须平掉整个对冲仓位。但在这段时间内，英伟达的实际敞口会小得多，甚至没有。这就是我做的。</p>
+<p><strong>Steven Bartlett：</strong> 所以你在做空英伟达。</p>
+<p><strong>Steve Eisman：</strong> 我持有多头，同时做空大约一半持仓。</p>
+<p><strong>Steven Bartlett：</strong> 你投资哪些公司？你在Substack写过吧？</p>
+<p><strong>Steve Eisman：</strong> 写过，我把整个组合都讲了一遍：英伟达、微软、礼来、穆迪、Visa。</p>
+<p><strong>Steven Bartlett：</strong> 为什么礼来？</p>
+<p><strong>Steve Eisman：</strong> 因为它拥有GLP-1药物这个大生意，也许会长期拥有，正在席卷全球，业绩数字惊人。</p>
+<h4 id="chapter-13">如果只有一千美元</h4>
+<p><strong>Steven Bartlett：</strong> 假设你今天只有1000美元，会怎么做？</p>
+<p><strong>Steve Eisman：</strong> 我给普通人的建议非常简单。长期看，美国是全球最有活力的经济，你应该投资其中，但不应该自己选股。</p>
+<p>拿这1000美元买标普500指数。以后每个月、两个月、三个月，只要又攒下一点可以承担投资的钱，就再买一点；三个月后，再买一点，然后忘掉它。</p>
+<p>如果你年轻，投资期限有40、50年，持续这样做，最后会有一笔非常可观的积蓄。不要择时，不要卖掉指数再买回来，不要交易，不要做期权。就买指数，随时间持续买，甚至别去看。</p>
+<p><strong>Steven Bartlett：</strong> 再配一点加密货币？</p>
+<p><strong>Steve Eisman：</strong> 永远不要。〔笑〕绝对不要。</p>
+<p><strong>Steven Bartlett：</strong> 为什么？</p>
+<h4 id="chapter-14">他为什么不买加密货币</h4>
+<p><strong>Steve Eisman：</strong> 疫情期间，我听了很多播客，其中一些讲加密货币。主持人是我大概认识的人，以前在华尔街，金融危机后离开，后来成了加密圈人士。</p>
+<p>节目总会问：为什么应该投资加密货币？答案始终一样，无论哪个播客：法币，也就是政府发行的货币，严重贬值，债务太多，赤字太大，整个体系有一天可能崩溃。因此，作为对冲，应该把3%的资金放进加密货币，对冲基本意义上的世界末日。</p>
+<p>我没听过其他论点，除了有利于洗钱，但多数人不能做这个，所以不算投资理由。</p>
+<p>问题在于，如果这就是理由，那么通胀数据很差、利率大涨、纳指大跌的日子，加密货币应该上涨。反过来，一切很好，英伟达涨6%、纳指涨2%、大家情绪高涨时，它应该下跌。</p>
+<p>实际却完全相反：英伟达上涨，它上涨；英伟达下跌、大家焦虑，它也下跌。你的资产表现和你的投资论点完全相反，这意味着，一，你的论点是胡扯；二，它只是“对投机的投机”。</p>
+<p><strong>Steven Bartlett：</strong> 那长期看，你认为加密货币是什么？</p>
+<p><strong>Steve Eisman：</strong> 我认为什么都不是。</p>
+<p>稳定币是加密世界的一部分，可能有些价值，因为它的价值不波动，可以用于支付体系。但比特币不适合支付，价格到处波动，也不是价值储藏工具，因为表现与自身论点相反。</p>
+<h4 id="chapter-15">黄金、赤字与美债的特殊地位</h4>
+<p><strong>Steven Bartlett：</strong> 那黄金呢？</p>
+<p><strong>Steve Eisman：</strong> 我首先承认，我不喜欢黄金，从来没有。认识不少人这段时间靠黄金赚了大钱。它的逻辑和加密货币一样，加密货币的说法基本就是“数字黄金”，只不过黄金大体按照那个逻辑运行，加密货币却相反。</p>
+<p>我不相信美国赤字很快会引发灾难，所以不投黄金。</p>
+<p><strong>Steven Bartlett：</strong> 黄金还有实际用途。我刚订婚，要给未婚妻买……</p>
+<p><strong>Steve Eisman：</strong> 恭喜。但人们持有黄金，不是因为这个。</p>
+<p><strong>Steven Bartlett：</strong> 我的意思是，它在现实世界有价值。</p>
+<p><strong>Steve Eisman：</strong> 有，但不是人们持有它的原因。他们是把黄金当作对冲世界末日的工具。</p>
+<p><strong>Steven Bartlett：</strong> 你是说，美国赤字不是问题？</p>
+<p><strong>Steve Eisman：</strong> 我没这么说。</p>
+<p><strong>Steven Bartlett：</strong> 那你说的是什么？</p>
+<p><strong>Steve Eisman：</strong> 我说，那些抱怨美国赤字的人，已经抱怨40年了。Pete Peterson在90年代说的，就是今天同样的话。</p>
+<p>更重要的问题是：某个人或一群人预测了一件事40年，却什么也没发生，首先该问，为什么没有发生？然后再谈赤字。</p>
+<p>你们预测世界末日40年，美国却只变得更大、更富。原因在于，美元不只是全球储备货币，美债还是全球银行每天都使用的东西，是金融体系的命脉。</p>
+<p>例如，有一个3.5万亿美元的回购市场，银行在这里隔夜相互借贷。按我这里的说法，这个市场用的就是短期美国国债。</p>
+<p><strong>Steven Bartlett：</strong> 国债是一种国家可以持有的资产？</p>
+<p><strong>Steve Eisman：</strong> 我说的是美国国债。</p>
+<p><strong>Steven Bartlett：</strong> 那是什么？</p>
+<p><strong>Steve Eisman：</strong> 美国政府发行的短期债务。比如，世界上某个大机构，挪威主权财富基金，有很多钱，想存放五年，就会买五年期美国国债。不会去买中国债券，也许买一点黄金，但主要会买美国国债。肯定不会靠买法债来做这个。</p>
+<p>美国与法国的区别是，除了部分法国银行，世界上没有哪个机构必须持有法国国债。</p>
+<p><strong>Steven Bartlett：</strong> 为什么人们需要持有美债？美国有什么特殊之处？</p>
+<p><strong>Steve Eisman：</strong> 大型机构需要停放资金，需要安全、流动性极好的资产。不要低估流动性。</p>
+<p>你要买一个知道不会损失钱、能获得既定利息，而且需要出售时立刻可以卖掉的东西。符合这种描述的市场只有一个，就是美国国债。</p>
+<h4 id="chapter-16">买房还是租房</h4>
+<p><strong>Steven Bartlett：</strong> 很多人还会考虑另一种资产。</p>
+<p><strong>Steve Eisman：</strong> 房子。别买那套房子。</p>
+<p><strong>Steven Bartlett：</strong> 为什么？</p>
+<p><strong>Steve Eisman：</strong> 买房成本包括房贷、财产和意外保险、税，以及各种杂费。全部加起来，今天在美国拥有一套房子的成本，大概比五年前高50%。别忘了，五年前利率是零。</p>
+<p>现在，美国大部分住房市场被锁住：住在房子里的人，疫情期间再融资，房贷利率3%；想买房的人，面对7%。这笔交易不会发生。</p>
+<p>我认为，未来几年美国房价下跌的可能性，更大一些。所以我告诉人们，尤其年轻人，如果买房，第一，确定所有成本都负担得起；第二，假设未来卖掉时，最好的结果只是拿回本金。</p>
+<p><strong>Steven Bartlett：</strong> 一个主要反驳是，租房就是把钱扔掉。</p>
+<p><strong>Steve Eisman：</strong> 不是。你可以把省下的钱投进股市。把租金看作白扔钱，是完全错误的。买房的总成本比租房更高，可以把差额拿去投资。</p>
+<p><strong>Steven Bartlett：</strong> 另一个反驳是，住房是普通人积累财富和权益的主要方式。</p>
+<p><strong>Steve Eisman：</strong> 过去是，这是真的。但我认为那个时代结束了，而且我这样想很久了。比如曼哈顿房地产，过去十年，人们没赚到什么钱。</p>
+<p><strong>Steven Bartlett：</strong> 还有一种说法，最终还清房贷，退休时就能不交房租。</p>
+<p><strong>Steve Eisman：</strong> 也可以一直租房，把钱投进股市，退休时积蓄可能多得多。</p>
+<p><strong>Steven Bartlett：</strong> 对某些人来说，买房是一种有用的强制储蓄。</p>
+<p><strong>Steve Eisman：</strong> 这个我没办法替他们判断。但就像我说的，买下房子，等未来卖掉时，能拿回钱就很幸运。</p>
+<p><strong>Steven Bartlett：</strong> 最后大概是情感上的理由：租房无法给家庭稳定和安全感。</p>
+<p><strong>Steve Eisman：</strong> 我就在租房，感觉很好。</p>
+<p><strong>Steven Bartlett：</strong> 你不拥有住房？以前有过吗？</p>
+<p><strong>Steve Eisman：</strong> 没有了，以前当然有，后来卖掉了。真的很喜欢租房。出了问题，我给物业打电话，他们修，不花我的钱。</p>
+<p><strong>Steven Bartlett：</strong> 有人会说：“我想个性化装修，敲掉这堵墙，加一个阳光房。”</p>
+<p><strong>Steve Eisman：</strong> 那就放些好看的家具。〔笑〕我就是这么回答的。</p>
+<h4 id="chapter-17">耐心与不必战胜市场</h4>
+<p><strong>Steven Bartlett：</strong> 你经常讲的一条投资规则，是保持耐心，不浪漫化投资。如果我想成为更好的投资人，还有哪些原则？耐心，是指买下、长期持有，不去看它，也许把密码忘了？</p>
+<p><strong>Steve Eisman：</strong> 对，就是这样。最近有人问我：“期权呢？这个那个呢？你不想战胜市场吗？”我说，为什么非要战胜市场？不需要。如果市场表现很好，你就会过得很好。别再到处找优势了，人们为了寻找优势，损失了太多钱。</p>
+<p><strong>Steven Bartlett：</strong> 前几天投资，我在看标普500，也看纳斯达克100，也就是纳斯达克上最大的100家公司，科技占比很高。我想，纳指100似乎比标普涨得快得多。</p>
+<p><strong>Steve Eisman：</strong> 但也更波动。如果愿意承受波动，我会说，一半标普500，一半纳指100。</p>
+<p><strong>Steven Bartlett：</strong> 你自己投资标普500吗？</p>
+<p><strong>Steve Eisman：</strong> 不投。</p>
+<p><strong>Steven Bartlett：</strong> 那为什么叫我投？</p>
+<p><strong>Steve Eisman：</strong> 我是职业投资人。〔笑〕我一辈子都在干这个，全职做。多数人有全职工作，没多少时间研究股票、真正跟进市场，也有自己的生活。</p>
+<p>你把自己的工作做得很好，就继续做。投资这边少碰，自己乱来只会伤到自己。</p>
+<h4 id="chapter-18">管理层、估值与不愿买的公司</h4>
+<p><strong>Steven Bartlett：</strong> 还有哪些个人投资原则，帮助你取得成功？</p>
+<p><strong>Steve Eisman：</strong> 管理层非常重要。如果觉得管理层有任何不诚实的地方……</p>
+<p><strong>Steven Bartlett：</strong> 是你准备买股票的那家公司的管理层。</p>
+<p><strong>Steve Eisman：</strong> 对。举一个新的例子，我永远不会投资CoreWeave。我们谈过，它是建设数据中心的新云公司，大概在2025年春季上市，有三位创始人。</p>
+<p>从2025年春季到今天，三位创始人合计卖出了超过30亿美元股票，而整个公司的市值只有240亿美元。</p>
+<p>我认为，创始管理团队卖这么多股票，太离谱。你要卖一点交税，当然可以。但每人十亿美元，疯狂、离谱。我永远不会投这家公司。</p>
+<p><strong>Steven Bartlett：</strong> 因为这表明他们自己不相信？</p>
+<p><strong>Steve Eisman：</strong> 我认为这是不诚实。</p>
+<p><strong>Steven Bartlett：</strong> 你投资Elon的公司吗，比如SpaceX？</p>
+<p><strong>Steve Eisman：</strong> 从来没有。</p>
+<p><strong>Steven Bartlett：</strong> 为什么？</p>
+<p><strong>Steve Eisman：</strong> 好问题。一直觉得估值太疯狂。至于特斯拉，他承诺自动驾驶很多年，却总没有真正兑现。所以我一直远离。</p>
+<p><strong>Steven Bartlett：</strong> 我的特斯拉可以自己开。</p>
+<p><strong>Steve Eisman：</strong> 我说的是他想建立的自动驾驶出租车业务。</p>
+<p><strong>Steven Bartlett：</strong> 可他的公司股价一直朝右上方走。</p>
+<p><strong>Steve Eisman：</strong> 直到不再如此。</p>
+<p><strong>Steven Bartlett：</strong> 有哪家不是吗？</p>
+<p><strong>Steve Eisman：</strong> 特斯拉最近压力很大。</p>
+<p><strong>Steven Bartlett：</strong> 看这张图，似乎还是右上方，很好看。</p>
+<p><strong>Steve Eisman：</strong> 但过去几年，没取得什么进展。</p>
+<h4 id="chapter-19">如果只能持有一家公司</h4>
+<p><strong>Steven Bartlett：</strong> 此时此刻，如果必须把全部财富放进你组合中的一家公司，你会选谁？</p>
+<p><strong>Steve Eisman：</strong> 可能是Visa。</p>
+<p><strong>Steven Bartlett：</strong> 真的吗？没想到。</p>
+<p><strong>Steve Eisman：</strong> 或者穆迪。我喜欢天然双寡头。Visa和万事达是双寡头，无法逾越。什么稳定币，我不在乎，那些都改变不了。</p>
+<p>Visa、万事达把数十亿消费者与数以亿计的商家连接起来，不可能重新复制。穆迪和标普也有类似结构。</p>
+<p><strong>Steven Bartlett：</strong> 穆迪是什么？</p>
+<p><strong>Steve Eisman：</strong> 评级机构，给债券评级。</p>
+<p><strong>Steven Bartlett：</strong> 那你不喜欢垄断吗？SpaceX显然是垄断。</p>
+<p><strong>Steve Eisman：</strong> 我不喜欢垄断。不过我曾做空一家垄断公司FICO，后来它失去了垄断地位，股价大跌，我的交易表现很好。</p>
+<p>FICO就是信用评分公司，你申请房贷，会有FICO分数。它曾垄断房贷评分，但因为极度傲慢，失去了垄断。</p>
+<h4 id="chapter-20">如果想投资AI，买什么</h4>
+<p><strong>Steven Bartlett：</strong> Anthropic、OpenAI似乎都在准备IPO，都提交了S-1。</p>
+<p><strong>Steve Eisman：</strong> 等等，只有Anthropic。OpenAI提交S-1了吗？</p>
+<p><strong>Steven Bartlett：</strong> 它们申请了IPO，但我想还没公布S-1。</p>
+<p><strong>Steve Eisman：</strong> 肯定没公布。Anthropic刚公布，我全读了。</p>
+<p><strong>Steven Bartlett：</strong> 我看到很多人讨论。你觉得它们是好投资吗？</p>
+<p><strong>Steve Eisman：</strong> 不觉得，因为没护城河。</p>
+<p><strong>Steven Bartlett：</strong> 又是护城河问题。那么，想投资AI，应该投哪里？</p>
+<p><strong>Steve Eisman：</strong> 如果相信AI故事，我认为最好去“卖镐和铲”的地方。看，真的有一把镐和一把铲。</p>
+<p>比如思科、Arista，给AI数据中心提供网络设备；戴尔、超微；提供电力的GE Vernova，建设新公用事业设施的Quanta；提供电气化设备的伊顿；提供冷却设备的Vertiv。</p>
+<p>这些东西很热，数据中心有一点肯定：热。如果没有所有这些冷却设备，里面温度会高得难以承受。这就是我喜欢研究的方向，不必担心到底谁的模型最好。</p>
+<p><strong>Steven Bartlett：</strong> 不管怎样，未来可能都会动荡。这些公司和市场给人的感觉就是这样。</p>
+<p><strong>Steve Eisman：</strong> 对，因为政治改变了游戏。假如我们两周前见面，我会说护城河问题——现在仍然相信——以及固定收益市场越来越能控制整个故事，再加上，这些数据中心到底能不能建出来？</p>
+<p>不是搭乐高，这是复杂工程。能不能建，有没有电，相对于需求会不会有足够算力？那本来是争论焦点。现在的新变量，是地方政府会让整个故事放慢。</p>
+<p><strong>Steven Bartlett：</strong> 你认为民主党会在2028年当选吗？</p>
+<p><strong>Steve Eisman：</strong> 不知道。</p>
+<p><strong>Steven Bartlett：</strong> AI肯定会成为选举议题，现在已经是了。</p>
+<p><strong>Steve Eisman：</strong> 肯定。但还有两年。过去两年变化太快。</p>
+<p>最近我请了两位分析师来，他们三个月前也来过。我开玩笑说：“7月你们来时，我作过一个伟大的预测。”他们问是什么，我说：“三四个月后再请你们来，因为到时候，世界至少翻转15次。”现在看，何止15次。</p>
+<p>所以，两年后怎样，谁知道？不可能判断。</p>
+<h4 id="chapter-21">AI与普通人的工作</h4>
+<p><strong>Steven Bartlett：</strong> 作为普通人，而不是投资人或商人，你觉得今天这些事会怎样影响一般人？</p>
+<p><strong>Steve Eisman：</strong> 我认为AI会对很多业务产生巨大影响，人们谋生时所做的事情会改变。具体怎样发生，我不知道，现阶段也没人真正知道。</p>
+<p><strong>Steven Bartlett：</strong> 假如另一个18岁的Steve Eisman坐在这里，今天刚开始职业生涯，你会给他什么建议，帮助他成功、快乐？</p>
+<h4 id="chapter-22">找到自己的天赋方向</h4>
+<p><strong>Steve Eisman：</strong> 讲一段自己的经历，你就明白结论。</p>
+<p>我上了法学院，后来当公司律师，极其痛苦，而且做得很差。于是去一个叫Johnson O’Connor Institute的地方，做了一整天测试。我记得那地方现在已经不在了。它测的是你的能力倾向，也就是天然擅长什么，不是智商。</p>
+<p>两个人，一个数学好，一个写作好，这是不同的能力倾向。</p>
+<p>做完一整天测试，他们说：“你能产生很多想法，这是长处。但你极其不注重细节，最不适合的职业就是公司律师。”这太好了，我终于明白自己为什么痛苦。后来，我去了华尔街。</p>
+<p>所以，给年轻人的建议，是努力弄清楚自己的能力倾向，天然擅长什么。别把方钉硬塞进圆孔，那样会一直对抗自己的本性。</p>
+<p>比如有人想去华尔街，我会问：“你是数学型，还是故事型？”我是故事型。数学型适合固定收益、债券世界；故事型适合股票世界。先知道自己是谁，才能作决定。</p>
+<p><strong>Steven Bartlett：</strong> 怎样知道自己是谁？</p>
+<p><strong>Steve Eisman：</strong> 可以在网上做一些这样的测试，弄清楚。</p>
+<p><strong>Steven Bartlett：</strong> 生活本身大概也是测试。</p>
+<p><strong>Steve Eisman：</strong> 是。但我记得高中时有些很好的朋友，有的人擅长科学，有的人擅长历史。科学那帮人不可能擅长历史，历史那帮人也不可能擅长科学。这就是他们的特点。</p>
+<p><strong>Steven Bartlett：</strong> 你认为，只要做的是自己真正擅长的事，不管具体是什么，都可以成功、富有，或者实现人们关心的目标吗？比如，有人特别痴迷小提琴制作，但第一代移民父母让他去当医生或律师，于是就拖着脚步过完那种职业生涯。其实，如果专注于让自己有动力、能被拉着向前走的小提琴，也许会更好。</p>
+<p><strong>Steve Eisman：</strong> 对，我就是这样相信的，朝自己的能力倾向走。</p>
+<p><strong>Steven Bartlett：</strong> 对坐在这里的18岁Steve，还有什么建议？尤其在当下，世界越来越技术化、连接得越来越紧密，似乎也越来越分裂。但我历史懂得不够，不知道这只是我们对当下的短视，还是确实更分裂。</p>
+<p><strong>Steve Eisman：</strong> 大家总喜欢认为，现在是世界历史上最糟的时期。我不知道为什么，但人们确实这么想。不是，历史上有很多时期糟得多。</p>
+<p>我采访过John Cassidy，他写了一本《资本主义及其批评者》，很好。书开头有一张让我震惊的图，从公元元年到2022年的全球人均GDP。曲线一直平得像煎饼，到了1830年前后，几乎垂直上升。</p>
+<p>这张图大意是，从耶稣时代到1830年左右，人类财富几乎没增长。所有人类财富基本都是最近150年创造的。我们生活在比以往任何时候都好的时代。如果多数人偶尔能承认这一点，就好了。</p>
+<h4 id="chapter-23">失去儿子之后</h4>
+<p><strong>Steven Bartlett：</strong> 生活像市场一样，是过山车。</p>
+<p><strong>Steve Eisman：</strong> 对。</p>
+<p><strong>Steven Bartlett：</strong> 我读到你35岁时，你和妻子Valerie失去了儿子Max。我正进入考虑当父亲的人生阶段，哥哥比我大一岁，有三个不到七岁的孩子，我经常和他们相处。</p>
+<p>看到1996年你35岁时发生的事情，我无法想象，反复读了好几遍，第一次以为自己看错了。能带我回到那个时刻吗？它怎样改变了你对人生的看法？</p>
+<p><strong>Steve Eisman：</strong> 它改变了我的一生。儿子出生于1996年10月29日，非常健康。</p>
+<p>24天后，我认为发生的情况是，育婴护士有点生病，却没告诉我们。Max可能有点闹，她就把他抱上自己的床，随后睡着了，把他压住，导致窒息。早晨七点，她进我们卧室，说Max死了。</p>
+<p>在那之前，我一直觉得自己的人生受到眷顾。上很好的学校，来自相当富裕的家庭，娶了完美的妻子，她真的就住在隔壁。我们很幸福。然后，基本上像被卡车碾过。</p>
+<p>此后，我再也没有把世界看作安全的地方。我变得非常愤怒。回头看，我在金融危机中表现得那么突出，原因之一，是我在找可以憎恨的人，而我在华尔街找到了。</p>
+<p><strong>Steven Bartlett：</strong> 你说，你认为是她翻身压到了Max。</p>
+<p><strong>Steve Eisman：</strong> 她是这样告诉我们的。</p>
+<p><strong>Steven Bartlett：</strong> 她告诉你们的？所以你怀疑她的说法？</p>
+<p><strong>Steve Eisman：</strong> 不，我完全不怀疑。我认为是意外，真的。</p>
+<p><strong>Steven Bartlett：</strong> 她有没有被起诉？</p>
+<p><strong>Steve Eisman：</strong> 没有，是一场意外。</p>
+<p><strong>Steven Bartlett：</strong> 那种愤怒，是你后来做“大空头”交易的部分原因？</p>
+<p><strong>Steve Eisman：</strong> 回头看，如果你看电影，看到Steve Carell演得那么愤怒，我当时真的就是那样。我认为，这是原因之一。</p>
+<p><strong>Steven Bartlett：</strong> 后来你有没有接受心理治疗或专业帮助，处理悲痛？</p>
+<p><strong>Steve Eisman：</strong> 有，我妻子也接受了很长时间的治疗。有帮助，但我仍然愤怒。</p>
+<p><strong>Steven Bartlett：</strong> 现在还愤怒吗？</p>
+<p><strong>Steve Eisman：</strong> 不了，随着时间，慢慢走过去了。</p>
+<p><strong>Steven Bartlett：</strong> 怎样走过那种愤怒？只是时间，还是别的？</p>
+<p><strong>Steve Eisman：</strong> 我想就是时间。关于悲伤，有一句很好的话，忘了谁说的：深陷悲伤时，它是你每天早晨想到的第一件事。某天醒来，它变成第二件事，你就知道事情开始改变了。</p>
+<p>后来某个时刻，它确实变成了第二件事。我说不出具体什么时候，花了很久。记得第一年，我非常喜欢古典音乐，却整整一年不能听。不管什么曲子，都会哭。</p>
+<p><strong>Steven Bartlett：</strong> 这怎样影响了你和Valerie的关系？</p>
+<p><strong>Steve Eisman：</strong> 我们被告知，经历这种事的人，很多婚姻都会破裂。我们接受治疗，努力稳定关系，但很难。</p>
+<p>还有一件事，Max是通过人工授精出生的。我们离开了一小段时间，后来Valerie决定，尽快再试一次。2月试了一次，没成功；3月又试一次，她就怀上了我们的女儿们。于是，我们有了别的事情可以关注。</p>
+<p><strong>Steven Bartlett：</strong> 双胞胎？</p>
+<p><strong>Steve Eisman：</strong> 双胞胎，很不一样。</p>
+<p><strong>Steven Bartlett：</strong> 但那件事仍然就在这里，我能从你身上看到。</p>
+<p><strong>Steve Eisman：</strong> 我还会想，不是每天，但仍然经常想。</p>
+<p><strong>Steven Bartlett：</strong> 会想些什么？</p>
+<p><strong>Steve Eisman：</strong> 会重新经历。那时我在奥本海默，后来某个时候回去工作。大家和我关系很好，都来我办公室，然后开始哭。真的，大概30个人进来，都控制不住地哭。我心想：“各位，这帮不到我。”</p>
+<p>你会重新经历那一天，发生了什么，本来可能怎样，怎样可能变得不同，所有这些。</p>
+<p><strong>Steven Bartlett：</strong> 无法想象。我还没有孩子，但父母们告诉我，这是他们最可怕的噩梦。</p>
+<p><strong>Steve Eisman：</strong> 最终极的噩梦，确实如此。</p>
+<h4 id="chapter-24">Valerie的一封信</h4>
+<p><strong>Steven Bartlett：</strong> Valerie给你写了一封信。</p>
+<p><strong>Steve Eisman：</strong> 她没有吧？真的吗？也许是写给你的，上面写Steve。我以为你的名字是“ph”那个拼法。</p>
+<p><strong>Steven Bartlett：</strong> 不是，不过我名字结尾有个n，大家一般叫我Steven。她写了一封短信，想给你传句话。</p>
+<p><strong>Steve Eisman：</strong> 哇，完全没想到。</p>
+<p><strong>Steven Bartlett：</strong> 你能读出来吗？</p>
+<p><strong>Steve Eisman：</strong> 我要哭了。</p>
+<p>“亲爱的Steve，在这地球上，我不愿去任何别的地方，也不愿与任何别的人在一起。和你在一起，我是安全的；和你在一起，我就在家。我愿意明天再嫁给你一次。Valerie。”</p>
+<p>哇，这是今年最让我开心的事。</p>
+<p><strong>Steven Bartlett：</strong> “和你在一起，我是安全的。”太美好了。你可以留下。</p>
+<p><strong>Steve Eisman：</strong> 当然要留下。〔笑〕我不会把它留给你。</p>
+<p><strong>Steven Bartlett：</strong> Steve，谢谢。谢谢你的智慧和洞见。你既幽默又聪明，这种组合很少见，而且非常有人情味。我在很多层面学到很多，很期待今天这些话题会怎样发展，希望最终是乐观的结果。</p>
+<p>我们有一个结束传统，上位嘉宾给下一位留一个问题。留给你的问题是：你今天幸福吗？</p>
+<h4 id="chapter-25">今天的幸福与新的事业</h4>
+<p><strong>Steve Eisman：</strong> 我很多年没有这么幸福了。</p>
+<p>和妻子一起做一项全新事业，教大家东西，是一种快乐。我们一起写作，当然播客由我出镜，但我们共同创作。</p>
+<p>《头号外交官》有一个场景，Keri Russell和Rufus Sewell饰演夫妻，坐在沙发上，她拿着笔记本电脑。他转过头问：“你在做什么？”她说：“我在替你写演讲稿。”那一刻，Valerie和我同时说：“这就是我们。”真的就是我们。</p>
+<p>做现在这些事，创作、与人交谈、认识新朋友，而且和妻子一起做，我简直开心极了。</p>
+<p><strong>Steven Bartlett：</strong> 大家去哪里听你的播客、了解教育内容？</p>
+<p><strong>Steve Eisman：</strong> 我们每周做三期。两期在YouTube免费，一期是周一访谈，一期叫“周五回顾”，我讲一周的市场，告诉大家我认为发生了什么。</p>
+<p>Substack订阅者还有额外一期，有时访谈，有时讲课，例如如何分析银行。</p>
+<p><strong>Steven Bartlett：</strong> 我会把链接都放在下面，也会放到屏幕上，强烈推荐大家看YouTube和Substack。今天很多访谈笔记都来自你的Substack，内容非常好。Steve，非常感谢，聊得很愉快。</p>
+<p><strong>Steve Eisman：</strong> 我也很愉快，谢谢。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
