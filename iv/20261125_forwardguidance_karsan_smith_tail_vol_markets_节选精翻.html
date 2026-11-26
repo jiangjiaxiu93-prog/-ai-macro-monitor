@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, max-age=0, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Cem Karsan与Noel Smith：救尾部风险，不等于托住股市（Forward Guidance市场部分全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html?v=d43bf560f667"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html?v=d43bf560f667" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl on" href="../market_podcasts.html" aria-current="page" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-26<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../market_podcasts.html">← 返回美股和科技相关</a>
+<div class="card"><article>
+<h2>Cem Karsan与Noel Smith：救尾部风险，不等于托住股市（Forward Guidance市场部分全文精翻）</h2>
+<div class="metaline">Forward Guidance／Weekly Roundup · Cem Karsan（Kai Volatility Advisors创始人）、Noel Smith（衍生品投资经理、KaiConvex机构业务团队负责人）；Felix Jauvin、Quinn Thompson主持 · 64分15秒 · 2026-11-25 · <a href="https://www.youtube.com/watch?v=D4Eg4LXl-lw" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文节选精翻</div>
+<p class="kw">关键词：波动率；市场结构；货币政策；AI融资；美债；黄金原油</p>
+<p>2026年11月24日周二录制，11月25日发布，原节目64分15秒。资产价格区间和2027年路径均为嘉宾当时的预测。</p>
+<p>原节目：Washington Wants The Market Even Lower | Weekly Roundup</p>
+<p>本文为宏观、市场与衍生品讨论的全文精翻；省略广告、开头私人玩笑及结尾地缘推测。</p>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">开场与合作分工</a></li><li><a href="#chapter-2">宏观、资金流之外的第三条腿</a></li><li><a href="#chapter-3">中选后25%—40%回撤的判断</a></li><li><a href="#chapter-4">AI融资与主权再融资争夺资本</a></li><li><a href="#chapter-5">阶梯下跌与反弹降波，两条路径可以同时交易</a></li><li><a href="#chapter-6">为什么没有单一的市场结构指标</a></li><li><a href="#chapter-7">黄金看涨与原油看跌的组合</a></li><li><a href="#chapter-8">相关性会怎样非线性上升</a></li><li><a href="#chapter-9">指数压波与个股分化的结构力量</a></li><li><a href="#chapter-10">保护性put为什么有时也救不了组合</a></li><li><a href="#chapter-11">Cem对2027年价格路径的估计</a></li></ul></details>
+<h4 id="chapter-1">开场与合作分工</h4>
+<p><strong>主持人：</strong> 欢迎回到Forward Guidance周度圆桌感恩节特别节目。我们这次在周二录制，而不是通常的周四。今天两位市场专家会一起讨论宏观资金流、不断变化的政策环境，怎样与市场结构、波动率交织。Cem、Noel，很高兴你们来。</p>
+<p><strong>Cem Karsan：</strong> 谢谢邀请。</p>
+<p><strong>Noel Smith：</strong> 大家好。</p>
+<p><strong>主持人：</strong> 两位多年管理不同基金，都专注市场结构、衍生品对市场的影响和波动率。现在你们合作了，为什么是现在，怎么考虑分工？</p>
+<p><strong>Cem：</strong> Noel和我大约六年前就开始在会议之外交流，一直想找机会一起做事。我们的能力很互补。</p>
+<p>他不只深入理解市场结构，也很擅长构造交易，在组合中取得不对称收益，业绩记录很好。我这边的业务不断发展，需要把宏观线索连起来，画出未来可能的收益分布。Noel这种人很难找，很幸运他和原来QVR的另一位合伙人Scott Maidel加入团队。</p>
+<p>我们负责思考未来的分布，Noel、Scott把它建模成可执行交易，并执行和管理。你可以做日、周、月模型，但还有盘中变化、每天必须处理的新情况，那是Noel的工作。Noel，你补充一下？</p>
+<p><strong>Noel：</strong> 我做交易很久了，原来是做市商。我和合伙人从Susquehanna出来，也在交易所场内站了几年。我曾为大约一百名交易员提供资本，跨芝加哥、纽约、费城等交易所和不同资产，做自营、做市。</p>
+<p>我也是GETCO最早的出资人之一，那是早期真正的高频交易公司。后来GETCO与2012年算法出事的Knight Capital结合，再后来相关业务进入Virtu。</p>
+<p>我大约七年前成立对冲基金，六年前认识Cem。来自相似世界，感兴趣的事情自然有很多交集，这就是最初的起点。</p>
+<p>Cem很忙，能力再强，时间也有限。我可以优化交易和他的时间，让合作产生的效果大于各自单干。我主要负责构造交易、每天随情况变化找更优安排，并管理组合。</p>
+<p><strong>主持人：</strong> 很好，我们会在节目说明里放相关信息。</p>
+<h4 id="chapter-2">宏观、资金流之外的第三条腿</h4>
+<p><strong>主持人：</strong> 进入市场。现在很有意思：大的政策力量，似乎正与具体市场结构迎头碰撞。比如一天之内，杠杆ETF就有很大再平衡交易，它怎样影响相关性？</p>
+<p>Cem，你一直把中期选举视为关键催化。政府直接介入公司，比如英伟达，与你目前的框架相比，市场走到哪里了？</p>
+<p><strong>Cem：</strong> 到目前为止，几乎和我们的判断完全一致。不过干这行足够久，你就知道，事情越顺，越要看看身后是不是有人准备突然给你一拳。</p>
+<p>五六个月来，我反复强调：进入中选之后，一个一直非常主动、维持各种市场安排运转的政府，其激励会从支持市场，转向允许市场在较少干预下回归更自然的路径。这不代表它一定要砸盘。</p>
+<p>我把框架简化成三条腿。你们听我谈宏观与资金流大概六年了：宏观帮助判断季度、年度方向，资金流帮助判断路径，何时干预、怎样影响价格。</p>
+<p>过去两年，我们更意识到，主动干预的政府本身就是第三条腿。</p>
+<p>想象打扑克。我们一直研究牌、数字和概率——宏观与资金流，但也许不够重视桌子对面那个人。过去，美联储、财政部通常比较被动，反应路径清晰、正常。</p>
+<p>现在的政府很主动、很强势，像拿着一大堆筹码，在桌上逼其他人作选择。它的激励、出牌方法已经变化。宏观和资金流仍重要，但若不研究对面的玩家，恐怕很难做好。</p>
+<p>为什么政府越来越主动？因为承受的压力很大，激励也很强。此外，特朗普及这届政府本身就更愿意采取激进行动，也有性格因素。</p>
+<p>资金流依然存在，而且规模越来越大。期权仓位、结构化产品及相关流量，过去六年我说会增长，如今每年都更大，这些影响很显著，没有改变。</p>
+<p>真正激烈碰撞的，是宏观环境与政府激励。</p>
+<h4 id="chapter-3">中选后25%—40%回撤的判断</h4>
+<p><strong>Cem：</strong> 我们据此形成了中选后回调的判断：选举之后某个时间开始，大概在2月之前启动，随后在下一年3月至6月之间结束，总跌幅25%—40%。</p>
+<p>这是时间和幅度都相当明确的判断。四个月前，不少人觉得我疯了，最近收到的恶意邮件少了一些。</p>
+<p><strong>主持人：</strong> 你还判断过选举前买看涨期权，时点也挺准确。</p>
+<p><strong>Cem：</strong> 大家往往不知道判断路径多难。单说市场会下跌就已经难了，还要判断大幅下跌和时间。现在仍有人纠缠“但他说的不是……”我不想过度自夸，可如果到现在还不能理解我们说什么、从中受益，我也不知道怎么解释了。</p>
+<p>先拆三条腿，最容易讲的是宏观。你看经济内部，几乎各类指标都在转弱。大部分经济已经转弱很久，但市场由一个很窄的部分撑着，也就是AI交易。</p>
+<p>关于巨额盈利增长来自哪里，外面有很多报告。在我看来，很大程度是资本开支故事。科技投资周期过去反复出现过类似情况，而问题在于，它与股市和投资周期本身高度相关。</p>
+<h4 id="chapter-4">AI融资与主权再融资争夺资本</h4>
+<p><strong>Cem：</strong> 大云厂商不断把现金投入资本开支，再大规模发债。这既推动市场上涨、形成计入盈利的收益，也推动很大的资本开支周期，早期收入已体现，但相关成本还没充分显现。</p>
+<p>如果市场继续涨，这个过程能继续。如果政府仍有很强动力继续把市场推高，也许还能维持一段时间。</p>
+<p>但有一个很重要的问题：大云厂商账上的可用现金已经耗掉。去年9月，特朗普把主要云厂商召集到桌旁，它们一个个说，将投5000亿美元、4000亿美元资本开支。</p>
+<p>还有扎克伯格被麦克风录到的那个时刻，问6000亿美元是否太多，差不多像是在说：“老板，这个数字是你想要的吗？”</p>
+<p>这是一种“站我们这边，还是另一边”的产业政策：接下来三年投入资本开支，推动AI建设繁荣。它们确实做了，但现在谁来买这些债？</p>
+<p>要维持盈利和资本开支增长，必须继续大规模建设。钱从哪里来？今年10月，十年期国债收益率到5.3%、接近5.4%时，CDS开始大幅走阔。因为支撑AI建设的债务，也开始和主权债争夺资本。</p>
+<p>主权债自身也面临问题：现在接近2021年零利率再融资潮的五周年。当时发行的平均五至七年期限债务，开始进入滚动再融资窗口，给曲线长端带来很大压力。</p>
+<p>再叠加AI资本开支及融资，就没有足够的钱覆盖所有需求。除非最后投资人、最后买家出来，也就是美联储和财政部。</p>
+<p>故事走到这里，市场最脆弱、原本靠它撑起指数的那一角也开始转弱。此前，伊朗战争、通胀及结构性问题已经压着其他需求，现在最能维持全局的部分也摇晃了。</p>
+<p>政府若要继续支持，就得有庞大的新工具，而这需要美联储参与。</p>
+<p>还记得上几次大规模QE吗？它们发生在什么时候？危机期间。若沃什还想保留一定独立性的形象，就需要一场危机，才有理由让美联储进来。</p>
+<p>因此，2027年政府没有同样动力继续维持所有盘子转动。给我看激励，我就能判断结果。在当前宏观背景下，市场上方有约束。</p>
+<p>此外，霍尔木兹海峡的问题没有解决。我已经反复讲七个月了，最开始别人也觉得我疯了。它不会很快完全开放，可能还要一年、两年、三年，甚至更久。</p>
+<p>这意味着结构性成本更高，对经济持续有压力；随后这些价格与需求的关系还会变化，我们后面再谈。</p>
+<p>所以，宏观面有一整组逆风，正处在转弱过程中。政府支持市场的激励下降，甚至有动力让市场往下走。</p>
+<p><strong>主持人：</strong> Noel，从这些宏观因素往下看，怎样理解市场内部？晚期投机行情，通常先从内部恶化：夏天动量交易开始平仓，之后Leopold等基金出事，不同团队收缩，对冲基金降总敞口。</p>
+<p>最早又是等权、小盘走弱，广度在表面下恶化。有人认为，跟上一次广度恶化一样，后面还是反弹、再上涨，但这次实际成为警告。你怎样区分这些情况？ ### 买VIX看跌价差，和抄底股票是两件事</p>
+<p><strong>主持人：</strong> 哪些是健康的广度、仓位调整，哪些是不健康的？政府习惯制造V形底，但当前宏观环境下，有没有可能跌得太深，已经无法用原来的方式救回来？</p>
+<p><strong>Noel：</strong> 我不觉得存在一种永远无法恢复的下跌。</p>
+<p>沿着Cem的扑克比喻，他刚才解释了我们在做什么：手里的牌、所玩的游戏，还有对手及所在政策环境。他给出对规则和对手的解读，就像在旁边告诉我，这个人每次摸鼻子就会做傻事，我们利用这一点。</p>
+<p>合作的意义，就是在现有环境下，把手里的牌尽量打好，提前判断对手可能犯的错。</p>
+<p>具体说，市场能不能跌到无法修复？我不这么看。如果你喜欢现在的标普，那跌到一半、四分之三，你还喜不喜欢？我不知道精确价位，但不同投资群体总有风险资产需求。</p>
+<p>如果大跌，政府也有手段让它反弹。那些措施长期可能通胀，可能带来其他问题，但不会大家都坐着束手无策。上一次市场一路跌、从不剧烈反弹是什么时候？</p>
+<p>就昨天而言，周五跌，周一黄仁勋回来，太疯狂了。特朗普帮他拿回职位？也许吧。如果谁说早在模型里准确预见，我真不知道，因为过去没看过这种事。拿零个历史样本去建这么具体的模型，交易很难。</p>
+<p>看跨资产波动、相关性、黄金和油的波动，阿布扎比原油曲线也在回落，很多东西没有显示市场今天就要彻底崩掉。</p>
+<p>我也不像Cem那样擅长从杂讯里抽取宏观信号。我没法判断这个星期霍尔木兹多过了多少桶油，但我可以做上周提过的交易。</p>
+<p>有人因此把我说成抄底派，不准确。我说的是，买VIX看跌比率策略或看跌价差。判断未来四五十天波动率可能从40附近回落，以风险明确、占组合较小比例的方式下注，与买股票抄底完全不同。</p>
+<p>当市场有这么多动能，今晚还可能突然出关税消息，波动率当然能维持高位。但我也怀疑，这么高的水平能否一路撑过感恩节、后续假期直到新年。所以，我才提出买VIX看跌期权，而非买股票的判断。</p>
+<p><strong>主持人：</strong> 这个区分很重要。昨天股票强反弹，但很多其他市场没有确认。利率市场略提高鹰派路径定价，信用没跟上；长端收益率更低，也没确认增长大幅改善。</p>
+<p>今天铜又创新低、收益率再降，似乎仍有增长恐慌和去通胀式下行压力。</p>
+<p>同时，中长期偏空，与极端左尾风险减小可以并存。黄仁勋回来，最坏情景被削掉，但最好的情景也可能被限制，因为美联储不必明天就救，不会马上放弃鹰派、释放大量流动性。</p>
+<p><strong>另一位主持人：</strong> Quinn，你这没说涨还是跌。涨，还是跌？</p>
+<p><strong>Quinn Thompson：</strong> 抱歉，没有给大家最想要的简单答案。</p>
+<p><strong>Cem：</strong> 关键就在这里。很多人还活在二维资产世界，只能买或卖、涨或跌。我反复讲，期权让你交易的是每种资产背后的收益分布。</p>
+<p>把波动率只当一种资产类别，你就错过重点了。期权让你交易分布的不同位置、不同特征。为什么还活在“平面国”？我们其实可以实时在三个维度交易。</p>
+<p>这对很多人有点难理解，但最值得学习的，就是按概率分布思考结果，再据此配置，而不只问涨跌。</p>
+<h4 id="chapter-5">阶梯下跌与反弹降波，两条路径可以同时交易</h4>
+<p><strong>Cem：</strong> 我现在给两条根据资金流、宏观和政策激励判断更可能的路径。</p>
+<p>第一，到12月阶梯式下跌。因为结构性资金流目前很支持市场：每天都有大量波动率压缩，偏斜又很高，也就是很高的担忧。每一天只要没有崩盘，交易商就得回买。</p>
+<p>你可以观察，每次大跌后都有大反弹。除非下跌持续得足以打破结构，否则总有这种反应。当然，厚左尾仍可能发生，市场可以一路跌，把这套结构冲破，但那种概率相对小。</p>
+<p>Quinn刚才说，宏观上政府已经救了尾部。周日到周一，它们相当于卖给市场一张看跌期权，把失控尾部截掉。</p>
+<p>我当时最关心的是：激励改变了吗？它们是否会转向更积极地支持市场？今天给了答案：只是卖出那张put，避免失控，并没有改变激励。</p>
+<p>宏观仍难看。政府不用多做什么，只需退开，市场就可能顺原来的方向走，稍微一推更是如此。所以，我更倾向到12月阶梯式下跌。</p>
+<p>Noel可以是对的，我也可以是对的。</p>
+<p><strong>主持人：</strong> 细微区别就在这：市场跌，波动率也可以下降。</p>
+<p><strong>Cem：</strong> 还有另一条路径。如果政策稍微多一点支持、消息稍好，因为资金流在12月期权到期前很有利，市场可以先有一轮像样的大涨、波动率压缩，然后再下去。</p>
+<p>依据今天的消息、以及政府只截去尾部的表现，我目前更倾向阶梯式。但你可以同时为两条路径配置。</p>
+<p>相对于成千上万、甚至更多可能路径，我刚才描述的是两条很具体的路径。我们能把组合设成Delta相对中性、或稍偏空，同时略做空波动。如果其中一条兑现，就可能得到很好的收益。</p>
+<p><strong>Noel：</strong> 我插一句，Cem没有提前和我串过这个比喻。我小时候看PBS里Carl Sagan讲第四维的节目，也用了《平面国》。</p>
+<p>二维世界的人无法理解第三维，一个三维物体穿过它，只能看到一片片截面，没有“上方”的概念。这给九、十岁时的我留下很深印象。我公司的标志就是超立方体，也把时间作为额外维度。</p>
+<p>利用时间，就像别人没有的一枚棋子，帮助赚钱或少亏钱，这是期权很重要的能力。市场不动，你也可以赚钱；先到一个地方、再到另一个地方，两段也都能赚钱。</p>
+<p>所以我们彼此很投缘。不知道会发生什么，但波动很高，就可以卖一些波动、收时间价值。如果三十天什么都没发生，别人还在问到底发生了什么，我可以说，不知道，但我赚到了钱。</p>
+<p>这些值得关注。它是数学，没有什么神秘之处，只要学习这门手艺，理解具体交易。</p>
+<h4 id="chapter-6">为什么没有单一的市场结构指标</h4>
+<p><strong>主持人：</strong> Noel，具体问一下市场结构。Cem给的两条路径，一条阶梯式、有秩序地下跌，一条抛售时相关性突然到一。你用什么检查表判断市场更适合哪种？</p>
+<p>比如摩根大通领式结构的行权价、Gamma分布，你通常看什么，来判断有序下行还是集中抛售冲击？</p>
+<p><strong>Noel：</strong> 坏消息是，没有一个万能答案。我没法五秒钟说，看这个指标就有全部信号。很多东西得在交易现场学。</p>
+<p>假设你我各有100万美元资金，都在交易所。我去吃午饭，你留下，高盛经纪人进来买了50万美元看跌期权。于是你手里有50万美元put空头、50万美元现金，而我还有100万美元。</p>
+<p>他再来买put时，我可以承接更多。随着他持续买入，波动率越来越贵。我会观察对手：他的需求还有多少？有经验的场内交易员可能知道他的量，甚至知道客户是谁。这样的信息质量，是做市商表现好的来源。</p>
+<p>同样的方法可以用于更广市场。不能只看未平仓量对应的Gamma，因为Gamma不是一直保持不变。</p>
+<p>比如大量put行权价低于市场10%，价格继续下跌后，它们最终接近100 Delta，Gamma就消失，变成接近Delta 1的工具。</p>
+<p>所以，你要看仓位，判断其他人可能持有什么，还要看跨资产波动。大机构如果卖空SPY的put，会同时看ES、SPX、UPRO、VIX、QQQ及其他相关工具。</p>
+<p>你必须看桌上所有牌，再从杂讯中抽信号：旁边的人会不会爆仓？高盛经纪人还会买吗？他消耗多少资本？我消耗多少？距离全场最大痛点还有多远？</p>
+<p>这很难。所以真正要问的是：我怎样做，才能即使错了，也不至于亏掉身家，还能明天继续交易；如果对了，又有明显不对称收益？</p>
+<p>这解释起来很长，但不存在“VIX到30就卖、35就买”的单一规则。事情复杂得多。</p>
+<p><strong>主持人：</strong> 是艺术，还是科学，还是两者结合？</p>
+<p><strong>Noel：</strong> 两者都是。</p>
+<p><strong>主持人：</strong> Cem，谈到痛点，周五及周末英伟达的情况似乎就触及了某个门槛。贝森特改变说法，市场随后反弹。你认为真正触发政策反应的会是哪一块市场？股票，信用？你还一直谈美联储的“歌舞伎表演”…… ### 沃勒的50bp与政策可信度</p>
+<p><strong>主持人：</strong> 市场仍定价两三次甚至更多加息，你认为最后未必实现。上周官员继续强化鹰派、加重压力，你意外吗？原来期待它们停一停吗？未来几个月，美联储会走什么路径？</p>
+<p><strong>Cem：</strong> 沃勒说50bp时，我确实惊讶，它们愿意走到这一步。但他为什么建议50bp？他说的是“可信度”。</p>
+<p>我讲“歌舞伎表演”，不是说他自己完全不信这个政策，而是说，他明确表示这么做有维护可信度的理由。这正是我想表达的。</p>
+<p>它们要让外界觉得，这不是一个政策任意改变的国家，美元不会因为特朗普、贝森特、沃什都主张放水而崩掉。但我的判断是，它们最终都希望大幅扩张流动性，而且未来七八个月会发生。</p>
+<p>我们愿意为这个判断下注，也确实在下注。它们现在可能加息，但最后会很快掉头。至少加过一次，并说是为了抗通胀，才显示自己有独立性，两边都考虑过。</p>
+<p>这是可信度和市场认知的博弈，而这很重要。如果将来要大量创造流动性，最不能失去的就是市场信任。所以，它们必须维护这套叙事。</p>
+<p><strong>主持人：</strong> 为这样的判断下注，你更喜欢直接做多2027年下半年、9月或12月的SOFR合约，还是做年初到年底的期限价差？</p>
+<p><strong>Cem：</strong> 时间很重要，你可以交易曲线。我同时给了时间和价格，就把两者一起考虑。</p>
+<p>假如我认为它们在Q1某个时候掉头，你会怎么做，Quinn？</p>
+<p><strong>Quinn：</strong> 可以卖前端……</p>
+<p><strong>Cem：</strong> 掉头之后，又会释放很多流动性。接着呢？</p>
+<p><strong>Quinn：</strong> 做陡曲线。</p>
+<p><strong>Cem：</strong> 对。</p>
+<p><strong>主持人：</strong> 波动率形态也有意思。长久期国债波动比较温和，前端则反复甩动。最近几周，一会儿定价两次加息，一会儿又拿掉一次，昨天再加回半次。</p>
+<p><strong>Cem：</strong> 有道理。长端被两种力量拉扯：一边是宏观转弱、需求下降，另一边是结构性通胀、债务滚动再融资及资金需求。</p>
+<p>在通胀这么有韧性、融资供需这么失衡的情况下，长端竟然还稳得住，实际上说明宏观转弱已经相当明显。</p>
+<p>而且长端一降，就会引出很多再融资、新债供给及资金重新配置。还别忘了云厂商等主体也要融资。所以，长端存在持续的供给约束，还要考虑利率相对通胀的实际水平。</p>
+<p>我的重点是，长端波动可能低得多；前端现在加、后来又降，波动当然大。</p>
+<p><strong>主持人：</strong> 我也觉得增长放缓背景下，长端跌得可能没有大家希望的多。但债券还有一个左尾：像“解放日”那样，美元、国债、所有美国资产一起跌。</p>
+<p>美元及流入美国资产的资金已经强了很久。你可以一直寻求避险，直到遇上过去几次特朗普时期回撤中出现过的那种同步下跌。</p>
+<p><strong>Cem：</strong> 那种环境什么有效？</p>
+<p><strong>主持人：</strong> 黄金。</p>
+<h4 id="chapter-7">黄金看涨与原油看跌的组合</h4>
+<p><strong>Cem：</strong> 对。所以，我反而喜欢大家现在对黄金失去信心。</p>
+<p>长期跟踪我的人知道，2021年底、2022年初，我提出卖原油看跌期权、买黄金看涨期权，用约一年期限，权利金大致中性。后来三年，这笔交易表现很好。即使最近黄金回撤，效果仍不差。</p>
+<p>现在我再作一次判断：未来六至九个月，机会会回来，黄金看涨期权会再走一轮，卖原油put、买黄金call，就是这个交易。</p>
+<p><strong>主持人：</strong> 油这边有周期性的下行压力。黄金又像反向美元，自1月冲高后受损。美元连续六季上涨，可能是九十年代末以来较长的一段，是否接近上限？</p>
+<p>股市与风险市场已经有裂缝，可黄金周线、月线离均线还远。最近下跌时波动率上升，与之前关系不同，也许买call前该等波动降下来？</p>
+<p><strong>Cem：</strong> 不只看Delta，所以我们才用期权，谈的是分布。</p>
+<p>看1968—1982年，表现最好的资产是什么？黄金。表现最好的波动率之一是什么？也是黄金。油作为资产也很强，但油的波动率反而是很不值得买的。</p>
+<p>这很反直觉。除OPEC危机那一小段外，油波动被明显压缩，因为结构性通胀支持价格，经济其他部分却偏弱。</p>
+<p>股票波动也类似，在1968—1982年是很好的卖出对象。利率越来越高、股票估值越来越便宜，但名义支持仍在。那十四年，股市名义上几乎没去哪里，中间当然上下波动，可长期卖股票波动相当有利。</p>
+<p>工业商品波动同样如此。但黄金、债券和外汇波动，动态完全不同。</p>
+<p>在俄乌冲突、海峡问题及关税之前，我就觉得这个环境像六七十年代，也说过特朗普与尼克松有不少相似之处。现在又像尼克松中选之后。系统面临的压力类似，我认为应该交易这些类型的机会。</p>
+<h4 id="chapter-8">相关性会怎样非线性上升</h4>
+<p><strong>主持人：</strong> Noel，怎样理解隐含相关性与波动率？VIX到40，但三个月隐含相关性虽然升了，还不能说暴涨。你如何综合两者？</p>
+<p><strong>Noel：</strong> 回答前，先说Cem在这里让我的工作容易了很多。他能拆解市场，公开和私下判断都很好，可以回看录像。对我而言，把这些思路变成交易容易多了。</p>
+<p>回到相关性和波动率。市场广度很窄，但离散度很高：每只股票各走各的。礼来、英伟达、卡特彼勒，走势可以完全不同，指数层面却很长时间变化不大。</p>
+<p>离散度高、相关性低，而且原来是很低的历史水平。从极低升高一大截，绝对值仍可能不高，后面还有空间。</p>
+<p>很多人定价风险时，只看今天的问题，没有思考下一个问题。同期数据可能有误导，连锁效应却是非线性的。</p>
+<p>相关性不会永远按线性速度从一个台阶到下一个台阶。假如Millennium有5亿美元Vega空头，一天里必须同时拆五个团队的仓位，不会平滑完成，而会突然出现流动性真空。</p>
+<p>相关性从10到20、20到30，看起来还可管理，但之后可能直接从30到60、再到80、90。所有人突然问：“全都出问题了，我该怎么办？”</p>
+<p>那就是场内交易里资金用完的那个对手。put交易到他从没想过的价格，我午饭前后面对的机会集可能扩大五倍。这就是超额收益来源。</p>
+<h4 id="chapter-9">指数压波与个股分化的结构力量</h4>
+<p><strong>主持人：</strong> Cem，你过去几年的夏天一直讲离散度。这个夏天，小盘、等权先弱，大科技最后冲一次。现在科技又在平仓，等权、小盘、周期股相对强，但联储仍鹰派、明年增长可能减速。</p>
+<p>接下来，落后表现会重新转到实体经济、小盘，还是继续集中在科技？</p>
+<p><strong>Cem：</strong> 有件事我很有信心，过去至少五年一直在讲：指数层面的波动压缩、结构化产品发行不断增长，显著压低指数波动。</p>
+<p>压缩最强的时点就在12月期权到期。很多是多年期LEAPS，发行量又大。这次不只是普通季度到期，而是年末，有非常大的指数层面流量。</p>
+<p>每天没有足够大的变动，就继续压缩、压缩。可那是指数，不代表所有个股。</p>
+<p>如果你在别处做空波动，而指数波动很便宜，就可能想买它保护尾部，因为真到足够大下跌，指数波动最终会爆发。</p>
+<p>这句话最后那部分没错，问题是，触发线在哪里。阶梯式下跌不一定够。某种程度上，正是波动压缩在支持市场，而政府又削掉一部分尾部、给了安心，偏斜背后的正向流量就回来，波动再降。</p>
+<p>如果此时出现黄仁勋回来、英伟达涨30%甚至更大这样的事，别的股票就必须往反方向走，这就是结构上的表现。</p>
+<p>去看2017年前的实际离散度，把2017年后的世界先拿掉，不看隐含，用实际数据，看八十年、一百年；再把2017年至今画上去。历史上很难找到类似的相关性解体。</p>
+<p>作为做过做市的人，Noel和我知道背后原因。过去一百多年也有世界大战和各种巨大冲击，并不是今天宏观突然变得前所未有。</p>
+<p>宏观当然重要，现在的某些条件也像六七十年代，但那时没有今天这种程度的分化。结构力量正在加速离散度。</p>
+<p>把它与我刚才说的宏观、政策激励结合：原先维系整体、不断向上挤压的部分，现在开始转弱，并拖动其他部分。这个过程夏天就启动了，几次试图恢复，都再次转弱，这提供了方向线索。</p>
+<p>但离散度、其他股票反向运动，本身仍是结构因素。必须真正破坏这套结构，才会不同。VIX一天到40不够，需要Vega更高、卖波供给退去、结构化发行减少、一些参与者受伤。</p>
+<p>这些目前没发生。2022年就没有完全打破，我们也可能进入一种类似2022年的环境。 ### 为什么VIX一天到40仍不足以改变结构</p>
+<p><strong>Noel：</strong> Cem讲了一个很容易被忽略的细节：较长期波动率、Vega其实还没怎么动。</p>
+<p>全球金融危机后，在场外方差互换市场，你一度能以30这样的波动水平卖十年期方差，那是非常大的变化。相较之下，VIX一天到40，算不上什么。</p>
+<p>必须看到这些冲击真正影响参与者。交易坑里那个原有100万美元的人，只剩25美元，不得不把割草机都卖给你。他不是疯了，而是没选择。这正是Cem说的：较长期的波动变化，来自人们因工作与资本压力，被迫作出理性的决定。</p>
+<p><strong>Cem：</strong> 人都喜欢故事，宏观也是故事，当然很重要。但市场结构就是供需。宏观最终影响市场结果，只有一条路：供给与需求。</p>
+<p>所以，我认为，要判断结果、作预测，市场结构是很值得依靠的一环。</p>
+<p><strong>Quinn：</strong> 市场很头重脚轻，也跌了很多，反弹会有卖盘。但慢跌最令人沮丧，因为没有一次明确出清。</p>
+<p>过去三周，纳指有两次约5%的单日下跌，按任何标准都不小，可过程又相当有秩序，没有想象中那种感觉。这大概最让人难受。</p>
+<h4 id="chapter-10">保护性put为什么有时也救不了组合</h4>
+<p><strong>Cem：</strong> Quinn，你理解了，但我想让更多人听清。</p>
+<p>第一，过去两天发生的事，对未来分布非常重要。政府告诉你，它不愿承受失控的大左尾，但仍希望市场更低。这是很大的信号。</p>
+<p>原本卖波一侧就有结构性压缩支持，现在口袋里又多了政府提供的一张尾部put，因此，某些卖出波动的交易更占优势。我认为周日、周一展示的就是这个。</p>
+<p>第二，讲讲2022及过去几个时期，看看下跌中波动率压缩经常带来什么。</p>
+<p>2015年人民币贬值，市场从峰到谷大约跌9%，波动率却暴涨。人们事后想，有put就能赚很多，卖put的人则被冲垮。随后，大家开始买保护。</p>
+<p>六个月后，2016年初油价跌到20美元，高收益信用承压，股市跌约13%，比前一回多四个百分点。但一路阶梯下跌，波动率、偏斜却下降。为什么？很多人已经对冲，手里都有波动保护。</p>
+<p>更大的跌幅，反而伴随压缩的波动。没有那种容易产生V形反转、恢复流动性的猛烈出清。如果你是多股票、买put保护，而put不怎么赚钱，会更痛苦。</p>
+<p>当时有些人因为高收益利差扩大、put又便宜，就买高收益加put，觉得怎么会输。你会输，因为大家都在同一边。</p>
+<p>再往后，2016保护效果不佳，很多人说，再也不买put了。2017波动持续压缩。接着，“波动率末日”来了，市场跌约9%，波动率爆发，put空头被冲垮，XIV出事。</p>
+<p>然后2018年10—12月，跌幅不是9%，而是约19%、接近20%，历时三个月，一步一步往下。市场跌，波动也跌；最后只有一点上翘，因为很多人已经防着那种冲击。</p>
+<p>2020疫情不同，市场约跌30%，波动也巨大，是幅度更大的冲击。之后2022又是九个月阶梯下行，大约27%。再后来，“解放日”又出现波动爆发。</p>
+<p>重点是，这些周期取决于供需。通常，波动率不爆发时，反而容易出现更深、更难熬的下跌。当然不是每次都如此，疫情就是另一种情形。</p>
+<p>别因为波动降下来、没有失控、个股继续分化，就认为市场安全、一定会涨。它可能把散户重新吸回来抄底，反复失败后更痛苦，最后很多人在底部卖出。</p>
+<p><strong>主持人：</strong> 我喜欢这个说法，情绪上能理解。很多人希望出现2018年Q4的类比，希望很快有一次鲍威尔式转向，最不想再经历2022。宏观有很多相似之处，但供需结构并不一定相同，两边在拉扯。</p>
+<p><strong>Cem：</strong> 而且我已经讲了四五个月，有些人对此有准备，也做了对冲。</p>
+<p>问题是，大家通常不想卖股票，只想用put盖住，告诉自己，真有危机就能补偿。但当很多人都“准备好了”，痛苦往往会换另一种形式出现。</p>
+<p><strong>主持人：</strong> Noel，结束前还有什么补充？</p>
+<p><strong>Noel：</strong> 大家常在打上一场战争。疫情波动冲击与2022完全不同。疫情中put效果好得难以想象，2022却不断损耗。</p>
+<p>2022比较好的交易反而像反向备兑：做空股票，同时卖put。其他地方也很难躲，几乎都跌。</p>
+<p>所以，人们会学习，却未必能预测。Cem给的不只是方向，而是背后的路线与思考过程，这很有用。</p>
+<h4 id="chapter-11">Cem对2027年价格路径的估计</h4>
+<p><strong>主持人：</strong> 最后快速预测一下十年美债、黄金、WTI和标普。看今年范围很惊人：十年收益率3.9%—5.4%，黄金3600—5500美元，WTI 55—120美元，标普6300—7800。</p>
+<p>2027年这四种资产，你们大概给什么上下界？</p>
+<p><strong>Cem：</strong> 我不太喜欢按自然年度硬切，不如给你更具体的路径和我自己的时间线。</p>
+<p>我认为，到明年6月，标普已经去过5500—5900之间，而且开始反弹，甚至已有明显反弹。纳指可能跌得更深，反弹也更大。</p>
+<p>在这个过程中，WTI会到60多美元、较低的60多，甚至50多，之后再加速上涨。油的过程会很剧烈，因为供应需求关系变得很缺乏弹性。</p>
+<p>下跌主要是需求作用，相对线性，波动反而低；上涨时约束更不具弹性。所以，范围可能55—130、甚至140美元，并开始向上加速。</p>
+<p>黄金这里也许还要低一点，但不会低太多。之后明年可能大涨，至明年6月比现在高20%，进入一轮较大的周期行情。</p>
+<p>十年国债收益率可能先到3.8%—3.9%，略微跌破此前区间，然后再回5.5%—6%。如果只到5.5%，可能是政策在买债、支持市场。</p>
+<p>我认为这些资产都会经历很剧烈的路径。我说的股市下跌，从这里再跌15%—25%，更准确说20%—30%。如果这是我的标普判断，那么其他资产至少也会有相当大的波动。</p>
+<p><strong>主持人：</strong> 我看的信号也有意思：铜、收益率、铂族金属，自9月联储加息后，几乎各类商品都往下。商品期货仓位这么集中去杠杆，已经有一段时间没见。</p>
+<p>1月时还在谈经济过热，但我们很久没有经历持续、真正的增长恐慌。如果要说身边人最没准备好的情景，正是你描述的：政府、鹰派联储带来很大周期下行压力，却不如过去积极介入。这可能是最大痛苦路径。</p>
+<p><strong>Cem：</strong> 我刚才说的一切，都假设政府能在一定程度上实现它想要的结果，这是我的看法。</p>
+<p>我喜欢泰森那句话，每个人被打中脸之前都有计划。政府有计划，但其他参与者也有自己的行动。若市场继续跌25%左右，再叠加选举结果和内部问题，不确定性很大，不能以为过程会很容易。</p>
+<p><strong>主持人：</strong> 谢谢你们在感恩节这一周抽时间。</p>
+<p><strong>Cem：</strong> 很高兴来，希望如果我们判断正确，明年感恩节可以一起吃大火鸡。</p>
+<p><strong>主持人：</strong> 期待，谢谢大家。</p>
+<p><strong>Noel：</strong> 谢谢，再见。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
