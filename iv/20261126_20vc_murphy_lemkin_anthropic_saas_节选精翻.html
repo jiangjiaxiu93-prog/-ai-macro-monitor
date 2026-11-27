@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, max-age=0, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Matt Murphy、Jason Lemkin谈Anthropic上市与企业软件重估（20VC所选范围全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html?v=5b11290943a9"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html?v=5b11290943a9" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl" href="../roi.html" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl on" href="../model_returns.html" aria-current="page" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-27<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../model_returns.html">← 返回大模型公司的回报</a>
+<div class="card"><article>
+<h2>Matt Murphy、Jason Lemkin谈Anthropic上市与企业软件重估（20VC所选范围全文精翻）</h2>
+<div class="metaline">20VC · Matt Murphy（Menlo Ventures合伙人、Anthropic早期投资人）、Jason Lemkin（SaaStr创始人、企业软件投资人）、Harry Stebbings（20VC创始人、主持） · 71分41秒 · 2026-11-26 · <a href="https://www.youtube.com/watch?v=UGSSg8vv8vg" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文节选精翻</div>
+<p class="kw">关键词：Anthropic；AI上市；Cognition；企业软件；收购；估值；工作入口</p>
+<p>原节目：Anthropic's IPO: How It Changes Venture | Applied Compute, Bill.com &amp; Mailchimp Acquisitions</p>
+<p>节目于2026年11月26日发布，71分41秒。</p>
+<p>翻译范围：按候选注明范围完整翻译AI、产业估值和并购讨论，含英伟达复任后的投资策略、Anthropic挂牌、软件采购与估值、并购整合及人才成本。略去私人轶事、政治丑闻、广告与题外闲聊。</p>
+<h3>精翻正文</h3><details style="margin:18px 0;padding:12px;border:1px solid var(--line);border-radius:8px"><summary>章节目录</summary><ul><li><a href="#chapter-1">英伟达复任后的资金与产品取舍</a></li><li><a href="#chapter-2">Anthropic挂牌现场与五年增长曲线</a></li><li><a href="#chapter-3">企业可以自己写软件，谁来持续维护</a></li><li><a href="#chapter-4">客户数据还在CRM里，工作入口可能已迁移</a></li><li><a href="#chapter-5">Cognition的750亿美元，意味着怎样的退出预期</a></li><li><a href="#chapter-6">Sierra、Databricks、Ramp，谁还有十倍空间</a></li><li><a href="#chapter-7">Applied Compute与收购后整合</a></li><li><a href="#chapter-8">Mailchimp卖价、老SaaS估值和Bill.com的另一种可能</a></li><li><a href="#chapter-9">CrowdStrike与Zscaler为什么要合并</a></li><li><a href="#chapter-10">研究能力的变化与企业采购条件</a></li><li><a href="#chapter-11">上市后资金回流，以及初创公司的薪酬压力</a></li></ul></details>
+<h4 id="chapter-1">英伟达复任后的资金与产品取舍</h4>
+<p><strong>Harry Stebbings：</strong> Rory O’Driscoll休假，今天由Anthropic早期投资人Matt Murphy坐这个位置。我们赶上Anthropic上市、黄仁勋复任，还有Applied Compute、Bill.com、Mailchimp等交易。先说英伟达，周一黄仁勋复任，市值回升大约一万亿美元。大家怎么看？</p>
+<p><strong>Matt Murphy：</strong> 我觉得董事会要求他辞职太仓促了。当时董事会可能担心政府会采取行动，迫于压力匆忙决定。后来听到的情况是，政府也希望回到正常的调查程序。员工和行业反应强烈，这又是世界上最重要的公司之一。要让一个做得这么好的CEO在这么短时间内离开，冲击太大。</p>
+<p><strong>Jason Lemkin：</strong> 买指数基金的人也在承担这个风险。按我的印象，英伟达约占QQQ的6%、VTI的7%。上周连我都突然有了变穷的感觉，人人都能看到跌势可能继续，而且未必有底。我两周前就主张，在可接受的范围内给他机会。类似乔布斯曾因期权回溯定价受质疑，当时也要权衡关键人物离开会造成什么后果。</p>
+<p><strong>Matt：</strong> 调查还会继续。董事会成员很多跟他共事二十多年，我认为当时可以再多给程序一点时间。</p>
+<p><strong>Harry：</strong> Poolside和Hugging Face都受益于英伟达积极投资。复任以后，他在投资、收购和合作方面会更激进，还是更克制？</p>
+<p><strong>Matt：</strong> 他可能会觉得此前的路线得到某种认可。市场曾为他可能离任、开放生态可能失去支持而大幅重定价。现在他看到，市场喜欢英伟达所做的事，也认可让不同模型健康竞争的价值。他目前在维护这个生态。</p>
+<p><strong>Jason：</strong> 创始人离任又回来的例子，我投过两家，回来后都取得了相当大的成功。英伟达可能会更集中精力做好下一代Blackwell产品，做得更快更好，对外行动则受到更多约束。对风险投资，这是边际上的负面，但他在位仍比不在好，别人看起来没那么支持这类投入。</p>
+<p><strong>Harry：</strong> 他会压低投给创业公司的钱吗？</p>
+<p><strong>Jason：</strong> 此前他积极推动对外销售、产业投资与循环交易，其他高管似乎更谨慎。他过去几乎没人能拦得住，现在可用的声望和关系资本比两周前少了。得小心用在哪里，他不会有第二次复任的机会。</p>
+<p><strong>Jason：</strong> 有个听起来有点怪的看法。离职再回来，有时反而利于组织翻页。否则调查持续，所有人在公司里还会不断谈起它。现在大家得回到工作上。</p>
+<p><strong>Harry：</strong> 有人把政府推动复任称为这轮AI周期第一次“救助”。</p>
+<p><strong>Jason：</strong> 上一轮是硅谷银行，这一轮是英伟达。想象当时硅谷银行没人救，我那个周末就有约1,000万美元受影响。</p>
+<h4 id="chapter-2">Anthropic挂牌现场与五年增长曲线</h4>
+<p><strong>Harry：</strong> 进入正题。Anthropic按83美元发行。Matt，当天在现场是什么感受？</p>
+<p><strong>Matt：</strong> 很棒。公司先安排投资者和合作伙伴聚在一起，好几个小时，有机会和很久没碰到的创始人聊天。Dario和Daniela都很容易接近，心情不错。大家去看敲钟，公司谈业务怎么建起来、对信任和安全的承诺、希望为社会带来什么。敲钟之后距离第一笔成交还有大约三个小时。后来快到时间，大家到了交易场地，看买卖报价和成交量。倒数五分钟、一分钟，又有很多单子进来，首笔交易推迟几分钟。真的成交以后，大家欢呼、击掌、拥抱。能亲眼看到团队经历这些，我也很高兴。</p>
+<p><strong>Jason：</strong> 这是极少见的投资结果。人在风投做出一次这种结果之后，有时会想，再也遇不到了。你会不会想，自己再也投不到一家Anthropic？</p>
+<p><strong>Matt：</strong> Anthropic当然是单独一家公司，我们做这行很久，都希望遇到更多这种机会。我以前对极端成功的参照是谷歌，我作为观察员跟着John Doerr看过那个过程。它大约十五年从100亿美元到1,000亿美元，Anthropic一年就走过类似的增长区间。体量、规模起来以后的增长速度，都超出我们见过的范围。</p>
+<p>这轮技术同时影响很多行业。以往有时只有一两家或三家赢家，现在有几十家被认为有机会。当然，一些按赢家定价的公司，最后不会赢。对我来说，更令人兴奋的是公司和团队现在能接触到这些机会，以及我们有条件把握它们。即便暂时找不到下一家Anthropic，这一点也让我有动力。</p>
+<p><strong>Harry：</strong> 股票在发行价附近来回。如果继续下探呢？OpenRouter最新发文说，在它的平台上使用谷歌模型的人多于OpenAI。Anthropic股价疲弱，会不会传到OpenAI，以及整个生态的风险偏好？</p>
+<p><strong>Jason：</strong> 我认为这是一个时代才有几家的公司。Facebook上市后也有一段时间股价没怎么走，Anthropic即便一年都值发行价，结果也已经了不起。更难回答的是模型领先能持续多久。节目刚开始时我用Claude，你们笑我，说全世界都用ChatGPT。后来Anthropic的4系列表现改变了两家公司的增长对比。今天再发生一次这样的换位，完全有可能。Anthropic现在在质量、知识产权和前沿表现上像是挡不住，但谁知道一年后怎样？和十四个月前比，它的模型已经像另一家公司。</p>
+<p><strong>Matt：</strong> Anthropic很早就建立了企业市场的领先，后来又拉开距离。我们自己的企业AI调研也看到这种市场份额变化。我不太愿意猜短期股价。如果你看规模、增速、毛利率和净留存，这是一家投资人都梦寐以求的公司。也不用只按开放权重和闭源模型来押注。整个市场的扩张速度远超预期，Anthropic是领先者之一，现在还成为可买卖的公开股票。想投这一轮AI，资金还能去哪儿？</p>
+<p><strong>Harry：</strong> 那你们认同Gavin Baker的判断吗？以当前收入规模和增速看，不少头部公司也许被严重低估。英伟达已经反弹了一截，按盈利倍数看仍然便宜。</p>
+<p><strong>Jason：</strong> 我是偏早期的投资人，最先看增长。英伟达的收入增速还是难以想象，一季季上调。五年就靠近千亿美元收入，上市时达到万亿美元估值，已经突破旧模型。我开玩笑说，早期投资人眼里它值一千万亿美元。许多公司也不能只拿当期经常性收入倍数估，要看未来增长。到2020年前后，ARR倍数对大多数企业软件都好用。现在只适合增速不错的中间一批，对Bending Spoons买的那类公司和对Anthropic都不合适。我们能确定的是公司可能会大得多，最后也许这些价格都显得便宜。</p>
+<h4 id="chapter-3">企业可以自己写软件，谁来持续维护</h4>
+<p><strong>Harry：</strong> 这周接连出现安全事件。代理可以帮忙防护，也能放大攻击规模。企业现在哪一块投入得不够？</p>
+<p><strong>Jason：</strong> 一年内也许能解决一部分，OpenAI这周发了开源工具对付代理带来的安全威胁，我还没时间试。但对许多老SaaS公司，还有随手生成的应用，我觉得2027年会很难。如果供应商在2021年融过资，后来连安全运营团队都裁了，我不敢把客户数据接给它。Gainsight因为安全审核停了一段时间，市场上也有其他生态的漏洞。我自己去年做了个小应用，刚发布几分钟就有人试着闯，什么也没拿到，但连我们这么小的品牌都已经进入人家的名单。</p>
+<p>我现在不会轻易买个插件、把营销工具接进核心系统，分析工具也一样。客户会要求看你怎么防护。安全审查曾很受重视，后来有时变成走形式，几分钟做个SOC 2。明年可能会是最难过审的一年，不少企业软件供应商无法应付这样的审查。它们本来就没按这个威胁水平建系统，两年前做了一点安全，再把团队裁掉，靠这些肯定不够。</p>
+<p><strong>Harry：</strong> Coinbase的Brian Armstrong说，愿多在内部开发，减少对第三方应用依赖。大公司都该这么做吗？</p>
+<p><strong>Matt：</strong> 即使模型能自己做不少事，许多公司仍没有时间、注意力或足够团队，把所有应用重新做一遍。重建CRM、持续维护，是个长期项目。将来模型也许能让一些应用自我维护，但企业还有很难梳理的流程、定制工作和脆弱的环节。有时即使用了最好的AI，也得有驻场工程师深入组织，理解你实际需要的东西。采购和自建会共存很久。</p>
+<p><strong>Jason：</strong> 有些应用开始能自己维护一部分，但安全不能全部交给模型。模型的上下文有限，没法实时掌握应用各环节的所有威胁。如果Coinbase的安全、开发运维团队确实极强，也愿意像头部软件厂商一样认真维护100个内部应用，那当然可以。我看到的一些例子令人担心，临时搭东西的人没有像Salesforce、Shopify或Anthropic那样投入安全。我认为2027年会暴露问题。用自然语言指挥代理正在兴起，自己用自然语言拼出生产级软件那种想法，可能九十天前就过了热度。</p>
+<p><strong>Harry：</strong> 我来调解一下。你刚领投Lovable，却说这类编程已经死了。真的吗？</p>
+<p><strong>Matt：</strong> Claude的技能也是一种让做应用变容易的方式。Lovable这样的产品，正在从做原型和轻量网页应用，发展到能承担部分经营工作。这个概念在演化。</p>
+<p><strong>Jason：</strong> 我同意Matt说的，多数中小企业不会自己生成并维护一套正式生产软件。Replit和Lovable明年也许都能做到20亿美元量级、大获成功，但增长未必来自让客户自建生产应用。我觉得2027年很多中小企业会直接把任务交给通用代理。省去写需求、搭整个应用、逐项安排安全的过程，告诉Muse要做什么，它照着做。Replit、Lovable、Claude Code这种代理式开发才刚开始。真正退潮的，是让每家小企业都自建生产软件的营销设想。</p>
+<h4 id="chapter-4">客户数据还在CRM里，工作入口可能已迁移</h4>
+<p><strong>Harry：</strong> 那么，Brian Halligan回到HubSpot正是时候。中小企业这一块，有谁比它更可能做成？它已经有客户的数据和记录系统。</p>
+<p><strong>Jason：</strong> 一家新成立的中小企业还没有记录系统。你说的也许适用于用了二十年的老客户。按我看到的数，HubSpot原来一期新增约1万客户，然后降到7,000、5,000、不到5,000。我喜欢Brian，也喜欢Dharmesh，但我觉得新公司未必选HubSpot。赢得那些新客户才是他们要解决的问题。</p>
+<p><strong>Matt：</strong> 客户也未必想选一个窄的应用。HubSpot有CRM、做一部分营销。但更通用的平台可以同时做CRM、建应用、运行经营流程，与客户接打电话。一个平台能覆盖这些工作，采购逻辑已经变了。</p>
+<p><strong>Jason：</strong> 大概到2021年，赢的是横向应用。我认为明年可能赢的是横向代理。Replit、Lovable在受约束环境里，比Claude Code简单两个量级。Replit我每天能用十小时，Lovable我也喜欢。但Muse更简单，我告诉它要做什么，它就可能直接搭个定时任务和几条工作流，我不必关心是不是在建应用。</p>
+<p>随着这类代理变好，我可能一直等到自己的公司更大，才想起要买CRM。Lovable可以接着做Muse没覆盖的营销。我们在Replit上做了营销代理10K，它与Muse已经在协作，有时每小时交流一次。对中小企业，这也许已经够用。你拿起手机说做个营销活动，代理知道活动是什么。你没名单，它可以从自己的通信数据里帮你整理。以Menlo为例，可以整理过去五年联系过的创始人，按可能准备做新项目的情况排序，再协助联络。</p>
+<p><strong>Harry：</strong> 我在Muse里每天看一份欧洲创始人线索，关注25家自己挑出的高人才密度公司，看看过去24小时谁离开。每天大约能收到三个质量不错的人选。如果我想要更多企业邮箱、愿意按人付一定费用，把目标告诉AI，剩下让它处理，这就很有力量。</p>
+<p><strong>Jason：</strong> 那已经在做CRM的工作了。HubSpot能开箱做同样的事吗？按我的经验，你可能得付1.5万美元请实施人员，导入数据、找代理、设名单，做很久。用Muse也许一小时就能弄出来。我喜欢HubSpot，但用户会问为什么为这件事去买一套CRM。</p>
+<p><strong>Matt：</strong> 此后你想改规则，现有的集成也可能很脆弱。</p>
+<h4 id="chapter-5">Cognition的750亿美元，意味着怎样的退出预期</h4>
+<p><strong>Harry：</strong> 转到编程代理。Cognition据称要在750亿美元估值融20多亿美元，才几个月前还是480亿美元。在Claude Code、Codex、Cursor之外，它可能排第四。怎么看这轮？</p>
+<p><strong>Matt：</strong> 我向接近交易的人了解到，这轮融资确实在进行。轮次间的涨幅很惊人。Menlo投了Factory，押注方向稍有不同。Matan很出色，产品有可比之处，Factory对本地部署、与外部网络隔离的环境也下了功夫。这个市场胜负未定。750亿美元买Cognition，如果要达到风投的回报要求，你是不是得相信它最终值4,000亿美元？这么大的结果能出现几次？</p>
+<p><strong>Jason：</strong> 再算稀释，用750亿美元买入可能相当于以1,000亿美元为回报基数，十倍就要一万亿美元，得接近Anthropic。我很敬佩Cognition团队，可Anthropic业务宽得多。如果Cognition是市场上相距很远的第四或第七，我不会按这个价格买。七亿美元或七十亿美元是另一回事。</p>
+<p><strong>Harry：</strong> 第四名也能值750亿美元，足见这轮浪潮的规模。我原来也听说做到数一数二才有意义，今天我们却谈到第四名收入接近20亿美元。</p>
+<p><strong>Jason：</strong> 大约2019、2020年，红杉内部聊过“Postmates效应”。行业足够大，表现弱于对手的第三名也能以约30亿美元卖给Uber。可当市场冷下来，Postmates也许就会被Uber Eats、DoorDash挤掉。现在看着第五名、第六名都增长很快，一个月也许涨28%、92%，就觉得投第五名也没问题。我担心投资人开始觉得第六名都值得投，可能正是泡沫的信号。</p>
+<p><strong>Matt：</strong> 有些产品一度变成每家公司都需要的东西，DocuSign就是例子。等大家都有了，再从哪里来增长？要有新产品，DocuSign在那上面做得没那么好。Factory和Cognition正在从写代码走到完整的软件开发生命周期，Factory还触及营销、产品等工作。如果能在企业内部覆盖更多角色，市场会变大。假如只是编程代理略好一点，很难在这个价位拿到满意回报。我更愿赌Factory这类新一代产品，通过执行追上。我以前在法律工具上投了Legora、与Harvey形成对照，在模型上投Anthropic、与OpenAI形成对照，其中一些目前发展得符合预期。</p>
+<h4 id="chapter-6">Sierra、Databricks、Ramp，谁还有十倍空间</h4>
+<p><strong>Harry：</strong> 来做假设投资。Databricks估值2,250亿美元，Ali Ghodsi执行很强。Sierra以300亿美元估值融17.5亿美元，Bret Taylor能在活动上触达许多大公司CEO。Ramp从600亿美元到700亿美元只花五周。Jason，你投谁？</p>
+<p><strong>Jason：</strong> 我投Sierra。它当前的市场可能最小，风险也最大。单看企业质量，我最喜欢Databricks，它正成为AI的大受益者，很多工作流可能通过它运行。但我问过的企业软件从业者，都觉得Sierra可能成为下一家Salesforce，甚至更大。如果目标是十倍，我能看出Sierra走到约4,000亿美元的路径。Databricks到约3万亿美元，我其实没有同样的把握。</p>
+<p>早期有人笑Sierra，觉得跟投只是为了接近OpenAI，因为Bret在董事会。现在大家对它的看法已经变了。市场喜欢编程和金融科技，可能低估了Salesforce规模接近600亿美元所代表的机会。若现有盘子再翻倍，重做这块市场会很有价值。老一代软件公司的高管已经把Sierra列为首要竞争对手。这个模拟投资我出2.5亿美元，最多能加到3亿，也给Lovable下一轮留些余地。</p>
+<p><strong>Harry：</strong> Matt呢？</p>
+<p><strong>Matt：</strong> 要说哪家最可能十倍，我也许选Sierra，但我怀疑三家都能十倍。Ramp执行令人敬佩，把原本看起来平淡的一类业务做得非常大，也在推出新产品。现价里有很多还不容易衡量的未来预期。Sierra像Salesforce的类比很有吸引力，但我对Bret和战略不够了解，不能下这个判断。</p>
+<p>我更了解Databricks，Ali之外的团队也很强。数据本来就有重力，放在哪里全套工作就容易跟过去，所以有黏性。它还会扩大在训练、推理中的角色。它买的Neon是我合伙人Tim Tully以前参与董事会的公司，已成为很多AI应用的数据库后端。有足够市值做收购，管理层又能执行。以我做后期成长投资的标准，可能在Databricks拿到三至五倍。这三家，我暂时都看不到十倍。</p>
+<p><strong>Jason：</strong> 我也认为Databricks明年会加速。公司成立很久了，起初并没料到自己会成为代理的数据湖和编排层。现在无论去掉旧软件界面，还是自建CRM，代理都要在一个安全、可信的地方运行。Databricks本身并不特别便宜，但相对于昂贵的旧企业平台，迁过去仍可能大幅降成本。它提供企业级运行环境、安全与路由，也有动力降低token成本，因为便宜会带来更多工作负载。</p>
+<p>我们的代理有个特点。一旦供应商涨价、宕机、发生泄露，它们马上想迁走。如果成本合理、运行快又稳定，它们也很固执，愿意留下。所以今天要我给Databricks三万亿美元估值，我还是会犹豫，但我押明年加速。实际企业不会把关键应用随便放进一个忘了设访问控制的数据库。</p>
+<p><strong>Matt：</strong> Modal也可能受益。我们还投了ClickHouse，逻辑是喜欢位置略靠后却可能靠产品创新跑出来的团队。Aaron和团队做了不少工作。</p>
+<p><strong>Jason：</strong> 同一个趋势，我也觉得它会加速。</p>
+<h4 id="chapter-7">Applied Compute与收购后整合</h4>
+<p><strong>Harry：</strong> 上周有几笔大并购。先是Nikesh Arora的Palo Alto Networks用45亿美元买Applied Compute，创始人是很年轻的前OpenAI研究员。这笔交易怎么看？</p>
+<p><strong>Jason：</strong> 买方的并购执行一直很强，所以我倾向认为他们认真考虑过，即便结果不成功，对公司也不致命。我过去一年看到的是，收来一个好团队，如果业务不够核心，光花时间做整合，就可能把动力耗掉。一些我近距离看到的项目，今天的产品已经没那么能打了。</p>
+<p><strong>Matt：</strong> 收购后得把它放到公司核心，给团队自己的任务和位置。搁在边缘、让人把技术四处掺一点，很容易就不见了。Ramp买过一家小公司，联合创始人Rahul后来做到Ramp的CTO，负责核心支付以外的AI创新。把团队和任务都提上去，交易才有机会发挥作用。</p>
+<p><strong>Harry：</strong> 要不要把年度收购奖给Meta引入Alexandr Wang？当时不少人没看懂，现在Jason很喜欢Muse。</p>
+<p><strong>Jason：</strong> OpenClaw出现之前，那笔交易可能会让Meta拿到一堆模型，但没人单独用它们。OpenClaw奏效让不少人惊讶。我先嘲笑它不够安全，而且它确实误删了我硬盘上的东西。但Alex这样的人看出来，人希望AI代理直接完成工作，省去打开模型反复聊天这个环节。交易早于那个信号四到五个月。如果随后没有这种产品转折，Scale那笔交易也有可能失败。今天看也许买得便宜，当然没有Bending Spoons买东西那么便宜。</p>
+<h4 id="chapter-8">Mailchimp卖价、老SaaS估值和Bill.com的另一种可能</h4>
+<p><strong>Harry：</strong> Intuit当年花120亿美元买Mailchimp，现在Bending Spoons出36.8亿美元。怎样分析这个折价？</p>
+<p><strong>Matt：</strong> 一家萎缩中的公司值多少？Intuit想要增长，单有规模不够。听起来，Mailchimp每年收入也许下降了几个百分点，后来战略地位也越来越低。既没推动核心业务，也没成为新的增长业务。对Intuit来说还有多大价值？至少管理层承认得找个新买家。再经营三年才关掉，可能财务损失更大，也更难看。现在有一个愿意接手的买方，否则未必找得到。</p>
+<p><strong>Jason：</strong> 我跟过这家公司，从财务上看大概已经想卖两年了。收入跌过，公司也重新提价，能做的提价动作大体都做了。Airtable、Miro和Mailchimp，如果有别的出价更高，它们会接受。我猜Intuit会在当季确认相关损失。把一块接近零增长的十亿美元业务拿出去，母公司原来约12%的增速可能还略升一点。</p>
+<p>我问个难听的问题。2021年投下去的企业软件，如果增速达不到头部四分位，今天还能值两倍收入以上吗？Mailchimp约2.9倍，Miro和Airtable是两倍多。它们至少有规模，拿四亿美元或十亿美元收入的公司作为可比案例。你那家2021年拿到的项目做出1.5亿美元收入、还在涨18%，凭什么值两倍以上？也许碰巧有人给更高，但市场上有什么参照？即使是Mailchimp这样的存量产品，Bending Spoons可能靠再涨价维持收入，或许会流失两成客户，剩下的付原价的两到三倍。这些是我对买方经营方式的判断。剩下那些项目，真正能卖多少钱？</p>
+<p><strong>Matt：</strong> 更让人担心的是，传统私募股权买方似乎没出价。两年里，如果哪怕一个基金愿意买一家可能盈利、还能和另一项资产整合的公司，Intuit大概会接受。要是除了Bending Spoons都没人要，对许多2021年份的资产，退出渠道很差。</p>
+<p><strong>Harry：</strong> 私募还是买了Bill.com，大约60亿美元。它的增速多少？</p>
+<p><strong>Jason：</strong> 我先以为是百分之十几的上半段，实际约13%。</p>
+<p><strong>Matt：</strong> 13%，还给了30%的溢价。也有很多增长比它快的公司没人买。我不知道买方看中了什么，可能是高黏性。</p>
+<p><strong>Jason：</strong> 我看好它能被代理调用。我们的10K代理现在也做账单和财务，相当于控制人员和财务负责人，底下跑Bill。我用了Bill十年，所有供应商都接在那里，一个月20美元。API好，代理也不想换。甚至我们录音这会儿，10K通过Bill可能已经自动收到一笔6万美元款项。如果投入一些人和资源把增长提到20%，那是一个有吸引力的生意。债务成本多高我不清楚，但它有可能受益于代理。</p>
+<p>Mailchimp这种营销自动化我就不那么看好。以前从Marketo换到Salesforce的营销工具，也用了十年Mailchimp。现在连写电子邮件的人都少了，邮件由代理帮忙写、帮忙发。我可能会直接用Resend加Lovable搭自己的流程，不再打开Mailchimp，也不一定还需要HubSpot或Salesforce的传统营销页面。</p>
+<p><strong>Matt：</strong> 底层工具越来越不让使用者费心。人甚至不知道代理在用什么。代理会找成本最低的完成办法，可能自己做，也可能调用现成产品。两条路都会压供应商的定价。</p>
+<h4 id="chapter-9">CrowdStrike与Zscaler为什么要合并</h4>
+<p><strong>Harry：</strong> CrowdStrike宣布439亿美元的全股票交易收购Zscaler。节目引用的当日走势是，CrowdStrike约跌9.6%，Zscaler涨约13%。Jason，你怎么看？</p>
+<p><strong>Jason：</strong> 战略上是建更完整的平台、与Palo Alto竞争。我那时还在想创始人接班。Jay Chaudhry几乎一个人创办Zscaler，按我印象，他和妻子出了钱，上市时持有的股份也很高。这是他的好几次创业了。增速放慢一点，但一个已经是亿万富翁的创始人，为什么这时要卖？他已经约七十岁，终究得决定下一步。黄仁勋63岁还有很多精力，但如果一家企业高度依赖创始人，总得有接班方案。纳德拉谈到他从比尔·盖茨那里学到的也是，创始人终有一天不能再带公司。</p>
+<p><strong>Matt：</strong> 接班可能有影响，产业也在整合。大客户希望一家供应商把各层覆盖好。只做终端检测和响应不够，还需要网络侧运行安全，Zscaler能补这一块。Palo Alto和CrowdStrike都正进一步做应用层安全，已经有一些小收购或合作。专业产品仍有位置，但以大型公司的市值和客户所要求的覆盖范围，它们有动机扩大产品线。</p>
+<p><strong>Jason：</strong> 我觉得交易很好。Zscaler增长不错但并不特别高，经营很有效率，两个业务互补，有潜力很快增厚结果。人也是一部分。两年后也许不再单独看到Zscaler这个名字，只剩合并后品牌。</p>
+<p><strong>Matt：</strong> 独立继续做，压力也许更大。CrowdStrike的George Kurtz更年轻，精力旺盛，想做行业头两位中的一家。对Zscaler团队，这种成长空间也可能很有吸引力。</p>
+<h4 id="chapter-10">研究能力的变化与企业采购条件</h4>
+<p><strong>Harry：</strong> 转到节目提及的数学案例。Anthropic的研究人员借助Claude解决了一个很难的问题。能从中读到什么？</p>
+<p><strong>Jason：</strong> 这是让不少人意外的地方。大家以为当前大模型做不到，要再等五到十年。做这件事的人本身就是顶尖数学家，已经解决过好几个难题。很可能人自己先做了一半，再由Claude帮助收尾。要点是，最聪明的人加上模型，可能越过以前觉得还不能越过的边界。接下来12到18个月因此更不可预测。</p>
+<p>类似地，有人现在会笑给新一代药物发现公司融五十亿或一百亿美元，时间再往前走，顶尖研究者与更强模型结合，也许真能推进一些研究。这里我讨论的是可能性。销售例子正好相反。我们曾认为AI会把普通销售变成超级销售，实际更多是把找客户、筛选、做材料交给代理，人上线打电话。有时销售不再自己研究对象，效果也许还会变差。</p>
+<p><strong>Harry：</strong> 但系统帮他找到该打给谁，通话时效率更高。</p>
+<p><strong>Jason：</strong> 效率高仍不等于有了新的销售天赋。顶尖数学家完成以前做不到的事，和普通销售减少准备时间，是两种结果。正因为下一年半不确定，我自己拿到的Anthropic股票会继续持有，也不想现在实现长期资本利得。</p>
+<p><strong>Matt：</strong> 前沿能力上升，再加多个代理协作，对研究者像是多了几个并行同事，有些任务可能比预期快十倍到百倍。我对生命科学的潜力很有信心，能更早看到药物可能奏效的迹象，依然需要面对FDA的审批。其他领域也会不断出现意外结果。越能解决困难问题，企业也越要考虑后续风险，决定什么时候开放新模型。</p>
+<p><strong>Harry：</strong> 企业应该要求产品披露底层模型吗？</p>
+<p><strong>Matt：</strong> 大公司不希望这件事不透明。基础设施用AWS还是Azure，许多买家不太介意。但你可能混用很多模型，买家需要知道哪些能信任。一些客户接受某些模型，一些不接受。我认为透明度会促进更多开放权重供给，也会让市场竞争更充分。</p>
+<p><strong>Jason：</strong> 明年另一个主题是零数据留存要实际执行。OpenRouter此前依赖模型供应商的承诺，但一张文件未必能保证执行。我很喜欢用OpenRouter，也认为停止提供无法验证留存政策的一部分模型是大事。企业希望确认数据传到哪里、如何缓存、由谁处理。这就是Databricks之类平台的一项工作，把开放权重模型放进企业可以信任的环境，只在必要的范围缓存。也正因如此，我才想，如果上轮估值约1,600亿美元时能进该有多好。</p>
+<h4 id="chapter-11">上市后资金回流，以及初创公司的薪酬压力</h4>
+<p><strong>Harry：</strong> 万亿美元量级的IPO，对你们公司内部是什么感觉？</p>
+<p><strong>Matt：</strong> 我人在纽约，旧金山办公室周四有些同事聚在一起。这个过程积累了很久，我们知道公司可能有多大，也通过几只基金连续投资，所以有充分时间消化。DocuSign是另一种轨迹，从成立到十亿美元估值花了十年，后来又很快涨到很高。Anthropic一路成长，挂牌当然值得公司、LP和个人庆祝，但对我们也是一个里程碑。我们继续持有，还在IPO时买了。</p>
+<p><strong>Harry：</strong> 你估计这次财富集中会怎么影响旧金山房价和当地市场？</p>
+<p><strong>Matt：</strong> 房地产可能会受影响。我也在看这些钱会怎样影响投资生态。天使资金往往是成批进出，市场重估、有人亏钱以后就会变少。现在很多员工突然有机会把钱投给朋友的新企业，早期资本的竞争会变化。</p>
+<p><strong>Jason：</strong> 这种趋势在YC已经看得见，甚至Anthropic也没有那样典型的种子基金领投。资本回流对创业公司有利。税也影响我的选择，在加州卖股票要交资本利得税，我会倾向持有，本来能回流的一部分也就留着了。</p>
+<p>房产方面，大量科技股财富前几年已经出现。按我看到的报道，已有约2,000名英伟达员工持有2,000万美元以上流动资产。OpenAI有规模很大的老股交易，Anthropic上市前也有过一些流动性。有人卖掉500万或1,000万美元股票，早能付首付。我在Palo Alto看房，愿买的房子往往根本没有挂牌。当地住宅和学校名额都有限，钱多不一定能立刻增加供给。</p>
+<p>2027年，一些初创公司更大的难题会是薪酬。即使不谈股权，头部实验室的现金薪水也很高。收入接近1,000亿美元只有约6,000人，跟以前谷歌、Facebook的用工规模不是一回事，能给的条件也不同。你刚从YC出来、只融了500万美元，能不能给工程师60万美元？团队做得再小，这也是问题。</p>
+<p><strong>Matt：</strong> 以前的办法是低底薪加期权，后来为了跟谷歌、Meta竞争，要给差不多的总包。再后来，研究员的价格变成其他人的五倍、十倍，团队里很难一直维持这样大的落差，别的岗位也开始往上涨。如果下一家创业公司只融到五百万或一千万美元，用旧办法很难说服人放弃高得多的保证薪酬。</p>
+<p><strong>Harry：</strong> Matt，谢谢你参加。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
