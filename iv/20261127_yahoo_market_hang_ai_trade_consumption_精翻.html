@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, max-age=0, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI交易换了主角吗？四位投资人谈算力、应用与消费（Market Hang全文精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html?v=95ae93ce10b7"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html?v=95ae93ce10b7" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-28<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>AI交易换了主角吗？四位投资人谈算力、应用与消费（Market Hang全文精翻）</h2>
+<div class="metaline">Yahoo Finance · Market Hang · Michael Monaghan（Founder ETFs合伙人兼基金经理）、Dennis DeBusschere（22V Research总裁）、Paisley Nardini（Tema ETFs首席投资策略师）、Mike Rode（FAS Wealth Partners首席投资策略师） · 主持 Turney Duff · 59分51秒 · 2026-11-27 · <a href="https://www.youtube.com/watch?v=lSCBqdIqr3A" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文精翻</div>
+<p class="kw">关键词：AI资本开支；算力租金；应用层；消费信贷；财富效应；杰文斯悖论；企业创设</p>
+<p>原节目为《Has the AI trade changed? This panel cannot agree | Market Hang》。2026年11月27日发布。 行情、仓位和预测均为节目时点及发言人口径。</p>
+<h3>00:00｜AI 交易变了没有</h3>
+<p><strong>Turney Duff：</strong> 屏幕上全是上涨。很多人说星期三是个很能说明问题的交易日。空头拼命把价格往下打，市场最后还是涨回来了。看多的人当然喜欢看到这种走势。有些人认为 AI 交易已经永久改变。Michael，你觉得有这种可能吗？</p>
+<p><strong>Michael Monaghan：</strong> 基本面没有给出这样的信号。戴尔的业绩超预期，上调了预测，利润率也在上升。上周我在奥斯汀的 TomorrowX 见到 Michael Dell。他说客户要得更多，也要得更快。效率最高的数据中心回收速度很快。比如 SpaceX 说，每吉瓦可以带来 500 亿美元收入，建设成本是 350 亿美元，回收期大约七个半月。[译注：此处保留节目转述的数字。节目未交代收入期间、现金流口径及回收期算法。] 我仍认为这是门好生意。空头周三试着把股价往下打，说 H100 的报价略有下滑。这对跟踪行业的人早已不新鲜，整体 GPU 价格仍在加快上涨。</p>
+<p><strong>Turney Duff：</strong> Dennis，你怎么看？</p>
+<p><strong>Dennis DeBusschere：</strong> 眼下需求很强，我不会因为判断这笔交易快结束了就去做空大盘。很多企业的做法相当于借长期资金、在短期市场出售算力。现在需求很强，短期现货报价很高。谁也不知道高价会维持多久。长期融资、短期变现，中间一旦反过来就会出现亏损。如果算力效率大幅提高呢？模型的利润低于预期呢？美国人并没有普遍用 AI 提高产出呢？AI 当然有用，问题是它带来的用处能否支撑已经计入预期的资本开支。</p>
+<p><strong>Turney Duff：</strong> Dennis，你上节目应该带答案来，怎么全是问题？</p>
+<p><strong>Dennis DeBusschere：</strong> 难道我不可以把每个问题都说得模模糊糊，然后宣布自己说中了吗？</p>
+<p><strong>Paisley Nardini：</strong> 过去几周，投资者在认真挑公司，重新关心基本面和投资回报了。泡沫和悲观论一度淡下去，最近又回来了。市场现在逐一问企业花了多少钱、靠什么收回投入、利润率能到哪。Michael 讲得对，基本面仍强。过去几季，甚至这轮行情刚起步时，企业只要贴上 AI 标签就有人买。几年前连 Wendy’s 这样的公司都在财报里讲 AI，希望得到市场关注。现在市场已经惩罚了不少公司，估值比以前合理得多。企业很难靠讲故事再撑几个季度才被发现交不出成绩。我觉得这个变化让我们有理由相信，接下来几个季度市场仍有上行空间。</p>
+<h3>04:00｜下一阶段会轮到谁</h3>
+<p><strong>Mike Rode：</strong> 我记得大盘成长股的估值大约比过去二十多年的均值低 23%。市场已经承受了很大压力。这笔交易确实变了。第一阶段是七大科技股，第二阶段是今年做芯片、存储和设备的供应商。接下来我更看好能用 AI 提高利润率、加快收入增长的企业，像保险经纪和软件公司，这些工作涉及大量文书。我们从管理私募资产的团队那里听到，被投软件公司已在产品和内部运营中用 AI，收入增速和盈利能力都在提高。展望 2027 年，我估计在中小盘里会看到更多这样的受益者。</p>
+<p><strong>Turney Duff：</strong> 能容易地区分企业是省了钱，还是在改变生意本身吗？少招些人也许只能贡献一两个季度，彻底改变业务是另一回事。</p>
+<p><strong>Mike Rode：</strong> 短期能看出哪些公司省了钱，盈利会反映出来。真正转型谁能成功，五年后再来谈。有些成功者会非常大，也许就是下一批七大科技股。眼下容易做的是少招人、提高生产率。Dennis，你们做过研究，经常谈到用 AI 的企业利润率已经受益，是吗？</p>
+<p><strong>Dennis DeBusschere：</strong> 用量高、在财报披露使用情况，尤其能拿出数量的企业，利润率较指数中其他企业明显加快，利润和股价表现也较强。问题在于能外推到哪里。现在也许主要是善用工具的科技、金融和标普 500 大企业。普通美国企业乃至世界上的平均企业，包括披萨店和健身房，会用它提高利润吗？这正是评估算力建设端的要害。我非常赞同 Mike 对应用受益者的判断。算力建设则可能依赖大量公司都达到金融公司的使用强度，所以我会谨慎。</p>
+<p><strong>Turney Duff：</strong> 是“会不会”，还是“什么时候”？我倾向于是“什么时候”。</p>
+<p><strong>Dennis DeBusschere：</strong> 我认为确实是“会不会”。美国服务业里很大一部分是人与人打交道。换句话说，我们的支出有相当一部分花在人与人直接接触上。</p>
+<p><strong>Turney Duff：</strong> 可以发条突发新闻说，雅虎财经的 Dennis DeBusschere 宣布 AI 就是下一个元宇宙了吗？</p>
+<p><strong>Michael Monaghan：</strong> 扯到真实世界，我可以接一句。我们投资由创始人领导的公司，看他们的眼光、执行和韧劲。经济中最古老的行当之一就是收垃圾。我们持有 Waste Connections，首席执行官是 Ron Mittelstaedt。2018 年他在 WasteCon 上就讲怎么用 AI 改进垃圾处理。那时还没 ChatGPT，演讲现在还能在 YouTube 找到。按我的记忆，拥有约 100 亿美元收入的公司，近期利润率提高了 350 个基点。贡献来自多种因素，但确实体现在利润率上。如果收垃圾都不算真实世界，我不知道什么才算。</p>
+<p><strong>Dennis DeBusschere：</strong> 我相信真实世界会采用 AI，只是采用规模也许不足以支撑那些投入。还有，WasteCon 是什么？你怎么会去参加？</p>
+<p><strong>Michael Monaghan：</strong> 我们希望深入了解持仓，经常录像采访公司的首席执行官。准备和 Ron 做一小时的采访时，我读到了 WasteCon 的材料。再举个白领行业的例子，大型律所每年开出大约 1,500 亿美元账单。用过它们的人都知道，相当一部分工作只是改 Word 文件。我原本想说七成，可以保守到三成，按一半或者五到七成设想。客户过去为改这些文件按小时付几千美元。AI 会改变这样的中介服务，一个行业再接一个行业。光是这个专业市场的一部分就有 1,500 亿美元。</p>
+<p><strong>Dennis DeBusschere：</strong> 这个例子很好。不过按大约两个月前的一种测算，要支持 7 万亿美元资本开支，需要大概 6 万亿美元 AI 相关收入，约为名义 GDP 的 6%。规模很大。行业本身会带来很大变化，当前资本开支外推所要求的收入尤其高，到 2030 年未必能达到。</p>
+<p><strong>Paisley Nardini：</strong> 过去几周市场已因为支出压力而惩罚这些公司，估值有了反映。走势会有起伏。站在投资者的角度，未来几个季度仍可能回到 AI 交易。</p>
+<h3>11:38｜Token 降价和生产率释放的时差</h3>
+<p><strong>Turney Duff：</strong> 谁知道杰文斯悖论？好像只有我不知道。Mike，你解释一下？</p>
+<p><strong>Mike Rode：</strong> 交给 Dennis 或者其他人吧，我知道一点，但他们说得更好。</p>
+<p><strong>Paisley Nardini：</strong> 从供需来讲，基础设施铺得越大，提供每个 Token 的成本越低。便宜了，大家会想用得更多。我们已看到 Token 成本下滑和需求相应上升。有人担心降价会挤压利润率。我的看法是，用量增幅可能抵消每个 Token 的收入下降，让企业的总收入增加。</p>
+<p><strong>Turney Duff：</strong> 这个源自 161 年前关于煤炭与蒸汽机效率的理论，很神奇，今天又用到了。周三早盘很多人卖出，社交媒体当时的说法是杰文斯悖论失效了，所以整笔交易结束。Michael，你觉得这个说法站不住。</p>
+<p><strong>Michael Monaghan：</strong> 我们看它仍成立。Token 的售价在降，交付成本降得更快。投入资本开支的公司能获得更高毛利率，用户也增加了。再接上你说的蒸汽机。我们看过蒸汽机、电力、互联网和移动技术，资本开支和生产率大幅提高通常相隔三到十年。因为系统最初仍按旧技术布置。电动机刚出来时，厂房还是沿着原来的传动带安装设备，电力的效率优势没有发挥。新工厂随后把电动机布置在真正需要的位置，生产率才沿 J 形曲线上升。AI 很可能也走这条路。</p>
+<p><strong>Dennis DeBusschere：</strong> 完全同意。这恰好说明，2030 年做到 6 万亿美元收入不适合做基准情景。考虑 J 形曲线，也许要到 2035 年。还有，我们能把它叫“杰文斯显而易见”吗？东西既好用又降价，大家多买一点很自然。价格降了、我们又觉得确实有用，用量增速就可能超过降价幅度。如果大家没那么喜欢，用量也上不去。</p>
+<h3>15:35｜感恩节餐桌上谈了什么</h3>
+<p><strong>Turney Duff：</strong> Dennis，你家感恩节晚餐聊到这个了吗？</p>
+<p><strong>Dennis DeBusschere：</strong> 聊了 AI。我猜各家的餐桌上都会有人聊 AI 会不会毁灭人类，再开个玩笑说那些信奉有效利他主义的领袖会拯救我们。</p>
+<p><strong>Turney Duff：</strong> 制作人 Winston 来录了个问题。听说他录了 72 遍。</p>
+<p><strong>制作人 Winston：</strong> 我们天天跟踪股价和财经新闻，但感恩节会提醒人，家人朋友未必在聊我们天天报道的话题。你们会跟家里人谈 AI 循环融资的风险吗？我有个朋友连黄仁勋是谁都不知道，我絮叨了十五分钟，倒也引出了些争论。你们昨天在聊生意与市场，还是在争火鸡和橄榄球？</p>
+<p><strong>Turney Duff：</strong> 我家争得最厉害的是《侠盗猎车手 6》。十一到十三岁的表亲想玩，我二十一岁的女儿自己会玩，但她觉得他们太小。我还让她当个好说话的表姐。再就是各家流媒体上在看什么。没谈 AI，也没聊政治。Mike，堪萨斯城那边呢？</p>
+<p><strong>Mike Rode：</strong> 我从纽约来，我太太来自巴尔的摩。十年前搬到堪萨斯城，现在有个四岁的女儿，我们都很喜欢这里。周一我带女儿开车去劳伦斯，堪萨斯大学在那里。走 I-35，一路经过起重机，有不少大项目。德索托刚开了座松下电动车电池厂，规模大约 50 亿美元，还有别的企业和工业科技设施在建设。我们谈的就是堪萨斯城的发展，以及美国内陆正在发生的事。纽约州萨拉托加的格芯晶圆厂也动工了，大约 100 亿美元。这些制造业回流项目需要很久，但项目在落地，也在拉动增长。我没跟四岁女儿讲到所有细节，只告诉她这里有很让人兴奋的事，是美国故事里正在成长的一部分。</p>
+<p><strong>Turney Duff：</strong> 有聊到橄榄球射门吗？抱歉，不该提。</p>
+<p><strong>Mike Rode：</strong> 没关系。跟 AI 交易一样，前阵子还火得很，忽然就凉了。看哈里森·巴特克和酋长队能否找回状态，也看 AI 交易能不能转回来。</p>
+<p><strong>Turney Duff：</strong> Paisley，橙县在聊什么？</p>
+<p><strong>Paisley Nardini：</strong> 家里人大多在这行，平时晚饭确实聊利率和科技股。但昨天主要是三场精彩的橄榄球比赛，还开玩笑说老鹰对牛仔那场正好可以……</p>
+<p><strong>Turney Duff：</strong> 插一句，有赌球吗？DraftKings？</p>
+<p><strong>Paisley Nardini：</strong> 加州不行。也许规则快变了，我知道现在可以像用预测市场那样用 DraftKings。我不在体育上下注，钱还放在金融市场。昨天球赛很好看。我们没参加感恩节跑，去看热闹。全市约六万五千人，那场比赛来了约一万二千人。我觉得大家想多见面，少待在家和屏幕前。这段时间噪声、压力和混乱不少，人们想出去见朋友、吃顿饭。对经济我也因此比较乐观。GDP 数据强，人们在花钱，餐厅忙着，体育赛事也有人去。我们刚买了下周末 UCLA 对冈萨加的篮球票。</p>
+<p><strong>Turney Duff：</strong> 既然谈到放下屏幕，你昨天发了几条推文？</p>
+<p><strong>Paisley Nardini：</strong> 大概发了几条。总得保持露面和更新。</p>
+<p><strong>Turney Duff：</strong> 同意。Dennis，长岛花园城呢？</p>
+<p><strong>Dennis DeBusschere：</strong> 我们辩得很热烈。我跟我弟弟开玩笑，说他总对 AI 很不客气，机器人以后会找他算账。他用 Claude 之类的产品，对它说起话来一点也不客气。我说，如果以后有递归自我改进，大模型把什么都记下来，你就自求多福吧。顺便说一句，虽然同姓，可别把我们弄混了。我对 AI 可客气了，也建议大家对它礼貌一点。</p>
+<p><strong>Turney Duff：</strong> 太精彩了。Michael，你在卡波过感恩节吗？</p>
+<p><strong>Michael Monaghan：</strong> 是，在那边和别人一起冲浪，聊的都是浪。海上没什么人谈 AI。不过我也像 Paisley 一样，在社交媒体上有过几场激烈争论。我不希望将来由一两家公司凭监管优势控制 AI。线上争论时，我会站在黄仁勋、马斯克和希望竞争更开放、公平的那些人一边。</p>
+<h3>24:00｜亿万富翁、影响力与儿童投资账户</h3>
+<p><strong>Turney Duff：</strong> 有意思。最近亿万富翁总处在争议中心，权力和影响力前所未有，趋势似乎还在加强。Michael，公众会不会有一天要求他们承担责任？</p>
+<p><strong>Michael Monaghan：</strong> 我们珍视创始人，围绕他们做了投资产品。灵感甚至来自美国的建国史。在史密森学会看到麦克亨利堡的旗帜，想到建设美国的那群人很不一样，敢打破常规。他们面对尚未开发的西部，创造了我认为能让非常多人摆脱贫困、创造大量财富的文明。我理解的矛盾，在于掌握资历、靠寻租或官僚体系维系地位的人在攻击建设和做事的人，普通民众承受代价。伟大公司的创始人创造了原来没有的东西。有开利才有空调，有奥的斯才有安全的电梯。这样的创始人使人们享有日常生活的便利，值得认可。</p>
+<p><strong>Turney Duff：</strong> 我同意你赞赏创始人的部分。但影响力总有可能大到不妥吧？比如政治捐款，或者马斯克往每个儿童账户都放 SpaceX 股份。我觉得后者未必是好事。</p>
+<p><strong>Michael Monaghan：</strong> 为什么？我觉得金融素养是美国的一大短板。</p>
+<p><strong>Turney Duff：</strong> 我支持儿童账户。我的顾虑是，一个人把自己公司的股份放进去，受赠人又不能卖。这样有集中风险，也容易让人觉得一家公司有太大影响力。我不认为公司该能这么做。</p>
+<p><strong>Michael Monaghan：</strong> 如果相信马斯克和 Travis Kalanick 的判断，认为自动化可以带来普遍的富足，这就是一种有意思的安排。为什么不能让每个人参与，先从孩子开始？他在建一台能创造富足的机器，今天出生的孩子也能分享由此产生的价值。</p>
+<p><strong>Dennis DeBusschere：</strong> 等等，这是送给他们的，对吗？那我就收下这份看涨期权。好不好我也说不准，反正我会收下。</p>
+<p><strong>Mike Rode：</strong> 大众已经厌倦看到亿万富翁行为不当。下周黄仁勋到国会作证时，这类议论还会更多。他会受到质询，也许会出现不少关于不当行为的说法。想听听做创始人 ETF 的 Michael 怎么看。不过亿万富翁也会做好事。Michael Dell 捐 60 亿美元很了不起。无论怎么看特朗普的政策，儿童账户挺有意思。送 SpaceX 股份也可以被说成一件坏事，但站远一点看，我愿意替女儿收下。让孩子早点接触资本市场是好事。借感恩节我也愿意说一句，谢谢马斯克。</p>
+<p><strong>Dennis DeBusschere：</strong> 我能在雅虎财经给个只谈交易的答案吗？</p>
+<p><strong>Turney Duff：</strong> 请讲。</p>
+<p><strong>Dennis DeBusschere：</strong> 你的问题是亿万富翁会不会成为问题，我把它理解成利润率会不会下去。劳动收入份额很低，这一点大家都知道。过去押注利润率向下回归一直不奏效，换个说法就是押创始人的交易一直有效。未来几年大概还会这样，劳动收入份额可能维持在低位。我没看到政策或公众会做出足以改变它的事。好坏可以辩，我只按眼下实际发生的事来做判断。</p>
+<p><strong>Paisley Nardini：</strong> 如果像 401(k) 那样，用税法条文来命名特朗普儿童账户，比如叫 530A，可能就不会那么两极化。[译注：发言人两次说到编号时读音不一致，此处按她第一次的表达保留。]</p>
+<p><strong>Turney Duff：</strong> Paisley，你画面卡住了一下。我们等你回来。又连上了。</p>
+<p><strong>Paisley Nardini：</strong> 昨天酒喝多了，我电脑可能在宿醉。我接着说，不少人觉得下一代起跑条件不好，很难向前走。无论是 Michael Dell 捐现金，还是有人赠送股票，都是给他们一笔起步资金，还可以在这一过程中培养金融素养。我很难看出这怎么会对下一代没有好处。</p>
+<p><strong>Turney Duff：</strong> 有一项可能会引起争议。彭博报道说，马斯克的捐赠可能带来大约 20 亿美元的税务节省。最贫困的孩子是否会申领和拿到种子资金，也是个问题。[译注：此处字幕受断句影响，种子资金具体金额未听清。] 我确实觉得儿童账户很好，金融教育也有价值。女儿出生时，我就该存一笔钱放进市场，然后不去碰它。我要谈的是亿万富翁的影响力。YouGov 2 月调查中，除了巴菲特，几位的好感度都低迷。巴菲特的好感度是 45%，扎克伯格和马斯克的净值大约在负 41、负 42。特朗普的支持数字也是负的。我觉得中期选举有一部分反映了对腐败和双重标准的看法。你们刚才提到黄仁勋，就是一个例子。</p>
+<p><strong>Paisley Nardini：</strong> 黄仁勋复任，已知有一部分可能是行政当局推动的。我们说了很多年，股市和经济各有自己的运转逻辑。现在越来越多人通过 401(k) 或个人账户持有股票，我认为这是好事。但股市剧烈波动时，行政当局可能认定它是经济的尾部风险，因而介入。影响就超出了对个别亿万富翁的待遇。</p>
+<p><strong>Dennis DeBusschere：</strong> 讨论的是财富不平等。收入不平等没一些人想得那么严重，高低收入的工资分化也没某些说法形容得那么明显。财富不平等则真实存在，人们很难准确表达。财富差距高、通胀已高于目标一段时间，任何看起来偏袒亿万富翁的做法都会激起不满。财富较少，真实购买力也较受约束。选举像是在反映这些事。可如果干预也会抑制创新，问题就难了。我不觉得有办法很快改变它。按交易角度说，利润率可能维持在高位。</p>
+<h3>33:49｜为什么生活改善仍有人觉得落后</h3>
+<p><strong>Michael Monaghan：</strong> 这里还有人的心理。我和 Anthony Scaramucci 详细谈过资本和劳动的分配。财富的绝对水平可以不断提高，同时一个人在比较中觉得自己的份额少了。我今天可能洗三次热水澡，几代以前英国国王也许一周甚至一个月才泡一次热水澡。各阶层享用的便利都在增加，可我们会跟别人比。也有人创造大量财富并把一部分分出去。贝索斯说过，亚马逊每创造一美元，其中有 85 美分不归他。教师养老金和许多 401(k) 都从中受益。我们会更在意绝对财富上升，还是相对位置？我觉得这是值得观察的社会现象。</p>
+<p><strong>Paisley Nardini：</strong> 感恩节我们也谈到感谢现代生活的便利。Netflix 有个喜剧专场，我记得是 Nate Bargatze。他开玩笑说凌晨两点想吃零食，可以直接在 Grubhub 下单。放在几百年前，国王想要什么就吩咐别人去拿。现在不少人手指一点就能做到。可每个人都在比较别人有什么，自己是不是少了哪样。许多需要的东西都有了，想要的也有不少，剩下的念头就是“下一个是什么”，便一直难以满足。</p>
+<p><strong>Dennis DeBusschere：</strong> 我就还没满足。我想要的东西多着呢。</p>
+<p><strong>Turney Duff：</strong> 生活越容易，对人类来说未必一直是好事。有些成长来自逆境和挣扎。顺便说件事，Paisley 当年在高中被选为“最固执的人”。</p>
+<p><strong>Paisley Nardini：</strong> 我真不该把这件事告诉你。</p>
+<h3>37:49｜消费是靠信用撑住的吗</h3>
+<p><strong>Turney Duff：</strong> 价格不断涨，消费者还在买。你这个“固执专家”觉得谁会先退让？消费者会停手，还是企业会涨完价做一波短促，再接着涨？</p>
+<p><strong>Paisley Nardini：</strong> 我觉得先买后付很值得看，它让更多人可以继续消费。学生贷款、车贷和信用卡的拖欠都在上升，消费者确实有压力。但餐厅、影院、商场都有人。前些周我原以为商场不行了，去了发现完全不是。先买后付实际上在给消费者提供一段免息信用，年轻人尤其在用。只要手头没有现钱的人仍能获得它，支出就会更有韧性。</p>
+<p><strong>Turney Duff：</strong> Mike，先买后付和从纽约搬到堪萨斯城是不是一回事？</p>
+<p><strong>Mike Rode：</strong> 可能还反过来，我不确定这个比喻。我试过先买后付，买了一双运动鞋，按期付了钱，确实简单。我不知道它在整个经济里有多大。</p>
+<p><strong>Paisley Nardini：</strong> 我早上查了下，Affirm、Klarna 这类机构的业务量同比增幅超过 30%。不少分期免息，能把现金留在手里，又不用多付钱。最初大家觉得会用来买冰箱、电视等大件，现在还用来买菜和日用品。这既让人担心，又有一个很直观的理由：能免费延后付款，为什么不用？值得跟踪。</p>
+<p><strong>Turney Duff：</strong> 听起来有点像次贷年代。想买房吗？房子给你。</p>
+<p><strong>Paisley Nardini：</strong> 我看到过一种只付 1% 首付的住房贷款安排，忘了是哪一家。我们认识的还是需要准备 20% 首付的年代。这变化真大。</p>
+<p><strong>Dennis DeBusschere：</strong> 我想提一点反对意见。我看的是总量。先买后付增长很快，这个可以承认，但当前远没有到 2008、2009 年的形势。整个私人部门有盈余，也就是家庭和企业总体有盈余，和公共部门赤字在会计上互为镜像。按我的口径，约为 GDP 的 4% 至 5%。走向 2008 年和 1999 年时，家庭的金融余额是负的，现在是正的。信贷并非总量增长的主力。即便大建 AI，融资缺口也是负的，意思是企业有足够现金流覆盖负债和资本开支。私人部门有盈余，这是消费强的一个原因。</p>
+<p><strong>Turney Duff：</strong> 那中期选举怎么解释？经济感受明明是头号问题。</p>
+<p><strong>Dennis DeBusschere：</strong> 通胀高，消费者信心差，可按我看的指标，支出增速是二十年来最快的量级。刚才 Paisley 和 Mike 说到一个矛盾：社会运行得不错，大家一路抱怨。我解释不了全部，只能说数据反映了什么。我提到的名义 GDP 增速约 6.3%，刚过去的季度又报出约 4.2% 的读数。实际个人消费支出增长超过 3%，金融危机过后只有大约 1%。[译注：说话人同段给出两个不同的 GDP 读数，未把期间或年化口径交代清楚。] 扣掉通胀，消费比以前旺，私人部门有金融盈余。但人们不喜欢高通胀，也不喜欢财富分配上的差距。也许社交媒体让这种感受更强。</p>
+<p><strong>Turney Duff：</strong> 又回到 Paisley 说的，习惯了一点就有、许多东西免费的生活。</p>
+<p><strong>Dennis DeBusschere：</strong> 也许还有利率。低利率持续了很久，现在变了。</p>
+<h3>44:06｜官方收入数据漏掉了什么</h3>
+<p><strong>Paisley Nardini：</strong> 就私人部门盈余这一点，如果不是由超额信贷推动，我完全同意。那么驱动是不是财富效应？这又回到股市和经济的联系。401(k) 和个人投资账户的余额还在增长，许多地区的房价也接近历史高位。到底是这些资产带来的乐观情绪在推动支出，还是支出活动本身体现了乐观？</p>
+<p><strong>Dennis DeBusschere：</strong> 经济学家现在就这个问题吵得挺有意思。通常的解释是财富效应让消费这么强，家庭把收入花出去的比例更高，储蓄率就低了。其他条件一样，储蓄率下降，消费会增加。但即使扣除过去几个月储蓄率下降的影响，支出仍然很强。另一派认为收入可能被严重低估。收入一直难免有计量误差，这次新设企业大增，包括个体创业和小企业，误差也许更大。统计往往很难及时把这部分纳入收入。最近不少工资和收入数据被上修，其中一部分可能源于新企业增加。家庭可能确实有更多收入，传统指标还没抓到。我知道这和选民的不满看起来对不上，但争论现在就在这里。</p>
+<p><strong>Mike Rode：</strong> 我和 Dennis 经常讲这个。好像有一群创办了企业、经营得也不错的人，在很多数据里一直看不见。现在用 AI 创业比过去简单，成本也低，这绝对是它的好处之一。卡波的 Michael 会喜欢这一点。往后十年或十五年，会有很多人开办现在还想不到的生意。现在找一份新的白领工作确实难。我有朋友索性用 AI 开公司，本来要雇三个人，现在自己就能做下来。</p>
+<p><strong>Turney Duff：</strong> Michael，想接着说吗？</p>
+<p><strong>Michael Monaghan：</strong> Dennis 越讲我越感兴趣，这正是我们的一项判断。也涉及刚才所说的社会满足感。很多人被告知，只要走安全的路，承担很少的风险，也能换来更好的结果。历史上总有人得先坐木船渡海，去找新的木材、金银和铜。现在 AI 可能让更多人比较容易创办企业。一些人付了很高的学费，得到的教育后来未必有用。如果有更多人创办自己的企业，可能同时发生两三件事：AI 体现出净经济贡献，人们也重新感觉自己能向前走。</p>
+<p><strong>Paisley Nardini：</strong> 再加一个，学费涨得太厉害，或许到时候会放缓。白领教育、MBA、学习编程和使用 AI，和创新、创业的关系都会变，我觉得这是积极变化。</p>
+<p><strong>Turney Duff：</strong> 回到 Dennis 对 AI 使用范围的质疑，再说件趣事。1997 年 Dennis 在摩根士丹利给我做过实习生，所以他今天说的聪明话可以追溯到那次实习。互联网刚出现时，也没人谈后来出现的手机和应用。我对 AI 感兴趣的，就是那些现在未知、也没法填一个数字的事。</p>
+<p><strong>Dennis DeBusschere：</strong> 时间拉长，大部分岗位都是后来才出现的。</p>
+<p><strong>Turney Duff：</strong> 对，新生意也有很多是我们现在还没想到的。</p>
+<h3>49:10｜该对刚进入职场的年轻人说什么</h3>
+<p><strong>Turney Duff：</strong> 我女儿二十一岁，是鼓手。这个职业也会受到 AI 影响。我们该怎么跟刚进入职场，或者正要读大学的年轻人谈？Z 世代从哪里开始？</p>
+<p><strong>Paisley Nardini：</strong> 我在橙县参与 CFA 协会的工作，也花不少时间指导本科生。我自己持有 CFA，当然支持它。许多想做投资或经济相关工作的学生问我该不该考，我通常请他们先停一下，看世界在怎样变。CFA 和 MBA 有各自的价值，还要问哪些技能能真正带来变化，创新正在发生在哪里。我通常会鼓励他们主动用 AI。现在争论的是 AI 会不会抢走岗位，我觉得更直接的竞争来自会用 AI 的人。一个初入职场的人借工具提高效率，能发挥入行五年或十年的人才有的能力，这样的人在我们这个行业或其他行业都容易被雇用。</p>
+<p><strong>Turney Duff：</strong> 我前阵子看过一种说法，英语、哲学专业的人反而能更有效地用 AI。以前还有人拿哲学专业开玩笑。</p>
+<p><strong>Mike Rode：</strong> 我是金融专业，也考了 CFA，会做数字，但更擅长创意。我会对年轻人说，去修写作和公开演讲课。Dennis 有位同事常谈《全新思维》那本书，讲为什么擅长创造性思考的人会在未来有优势。这当然印证了我的个人偏好。创作、和人合作、英语表达和当众讲话，这些能力会一直有用，也可以借助 AI。</p>
+<p><strong>Paisley Nardini：</strong> 完全同意。只精通工作却不会表达，能力就很难发挥。表达正在逐渐变弱。刚进任何行业，都要能告诉别人你在做什么、为何做、怎么做。每个人都有要推介的东西，推介需要有效沟通。据我记得，波士顿的爱默生学院一两周前还说可以读与网络创作者相关的专业。Dennis，你的孩子要去读“影响力”，你怎么看？</p>
+<p><strong>Dennis DeBusschere：</strong> 我会很支持。“影响力”到未来可能有不同的含义。现在想到网红容易觉得他们只想引人注意。但到了将来，也可以是创意表达、把自己的产品卖出去，正是大家刚才谈到的事。不必在镜头前穿着泳衣招摇。如果你能让别人理解并接受你的想法，这项能力长期有用。</p>
+<p><strong>Turney Duff：</strong> 记得点赞关注。还剩三十秒。Michael，最后你来吧。</p>
+<p><strong>Michael Monaghan：</strong> 我相信讲故事的能力，也重视工程等硬技能和哲学这类思维训练。太笼统的商科、管理学位，我可能会更保留。包括不少 MBA 项目。按我看，靠这些项目教的传统方式经营，可能反倒伤害了企业。马斯克或者黄仁勋的做法，往往和商学院所教的正好相反。商学院太多，对美国资本主义的净贡献未必是正的。</p>
+<p><strong>Turney Duff：</strong> 好。谢谢各位，希望再见，周末愉快。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, max-age=0, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AI股大幅回撤时，杠杆ETF资金在做什么（The Compound and Friends市场部分精翻）</title><style>
+:root{--bg:#f4f4f4;--card:#fff;--card2:#f5f5f5;--ink:#333333;--sub:#838383;
+--blue:#044e7e;--brand:#e60000;--line:#e8e8e8;--red:#e00000;--green:#0a8a4a;
+--barbg:#ececec;--banner:#eef4f8;--bannerink:#367198;
+--navbg:rgba(255,255,255,.96);}
+@media (prefers-color-scheme: dark){:root{--bg:#101418;--card:#1a2027;
+--card2:#232b34;--ink:#e7ebee;--sub:#93a0aa;--blue:#7fb0d8;--brand:#ff6b6b;
+--line:#2b343d;--red:#ff8080;--green:#4cc38a;--barbg:#2b343d;
+--banner:#1c2b36;--bannerink:#9cc0da;--navbg:rgba(18,24,30,.96);}}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",
+"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);
+font-size:15px;line-height:1.65}
+.wrap{max-width:720px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;
+box-shadow:0 1px 3px rgba(20,40,80,.06)}
+a{color:inherit;text-decoration:none}
+h1.site{font-size:20px;font-weight:700}
+.sub{color:var(--sub);font-size:12.5px}
+.pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;
+border-radius:5px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.item{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:none}
+.item .t{font-weight:550;font-size:14.5px}
+.item .m{color:var(--sub);font-size:12px;margin-top:3px}
+.item .m a{color:var(--blue)}
+.sec-title{font-size:16px;font-weight:700;margin:4px 0 8px}
+.sec-note{color:var(--sub);font-size:12px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--sub);
+border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600}
+.tabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.modcard{display:flex;align-items:center;justify-content:space-between}
+.modcard .big{font-size:16.5px;font-weight:700}
+.modcard .desc{color:var(--sub);font-size:12.5px;margin-top:2px}
+.modcard .arrow{color:#b6c0cf;font-size:22px;flex:none;margin-left:10px}
+.stat-row{display:flex;gap:8px;margin-top:12px}
+.stat{flex:1;background:var(--card2);border-radius:12px;padding:10px 6px;text-align:center}
+.stat .n{font-size:19px;font-weight:800;color:var(--blue)}
+.stat .l{font-size:11px;color:var(--sub);margin-top:1px}
+.headline{display:block;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.headline:last-child{border-bottom:none}
+.headline .d{color:var(--sub);font-size:11.5px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;white-space:nowrap;
+font-variant-numeric:tabular-nums}
+th{color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;
+border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.pos{color:var(--red);font-weight:600}.neg{color:var(--green);font-weight:600}
+.side{position:fixed;top:0;left:0;bottom:0;width:260px;background:var(--card);
+border-right:1px solid var(--line);padding:18px 12px 20px;overflow-y:auto;z-index:50;
+display:flex;flex-direction:column}
+.side .brand{margin:2px 8px 10px}
+.side .grp{font-size:11px;font-weight:800;letter-spacing:.2px;color:var(--brand);
+line-height:1.6;margin:16px 10px 5px}.side .grp .gs{display:none}
+.side a.nl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;
+color:var(--sub);font-size:14px;font-weight:600;line-height:1.3}
+.side a.nl svg{width:19px;height:19px;flex:none}
+.side a.nl .sh{display:none}.side a.nl .lb{min-width:0}.side a.nl .lb small{display:block;font-size:10.5px;font-weight:400;line-height:1.6;margin-top:3px}.side a.nl:hover{background:var(--card2)}.side a.nl:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.side a.nl.on{background:var(--banner);color:var(--blue)}
+.side a.nl:active{opacity:.7}
+.side .foot{margin-top:auto;padding:16px 12px 0;font-size:11px;color:var(--sub);line-height:1.5}
+.main{margin-left:260px}
+.wrap.wide{max-width:1180px}
+.fedframe{display:block;width:100%;height:calc(100vh - 28px);border:0;border-radius:16px;
+background:var(--card);box-shadow:0 1px 3px rgba(20,40,80,.06)}
+@media (max-width:899px){
+.side{width:76px;padding:10px 5px 16px}
+.side .brand{margin:0 0 4px;justify-content:center}
+.side .brand .en,.side .brand .cn,.side .foot{display:none}
+.side .grp{font-size:9px;letter-spacing:0;margin:11px 0 3px;text-align:center}.side .grp .gl{display:none}.side .grp .gs{display:block}
+.side a.nl{flex-direction:column;gap:3px;padding:7px 2px;font-size:10.5px;
+line-height:1.2;text-align:center;border-radius:9px}
+.side a.nl svg{width:20px;height:20px}
+.side a.nl .lb{display:none}.side a.nl .sh{display:block}
+.main{margin-left:76px}
+.wrap{padding:10px 8px}
+.card{padding:13px 12px;border-radius:13px}
+.fedframe{height:calc(100vh - 20px);border-radius:12px}
+}
+article h2{font-size:19px;line-height:1.4;margin-bottom:10px}
+article h3{font-size:16px;margin:18px 0 8px}
+article h4{font-size:14.5px;margin:14px 0 6px}
+article p{margin-bottom:12px}
+article blockquote{border-left:3px solid var(--blue);padding:4px 12px;
+color:var(--sub);margin-bottom:12px;background:var(--card2);border-radius:0 8px 8px 0}
+article ul{margin:0 0 12px 20px}
+.back{display:inline-block;color:var(--blue);font-size:13px;margin-bottom:10px;font-weight:600}
+.metaline{color:var(--sub);font-size:12.5px;margin-bottom:14px;
+padding-bottom:12px;border-bottom:1px solid var(--line)}
+.kw{color:var(--sub);font-size:13.5px}
+.morelink{display:block;text-align:center;color:var(--blue);font-weight:600;
+font-size:13.5px;padding:10px 0 2px}
+.month-h{font-size:14px;font-weight:700;color:var(--sub);margin:14px 0 4px}
+details.iv{border-bottom:1px solid var(--line);padding:4px 0}
+details.iv:last-child{border-bottom:none}
+details.iv summary{list-style:none;cursor:pointer;padding:8px 0}
+details.iv summary::-webkit-details-marker{display:none}
+details.iv summary .t{font-weight:550;font-size:14.5px}
+details.iv summary .t::after{content:" ▾";color:#b6c0cf;font-size:12px}
+details.iv[open] summary .t::after{content:" ▴"}
+details.iv summary .m{color:var(--sub);font-size:12px;margin-top:2px}
+details.iv ul{margin:2px 0 10px 18px;font-size:13.5px}
+details.iv li{margin-bottom:4px}
+details.iv .m a{color:var(--blue);font-size:12.5px}
+.sec-hd{margin:2px 0 10px}
+.sec-hd .en{font-size:10.5px;font-weight:800;letter-spacing:1.8px;color:var(--brand);
+text-transform:uppercase}
+.sec-hd .cn{font-size:17px;font-weight:750;margin-top:1px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.brand .dot{width:26px;height:26px;border-radius:8px;flex:none;
+background:linear-gradient(135deg,#ff5252,#d90000);display:flex;align-items:center;
+justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.brand .en{font-size:10px;font-weight:800;letter-spacing:1.6px;color:var(--sub)}
+.brand .cn{font-size:17px;font-weight:800;line-height:1.2}
+.gauge-row{display:flex;align-items:center;gap:16px}
+.ring{width:92px;height:92px;border-radius:50%;flex:none;position:relative;
+display:flex;align-items:center;justify-content:center}
+.ring .in{width:72px;height:72px;border-radius:50%;background:var(--card);
+display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .n{font-size:23px;font-weight:800;line-height:1}
+.ring .u{font-size:10px;color:var(--sub);margin-top:2px}
+.gauge-side .l1{font-size:12px;color:var(--sub)}
+.gauge-side .l2{font-size:17px;font-weight:750;margin:1px 0}
+.gauge-side .l3{font-size:11.5px;color:var(--sub)}
+.meter{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:13px}
+.meter .lb{flex:none;width:96px;color:var(--ink)}
+.meter .bar{flex:1;height:7px;border-radius:4px;background:var(--barbg);overflow:hidden}
+.meter .bar i{display:block;height:100%;border-radius:4px;
+background:linear-gradient(90deg,#81a6be,#044e7e)}
+.meter .v{flex:none;width:44px;text-align:right;font-weight:700;color:var(--blue)}
+.banner{display:flex;gap:8px;background:var(--banner);border-radius:12px;
+padding:10px 12px;font-size:12px;color:var(--bannerink);line-height:1.6;margin-bottom:12px}
+.banner .ic{flex:none;width:16px;height:16px;border-radius:50%;background:#2158d0;
+color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;
+justify-content:center;margin-top:2px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px}
+.qcard{flex:none;min-width:104px;background:var(--card2);border-radius:12px;padding:9px 11px}
+.qcard .s{font-size:11.5px;color:var(--sub);font-weight:600}
+.qcard .c{font-size:15px;font-weight:750;margin-top:1px}
+.qcard .g{font-size:12px;font-weight:700;margin-top:1px}
+.qcard .spark{display:block;margin-top:4px;opacity:.85}
+.day-h{font-size:11.5px;font-weight:700;color:var(--sub);letter-spacing:.5px;
+padding:10px 0 2px;border-bottom:1px solid var(--line)}
+.catchip{font-weight:700;margin-right:4px}
+.pickchip{color:#d90000;font-weight:800}
+a.card:active,.item:active{opacity:.65}
+.week-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.week-strip span{background:var(--card2);border-radius:8px;padding:3px 9px;
+font-size:12px;font-weight:600}
+.seg{display:flex;gap:4px;background:var(--card2);border-radius:11px;
+padding:3px;margin-top:12px}
+.seg button{flex:1;border:none;background:transparent;color:var(--sub);
+border-radius:9px;padding:7px 4px;font-size:13px;font-weight:650;
+font-family:inherit;white-space:nowrap}
+.seg button.on{background:var(--card);color:var(--blue);
+box-shadow:0 1px 2px rgba(20,40,80,.10)}
+</style></head>
+<body>
+<aside class="side" id="side"><a class="brand" href="../frontier.html?v=95ae93ce10b7"><div class="dot">M</div><div><div class="en">MACRORADAR</div><div class="cn">宏观雷达</div></div></a><div class="grp"><span class="gl">监测</span><span class="gs">监测</span></div><a class="nl" href="../frontier.html?v=95ae93ce10b7" aria-label="前沿"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-1.8 4.2L9 15l1.8-4.2z"/></svg><span class="lb">前沿</span><span class="sh">前沿</span></a><a class="nl" href="../funding.html" aria-label="融资"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v9.6M14.6 9.3H10.9a1.9 1.9 0 000 3.8h2.2a1.9 1.9 0 010 3.8H9.4"/></svg><span class="lb">融资</span><span class="sh">融资</span></a><a class="nl" href="../news.html" aria-label="资讯"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M4.5 12h15M4.5 17.5h9"/></svg><span class="lb">资讯</span><span class="sh">资讯</span></a><div class="grp"><span class="gl">播客-AI投资能否获得回报</span><span class="gs">AI回报</span></div><a class="nl on" href="../roi.html" aria-current="page" aria-label="云厂商的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16M6.5 16l4-4.5 3 2.5 4.5-6"/><circle cx="18" cy="8" r="1.4"/></svg><span class="lb">云厂商的回报</span><span class="sh">云厂商</span></a><a class="nl" href="../model_returns.html" aria-label="大模型公司的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 5v8l-8 5-8-5V8zM4 8l8 5 8-5M12 13v8"/></svg><span class="lb">大模型公司的回报<small>能否有先发者优势</small></span><span class="sh">大模型</span></a><a class="nl" href="../topics.html" aria-label="应用层的回报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg><span class="lb">应用层的回报<small>企业价值捕获还是消费者剩余</small></span><span class="sh">应用层</span></a><div class="grp"><span class="gl">播客-AI的宏观影响</span><span class="gs">AI宏观</span></div><a class="nl" href="../ai_macro.html" aria-label="经济影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18M5 6.5h14M5 17.5h14"/></svg><span class="lb">经济影响<small>经济结构、生产率与K型</small></span><span class="sh">经济影响</span></a><a class="nl" href="../ai_policy.html" aria-label="政治与政策影响"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">政治与政策影响<small>中选、财政等</small></span><span class="sh">政治政策</span></a><div class="grp"><span class="gl">播客-市场热点探讨</span><span class="gs">市场热点</span></div><a class="nl" href="../market_podcasts.html" aria-label="美股和科技相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17l4-5 4 3 6-9M4 20h16M5 8V5h4"/></svg><span class="lb">美股和科技相关</span><span class="sh">美股科技</span></a><a class="nl" href="../market_bonds.html" aria-label="美债相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 16h3M14 16h2"/></svg><span class="lb">美债相关</span><span class="sh">美债</span></a><a class="nl" href="../market_fx.html" aria-label="大宗商品和外汇相关"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h15l-4-4M20 16H5l4 4"/></svg><span class="lb">大宗商品和外汇相关</span><span class="sh">商品外汇</span></a><div class="grp"><span class="gl">跟踪</span><span class="gs">跟踪</span></div><a class="nl" href="../daily.html" aria-label="日度复盘"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4M7.5 16.5l3-3 2.5 2 3.5-3.5"/></svg><span class="lb">日度复盘</span><span class="sh">日度复盘</span></a><a class="nl" href="../fed.html" aria-label="美联储"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V10M10 20V10M14 20V10M18 20V10M3.5 10h17L12 4.5z"/></svg><span class="lb">美联储</span><span class="sh">美联储</span></a><a class="nl" href="../mideast.html" aria-label="美伊"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-3.2 4.3-6.2 7.5-6.2 10.8a6.2 6.2 0 0012.4 0c0-3.3-3-6.5-6.2-10.8z"/><path d="M9.2 14.2a2.8 2.8 0 002.8 2.8"/></svg><span class="lb">美伊</span><span class="sh">美伊</span></a><a class="nl" href="../earnings.html" aria-label="财报"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 19.5v-7M12 19.5v-13M18.5 19.5v-4.5M3.5 19.5h17"/></svg><span class="lb">财报</span><span class="sh">财报</span></a><div class="grp"><span class="gl">历史存档</span><span class="gs">历史存档</span></div><a class="nl" href="../podcast_archive.html" aria-label="全部播客历史精读存档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16v3.5H4zM5.5 10v9h13v-9M10 13.5h4"/></svg><span class="lb">全部播客历史精读存档</span><span class="sh">播客存档</span></a><div class="foot">数据日期 2026-11-28<br>关键信息版 · 付费源仅放中文要点与原文外链</div></aside>
+<main class="main"><div class="wrap">
+<a class="back" href="../roi.html">← 返回云厂商的回报</a>
+<div class="card"><article>
+<h2>AI股大幅回撤时，杠杆ETF资金在做什么（The Compound and Friends市场部分精翻）</h2>
+<div class="metaline">The Compound and Friends · Eric Balchunas、James Seyffart（彭博智库ETF分析师），Joshua Brown、Michael Batnick（Ritholtz Wealth Management首席执行官、管理合伙人，节目主持） · 82分28秒 · 2026-11-27 · <a href="https://www.youtube.com/watch?v=5QjFw4dyKvg" target="_blank" rel="noopener noreferrer">原始来源 ↗</a> · 中文节选精翻</div>
+<p class="kw">关键词：AI股回撤；ETF；资金流；杠杆ETF；美股宽度；估值；比特币</p>
+<p>原节目为《A Most Violent Year | TCAF 270》。2026年11月25日录制，11月27日发布。 行情、仓位和预测均为节目时点及发言人口径。</p>
+<p>09:01嘉宾介绍；14:16起的英伟达、AI股与市场部分；27:16至片尾的估值、广度、ETF资金与行业、杠杆产品、比特币交易及主动ETF持仓讨论。电影、篮球闲聊、广告及人事议论中与市场无关的内容略去。</p>
+<h3>09:01｜嘉宾介绍</h3>
+<p><strong>Josh Brown：</strong> 今天请来两位 ETF 行业的权威。Eric Balchunas 是彭博智库高级 ETF 分析师，领衔 ETF 和被动基金研究，也是彭博评论作者。他写过《机构 ETF 工具箱》和我们在节目里谈过的《博格效应》，还参与创办了《Trillions》播客和《ETF IQ》电视节目。</p>
+<p>今天和他一起来的是新书合著者 James Seyffart。两人在 Harriman House 出版了《Both Sides of the Coin》。这本谈比特币的书有意思，就在于你们特地找了意见不同的人。James 也是彭博智库高级研究分析师，研究 ETF 和基金行业。两位都因为对现货比特币及其他加密货币 ETF 获批概率的判断而受到关注。James，欢迎第一次来。</p>
+<p><strong>James Seyffart：</strong> 谢谢。我每周都听。是老听众，第一次上节目。</p>
+<h3>14:16｜黄仁勋复任与英伟达的市场权重</h3>
+<p><strong>主持人：</strong> 我们来谈股市和 AI。对彭博和你们的研究领域来说，这是不是特别剧烈的一周？周一早上你们在哪？</p>
+<p><strong>Eric Balchunas：</strong> 我在纽约准备节目，刚到办公室新闻就出来了。只好取消两位来宾，临时请两位研究英伟达的人。</p>
+<p><strong>主持人：</strong> James，看到黄仁勋复任是什么反应？大概是开盘前，九点左右吧？</p>
+<p><strong>James Seyffart：</strong> 前一天刚跑完马拉松，脑子还没完全醒。我正在为当天的《ETF IQ》做准备，扫过一条标题就继续做事。十分钟后打开社交媒体，整个信息流都在说这事，才反应过来。他也许会回来，但我以为至少得过几周。我对这么快回任很意外。</p>
+<p><strong>圆桌：</strong> 假设要拿 1,000 美元押他年底前能回来，十赔一恐怕还没兴趣，二十赔一、约 5% 的概率才有得谈。另一位的判断原本高一些，大概是 20%，如果股价低于 100 美元则会提高到 50%。这只是脑子里的估计。他设想的时间大概是 18 个月，股价先受很大冲击，黄仁勋也许会去另一家半导体公司或创办新公司，再由英伟达把那家公司买下。</p>
+<p><strong>圆桌：</strong> 当时公开报道没有证实明确关联，几位也反复强调信息含混。假如有确凿证据，公司想让他回来就会困难得多。报道及外界反应也影响了投资者，AI 相关股票承受了抛售。英伟达规模大、读者关心当然会被报道。讨论中还有人提到，按其理解，美国政府会对获准出售的一部分芯片收取 15% 的收入分成。这一商业安排前几个月谈得少，最近才重新受到关注。</p>
+<p><strong>主持人：</strong> 这条新闻还会占多久头条？我们现在往往很快就转下一个话题，这次可能会持续一阵。</p>
+<p><strong>圆桌：</strong> 股价还在大幅波动，今天也跌了不少。英伟达对整个市场影响很大。另一个值得看的是开放权重与封闭模型的关系。黄仁勋明确支持开放权重。开放权重模型若能提供低成本替代，原来卖模型服务的公司会面对新的竞争。有些人把这个分歧与换帅直接连了起来，我自己不相信这种说法。这里真正存在的分歧，是一部分公司希望模型发布和使用规则由实验室控制，另一部分人愿意接受开放权重、由更多人自行部署。两种分发方式都有各自的支持者。</p>
+<h3>27:16｜AI 股回撤和 ETF 资金怎么走</h3>
+<p><strong>Michael Batnick：</strong> Daniel，调出第一张图。市场内部的幅度太大了。闪迪此前是 AI 交易的大赢家，本月早些时候还在 140 美元，今天早上一度低于 70 美元，约 17 个交易日就腰斩。</p>
+<p><strong>圆桌：</strong> 给只听音频的人念一下图。CoreWeave 从高点跌约 77%，已低于 40 美元发行价。Nebius 约跌 70%，甲骨文 68%，西部数据 65%，戴尔和美光都约 50%，GE Vernova 约 40%，博通 40%，AMD 37%，英伟达约 30%。英伟达回升过，之前的回撤一度约 47%。这些都是他们当时引用的高点回撤。</p>
+<p><strong>Eric Balchunas：</strong> 所以，你做空新云 ETF 没有？</p>
+<p><strong>Josh Brown：</strong> 没有。它简直像专门为现在的环境做出来、等着被做空的产品。我当然就没做。你们知道已经有两倍做多 ANT 的 ETF 了吗？</p>
+<p><strong>圆桌：</strong> Anthropic 的杠杆和备兑看涨期权类产品加起来，大约已有 14 个。</p>
+<p><strong>Josh Brown：</strong> 那些产品怎么拿到启动资金？我看到其中一个已有 2,500 万美元。</p>
+<p><strong>圆桌：</strong> 2,500 万不算小，那只的来源不清楚，也许有熟人资金。许多产品初始只要 10 万至 100 万美元，之后再看有没有需求。</p>
+<p><strong>Josh Brown：</strong> AI 股这样跌了一个月。ETF 资金是在印证恐慌，还是在给出相反信号？</p>
+<p><strong>Eric Balchunas：</strong> 看彭博终端上的过去一周资金表。VOO 排第一，一直定投 Vanguard 的人还在买。SOXL 排第二，VTI 第三，也有现金类产品，说明一部分人会转往现金。名单同时有做多、做空半导体及纳指杠杆产品。过去每次跌过以后，都见过类似的组合。</p>
+<p><strong>主持人：</strong> 这个表是一天的？</p>
+<p><strong>Eric Balchunas：</strong> 一周，包括那场很糟的周五抛售。</p>
+<p><strong>圆桌：</strong> 有 30 亿美元买入三倍做多半导体 ETF。周一冲高时 SOXL 据说一度涨 64%，所以这些人一直回来。现在按另一屏日度数字看，今天上午跌 24%，昨天也跌 24%，周一涨 40%，前一交易日跌 32%。[译注：节目先报周一上涨 64%，随后读出另一组周一涨 40% 的屏幕数据，两处未交代一致的盘中或日收盘口径。]</p>
+<p><strong>Eric Balchunas：</strong> 普通标普 ETF 像 VOO，投资者可能什么时候都买，也可能市场向好时加仓。杠杆品种，以及有期货升贴水的产品，交易者往往在做日内波段。多数人的做法比外界以为的成熟。当然，你们的《Ask the Compound》里也有人说要长期拿着，可整体看交易很主动。</p>
+<p><strong>主持人：</strong> 你的意思是这些人逆着市场走。涨了卖，跌了买。</p>
+<p><strong>Eric Balchunas：</strong> 对。最热门的 SOXL 或 TQQQ，日交易额在我看来能和亚马逊股票比。它们累计有资金流出，早期持有者的长期账面涨幅却可能很高。我举个大致算例，假如现在剩 160 亿美元资产，历史还净赎回了 110 亿，相加就是约 250 亿美元的价值量。长期大趋势向上时，涨起来有人取走盈利。要是抄底以后一直跌，损失就出来了。近来的交易者反复愿意回来，是因为此前没有一直跌下去。</p>
+<p><strong>Michael Batnick：</strong> 有人给 Ben 和我发了《金融之王》里一段 1884 年的记载。那段文字把美国人描写成有一百万就敢搏一千万，亏了也肯去做普通职员。这已经是十九世纪八十年代的记录了。</p>
+<p><strong>Eric Balchunas：</strong> 我一个月前去韩国，见了当地做财经内容的人。SOXL 是当地最活跃的 ETF 之一。欧美和亚洲各市场的偏好不同，一些亚洲市场和美国很像，按人口看交易参与度很高。韩国有人热衷两倍做多 SK 海力士、三倍做多半导体，监管后来给单票杠杆产品设限，避免把损失进一步放大。有些人已经亏得很重。去的时候 SK 海力士刚经历过一次大抛售，热情还在。他们也有 VOO、施瓦布分红 ETF 这些普通配置。跟美国一样，一边放着长期退休资产，一边单独开个高风险交易账户。年轻人的后一个账户可能占比更大。</p>
+<p><strong>圆桌：</strong> 大家还拿美国与欧洲不同的风险偏好开玩笑，猜测移民历史是否也有影响。</p>
+<h3>34:42｜抛售成交量、市场宽度和等权指数</h3>
+<p><strong>Josh Brown：</strong> Daniel，看第七张图。周五 Robinhood 客户对单只股票的卖出是年内最多的一天。或许有人卖个股，再去买 ETF。下午临收盘又出了 SEC 调查相关消息，英伟达本来跌得就够多了，投资者更紧张。</p>
+<p><strong>Eric Balchunas：</strong> 我们常看 SPY 成交量。存在够久、流动性够好，期权也活跃，大家急着交易时会用它。成交量暴增往往也伴随 VIX 抬头，两者并非次次同步。单日超过 600 亿美元，我就开始关注，超过 1,000 亿美元属于很严重的程度。类似的日子可能也就十次上下。那个周五接近这种状态，QQQ 和 SOXL 的成交也接近历史前列。</p>
+<p><strong>Michael Batnick：</strong> 第二张图是 Willie Delwiche 的统计，新低股数量多于新高股已经连续约 60 天。按节目展示的比较，2008 年末那次曾连续 71 天，比这个更长。</p>
+<p><strong>圆桌：</strong> 我也没想到连续了这么久。Athanassios 研究过市场宽度。Bessembinder 的研究也提示，百年里约 4% 的股票贡献了几乎所有净回报，超过一半没跑赢国债。长期本来就是少数赢家拉动。近期倒有资金转向一批之前落后的股票。</p>
+<p><strong>Michael Batnick：</strong> RSP 相对 SPY 的比率向上突破，到了较长时间没见过的位置。平均那只标普成分股其实还过得去。</p>
+<p><strong>Eric Balchunas：</strong> 市场总会消化一阵子，只要盈利还好，投机性波动的一部分最后会自行过去。若真实经济出了像疫情时那样的事，盈利与就业都重挫，政府才可能介入。当然这只是我的判断。</p>
+<p><strong>James Seyffart：</strong> 我和摩根大通、普信的主动股票 ETF 经理做过活动。个股表现如此分散，他们很喜欢；卖期权的投资者也能找到机会。主动经理总会说现在正适合选股，这次确实有一些依据。</p>
+<p><strong>圆桌：</strong> 和约 25 年的估值比较，有发言者说读数已经接近平均，也有人提到 16 倍远期估值。节目没有在这几句里明确交代两者的指数及计算口径。Jared Dillian 的活动上，Meb Faber 在回调前开玩笑说，大家都知道回调要来，索性赶快来。现在回调已经发生。市场不会一直没有中断地上涨。这一轮特别的地方是，估值倍数压缩，盈利预测当时还没有跟着降。</p>
+<h3>39:10｜盈利还在涨，为什么倍数下来了</h3>
+<p><strong>Eric Balchunas：</strong> 只要盈利还好，我对股市就没那么担心。如果盈利突然大跌，往往意味着现实世界出了大事，比如失业大幅上升。这也会制造政策介入的压力。不过我也可能说错。</p>
+<p><strong>Michael Batnick：</strong> 这是年初至今各行业的市盈率变化。多数领域的倍数下来了，必需消费品是个例外，盈利也在改善。科技板块 EPS 年内约增 76%，市盈率约降 43%。粗略说，盈利增了四分之三，倍数低了四成。有些个股，比如美光和闪迪，要看自己的远期市盈率。</p>
+<p><strong>Eric Balchunas：</strong> 当年写博格那本书时，我读过他的一张图，Ben Carlson 也引用过。它把盈利增长和股息按十年拆开看。大约一百年间，几乎每个十年这两项都是正的。把估值叠上去，就像过山车。出色的长期投资者会穿过估值波动去看底层投资回报。当前这样多的盈利增长却对应一个市场表现疲弱的年份，确实和教科书式的“股价跟随盈利”看起来不一致。时间拉长大概会跟，短期倍数想往哪走就往哪走。</p>
+<p><strong>Eric Balchunas：</strong> 管理 iShares AI 和科技主动 ETF 的 Tony Kim 上过我们的播客，很有意思。他认为市场在为明年 AI 进入平台期、随后回落定价。可以请他来谈谈。</p>
+<h3>41:17｜“重资产、低淘汰风险”交易</h3>
+<p><strong>Josh Brown：</strong> 我插一下，第四张图是我今年最喜欢的交易 HALO，和那只 iShares AI 主动 ETF 相比，我现在领先。Tony Kim，我知道你在贝莱德哈德逊广场。</p>
+<p><strong>Eric Balchunas：</strong> 我喜欢 HALO 这个想法。开玩笑说一句，它是不是把低波动 ETF 换了个包装？</p>
+<p><strong>Josh Brown：</strong> 最大的持仓是皇家加勒比。还有嘉年华、Masco、Atmus Filtration Technologies、星座品牌、劳氏和达美乐，都是等权。邮轮、建材这些可算不上低波动。你看看它跟 SPLV 的图再说。</p>
+<p><strong>圆桌：</strong> 叠起来还真有点像。这个主题今年表现很好，按图看夏普比率可能也不错。</p>
+<p><strong>Eric Balchunas：</strong> 我来时在火车上看了下，Waste Management 刚创新高。我们团队的人喜欢用它打趣，说不论 AI 交易怎么样，垃圾还是得收。</p>
+<p><strong>Josh Brown：</strong> 我们持有 Waste Management，也持有 Republic Services。</p>
+<p><strong>圆桌：</strong> 按我们当时的计算，标普 500 中这两家垃圾处理公司的股价与 DRAM 的相关性尤其低，甚至是反向的。要找一个和 AI 存储走势反着来的观察对象，可以看看它们。</p>
+<p><strong>Josh Brown：</strong> 贝莱德那只代码是 BAI，对吧？按我眼前的表，规模约 107 亿美元，年内跌约 40%。HALO 只有约 3,600 万美元。</p>
+<p><strong>Eric Balchunas：</strong> 渠道很重要。Roundhill 和贝莱德的分发能力不同。很多投资者还喜欢有热度的股票和主题。</p>
+<p><strong>Josh Brown：</strong> 我这条主题，也许得等熊市快结束人才会喜欢。</p>
+<p><strong>Eric Balchunas：</strong> 想法好，名字还可以更好。比如换个接地气的名字。也可以把 Josh Brown 放进去。Tom Lee 的 ETF 就有个好记的名字，叫 Granny Shots。普通投资者问 HALO 是什么，“重资产、低淘汰风险”里那个英文词都很难念。主题 ETF 几乎都由个人买，顾问通常不买。很多时候想法是对的，包装不对。备兑看涨策略早就有了。摩根大通把它叫“权益溢价收入”后，销量才起来。</p>
+<p><strong>Josh Brown：</strong> 可“备兑看涨”说清楚了产品，换个名字反倒听不出具体做什么。</p>
+<p><strong>Eric Balchunas：</strong> 取名字有点像给面包起品牌。同样是切片，换个容易记的名字才卖得动。</p>
+<p><strong>Josh Brown：</strong> 下一只干脆叫“保证盈利”。当然，这是玩笑。</p>
+<h3>46:22｜为什么盈利强，指数也会停下来</h3>
+<p><strong>Michael Batnick：</strong> 纳指在 2023 年涨 55%，2024 年涨 26%，去年涨 21%。过去三年也许已经把未来盈利增长算进去了。纳指 100 不会每年都涨 27%，停一下也很正常。</p>
+<p><strong>圆桌：</strong> 每年涨 25% 或 30% 本身就会积攒脆弱性，大家很紧张，选举或数据中心项目的一点消息都可能引出抛售。持有人开始以为只要买纳指，每年就能有 20%，哪年落空就可能失望卖出。还要看集中度。半导体一度达到标普 500 的 19%。这一层级甚至只是行业组，达到那个权重相当少见。涨到这种程度，就像伊卡洛斯飞得离太阳太近。</p>
+<h3>48:10｜一只以球队比赛为基础的 ETF 怎么设计</h3>
+<p><strong>Eric Balchunas：</strong> 要做个和 AI 不同的交易，都有跟 NBA 挂钩的 ETF 方案了，还有冰球。指数由球队组成，比赛得分、三分球、胜负和季后赛每一轮都对应积分。举个大致的例子，一场赢了得 10 分，夺冠积分更多。具体计算很复杂。我也不知道这东西能不能成。</p>
+<p><strong>Josh Brown：</strong> 追踪的是球队的盈利还是预测市场？我看很难有人买。</p>
+<p><strong>Eric Balchunas：</strong> 跟球队场上表现挂钩。指数设计出来，每季可能有球队涨七八成，也可能有球队跌七八成，平均球队的回报约为零。方案是在芝商所按指数交易期货，ETF 再跟踪期货。期货可以提前消化新闻，例如勒布朗转会到 76 人，指数比分还没有变，期货可能先涨。支持者说，回报和传统资产的相关性低，拥有球队的人也许可以用于对冲。我只是转述设计者的理由。</p>
+<p><strong>Josh Brown：</strong> 我的半玩笑说法是，顾问要把客户投进这种东西，客户就该问问顾问到底在想什么。</p>
+<h3>50:24｜ETF 行业的规模与激励</h3>
+<p><strong>Josh Brown：</strong> 人们会对市场有怨气，这类案例就是个理由。发行机构什么收益都想赚，产品好不好用容易排到后面。</p>
+<p><strong>Eric Balchunas：</strong> 市场会决定有没有用途。我曾看好缓冲型 ETF，其他人不看好，市场后来确实给出需求。我也曾低估单票 ETF，英伟达两倍做多那只一度超过 60 亿美元。有终端需求，发行人就会按 Ben Johnson 所说，把各种产品都发出来看看谁会买。</p>
+<p><strong>Michael Batnick：</strong> 2010 年我做博客时，行业常抱怨 ETF 太多。我当时说了大约 300 只，现在听来很少。当时发了一只，规模到不了 1,000 万美元可能就关掉了。现在发行成本下来，甚至可以先不关，机构愿意多试几个。</p>
+<p><strong>Eric Balchunas：</strong> 平均一只 ETF 有约 30 亿美元，分布很偏，规模中位数低得多。你可以把新增基金和流量做个粗略比较：早年一天流入 10 亿美元，大约发一只。现在一天可能流入六七十亿美元，每天就有六七只。大部分新增资金都去 ETF，有产品想法的人自然也往这个载体来。图里年费率为零到 10 个基点的普通 ETF，占 58% 的资产和 16% 的收入。另一端昂贵刺激的品种只占一小部分资产，却能收很高的费。只要有一个产品大卖，回报就很大。我们管这叫“博格悖论”：资金越往简单低费的产品集中，另一头越愿意发激进的产品。Corgi 比较特别，它既尝试做醒目的新产品，也想直接在普通产品上与 Vanguard 竞争。</p>
+<p><strong>Josh Brown：</strong> 你从全行业不到 1 万亿美元时就跟踪，今天已经到 20 万亿美元。你教我们的确实很多。不过行业现在像失控一样。我作为经营企业的人也明白董事会在想什么：会有人愿意买吗？我关心的是这些产品是否符合投资者的需要。</p>
+<p><strong>Eric Balchunas：</strong> 类比一下，你如果习惯在 Whole Foods 买健康食品，会因为街上又开了一家快餐店而改变吗？你持有 VOO，有一只 NBA ETF 又怎么样？那类产品的规模很小。</p>
+<p><strong>Josh Brown：</strong> 我在意买它的人。发行人研究你愿不愿意付 70 个基点，愿意就会发。我也做市场评论，难道没有责任提醒大家？</p>
+<p><strong>Eric Balchunas：</strong> 我们有类似红绿灯的分类，杠杆和滚动期货的品种是红灯，像电影的限制级。可以买 SOXL 来交易，但要知道每日重置、波动损耗和快速亏损的可能。长期把它当通用策略，结果很可能不理想。我更希望投资者知道自己在买什么。</p>
+<p><strong>Josh Brown：</strong> 法律允许和合不合适是两回事。单票基金也是，我起初不大理解，看见实际用途后理解了，但我不买。总不能完全没有边界吧？</p>
+<p><strong>James Seyffart：</strong> 超过九成资产在发行人努力为客户做得更好的产品里。也有少数发行商或部门，专门问怎样把新东西卖给愿意投机的人。这确实存在。</p>
+<p><strong>圆桌：</strong> 随后大家用快餐、烟酒作类比，讨论投机品由投资者自行选择时，从业者应承担什么责任。</p>
+<p><strong>Eric Balchunas：</strong> 如果所有券商都采用类似的醒目标识，我会支持。买这类产品前，像看烟盒警示一样点一下，确认明白。</p>
+<p><strong>James Seyffart：</strong> 有些券商已经这么做，富达有些交易会弹出提示，让客户确认并列出需要知道的内容。</p>
+<p><strong>Eric Balchunas：</strong> 还有一条底线：产品是否按承诺运行。三倍半导体 ETF 如果实际只给到约 1.5 倍，才是对产品设计更直接的质疑。因此先看能否兑现写出来的目标，再明确提醒这是交易工具。</p>
+<h3>1:00:02｜杠杆 ETF 的资产缩水与传导</h3>
+<p><strong>Josh Brown：</strong> 就总体而言，我同意很多人理解这类产品，当日进出。但第九张图上，最大的 20 只杠杆 ETF 很快少了约 810 亿美元资产。总有人承担损失。</p>
+<p><strong>主持人：</strong> 可少掉的资产不一定都是亏损吧？也会有投资者赎回，能分开看吗？</p>
+<p><strong>Eric Balchunas：</strong> 有意思的是，不少产品那时还在净流入。要是资金也外流，规模降得会更大。这里量的是资产减量，其中既有市值变动，也有净申赎。跌的时候有人买多头，反向产品也有人反着做。市场大幅波动时，这些品种得到的资金比你预期的多，所以我对它们没有那么反感。不少人确实把它们当交易工具在用。</p>
+<p><strong>James Seyffart：</strong> 大盘指数杠杆产品的使用方式最清楚，周转往往远高于本身资产规模。有些新出的单票产品达不到这个程度。大的、交易多的品种也出现类似的波段模式，小的则未必。有必要逐只看。</p>
+<p><strong>Josh Brown：</strong> 批评者还会问，杠杆 ETF 会不会反过来推动行情。持有一只普通股票的人，看到它在本来可能跌 4% 的那天跌 9%，会认为自己的投资被交易结构左右了。多头和空头杠杆 ETF 的钱、期权，以及普通现货交易，都能影响组合。</p>
+<p><strong>James Seyffart：</strong> 先说监管界线。美国 SEC 在考虑预测市场相关 ETF 怎么划线。发行商也递过三倍、四倍、五倍的申请。你在图上看到的三倍产品是沿用历史安排，早已有了。当前的理解是，想再新批三倍都很难，四倍和五倍更难。欧洲倒有五倍做多纳指的产品，但关注度不高，供给出在了需求不强的地方。</p>
+<p><strong>圆桌：</strong> 开玩笑说，怎么不做十倍？标的跌 10% 就会把基金净值耗尽。Athanassios 研究过，三倍单票 ETF 可能一两周就遇到一次产品终止事件。标的跌约三分之一，三倍投入就几乎全没了，运营者会在归零前停掉。某些量子科技股本身就很容易大幅波动，会频繁触及这种数学界线。</p>
+<p><strong>James Seyffart：</strong> 回到你问的传导，期权风险敞口和杠杆产品的调仓可能形成相互强化的循环，尤其临近收盘。观察的不只是在管资产，杠杆 ETF 的期权未平仓名义敞口也在增加。图表按十亿美元展示单票杠杆 ETF 的对应敞口。2025 年以前也有杠杆和期权，之后增长更快。一部分是交易商在对冲。</p>
+<p><strong>Eric Balchunas：</strong> 衍生品市场和对冲基金一直存在。把所有投机都放进同一个道德框会有点奇怪。</p>
+<p><strong>Josh Brown：</strong> 我担心的是不知道这些工具怎么运转的人。打开券商应用，看到别人在谈这只产品，还有社交功能，可能以为 SEC 放行了、很多人也在做，那就是安全的。他投入的金额在行业里不大，但对那个后来不得不告诉家人自己亏光了的人很重要。哪怕只有少数人会遇到，我也在意。</p>
+<p><strong>圆桌：</strong> 借钱做普通股票也会出现这种情况。手机上还能玩二十一点，体育下注一次可能输掉全部本金；相比之下，杠杆 ETF 下跌的速度还没那么快。这并未解决哪里该划界的问题。</p>
+<h3>1:06:39｜比特币新书与现货 ETF</h3>
+<p><strong>Josh Brown：</strong> 你们花了三年写比特币，结果在一次很深的回撤里出版。交易价格自己控制不了。朋友周末问我他的比特币怎么办，感觉市场都死了。我说对某些人来说，那也可能是好消息。你们写这本书想回答什么？</p>
+<p><strong>Eric Balchunas：</strong> 贝莱德递交 ETF 申请时，我对比特币不了解，也没持有。于是我开始学。这是当时我希望有人给我的一本书。我把上百小时研究里弄懂的关键点写下来，James 本来就更熟悉比特币。我们还请了熟悉 CFA 那一套、认为没有现金流就没有价值的人。想让读者同时看到几种理由，再自己判断。有人受 FTX、政客参与或自己早期买入亏损的印象影响。重新学习之后，也许会看得不一样。</p>
+<p>在我看来，ETF 改变了接入方式。过去我不知道把钱放在哪个交易所，也不信任那些中介。按我理解，比特币网络本身没遭到攻破，出问题的是一些中间机构。ETF 提供了成本相对低、接入更简单的方式。现在大资产管理公司在讨论如何把它当一个资产类别。可以不用，但规模大到值得弄懂。能经历约七次 50% 的回撤还继续存在，也值得研究。</p>
+<p><strong>James Seyffart：</strong> 职业上我是 2017 年开始做，当时灰度的信托会出现很高的溢价或折价，彭博客户对其中的套利机会感兴趣。我写了很多，也和客户讨论。个人更早，2011 年还试过挖矿，那时不知道自己在干什么，电脑都弄坏了。后来学 CFA 时我也认为没现金流的东西没意思，当时黄金也不喜欢。我的净资产远没有百分之五六十放在加密资产里。行业里有大量骗局，我们在书里也谈了，但其工程设计、密码学和去中心化的解法又确实有趣。外行可能觉得只是有个人在网上发了枚币，其他人突然说它有价值。我觉得实际讨论要复杂一些。</p>
+<h3>1:10:46｜加密资产下一轮靠什么上涨</h3>
+<p><strong>Michael Batnick：</strong> 我持有比特币和 ETH，这周还买了持有 Hyperliquid 的 ETF。开个玩笑，恐怕我这笔交易挡不住基金的流出。问题是，下一个催化剂是什么？别告诉我是代币化。</p>
+<p><strong>Eric Balchunas：</strong> 我设想的一种大催化剂是货币扩张，比如疫情那样发生冲击，政府拿约 4 万亿美元应对。</p>
+<p><strong>主持人：</strong> 经济危机？那也许会先跌再涨。</p>
+<p><strong>Eric Balchunas：</strong> 有可能。大约五六万美元，也许存在一批长期持有者不愿意卖，还要看。货币贬值那套说法，我以前也不太懂。有人因为政府能扩大货币供应，就愿意为供应难以改变的资产赋予价值。几个月前财政部购回国债时，比特币曾涨过一阵。我会关注类似的流动性事件。回购和行情之间的联系是我当时的判断。</p>
+<p><strong>Michael Batnick：</strong> 我理解这个论点，但不觉得有足够多的人会认定比特币比美元更好。我的看法是，价格上涨本身就能吸引人。回到八万美元也许就够了。可以由联储宽松、股市反弹，或别的事触发。</p>
+<p><strong>Eric Balchunas：</strong> 同意价格有这个作用。五六万美元之所以可能有买家，也得有一个这些人真信的基本叙事，比如对货币扩张的担心。</p>
+<p><strong>Josh Brown：</strong> 对加密资产影响很大的还有体育博彩合法化，在投机资金那端形成竞争。机构和散户的投机方式不同，都喜欢关注正在动的东西。比特币涨一万美元，就有人押它很快再涨一万美元。跌或长时间横盘，注意力就跑到其他地方。我对它目前的实际用途仍然很怀疑。</p>
+<p><strong>Eric Balchunas：</strong> 短期参与者和坚定的持有人同时存在。按节目引用的估计，美国约有五千万人持有比特币，这个网络很大。经过十七年，它仍在运行。没有一个老板，大量分散节点还能共同维护，也很不容易。</p>
+<p><strong>Josh Brown：</strong> 给句话打分。不是所有加密从业者都不诚实，但我遇到的骗子几乎都喜欢加密资产。你们给几分？</p>
+<p><strong>圆桌：</strong> 几年前可能打得更高。加密资产猛涨几千个百分点、随意发没有支撑的币，自然会吸引想利用它的人，其他泡沫里也会发生。现货 ETF 上线后，参与结构有所变化。Eric 补充说，他采访到一位人权工作者，对方在高通胀、财产权缺乏保障的国家看到了去中心化资产的实用价值。这个案例与在美国追逐价格波动的动机不同。</p>
+<p><strong>Michael Batnick：</strong> 我们是周三下午两点录的。眼下 SOXL 已比低点反弹约七成。今天上午逢跌买入的人又赢了一次。离开前再说说 Blue Horseshoe。</p>
+<h3>1:16:31｜每天看主动 ETF 资金流入了哪些股票</h3>
+<p><strong>Eric Balchunas：</strong> 过去只能按季度知道大机构经理持有什么，现在主动 ETF 天天披露持仓。按我看的规模，这类基金约有 2 万亿美元。资本集团、富达的人进来了，负责管理的是原来做共同基金的经理。基金每晚上传持仓，我们把买入汇总起来，可以少等通常的季度及其后披露期。</p>
+<p>Blue Horseshoe 看大型主动股票经理在做什么。既看流入某股的总金额，也看相对于股票本身的影响，还看有多少只独立基金在买。中小盘更容易看出同样资金量产生的影响。如果摩根大通、贝莱德、富达和普信同一周都买同一只股票，那是值得看的信息。我们也看到它与节目里按技术面选出的部分股票有重合。</p>
+<p><strong>Josh Brown：</strong> 股市电影里的名字用来指内幕消息，这里是用公开披露找接近程度最高、又能合法取得的信息。这名字谁起的？我很喜欢。彭博终端去哪看？</p>
+<p><strong>Eric Balchunas：</strong> 感谢一起做这事的同事。终端的 BET GO 可以看到，以 BH 排序。我们也有一张图看主动 ETF 的增长。</p>
+<p><strong>Josh Brown：</strong> 看起来主动管理正处在上升期。ETF 已是很成熟的载体，还在创新。我和 Michael 都听《Trillions》。每个月上百只新产品，按每年约 1,400 只算，一个月大概 110 多只，专业人士也很难逐个看完。谢谢两位持续跟踪。最后再说下书。</p>
+<p><strong>Eric Balchunas：</strong> 我们访问了 Barry Ritholtz，也访问了 Michael，后者属于买一点、以免自己将来后悔的那类。书里不只画美元购买力长期下降，也画了工资上升。Barry 说单画购买力是金融界误导性很强的一张图。真正的争论在于，你刚拿到工资，是否应该几个月内就把这笔钱投进资产。Barry 认为应该把钱用起来，另一些人则认为货币本身应该能保留一部分购买力，无需马上换成资产。书里放上观点、反驳和对反驳的回应，由读者自己判断。</p>
+<p><strong>Josh Brown：</strong> 我当然希望比特币在 12 万美元的时候出版，但价位由不得你们。新书叫《Both Sides of the Coin》。谢谢两位来，我们每次都能学到东西。感谢观看、收听，感恩节快乐。</p>
+</article></div>
+</div></main>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.detail" alt=""
+ style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<script>if(location.hostname.indexOf('macroradar')>=0)new Image().src='https://visitor-badge.laobi.icu/badge?page_id=jiangjiaxiu93-prog.ai-macro-monitor.macroradar.detail'</script>
+</body></html>
